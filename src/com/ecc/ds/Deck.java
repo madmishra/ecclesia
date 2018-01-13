@@ -1,4 +1,4 @@
-package com.eus.ds;
+package com.ecc.ds;
 
 import java.util.Stack;
 

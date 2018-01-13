@@ -1,7 +1,7 @@
-package com.eus.ds;
+package com.ecc.ds;
 
-import com.eus.ds.Deck.faceValue;
-import com.eus.ds.Deck.suit;
+import com.ecc.ds.Deck.faceValue;
+import com.ecc.ds.Deck.suit;
 
 public class Card {
 	suit s;

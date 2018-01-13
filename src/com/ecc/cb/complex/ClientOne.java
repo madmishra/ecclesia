@@ -1,4 +1,4 @@
-package com.eus.cb.complex;
+package com.ecc.cb.complex;
 
 public class ClientOne implements Callback {
 	private WindowServer server;

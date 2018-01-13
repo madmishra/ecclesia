@@ -1,11 +1,11 @@
-package com.eus.ds;
+package com.ecc.ds;
 
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-import com.eus.ds.PlayerFactory.player;
+import com.ecc.ds.PlayerFactory.player;
 
 public class CardTable {
 	static int numplayers;

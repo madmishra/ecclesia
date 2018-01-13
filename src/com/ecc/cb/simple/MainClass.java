@@ -1,4 +1,4 @@
-package com.eus.cb.simple;
+package com.ecc.cb.simple;
 
 public class MainClass {
 	public static void main(String[] args) {

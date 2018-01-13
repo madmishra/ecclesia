@@ -1,4 +1,4 @@
-package com.eus.cb.complex;
+package com.ecc.cb.complex;
 
 import java.awt.Container;
 import java.awt.FlowLayout;

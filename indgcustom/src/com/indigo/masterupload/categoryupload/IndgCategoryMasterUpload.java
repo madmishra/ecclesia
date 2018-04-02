@@ -60,6 +60,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
           createCategory(categoryId,categorydomain,path);
         }
       }
+      iCategoryPathDepth++;
     }
   }
   
@@ -97,7 +98,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   public boolean isCategoryExist(String categoryId){
     YFCDocument categoryListOp =  invokeYantraApi(XMLLiterals.GET_CATEGORY_LIST, 
         formInputXmlForGetCategoryList(categoryId),formTemplateXmlForgetCateforyList());
-    if(categoryListOp.hasChildNodes()) {
+    if(categoryListOp.getDocumentElement().hasChildNodes()) {
       return true;
     }
     return false;

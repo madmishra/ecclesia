@@ -22,6 +22,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   private static final String FLAG_NO = "N";
   private String organizationCode = "";
   private static final String BACK_SLASH = "/";
+  private static final String FLAG_YES = "Y";
   
   
   /**
@@ -32,6 +33,8 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   public YFCDocument invoke(YFCDocument inXml) throws YFSException {
     YFCElement categoryInEle = inXml.getDocumentElement().getChildElement(XMLLiterals.CATEGORY);
     if(!XmlUtils.isVoid(categoryInEle)) {
+      categoryInEle.setAttribute(XMLLiterals.IS_CLASSIFICATION,FLAG_NO);
+      categoryInEle.setAttribute(XMLLiterals.GET_UNPUBLISHED_CATEGORIES,FLAG_YES);
       organizationCode = categoryInEle.getAttribute(XMLLiterals.ORGANIZATION_CODE);
       manageSubCategory(categoryInEle.getAttribute(XMLLiterals.CATEGORY_PATH),
           categoryInEle.getAttribute(XMLLiterals.CATEGORY_DOMAIN));
@@ -107,7 +110,8 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   /**
    * 
    * @param categoryId
-   * @param categoryDomine
+   * @param categoryDomain
+   * @param path
    * @return
    */
   public YFCDocument formInputXmlForCreateCategory(String categoryId,String categoryDomain,String path) {

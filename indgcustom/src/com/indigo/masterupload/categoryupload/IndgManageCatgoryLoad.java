@@ -15,14 +15,12 @@ import com.yantra.yfc.dom.YFCElement;
  * 
  * @author BSG109
  * 
- * Custom API to manage Category to Publish and UN-Publish 
- * category based on input Document and Category already 
- * exist.If category preset in Input and but not in the system 
- * ManageAPI will be called to create.If the category not exist
- * in InputDoc and but exist in System then Category will be 
- * unpublished.If category exist in both system and input 
- * doc publish to queue for ManageCategory
- * 
+ * Custom API to manage Category to Publish and UN-Publish category
+ * based on input Document and Category already exist.If category
+ * preset in Input and but not in the system ManageAPI will be 
+ * called to create.If the category not exist in InputDoc and but 
+ * exist in System then Category will be unpublished.If category exist
+ * in both system and input doc published to queue for ManageCategory.
  *
  */
 
@@ -31,13 +29,14 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
   private static final String EMPTY_STRING = "";
   private static final String MANAGE_CATEGORY_UPLOADQ_FLOW = "Indg_CategoryFeed_Q";
   private static final String UN_PUBLISH_STATUS = "2000";
+  private static final String ACTION_DELETE = "Delete";
   
   
   private String organizationCode = "";
   
   
   /**
-   *  This method is the invoke point of the service
+   *  This method is invoke point of the service
    *  This calls manageDeltaLoadForDeletion method to
    *  get the list of Category that need to be un published 
    * 
@@ -46,10 +45,10 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
   public YFCDocument invoke(YFCDocument inXml)  {
    setOrganizationCode(inXml);
    YFCDocument categoryListApiOp = getCategoryList(EMPTY_STRING, organizationCode);
-   Collection<String> unpublishCategoryList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion
+   Collection<String> unpublishCategoryIDList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion
        (inXml, categoryListApiOp,XMLLiterals.CATEGORY_ID, XMLLiterals.CATEGORY);
-   addInputDocToManageCategory(inXml.getDocumentElement());
-   manageUnPublishCategory(unpublishCategoryList,categoryListApiOp);
+   addInputDocToManageCategory(inXml.getDocumentElement(),categoryListApiOp);
+   manageUnPublishCategory(unpublishCategoryIDList,categoryListApiOp);
    return inXml;
   }
  
@@ -61,6 +60,7 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
    private void setOrganizationCode(YFCDocument inXml){
      organizationCode = XPathUtil.getXpathAttribute(inXml, "/CategoryList/Category/@OrganizationCode");
    }
+  
    
    /**
     * This forms Input Document for ManageCategory and calls
@@ -68,12 +68,12 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
     * 
     * @param inputEle
     */
-   private void addInputDocToManageCategory(YFCElement inputEle){
+   private void addInputDocToManageCategory(YFCElement inputEle,YFCDocument categoryListApiOp){
      YFCIterable<YFCElement> yfsItator = inputEle.getChildren(XMLLiterals.CATEGORY);
      for(YFCElement categoryEle: yfsItator) {
-       YFCDocument inputDocForService = YFCDocument.createDocument(XMLLiterals.CATEGORY_LIST);
-       inputDocForService.getDocumentElement().importNode(categoryEle);
-       callManageCategoryQ(inputDocForService);
+       manageDeleteCategory(categoryEle.getAttribute(XMLLiterals.CATEGORY_ID),
+           categoryEle.getAttribute(XMLLiterals.CATEGORY_PATH),categoryListApiOp);
+       callManageCategoryQService(categoryEle);
      }
    }
    
@@ -83,7 +83,9 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
     * 
     * @param yfcInputDoc
     */
-   private void callManageCategoryQ(YFCDocument inputDocForService) {
+   private void callManageCategoryQService(YFCElement inEle) {
+     YFCDocument inputDocForService = YFCDocument.createDocument(XMLLiterals.CATEGORY_LIST);
+     inputDocForService.getDocumentElement().importNode(inEle);
      invokeYantraService(MANAGE_CATEGORY_UPLOADQ_FLOW, inputDocForService);
    }
    
@@ -97,12 +99,10 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
     */
    private void manageUnPublishCategory(Collection<String> categoryList, YFCDocument categoryListAPIDoc) {
     for(String categoryId:categoryList) {
-      YFCElement inEle = XPathUtil.getXPathElement(categoryListAPIDoc, "/CategoryList/Category[@CategoryID = "+categoryId+"]");
+      YFCElement inEle = XPathUtil.getXPathElement(categoryListAPIDoc, "/CategoryList/Category[@CategoryID=\""+categoryId+"\"]");
       if(!XmlUtils.isVoid(inEle)) {
         inEle.setAttribute(XMLLiterals.STATUS, UN_PUBLISH_STATUS);
-        YFCDocument inputDocForService = YFCDocument.createDocument(XMLLiterals.CATEGORY_LIST);
-        inputDocForService.getDocumentElement().importNode(inEle);
-        callManageCategoryQ(inputDocForService);
+        callManageCategoryQService(inEle);
       }
     }
    }
@@ -134,6 +134,7 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
      YFCElement categoryEle = getCategoryListTemp.getDocumentElement().createChild(XMLLiterals.CATEGORY);
      categoryEle.setAttribute(XMLLiterals.CATEGORY_ID, EMPTY_STRING);
      categoryEle.setAttribute(XMLLiterals.CATEGORY_PATH, EMPTY_STRING);
+     categoryEle.setAttribute(XMLLiterals.CATEGORY_KEY, EMPTY_STRING);
      return getCategoryListTemp;
    }
    
@@ -148,5 +149,21 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
          formInputXmlForGetCategoryList(categoryId,org),formTemplateXmlForgetCategoryList());
    }
    
-   
+   /**
+    * This method validate if the Path matches with the Input and system.
+    * If not deletes the category from System and creates new one from
+    * the input
+    * 
+    * @param categoryId
+    * @param categoryPath
+    * @param categoryListApiOp
+    */
+   public void manageDeleteCategory(String categoryId,String categoryPath, YFCDocument categoryListApiOp) {
+     YFCElement categoryEle = XPathUtil.getXPathElement(categoryListApiOp,
+         "/CategoryList/Category[@CategoryID=\""+categoryId+"\"]");
+     if(!XmlUtils.isVoid(categoryEle) && !categoryPath.equals(categoryEle.getAttribute(XMLLiterals.CATEGORY_PATH))) {
+       categoryEle.setAttribute(XMLLiterals.ACTION, ACTION_DELETE);
+       callManageCategoryQService(categoryEle);
+     }
+   }
 }

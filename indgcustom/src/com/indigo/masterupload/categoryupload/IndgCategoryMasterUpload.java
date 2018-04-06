@@ -5,7 +5,6 @@ import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
-import com.yantra.yfs.japi.YFSException;
 
 /**
  * This class uploads Master data for Category. It also
@@ -30,7 +29,8 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * 
    */
   @Override
-  public YFCDocument invoke(YFCDocument inXml) throws YFSException {
+  public YFCDocument invoke(YFCDocument inXml) {
+    
     YFCElement categoryInEle = inXml.getDocumentElement().getChildElement(XMLLiterals.CATEGORY);
     if(!XmlUtils.isVoid(categoryInEle)) {
       categoryInEle.setAttribute(XMLLiterals.IS_CLASSIFICATION,FLAG_NO);
@@ -46,20 +46,21 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   /**
    * 
    * This method gets Category list from the Category
-   * path and creates category if not available in System
+   * path Attribute in Input Document and creates category 
+   * if not available in System.
    * 
    * @param categoryPath
    * @param categorydomain
    * @return
    */
-  public void manageSubCategory(String categoryPath, String categorydomain) {
+  private void manageSubCategory(String categoryPath, String categorydomain) {
     String [] sCategoryList = categoryPath.split(BACK_SLASH);
     int iCategoryPathDepth = 0;
     String path = BACK_SLASH+categorydomain;
     for(String categoryId:  sCategoryList) {
       if(!XmlUtils.isVoid(categoryId) && iCategoryPathDepth > 1) {
         path = path+BACK_SLASH+categoryId;
-        if(!isCategoryExist(categoryId)) {
+        if(!getCategoryList(categoryId,organizationCode).getDocumentElement().hasChildNodes()) {
           createCategory(categoryId,categorydomain,path);
         }
       }
@@ -72,12 +73,14 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * This method forms the Input XML for getCategoryListApi
    * 
    * @param categoryId
+   * @param org
    * @return
    */
-  public YFCDocument formInputXmlForGetCategoryList(String categoryId) {
+  private YFCDocument formInputXmlForGetCategoryList(String categoryId,String org) {
     YFCDocument getCategoryListDoc = YFCDocument.createDocument(XMLLiterals.CATEGORY);
     getCategoryListDoc.getDocumentElement().setAttribute(XMLLiterals.CATEGORY_ID, categoryId);
-    getCategoryListDoc.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
+    getCategoryListDoc.getDocumentElement().setAttribute(XMLLiterals.CATEGORY_KEY, categoryId);
+    getCategoryListDoc.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, org);
     return getCategoryListDoc;
   }
   
@@ -86,36 +89,36 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * 
    * @return
    */
-  public YFCDocument formTemplateXmlForgetCateforyList() {
+  private YFCDocument formTemplateXmlForgetCategoryList() {
     YFCDocument getCategoryListTemp = YFCDocument.createDocument(XMLLiterals.CATEGORY_LIST);
     YFCElement categoryEle = getCategoryListTemp.getDocumentElement().createChild(XMLLiterals.CATEGORY);
     categoryEle.setAttribute(XMLLiterals.CATEGORY_ID, EMPTY_STRING);
+    categoryEle.setAttribute(XMLLiterals.CATEGORY_PATH, EMPTY_STRING);
     return getCategoryListTemp;
   }
   
  /**
   * This method calls getCategoryList API and 
   * @param categoryId
+  * @param org
   * @return
   */
-  public boolean isCategoryExist(String categoryId){
-    YFCDocument categoryListOp =  invokeYantraApi(XMLLiterals.GET_CATEGORY_LIST, 
-        formInputXmlForGetCategoryList(categoryId),formTemplateXmlForgetCateforyList());
-    if(categoryListOp.getDocumentElement().hasChildNodes()) {
-      return true;
-    }
-    return false;
+  public YFCDocument getCategoryList(String categoryId, String org){
+    return invokeYantraApi(XMLLiterals.GET_CATEGORY_LIST, 
+        formInputXmlForGetCategoryList(categoryId,org),formTemplateXmlForgetCategoryList());
   }
   
   /**
+   * 
+   * This method forms input XML for CreateCategoryAPI 
    * 
    * @param categoryId
    * @param categoryDomain
    * @param path
    * @return
    */
-  public YFCDocument formInputXmlForCreateCategory(String categoryId,String categoryDomain,String path) {
-    YFCDocument createCategoryIn = formTemplateXmlForgetCateforyList();
+  private YFCDocument formInputXmlForCreateCategory(String categoryId,String categoryDomain,String path) {
+    YFCDocument createCategoryIn = formTemplateXmlForgetCategoryList();
     YFCElement createCategoryEle = createCategoryIn.getDocumentElement().getChildElement(XMLLiterals.CATEGORY);
     createCategoryEle.setAttribute(XMLLiterals.CATEGORY_ID, categoryId);
     createCategoryEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
@@ -127,6 +130,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   }
   
   /**
+   * This method call createCategoryAPI from passed input
    * 
    * @param categoryId
    * @param categoryDomain

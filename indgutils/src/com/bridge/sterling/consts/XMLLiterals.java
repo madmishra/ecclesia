@@ -14,4 +14,6 @@ public static final String CATEGORY_PATH = "CategoryPath";
 public static final String CREATE_CATEGORY = "createCategory";
 public static final String MANAGE_CATEGORY = "manageCategory";
 public static final String GET_UNPUBLISHED_CATEGORIES= "GetUnpublishedCategories";
+public static final String CATEGORY_KEY = "CategoryKey";
+public static final String STATUS = "Status";
 }

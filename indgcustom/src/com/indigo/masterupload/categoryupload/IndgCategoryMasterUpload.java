@@ -76,7 +76,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * @param org
    * @return
    */
-  private YFCDocument formInputXmlForGetCategoryList(String categoryId,String org) {
+  public static YFCDocument formInputXmlForGetCategoryList(String categoryId,String org) {
     YFCDocument getCategoryListDoc = YFCDocument.createDocument(XMLLiterals.CATEGORY);
     getCategoryListDoc.getDocumentElement().setAttribute(XMLLiterals.CATEGORY_ID, categoryId);
     getCategoryListDoc.getDocumentElement().setAttribute(XMLLiterals.CATEGORY_KEY, categoryId);
@@ -89,7 +89,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * 
    * @return
    */
-  private YFCDocument formTemplateXmlForgetCategoryList() {
+  public static YFCDocument formTemplateXmlForgetCategoryList() {
     YFCDocument getCategoryListTemp = YFCDocument.createDocument(XMLLiterals.CATEGORY_LIST);
     YFCElement categoryEle = getCategoryListTemp.getDocumentElement().createChild(XMLLiterals.CATEGORY);
     categoryEle.setAttribute(XMLLiterals.CATEGORY_ID, EMPTY_STRING);

@@ -123,7 +123,7 @@ public class IndgStoreUpdates extends AbstractCustomApi {
 	
 	private void manageExtraNodesInApiDoc(Collection<String> organizationList, YFCDocument shipNodeListAPIDoc) {
 	    for(String organizationId:organizationList) {
-	      YFCElement inEle = XPathUtil.getXPathElement(shipNodeListAPIDoc, "/StoreList/Organization[@OrganizationKey = "+organizationId+"]");
+	      YFCElement inEle = XPathUtil.getXPathElement(shipNodeListAPIDoc, "/StoreList/Organization[@OrganizationCode = \""+organizationId+"\"]");
 	      if(!XmlUtils.isVoid(inEle)) {
 	        inEle.setAttribute(XMLLiterals.ACTION, XMLLiterals.DELETE);
 	        YFCDocument inputDocForService = YFCDocument.createDocument(XMLLiterals.STORE_LIST);

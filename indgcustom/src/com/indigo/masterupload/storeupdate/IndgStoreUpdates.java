@@ -16,6 +16,7 @@ public class IndgStoreUpdates extends AbstractCustomApi {
 	private String organizationCode = "";
 	private String shipNode = "";
 	private static final String EMPTY_STRING = "";
+	private static final String ORGANIZATION_SERVER= "OrganizationServer";
 
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
@@ -69,7 +70,7 @@ public class IndgStoreUpdates extends AbstractCustomApi {
 		
 		//Call custom Server
 		private void callOrganizationUpdate_Q(YFCDocument inputDocForService) {
-		     invokeYantraService(OrganizationServer, inputDocForService);
+		     invokeYantraService(ORGANIZATION_SERVER, inputDocForService);
 		   }
 		
 		//Iterates and delete the extra node in API input doc

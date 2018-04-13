@@ -22,7 +22,6 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private static final String DEFAULT_CATEGORY_PATH = "DefaultCategoryPath";
   private static final String CREATE_ACTION = "Create";
   private static final String DEFAULT_UNIT_OF_MEASURE = "EACH";
-  private static final String DELETE_ACTION = "Delete";
   private String inputCategoryID=""; 
   private String categoryPath = "";
   
@@ -174,9 +173,10 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    /**
     * 
     * 
-    * @param categoryPath
+    * @param action
     * @param itemID
     * @param catPath
+    * @param orgCode
     * @return
     */
    public static YFCDocument formInputDocForModifyCategoryItem(String itemID,String action,String catPath,String orgCode){
@@ -195,33 +195,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    }
    
    
-   /**
-    * 
-    * @param itemlListOpDoc
-    * @param categoryId
-    * @return
-    */
-   private boolean isModifyCategoryItemRequired(YFCDocument itemlListOpDoc,String categoryId) {
-     String itemListCategoryId = XPathUtil.getXpathAttribute(itemlListOpDoc,"//CategoryList/Category/@CategoryID");
-     if(XmlUtils.isVoid(itemListCategoryId) || !categoryId.equals(itemListCategoryId)) {
-      return true;
-     }
-     return false;
-   }
    
-   /**
-    * 
-    * 
-    * @param inXml
-    * @param itemListOpDoc
-    */
-   private void manageCategoryItem(YFCElement itemEle,YFCDocument itemListOpDoc){
-     String itemListCategoryId = XPathUtil.getXpathAttribute(itemListOpDoc,
-         "//CategoryList/Category/@CategoryID");
-     if(XmlUtils.isVoid(itemListCategoryId)) {
-       modifyCategoryItem(itemEle,CREATE_ACTION);
-     } else if(!inputCategoryID.equals(itemListCategoryId)) {
-       modifyCategoryItem(itemEle,CREATE_ACTION);
-     }
-   }
+   
+  
 }

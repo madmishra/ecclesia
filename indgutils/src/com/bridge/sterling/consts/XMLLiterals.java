@@ -43,4 +43,5 @@ public static final String ACTIVATE_FLAG = "Activateflag";
 public static final String ACTIVATEFLAG = "ActivateFlag";
 public static final String NODE = "Node";
 public static final String MANAGE_ORGANIZATION_HIERARCHY = "manageOrganizationHierarchy";
+public static final String ITEM_ID = "ItemID";
 }

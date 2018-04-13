@@ -6,7 +6,6 @@ import com.bridge.sterling.utils.XPathUtil;
 import com.indigo.masterupload.categoryupload.IndgCategoryMasterUpload;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
-import com.yantra.yfs.japi.YFSException;
 
 /**
  * 
@@ -27,7 +26,7 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
    * 
    */
   @Override
-  public YFCDocument invoke(YFCDocument inXml) throws YFSException {
+  public YFCDocument invoke(YFCDocument inXml) {
     invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
     createCategoryItem(inXml);
     return inXml;

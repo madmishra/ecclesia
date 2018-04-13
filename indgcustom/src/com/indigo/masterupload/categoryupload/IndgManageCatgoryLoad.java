@@ -29,7 +29,6 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
   private static final String EMPTY_STRING = "";
   private static final String MANAGE_CATEGORY_UPLOADQ_FLOW = "Indg_CategoryFeed_Q";
   private static final String UN_PUBLISH_STATUS = "2000";
-  private static final String ACTION_DELETE = "Delete";
   
   
   private String organizationCode = "";
@@ -47,7 +46,7 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
    YFCDocument categoryListApiOp = getCategoryList(EMPTY_STRING, organizationCode);
    Collection<String> unpublishCategoryIDList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion
        (inXml, categoryListApiOp,XMLLiterals.CATEGORY_ID, XMLLiterals.CATEGORY);
-   addInputDocToManageCategory(inXml.getDocumentElement(),categoryListApiOp);
+   addInputDocToManageCategory(inXml.getDocumentElement());
    manageUnPublishCategory(unpublishCategoryIDList,categoryListApiOp);
    return inXml;
   }
@@ -68,11 +67,9 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
     * 
     * @param inputEle
     */
-   private void addInputDocToManageCategory(YFCElement inputEle,YFCDocument categoryListApiOp){
+   private void addInputDocToManageCategory(YFCElement inputEle){
      YFCIterable<YFCElement> yfsItator = inputEle.getChildren(XMLLiterals.CATEGORY);
      for(YFCElement categoryEle: yfsItator) {
-       manageDeleteCategory(categoryEle.getAttribute(XMLLiterals.CATEGORY_ID),
-           categoryEle.getAttribute(XMLLiterals.CATEGORY_PATH),categoryListApiOp);
        callManageCategoryQService(categoryEle);
      }
    }
@@ -118,21 +115,5 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
          IndgCategoryMasterUpload.formInputXmlForGetCategoryList(categoryId,org),IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());
    }
    
-   /**
-    * This method validate if the Path matches with the Input and system.
-    * If not deletes the category from System and creates new one from
-    * the input
-    * 
-    * @param categoryId
-    * @param categoryPath
-    * @param categoryListApiOp
-    */
-   public void manageDeleteCategory(String categoryId,String categoryPath, YFCDocument categoryListApiOp) {
-     YFCElement categoryEle = XPathUtil.getXPathElement(categoryListApiOp,
-         "/CategoryList/Category[@CategoryID=\""+categoryId+"\"]");
-     if(!XmlUtils.isVoid(categoryEle) && !categoryPath.equals(categoryEle.getAttribute(XMLLiterals.CATEGORY_PATH))) {
-       categoryEle.setAttribute(XMLLiterals.ACTION, ACTION_DELETE);
-       callManageCategoryQService(categoryEle);
-     }
-   }
+   
 }

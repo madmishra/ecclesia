@@ -67,7 +67,6 @@ public class IndgCreateCalender extends AbstractCustomApi {
 					  effectivePeriods = createCalenderEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)
 							  .createChild(XMLLiterals.EFFECTIVE_PERIOD);
 					  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE, effectiveFromDate);
-					  
 					  System.out.println(createCalenderXml+"KAVYA_else_createCalenderXml");
 				  }
 				  
@@ -79,17 +78,18 @@ public class IndgCreateCalender extends AbstractCustomApi {
 					e.printStackTrace();
 				}
 				  
-				  
+				  System.out.println(effectiveToDate+"effectiveToDate+++++");
 				 YFCDocument calList= getCalendarList(organizationCode,effectiveToDate,effectiveFromDate);
 				 YFCElement calEle=calList.getDocumentElement();
 				// if(!XmlUtils.isVoid(calEle))
 					// changeCalendar();
 				 //else
 				  
-				  System.out.println(createCalenderXml+"calendar_created+++++");
+				  
 	
 	}
-			  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
+			  System.out.println(createCalenderXml+"calendar_created+++++");
+			  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveFromDate);
 			  createCalendar(createCalenderXml);
 		
 		return createCalenderXml;

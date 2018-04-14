@@ -5,15 +5,18 @@ import java.util.Date;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
+import com.bridge.sterling.utils.XPathUtil;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.integration.adapter.SynchronousTransaction;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
+import com.yantra.yfc.util.YFCLocale;
 
 public class IndgCreateCalender extends AbstractCustomApi {
 	private static final String EMPTY_STRING = "";
 	private static final String CALENDER_NODE = "CALENDER_NODE";
+	private static final String CALENDARS = "Calendars";
 	private String effectiveToDate="";
 	private  String effectiveFromDate="";
 	YFCElement effectivePeriods = null;
@@ -27,14 +30,12 @@ public class IndgCreateCalender extends AbstractCustomApi {
 		YFCElement calInEle = inXml.getDocumentElement();
 		System.out.println(calInEle+"KAVYA_getDocumentElement");
 		 YFCDocument createCalenderXml =null;
-		if(!XmlUtils.isVoid(calInEle)) {
 			  YFCIterable<YFCElement> calendarEle = calInEle.getChildren(XMLLiterals.CALENDAR);
 			  String organizationCode="";
 			  String fromDate="";
 			  String toDate="";
 			  YFCElement createCalenderEle =null;
 			  for(YFCElement element : calendarEle) {
-				  fromDate = element.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE);
 				  System.out.println(fromDate+"KAVYA_fromDate");
 				  try {
 					effectiveFromDate=dateFormatter(fromDate);
@@ -85,11 +86,12 @@ public class IndgCreateCalender extends AbstractCustomApi {
 				// if(!XmlUtils.isVoid(calEle))
 					// changeCalendar();
 				 //else
-				  createCalendar(createCalenderXml);
+				  
 				  System.out.println("calendar_created");
 	
 	}
-		}
+			  createCalendar(createCalenderXml);
+		
 		return createCalenderXml;
 	}
 	/**
@@ -116,7 +118,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 		 * @return
 		 */
 	 private YFCDocument formTemplateXmlForgetCalendarList() {
-		    YFCDocument getCalendarTemp = YFCDocument.createDocument(XMLLiterals.CALENDAR_LIST);
+		    YFCDocument getCalendarTemp = YFCDocument.createDocument(CALENDARS);
 		    YFCElement calendarEle = getCalendarTemp.getDocumentElement().createChild(XMLLiterals.CALENDAR);
 		    calendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, EMPTY_STRING);
 		    effectivePeriods=calendarEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)

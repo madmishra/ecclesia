@@ -88,8 +88,9 @@ public class IndgCreateCalender extends AbstractCustomApi {
 				  
 	
 	}
-			  System.out.println(createCalenderXml+"calendar_created+++++");
+			 
 			  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveFromDate);
+			  System.out.println(createCalenderXml+"calendar_created+++++");
 			  createCalendar(createCalenderXml);
 		
 		return createCalenderXml;

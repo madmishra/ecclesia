@@ -6,6 +6,7 @@ import java.util.Date;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
+import com.yantra.integration.adapter.SynchronousTransaction;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
@@ -24,6 +25,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 	  @Override
 	 public YFCDocument invoke(YFCDocument inXml) {
 		YFCElement calInEle = inXml.getDocumentElement();
+		System.out.println(calInEle+"KAVYA_getDocumentElement");
 		 YFCDocument createCalenderXml =null;
 		if(!XmlUtils.isVoid(calInEle)) {
 			  YFCIterable<YFCElement> calendarEle = calInEle.getChildren(XMLLiterals.CALENDAR);
@@ -33,6 +35,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 			  YFCElement createCalenderEle =null;
 			  for(YFCElement element : calendarEle) {
 				  fromDate = element.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE);
+				  System.out.println(fromDate+"KAVYA_fromDate");
 				  try {
 					effectiveFromDate=dateFormatter(fromDate);
 				} catch (ParseException e) {
@@ -49,6 +52,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 					  effectivePeriods = createCalenderEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)
 							  .createChild(XMLLiterals.EFFECTIVE_PERIOD);
 					  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE, effectiveFromDate);
+					  System.out.println(createCalenderXml+"KAVYA_createCalenderXml");
 					  
 					  
 			  }
@@ -64,7 +68,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 							  .createChild(XMLLiterals.EFFECTIVE_PERIOD);
 					  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE, effectiveFromDate);
 					  
-					  
+					  System.out.println(createCalenderXml+"KAVYA_else_createCalenderXml");
 				  }
 				  
 				  
@@ -82,6 +86,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 					// changeCalendar();
 				 //else
 				  createCalendar(createCalenderXml);
+				  System.out.println("calendar_created");
 	
 	}
 		}
@@ -118,6 +123,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 					  .createChild(XMLLiterals.EFFECTIVE_PERIOD);
 		    effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE,EMPTY_STRING);
 		    effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE,EMPTY_STRING);
+		    System.out.println(getCalendarTemp+"KAVYA_TEMPLATE");
 		    
 		    return getCalendarTemp;
 	  }
@@ -136,6 +142,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 					  .createChild(XMLLiterals.EFFECTIVE_PERIOD);
 		    effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE,effectiveFromDate);
 		    effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE,effectiveToDate);
+		    System.out.println(getCalendarXml+"KAVYA_GETCALENDAR_LIST");
 		    return getCalendarXml;
 		  }
 	 
@@ -145,6 +152,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 	  */
 	 public void createCalendar(YFCDocument createCalenderXml ) {
 		    invokeYantraApi(XMLLiterals.CREATE_CALENDAR, createCalenderXml);
+		    System.out.println("KAVYA_CALENDAR_CREATED");
 		  }
 	 
 	 /**

@@ -19,7 +19,6 @@ public class IndgCreateCalender extends AbstractCustomApi {
 	private static final String CALENDARS = "Calendars";
 	private String effectiveToDate="";
 	private  String effectiveFromDate="";
-	YFCElement effectivePeriods = null;
 	 
 	/**
 	   * This is the invoke point of the Service
@@ -35,6 +34,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 			  String effectiveFromDate="";
 			  String toDate="";
 			  YFCElement createCalenderEle =null;
+			  YFCElement effectivePeriods = null;
 			  for(YFCElement element : calendarEle) {
 		 if(XmlUtils.isVoid(organizationCode)) {
 			 		try {
@@ -120,7 +120,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 		    YFCDocument getCalendarTemp = YFCDocument.createDocument(CALENDARS);
 		    YFCElement calendarEle = getCalendarTemp.getDocumentElement().createChild(XMLLiterals.CALENDAR);
 		    calendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, EMPTY_STRING);
-		    effectivePeriods=calendarEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)
+		    YFCElement effectivePeriods=calendarEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)
 					  .createChild(XMLLiterals.EFFECTIVE_PERIOD);
 		    effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE,EMPTY_STRING);
 		    effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE,EMPTY_STRING);
@@ -139,7 +139,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 		 YFCDocument getCalendarXml = YFCDocument.createDocument(XMLLiterals.CALENDAR);
 		    YFCElement calendarEle = getCalendarXml.getDocumentElement();
 		    calendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
-		    effectivePeriods=calendarEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)
+		    YFCElement effectivePeriods=calendarEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)
 					  .createChild(XMLLiterals.EFFECTIVE_PERIOD);
 		    effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE,effectiveFromDate);
 		    effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE,effectiveToDate);

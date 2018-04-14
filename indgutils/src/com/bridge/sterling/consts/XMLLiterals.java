@@ -1,5 +1,9 @@
 package com.bridge.sterling.consts;
 
+import com.yantra.yfc.util.YFCLocale;
+
+
+
 public class XMLLiterals {
 public static final String CATEGORY = "Category";
 public static final String CATEGORY_ID = "CategoryID";

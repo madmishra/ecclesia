@@ -125,7 +125,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 					  .createChild(XMLLiterals.EFFECTIVE_PERIOD);
 		    effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE,EMPTY_STRING);
 		    effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE,EMPTY_STRING);
-		    System.out.println(getCalendarTemp+"KAVYA_TEMPLATE");
+		    System.out.println(getCalendarTemp+"KAVYA_TEMPLATE1");
 		    
 		    return getCalendarTemp;
 	  }

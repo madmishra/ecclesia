@@ -116,7 +116,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 		 * @return
 		 */
 	 private YFCDocument formTemplateXmlForgetCalendarList() {
-		    YFCDocument getCalendarTemp = YFCDocument.createDocument(XMLLiterals.CALENDAR);
+		    YFCDocument getCalendarTemp = YFCDocument.createDocument(XMLLiterals.CALENDAR_LIST);
 		    YFCElement calendarEle = getCalendarTemp.getDocumentElement().createChild(XMLLiterals.CALENDAR);
 		    calendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, EMPTY_STRING);
 		    effectivePeriods=calendarEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)

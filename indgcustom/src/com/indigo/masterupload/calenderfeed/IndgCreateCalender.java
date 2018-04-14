@@ -138,7 +138,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 	  */
 	 private YFCDocument formInputXmlForGetCalendarList(String organizationCode,String effectiveToDate,String effectiveFromDate) {
 		 YFCDocument getCalendarXml = YFCDocument.createDocument(XMLLiterals.CALENDAR);
-		    YFCElement calendarEle = getCalendarXml.getDocumentElement().createChild(XMLLiterals.CALENDAR);
+		    YFCElement calendarEle = getCalendarXml.getDocumentElement();
 		    calendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
 		    effectivePeriods=calendarEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)
 					  .createChild(XMLLiterals.EFFECTIVE_PERIOD);

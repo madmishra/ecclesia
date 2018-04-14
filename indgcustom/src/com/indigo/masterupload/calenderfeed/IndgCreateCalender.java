@@ -86,7 +86,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 					// changeCalendar();
 				 //else
 				  
-				  System.out.println("calendar_created");
+				  System.out.println(createCalenderXml+"calendar_created+++++");
 	
 	}
 			  createCalendar(createCalenderXml);

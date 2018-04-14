@@ -76,7 +76,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
-				  
+				  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
 				  System.out.println(effectiveToDate+"effectiveToDate+++++");
 				 YFCDocument calList= getCalendarList(organizationCode,effectiveToDate,effectiveFromDate);
 				 YFCElement calEle=calList.getDocumentElement();
@@ -87,7 +87,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 				  
 	
 	}
-			  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveFromDate);
+			  
 			  System.out.println(createCalenderXml+"calendar_created+++++");
 			  createCalendar(createCalenderXml);
 		

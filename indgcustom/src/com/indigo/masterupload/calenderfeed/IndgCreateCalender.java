@@ -37,14 +37,12 @@ public class IndgCreateCalender extends AbstractCustomApi {
 			  YFCElement createCalenderEle =null;
 			  for(YFCElement element : calendarEle) {
 				  System.out.println(fromDate+"KAVYA_fromDate");
-				  try {
-					effectiveFromDate=dateFormatter(fromDate);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
-				  
-				  
 		 if(XmlUtils.isVoid(organizationCode)) {
+			 		try {
+			 			effectiveFromDate = dateFormatter(element.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE));
+			 		} catch(Exception e) {
+			 			System.out.println(e.toString());
+			 		}
 					  organizationCode=element.getAttribute(XMLLiterals.ORGANIZATION_CODE);
 					  createCalenderXml = YFCDocument.createDocument(XMLLiterals.CALENDAR);
 					  createCalenderEle =  createCalenderXml.getDocumentElement();
@@ -59,6 +57,7 @@ public class IndgCreateCalender extends AbstractCustomApi {
 			  }
 				  else if(!organizationCode
 						  .equals(element.getAttribute(XMLLiterals.ORGANIZATION_CODE))) {
+					  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
 					  createCalendar(createCalenderXml);
 					  organizationCode=element.getAttribute(XMLLiterals.ORGANIZATION_CODE);
 					  createCalenderXml = YFCDocument.createDocument(XMLLiterals.CALENDAR);

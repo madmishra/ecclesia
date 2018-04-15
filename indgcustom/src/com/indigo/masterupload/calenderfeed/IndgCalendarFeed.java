@@ -240,8 +240,9 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				YFCElement slotList=serviceSlotEle.createChild("ServiceSlotList");
 				for(Object s:keySet) {
 					String shiftTime[] = map.get(s).split("-");
-					slotList.createChild("ServiceSlot").setAttribute("StartTime",shiftTime[0]);
-					slotList.createChild("ServiceSlot").setAttribute("EndTime", shiftTime[1]);
+					YFCElement sortEle = slotList.createChild("ServiceSlot");
+					sortEle.setAttribute("StartTime",shiftTime[0]);
+					sortEle.setAttribute("EndTime", shiftTime[1]);
 				}
 				map.clear();
 			System.out.println(mangSlotDoc+"manageSerSlotInpXml");

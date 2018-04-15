@@ -244,9 +244,10 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 					sortEle.setAttribute("StartTime",shiftTime[0]);
 					sortEle.setAttribute("EndTime", shiftTime[1]);
 				}
-				map.clear();
+			YFCDocument temp = YFCDocument.createDocument("ServiceSlotGroup");
 			System.out.println(mangSlotDoc+"manageSerSlotInpXml");
-			invokeYantraApi("manageServiceSlotgroup",mangSlotDoc);
+			invokeYantraApi("manageServiceSlotgroup",mangSlotDoc,temp);
+			map.clear();
 			}
 			
 		 

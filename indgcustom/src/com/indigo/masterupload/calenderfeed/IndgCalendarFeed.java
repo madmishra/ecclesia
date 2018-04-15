@@ -246,7 +246,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				}
 			YFCDocument temp = YFCDocument.createDocument("ServiceSlotGroup");
 			System.out.println(mangSlotDoc+"manageSerSlotInpXml");
-			invokeYantraApi("manageServiceSlotgroup",mangSlotDoc,temp);
+			invokeYantraApi("manageServiceSlotGroup",mangSlotDoc,temp);
 			map.clear();
 			}
 			

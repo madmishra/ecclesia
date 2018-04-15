@@ -68,7 +68,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			  else if(!organizationCode
 					  .equals(element.getAttribute(XMLLiterals.ORGANIZATION_CODE))) {
 				  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
-				 // createCalendar(createCalenderXml);
+				 createCalendar(createCalenderXml);
 				  organizationCode=element.getAttribute(XMLLiterals.ORGANIZATION_CODE);
 				  createCalenderXml = YFCDocument.createDocument(XMLLiterals.CALENDAR);
 				  createCalenderEle =  createCalenderXml.getDocumentElement();
@@ -92,6 +92,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			  System.out.println(createCalenderXml+"KAVYA_OutputCalenderXml");
 	
 }
+		  createCalendar(createCalenderXml);
 		  return createCalenderXml;
 }
 	  /**
@@ -113,4 +114,8 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			newDateString = sdf.format(d);
 			return newDateString;
 		}
+		 public void createCalendar(YFCDocument createCalenderXml ) {
+			    invokeYantraApi(XMLLiterals.CREATE_CALENDAR, createCalenderXml);
+			    System.out.println("KAVYA_CALENDAR_CREATED");
+			  }
 }

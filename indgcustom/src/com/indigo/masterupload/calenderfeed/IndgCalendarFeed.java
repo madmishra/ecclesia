@@ -4,7 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
@@ -21,7 +24,10 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	private static final String EXCEPTION_START_TIME = "00 00";
 	private static final String EXCEPTION_END_TIME = "00 00";
 	private static final String OFF_DAY = "0";
+	private static final String ORGANIZATION_KEY="OrganizationKey";
+	private static final String DEFAULT="DEFAULT";
 	private  String effectiveFromDate="";
+	Map<String, String> map=new HashMap<String,String>();
 	/**
 	   * This is the invoke point of the Service
 	 * @throws  
@@ -92,6 +98,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	 				if(EXCEPTION_START_TIME.equals(startTime) && EXCEPTION_END_TIME.equals(endTime)) {
 	 					try {
 	 						exceptionList.add(dateFormatter(element.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE)));
+	 						
 	 					} catch (ParseException e) {
 	 						// TODO Auto-generated catch block
 	 						e.printStackTrace();
@@ -101,6 +108,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			  toDate = element.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE);
 			  try {
 				effectiveToDate=dateFormatter(toDate);
+				setShiftValues(element);
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
@@ -128,6 +136,18 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			sdf.applyPattern(NEW_FORMAT);
 			newDateString = sdf.format(d);
 			return newDateString;
+		}
+		
+		public String timeFormatter(String time) throws ParseException {
+			final String OLD_FORMAT = "HH mm";
+			final String NEW_FORMAT = "HH:mm:ss";
+			String newTimeString;
+			SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT);
+			Date d = sdf.parse(time);
+			sdf.applyPattern(NEW_FORMAT);
+			newTimeString = sdf.format(d);
+			return newTimeString;
+			
 		}
 		 
 		 /**  This method forms the template XML for getCelendarListListApi
@@ -177,10 +197,12 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				 if(getCalendarList(orgCode,calenderId).getDocumentElement().hasChildNodes()) {
 					 exceptionList.clear();
 					 invokeYantraApi("changeCalendar", createCalenderInXml);
+					 manageSerSlot(orgCode);
 					 return;
 				 }
 			 }
 			    invokeYantraApi(XMLLiterals.CREATE_CALENDAR, createCalenderInXml);
+			    manageSerSlot(orgCode);
 			    exceptionList.clear();
 			    
 			  }
@@ -196,5 +218,36 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			    return invokeYantraApi(XMLLiterals.GET_CALENDAR_LIST, 
 			    		formInputXmlForGetCalendarList(organizationCode,calenderId),formTemplateXmlForgetCalendarList());
 			  }
+		 
+		 
+		 private void setShiftValues(YFCElement calenderInEle) throws ParseException {
+			 	String startTime=timeFormatter(calenderInEle.getAttribute(XMLLiterals.SHIFT_START_TIME));
+				String endTime=timeFormatter(calenderInEle.getAttribute(XMLLiterals.SHIFT_START_TIME));
+				String hashKey=startTime+"-"+endTime;
+				System.out.println(hashKey);
+				if(!map.containsKey(hashKey))
+				{
+					map.put(hashKey, hashKey);
+				}
+		 }
+		 
+		 
+			private void manageSerSlot(String orgCode) {
+				Set keySet=map.keySet();
+				YFCDocument mangSlotDoc = YFCDocument.createDocument("ServiceSlotGroup");
+				YFCElement serviceSlotEle=mangSlotDoc.getDocumentElement();
+				serviceSlotEle.setAttribute(ORGANIZATION_KEY,orgCode);
+				YFCElement slotList=serviceSlotEle.createChild("ServiceSlotList");
+				for(Object s:keySet) {
+					String shiftTime[] = map.get(s).split("-");
+					slotList.createChild("ServiceSlot").setAttribute("StartTime",shiftTime[0]);
+					slotList.createChild("ServiceSlot").setAttribute("EndTime", shiftTime[1]);
+				}
+				map.clear();
+			System.out.println(mangSlotDoc+"manageSerSlotInpXml");
+			invokeYantraApi("manageServiceSlotgroup",mangSlotDoc);
+			}
+			
+		 
 			
 }

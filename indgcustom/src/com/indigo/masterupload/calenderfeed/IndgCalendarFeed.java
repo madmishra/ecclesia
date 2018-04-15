@@ -222,7 +222,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		 
 		 private void setShiftValues(YFCElement calenderInEle) throws ParseException {
 			 	String startTime=timeFormatter(calenderInEle.getAttribute(XMLLiterals.SHIFT_START_TIME));
-				String endTime=timeFormatter(calenderInEle.getAttribute(XMLLiterals.SHIFT_START_TIME));
+				String endTime=timeFormatter(calenderInEle.getAttribute(XMLLiterals.SHIFT_END_TIME));
 				String hashKey=startTime+"-"+endTime;
 				System.out.println(hashKey);
 				if(!map.containsKey(hashKey))

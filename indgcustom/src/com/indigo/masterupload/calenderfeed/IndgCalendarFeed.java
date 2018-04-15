@@ -165,6 +165,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		  */
 		 public void createCalendar(YFCDocument createCalenderXml,List<String> exceptionList ) {
 			 YFCElement exceptioncalEle = createCalenderXml.getDocumentElement().createChild("CalendarDayExceptions");
+			 System.out.println(exceptionList+"CreateCalenderList");
 			 for(String exceptionDate:exceptionList) {
 				 YFCElement excepDayEle = exceptioncalEle.createChild("CalendarDayException");
 				 excepDayEle.setAttribute("Date", exceptionDate);

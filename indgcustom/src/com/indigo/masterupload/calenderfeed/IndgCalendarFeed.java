@@ -163,25 +163,26 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		  * This method invoke createCalendarApi
 		  * @param createCalenderXml
 		  */
-		 public void createCalendar(YFCDocument createCalenderXml,List<String> exceptionList ) {
-			 YFCElement exceptioncalEle = createCalenderXml.getDocumentElement().createChild("CalendarDayExceptions");
+		 public void createCalendar(YFCDocument createCalenderInXml,List<String> exceptionList ) {
+			 YFCElement exceptioncalEle = createCalenderInXml.getDocumentElement().createChild("CalendarDayExceptions");
 			 System.out.println(exceptionList+"CreateCalenderList");
 			 for(String exceptionDate:exceptionList) {
 				 YFCElement excepDayEle = exceptioncalEle.createChild("CalendarDayException");
 				 excepDayEle.setAttribute("Date", exceptionDate);
 				 excepDayEle.setAttribute("ExceptionType", OFF_DAY);
 			 }
-			 String calenderId = createCalenderXml.getDocumentElement().getAttribute(XMLLiterals.CALENDER_ID);
-			 String orgCode = createCalenderXml.getDocumentElement().getAttribute(XMLLiterals.ORGANIZATION_CODE);
+			 String calenderId = createCalenderInXml.getDocumentElement().getAttribute(XMLLiterals.CALENDER_ID);
+			 String orgCode = createCalenderInXml.getDocumentElement().getAttribute(XMLLiterals.ORGANIZATION_CODE);
 			 if(!XmlUtils.isVoid(calenderId)) {
 				 if(getCalendarList(orgCode,calenderId).getDocumentElement().hasChildNodes()) {
-					 invokeYantraApi("changeCalendar", createCalenderXml);
+					 exceptionList.clear();
+					 invokeYantraApi("changeCalendar", createCalenderInXml);
 					 return;
 				 }
 			 }
-			    invokeYantraApi(XMLLiterals.CREATE_CALENDAR, createCalenderXml);
+			    invokeYantraApi(XMLLiterals.CREATE_CALENDAR, createCalenderInXml);
 			    exceptionList.clear();
-			    System.out.println("KAVYA_CALENDAR_CREATED");
+			    
 			  }
 		 
 		 /**

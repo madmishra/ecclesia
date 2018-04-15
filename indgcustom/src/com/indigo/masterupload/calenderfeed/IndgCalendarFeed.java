@@ -114,8 +114,63 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			newDateString = sdf.format(d);
 			return newDateString;
 		}
+		 
+		 /**  This method forms the template XML for getCelendarListListApi
+			 * 
+			 * @return
+			 */
+		 private YFCDocument formTemplateXmlForgetCalendarList() {
+			    YFCDocument getCalendarTemp = YFCDocument.createDocument(CALENDARS);
+			    YFCElement calendarEle = getCalendarTemp.getDocumentElement().createChild(XMLLiterals.CALENDAR);
+			    calendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, EMPTY_STRING);
+			    calendarEle.setAttribute(XMLLiterals.CALENDER_ID, EMPTY_STRING);
+			    System.out.println(getCalendarTemp+"KAVYA_TEMPLATE1");
+			    
+			    return getCalendarTemp;
+		  }
+		 /**
+		  * This method forms input XML for getCelendarListListApi
+		  * @param organizationCode
+		  * @param effectiveToDate
+		  * @param effectiveFromDate
+		  * @return
+		  */
+		 private YFCDocument formInputXmlForGetCalendarList(String organizationCode,String calenderId) {
+			 YFCDocument getCalendarXml = YFCDocument.createDocument(XMLLiterals.CALENDAR);
+			    YFCElement calendarEle = getCalendarXml.getDocumentElement();
+			    calendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
+			    calendarEle.setAttribute(XMLLiterals.CALENDER_ID, calenderId);
+			    System.out.println(getCalendarXml+"KAVYA_GETCALENDAR_LIST");
+			    return getCalendarXml;
+			  }
+		 
+		 /**
+		  * This method invoke createCalendarApi
+		  * @param createCalenderXml
+		  */
 		 public void createCalendar(YFCDocument createCalenderXml ) {
+			 String calenderId = createCalenderXml.getDocumentElement().getAttribute(XMLLiterals.CALENDER_ID);
+			 String orgCode = createCalenderXml.getDocumentElement().getAttribute(XMLLiterals.ORGANIZATION_CODE);
+			 if(!XmlUtils.isVoid(calenderId)) {
+				 if(getCalendarList(orgCode,calenderId).getDocumentElement().hasChildNodes()) {
+					 invokeYantraApi("changeCalendar", createCalenderXml);
+					 return;
+				 }
+			 }
 			    invokeYantraApi(XMLLiterals.CREATE_CALENDAR, createCalenderXml);
 			    System.out.println("KAVYA_CALENDAR_CREATED");
 			  }
+		 
+		 /**
+		  * this method invokes getCalendarList
+		  * @param organizationCode
+		  * @param effectiveToDate
+		  * @param effectiveFromDate
+		  * @return
+		  */
+		 public YFCDocument getCalendarList(String organizationCode, String calenderId){
+			    return invokeYantraApi(XMLLiterals.GET_CALENDAR_LIST, 
+			    		formInputXmlForGetCalendarList(organizationCode,calenderId),formTemplateXmlForgetCalendarList());
+			  }
+			
 }

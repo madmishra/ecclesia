@@ -17,7 +17,7 @@ import com.yantra.yfc.dom.YFCElement;
 
 public class IndgCalendarFeed extends AbstractCustomApi{
 	private static final String EMPTY_STRING = "";
-	private static final String CALENDER= "_CALENDER";
+	private static final String CALENDER= "_Calender";
 	private static final String CALENDARS = "Calendars";
 	private static final String EXCEPTION_TIME = "00 00";
 	private static final String OFF_DAY = "0";
@@ -51,12 +51,12 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				  createCalenderEle =  createCalenderXml.getDocumentElement();
 				  createCalenderEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
 				  createCalenderEle.setAttribute(XMLLiterals.CALENDER_ID,organizationCode+CALENDER);
+				  createCalenderEle.setAttribute(XMLLiterals.CALENDAR_DESCRIPTION,organizationCode+CALENDER);
 				  effectivePeriods = createCalenderEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)
 						  .createChild(XMLLiterals.EFFECTIVE_PERIOD);
 				  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE, effectiveFromDate);
 				  
-				  
-		  }
+				}
 			  else if(!organizationCode
 					  .equals(element.getAttribute(XMLLiterals.ORGANIZATION_CODE))) {
 				  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
@@ -66,6 +66,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				  createCalenderEle =  createCalenderXml.getDocumentElement();
 				  createCalenderEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
 				  createCalenderEle.setAttribute(XMLLiterals.CALENDER_ID,organizationCode+CALENDER);
+				  createCalenderEle.setAttribute(XMLLiterals.CALENDAR_DESCRIPTION,organizationCode+CALENDER);
 				  effectivePeriods = createCalenderEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)
 						  .createChild(XMLLiterals.EFFECTIVE_PERIOD);
 				  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE, effectiveFromDate);
@@ -128,6 +129,8 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			    YFCElement calendarEle = getCalendarTemp.getDocumentElement().createChild(XMLLiterals.CALENDAR);
 			    calendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, EMPTY_STRING);
 			    calendarEle.setAttribute(XMLLiterals.CALENDER_ID, EMPTY_STRING);
+			    calendarEle.setAttribute(XMLLiterals.CALENDAR_DESCRIPTION, EMPTY_STRING);
+			    
 			    
 			    return getCalendarTemp;
 		  }
@@ -143,6 +146,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			    YFCElement calendarEle = getCalendarXml.getDocumentElement();
 			    calendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
 			    calendarEle.setAttribute(XMLLiterals.CALENDER_ID, calenderId);
+			    calendarEle.setAttribute(XMLLiterals.CALENDAR_DESCRIPTION, calenderId);
 	
 			    return getCalendarXml;
 			  }

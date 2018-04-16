@@ -27,6 +27,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private String inputCategoryID=""; 
   private String categoryPath = "";
   
+  
 
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
@@ -60,7 +61,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
       }
     } else {
       invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
-     modifyCategoryItem(itemEle,CREATE_ACTION);
+      modifyCategoryItem(itemEle,CREATE_ACTION);
     }
   }
   
@@ -109,9 +110,11 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     if(!XmlUtils.isVoid(inputCategoryID)){
       YFCDocument categoryList = getCategoryList(inputCategoryID,
           ORGANIZATION_CODE);
-      categoryPath = XPathUtil.getXpathAttribute(categoryList, "/CategoryList/Category/@CategoryPath");
-      if(!categoryList.getDocumentElement().hasChildNodes()) {
+      if(categoryList.getDocumentElement().hasChildNodes()) {
+        categoryPath = XPathUtil.getXpathAttribute(categoryList, "/CategoryList/Category/@CategoryPath");
+      }else{
         categoryPath = getProperty(DEFAULT_CATEGORY_PATH);
+        createCategory(inputCategoryID,ORGANIZATION_CODE);
       }
     }
   }

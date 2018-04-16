@@ -76,6 +76,7 @@ public class IndgManageUser extends AbstractCustomApi {
 	    userEle.setAttribute(XMLLiterals.LOGIN_ID, EMPTY_STRING);
 	    userEle.setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
 	    userEle.setAttribute(XMLLiterals.DISPLAY_USER_ID, EMPTY_STRING);
+	    userEle.setAttribute(XMLLiterals.ACTIVATE_FLAG, EMPTY_STRING);
 	    return getUserListTemp;
 	  }
 	
@@ -101,7 +102,7 @@ public class IndgManageUser extends AbstractCustomApi {
 	    	YFCElement userEle = XPathUtil.getXPathElement(userListApiOp, "/UserList/User[@Loginid = \""+value+"\"]");
 	    	if(!XmlUtils.isVoid(userEle)) {
 	    		String flag = userEle.getAttribute(XMLLiterals.ACTIVATE_FLAG);
-	    		if(!flag.equals(INACTIVATE_FLAG)) {
+	    		if(!INACTIVATE_FLAG.equals(flag)) {
 	    			
 	    			YFCDocument inputDocForManageUserAPI = YFCDocument.createDocument(XMLLiterals.USER);
 	    			inputDocForManageUserAPI.getDocumentElement().setAttribute(XMLLiterals.LOGIN_ID, value);

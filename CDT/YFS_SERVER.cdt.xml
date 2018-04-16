@@ -256,6 +256,30 @@
     ServerKey="201804160630035329"
     ServerName="Indg_CategoryFeed_UploadServer" ServerType="00"
     Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-04-16T12:04:09-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-04-16T12:04:09-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="201804161204095791" ServerName="StoreManageServer"
+    ServerType="00" Terminate="N" TransportTypeKey="FILE" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-04-16T12:18:12-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-04-16T12:18:12-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="201804161218125828" ServerName="ManageUserServer"
+    ServerType="00" Terminate="N" TransportTypeKey="FILE" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-04-16T12:27:06-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-04-16T12:27:06-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="201804161227065888" ServerName="ModifyUserServer"
+    ServerType="00" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-04-16T12:57:56-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-04-16T12:57:56-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="201804161257566062" ServerName="Indg_Calendar"
+    ServerType="00" Terminate="N" TransportTypeKey="FILE" WaitTime="1"/>
 <Server Createprogid="XMLMigrator" Createts="2018-03-28T12:30:08-04:00"
     Createuserid="SYSTEM" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:08-04:00" Modifyuserid="SYSTEM"

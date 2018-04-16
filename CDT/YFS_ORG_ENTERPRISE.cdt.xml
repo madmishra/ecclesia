@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_ORG_ENTERPRISEList TableName="YFS_ORG_ENTERPRISE">
+<OrgEnterprise Createprogid=".YCPOrgDetailsAPI"
+    Createts="2018-04-12T10:39:42-04:00" Createuserid="admin"
+    EnterpriseOrganizationKey="Indigo_CA" Lockid="0"
+    Modifyprogid=".YCPOrgDetailsAPI"
+    Modifyts="2018-04-12T10:39:42-04:00" Modifyuserid="admin"
+    OrgEnterpriseKey="201804121039424600" OrganizationKey="Indigo_CA"/>
+<OrgEnterprise Createprogid="SYSTEM"
+    Createts="2018-03-28T12:30:06-04:00" Createuserid="SYSTEM"
+    EnterpriseOrganizationKey="DEFAULT" Lockid="0" Modifyprogid="SYSTEM"
+    Modifyts="2018-03-28T12:30:06-04:00" Modifyuserid="SYSTEM"
+    OrgEnterpriseKey="DEFAULT" OrganizationKey="DEFAULT"/>
+<OrgEnterprise Createprogid="SYSTEM"
+    Createts="2018-03-28T12:30:06-04:00" Createuserid="SYSTEM"
+    EnterpriseOrganizationKey="DEFAULT" Lockid="0" Modifyprogid="SYSTEM"
+    Modifyts="2018-03-28T12:30:06-04:00" Modifyuserid="SYSTEM"
+    OrgEnterpriseKey="FEDX" OrganizationKey="FEDX"/>
+<OrgEnterprise Createprogid="SYSTEM"
+    Createts="2018-03-28T12:30:06-04:00" Createuserid="SYSTEM"
+    EnterpriseOrganizationKey="DEFAULT" Lockid="0" Modifyprogid="SYSTEM"
+    Modifyts="2018-03-28T12:30:06-04:00" Modifyuserid="SYSTEM"
+    OrgEnterpriseKey="Purolator" OrganizationKey="Purolator"/>
+<OrgEnterprise Createprogid="SYSTEM"
+    Createts="2018-03-28T12:30:06-04:00" Createuserid="SYSTEM"
+    EnterpriseOrganizationKey="DEFAULT" Lockid="0" Modifyprogid="SYSTEM"
+    Modifyts="2018-03-28T12:30:06-04:00" Modifyuserid="SYSTEM"
+    OrgEnterpriseKey="UPSA" OrganizationKey="UPSA"/>
+<OrgEnterprise Createprogid="SYSTEM"
+    Createts="2018-03-28T12:30:06-04:00" Createuserid="SYSTEM"
+    EnterpriseOrganizationKey="DEFAULT" Lockid="0" Modifyprogid="SYSTEM"
+    Modifyts="2018-03-28T12:30:06-04:00" Modifyuserid="SYSTEM"
+    OrgEnterpriseKey="UPSC" OrganizationKey="UPSC"/>
+<OrgEnterprise Createprogid="SYSTEM"
+    Createts="2018-03-28T12:30:06-04:00" Createuserid="SYSTEM"
+    EnterpriseOrganizationKey="DEFAULT" Lockid="0" Modifyprogid="SYSTEM"
+    Modifyts="2018-03-28T12:30:06-04:00" Modifyuserid="SYSTEM"
+    OrgEnterpriseKey="UPSE" OrganizationKey="UPSE"/>
+<OrgEnterprise Createprogid="SYSTEM"
+    Createts="2018-03-28T12:30:06-04:00" Createuserid="SYSTEM"
+    EnterpriseOrganizationKey="DEFAULT" Lockid="0" Modifyprogid="SYSTEM"
+    Modifyts="2018-03-28T12:30:06-04:00" Modifyuserid="SYSTEM"
+    OrgEnterpriseKey="UPSL" OrganizationKey="UPSL"/>
+<OrgEnterprise Createprogid="SYSTEM"
+    Createts="2018-03-28T12:30:06-04:00" Createuserid="SYSTEM"
+    EnterpriseOrganizationKey="DEFAULT" Lockid="0" Modifyprogid="SYSTEM"
+    Modifyts="2018-03-28T12:30:06-04:00" Modifyuserid="SYSTEM"
+    OrgEnterpriseKey="UPSN" OrganizationKey="UPSN"/>
+<OrgEnterprise Createprogid="SYSTEM"
+    Createts="2018-03-28T12:30:06-04:00" Createuserid="SYSTEM"
+    EnterpriseOrganizationKey="DEFAULT" Lockid="0" Modifyprogid="SYSTEM"
+    Modifyts="2018-03-28T12:30:06-04:00" Modifyuserid="SYSTEM"
+    OrgEnterpriseKey="USPS" OrganizationKey="USPS"/>
+</YFS_ORG_ENTERPRISEList>

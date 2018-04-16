@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PLT_DB_POOLList TableName="PLT_DB_POOL">
+<DBPool Createprogid="YSCPreInstallMetadataCreator"
+    Createts="2018-03-28T12:29:49-04:00" Createuserid="SYSTEM"
+    DbPoolKey="2018032812294911" Lockid="0"
+    Modifyprogid="YSCPreInstallMetadataCreator"
+    Modifyts="2018-03-28T12:29:49-04:00" Modifyuserid="SYSTEM"
+    PoolConfig="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;jdbc>&#xa;    &lt;param name=&quot;url&quot; value=&quot;jdbc:db2://localhost:50000/mcdb&quot;/>&#xa;    &lt;param name=&quot;user&quot; value=&quot;db2inst1&quot;/>&#xa;    &lt;param name=&quot;password&quot; value=&quot;diet4coke&quot;/>&#xa;    &lt;param name=&quot;driver&quot; value=&quot;com.ibm.db2.jcc.DB2Driver&quot;/>&#xa;    &lt;param name=&quot;schema&quot; value=&quot;MCDB&quot;/>&#xa;&lt;/jdbc>&#xa;" PoolId="DEFAULT_METADATA"/>
+<DBPool Createprogid="YSCPreInstallMetadataCreator"
+    Createts="2018-03-28T12:29:49-04:00" Createuserid="SYSTEM"
+    DbPoolKey="201803281229493" Lockid="0"
+    Modifyprogid="YSCPreInstallMetadataCreator"
+    Modifyts="2018-03-28T12:29:49-04:00" Modifyuserid="SYSTEM"
+    PoolConfig="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;jdbc>&#xa;    &lt;param name=&quot;url&quot; value=&quot;jdbc:db2://localhost:50000/mcdb&quot;/>&#xa;    &lt;param name=&quot;user&quot; value=&quot;db2inst1&quot;/>&#xa;    &lt;param name=&quot;password&quot; value=&quot;diet4coke&quot;/>&#xa;    &lt;param name=&quot;driver&quot; value=&quot;com.ibm.db2.jcc.DB2Driver&quot;/>&#xa;    &lt;param name=&quot;schema&quot; value=&quot;MCDB&quot;/>&#xa;&lt;/jdbc>&#xa;" PoolId="DEFAULT_MASTER_95"/>
+<DBPool Createprogid="YSCPreInstallMetadataCreator"
+    Createts="2018-03-28T12:29:49-04:00" Createuserid="SYSTEM"
+    DbPoolKey="201803281229495" Lockid="0"
+    Modifyprogid="YSCPreInstallMetadataCreator"
+    Modifyts="2018-03-28T12:29:49-04:00" Modifyuserid="SYSTEM"
+    PoolConfig="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;jdbc>&#xa;    &lt;param name=&quot;url&quot; value=&quot;jdbc:db2://localhost:50000/mcdb&quot;/>&#xa;    &lt;param name=&quot;user&quot; value=&quot;db2inst1&quot;/>&#xa;    &lt;param name=&quot;password&quot; value=&quot;diet4coke&quot;/>&#xa;    &lt;param name=&quot;driver&quot; value=&quot;com.ibm.db2.jcc.DB2Driver&quot;/>&#xa;    &lt;param name=&quot;schema&quot; value=&quot;MCDB&quot;/>&#xa;&lt;/jdbc>&#xa;" PoolId="DEFAULT_CONFIGURATION_95"/>
+<DBPool Createprogid="YSCPreInstallMetadataCreator"
+    Createts="2018-03-28T12:29:49-04:00" Createuserid="SYSTEM"
+    DbPoolKey="201803281229497" Lockid="0"
+    Modifyprogid="YSCPreInstallMetadataCreator"
+    Modifyts="2018-03-28T12:29:49-04:00" Modifyuserid="SYSTEM"
+    PoolConfig="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;jdbc>&#xa;    &lt;param name=&quot;url&quot; value=&quot;jdbc:db2://localhost:50000/mcdb&quot;/>&#xa;    &lt;param name=&quot;user&quot; value=&quot;db2inst1&quot;/>&#xa;    &lt;param name=&quot;password&quot; value=&quot;diet4coke&quot;/>&#xa;    &lt;param name=&quot;driver&quot; value=&quot;com.ibm.db2.jcc.DB2Driver&quot;/>&#xa;    &lt;param name=&quot;schema&quot; value=&quot;MCDB&quot;/>&#xa;&lt;/jdbc>&#xa;" PoolId="DEFAULT_TRANSACTION_95"/>
+<DBPool Createprogid="YSCPreInstallMetadataCreator"
+    Createts="2018-03-28T12:29:49-04:00" Createuserid="SYSTEM"
+    DbPoolKey="201803281229499" Lockid="0"
+    Modifyprogid="YSCPreInstallMetadataCreator"
+    Modifyts="2018-03-28T12:29:49-04:00" Modifyuserid="SYSTEM"
+    PoolConfig="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;jdbc>&#xa;    &lt;param name=&quot;url&quot; value=&quot;jdbc:db2://localhost:50000/mcdb&quot;/>&#xa;    &lt;param name=&quot;user&quot; value=&quot;db2inst1&quot;/>&#xa;    &lt;param name=&quot;password&quot; value=&quot;diet4coke&quot;/>&#xa;    &lt;param name=&quot;driver&quot; value=&quot;com.ibm.db2.jcc.DB2Driver&quot;/>&#xa;    &lt;param name=&quot;schema&quot; value=&quot;MCDB&quot;/>&#xa;&lt;/jdbc>&#xa;" PoolId="DEFAULT_STATISTICS_95"/>
+</PLT_DB_POOLList>

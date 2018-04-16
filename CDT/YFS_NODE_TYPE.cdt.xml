@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_NODE_TYPEList TableName="YFS_NODE_TYPE">
+<NodeType Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:15-04:00" Createuserid="SYSTEM"
+    Lockid="0" Modifyprogid="XMLMigrator"
+    Modifyts="2018-03-28T12:30:15-04:00" Modifyuserid="SYSTEM"
+    NodeTypeDescription="Distribution Center" NodeTypeID="DC" NodeTypeKey="201684501501"/>
+<NodeType Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:15-04:00" Createuserid="SYSTEM"
+    Lockid="0" Modifyprogid="XMLMigrator"
+    Modifyts="2018-03-28T12:30:15-04:00" Modifyuserid="SYSTEM"
+    NodeTypeDescription="Store" NodeTypeID="Store" NodeTypeKey="20601752707"/>
+</YFS_NODE_TYPEList>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_DEVICE_SUB_TYPEList TableName="YFS_DEVICE_SUB_TYPE">
+<DeviceSubType Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
+    Description="FeDx Printer" DeviceSubType="FeDx Printer"
+    DeviceSubTypeKey="FeDx Printer" DeviceType="Printer" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
+    Modifyuserid="SYSTEM" OrganizationCode="DEFAULT"/>
+<DeviceSubType Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
+    Description="Mettler Toldeo Scales" DeviceSubType="MettlerToldeo"
+    DeviceSubTypeKey="MettlerToldeo" DeviceType="WeighingScale"
+    Lockid="0" Modifyprogid="XMLMigrator"
+    Modifyts="2018-03-28T12:30:14-04:00" Modifyuserid="SYSTEM" OrganizationCode="DEFAULT"/>
+</YFS_DEVICE_SUB_TYPEList>

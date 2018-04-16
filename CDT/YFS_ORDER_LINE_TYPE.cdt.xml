@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_ORDER_LINE_TYPEList TableName="YFS_ORDER_LINE_TYPE">
+<OrderLineType Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:23-04:00" Createuserid="SYSTEM"
+    CreditBasedOnInspection="" DocumentType="0003"
+    InventoryMaintained="" LineType="Credit" LineTypeDesc="Credit"
+    Lockid="0" Modifyprogid="XMLMigrator"
+    Modifyts="2018-03-28T12:30:23-04:00" Modifyuserid="SYSTEM"
+    OrderLineTypeKey="CREDIT_0003" OrganizationCode="DEFAULT"
+    OverReceiptPercentage="0.00" SystemDefined=""/>
+<OrderLineType Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:23-04:00" Createuserid="SYSTEM"
+    CreditBasedOnInspection="" DocumentType="0003"
+    InventoryMaintained="" LineType="Exchange" LineTypeDesc="Exchange"
+    Lockid="0" Modifyprogid="XMLMigrator"
+    Modifyts="2018-03-28T12:30:23-04:00" Modifyuserid="SYSTEM"
+    OrderLineTypeKey="EXCHANGE_0003" OrganizationCode="DEFAULT"
+    OverReceiptPercentage="0.00" SystemDefined=""/>
+</YFS_ORDER_LINE_TYPEList>

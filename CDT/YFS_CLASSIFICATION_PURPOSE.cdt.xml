@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_CLASSIFICATION_PURPOSEList TableName="YFS_CLASSIFICATION_PURPOSE">
+<ClassificationPurpose AttributeName=""
+    CategoryDomainKey="DefaultMasterCatalog"
+    ClassificationPurposeCode="SellingCatalog"
+    ClassificationPurposeDesc="Selling Catalog for DEFAULT"
+    ClassificationPurposeKey="2001367138143" Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
+    Lockid="0" Modifyprogid="XMLMigrator"
+    Modifyts="2018-03-28T12:30:21-04:00" Modifyuserid="SYSTEM"
+    ModuleName="" OrganizationCode="DEFAULT"/>
+<ClassificationPurpose AttributeName=""
+    CategoryDomainKey="201804121105054705"
+    ClassificationPurposeCode="MasterCatalog"
+    ClassificationPurposeDesc=""
+    ClassificationPurposeKey="201804121105054706"
+    Createprogid=".YCPOrgDetailsAPI"
+    Createts="2018-04-12T11:05:05-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YCPOrgDetailsAPI"
+    Modifyts="2018-04-12T11:05:05-04:00" Modifyuserid="admin"
+    ModuleName="" OrganizationCode="Indigo_CA"/>
+<ClassificationPurpose AttributeName=""
+    CategoryDomainKey="201804121105054705"
+    ClassificationPurposeCode="SellingCatalog"
+    ClassificationPurposeDesc=""
+    ClassificationPurposeKey="201804121105054707"
+    Createprogid=".YCPOrgDetailsAPI"
+    Createts="2018-04-12T11:05:05-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YCPOrgDetailsAPI"
+    Modifyts="2018-04-12T11:05:05-04:00" Modifyuserid="admin"
+    ModuleName="" OrganizationCode="Indigo_CA"/>
+<ClassificationPurpose AttributeName=""
+    CategoryDomainKey="DefaultMasterCatalog"
+    ClassificationPurposeCode="MasterCatalog"
+    ClassificationPurposeDesc="Master Catalog for DEFAULT"
+    ClassificationPurposeKey="20210990213" Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
+    Lockid="0" Modifyprogid="XMLMigrator"
+    Modifyts="2018-03-28T12:30:21-04:00" Modifyuserid="SYSTEM"
+    ModuleName="" OrganizationCode="DEFAULT"/>
+</YFS_CLASSIFICATION_PURPOSEList>

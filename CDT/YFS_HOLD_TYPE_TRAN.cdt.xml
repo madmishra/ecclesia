@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_HOLD_TYPE_TRANList TableName="YFS_HOLD_TYPE_TRAN">
+<HoldTypeTran Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:25-04:00" Createuserid="SYSTEM"
+    HoldEffectLevel="ORDER" HoldTypeKey="20150831165919268019"
+    HoldTypeTranKey="20150831165919268022" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" Purpose="PREVENT" TransactionId="ACCEPT_RESERVATION"/>
+<HoldTypeTran Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:25-04:00" Createuserid="SYSTEM"
+    HoldEffectLevel="ORDER" HoldTypeKey="20150831165919268019"
+    HoldTypeTranKey="20150831165919268024" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" Purpose="PREVENT" TransactionId="CHAINED_ORDER_CREATE"/>
+<HoldTypeTran Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:25-04:00" Createuserid="SYSTEM"
+    HoldEffectLevel="ORDER" HoldTypeKey="20150831165919268019"
+    HoldTypeTranKey="20150831165919268026" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" Purpose="PREVENT" TransactionId="CLOSE_ORDER.0001"/>
+<HoldTypeTran Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:25-04:00" Createuserid="SYSTEM"
+    HoldEffectLevel="ORDER" HoldTypeKey="20150831165919268019"
+    HoldTypeTranKey="20150831165919268028" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" Purpose="PREVENT" TransactionId="DRAFT_ORDER_CONFIRM"/>
+<HoldTypeTran Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:25-04:00" Createuserid="SYSTEM"
+    HoldEffectLevel="ORDER" HoldTypeKey="20150831165919268019"
+    HoldTypeTranKey="20150831165919268030" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" Purpose="PREVENT" TransactionId="IN_PERSON_ORDR_TRAN_COMP"/>
+<HoldTypeTran Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:25-04:00" Createuserid="SYSTEM"
+    HoldEffectLevel="ORDER" HoldTypeKey="20150831165919268019"
+    HoldTypeTranKey="20150831165919268032" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" Purpose="PREVENT" TransactionId="MANAGE_STOP_DEL.0001"/>
+<HoldTypeTran Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:25-04:00" Createuserid="SYSTEM"
+    HoldEffectLevel="ORDER" HoldTypeKey="20150831165919268019"
+    HoldTypeTranKey="20150831165919268034" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" Purpose="PREVENT" TransactionId="PAYMENT_COLLECTION"/>
+<HoldTypeTran Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:25-04:00" Createuserid="SYSTEM"
+    HoldEffectLevel="ORDER" HoldTypeKey="20150831165919268019"
+    HoldTypeTranKey="20150831165919268036" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" Purpose="PREVENT" TransactionId="PAYMENT_EXECUTION"/>
+<HoldTypeTran Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:25-04:00" Createuserid="SYSTEM"
+    HoldEffectLevel="ORDER" HoldTypeKey="20150831165919268019"
+    HoldTypeTranKey="20150831165919268038" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" Purpose="PREVENT" TransactionId="RELEASE.0001"/>
+<HoldTypeTran Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:25-04:00" Createuserid="SYSTEM"
+    HoldEffectLevel="ORDER" HoldTypeKey="20150831165919268019"
+    HoldTypeTranKey="20150831165919268040" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" Purpose="PREVENT" TransactionId="SCHEDULE.0001"/>
+<HoldTypeTran Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:25-04:00" Createuserid="SYSTEM"
+    HoldEffectLevel="ORDER" HoldTypeKey="20150831165919268019"
+    HoldTypeTranKey="20150831165919268042" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" Purpose="PREVENT" TransactionId="SHIP_ADVICE"/>
+</YFS_HOLD_TYPE_TRANList>

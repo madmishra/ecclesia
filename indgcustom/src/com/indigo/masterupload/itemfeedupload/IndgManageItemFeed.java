@@ -158,9 +158,10 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     */
    public void createCategory(String categoryId,String orgCode) {
      String categoryDomain = getProperty(CATEGORY_DOMAIN);
+     categoryPath = categoryPath+"/"+categoryId;
      invokeYantraApi(XMLLiterals.CREATE_CATEGORY, 
          IndgCategoryMasterUpload.formInputXmlForCreateCategory(categoryId,
-             categoryDomain,categoryPath+"/"+categoryId,orgCode));
+             categoryDomain,categoryPath,orgCode));
    }
    
    

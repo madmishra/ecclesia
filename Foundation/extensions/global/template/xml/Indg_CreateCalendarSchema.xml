@@ -8,7 +8,7 @@
       <Header Name="CALDATA" RecordName="CALDATA" MinOccurence="1" MaxOccurence="1" />
    </Root>
    <RecordDefinitions>
-      <Record RecordId="CALDATA" Name="Calendar" XMLName="Calendar">
+      <Record RecordId="CALDATA" Name="CALDATA" XMLName="Calendar">
          <Field Name="Location" FieldPosition="2" XMLName="OrganizationCode" />
          <Field Name="Time" FieldPosition="3" XMLName="Time" />
          <Field Name="Date" FieldPosition="4" XMLName="EffectiveFromDate" />

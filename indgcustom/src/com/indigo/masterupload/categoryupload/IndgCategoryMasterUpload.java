@@ -80,7 +80,6 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
     for(String categoryId:  sCategoryList) {
       
       if(!XmlUtils.isVoid(categoryId) && iCategoryPathDepth > 1) {
-        System.out.println(categoryId+"CategoryID");
         path = path+BACK_SLASH+categoryId;
         if(!getCategoryList(categoryId,organizationCode,path).getDocumentElement().hasChildNodes()) {
           createCategory(categoryId,categorydomain,path,organizationCode);

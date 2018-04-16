@@ -26,10 +26,11 @@ import com.yantra.yfc.dom.YFCNode;
 public class IndgManageUser extends AbstractCustomApi {
 	
 	private static final String EMPTY_STRING = "";
-	private static final String DELETE = "Delete";
 	private static final String CREATE = "Create";
 	private static final String MODIFY = "Modify";
-	private static final String USER_MODIFY_SERVER = "ModifyUserServer";
+	private static final String INACTIVE = "InActive";
+	private static final String USER_MANAGER_SERVER = "Indg_UserManager2";
+	private static final String INACTIVATE_FLAG = "N";
 	
 	/**	 
 	 * This method is the invoke point of the service.
@@ -44,7 +45,7 @@ public class IndgManageUser extends AbstractCustomApi {
 					XMLLiterals.LOGIN_ID,XMLLiterals.USER);
 		 Collection<String> inputUserList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion(userListApiOp, inXml, 
 					XMLLiterals.LOGIN_ID,XMLLiterals.USER);
-		 deleteExtraUserFromSystem(extraUserList);
+		 changeStatusForExtraUser(extraUserList,userListApiOp);
 		 createNewUserFromInputXml(inputUserList,inXml);
 		 return inXml;
 	}
@@ -90,20 +91,26 @@ public class IndgManageUser extends AbstractCustomApi {
 	
 	/**
 	 * This method iterates the list containing the extra users which are
-	 * already present in the system.
+	 * already present in the system and makes them InActive.
 	 * 
 	 * @param extraUserList
 	 */
 	
-	private void deleteExtraUserFromSystem(Collection<String> extraUserList) {
+	private void changeStatusForExtraUser(Collection<String> extraUserList, YFCDocument userListApiOp) {
 	    for(String value:extraUserList) {
-	    		
-	    			YFCDocument inputDocForDeleteUserAPI = YFCDocument.createDocument(XMLLiterals.USER);
-	    			inputDocForDeleteUserAPI.getDocumentElement().setAttribute(XMLLiterals.LOGIN_ID, value);
-	    			inputDocForDeleteUserAPI.getDocumentElement().setAttribute(XMLLiterals.ACTION, DELETE);
-	    			callUserUpdateQueue(inputDocForDeleteUserAPI);
+	    	YFCElement userEle = XPathUtil.getXPathElement(userListApiOp, "/UserList/User[@Loginid = \""+value+"\"]");
+	    	if(!XmlUtils.isVoid(userEle)) {
+	    		String flag = userEle.getAttribute(XMLLiterals.ACTIVATE_FLAG);
+	    		if(!flag.equals(INACTIVATE_FLAG)) {
 	    			
+	    			YFCDocument inputDocForManageUserAPI = YFCDocument.createDocument(XMLLiterals.USER);
+	    			inputDocForManageUserAPI.getDocumentElement().setAttribute(XMLLiterals.LOGIN_ID, value);
+	    			inputDocForManageUserAPI.getDocumentElement().setAttribute(XMLLiterals.ACTIVATE_FLAG, INACTIVATE_FLAG);
+	    			inputDocForManageUserAPI.getDocumentElement().setAttribute(XMLLiterals.ACTION, INACTIVE);
+	    			callUserUpdateQueue(inputDocForManageUserAPI);
+	    		}
 	    	}
+	    }
 	}
 	
 	/**
@@ -160,6 +167,6 @@ public class IndgManageUser extends AbstractCustomApi {
 	 */
 	
 	private void callUserUpdateQueue(YFCDocument doc) {
-	     invokeYantraService(USER_MODIFY_SERVER, doc);
+	     invokeYantraService(USER_MANAGER_SERVER, doc);
 	   }
 }

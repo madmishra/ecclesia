@@ -112,7 +112,8 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
    */
    public YFCDocument getCategoryList(String categoryId, String org){
      return invokeYantraApi(XMLLiterals.GET_CATEGORY_LIST, 
-         IndgCategoryMasterUpload.formInputXmlForGetCategoryList(categoryId,org),IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());
+         IndgCategoryMasterUpload.formInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
+         IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());
    }
    
    

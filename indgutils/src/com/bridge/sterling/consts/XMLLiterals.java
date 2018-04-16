@@ -83,5 +83,7 @@ public static final String SHIFTS = "Shifts";
 public static final String SHIFT = "Shift";
 public static final String SHIFT_NAME = "ShiftName";
 public static final String SHIFT_START_TIME="ShiftStartTime";
-public static final String SHIFT_END_TIME="ShiftEndTime";	
+public static final String SHIFT_END_TIME="ShiftEndTime";
+public static final String MANAGE_ORGANIZATION_HIERARCHY = "manageOrganizationHierarchy";
+public static final String GET_UN_PUBLISHED_CATEGORY = "GetUnpublishedCategories";	
 }

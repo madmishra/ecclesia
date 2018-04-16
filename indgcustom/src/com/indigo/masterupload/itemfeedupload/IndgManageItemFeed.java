@@ -22,6 +22,8 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private static final String DEFAULT_CATEGORY_PATH = "DefaultCategoryPath";
   private static final String CREATE_ACTION = "Create";
   private static final String DEFAULT_UNIT_OF_MEASURE = "EACH";
+  private static final String DELETE_ACTION = "Delete";
+  private static final String ORGANIZATION_CODE = "Indigo_CA";
   private String inputCategoryID=""; 
   private String categoryPath = "";
   
@@ -43,15 +45,18 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    * @param inXml
    */
   private void manageItem(YFCElement itemEle,YFCDocument inXml) {
-    String inputItemID = itemEle.getAttribute(itemEle.getAttribute(XMLLiterals.ITEM_ID));
+    String inputItemID = itemEle.getAttribute(XMLLiterals.ITEM_ID);
     YFCDocument itemListOp = getItemList(inputItemID);
     if(itemListOp.getDocumentElement().hasChildNodes()) {
       String opSyncTS = itemListOp.getDocumentElement().getChildElement(XMLLiterals.ITEM)
           .getAttribute(XMLLiterals.SYNC_TS);
       if(!itemEle.getAttribute(XMLLiterals.SYNC_TS).equals(opSyncTS)){
-        
+        if(!isItemAssignedToCategory(itemListOp.getDocumentElement().getChildElement(XMLLiterals.ITEM))){
+          modifyCategoryItem(itemEle,CREATE_ACTION);
+        } else {
+          validateCategoryItempath(itemEle,itemListOp);
+        }
         invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
-        return;
       }
     } else {
       invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
@@ -83,8 +88,12 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     YFCElement inEle = inXml.getDocumentElement().createChild(XMLLiterals.ITEM);
     inEle.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
     inEle.setAttribute(XMLLiterals.SYNC_TS, EMPTY_STRING);
-    inEle.createChild(XMLLiterals.CATEGORY_LIST).createChild(XMLLiterals.CATEGORY)
-      .setAttribute(XMLLiterals.CATEGORY_ID,EMPTY_STRING);
+    inEle.setAttribute(XMLLiterals.PRODUCT_LINE, EMPTY_STRING);
+    inEle.createChild(XMLLiterals.CLASSIFICATION_CODES)
+      .setAttribute(XMLLiterals.COMMODITY_CODE, EMPTY_STRING);
+    YFCElement categoryEle = inEle.createChild(XMLLiterals.CATEGORY_LIST).createChild(XMLLiterals.CATEGORY);
+    categoryEle.setAttribute(XMLLiterals.CATEGORY_ID,EMPTY_STRING);
+    categoryEle.setAttribute(XMLLiterals.CATEGORY_PATH,EMPTY_STRING);
     return inXml;
   }
   
@@ -98,14 +107,11 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private void manageCategory(YFCElement itemEle) {
     inputCategoryID = getCategoryID(itemEle);
     if(!XmlUtils.isVoid(inputCategoryID)){
-      String orgCode = getProperty(XMLLiterals.ORGANIZATION_CODE);
       YFCDocument categoryList = getCategoryList(inputCategoryID,
-          orgCode);
-      categoryPath = getProperty(DEFAULT_CATEGORY_PATH);
-      if(!categoryList.getDocumentElement().hasChildNodes()) { 
-        createCategory(inputCategoryID,orgCode);
-      } else {
-        categoryPath = XPathUtil.getXpathAttribute(categoryList, "/CategoryList/Category/@CategoryPath");
+          ORGANIZATION_CODE);
+      categoryPath = XPathUtil.getXpathAttribute(categoryList, "/CategoryList/Category/@CategoryPath");
+      if(!categoryList.getDocumentElement().hasChildNodes()) {
+        categoryPath = getProperty(DEFAULT_CATEGORY_PATH);
       }
     }
   }
@@ -137,7 +143,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    */
    public YFCDocument getCategoryList(String categoryId, String org){
      return invokeYantraApi(XMLLiterals.GET_CATEGORY_LIST, 
-         IndgCategoryMasterUpload.formInputXmlForGetCategoryList(categoryId,org),
+         IndgCategoryMasterUpload.formInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
            IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());
    }
    
@@ -163,11 +169,12 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    * 
    */
    public void modifyCategoryItem(YFCElement itemEle,String action){
-     if(action.equals(CREATE_ACTION)){
+     if(CREATE_ACTION.equals(action)) {
        manageCategory(itemEle);
      }
      invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
-         formInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),action,categoryPath,getProperty(XMLLiterals.ORGANIZATION_CODE)));
+         formInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),action,
+             categoryPath,ORGANIZATION_CODE));
    }
    
    /**
@@ -182,7 +189,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    public static YFCDocument formInputDocForModifyCategoryItem(String itemID,String action,String catPath,String orgCode){
      YFCDocument modifyCategory = YFCDocument.createDocument(XMLLiterals.MODIFY_CATEGORY_ITEMS);
      YFCElement modifyCategoryEle = modifyCategory.getDocumentElement();
-     modifyCategoryEle.setAttribute(XMLLiterals.CALLING_ORGANIZATION_CODE, EMPTY_STRING);
+     modifyCategoryEle.setAttribute(XMLLiterals.CALLING_ORGANIZATION_CODE, orgCode);
      YFCElement categoryEle = modifyCategoryEle.createChild(XMLLiterals.CATEGORY);
      categoryEle.setAttribute(XMLLiterals.CATEGORY_PATH, catPath);
      categoryEle.setAttribute(XMLLiterals.ORGANIZATION_CODE,orgCode);
@@ -190,12 +197,42 @@ public class IndgManageItemFeed extends AbstractCustomApi{
          .createChild(XMLLiterals.CATEGORY_ITEM);
      categoryItem.setAttribute(XMLLiterals.ACTION, action);
      categoryItem.setAttribute(XMLLiterals.ITEM_ID, itemID);
+     categoryItem.setAttribute(XMLLiterals.ORGANIZATION_CODE,orgCode);
      categoryItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
      return modifyCategory;
    }
    
+   /**
+    * This method validates if the Item is assigned to 
+    * any Category
+    * 
+    * @param itemEle
+    * @return
+    */
+   private boolean isItemAssignedToCategory(YFCElement itemEle) {
+     if(itemEle.getChildElement(XMLLiterals.CATEGORY_LIST).hasChildNodes()) {
+       return true;
+     }
+     return false;
+   }
    
-   
-   
-  
+   /**
+    * This method validates and manage categoryItem
+    * 
+    * @param inItemEle
+    * @param opListItemEle
+    */
+   private void validateCategoryItempath(YFCElement inItemEle, YFCDocument opListItemDoc) {
+    
+     String ipItemCategoryId = getCategoryID(inItemEle);
+     YFCElement opListItemEle = opListItemDoc.getDocumentElement()
+         .getChildElement(XMLLiterals.ITEM);
+     String opListCategoryId =  XPathUtil.getXpathAttribute(opListItemDoc, "//Category/@CategoryID");
+     categoryPath =  XPathUtil.getXpathAttribute(opListItemDoc, "//Category/@CategoryPath");
+     if(!ipItemCategoryId.equals(opListCategoryId)) {
+       modifyCategoryItem(opListItemEle,DELETE_ACTION);
+       modifyCategoryItem(inItemEle,CREATE_ACTION);
+     }
+   }
+
 }

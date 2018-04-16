@@ -21,6 +21,9 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
   
   
   private static final String CREATE_ACTION = "Create";
+
+
+  private static final String EMPTY_STRING = "";
   /**
    * This is the starting point of the class
    * 
@@ -57,7 +60,7 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
    */
    private YFCDocument getCategoryList(String categoryId, String org){
      return invokeYantraApi(XMLLiterals.GET_CATEGORY_LIST, 
-         IndgCategoryMasterUpload.formInputXmlForGetCategoryList(categoryId,org),
+         IndgCategoryMasterUpload.formInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
            IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());
    }
 }

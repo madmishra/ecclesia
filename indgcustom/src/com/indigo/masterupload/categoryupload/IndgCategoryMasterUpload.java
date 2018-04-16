@@ -33,6 +33,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   private static final String DEFAULT_UOM = "EACH";
   private static final String UNPUBLISH_STATUS="2000";
   private static final String PUBLISH_STATUS="3000";
+  private static final String ORG_CODE="Indigo_CA";
   List<String> itemIDList = new ArrayList<>();
   
   
@@ -50,7 +51,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
         invokeYantraApi(XMLLiterals.MANAGE_CATEGORY, inXml);
         return inXml;
       }
-     organizationCode = categoryInEle.getAttribute(XMLLiterals.ORGANIZATION_CODE);
+     organizationCode = categoryInEle.getAttribute(XMLLiterals.ORGANIZATION_CODE,ORG_CODE);
      YFCDocument categoryItemList = getCategoryList(categoryInEle
          .getAttribute(XMLLiterals.CATEGORY_ID),organizationCode,EMPTY_STRING);
      manageDeleteCategory(categoryInEle.getAttribute(XMLLiterals.CATEGORY_ID),

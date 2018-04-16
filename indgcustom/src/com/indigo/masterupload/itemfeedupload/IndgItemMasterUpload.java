@@ -47,6 +47,7 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
     if(categoryList.getDocumentElement().hasChildNodes()) {
       String categoryPath = XPathUtil.getXpathAttribute(categoryList, 
           "/CategoryList/Category/@CategoryPath");
+      
       invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
           IndgManageItemFeed.formInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),CREATE_ACTION,categoryPath,organizationCode));
     }

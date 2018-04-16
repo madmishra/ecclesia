@@ -85,4 +85,18 @@ public static final String SHIFT_NAME = "ShiftName";
 public static final String SHIFT_START_TIME="ShiftStartTime";
 public static final String SHIFT_END_TIME="ShiftEndTime";
 public static final String GET_UN_PUBLISHED_CATEGORY = "GetUnpublishedCategories";	
+public static final String CALENDAR_DAY_EXCEPTIONS="CalendarDayExceptions";
+public static final String CALENDAR_DAY_EXCEPTION="CalendarDayException";
+public static final String DATE="Date";
+public static final String EXCEPTION_TYPE="ExceptionType";
+public static final String CHANGE_CALENDAR="changeCalendar";
+public static final String SERVICE_SLOT_GROUP="ServiceSlotGroup";
+public static final String SERVICE_SLOT_GROUP_ID="ServiceSlotGroupId";
+public static final String SERVICE_SLOT ="ServiceSlot";
+public static final String START_TIME="StartTime";
+public static final String END_TIME="EndTime";
+public static final String MANAGE_SERVICE_SLOT_GROUP="manageServiceSlotGroup";
+public static final String CALENDAR_DESCRIPTION="CalendarDescription";
+
 }
+

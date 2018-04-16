@@ -4,11 +4,11 @@
       <FileHeader FileHeaderId="000" FileHeaderStartPos="1" FileHeaderLength="3" />
       <FileTrailer FileTrailerId="666" FileTrailerStartPos="1" FileTrailerLength="3" />
    </ParserDefaults>
-   <Root Name="CALDATALIST">
+   <Root Name="CalendarList">
       <Header Name="CALDATA" RecordName="CALDATA" MinOccurence="1" MaxOccurence="1" />
    </Root>
    <RecordDefinitions>
-      <Record RecordId="CALDATA" Name="CALDATA" XMLName="CAL">
+      <Record RecordId="Calendar" Name="Calendar" XMLName="Calendar">
          <Field Name="Location" FieldPosition="2" XMLName="OrganizationCode" />
          <Field Name="Time" FieldPosition="3" XMLName="Time" />
          <Field Name="Date" FieldPosition="4" XMLName="EffectiveFromDate" />

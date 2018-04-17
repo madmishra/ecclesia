@@ -164,7 +164,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			 }
 			 String calenderId = createCalenderInXml.getDocumentElement().getAttribute(XMLLiterals.CALENDER_ID);
 			 String orgCode = createCalenderInXml.getDocumentElement().getAttribute(XMLLiterals.ORGANIZATION_CODE);
-			 if(!XmlUtils.isVoid(calenderId) || getCalendarList(orgCode,calenderId).getDocumentElement().hasChildNodes()) {
+			 if(!XmlUtils.isVoid(calenderId) && getCalendarList(orgCode,calenderId).getDocumentElement().hasChildNodes()) {
 					 exceptionList.clear();
 					 invokeYantraApi(XMLLiterals.CHANGE_CALENDAR, createCalenderInXml);
 					 manageSerSlot(orgCode);

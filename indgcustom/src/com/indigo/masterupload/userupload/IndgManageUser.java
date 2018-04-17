@@ -29,8 +29,9 @@ public class IndgManageUser extends AbstractCustomApi {
 	private static final String CREATE = "Create";
 	private static final String MODIFY = "Modify";
 	private static final String INACTIVE = "InActive";
-	private static final String USER_MANAGER_SERVER = "Indg_UserManager2";
+	private static final String USER_MANAGER_SERVER = "Indg_UserFeed_IntoQ";
 	private static final String INACTIVATE_FLAG = "N";
+	private static final String FLAG = "Y";
 	
 	/**	 
 	 * This method is the invoke point of the service.
@@ -131,6 +132,7 @@ public class IndgManageUser extends AbstractCustomApi {
 	    	  String inpEleString = inEle.toString();
 	    	  YFCDocument inputDocForService = YFCDocument.getDocumentFor(inpEleString);
 	    	  inputDocForService.getDocumentElement().setAttribute(XMLLiterals.ACTION, CREATE);
+	    	  inputDocForService.getDocumentElement().setAttribute(XMLLiterals.ACTIVATE_FLAG, FLAG);
 	    	  callUserUpdateQueue(inputDocForService);
 	    	  
 	    	  YFCNode parent = inEle.getParentNode();

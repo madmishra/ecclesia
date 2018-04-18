@@ -97,6 +97,20 @@ public static final String START_TIME="StartTime";
 public static final String END_TIME="EndTime";
 public static final String MANAGE_SERVICE_SLOT_GROUP="manageServiceSlotGroup";
 public static final String CALENDAR_DESCRIPTION="CalendarDescription";
-
+public static final String RESOURCE_POOL="ResourcePool";
+public static final String RESOURCE_POOLS="ResourcePools";
+public static final String RESOURCE_POOL_ATTRIBUTE_LIST="ResourcePoolAttributeList";
+public static final String RESOURCE_POOL_ATTRIBUTE="ResourcePoolAttribute";
+public static final String DELIVERY_METHOD="DeliveryMethod";
+public static final String RESOURCE_POOL_ID="ResourcePoolId";
+public static final String CAPACITY_UNIT_OF_MEASURE="CapacityUnitOfMeasure";
+public static final String CREATE_RESOURCE_POOL="createResourcePool";
+public static final String GET_RESOURCE_POOL_LIST="getResourcePoolList";
+public static final String PURPOSE="Purpose";
+public static final String RESOURCE_CALENDAR="ResourceCalendar";
+public static final String ITEM_GROUP_CODE="ItemGroupCode";
+public static final String SERVICE_SLOT_GROUP_DESC="ServiceSlotGroupDesc";
+public static final String SERVICE_SLOT_LIST="ServiceSlotList";
+public static final String ORGANIZATION_KEY="OrganizationKey";
 }
 

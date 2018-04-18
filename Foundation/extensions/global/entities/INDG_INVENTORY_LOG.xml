@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+IBM Sterling Selling and Fulfillment Suite
+(C) Copyright IBM Corp. 2001, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<DBSchema>
+   <Entities>           
+      <Entity TableName="INDG_INVENTORY_LOG" ApiNeeded="Y" AuditRequired="N" Description="Tabel for storing delta inventory sync" 
+      HasHistory="Y" Prefix="INDG_" EntityType="Configuration">
+        <Attributes>		
+		<Attribute ColumnName="INDG_INVENTORY_LOG_KEY" 
+          DataType="Key"
+          DefaultValue="' '" 
+          Description="Primary key for the Custom Table"  
+          Nullable="false" 
+          Size="24"
+          XMLName="IndgIventoryLogKey"/>
+        <Attribute ColumnName="ITEM_ID" 
+          DataType="Text-20"
+          DefaultValue="' '" 
+          Description="Item Id"  
+          Nullable="false" 
+          Size="20" 
+          Type="NVARCHAR" 
+          XMLName="ItemID"/>
+		  <Attribute ColumnName="SHIP_NODE" 
+          DataType="Text-20"
+          DefaultValue="' '" 
+          Description="Ship Node of Item"  
+          Nullable="false" 
+          Size="20" 
+          Type="NVARCHAR" 
+          XMLName="ShipNode"/>
+		  <Attribute ColumnName="QUANTITY" 
+		  DecimalDigits="2"
+          DefaultValue="0" 
+          Description="Quantity of the Item inventory"  
+          Nullable="false" 
+          Size="20" 
+          Type="NUMBER" 
+          XMLName="Quantity"/>
+		  <Attribute ColumnName="SUPPLY_TYPE" 
+          DataType="Text-20"
+          DefaultValue="' '" 
+          Description="Supply type of the Inventory"  
+          Nullable="false" 
+          Size="20" 
+          Type="NVARCHAR" 
+          XMLName="SupplyType"/>
+		  <Attribute ColumnName="SOURCE_TYPE"
+          DataType="Text-20"
+          DefaultValue="' '" 
+          Description="Supply type of the Inventory"  
+          Nullable="false" 
+          Size="20" 
+          Type="NVARCHAR" 
+          XMLName="SourceType"/>
+		   <Attribute ColumnName="LOG_TIME_STAMP" DataType="TimeStamp"  
+           DefaultValue="sysdate" XMLName="LogTS"
+		   Description="Inventory adjustment TimeStamp" /> 
+		  <Attribute ColumnName="CREATETS" DataType="TimeStamp"  
+           DefaultValue="sysdate" Description="Create TimeStamp" /> 
+         <Attribute ColumnName="MODIFYTS" DataType="TimeStamp" 
+           DefaultValue="sysdate" Description="Modify TimeStamp" /> 
+         <Attribute ColumnName="CREATEUSERID" DataType="UserId" 
+           DefaultValue="&apos; &apos;" Description="Creating User ID" /> 
+         <Attribute ColumnName="MODIFYUSERID" DataType="UserId" 
+           DefaultValue="&apos; &apos;" Description="Modifying User ID" /> 
+         <Attribute ColumnName="CREATEPROGID" DataType="ProgramID" 
+           DefaultValue="&apos; &apos;" Description="Creating Program ID" /> 
+         <Attribute ColumnName="MODIFYPROGID" DataType="ProgramID" 
+           DefaultValue="&apos; &apos;" Description="Modifying Program ID" /> 
+         <Attribute ColumnName="LOCKID" DataType="Lockid" 
+           DefaultValue="0" Description="Lock ID" />
+		  </Attributes>		
+       <!-- PrimaryKey is a mandatory attribute in entity definition. 
+        This element can have ONLY ONE attribute element --> 
+      <PrimaryKey Name="INDG_IVL_PK"> 
+           <Attribute ColumnName="INDG_INVENTORY_LOG_KEY" /> 
+		   <Attribute ColumnName="ITEM_ID" />
+		   <Attribute ColumnName="SHIP_NODE" />
+      </PrimaryKey>
+	</Entity>
+    </Entities>
+</DBSchema>

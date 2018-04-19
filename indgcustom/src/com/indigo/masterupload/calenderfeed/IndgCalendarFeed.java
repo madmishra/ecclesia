@@ -63,8 +63,8 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			  else if(!organizationCode
 					  .equals(element.getAttribute(XMLLiterals.ORGANIZATION_CODE))) {
 				  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
-				  System.out.println(createCalenderXml);
-				  System.out.println(exceptionList);
+				  System.out.println(createCalenderXml+"--mismatch calendar cfreated---");
+				  System.out.println(exceptionList+"---edxceptionlist--");
 				 createCalendar(createCalenderXml,exceptionList);
 				 //call resorce pool
 				 createResourcePool(organizationCode,calenadrId);
@@ -94,7 +94,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		  createCalendar(createCalenderXml,exceptionList);
 		  //read cread calendar output and pass node
 		  createResourcePool(organizationCode,calenadrId);
-		  System.out.println(createCalenderXml);
+		  System.out.println(createCalenderXml+"---after createResourcePool---");
 			 
 		  return createCalenderXml;
 }
@@ -235,7 +235,8 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 					sortEle.setAttribute(XMLLiterals.END_TIME, shiftTime[1]);
 				}
 			YFCDocument temp = YFCDocument.createDocument(XMLLiterals.SERVICE_SLOT_GROUP);
-			System.out.println(temp+"manageSerSlot");
+			System.out.println(mangSlotDoc+"--mangSlotDoc_ManageServSlot--");
+			System.out.println(temp+"manageSerSlottemp");
 			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc,temp);
 			map.clear();
 			}
@@ -252,7 +253,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			    resourcePoolEle.setAttribute(XMLLiterals.NODE,organizationCode);
 			    resourcePoolEle.setAttribute(XMLLiterals.CAPACITY_UNIT_OF_MEASURE, capacityUnitOfMeasure);
 			    resourcePoolEle.setAttribute(XMLLiterals.RESOURCE_POOL_ID, resourcePoolId);
-			    System.out.println(resourceList+"--formInput---");
+			    System.out.println(resourceList+"--formInputXmlForGetResourceList---");
 			    return resourceList;
 			   
 			 }
@@ -267,7 +268,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				    resourcePoolEle.setAttribute(XMLLiterals.RESOURCE_POOL_ID, EMPTY_STRING);
 				    resourcePoolEle.setAttribute(XMLLiterals.NODE, EMPTY_STRING);
 				    resourcePoolEle.setAttribute(XMLLiterals.CAPACITY_UNIT_OF_MEASURE, EMPTY_STRING);
-				    System.out.println(getResourcePoolTemp+"--formtemplate--");
+				    System.out.println(getResourcePoolTemp+"--formtemplateforgetResourcePoolList--");
 				    return getResourcePoolTemp;
 			}
 			/**
@@ -303,7 +304,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				 resourceCalendarEle.setAttribute(XMLLiterals.CALENDER_ID, calendarId);
 				 YFCElement resourcePoolAttributeEle=inputXmlDoc.getDocumentElement().createChild(XMLLiterals.RESOURCE_POOL_ATTRIBUTE_LIST).createChild(XMLLiterals.RESOURCE_POOL_ATTRIBUTE);
 				 resourcePoolAttributeEle.setAttribute(XMLLiterals.DELIVERY_METHOD, deliveryMethod);
-				 System.out.println(inputXmlDoc);
+				 System.out.println(inputXmlDoc+"----inputXmlForCreateResourcePool---");
 				 return inputXmlDoc;
 			 }
 			 
@@ -323,7 +324,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				 resourceCalendarEle.setAttribute(XMLLiterals.CALENDER_ID, EMPTY_STRING);
 				 YFCElement resourcePoolAttributeEle=inputXmlDoc.getDocumentElement().createChild(XMLLiterals.RESOURCE_POOL_ATTRIBUTE_LIST).createChild(XMLLiterals.RESOURCE_POOL_ATTRIBUTE);
 				 resourcePoolAttributeEle.setAttribute(XMLLiterals.DELIVERY_METHOD, EMPTY_STRING);
-				 System.out.println(inputXmlDoc);
+				 System.out.println(inputXmlDoc+"---xmlTempForCreateResourcePool--");
 				 return inputXmlDoc;
 				 
 			 }

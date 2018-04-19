@@ -234,13 +234,26 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 					sortEle.setAttribute(XMLLiterals.START_TIME,shiftTime[0]);
 					sortEle.setAttribute(XMLLiterals.END_TIME, shiftTime[1]);
 				}
-			YFCDocument temp = YFCDocument.createDocument(XMLLiterals.SERVICE_SLOT_GROUP);
 			System.out.println(mangSlotDoc+"--mangSlotDoc_ManageServSlot--");
-			System.out.println(temp+"manageSerSlottemp");
-			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc,temp);
+			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc,mangSlotTemp());
 			map.clear();
 			}
 			
+			public YFCDocument mangSlotTemp()
+			{
+				YFCDocument managDoc = YFCDocument.createDocument(XMLLiterals.SERVICE_SLOT_GROUP);
+				YFCElement managEle=managDoc.getDocumentElement();
+				managEle.setAttribute(XMLLiterals.ITEM_GROUP_CODE, EMPTY_STRING);
+				managEle.setAttribute(XMLLiterals.SERVICE_SLOT_GROUP_ID,EMPTY_STRING);
+				managEle.setAttribute(XMLLiterals.SERVICE_SLOT_GROUP_DESC,EMPTY_STRING);
+				managEle.setAttribute(XMLLiterals.ORGANIZATION_KEY,EMPTY_STRING);
+				YFCElement slotList=managEle.createChild(XMLLiterals.SERVICE_SLOT_LIST);
+				slotList.setAttribute(XMLLiterals.START_TIME,EMPTY_STRING);
+				slotList.setAttribute(XMLLiterals.END_TIME, EMPTY_STRING);
+				System.out.println(managDoc);
+				return managDoc;
+				
+			}
 			/**
 			 * this method creates input for getResourceList api
 			 * @param node

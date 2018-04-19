@@ -23,6 +23,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	private static final String EXCEPTION_TIME = "00 00";
 	private static final String OFF_DAY = "0";
 	private static final String PICK="_PICK_";
+	private static final String itemGroupCode="PROD";
 	Map<String, String> map=new HashMap<>();
 	/**
 	   * This is the invoke point of the Service
@@ -82,17 +83,18 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	 			String startTime = element.getAttribute(XMLLiterals.SHIFT_START_TIME);
 	 			String endTime = element.getAttribute(XMLLiterals.SHIFT_END_TIME);
 	 					try {
-	 						if(EXCEPTION_TIME.equals(startTime) && EXCEPTION_TIME.equals(endTime)) {
+	 						if(EXCEPTION_TIME.equals(startTime) && EXCEPTION_TIME.equals(endTime)) 
 	 							exceptionList.add(dateFormatter(element.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE)));
+	 							else
+	 								setShiftValues(element);
 	 						}
-	 						setShiftValues(element);
-	 					} catch (ParseException e) {
+	 						
+	 					 catch (ParseException e) {
 	 						
 	 					}
 			  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE,effectiveToDate);
 }
 		  createCalendar(createCalenderXml,exceptionList);
-		  //read cread calendar output and pass node
 		  createResourcePool(organizationCode,calenadrId);
 		  System.out.println(createCalenderXml+"---after createResourcePool---");
 			 
@@ -156,7 +158,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			    calendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
 			    calendarEle.setAttribute(XMLLiterals.CALENDER_ID, calenderId);
 			    calendarEle.setAttribute(XMLLiterals.CALENDAR_DESCRIPTION, calenderId);
-	System.out.println(getCalendarXml+"--formInputXmlForGetCalendarList--");
+			    System.out.println(getCalendarXml+"--formInputXmlForGetCalendarList--");
 			    return getCalendarXml;
 			  }
 		 
@@ -219,7 +221,6 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		  * @param orgCode
 		  */
 			private void manageSerSlot(String orgCode) {
-				String itemGroupCode="PROD";
 				Set<String> keySet=map.keySet();
 				YFCDocument mangSlotDoc = YFCDocument.createDocument(XMLLiterals.SERVICE_SLOT_GROUP);
 				YFCElement serviceSlotEle=mangSlotDoc.getDocumentElement();
@@ -311,10 +312,13 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				 inputEle.setAttribute(XMLLiterals.SERVICE_SLOT_GROUP_ID,organizationCode+PICK+XMLLiterals.SERVICE_SLOT_GROUP);
 				 inputEle.setAttribute(XMLLiterals.PURPOSE,purpose );
 				 inputEle.setAttribute(XMLLiterals.NODE, organizationCode);
+				 inputEle.setAttribute(XMLLiterals.ITEM_GROUP_CODE, itemGroupCode);
 				 inputEle.setAttribute(XMLLiterals.CAPACITY_UNIT_OF_MEASURE, capacityUnitOfMeasure);
 				 inputEle.setAttribute(XMLLiterals.RESOURCE_POOL_ID,resourcePoolId);
+				 inputEle.setAttribute(XMLLiterals.CAPACITYORGCODE,XMLLiterals.INDIGO_CA);
 				 YFCElement resourceCalendarEle=inputEle.createChild(XMLLiterals.RESOURCE_CALENDAR);
 				 resourceCalendarEle.setAttribute(XMLLiterals.CALENDER_ID, calendarId);
+				 resourceCalendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE,organizationCode);
 				 YFCElement resourcePoolAttributeEle=inputXmlDoc.getDocumentElement().createChild(XMLLiterals.RESOURCE_POOL_ATTRIBUTE_LIST).createChild(XMLLiterals.RESOURCE_POOL_ATTRIBUTE);
 				 resourcePoolAttributeEle.setAttribute(XMLLiterals.DELIVERY_METHOD, deliveryMethod);
 				 System.out.println(inputXmlDoc+"----inputXmlForCreateResourcePool---");
@@ -331,10 +335,13 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				 inputEle.setAttribute(XMLLiterals.SERVICE_SLOT_GROUP_ID,EMPTY_STRING);
 				 inputEle.setAttribute(XMLLiterals.PURPOSE,EMPTY_STRING );
 				 inputEle.setAttribute(XMLLiterals.NODE, EMPTY_STRING);
+				 inputEle.setAttribute(XMLLiterals.ITEM_GROUP_CODE, EMPTY_STRING);
 				 inputEle.setAttribute(XMLLiterals.CAPACITY_UNIT_OF_MEASURE, EMPTY_STRING);
 				 inputEle.setAttribute(XMLLiterals.RESOURCE_POOL_ID,EMPTY_STRING);
+				 inputEle.setAttribute(XMLLiterals.CAPACITYORGCODE,EMPTY_STRING);
 				 YFCElement resourceCalendarEle=inputXmlDoc.getDocumentElement().createChild(XMLLiterals.RESOURCE_CALENDAR);
 				 resourceCalendarEle.setAttribute(XMLLiterals.CALENDER_ID, EMPTY_STRING);
+				 resourceCalendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE,EMPTY_STRING);
 				 YFCElement resourcePoolAttributeEle=inputXmlDoc.getDocumentElement().createChild(XMLLiterals.RESOURCE_POOL_ATTRIBUTE_LIST).createChild(XMLLiterals.RESOURCE_POOL_ATTRIBUTE);
 				 resourcePoolAttributeEle.setAttribute(XMLLiterals.DELIVERY_METHOD, EMPTY_STRING);
 				 System.out.println(inputXmlDoc+"---xmlTempForCreateResourcePool--");
@@ -348,11 +355,10 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			  */
 			 
 			public void createResourcePool(String organizationCode,String calendarId) {
-				//gat the calendarId and orgCode
 				String resourcePoolId=organizationCode+POOLID;
 				String deliveryMethod="PICK";
 				String capacityUnitOfMeasure="RELEASE";
-				String purpose="Inventory";
+				String purpose="INVENTORY";
 				 
 				if(!getResourcepool(organizationCode,capacityUnitOfMeasure,resourcePoolId).getDocumentElement().hasChildNodes()) {
 					invokeYantraApi(XMLLiterals.CREATE_RESOURCE_POOL,inputXmlForCreateResourcePool(purpose,organizationCode,resourcePoolId,deliveryMethod,capacityUnitOfMeasure,calendarId),xmlTempForCreateResourcePool());

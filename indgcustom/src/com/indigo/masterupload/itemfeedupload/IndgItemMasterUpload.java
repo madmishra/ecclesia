@@ -49,7 +49,7 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
           "/CategoryList/Category/@CategoryPath");
       
       invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
-          IndgManageItemFeed.formInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),CREATE_ACTION,categoryPath,organizationCode));
+          IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),CREATE_ACTION,categoryPath,organizationCode));
     }
   }
   
@@ -61,7 +61,7 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
    */
    private YFCDocument getCategoryList(String categoryId, String org){
      return invokeYantraApi(XMLLiterals.GET_CATEGORY_LIST, 
-         IndgCategoryMasterUpload.formInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
+         IndgCategoryMasterUpload.getInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
            IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());
    }
 }

@@ -75,7 +75,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     YFCDocument inputXml = YFCDocument.createDocument(XMLLiterals.ITEM);
     inputXml.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemID);
     return invokeYantraApi(XMLLiterals.GET_ITEM_LIST_API, 
-        inputXml, formTemplateForGetItemList());
+        inputXml, getTemplateForGetItemList());
   }
   
   /**
@@ -84,7 +84,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    * 
    * @return
    */
-  public static YFCDocument formTemplateForGetItemList() {
+  public static YFCDocument getTemplateForGetItemList() {
     YFCDocument inXml = YFCDocument.createDocument(XMLLiterals.ITEM_LIST);
     YFCElement inEle = inXml.getDocumentElement().createChild(XMLLiterals.ITEM);
     inEle.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
@@ -146,7 +146,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    */
    public YFCDocument getCategoryList(String categoryId, String org){
      return invokeYantraApi(XMLLiterals.GET_CATEGORY_LIST, 
-         IndgCategoryMasterUpload.formInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
+         IndgCategoryMasterUpload.getInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
            IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());
    }
    
@@ -160,7 +160,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
      String categoryDomain = getProperty(CATEGORY_DOMAIN);
      categoryPath = categoryPath+"/"+categoryId;
      invokeYantraApi(XMLLiterals.CREATE_CATEGORY, 
-         IndgCategoryMasterUpload.formInputXmlForCreateCategory(categoryId,
+         IndgCategoryMasterUpload.getInputXmlForCreateCategory(categoryId,
              categoryDomain,categoryPath,orgCode));
    }
    
@@ -177,7 +177,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
        manageCategory(itemEle);
      }
      invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
-         formInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),action,
+         getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),action,
              categoryPath,ORGANIZATION_CODE));
    }
    
@@ -190,7 +190,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     * @param orgCode
     * @return
     */
-   public static YFCDocument formInputDocForModifyCategoryItem(String itemID,String action,String catPath,String orgCode){
+   public static YFCDocument getInputDocForModifyCategoryItem(String itemID,String action,String catPath,String orgCode){
      YFCDocument modifyCategory = YFCDocument.createDocument(XMLLiterals.MODIFY_CATEGORY_ITEMS);
      YFCElement modifyCategoryEle = modifyCategory.getDocumentElement();
      modifyCategoryEle.setAttribute(XMLLiterals.CALLING_ORGANIZATION_CODE, orgCode);
@@ -238,5 +238,4 @@ public class IndgManageItemFeed extends AbstractCustomApi{
        modifyCategoryItem(inItemEle,CREATE_ACTION);
      }
    }
-
 }

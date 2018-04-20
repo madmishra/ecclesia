@@ -112,5 +112,12 @@ public static final String ITEM_GROUP_CODE="ItemGroupCode";
 public static final String SERVICE_SLOT_GROUP_DESC="ServiceSlotGroupDesc";
 public static final String SERVICE_SLOT_LIST="ServiceSlotList";
 public static final String ORGANIZATION_KEY="OrganizationKey";
+public static final String SUNDAY_VALID="SundayValid";
+public static final String MONDAY_VALID="MondayValid";
+public static final String TUESDAY_VALID="TuesdayValid";
+public static final String WEDNESDAY_VALID="WednesdayValid";
+public static final String THURSDAY_VALID="ThursdayValid";
+public static final String FRIDAY_VALID="FridayValid";
+public static final String SATURDAY_VALID="SaturdayValid";
 }
 

@@ -49,6 +49,7 @@ public class ExceptionLiterals {
   public static final String ERRORCODE_INVALID_DATATYPE = "ERR0010002";
   public static final String ERRORCODE_INVALID_VAULTID = "ERR0010003";
   public static final String ERRORCODE_VAULT_ERROR = "ERR0010004";
+  public static final String ERRORCODE_INVALID_DATE="ERR0010005";
 
   public static final String MISSING_REQ_CONFIG = "ERR00003000";
   public static final String INVALID_XPATH = "ERR00003001";
@@ -70,4 +71,5 @@ public class ExceptionLiterals {
   public static final String ERR_SHIPMENT_HELD = "GKE0000015";
   public static final String ERR_NO_OPEN_TASK = "GKE0000016";
   public static final String ERR_INVALID_SHIPMENT = "GKE0000105";
+  
 }

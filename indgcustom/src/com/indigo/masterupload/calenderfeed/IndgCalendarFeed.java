@@ -19,7 +19,7 @@ import com.yantra.yfc.dom.YFCElement;
 
 public class IndgCalendarFeed extends AbstractCustomApi{
 	private static final String EMPTY_STRING = "";
-	private static final String CALENDER= "_Calender";
+	private static final String CALENDER= "_Calender12";
 	private static final String POOLID="_PICK_RLS_RP";
 	private static final String EXCEPTION_TIME = "00 00";
 	private static final String OFF_DAY = "0";

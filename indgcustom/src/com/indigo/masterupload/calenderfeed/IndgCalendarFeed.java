@@ -49,7 +49,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		 		try {
 		 			effectiveFromDate=analyseDate(calElement.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE));
 		 			if(effectiveFromDate=="null")
-		 				break;
+		 				continue;
 		 			
 		 		} catch(Exception excep) {
 		 			throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, excep);

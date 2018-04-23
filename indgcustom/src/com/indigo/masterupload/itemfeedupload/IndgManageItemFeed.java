@@ -1,7 +1,12 @@
 package com.indigo.masterupload.itemfeedupload;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
+import com.bridge.sterling.utils.ExceptionUtil;
 import com.bridge.sterling.utils.XPathUtil;
 import com.indigo.masterupload.categoryupload.IndgCategoryMasterUpload;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
@@ -51,7 +56,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     if(itemListOp.getDocumentElement().hasChildNodes()) {
       String opSyncTS = itemListOp.getDocumentElement().getChildElement(XMLLiterals.ITEM)
           .getAttribute(XMLLiterals.SYNC_TS);
-      if(!itemEle.getAttribute(XMLLiterals.SYNC_TS).equals(opSyncTS)){
+      if(validateItemUpdate(itemEle.getAttribute(XMLLiterals.SYNC_TS),opSyncTS)){
         if(!isItemAssignedToCategory(itemListOp.getDocumentElement().getChildElement(XMLLiterals.ITEM))){
           modifyCategoryItem(itemEle,CREATE_ACTION);
         } else {
@@ -237,5 +242,34 @@ public class IndgManageItemFeed extends AbstractCustomApi{
        modifyCategoryItem(opListItemEle,DELETE_ACTION);
        modifyCategoryItem(inItemEle,CREATE_ACTION);
      }
+   }
+   
+   
+   /**
+    * 
+    * 
+    * 
+    * @param inputSyncTS
+    * @param outputSyncTS
+    * @return
+    */
+   private boolean validateItemUpdate(String inputSyncTS, String outputSyncTS) {
+       try{
+         if(!XmlUtils.isVoid(inputSyncTS) && !XmlUtils.isVoid(outputSyncTS)){
+          String synctsIn = inputSyncTS.substring(0,10)+" "+inputSyncTS.substring(11,19);
+          String synctsOp = outputSyncTS.substring(0,10)+" "+outputSyncTS.substring(11,19);
+          SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+          Date date1 = format.parse(synctsIn);
+          Date date2 = format.parse(synctsOp);
+          long difference = date2.getTime() - date1.getTime();
+          if(difference < 0) {
+            return true;
+          }
+         }
+       }
+       catch(Exception exp) {
+       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
+     }
+     return false;
    }
 }

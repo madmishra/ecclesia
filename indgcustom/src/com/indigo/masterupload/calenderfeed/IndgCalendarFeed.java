@@ -118,7 +118,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		  System.out.println("-----SHIFT_END_TIME------------"+defShiftEndTime);
 		 YFCElement effectiveEle=createCalenderInXml.getDocumentElement().getChildElement(XMLLiterals.EFFECTIVE_PERIODS);
 		 effectiveEle.getChildElement(XMLLiterals.EFFECTIVE_PERIOD).setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
-		YFCElement shiftele=effectiveEle.createChild(XMLLiterals.SHIFTS).createChild(XMLLiterals.SHIFT);
+		YFCElement shiftele=effectiveEle.getChildElement(XMLLiterals.SHIFTS).getChildElement(XMLLiterals.SHIFT);
 		  shiftele.setAttribute(XMLLiterals.WEDNESDAY_VALID,yes);
 		  shiftele.setAttribute(XMLLiterals.TUESDAY_VALID,yes);
 		  shiftele.setAttribute(XMLLiterals.THURSDAY_VALID,yes);

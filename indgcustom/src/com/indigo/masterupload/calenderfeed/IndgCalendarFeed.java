@@ -139,7 +139,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		    Date effdate=new SimpleDateFormat("yyyy/MM/dd").parse(effectiveFromDate);  
 		    
 		    
-		    if(todayDate.compareTo(effdate)==0 || todayDate.compareTo(effdate)>0) {
+		    if(todayDate.compareTo(effdate)==0 || todayDate.compareTo(effdate)<0) {
 		    	String seffectiveFromDate = dateFormat.format(effdate);
 		    	dateFormatter(seffectiveFromDate);
 		    	System.out.println("after date >= current date-----");

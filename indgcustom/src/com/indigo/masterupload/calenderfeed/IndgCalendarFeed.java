@@ -47,7 +47,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		  for(YFCElement calElement : inputCalendarEle) {
 			  if(XmlUtils.isVoid(organizationCode)) {
 		 		try {
-		 			effectiveFromDate=anaylseDate(calElement.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE));
+		 			effectiveFromDate=analyseDate(calElement.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE));
 		 			if(effectiveFromDate=="null")
 		 				break;
 		 			
@@ -116,8 +116,8 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		 System.out.println("----SHIFT_START_TIME-----------------"+defShiftStartTime);
 		  String defShiftEndTime=getProperty("SHIFT_END_TIME");
 		  System.out.println("-----SHIFT_END_TIME------------"+defShiftEndTime);
-		 YFCElement effectiveEle=createCalenderInXml.getDocumentElement();
-		 effectiveEle.getChildElement(XMLLiterals.EFFECTIVE_PERIODS).getChildElement(XMLLiterals.EFFECTIVE_PERIOD).setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
+		 YFCElement effectiveEle=createCalenderInXml.getDocumentElement().getChildElement(XMLLiterals.EFFECTIVE_PERIODS);
+		 effectiveEle.getChildElement(XMLLiterals.EFFECTIVE_PERIOD).setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
 		YFCElement shiftele=effectiveEle.createChild(XMLLiterals.SHIFTS).createChild(XMLLiterals.SHIFT);
 		  shiftele.setAttribute(XMLLiterals.WEDNESDAY_VALID,yes);
 		  shiftele.setAttribute(XMLLiterals.TUESDAY_VALID,yes);
@@ -139,7 +139,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		    Date effdate=new SimpleDateFormat("yyyy/MM/dd").parse(effectiveFromDate);  
 		    
 		    
-		    if(todayDate.compareTo(effdate)==0 || todayDate.compareTo(effdate)<0) {
+		    if(todayDate.compareTo(effdate)==0 || todayDate.compareTo(effdate)>0) {
 		    	String seffectiveFromDate = dateFormat.format(effdate);
 		    	dateFormatter(seffectiveFromDate);
 		    	System.out.println("after date >= current date-----");

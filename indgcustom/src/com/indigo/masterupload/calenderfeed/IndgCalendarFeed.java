@@ -251,11 +251,13 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		  */
 		public void  checkExceptionDate(String orgCode,String calenderId,String effectiveFromDate){
 			YFCElement getCalDetailsEle=getCalendarDetails(orgCode,calenderId).getDocumentElement();
+			System.out.println(getCalDetailsEle);
 			YFCElement calDayExcepEle=getCalDetailsEle.getChildElement(XMLLiterals.CALENDAR_DAY_EXCEPTIONS).getChildElement(XMLLiterals.CALENDAR_DAY_EXCEPTION);
 			String sDate=calDayExcepEle.getAttribute(XMLLiterals.DATE);
 			String sExceptionType=calDayExcepEle.getAttribute(XMLLiterals.EXCEPTION_TYPE);
 			if(effectiveFromDate.equals(sDate) && sExceptionType.equals(OFF_DAY))
 				calDayExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE, WORKING_DAY);
+			System.out.println("----calendar changed---"+effectiveFromDate);
 		 }
 		 
 		 /**

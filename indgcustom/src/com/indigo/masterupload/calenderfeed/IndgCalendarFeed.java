@@ -133,7 +133,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	 }
 	 
 	 
-	 public String anaylseDate(String effectiveFromDate) throws ParseException{
+	 public String analyseDate(String effectiveFromDate) throws ParseException{
 		   DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 			Date todayDate = new Date();  
 		    Date effdate=new SimpleDateFormat("yyyy/MM/dd").parse(effectiveFromDate);  
@@ -142,8 +142,9 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		    if(todayDate.compareTo(effdate)==0 || todayDate.compareTo(effdate)>0) {
 		    	String seffectiveFromDate = dateFormat.format(effdate);
 		    	dateFormatter(seffectiveFromDate);
+		    	System.out.println("after date >= current date-----");
 		    }
-		    
+		    System.out.println("---date <= current date-----");
 		    	return null;
 		
 	}

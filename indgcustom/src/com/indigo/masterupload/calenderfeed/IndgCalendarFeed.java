@@ -240,7 +240,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			 String calenderId = createCalenderInXml.getDocumentElement().getAttribute(XMLLiterals.CALENDER_ID);
 			 String orgCode = createCalenderInXml.getDocumentElement().getAttribute(XMLLiterals.ORGANIZATION_CODE);
 			 if(!XmlUtils.isVoid(calenderId) && getCalendarDetails(orgCode,calenderId).getDocumentElement().hasChildNodes()) {
-				 checkExceptionDate(orgCode,calenderId,effectiveFromDate);
+				
 					 exceptionList.clear();
 					 invokeYantraApi(XMLLiterals.CHANGE_CALENDAR, createCalenderInXml);
 					 manageSerSlot(orgCode);
@@ -254,20 +254,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		 /** this method check whether the date is in exception list 
 		  * 
 		  */
-		public void  checkExceptionDate(String orgCode,String calenderId,String inputDate){
-			YFCElement getCalDetailsEle=getCalendarDetails(orgCode,calenderId).getDocumentElement();
-			System.out.println(getCalDetailsEle);
-			YFCElement calDayExcepEle=getCalDetailsEle.getChildElement(XMLLiterals.CALENDAR_DAY_EXCEPTIONS).getChildElement(XMLLiterals.CALENDAR_DAY_EXCEPTION);
-			String sShiftStart=calDayExcepEle.getAttribute(XMLLiterals.SHIFT_START_TIME);
-			String sShiftEnd=calDayExcepEle.getAttribute(XMLLiterals.SHIFT_END_TIME);
-			String sDate=calDayExcepEle.getAttribute(XMLLiterals.DATE);
-			String sExceptionType=calDayExcepEle.getAttribute(XMLLiterals.EXCEPTION_TYPE);
-			if(!(sShiftStart.equals(EXCEPTION_TIME)&& sShiftEnd.equals(EXCEPTION_TIME))) {
-			if(inputDate.equals(sDate) && sExceptionType.equals(OFF_DAY))
-				calDayExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE, WORKING_DAY);
-			System.out.println("----calendar changed---"+inputDate);
-		 }
-		}
+		
 		 
 		 /**
 		  * this method invokes getCalendarDetails

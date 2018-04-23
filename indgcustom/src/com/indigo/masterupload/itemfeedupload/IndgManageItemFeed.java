@@ -254,22 +254,22 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     * @return
     */
    private boolean validateItemUpdate(String inputSyncTS, String outputSyncTS) {
-
-     try{
-     String synctsIn = inputSyncTS.substring(0,10)+" "+inputSyncTS.substring(11,19);
-     String synctsOp = outputSyncTS.substring(0,10)+" "+outputSyncTS.substring(11,19);
-     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-     Date date1 = format.parse(synctsIn);
-     Date date2 = format.parse(synctsOp);
-     long difference = date2.getTime() - date1.getTime();
-     if(difference < 0) {
-       return true;
-     }
-     }
-     catch(Exception exp) {
+       try{
+         if(XmlUtils.isVoid(inputSyncTS) && XmlUtils.isVoid(outputSyncTS)){
+          String synctsIn = inputSyncTS.substring(0,10)+" "+inputSyncTS.substring(11,19);
+          String synctsOp = outputSyncTS.substring(0,10)+" "+outputSyncTS.substring(11,19);
+          SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+          Date date1 = format.parse(synctsIn);
+          Date date2 = format.parse(synctsOp);
+          long difference = date2.getTime() - date1.getTime();
+          if(difference < 0) {
+            return true;
+          }
+         }
+       }
+       catch(Exception exp) {
        throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
      }
      return false;
-     
    }
 }

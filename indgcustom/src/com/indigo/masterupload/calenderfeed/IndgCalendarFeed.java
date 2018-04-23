@@ -116,32 +116,35 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		 System.out.println("----SHIFT_START_TIME-----------------"+defShiftStartTime);
 		  String defShiftEndTime=getProperty("SHIFT_END_TIME");
 		  System.out.println("-----SHIFT_END_TIME------------"+defShiftEndTime);
-		 YFCElement effectiveEle=createCalenderInXml.getDocumentElement().getChildElement(XMLLiterals.EFFECTIVE_PERIODS);
-		 effectiveEle.getChildElement(XMLLiterals.EFFECTIVE_PERIOD).setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
-		YFCElement shiftele=effectiveEle.getChildElement(XMLLiterals.SHIFTS).getChildElement(XMLLiterals.SHIFT);
-		  shiftele.setAttribute(XMLLiterals.WEDNESDAY_VALID,yes);
-		  shiftele.setAttribute(XMLLiterals.TUESDAY_VALID,yes);
-		  shiftele.setAttribute(XMLLiterals.THURSDAY_VALID,yes);
-		  shiftele.setAttribute(XMLLiterals.SUNDAY_VALID,yes);
-		  shiftele.setAttribute(XMLLiterals.SATURDAY_VALID,yes);
-		  shiftele.setAttribute(XMLLiterals.MONDAY_VALID,yes);
-		  shiftele.setAttribute(XMLLiterals.FRIDAY_VALID,yes);
-		  shiftele.setAttribute(XMLLiterals.SHIFT_START_TIME,defShiftStartTime);
-		  shiftele.setAttribute(XMLLiterals.SHIFT_END_TIME,defShiftEndTime);
+		 YFCElement effectivePeriodsEle=createCalenderInXml.getDocumentElement().getChildElement(XMLLiterals.EFFECTIVE_PERIODS);
+		 YFCElement effectivePeriodEle= effectivePeriodsEle.getChildElement(XMLLiterals.EFFECTIVE_PERIOD);
+		 effectivePeriodEle.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
+		 YFCElement shiftEle=effectivePeriodEle.createChild(XMLLiterals.SHIFTS).createChild(XMLLiterals.SHIFT);
+		 
+		
+		 shiftEle.setAttribute(XMLLiterals.WEDNESDAY_VALID,yes);
+		 shiftEle.setAttribute(XMLLiterals.TUESDAY_VALID,yes);
+		  shiftEle.setAttribute(XMLLiterals.THURSDAY_VALID,yes);
+		  shiftEle.setAttribute(XMLLiterals.SUNDAY_VALID,yes);
+		  shiftEle.setAttribute(XMLLiterals.SATURDAY_VALID,yes);
+		  shiftEle.setAttribute(XMLLiterals.MONDAY_VALID,yes);
+		  shiftEle.setAttribute(XMLLiterals.FRIDAY_VALID,yes);
+		  shiftEle.setAttribute(XMLLiterals.SHIFT_START_TIME,defShiftStartTime);
+		  shiftEle.setAttribute(XMLLiterals.SHIFT_END_TIME,defShiftEndTime);
 		  
 		  System.out.println("---CALENDAR SHIFT CREATION-----"+createCalenderInXml);
 	 }
 	 
 	 /** this method changes the off day to working day and working day to off day based on requirement
 	  */
-	 public String analyseDate(String effectiveFromDate) throws ParseException{
+	 public String analyseDate(String inputDate) throws ParseException{
 		   DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-			Date todayDate = new Date();  
-		    Date effdate=new SimpleDateFormat("yyyy/MM/dd").parse(effectiveFromDate);  
+			Date currentDate = new Date();  
+		    Date formattedDate=new SimpleDateFormat("yyyy/MM/dd").parse(inputDate);  
 		    
 		    
-		    if(todayDate.compareTo(effdate)==0 || todayDate.compareTo(effdate)<0) {
-		    	String seffectiveFromDate = dateFormat.format(effdate);
+		    if(currentDate.compareTo(formattedDate)==0 || currentDate.compareTo(formattedDate)<0) {
+		    	String seffectiveFromDate = dateFormat.format(formattedDate);
 		    	dateFormatter(seffectiveFromDate);
 		    	System.out.println("after date >= current date-----");
 		    }
@@ -251,16 +254,20 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		 /** this method check whether the date is in exception list 
 		  * 
 		  */
-		public void  checkExceptionDate(String orgCode,String calenderId,String effectiveFromDate){
+		public void  checkExceptionDate(String orgCode,String calenderId,String inputDate){
 			YFCElement getCalDetailsEle=getCalendarDetails(orgCode,calenderId).getDocumentElement();
 			System.out.println(getCalDetailsEle);
 			YFCElement calDayExcepEle=getCalDetailsEle.getChildElement(XMLLiterals.CALENDAR_DAY_EXCEPTIONS).getChildElement(XMLLiterals.CALENDAR_DAY_EXCEPTION);
+			String sShiftStart=calDayExcepEle.getAttribute(XMLLiterals.SHIFT_START_TIME);
+			String sShiftEnd=calDayExcepEle.getAttribute(XMLLiterals.SHIFT_END_TIME);
 			String sDate=calDayExcepEle.getAttribute(XMLLiterals.DATE);
 			String sExceptionType=calDayExcepEle.getAttribute(XMLLiterals.EXCEPTION_TYPE);
-			if(effectiveFromDate.equals(sDate) && sExceptionType.equals(OFF_DAY))
+			if(!(sShiftStart.equals(EXCEPTION_TIME)&& sShiftEnd.equals(EXCEPTION_TIME))) {
+			if(inputDate.equals(sDate) && sExceptionType.equals(OFF_DAY))
 				calDayExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE, WORKING_DAY);
-			System.out.println("----calendar changed---"+effectiveFromDate);
+			System.out.println("----calendar changed---"+inputDate);
 		 }
+		}
 		 
 		 /**
 		  * this method invokes getCalendarDetails

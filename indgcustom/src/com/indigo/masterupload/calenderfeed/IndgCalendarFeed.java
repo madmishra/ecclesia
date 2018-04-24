@@ -282,27 +282,8 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 					sortEle.setAttribute(XMLLiterals.START_TIME,shiftTime[0]);
 					sortEle.setAttribute(XMLLiterals.END_TIME, shiftTime[1]);
 				}
-			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc,manageServiceSlotTempDoc());
+			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc);
 			map.clear();
-			}
-			/** this method creates template for manageserviceSlot api
-			 * 
-			 * @return
-			 */
-			
-			public YFCDocument manageServiceSlotTempDoc()
-			{
-				YFCDocument managDoc = YFCDocument.createDocument(XMLLiterals.SERVICE_SLOT_GROUP);
-				YFCElement serviceSlotEle=managDoc.getDocumentElement();
-				serviceSlotEle.setAttribute(XMLLiterals.ITEM_GROUP_CODE, EMPTY_STRING);
-				serviceSlotEle.setAttribute(XMLLiterals.SERVICE_SLOT_GROUP_ID,EMPTY_STRING);
-				serviceSlotEle.setAttribute(XMLLiterals.SERVICE_SLOT_GROUP_DESC,EMPTY_STRING);
-				serviceSlotEle.setAttribute(XMLLiterals.ORGANIZATION_KEY,EMPTY_STRING);
-				YFCElement slotList=serviceSlotEle.createChild(XMLLiterals.SERVICE_SLOT_LIST);
-				slotList.setAttribute(XMLLiterals.START_TIME,EMPTY_STRING);
-				slotList.setAttribute(XMLLiterals.END_TIME, EMPTY_STRING);
-				return managDoc;
-				
 			}
 			
 			/**
@@ -366,7 +347,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				 resPoolEle.setAttribute(XMLLiterals.ITEM_GROUP_CODE, ITEM_GROUP_CODE);
 				 resPoolEle.setAttribute(XMLLiterals.CAPACITY_UNIT_OF_MEASURE, capacityUnitOfMeasure);
 				 resPoolEle.setAttribute(XMLLiterals.RESOURCE_POOL_ID,resourcePoolId);
-				 resPoolEle.setAttribute(XMLLiterals.CAPACITYORGCODE,"DEFAULT");
+				 resPoolEle.setAttribute(XMLLiterals.CAPACITYORGCODE,XMLLiterals.INDIGO_CA);
 				 YFCElement resourceCalendarEle=resPoolEle.createChild(XMLLiterals.RESOURCE_CALENDAR);
 				 resourceCalendarEle.setAttribute(XMLLiterals.CALENDER_ID, calendarId);
 				 resourceCalendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE,organizationCode);
@@ -394,6 +375,10 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 					}
 				}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	private YFCDocument getCalendarListTempDoc(){
 	  YFCDocument inputXml = YFCDocument.createDocument("Calenders");
 	  inputXml.getDocumentElement().createChild(XMLLiterals.CALENDAR)

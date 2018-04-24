@@ -1,5 +1,4 @@
 package com.indigo.masterupload.calenderfeed;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -8,16 +7,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
- 
+
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.ExceptionUtil;
+import com.bridge.sterling.utils.XPathUtil;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
+/**
+ * 
+ * 
+ * @author BSG170
+ *
+ */
 public class IndgCalendarFeed extends AbstractCustomApi{
 	private static final String EMPTY_STRING = "";
 	private static final String CALENDER= "_Calender12";
@@ -41,67 +47,55 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	List<String> exceptionList = new ArrayList<>();
 		  YFCIterable<YFCElement> inputCalendarEle = calInEle.getChildren(XMLLiterals.CALENDAR);
 		  String organizationCode="";
-		  String calenadrId="";
-		  String effectiveFromDate="";
-		  
 		  for(YFCElement calElement : inputCalendarEle) {
 			  if(XmlUtils.isVoid(organizationCode)) {
-		 		try {
-		 			effectiveFromDate=analyseDate(calElement.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE));
-		 			if(effectiveFromDate=="null")
-		 				continue;
-		 			
-		 		} catch(Exception excep) {
-		 			throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, excep);
-		 		}
 				  organizationCode=calElement.getAttribute(XMLLiterals.ORGANIZATION_CODE);
+				  String effectiveFromDate = dateFormatter(calElement.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE));
 				  createCalendarInputDoc(organizationCode,effectiveFromDate);
 				 }
-	
 			  else if(!organizationCode
 					  .equals(calElement.getAttribute(XMLLiterals.ORGANIZATION_CODE))) {
-				 createCalendar(exceptionList,effectiveFromDate);
-				 createResourcePool(organizationCode,calenadrId);
+				 createCalendar(exceptionList);
+				 createResourcePool(organizationCode);
 				  organizationCode=calElement.getAttribute(XMLLiterals.ORGANIZATION_CODE);
+				  String effectiveFromDate = dateFormatter(calElement.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE));
 				  createCalendarInputDoc(organizationCode,effectiveFromDate);
 			  }
 	 			String sSerSlotShiftStartTime = calElement.getAttribute(XMLLiterals.SHIFT_START_TIME);
 	 			String sSerSlotShiftEndTime = calElement.getAttribute(XMLLiterals.SHIFT_END_TIME);
-	 					try {
-	 						if(EXCEPTION_TIME.equals(sSerSlotShiftStartTime) && EXCEPTION_TIME.equals(sSerSlotShiftEndTime)) 
-	 							exceptionList.add(dateFormatter(calElement.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE)));
-	 							else
-	 								setShiftValues(calElement);
-	 						}
-	 						
-	 					 catch (ParseException e) {
-	 						throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, e);
+	 				try {
+	 					if(EXCEPTION_TIME.equals(sSerSlotShiftStartTime) && EXCEPTION_TIME.equals(sSerSlotShiftEndTime)) 
+	 					  exceptionList.add(dateFormatter(calElement.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE)));
+	 					else
+	 					  setShiftValues(calElement);
 	 					}
-	 					
+	 				catch (ParseException e) {
+	 						throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, e);
+	 				}
 		  }
-		  createCalendar(exceptionList,effectiveFromDate);
-		  createResourcePool(organizationCode,calenadrId);
-		  System.out.println("FINAL CALENDAR------------------------------"+createCalenderInXml);
+		  createCalendar(exceptionList);
+		  createResourcePool(organizationCode);
 		  return createCalenderInXml;
 }
 	  
-	  /** this method create document for input
-	   * 
-	   */
+	/**
+	 * 
+	 * @param organizationCode
+	 * @param effectiveFromDate
+	 * @return
+	 */
 	  public YFCDocument createCalendarInputDoc(String organizationCode,String effectiveFromDate)
 		 {
-		  	String calenadrId=organizationCode+CALENDER;
+		  	String calendarId=organizationCode+CALENDER;
 			createCalenderInXml = YFCDocument.createDocument(XMLLiterals.CALENDAR);
 			YFCElement  createCalenderEle =  createCalenderInXml.getDocumentElement();
 			  createCalenderEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
-			  createCalenderEle.setAttribute(XMLLiterals.CALENDER_ID,calenadrId);
-			  createCalenderEle.setAttribute(XMLLiterals.CALENDAR_DESCRIPTION,calenadrId);
+			  createCalenderEle.setAttribute(XMLLiterals.CALENDER_ID,calendarId);
+			  createCalenderEle.setAttribute(XMLLiterals.CALENDAR_DESCRIPTION,calendarId);
 			  YFCElement effectivePeriods = createCalenderEle.createChild(XMLLiterals.EFFECTIVE_PERIODS)
 					  .createChild(XMLLiterals.EFFECTIVE_PERIOD);
 			  effectivePeriods.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE, effectiveFromDate);
-			  System.out.println("------createCalendarInputDoc-----------------------"+createCalenderInXml);
 			  return createCalenderInXml;
-			 
 		 }
 	  /**
 	   * this method creates shift
@@ -111,11 +105,8 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	 public void createCalShift() {
 		 String yes="Y";
 		 String effectiveToDate=getProperty("EFFECTIVE_TO_DATE");
-		 System.out.println("EFFECTIVE_TO_DATE--------------------"+effectiveToDate);
 		 String defShiftStartTime=getProperty("SHIFT_START_TIME");
-		 System.out.println("----SHIFT_START_TIME-----------------"+defShiftStartTime);
-		  String defShiftEndTime=getProperty("SHIFT_END_TIME");
-		  System.out.println("-----SHIFT_END_TIME------------"+defShiftEndTime);
+		 String defShiftEndTime=getProperty("SHIFT_END_TIME");
 		 YFCElement effectivePeriodsEle=createCalenderInXml.getDocumentElement().getChildElement(XMLLiterals.EFFECTIVE_PERIODS);
 		 YFCElement effectivePeriodEle= effectivePeriodsEle.getChildElement(XMLLiterals.EFFECTIVE_PERIOD);
 		 effectivePeriodEle.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, effectiveToDate);
@@ -131,27 +122,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		  shiftEle.setAttribute(XMLLiterals.FRIDAY_VALID,yes);
 		  shiftEle.setAttribute(XMLLiterals.SHIFT_START_TIME,defShiftStartTime);
 		  shiftEle.setAttribute(XMLLiterals.SHIFT_END_TIME,defShiftEndTime);
-		  
-		  System.out.println("---CALENDAR SHIFT CREATION-----"+createCalenderInXml);
 	 }
-	 
-	 /** this method changes the off day to working day and working day to off day based on requirement
-	  */
-	 public String analyseDate(String inputDate) throws ParseException{
-		   DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-			Date currentDate = new Date();  
-		    Date formattedDate=new SimpleDateFormat("yyyy/MM/dd").parse(inputDate);  
-		    
-		    
-		    if(currentDate.compareTo(formattedDate)==0 || currentDate.compareTo(formattedDate)<0) {
-		    	String seffectiveFromDate = dateFormat.format(formattedDate);
-		    	dateFormatter(seffectiveFromDate);
-		    	System.out.println("after date >= current date-----");
-		    }
-		    System.out.println("---date <= current date-----");
-		    	return null;
-		
-	}
 	
 	  /**
 	   * 
@@ -162,30 +133,36 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		 */
 		
 		
-		public String dateFormatter(String fromDate) throws ParseException
-		{
-			final String OLD_FORMAT = "yyyy/MM/dd";
-			final String NEW_FORMAT = "yyyy-MM-dd";
-			String newDateString;
-			SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT);
+		public String dateFormatter(String fromDate) {
+		  String newDateString="";
+		  try{
+			final String oldFormat = "yyyy/MM/dd";
+			final String newFormat = "yyyy-MM-dd";
+			SimpleDateFormat sdf = new SimpleDateFormat(oldFormat);
 			Date d = sdf.parse(fromDate);
-			sdf.applyPattern(NEW_FORMAT);
+			sdf.applyPattern(newFormat);
 			newDateString = sdf.format(d);
-			System.out.println("DATE FORMATTED"+newDateString);
+		  } catch(Exception exp) {
+		    throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, exp);
+		  }
 			return newDateString;
 		}
 		
+		/**
+		 * 
+		 * @param time
+		 * @return
+		 * @throws ParseException
+		 */
 		public String timeFormatter(String time) throws ParseException {
-			final String OLD_FORMAT = "HH mm";
-			final String NEW_FORMAT = "HH:mm:ss";
+			final String oldFormat = "HH mm";
+			final String newFormat = "HH:mm:ss";
 			String newTimeString;
-			SimpleDateFormat sdf = new SimpleDateFormat(OLD_FORMAT);
+			SimpleDateFormat sdf = new SimpleDateFormat(oldFormat);
 			Date d = sdf.parse(time);
-			sdf.applyPattern(NEW_FORMAT);
+			sdf.applyPattern(newFormat);
 			newTimeString = sdf.format(d);
-			System.out.println("TIME_FORMATTED"+newTimeString);
-			return newTimeString;
-			
+			return newTimeString;	
 		}
 		
 		 
@@ -205,8 +182,6 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			    YFCElement calDayExcepEle=calendarEle.createChild(XMLLiterals.CALENDAR_DAY_EXCEPTIONS).createChild(XMLLiterals.CALENDAR_DAY_EXCEPTION);
 			    calDayExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE,EMPTY_STRING);
 			    calDayExcepEle.setAttribute(XMLLiterals.DATE,EMPTY_STRING);
-			    
-			    System.out.println("---GETCALENDARDETAILS TEMPLATE----"+getCalendarTemp);
 			    return getCalendarTemp;
 		  }
 		 /**
@@ -221,17 +196,18 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			    YFCElement calendarEle = getCalendarXml.getDocumentElement();
 			    calendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
 			    calendarEle.setAttribute(XMLLiterals.CALENDER_ID, calenderId);
-			    System.out.println("---GETCALENDAR DETAILS INPUT----"+getCalendarXml);
 			    return getCalendarXml;
 			  }
 		 
 		 /**
 		  * This method invoke createCalendarApi and changeCalendarApi
-		  * @param createCalenderXml
+		  * @param exceptionList
+		  * @param effectiveFromDate
 		  */
-		 public void createCalendar(List<String> exceptionList,String effectiveFromDate) {
+		 public void createCalendar(List<String> exceptionList) {
 			 createCalShift();
-			 YFCElement exceptioncalEle = createCalenderInXml.getDocumentElement().createChild(XMLLiterals.CALENDAR_DAY_EXCEPTIONS);
+			 YFCElement createCalInputEle = createCalenderInXml.getDocumentElement();
+			 YFCElement exceptioncalEle = createCalInputEle.createChild(XMLLiterals.CALENDAR_DAY_EXCEPTIONS);
 			 for(String exceptionDate:exceptionList) {
 				 YFCElement excepDayEle = exceptioncalEle.createChild(XMLLiterals.CALENDAR_DAY_EXCEPTION);
 				 excepDayEle.setAttribute(XMLLiterals.DATE, exceptionDate);
@@ -239,33 +215,37 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			 }
 			 String calenderId = createCalenderInXml.getDocumentElement().getAttribute(XMLLiterals.CALENDER_ID);
 			 String orgCode = createCalenderInXml.getDocumentElement().getAttribute(XMLLiterals.ORGANIZATION_CODE);
-			 if(!XmlUtils.isVoid(calenderId) && getCalendarDetails(orgCode,calenderId).getDocumentElement().hasChildNodes()) {
+			 
+			 if(!XmlUtils.isVoid(calenderId) && getCalendarDetails(orgCode,calenderId)
+			     .getDocumentElement().hasChildNodes()) {
 					 exceptionList.clear();
 					 invokeYantraApi(XMLLiterals.CHANGE_CALENDAR, createCalenderInXml);
 					 manageSerSlot(orgCode);
-				 }
+				} else {
 			    invokeYantraApi(XMLLiterals.CREATE_CALENDAR, createCalenderInXml);
 			    manageSerSlot(orgCode);
 			    exceptionList.clear();
-			    
+				}
 			  }
 		 
-		 /** this method check whether the date is in exception list 
-		  * 
-		  */
 		
 		 
-		 /**
-		  * this method invokes getCalendarDetails
-		  * @param organizationCode
-		  * @param effectiveToDate
-		  * @param effectiveFromDate
-		  * @return
-		  */
+	/**
+	 * 
+	 * @param organizationCode
+	 * @param calenderId
+	 * @return
+	 */
 		 public YFCDocument getCalendarDetails(String organizationCode, String calenderId) {
-			    return invokeYantraApi(XMLLiterals.GET_CALENDAR_LIST, 
-			    		getCalendarDetailsInDoc(organizationCode,calenderId),getCalendarDetailsTemplDoc());
-			  }
+			YFCDocument calenderList = invokeYantraApi(XMLLiterals.GET_CALENDAR_LIST, 
+			    		getCalendarDetailsInDoc(organizationCode,calenderId),getCalendarListTempDoc());
+			if(calenderList.getDocumentElement().hasChildNodes()){
+			  YFCDocument calenderDetailDoc = invokeYantraApi("getCalendarDetails", 
+                  getCalendarDetailsInDoc(organizationCode,calenderId),getCalendarDetailsTemplDoc());
+			  getCalenderListForException(calenderDetailDoc);
+			}
+			    return calenderList;
+		}
 		 
 		 /**
 		  * this method is used to store the shiftStartTime and shiftEndTime
@@ -302,7 +282,6 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 					sortEle.setAttribute(XMLLiterals.START_TIME,shiftTime[0]);
 					sortEle.setAttribute(XMLLiterals.END_TIME, shiftTime[1]);
 				}
-			System.out.println("---MANAGE SERVICE SLOT DOC---"+mangSlotDoc);
 			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc,manageServiceSlotTempDoc());
 			map.clear();
 			}
@@ -322,14 +301,16 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				YFCElement slotList=serviceSlotEle.createChild(XMLLiterals.SERVICE_SLOT_LIST);
 				slotList.setAttribute(XMLLiterals.START_TIME,EMPTY_STRING);
 				slotList.setAttribute(XMLLiterals.END_TIME, EMPTY_STRING);
-				System.out.println("--MANAGE SERVICE SLOT DOCUMNET----"+managDoc);
 				return managDoc;
 				
 			}
+			
 			/**
+			 * 
 			 * this method creates input for getResourceList api
-			 * @param node
+			 * @param organizationCode
 			 * @param capacityUnitOfMeasure
+			 * @param resourcePoolId
 			 * @return
 			 */
 			public YFCDocument getResourcePoolListInDoc (String organizationCode, String capacityUnitOfMeasure,String resourcePoolId){
@@ -338,7 +319,6 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			    resourcePoolEle.setAttribute(XMLLiterals.NODE,organizationCode);
 			    resourcePoolEle.setAttribute(XMLLiterals.CAPACITY_UNIT_OF_MEASURE, capacityUnitOfMeasure);
 			    resourcePoolEle.setAttribute(XMLLiterals.RESOURCE_POOL_ID, resourcePoolId);
-			    System.out.println("---GET RESOURCE POOL LIST INPUT DOC-----"+resourceList);
 			    return resourceList;
 			   
 			 }
@@ -353,13 +333,13 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				    resourcePoolEle.setAttribute(XMLLiterals.RESOURCE_POOL_ID, EMPTY_STRING);
 				    resourcePoolEle.setAttribute(XMLLiterals.NODE, EMPTY_STRING);
 				    resourcePoolEle.setAttribute(XMLLiterals.CAPACITY_UNIT_OF_MEASURE, EMPTY_STRING);
-				    System.out.println("-----GET RESOURCE POOL LIST TEMPLATE------"+getResourcePoolTemp);
 				    return getResourcePoolTemp;
 			}
 			/**
 			 * this method invokes getResourcePoolList api
 			 * @param node
 			 * @param capacityUnitOfMeasure
+			 * @param resourcePoolId
 			 * @return
 			 */
 			 public YFCDocument getResourcepool(String node, String capacityUnitOfMeasure,String resourcePoolId){
@@ -367,7 +347,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				    		getResourcePoolListInDoc(node,capacityUnitOfMeasure,resourcePoolId),getResourcePoolListTempDoc());
 				  }
 		/**
-		 * this method formd input for createResourcePool api
+		 * this method form input for createResourcePool api
 		 * @param purpose
 		 * @param organizationCode
 		 * @param resourcePoolId
@@ -386,13 +366,12 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				 resPoolEle.setAttribute(XMLLiterals.ITEM_GROUP_CODE, ITEM_GROUP_CODE);
 				 resPoolEle.setAttribute(XMLLiterals.CAPACITY_UNIT_OF_MEASURE, capacityUnitOfMeasure);
 				 resPoolEle.setAttribute(XMLLiterals.RESOURCE_POOL_ID,resourcePoolId);
-				 resPoolEle.setAttribute(XMLLiterals.CAPACITYORGCODE,XMLLiterals.INDIGO_CA);
+				 resPoolEle.setAttribute(XMLLiterals.CAPACITYORGCODE,"DEFAULT");
 				 YFCElement resourceCalendarEle=resPoolEle.createChild(XMLLiterals.RESOURCE_CALENDAR);
 				 resourceCalendarEle.setAttribute(XMLLiterals.CALENDER_ID, calendarId);
 				 resourceCalendarEle.setAttribute(XMLLiterals.ORGANIZATION_CODE,organizationCode);
 				 YFCElement resourcePoolAttributeEle=createResourcePoolXml.getDocumentElement().createChild(XMLLiterals.RESOURCE_POOL_ATTRIBUTE_LIST).createChild(XMLLiterals.RESOURCE_POOL_ATTRIBUTE);
 				 resourcePoolAttributeEle.setAttribute(XMLLiterals.DELIVERY_METHOD, deliveryMethod);
-				 System.out.println("-----RESOURCE POOL INPUT DOCUMENT------"+createResourcePoolXml);
 				 return createResourcePoolXml;
 			 }
 			 
@@ -403,20 +382,49 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			  * @param calendarId
 			  */
 			 
-			public void createResourcePool(String organizationCode,String calendarId) {
+	public void createResourcePool(String organizationCode) {
 				String resourcePoolId=organizationCode+POOLID;
+				String calendarId=organizationCode+CALENDER;
 				String deliveryMethod="PICK";
 				String capacityUnitOfMeasure="RELEASE";
 				String purpose="INVENTORY";
 				 
 				if(!getResourcepool(organizationCode,capacityUnitOfMeasure,resourcePoolId).getDocumentElement().hasChildNodes()) {
 					invokeYantraApi(XMLLiterals.CREATE_RESOURCE_POOL,resourcePoolInDoc(purpose,organizationCode,resourcePoolId,deliveryMethod,capacityUnitOfMeasure,calendarId));
-                
 					}
 				}
-				
-				
-			}
-
-		 
-			
+	
+	private YFCDocument getCalendarListTempDoc(){
+	  YFCDocument inputXml = YFCDocument.createDocument("Calenders");
+	  inputXml.getDocumentElement().createChild(XMLLiterals.CALENDAR)
+	  .setAttribute(XMLLiterals.CALENDER_ID, EMPTY_STRING);
+	  return inputXml;
+	}
+	
+	/**
+	 * 
+	 * @param calenderInXml
+	 * @param calenderDetailXml
+	 */
+	private void getCalenderListForException(YFCDocument calenderDetailXml){
+	  YFCIterable<YFCElement> yfsIrator = calenderDetailXml.getDocumentElement()
+	      .getChildElement(XMLLiterals.CALENDAR_DAY_EXCEPTIONS).getChildren(XMLLiterals.CALENDAR_DAY_EXCEPTION);
+	  for(YFCElement calenderDayException : yfsIrator) {
+	    String exceptionDate = calenderDayException.getAttribute(XMLLiterals.DATE);
+	    YFCElement exceptionEle = XPathUtil.getXPathElement(createCalenderInXml,"//CalendarDayExceptions/CalendarDayException[@Date=\""+exceptionDate+"\"]");
+	    if(XmlUtils.isVoid(exceptionEle)) {
+	      YFCElement inputExcepEle = createCalenderInXml.getDocumentElement().getChildElement(XMLLiterals.EFFECTIVE_PERIODS);
+	      if(XmlUtils.isVoid(inputExcepEle)) {
+	        inputExcepEle = createCalenderInXml.getDocumentElement().createChild(XMLLiterals.CALENDAR_DAY_EXCEPTIONS)
+	            .createChild(XMLLiterals.CALENDAR_DAY_EXCEPTION);
+	        inputExcepEle.setAttribute(XMLLiterals.DATE, exceptionDate);
+	        inputExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE, WORKING_DAY);
+	      } else {
+	        inputExcepEle = createCalenderInXml.getDocumentElement().getChildElement("CalendarDayExceptions").createChild("CalendarDayException");
+            inputExcepEle.setAttribute(XMLLiterals.DATE, exceptionDate);
+            inputExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE, WORKING_DAY);
+	      }
+	    }
+	  }
+	}
+}

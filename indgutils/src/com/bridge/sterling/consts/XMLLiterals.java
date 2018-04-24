@@ -121,6 +121,8 @@ public static final String FRIDAY_VALID="FridayValid";
 public static final String SATURDAY_VALID="SaturdayValid";
 public static final String MEMBER_OF="MemberOf";
 public static final String STERLING="Sterling";
-
+public static final String SHIFT_KEY = "ShiftKey";
+public static final String EXCEPTION_SHIFTS = "ExceptionShifts";
+public static final String EXCEPTION_SHIFT = "ExceptionShift";
 }
 

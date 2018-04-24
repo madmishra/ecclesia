@@ -179,6 +179,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			    YFCElement effecPeriodsEle=calendarEle.createChild(XMLLiterals.EFFECTIVE_PERIODS).createChild(XMLLiterals.EFFECTIVE_PERIOD);
 			    effecPeriodsEle.setAttribute(XMLLiterals.EFFECTIVE_FROM_DATE, EMPTY_STRING);
 			    effecPeriodsEle.setAttribute(XMLLiterals.EFFECTIVE_TO_DATE, EMPTY_STRING);
+			    effecPeriodsEle.createChild(XMLLiterals.SHIFTS).createChild(XMLLiterals.SHIFT).setAttribute(XMLLiterals.SHIFT_KEY, EMPTY_STRING);
 			    YFCElement calDayExcepEle=calendarEle.createChild(XMLLiterals.CALENDAR_DAY_EXCEPTIONS).createChild(XMLLiterals.CALENDAR_DAY_EXCEPTION);
 			    calDayExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE,EMPTY_STRING);
 			    calDayExcepEle.setAttribute(XMLLiterals.DATE,EMPTY_STRING);
@@ -396,6 +397,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	      .getChildElement(XMLLiterals.CALENDAR_DAY_EXCEPTIONS).getChildren(XMLLiterals.CALENDAR_DAY_EXCEPTION);
 	  for(YFCElement calenderDayException : yfsIrator) {
 	    String exceptionDate = calenderDayException.getAttribute(XMLLiterals.DATE);
+	    String shiftKey = XPathUtil.getXpathAttribute(calenderDetailXml, "//Shifts/Shift/@ShiftKey");
 	    YFCElement exceptionEle = XPathUtil.getXPathElement(createCalenderInXml,"//CalendarDayExceptions/CalendarDayException[@Date=\""+exceptionDate+"\"]");
 	    if(XmlUtils.isVoid(exceptionEle)) {
 	      YFCElement inputExcepEle = createCalenderInXml.getDocumentElement().getChildElement(XMLLiterals.EFFECTIVE_PERIODS);
@@ -404,10 +406,12 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	            .createChild(XMLLiterals.CALENDAR_DAY_EXCEPTION);
 	        inputExcepEle.setAttribute(XMLLiterals.DATE, exceptionDate);
 	        inputExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE, WORKING_DAY);
+	        inputExcepEle.createChild(XMLLiterals.EXCEPTION_SHIFTS).createChild(XMLLiterals.EXCEPTION_SHIFT).setAttribute(XMLLiterals.SHIFT_KEY, shiftKey);
 	      } else {
-	        inputExcepEle = createCalenderInXml.getDocumentElement().getChildElement("CalendarDayExceptions").createChild("CalendarDayException");
+	        inputExcepEle = createCalenderInXml.getDocumentElement().getChildElement(XMLLiterals.CALENDAR_DAY_EXCEPTIONS).createChild(XMLLiterals.CALENDAR_DAY_EXCEPTION);
             inputExcepEle.setAttribute(XMLLiterals.DATE, exceptionDate);
             inputExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE, WORKING_DAY);
+            inputExcepEle.createChild(XMLLiterals.EXCEPTION_SHIFTS).createChildXMLLiterals.EXCEPTION_SHIFT).setAttribute(XMLLiterals.SHIFT_KEY, shiftKey);
 	      }
 	    }
 	  }

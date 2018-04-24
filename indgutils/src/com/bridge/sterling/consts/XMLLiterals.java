@@ -121,8 +121,6 @@ public static final String FRIDAY_VALID="FridayValid";
 public static final String SATURDAY_VALID="SaturdayValid";
 public static final String MEMBER_OF="MemberOf";
 public static final String STERLING="Sterling";
-public static final String ORG_ROLE_LIST="OrgRoleList";
-public static final String ORG_ROLE="OrgRole";
-public static final String ROLE_KEY="RoleKey";
+
 }
 

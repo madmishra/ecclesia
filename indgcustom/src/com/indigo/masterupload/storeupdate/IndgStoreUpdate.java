@@ -129,7 +129,7 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	
 	private void createNewNodesInInputXml(Collection<String> organizationList2, YFCDocument inXml) {
 	    for(String organizationId:organizationList2) {
-	      YFCElement organizationEle = XPathUtil.getXPathElement(inXml, "/Stores/Organization[@OrganizationCode = \""+organizationId+"\"]");
+	      YFCElement organizationEle = XPathUtil.getXPathElement(inXml, "/StoreList/Organization[@OrganizationCode = \""+organizationId+"\"]");
 	      if(!XmlUtils.isVoid(organizationEle)) {
 	    	  
 	    	  String inpEleString = organizationEle.toString();

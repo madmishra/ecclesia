@@ -411,7 +411,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	        inputExcepEle = createCalenderInXml.getDocumentElement().getChildElement(XMLLiterals.CALENDAR_DAY_EXCEPTIONS).createChild(XMLLiterals.CALENDAR_DAY_EXCEPTION);
             inputExcepEle.setAttribute(XMLLiterals.DATE, exceptionDate);
             inputExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE, WORKING_DAY);
-            inputExcepEle.createChild(XMLLiterals.EXCEPTION_SHIFTS).createChildXMLLiterals.EXCEPTION_SHIFT).setAttribute(XMLLiterals.SHIFT_KEY, shiftKey);
+            inputExcepEle.createChild(XMLLiterals.EXCEPTION_SHIFTS).createChild(XMLLiterals.EXCEPTION_SHIFT).setAttribute(XMLLiterals.SHIFT_KEY, shiftKey);
 	      }
 	    }
 	  }

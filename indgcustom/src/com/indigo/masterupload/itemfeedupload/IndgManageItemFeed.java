@@ -29,8 +29,10 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private static final String DEFAULT_UNIT_OF_MEASURE = "EACH";
   private static final String DELETE_ACTION = "Delete";
   private static final String ORGANIZATION_CODE = "Indigo_CA";
+  private static final String GET_UNPUBLISHED_ITMES = "GetUnpublishedItems";
   private String inputCategoryID=""; 
   private String categoryPath = "";
+  private static final String FLAG_YES = "Y";
   
   
 
@@ -79,6 +81,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private YFCDocument getItemList(String itemID) {
     YFCDocument inputXml = YFCDocument.createDocument(XMLLiterals.ITEM);
     inputXml.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemID);
+    inputXml.getDocumentElement().setAttribute(GET_UNPUBLISHED_ITMES,FLAG_YES);
     return invokeYantraApi(XMLLiterals.GET_ITEM_LIST_API, 
         inputXml, getTemplateForGetItemList());
   }

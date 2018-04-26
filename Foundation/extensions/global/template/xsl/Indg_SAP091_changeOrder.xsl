@@ -22,7 +22,8 @@
 						<xsl:value-of select="@OrderedQty"/>
 					</xsl:attribute>
 					<xsl:attribute name="ModificationReasonCode">INDG_CANCEL_ORDER</xsl:attribute>
-					<xsl:attribute name="ModificationReasonText">Item not available<xsl:attribute name="OrderLinekey">
+					<xsl:attribute name="ModificationReasonText">Item not available</xsl:attribute>
+					<xsl:attribute name="OrderLinekey">
 					   <xsl:value-of select="@OrderLinekey"/>
 					</xsl:attribute>
 					</xsl:attribute>

@@ -1,6 +1,8 @@
 package com.indigo.masterupload.userupload;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
@@ -26,12 +28,15 @@ import com.yantra.yfc.dom.YFCNode;
 public class NewUserGroup extends AbstractCustomApi {
 	
 	private static final String EMPTY_STRING = "";
+/*	private static final String STERLING_GROUP;
+	private static final String QUEUE = "";*/
 	private static final String CREATE = "Create";
 	private static final String MODIFY = "Modify";
 	private static final String INACTIVE = "InActive";
-	private static final String USER_MANAGER_SERVER = "Indg_UserFeed_IntoQ";
+//	private static final String USER_MANAGER_SERVER = "Indg_UserFeed_IntoQ";
 	private static final String INACTIVATE_FLAG = "N";
 	private static final String FLAG = "Y";
+	private static final String USERGROUPMAPPING = "USER_GROUP_MAPPING";
 	
 	/**	 
 	 * This method is the invoke point of the service.
@@ -42,12 +47,14 @@ public class NewUserGroup extends AbstractCustomApi {
 	public YFCDocument invoke(YFCDocument inXml){
 		
 		 YFCDocument userListApiOp = getUserList();
+		 YFCDocument commonCodeListApiOp = getCommonCodeList();
+		 System.out.println(commonCodeListApiOp + "InsideDocument");
 		 Collection<String> extraUserList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion(inXml, userListApiOp, 
 					XMLLiterals.LOGIN_ID,XMLLiterals.USER);
 		 Collection<String> inputUserList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion(userListApiOp, inXml, 
 					XMLLiterals.LOGIN_ID,XMLLiterals.USER);
-		 changeStatusForExtraUser(extraUserList,userListApiOp);
-		 createNewUserFromInputXml(inputUserList,inXml);
+		 deactiveNonExistingUser(extraUserList,userListApiOp);
+		 createNewUserFromInputXml(inputUserList,inXml,commonCodeListApiOp);
 		 return inXml;
 	}
 	
@@ -57,7 +64,7 @@ public class NewUserGroup extends AbstractCustomApi {
 	 * @return
 	 */
 	
-	public YFCDocument formInputXmlForGetUserList() {
+	public YFCDocument getUserListInDoc() {
 	    YFCDocument getUserListDoc = YFCDocument.createDocument(XMLLiterals.USER);
 	    getUserListDoc.getDocumentElement().setAttribute(XMLLiterals.LOGIN_ID, EMPTY_STRING);
 	    getUserListDoc.getDocumentElement().setAttribute(XMLLiterals.DISPLAY_USER_ID, EMPTY_STRING);
@@ -71,7 +78,7 @@ public class NewUserGroup extends AbstractCustomApi {
 	  * @return
 	  */
 	
-	public YFCDocument formTemplateXmlForgetUserList() {
+	public YFCDocument getUserListTemplateDoc() {
 	    YFCDocument getUserListTemp = YFCDocument.createDocument(XMLLiterals.USER_LIST);
 	    YFCElement userEle = getUserListTemp.getDocumentElement().createChild(XMLLiterals.USER);
 	    userEle.setAttribute(XMLLiterals.LOGIN_ID, EMPTY_STRING);
@@ -88,8 +95,49 @@ public class NewUserGroup extends AbstractCustomApi {
 	 */
 	
 	public YFCDocument getUserList(){
-	    return  invokeYantraApi(XMLLiterals.GET_USER_LIST, formInputXmlForGetUserList(),formTemplateXmlForgetUserList());
+	    return  invokeYantraApi(XMLLiterals.GET_USER_LIST, getUserListInDoc(),getUserListTemplateDoc());
 	 }
+	
+	/**
+	 * This method forms the Input XML for getCommonCodeListAPI
+	 * 
+	 * @return
+	 */
+	
+	public YFCDocument getCommonCodeListInDoc() {
+	    YFCDocument getCodeListDoc = YFCDocument.createDocument(XMLLiterals.COMMON_CODE);
+	    getCodeListDoc.getDocumentElement().setAttribute(XMLLiterals.CODE_TYPE, USERGROUPMAPPING);
+	    return getCodeListDoc;
+	  }
+	
+	/**
+	 * This method forms template for the getCommonCodeList
+	 * 
+	 * @return
+	 */
+	
+	public YFCDocument getCommonCodeListTemplateDoc() {
+	    YFCDocument getCommonCodeListTemp = YFCDocument.createDocument(XMLLiterals.COMMON_CODE_LIST);
+	    YFCElement codeEle = getCommonCodeListTemp.getDocumentElement().createChild(XMLLiterals.COMMON_CODE);
+	    codeEle.setAttribute(XMLLiterals.CODE_NAME, EMPTY_STRING);
+	    codeEle.setAttribute(XMLLiterals.CODE_VALUE, EMPTY_STRING);
+	    codeEle.setAttribute(XMLLiterals.CODE_LONG_DESCRIPTION, EMPTY_STRING);
+	    codeEle.setAttribute(XMLLiterals.CODE_SHORT_DESCRIPTION, EMPTY_STRING);
+	    return getCommonCodeListTemp;
+	  }
+	
+	/**
+	 * This method calls getCommonCodeList API
+	 * 
+	 * @return
+	 */
+	
+	public YFCDocument getCommonCodeList(){
+	    return  invokeYantraApi(XMLLiterals.GET_COMMON_CODE_LIST, getCommonCodeListInDoc(),
+	    		getCommonCodeListTemplateDoc());
+	 }
+	
+	
 	
 	/**
 	 * This method iterates the list containing the extra users which are
@@ -98,7 +146,7 @@ public class NewUserGroup extends AbstractCustomApi {
 	 * @param extraUserList
 	 */
 	
-	private void changeStatusForExtraUser(Collection<String> extraUserList, YFCDocument userListApiOp) {
+	private void deactiveNonExistingUser(Collection<String> extraUserList, YFCDocument userListApiOp) {
 	    for(String value:extraUserList) {
 	    	YFCElement userEle = XPathUtil.getXPathElement(userListApiOp, "/UserList/User[@Loginid = \""+value+"\"]");
 	    	if(!XmlUtils.isVoid(userEle)) {
@@ -109,7 +157,7 @@ public class NewUserGroup extends AbstractCustomApi {
 	    			inputDocForManageUserAPI.getDocumentElement().setAttribute(XMLLiterals.LOGIN_ID, value);
 	    			inputDocForManageUserAPI.getDocumentElement().setAttribute(XMLLiterals.ACTIVATE_FLAG, INACTIVATE_FLAG);
 	    			inputDocForManageUserAPI.getDocumentElement().setAttribute(XMLLiterals.ACTION, INACTIVE);
-	    			callUserUpdateQueue(inputDocForManageUserAPI);
+	    			//callUserUpdateQueue(inputDocForManageUserAPI);
 	    		}
 	    	}
 	    }
@@ -124,23 +172,82 @@ public class NewUserGroup extends AbstractCustomApi {
 	 * @param inXml
 	 */
 	
-	private void createNewUserFromInputXml(Collection<String> inputUserList, YFCDocument inXml) {
+	private void createNewUserFromInputXml(Collection<String> inputUserList, YFCDocument inXml,  YFCDocument commonCodeListApiOp) {
 	    for(String loginId:inputUserList) {
-	      YFCElement inEle = XPathUtil.getXPathElement(inXml, "/UserList/User[@Loginid = \""+loginId+"\"]");
-	      if(!XmlUtils.isVoid(inEle)) {
+	      YFCElement userEle = XPathUtil.getXPathElement(inXml, "/UserList/User[@Loginid = \""+loginId+"\"]");
+	      if(!XmlUtils.isVoid(userEle)) {
 	    	  
-	    	  String inpEleString = inEle.toString();
-	    	  YFCDocument inputDocForService = YFCDocument.getDocumentFor(inpEleString);
-	    	  inputDocForService.getDocumentElement().setAttribute(XMLLiterals.ACTION, CREATE);
-	    	  inputDocForService.getDocumentElement().setAttribute(XMLLiterals.ACTIVATE_FLAG, FLAG);
-	    	  callUserUpdateQueue(inputDocForService);
-	    	  
-	    	  YFCNode parent = inEle.getParentNode();
-	    	  parent.removeChild(inEle);
-	      }
-	    }
-	    modifyExistingUsers(inXml);
+	    	  String memberOfValue = userEle.getAttribute(XMLLiterals.MEMBER_OF);
+	    	  System.out.println(memberOfValue.toString() + "MemberOf Value");
+		    	if(!XmlUtils.isVoid(memberOfValue)) {
+		    		
+		    		List<String> memberList = Arrays.asList(memberOfValue.split(","));
+		    		System.out.println(memberList.toString() + "CommaSerpaerated");
+		    		for(String sterlingValue:memberList) {
+		    			
+		    			if(sterlingValue.contains(XMLLiterals.STERLING)) {
+		    				String membergroupVal = sterlingValue;
+		    				System.out.println(membergroupVal + "groupValue");
+		    				YFCElement commonCodeList = commonCodeListApiOp.getDocumentElement();
+		    				YFCIterable<YFCElement> commonCodeEle = commonCodeList.getChildren(XMLLiterals.COMMON_CODE);
+		    				createUserGroupInputDoc(commonCodeEle, membergroupVal, commonCodeListApiOp, userEle, inXml);
+		    				}
+		    			}
+		    		}
+	      		}
+	    	}
 	 }
+	
+	/**
+	 * This method will iterate through the list of CodeValue and verify
+	 * if any Sterling- group is present or not. If present, then it adds
+	 * the queue, menuId and Group value to user puts the document in 
+	 * the queue.
+	 * 
+	 * @param commonCodeEle
+	 * @param membergroupVal
+	 * @param commonCodeListApiOp
+	 * @param userEle
+	 * @param inXml
+	 */
+	public void createUserGroupInputDoc(YFCIterable<YFCElement> commonCodeEle, String membergroupVal,
+			YFCDocument commonCodeListApiOp, YFCElement userEle, YFCDocument inXml) {
+		YFCNode parent = userEle.getParentNode();
+		for(YFCElement codeList :commonCodeEle) {
+			String commonCodeVal = codeList.getAttribute(XMLLiterals.CODE_VALUE);
+			System.out.println(commonCodeVal.toString() + "CodeValue");
+				if(commonCodeVal.equals(membergroupVal.trim())) {
+					
+					String sterlingGroup = codeList.getAttribute(XMLLiterals.CODE_NAME);
+					String queue = codeList.getAttribute(XMLLiterals.CODE_LONG_DESCRIPTION);
+					String menuId = codeList.getAttribute(XMLLiterals.CODE_SHORT_DESCRIPTION);
+					System.out.println(sterlingGroup + queue + menuId + "THERRvalues");
+					String inpEleString = userEle.toString();
+					YFCDocument inputDoctoCreateUser = YFCDocument.getDocumentFor(inpEleString);
+					inputDoctoCreateUser.getDocumentElement().setAttribute(XMLLiterals.ACTION, CREATE);
+					inputDoctoCreateUser.getDocumentElement().setAttribute(XMLLiterals.ACTIVATE_FLAG, FLAG);
+					inputDoctoCreateUser.getDocumentElement().setAttribute(XMLLiterals.MENU_ID, menuId);
+				
+					YFCElement queueSubsList = inputDoctoCreateUser.getDocumentElement()
+							.createChild(XMLLiterals.QUEUE_SUBSCRIPTION_LIST);
+					YFCElement queueSubs = queueSubsList.createChild(XMLLiterals.QUEUE_SUBSCRIPTION);
+					queueSubs.setAttribute(XMLLiterals.QUEUE_KEY, queue);
+				
+					YFCElement userGroupList = inputDoctoCreateUser.getDocumentElement().createChild(XMLLiterals.USER_GROUP_LISTS);
+					YFCElement userGroup = userGroupList.createChild(XMLLiterals.USER_GROUP_LIST);
+					userGroup.setAttribute(XMLLiterals.USER_GROUP_ID, sterlingGroup);			
+					System.out.println(inputDoctoCreateUser + "finalDocc");
+				
+			//	callUserUpdateQueue(inputDoctoCreateUser);
+System.out.println(userEle.toString() + "UserEement");
+				
+					System.out.println(parent.toString() + "parent value");
+					parent.removeChild(userEle);
+					System.out.println(parent.toString() + "patentnumber2");
+					}
+				}
+		modifyExistingUsers(inXml);
+	}
 	
 	/**
 	 * This method accepts the inXml which only has the list of users that 
@@ -155,10 +262,10 @@ public class NewUserGroup extends AbstractCustomApi {
 			YFCIterable<YFCElement> userEle = inEle.getChildren(XMLLiterals.USER);
 			for(YFCElement element : userEle) {
 			
-				String inputString = element.toString();
-				YFCDocument existingUserforModify = YFCDocument.getDocumentFor(inputString);
+				String modifyinputString = element.toString();
+				YFCDocument existingUserforModify = YFCDocument.getDocumentFor(modifyinputString);
 				existingUserforModify.getDocumentElement().setAttribute(XMLLiterals.ACTION, MODIFY);
-				callUserUpdateQueue(existingUserforModify);
+			//	callUserUpdateQueue(existingUserforModify);
 				}
 			}
 		}
@@ -169,8 +276,7 @@ public class NewUserGroup extends AbstractCustomApi {
 	 * @param inputDocForService
 	 */
 	
-	private void callUserUpdateQueue(YFCDocument doc) {
+		/*private void callUserUpdateQueue(YFCDocument doc) {
 	     invokeYantraService(USER_MANAGER_SERVER, doc);
-	   }
-	
+		}*/
 }

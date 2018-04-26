@@ -129,5 +129,13 @@ public static final String GET_COMMON_CODE_LIST="getCommonCodeList";
 public static final String SHIFT_KEY = "ShiftKey";
 public static final String EXCEPTION_SHIFTS = "ExceptionShifts";
 public static final String EXCEPTION_SHIFT = "ExceptionShift";
+public static final String CODE_TYPE = "CodeType";
+public static final String MENU_ID = "MenuId";
+public static final String QUEUE_SUBSCRIPTION_LIST = "QueueSubscriptionList";
+public static final String QUEUE_SUBSCRIPTION = "QueueSubscription";
+public static final String QUEUE_KEY = "QueueKey";
+public static final String USER_GROUP_LISTS = "UserGroupLists";
+public static final String USER_GROUP_LIST = "UserGroupList";
+public static final String USER_GROUP_ID = "UsergroupId";
 }
 

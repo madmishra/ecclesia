@@ -2,8 +2,6 @@ package com.bridge.sterling.consts;
 
 import com.yantra.yfc.util.YFCLocale;
 
-
-
 public class XMLLiterals {
 public static final String CATEGORY = "Category";
 public static final String CATEGORY_ID = "CategoryID";
@@ -121,6 +119,13 @@ public static final String FRIDAY_VALID="FridayValid";
 public static final String SATURDAY_VALID="SaturdayValid";
 public static final String MEMBER_OF="MemberOf";
 public static final String STERLING="Sterling";
+public static final String COMMON_CODE="CommonCode";
+public static final String CODE_NAME="CodeName";
+public static final String CODE_VALUE="CodeValue";
+public static final String CODE_LONG_DESCRIPTION="CodeLongDescription";
+public static final String CODE_SHORT_DESCRIPTION="CodeShortDescription";
+public static final String COMMON_CODE_LIST="CommonCodeList";
+public static final String GET_COMMON_CODE_LIST="getCommonCodeList";
 public static final String SHIFT_KEY = "ShiftKey";
 public static final String EXCEPTION_SHIFTS = "ExceptionShifts";
 public static final String EXCEPTION_SHIFT = "ExceptionShift";

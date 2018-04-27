@@ -21,6 +21,7 @@
 						<xsl:attribute name="ShipNode">
 							<xsl:value-of select="@ShipNode"/>
 						</xsl:attribute>
+						<xsl:attribute name="SubLineNo">1</xsl:attribute>
 						<xsl:attribute name="Action">MODIFY</xsl:attribute>
 						<xsl:attribute name="OrderedQty">0</xsl:attribute>
 						<xsl:attribute name="ModificationReasonCode">INDG_CANCEL_ORDER</xsl:attribute>

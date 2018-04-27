@@ -26,7 +26,6 @@
 					<xsl:attribute name="OrderLinekey">
 					   <xsl:value-of select="@OrderLinekey"/>
 					</xsl:attribute>
-					</xsl:attribute>
 					</xsl:element>
 					</xsl:element>
 				</xsl:for-each>
@@ -39,6 +38,9 @@
 			</xsl:attribute>
 			<xsl:attribute name="DocumentType">
 				<xsl:value-of select="@DocumentType"/>
+			</xsl:attribute>
+			<xsl:attribute name="OrderNo">
+				<xsl:value-of select="@OrderNo"/>
 			</xsl:attribute>
 					<xsl:attribute name="OrderedQty">
 					<xsl:value-of select="@OrderedQty"/>

@@ -40,7 +40,7 @@
 						<xsl:value-of select="@EnterpriseCode" />
 					</xsl:attribute>
 					<xsl:attribute name="ReleaseNo">
-						<xsl:value-of select="OrderLine/Extn/@ExtnLegacyOMSChildOrderNo" />
+						<xsl:value-of select="@ReleaseNo" />
 					</xsl:attribute>
 					<PersonInfoBillTo>
 						<xsl:attribute name="AddressLine1">

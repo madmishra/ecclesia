@@ -7,6 +7,7 @@ US Government Users Restricted Rights  Use, duplication or disclosure restricted
  -->
 
 <!-- getOrderLineList Output XML -->
+<OrderLineList>
 <OrderLine AllocationLeadTime="" CarrierAccountNo="" CarrierServiceCode=""
     CustomerLinePONo="" CustomerPONo="" DeliveryMethod="" DepartmentCode=""
     DocumentType="" EnterpriseCode="" FulfillmentType="" LineSeqNo=""
@@ -58,3 +59,4 @@ US Government Users Restricted Rights  Use, duplication or disclosure restricted
         TermsCode="" TotalAdjustmentAmount="">
     </Order>
 </OrderLine>
+</OrderLineList>

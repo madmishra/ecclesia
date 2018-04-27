@@ -4,7 +4,7 @@
 	<xsl:template match="Order">
 		<xsl:choose>
 			<xsl:when test="@HeaderErrorCode">
-				<xsl:element name="OrderLine">
+				<OrderLine>
 					<xsl:element name="Order">
 						<xsl:attribute name="EnterpriseCode">
 							<xsl:value-of select="@EnterpriseCode"/>
@@ -19,7 +19,7 @@
 							<xsl:value-of select="@ParentLegacyOMSOrderNo"/>
 						</xsl:attribute>
 					</xsl:element>
-				</xsl:element>
+				</OrderLine>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:for-each select="OrderLines">

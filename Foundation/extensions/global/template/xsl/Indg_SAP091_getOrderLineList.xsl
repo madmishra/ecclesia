@@ -16,7 +16,7 @@
 							<xsl:value-of select="@OrderType"/>
 						</xsl:attribute>
 						<xsl:attribute name="OrderNo">
-							<xsl:value-of select="@ParentOrderNo"/>
+							<xsl:value-of select="@ParentLegacyOMSOrderNo"/>
 						</xsl:attribute>
 					</xsl:element>
 				</xsl:element>
@@ -37,7 +37,7 @@
 						</xsl:element>
 						<xsl:element name="Order">
 							<xsl:attribute name="OrderNo">
-								<xsl:value-of select="parent::Order/attribute::ParentOrderNo"/>
+								<xsl:value-of select="parent::Order/attribute::ParentLegacyOMSOrderNo"/>
 							</xsl:attribute>
 							<xsl:attribute name="EnterpriseCode">
 								<xsl:value-of select="parent::Order/attribute::EnterpriseCode"/>

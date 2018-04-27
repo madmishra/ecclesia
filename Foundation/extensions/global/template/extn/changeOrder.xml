@@ -1,47 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!-- 
-Licensed Materials  Property of IBM
+Licensed Materials - Property of IBM
 IBM Sterling Selling And Fulfillment Suite
-(C) Copyright IBM Corp 25, 23 All Rights Reserved
-US Government Users Restricted Rights  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp
+(C) Copyright IBM Corp. 2005, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
  -->
-
-<!-- getOrderLineList XML -->
-<OrderLineList LastOrderLineKey="" LastRecordSet="" ReadFromHistory="" TotalLineList="" TotalumberOfRecords="">
-	<OrderLine AllocationDate="" ApptStatus="" CarrierAccountNo="" CarrierServiceCode="" ChainedFromOrderHeaderKey="" ChainedFromOrderLineKey="" ConfigurationKey="" CustomerLinePONo="" CustomerPONo="" DeliveryCode="" DeliveryMethod="" DepartmentCode="" FreightTerms="" FulfillmentType="" IsFirmPredefinedNode="" KitCode="" LineType="" MaxLineStatus="" MaxLineStatusDesc="" MinLineStatus="" MinLineStatusDesc="" MinShipByDate="" OpenQty="" OrderHeaderKey="" OrderLineKey="" OrderedQty="" PrimeLineNo="" Purpose="" ReceivingNode="" RemainingQty="" ReqCancelDate="" ReqDeliveryDate="" ReqShipDate="" ReservationID="" SCAC="" ScacAndService="" ScacAndServiceKey="" Segment="" SegmentType="" SerialNo="" ShipNode="" ShipToID="" ShipTogetherNo="" SplitQty="" Status="" StatusQuantity="" SubLineNo="" isHistory="" >
-		<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" />
-		<Item CostCurrency="" ECCNNo="" HarmonizedCode="" ISBN="" ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight="" ItemWeightUOM="" ManufacturerItem="" ManufacturerItemDesc="" ManufacturerName="" NMFCClass="" NMFCCode="" NMFCDescription="" ProductClass="" ProductLine="" ScheduleBCode="" SupplierItem="" SupplierItemDesc="" TaxProductCode="" UPCCode="" UnitCost="" UnitOfMeasure="">
-		<LinePriceInfo ActualPricingQty="" LineTotal="" ListPrice="" OrderedPricingQty="" PricingQtyConversionFactor="" PricingUOM="" RepricingQty="" RetailPrice="" SettledAmount="" SettledQuantity="" TaxExemptionCertificate="" TaxableFlag="" UnitPrice="" />
-		<Order ActualPricingDate="" AuthorizationExpirationDate="" BillToID="" BuyerUserId="" CarrierAccountNo="" CarrierServiceCode="" ChargeActualFreightFlag="" CustomerEMailID="" CustomerPONo="" DeliveryCode="" Division="" DocumentType="" EnteredBy="" EnterpriseCode="" EntryType="" FreightTerms="" HoldFlag="" HoldReasonCode="" MaxOrderStatus="" MaxOrderStatusDesc="" MinOrderStatus="" MinOrderStatusDesc="" NotifyAfterShipmentFlag="" OrderDate="" OrderHeaderKey="" OrderName="" OrderNo="" OrderType="" OriginalTax="" OriginalTotalAmount="" OtherCharges="" PaymentStatus="" PersonalizeCode="" PriorityCode="" PriorityNumber="" Purpose="" SCAC="" ScacAndService="" ScacAndServiceKey="" SearchCriteria="" SearchCriteria2="" SellerOrganizationCode="" Status="" TaxExemptFlag="" TaxExemptionCertificate="" TaxJurisdiction="" TaxPayerId="" TermsCode="" TotalAdjustmentAmount="" isHistory="" >
-			<PersonInfoShipTo AddressLine="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" Createprogid="" Createts="" Createuserid="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" JobTitle="" LastName="" Lockid="" MiddleName="" MobilePhone="" Modifyprogid="" Modifyts="" Modifyuserid="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" Title="" UseCount="" VerificationStatus="" ZipCode="" isHistory="" /> 
-			<PersonInfoBillTo AddressLine="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" Createprogid="" Createts="" Createuserid="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" JobTitle="" LastName="" Lockid="" MiddleName="" MobilePhone="" Modifyprogid="" Modifyts="" Modifyuserid="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" Title="" UseCount="" VerificationStatus="" ZipCode="" isHistory="" /> 
-		</Order>
-		<WorkOrders NumberOfWorkOrders=""/>
-		<ItemDetails CanUseAsServiceTool="" GlobalItemID="" IsItemSuperseded="" ItemGroupCode="" ItemID="" ItemKey="" OrganizationCode="" SubCatalogOrganizationCode="" UnitOfMeasure="" >
-			<PrimaryInformation AllowGiftWrap="" CostCurrency="" CountryOfOrigin="" DefaultProductClass="" Description="" EffectiveEndDate="" EffectiveStartDate="" ImageID="" ImageLabel="" ImageLocation="" IsDeliveryAllowed="" IsEligibleForShippingDiscount="" IsForwardingAllowed="" IsFreezerRequired="" IsHazmat="" IsModelItem="" IsParcelShippingAllowed="" IsPickupAllowed="" IsPreConfigured="" IsProcurementAllowed="" IsReturnService="" IsReturnable="" IsShippingAllowed="" IsSoldSeparately="" IsStandaloneService="" IsSubOnOrderAllowed="" IsValid="" ItemType="" KitCode="" ManufacturerItem="" ManufacturerItemDesc="" ManufacturerName="" MasterCatalogID="" MaxOrderQuantity="" MaxReturnWindow="" MinOrderQuantity="" MinReturnWindow="" MinimumCapacityQuantity="" ModelItemUnitOfMeasure="" OrderingQuantityStrategy="" PricingQuantityConvFactor="" PricingQuantityStrategy="" PricingUOM="" PricingUOMStrategy="" PrimaryEnterpriseCode="" PrimarySupplier="" ProductLine="" ReturnWindow="" SerializedFlag="" ServiceTypeID="" ShipmentConsolidationWindow="" ShortDescription="" SizeCode="" Status="" TaxableFlag="" UnitCost="" UnitHeight="" UnitHeightUOM="" UnitLength="" UnitLengthUOM="" UnitVolume="" UnitVolumeUOM="" UnitWeight="" UnitWeightUOM="" UnitWidth="" UnitWidthUOM="" />
-			<InventoryParameters ATPRule="" AdvanceNotificationTime="" DefaultExpirationDays="" FutureSafetyFactorPercentage="" InventoryMonitorRule="" IsFifoTracked="" IsItemBasedAllocationAllowed="" IsSerialTracked="" LeadTime="" MaximumNotificationTime="" MinNotificationTime="" NodeLevelInventoryMonitorRule="" OnhandSafetyFactorPercentage="" OnhandSafetyFactorQuantity="" ProcessingTime="" RequiresDGOverride="" TagControlFlag="" TagReqAtReceipt="" TagReqAtShipment="" TimeSensitive="" UseUnplannedInventory="" />
-			<ClassificationCodes CommodityCode="" ECCNNo="" HarmonizedCode="" HazmatClass="" Model="" NAICSCode="" NMFCClass="" NMFCCode="" OperationalConfigurationComplete="" PickingType="" PostingClassification="" StorageType="" TaxProductCode="" UNSPSC="" VelocityCode="" />
-		</ItemDetails>
-		<LineOverallTotals AdditionalLinePriceTotal="" Charges="" Discount="" ExtendedPrice="" LineCost="" LineTotal="" LineTotalWithoutTax="" ManualDiscountPercentage="" ManualOverridePercentage="" OptionPrice="" PercentProfitMargin="" PricingQty="" ShippingBaseCharge="" ShippingCharges="" ShippingDiscount="" ShippingTotal="" Tax="" UnitPrice=""/>
-		<LineInvoicedTotals AdditionalLinePriceTotal="" Charges="" Discount="" ExtendedPrice="" LineCost="" LineTotal="" OptionPrice="" PricingQty="" Tax="" UnitPrice="" />
-		<LineRemainingTotals AdditionalLinePriceTotal="" Charges="" Discount="" ExtendedPrice="" LineCost="" LineTotal="" OptionPrice="" PricingQty="" Tax="" UnitPrice="" />
-		<OrderStatuses>
-			<OrderStatus OrderHeaderKey="" OrderLineKey="" OrderLineScheduleKey="" OrderReleaseKey="" OrderReleaseStatusKey="" PipelineKey="" ReceivingNode="" ShipNode="" Status="" StatusDate="" StatusDescription="" StatusQty="" StatusReason="" TotalQuantity="" >
-				<Details ExpectedDeliveryDate="" ExpectedShipmentDate="" ShipNode="" TagNumber="" >
-					<KitDetails/>
-				</Details>
-				<OrderStatusTranQuantity StatusQty="" TotalQuantity="" TransactionalUOM=""/>
-			</OrderStatus>
-		</OrderStatuses>
-		<ComputedPrice AdditionalLinePriceTotal="" Charges="" Discount="" ExtendedPrice="" LineCost="" LineTotal="" LineTotalWithoutTax="" PercentProfitMargin="" Tax="" UnitPrice="" />
-		<OrderLineTranQuantity FillQuantity="" InvoicedQuantity="" OpenQty="" OrderedQty="" OriginalOrderedQty="" ReceivedQty="" RemainingQty="" SettledQuantity="" ShippedQuantity="" SplitQty="" StatusQuantity="" TranDiscrepancyQty="" TransactionalUOM="" />
-		<CurrentUserOrderApprovalDetails>
-			<CurrentOrderApprovalDetails TotalNumberOfRecords=""/>
-			<PredecessorOrderApprovalDetails TotalNumberOfRecords=""/>
-		</CurrentUserOrderApprovalDetails>
-		<ReturnPolicyViolations>
-			<TransactionApproverList TotalNumberOfRecords=""/>
-			<onApprovalTransactionViolationList TotalNumberOfRecords=""/>
-		</ReturnPolicyViolations>
-	</OrderLine>
-</OrderLineList>
+<!--changeOrder Output XML-->
+<Order DocumentType="" EnterpriseCode="" ModificationReasonCode="" ModificationReasonText="" 
+	   OrderHeaderKey="" OrderNo="" OrderDate="" OrderType="" >
+	<OrderLines>
+		<OrderLine Action="MODIFY" ModificationReasonCode="" ModificationReasonText="" OrderLineKey="" OrderedQty="" PrimeLineNo="" ReqDeliveryDate="" ReqShipDate="" ShipNode="" ShipToID="" ShipToKey="" SubLineNo="" Timezone=""  >
+			<Extn ExtnSAPOrderNo="" ExtnLegacyOMSChildOrderNo="" />
+			<Item CustomerItemDesc="" ISBN=""
+                ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight=""
+                ItemWeightUOM="" ProductClass=""
+                ProductLine="" UnitCost="" UnitOfMeasure="" />
+		</OrderLine>
+	</OrderLines>
+</Order>

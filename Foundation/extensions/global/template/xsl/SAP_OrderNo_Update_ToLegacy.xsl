@@ -4,30 +4,30 @@
 		<OrderMessage>
 			<xsl:attribute name="MessageTypeId">LegacyOMS004</xsl:attribute>
 			<xsl:attribute name="Modifyts">
-				<xsl:value-of select="/OrderRelease/OrderLine/OrderStatuses/OrderStatus/@StatusDate"/>
+				<xsl:value-of select="Order/@OrderDate"/>
 			</xsl:attribute>
 			<xsl:attribute name="LegacyOMSMessageSequenceNumber">
 			</xsl:attribute>
 			<MessageBody>
 				<Order>
-					<xsl:for-each select="OrderRelease">
+					<xsl:for-each select="Order">
 						<xsl:attribute name="EnterpriseCode">
 							<xsl:value-of select="@EnterpriseCode"/>
 						</xsl:attribute>
 						<xsl:attribute name="SAPOrderNo">
-							<xsl:value-of select="OrderLine/Extn/@ExtnSAPOrderNo"/>
+							<xsl:value-of select="OrderLines/OrderLine/Extn/@ExtnSAPOrderNo"/>
 						</xsl:attribute>
 						<xsl:attribute name="LegacyOMSOrderNo">
-							<xsl:value-of select="OrderLine/Extn/@ExtnLegacyOMSChildOrderNo"/>
+							<xsl:value-of select="OrderLines/OrderLine/Extn/@ExtnLegacyOMSChildOrderNo"/>
 						</xsl:attribute>
 						<xsl:attribute name="DocumentType">
-							<xsl:value-of select="Order/@DocumentType"/>
+							<xsl:value-of select="@DocumentType"/>
 						</xsl:attribute>
 						<xsl:attribute name="OrderType">
 							<xsl:value-of select="@OrderType"/>
 						</xsl:attribute>
 						<OrderLines>
-							<xsl:for-each select="/OrderRelease/OrderLine">
+							<xsl:for-each select="OrderLines/OrderLine">
 								<OrderLine>
 									<xsl:attribute name="PrimeLineNo">
 										<xsl:value-of select="@PrimeLineNo"/>

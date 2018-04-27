@@ -69,9 +69,6 @@
 					<xsl:attribute name="SubLineNo">
 						<xsl:value-of select="OrderLineList/OrderLine/@SubLineNo" />
 					</xsl:attribute>
-					<xsl:attribute name="SubLineNo">
-						<xsl:value-of select="OrderLineList/OrderLine/@SubLineNo" />
-					</xsl:attribute>
 					<xsl:attribute name="Quantity">
 						<xsl:value-of select="OrderLineList/OrderLine/@StatusQuantity" />
 					</xsl:attribute>

@@ -28,16 +28,18 @@
 						</xsl:attribute>
 						<OrderLines>
 							<xsl:for-each select="OrderLines/OrderLine">
-								<OrderLine>
-									<xsl:attribute name="PrimeLineNo">
-										<xsl:value-of select="@PrimeLineNo"/>
-									</xsl:attribute>
-									<Item>
-										<xsl:attribute name="ItemID">
-											<xsl:value-of select="Item/@ItemID"/>
+								<xsl:if test="@Status=='Backroom Pick In Progress'">
+									<OrderLine>
+										<xsl:attribute name="PrimeLineNo">
+											<xsl:value-of select="@PrimeLineNo"/>
 										</xsl:attribute>
-									</Item>
-								</OrderLine>
+										<Item>
+											<xsl:attribute name="ItemID">
+												<xsl:value-of select="Item/@ItemID"/>
+											</xsl:attribute>
+										</Item>
+									</OrderLine>
+								</xsl:if>
 							</xsl:for-each>
 						</OrderLines>
 					</xsl:for-each>

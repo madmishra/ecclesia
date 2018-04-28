@@ -4,7 +4,7 @@
 		<OrderMessage>
 			<xsl:attribute name="MessageTypeId">SAP001</xsl:attribute>
 			<xsl:attribute name="Modifyts">
-				<xsl:value-of select="/OrderLine/Order/@Modifyts"/>
+				<xsl:value-of select="OrderLine/Order/@Modifyts"/>
 			</xsl:attribute>
 			<MessageBody>
 				<Order>
@@ -30,7 +30,7 @@
 						<xsl:value-of select="OrderLine/Order/@EnterpriseCode"/>
 					</xsl:attribute>
 					<xsl:attribute name="LegacyOMSOrderNo">
-						<xsl:value-of select="OrderLine/EXtn/@ExtnLegacyOMSChildOrderNo"/>
+						<xsl:value-of select="OrderLine/Extn/@ExtnLegacyOMSChildOrderNo"/>
 					</xsl:attribute>
 					<xsl:attribute name="OrderDate">
 						<xsl:value-of select="OrderLine/Order/@OrderDate"/>
@@ -79,7 +79,7 @@
 				</PersonInfoBillTo>
 				<OrderLines>
 					<xsl:for-each select="/OrderLineList/OrderLine">
-						<xsl:if test="@Status!='Cancelled'">
+						<xsl:if test="@Status ='Released'">
 							<OrderLine>
 								<xsl:attribute name="OrderedQty">
 									<xsl:value-of select="@OrderedQty"/>

@@ -6,10 +6,10 @@ IBM Sterling Selling And Fulfillment Suite
 US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
  -->
 <!--changeOrder Output XML-->
-<Order DocumentType="" EnterpriseCode="" ModificationReasonCode="" ModificationReasonText="" 
+<Order DocumentType="" EnterpriseCode="" Status="" ModificationReasonCode="" ModificationReasonText="" 
 	   OrderHeaderKey="" OrderNo="" OrderDate="" OrderType="" >
 	<OrderLines>
-		<OrderLine Action="MODIFY" ModificationReasonCode="" ModificationReasonText="" OrderLineKey="" OrderedQty="" PrimeLineNo="" ReqDeliveryDate="" ReqShipDate="" ShipNode="" ShipToID="" ShipToKey="" SubLineNo="" Timezone=""  >
+		<OrderLine Action="MODIFY" ModificationReasonCode="" ModificationReasonText="" OrderLineKey="" OrderedQty="" PrimeLineNo="" ReqDeliveryDate="" ReqShipDate="" Status="" ShipNode="" ShipToID="" ShipToKey="" SubLineNo="" Timezone=""  >
 			<Extn ExtnSAPOrderNo="" ExtnLegacyOMSChildOrderNo="" />
 			<Item CustomerItemDesc="" ISBN=""
                 ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight=""

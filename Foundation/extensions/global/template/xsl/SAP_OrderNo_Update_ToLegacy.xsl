@@ -28,7 +28,6 @@
 						</xsl:attribute>
 						<OrderLines>
 							<xsl:for-each select="OrderLines/OrderLine">
-								<xsl:if test="@Status=='Backroom Pick In Progress'">
 									<OrderLine>
 										<xsl:attribute name="PrimeLineNo">
 											<xsl:value-of select="@PrimeLineNo"/>
@@ -39,7 +38,6 @@
 											</xsl:attribute>
 										</Item>
 									</OrderLine>
-								</xsl:if>
 							</xsl:for-each>
 						</OrderLines>
 					</xsl:for-each>

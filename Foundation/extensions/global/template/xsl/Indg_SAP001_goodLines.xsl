@@ -41,8 +41,7 @@
 					<xsl:attribute name="ParentLegacyOMSOrderNo">
 						<xsl:value-of select="OrderLine/Order/@OrderNo"/>
 					</xsl:attribute>
-					<xsl:attribute name="ReleaseNo">
-					</xsl:attribute>
+					<xsl:attribute name="ReleaseNo">ReleaseNo</xsl:attribute>
 					<PersonInfoBillTo>
 					<xsl:attribute name="AddressLine1">
 						<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@AddressLine1"/>

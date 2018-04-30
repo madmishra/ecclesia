@@ -3077,14 +3077,6 @@
     Modifyts="2018-04-16T06:33:34-04:00" Modifyuserid="admin"
     OwnerKey="DEFAULT" ProcessTypeKey="GENERAL" SystemDefined="N" TransportTypeKey="GJMS"/>
 <Flow Createprogid=".YCPWFRepositoryAPI"
-    Createts="2018-04-16T12:02:07-04:00" Createuserid="admin"
-    FlowGroupName="INDG_MASTERUPLOAD" FlowKey="201804161202075787"
-    FlowName="Indg_StoreManage" FlowType="00"
-    GraphUIKey="201804161202095790" IsOutGoing="N" IsPrintService="N"
-    IsRealTime="N" Lockid="1" Modifyprogid=".YIFUIManager"
-    Modifyts="2018-04-16T12:05:25-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" ProcessTypeKey="GENERAL" SystemDefined="N" TransportTypeKey="FILE"/>
-<Flow Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-04-16T12:37:12-04:00" Createuserid="admin"
     FlowGroupName="INDG_MASTERUPLOAD" FlowKey="201804161237125989"
     FlowName="Indg_CalendarFeed" FlowType="00"

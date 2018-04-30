@@ -1062,6 +1062,14 @@
     GroupId="Indigo" Lockid="1" Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-04-16T12:25:43-04:00" Modifyuserid="admin"
     OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+<Condition ConditionID="Indigp" ConditionKey="201804300723318100"
+    ConditionName="StateVal" ConditionType="PROCESS_MODELLING"
+    ConditionValue="State = 'ON'  OR State = ''"
+    Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-04-30T07:23:31-04:00" Createuserid="admin"
+    GroupId="Indigo" Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-04-30T07:23:31-04:00" Modifyuserid="admin"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_PORTAL" ConditionKey="DEFAULT_PORTAL"
     ConditionName="Is Shipment confirmed through Console?"
     ConditionType="PROCESS_MODELLING"

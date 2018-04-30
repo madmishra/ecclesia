@@ -10,7 +10,7 @@
 					<xsl:value-of select="@DocumentType" />
 				</xsl:attribute>
 				<xsl:attribute name="OrderNo">
-					<xsl:value-of select="@ParentLegacyOMSOrderNo" />
+					<xsl:value-of select="@SterlingOrderNo" />
 				</xsl:attribute>
 				<OrderLines>
 					<xsl:for-each select="OrderLines/OrderLine">

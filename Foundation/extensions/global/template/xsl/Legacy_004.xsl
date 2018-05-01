@@ -23,7 +23,7 @@
 						<xsl:value-of select="ShipmentLines/ShipmentLine/@DocumentType"/>
 					</xsl:attribute>
 					<xsl:attribute name="OrderType">
-						<xsl:value-of select="ShipmentLines/ShipmentLine/OrderLine/@OrderType"/>
+						<xsl:value-of select="@OrderType"/>
 					</xsl:attribute>
 					<OrderLines>
 						<xsl:for-each select="ShipmentLines/ShipmentLine/OrderLine">

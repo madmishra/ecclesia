@@ -5,6 +5,21 @@
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:15-04:00" Modifyuserid="SYSTEM"
     NodeTypeDescription="Distribution Center" NodeTypeID="DC" NodeTypeKey="201684501501"/>
+<NodeType Createprogid=".YEntityServlet"
+    Createts="2018-04-30T10:12:48-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-04-30T10:12:48-04:00"
+    Modifyuserid="admin" NodeTypeDescription="Store_PickUpOnly"
+    NodeTypeID="Store_PickUpOnly" NodeTypeKey="201804301012488165"/>
+<NodeType Createprogid=".YEntityServlet"
+    Createts="2018-04-30T10:13:10-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-04-30T10:13:10-04:00"
+    Modifyuserid="admin" NodeTypeDescription="Store_ShipFromOnly"
+    NodeTypeID="Store_ShipFromOnly" NodeTypeKey="201804301013108168"/>
+<NodeType Createprogid=".YEntityServlet"
+    Createts="2018-04-30T10:13:29-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-04-30T10:13:29-04:00"
+    Modifyuserid="admin" NodeTypeDescription="Store_NoFulfillment"
+    NodeTypeID="Store_NoFulfillment" NodeTypeKey="201804301013298171"/>
 <NodeType Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:15-04:00" Createuserid="SYSTEM"
     Lockid="0" Modifyprogid="XMLMigrator"

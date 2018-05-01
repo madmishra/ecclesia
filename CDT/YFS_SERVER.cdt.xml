@@ -280,6 +280,30 @@
     Modifyuserid="admin" MonitorStartTime="1"
     ServerKey="201804161257566062" ServerName="Indg_Calendar"
     ServerType="00" Terminate="N" TransportTypeKey="FILE" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-05-01T07:26:11-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-01T07:26:11-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="201805010726118199" ServerName="MasterUploadServer"
+    ServerType="00" Terminate="N" TransportTypeKey="FILE" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-05-01T09:46:06-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-01T09:46:06-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="201805010946068848" ServerName="MasterUploadQueueServer"
+    ServerType="00" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-05-01T10:04:46-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-01T10:04:46-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="201805011004468955" ServerName="CancelOrderService"
+    ServerType="00" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-05-01T10:38:21-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-01T10:38:21-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="201805011038219162" ServerName="SAP002_AckServer"
+    ServerType="00" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
 <Server Createprogid="XMLMigrator" Createts="2018-03-28T12:30:08-04:00"
     Createuserid="SYSTEM" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:08-04:00" Modifyuserid="SYSTEM"

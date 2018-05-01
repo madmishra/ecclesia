@@ -13,38 +13,12 @@
     Modifyts="2018-03-28T12:36:06-04:00" Modifyuserid="SYSTEM"
     OwnerKey="DEFAULT" PipelineConditionKey="201305181655543011106"
     PipelineKey="WMS-COUNT-9.3" Priority="1.00" ProcessTypeKey="COUNT_EXECUTION"/>
-<PipelineCondition ConditionKey="200502231737417438"
-    Createprogid="XMLMigrator" Createts="2018-03-28T12:30:01-04:00"
-    Createuserid="SYSTEM" EnterpriseKey="DEFAULT" Lockid="0"
-    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:01-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT"
-    PipelineConditionKey="2015112414083421897"
-    PipelineKey="SALES-SERVICE-9.5" Priority="0.00" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineCondition ConditionKey="20060606091158112062"
-    Createprogid="XMLMigrator" Createts="2018-03-28T12:30:01-04:00"
-    Createuserid="SYSTEM" EnterpriseKey="DEFAULT" Lockid="0"
-    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:01-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT"
-    PipelineConditionKey="2015112414083421899"
-    PipelineKey="SALES-BUNDLE-9.5" Priority="1.00" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineCondition ConditionKey="" Createprogid="XMLMigrator"
-    Createts="2018-03-28T12:30:01-04:00" Createuserid="SYSTEM"
-    EnterpriseKey="DEFAULT" Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:01-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" PipelineConditionKey="2015112414083421901"
-    PipelineKey="SALES-9.5" Priority="2.00" ProcessTypeKey="ORDER_FULFILLMENT"/>
 <PipelineCondition ConditionKey="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:01-04:00" Createuserid="SYSTEM"
     EnterpriseKey="DEFAULT" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:01-04:00" Modifyuserid="SYSTEM"
     OwnerKey="DEFAULT" PipelineConditionKey="2015112414084421907"
     PipelineKey="ORDER-NEG-9.5" Priority="0.00" ProcessTypeKey="ORDER_NEGOTIATION"/>
-<PipelineCondition ConditionKey="" Createprogid="XMLMigrator"
-    Createts="2018-03-28T12:30:01-04:00" Createuserid="SYSTEM"
-    EnterpriseKey="DEFAULT" Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:01-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" PipelineConditionKey="2015112414085221913"
-    PipelineKey="SALES-SHIPMENT-9.5" Priority="0.00" ProcessTypeKey="ORDER_DELIVERY"/>
 <PipelineCondition ConditionKey="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:01-04:00" Createuserid="SYSTEM"
     EnterpriseKey="DEFAULT" Lockid="0" Modifyprogid="XMLMigrator"
@@ -195,4 +169,18 @@
     Modifyts="2018-03-28T12:30:01-04:00" Modifyuserid="SYSTEM"
     OwnerKey="DEFAULT" PipelineConditionKey="2015112414424622101"
     PipelineKey="OPPORTUNITY-9.5" Priority="0.00" ProcessTypeKey="OPPORTUNITY_FULFILLMENT"/>
+<PipelineCondition ConditionKey="" Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-05-01T10:59:19-04:00" Createuserid="admin"
+    EnterpriseKey="DEFAULT" Lockid="0"
+    Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-05-01T10:59:19-04:00" Modifyuserid="admin"
+    OwnerKey="DEFAULT" PipelineConditionKey="201805011059199758"
+    PipelineKey="201804120904073062" Priority="0.00" ProcessTypeKey="ORDER_FULFILLMENT"/>
+<PipelineCondition ConditionKey="" Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-05-01T11:09:45-04:00" Createuserid="admin"
+    EnterpriseKey="DEFAULT" Lockid="0"
+    Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-05-01T11:09:45-04:00" Modifyuserid="admin"
+    OwnerKey="DEFAULT" PipelineConditionKey="201805011109459942"
+    PipelineKey="201804120932203608" Priority="0.00" ProcessTypeKey="ORDER_DELIVERY"/>
 </YFS_PIPELINE_CONDITIONList>

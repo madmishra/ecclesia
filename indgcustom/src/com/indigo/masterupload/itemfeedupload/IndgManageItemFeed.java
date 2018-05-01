@@ -41,6 +41,8 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     YFCElement inputEle = inXml.getDocumentElement();
     YFCIterable<YFCElement> yfcItrator= inputEle.getChildren(XMLLiterals.ITEM);
     for(YFCElement itemEle: yfcItrator){
+      itemEle.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
+      itemEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, ORGANIZATION_CODE);
       manageItem(itemEle,inXml);
     }
     return inXml;
@@ -58,7 +60,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     if(itemListOp.getDocumentElement().hasChildNodes()) {
       String opSyncTS = itemListOp.getDocumentElement().getChildElement(XMLLiterals.ITEM)
           .getAttribute(XMLLiterals.SYNC_TS);
-      if(validateItemUpdate(itemEle.getAttribute(XMLLiterals.SYNC_TS),opSyncTS)){
+      if(validateTimeDifference(itemEle.getAttribute(XMLLiterals.SYNC_TS),opSyncTS)){
         if(!isItemAssignedToCategory(itemListOp.getDocumentElement().getChildElement(XMLLiterals.ITEM))){
           modifyCategoryItem(itemEle,CREATE_ACTION);
         } else {
@@ -256,7 +258,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     * @param outputSyncTS
     * @return
     */
-   private boolean validateItemUpdate(String inputSyncTS, String outputSyncTS) {
+   public static boolean validateTimeDifference(String inputSyncTS, String outputSyncTS) {
        try{
          if(!XmlUtils.isVoid(inputSyncTS) && !XmlUtils.isVoid(outputSyncTS)){
           String synctsIn = inputSyncTS.substring(0,10)+" "+inputSyncTS.substring(11,19);

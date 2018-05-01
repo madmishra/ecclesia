@@ -2,7 +2,7 @@
 <YFS_INSTALL_DEFAULTSList TableName="YFS_INSTALL_DEFAULTS">
 <InstallDefaults Country="US" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:50-04:00" Createuserid="SYSTEM"
-    InstallDefaultsKey="DEFAULT" Instance="" Language="en" Lockid="0"
+    InstallDefaultsKey="DEFAULT" Instance=" " Language="en" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:50-04:00"
-    Modifyuserid="SYSTEM" Variant="" Version=""/>
+    Modifyuserid="SYSTEM" Variant=" " Version=" "/>
 </YFS_INSTALL_DEFAULTSList>

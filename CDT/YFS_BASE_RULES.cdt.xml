@@ -2049,4 +2049,10 @@
     Createuserid="SYSTEM" GroupName="PricingEnterprise" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:52-04:00"
     Modifyuserid="SYSTEM" RuleName="YPM_ALLOW_ZERO_ADJ_PRICING_RULES" RuleSetValue="N"/>
+<BaseRules BaseRulesKey="YPM_PRC_SELECT_OVERRIDE"
+    Createprogid="XMLMigrator" Createts="2018-04-18T11:12:53-04:00"
+    Createuserid="SYSTEM" GroupName="Pricing" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-04-18T11:12:53-04:00"
+    Modifyuserid="SYSTEM"
+    RuleName="YPM_RULE_PRICING_USE_SELECTION_CRITERIA_AS_OVERRIDE_TO_CUSTOMER" RuleSetValue="N"/>
 </YFS_BASE_RULESList>

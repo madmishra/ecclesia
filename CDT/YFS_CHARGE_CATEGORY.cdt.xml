@@ -91,6 +91,20 @@
     IsBillable="Y" IsDiscount="Y" IsRefundable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:23-04:00"
     Modifyuserid="SYSTEM" OrganizationCode="DEFAULT"/>
+<ChargeCategory ChargeCategory="SHIPPING"
+    ChargeCategoryKey="2018050209354610609" ConsiderForProfitMargin="N"
+    Createprogid=".YEntityServlet" Createts="2018-05-02T09:35:46-04:00"
+    Createuserid="admin" Description="SHIPPING" DocumentType="0001"
+    IsBillable="N" IsDiscount="N" IsRefundable="N" Lockid="1"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-02T09:36:04-04:00"
+    Modifyuserid="admin" OrganizationCode="Indigo_CA"/>
+<ChargeCategory ChargeCategory="DISCOUNT"
+    ChargeCategoryKey="2018050209362610617" ConsiderForProfitMargin="N"
+    Createprogid=".YEntityServlet" Createts="2018-05-02T09:36:26-04:00"
+    Createuserid="admin" Description="DISCOUNT" DocumentType="0001"
+    IsBillable="N" IsDiscount="N" IsRefundable="N" Lockid="1"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-02T09:36:42-04:00"
+    Modifyuserid="admin" OrganizationCode="Indigo_CA"/>
 <ChargeCategory ChargeCategory="Shipping"
     ChargeCategoryKey="DEFAULT_CHARGE_KEY_01"
     ConsiderForProfitMargin="N" Createprogid="XMLMigrator"

@@ -1070,6 +1070,18 @@
     GroupId="Indigo" Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-04-30T07:23:31-04:00" Modifyuserid="admin"
     OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+<Condition ConditionID="HeaderErrorCodeExists"
+    ConditionKey="2018050210263311039"
+    ConditionName="HeaderErrorCodeExists"
+    ConditionType="PROCESS_MODELLING"
+    ConditionValue="HeaderErrorCode &lt;> ''"
+    Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-05-02T10:26:33-04:00" Createuserid="admin"
+    GroupId="IndgOrderCond" Lockid="0"
+    Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-05-02T10:26:33-04:00" Modifyuserid="admin"
+    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_PORTAL" ConditionKey="DEFAULT_PORTAL"
     ConditionName="Is Shipment confirmed through Console?"
     ConditionType="PROCESS_MODELLING"

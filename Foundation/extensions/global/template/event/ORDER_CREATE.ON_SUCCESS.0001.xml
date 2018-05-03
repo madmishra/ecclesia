@@ -6,7 +6,7 @@
     MaxOrderStatusDesc="" MinOrderStatus="" MinOrderStatusDesc=""
     OrderDate="" OrderHeaderKey="" OrderName="" OrderNo="" OrderType=""  
 	OriginalTotalAmount="" OtherCharges="" PaymentStatus=""
-    Purpose="" ReceivingNode="" ReqShipDate="" SellerOrganizationCode=""
+    Purpose="" ReceivingNode="" ReqShipDate="" ReqDeliveryDate="" SellerOrganizationCode=""
     ShipToID="" Status="" Modifyts="" >
 	<Extn />
     <OrderLines NumberOfOrderLines="">

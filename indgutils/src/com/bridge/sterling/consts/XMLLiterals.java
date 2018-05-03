@@ -137,5 +137,7 @@ public static final String QUEUE_KEY = "QueueKey";
 public static final String USER_GROUP_LISTS = "UserGroupLists";
 public static final String USER_GROUP_LIST = "UserGroupList";
 public static final String USER_GROUP_ID = "UsergroupId";
+public static final String ORDER_LINES = "OrderLines";
+public static final String ORDER_LINE = "OrderLine";
 }
 

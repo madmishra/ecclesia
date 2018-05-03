@@ -15,8 +15,7 @@
             MaxLineStatusDesc="" MinLineStatus="" MinLineStatusDesc=""
             OpenQty=""  OrderHeaderKey="" OrderLineKey=""
             OrderedQty="" OrigOrderLineKey="" OriginalOrderedQty=""
-            PrimeLineNo=""  ReceivingNode="" RemainingQty="" ReqShipDate="" ShipNode="" 
-			ShipToID="" SerialNo="" Status="" StatusQuantity="" SubLineNo="" >
+            PrimeLineNo=""  ReceivingNode="" RemainingQty="" ReqShipDate="" ReqDeliveryDate="" ShipNode="" ShipToID="" SerialNo="" Status="" StatusQuantity="" SubLineNo="" >
             <Item CostCurrency="" CountryOfOrigin="" 
                 ItemDesc="" ItemID="" ItemShortDesc="" ManufacturerItem=""
                 ProductClass="" UnitCost="" UnitOfMeasure=""/>

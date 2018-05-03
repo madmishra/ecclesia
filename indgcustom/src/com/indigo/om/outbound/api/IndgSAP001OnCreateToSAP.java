@@ -24,7 +24,7 @@ import com.yantra.yfc.dom.YFCNode;
  */
 public class IndgSAP001OnCreateToSAP extends AbstractCustomApi{
   Map<String,List<YFCElement>> orderLineMap = new HashMap<>();
-  private static final String DROP_MESSAGE_TO_SAP ="INDG_DropCreateMsgToSAP";
+  private static final String DROP_MESSAGE_TO_SAP ="Indg_DropSAP001MsgToSAP";
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
     String inputDocString = inXml.toString();

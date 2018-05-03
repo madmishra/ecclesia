@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Order_Create.On_Success Event XML-->
+<Order BillToID=""   BuyerOrganizationCode="" CustomerEMailID="" CustomerPONo=""
+    DeliveryCode="" Division="" DocumentType="" DraftOrderFlag=""
+    EnterpriseCode="" HoldFlag="" MaxOrderStatus=""
+    MaxOrderStatusDesc="" MinOrderStatus="" MinOrderStatusDesc=""
+    OrderDate="" OrderHeaderKey="" OrderName="" OrderNo="" OrderType=""  
+	OriginalTotalAmount="" OtherCharges="" PaymentStatus=""
+    Purpose="" ReceivingNode="" ReqShipDate="" SellerOrganizationCode=""
+    ShipToID="" Status="" >
+	<Extn />
+    <OrderLines NumberOfOrderLines="">
+		<OrderLine CustomerLinePONo="" CustomerPONo="" DerivedFromOrderHeaderKey="" HoldFlag="" InvoicedQty="" 
+			KitCode="" LineSeqNo="" LineType="" MaxLineStatus=""
+            MaxLineStatusDesc="" MinLineStatus="" MinLineStatusDesc=""
+            OpenQty=""  OrderHeaderKey="" OrderLineKey=""
+            OrderedQty="" OrigOrderLineKey="" OriginalOrderedQty=""
+            PrimeLineNo=""  ReceivingNode="" RemainingQty="" ReqShipDate="" ShipNode="" 
+			ShipToID="" SerialNo="" Status="" StatusQuantity="" SubLineNo="" >
+            <Item CostCurrency="" CountryOfOrigin="" 
+                ItemDesc="" ItemID="" ItemShortDesc="" ManufacturerItem=""
+                ProductClass="" UnitCost="" UnitOfMeasure=""/>
+			<ItemDetails ItemID=""
+                ItemKey="" OrganizationCode="Required" UnitOfMeasure="">
+				<Extn RespProdMfgDivCode="" RespProductMfgID="" RepairCode="" />
+				<PrimaryInformation ExtendedDescription="" />
+            </ItemDetails>
+			<LinePriceInfo DiscountPercentage="" LineTotal=""
+                ListPrice="" RetailPrice="" TaxableFlag="" UnitPrice=""/>
+			 <Notes>									
+				<Note NoteText="" SequenceNo="" ReasonCode=""/>									
+			</Notes>
+            <Extn />
+        </OrderLine>
+    </OrderLines>
+    <PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+    <PersonInfoBillTo AddressID="" AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+    <PriceInfo Currency="" EnterpriseCurrency=""
+        ReportingConversionDate="" ReportingConversionRate="" TotalAmount=""/>
+    <PaymentMethods>
+        <!--Only one payment info can be specified. In future releases multiple payment methods may be enabled.-->
+	<PaymentMethod PaymentKey="" PaymentType="" ChargeSequence="" CustomerAccountNo="" CustomerPONo="" CreditCardType="" CreditCardName="" CreditCardNo="" CreditCardExpDate="" DisplayCreditCardNo="" PaymentReference1="" PaymentReference2="" PaymentReference3="" CheckNo="" CheckReference="" MaxChargeLimit="" TotalAuthorized="" TotalCharged="" RequestedAuthAmount="" RequestedChargeAmount="" AwaitingAuthInterfaceAmount="" AwaitingChargeInterfaceAmount="" TotalRefundedAmount="" IncompletePaymentType="" SuspendAnyMoreCharges="" UnlimitedCharges=""/>
+    </PaymentMethods>
+	<OrderHoldTypes>
+		<OrderHoldType HoldType="" Status="" />
+	</OrderHoldTypes>
+	<References/>
+</Order>

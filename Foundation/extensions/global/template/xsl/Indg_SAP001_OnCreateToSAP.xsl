@@ -34,7 +34,7 @@
 						<xsl:value-of select="@ReqShipDate" />
 					</xsl:attribute>
 					<xsl:attribute name="DocumentType">
-						<xsl:value-of select="Order/@DocumentType" />
+						<xsl:value-of select="@DocumentType" />
 					</xsl:attribute>
 					<xsl:attribute name="EnterpriseCode">
 						<xsl:value-of select="@EnterpriseCode" />
@@ -81,13 +81,13 @@
 						<xsl:for-each select="OrderLines/OrderLine">
 							<OrderLine>
 								<xsl:attribute name="OrderedQty">
-									<xsl:value-of select="OrderStatuses/OrderStatus/@TotalQuantity" />
+									<xsl:value-of select="@OrderedQty" />
 								</xsl:attribute>
 								<xsl:attribute name="PrimeLineNo">
 									<xsl:value-of select="@PrimeLineNo" />
 								</xsl:attribute>
 								<xsl:attribute name="ShipNode">
-									<xsl:value-of select="/OrderRelease/@ShipNode" />
+									<xsl:value-of select="@ShipNode" />
 								</xsl:attribute>
 								<Item>
 									<xsl:attribute name="ItemID">

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PLT_DB_COLONYList TableName="PLT_DB_COLONY">
+<Colony ColonyId="DEFAULT" ColonyKey="201803281229491"
+    ColonyVersion="9.5" Createprogid="YSCPreInstallMetadataCreator"
+    Createts="2018-03-28T12:29:49-04:00" Createuserid="SYSTEM"
+    Lockid="0" Modifyprogid="YSCPreInstallMetadataCreator"
+    Modifyts="2018-03-28T12:29:49-04:00" Modifyuserid="SYSTEM" PkPrefix="20"/>
+</PLT_DB_COLONYList>

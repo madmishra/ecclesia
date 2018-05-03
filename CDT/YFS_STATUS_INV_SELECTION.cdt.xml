@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_STATUS_INV_SELECTIONList TableName="YFS_STATUS_INV_SELECTION">
+<StatusInvSelection ChainType=" " Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
+    Lockid="0" Modifyprogid="XMLMigrator"
+    Modifyts="2018-03-28T12:30:21-04:00" Modifyuserid="SYSTEM"
+    StatusInvSelectionKey="DEFAULT_STAT_INV_1" StatusInventoryID="DEFAULT"/>
+<StatusInvSelection ChainType="PROCURE_TO_SHIP"
+    Createprogid="XMLMigrator" Createts="2018-03-28T12:30:21-04:00"
+    Createuserid="SYSTEM" Lockid="0" Modifyprogid="XMLMigrator"
+    Modifyts="2018-03-28T12:30:21-04:00" Modifyuserid="SYSTEM"
+    StatusInvSelectionKey="DEFAULT_STAT_INV_2" StatusInventoryID="PROCURE"/>
+</YFS_STATUS_INV_SELECTIONList>

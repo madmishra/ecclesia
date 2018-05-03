@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_HOLD_TYPEList TableName="YFS_HOLD_TYPE">
+<HoldType ApplyConditionKey=" " ApplyOnResolveOfHoldTypeKey=" "
+    BaseProcessTypeKey="ORDER_FULFILLMENT" CanAllUsersCreateHoldType="Y"
+    CanAllUsersResolveHoldType="Y" CanResolveOnCancel="N"
+    Createprogid="XMLMigrator" Createts="2018-03-28T12:30:25-04:00"
+    Createuserid="SYSTEM" DocumentType="0001" HoldLevel="ORDER"
+    HoldType="PENDING_INV_UPDATE"
+    HoldTypeDescription="Pending Inventory Update"
+    HoldTypeKey="20150831165919268019" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:25-04:00"
+    Modifyuserid="SYSTEM" OrganizationCode="DEFAULT"
+    ProcessTransactionId="UPDATE_ORDER_INV_ASYNC.0001" RejectTransactionId="UPDATE_ORDER_INV_ASYNC.0001"/>
+</YFS_HOLD_TYPEList>

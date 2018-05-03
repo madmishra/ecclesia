@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_ATTRIBUTE_DOMAINList TableName="YFS_ATTRIBUTE_DOMAIN">
+<AttributeDomain AttributeDomainID="ItemAttribute"
+    AttributeDomainKey="201804121105054708"
+    Createprogid=".YCPOrgDetailsAPI"
+    Createts="2018-04-12T11:05:05-04:00" Createuserid="admin" Lockid="0"
+    LongDescription="Domain For Item Attribute"
+    Modifyprogid=".YCPOrgDetailsAPI"
+    Modifyts="2018-04-12T11:05:05-04:00" Modifyuserid="admin"
+    OrganizationCode="Indigo_CA" Purpose="ITEM" ShortDescription="Item Attribute"/>
+<AttributeDomain AttributeDomainID="ItemAttribute"
+    AttributeDomainKey="20876065522" Createprogid="XMLMigrator"
+    Createts="2018-03-28T12:30:18-04:00" Createuserid="SYSTEM"
+    Lockid="0" LongDescription="Domain For Item Attribute"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:18-04:00"
+    Modifyuserid="SYSTEM" OrganizationCode="DEFAULT" Purpose="ITEM" ShortDescription="Item Attribute"/>
+</YFS_ATTRIBUTE_DOMAINList>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+Licensed Materials - Property of IBM
+IBM Sterling Selling And Fulfillment Suite
+(C) Copyright IBM Corp. 2005, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ -->
+<Shipment ShipmentKey=" " ShipmentNo=" " ShipNode=" " SellerOrganizationCode=" ">
+	<ToAddress AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+	<BillToAddress AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+	<ShipmentLine ActualQuantity="" BackroomPickComplete="" BackroomPickedQuantity="" BuyerMarkForNodeId="" CountryOfOrigin="" CustomerPoLineNo="" CustomerPoNo="" DepartmentCode="" DocumentType="" ExternalReleaseIdentifier="" FifoNo="" IsPackComplete="" ItemDesc="" ItemID="" KitCode="" KitQty="" LevelOfService="" NetWeight="" NetWeightUom="" OrderHeaderKey="" OrderLineKey="" OrderNo="" OrderReleaseKey="" PrimeLineNo="" ProductClass="" Quantity="" ReleaseNo="" RequestedSerialNo="" ReturnShippingLabelLevel="" Segment="" SegmentType="" ShipAdviceNo="" ShipToCustomerId="" ShipmentConsolidationGroupId="" ShipmentLineKey="" ShipmentLineNo="" ShipmentSubLineNo="" ShortageQty="" SubLineNo="" UnitOfMeasure="" />
+</Shipment>

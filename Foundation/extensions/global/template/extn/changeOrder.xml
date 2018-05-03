@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+Licensed Materials - Property of IBM
+IBM Sterling Selling And Fulfillment Suite
+(C) Copyright IBM Corp. 2005, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ -->
+<!--changeOrder Output XML-->
+<Order DocumentType="" EnterpriseCode="" Status="" ModificationReasonCode="" ModificationReasonText="" 
+	   OrderHeaderKey="" OrderNo="" OrderDate="" OrderType="" >
+	<OrderLines>
+		<OrderLine Action="MODIFY" ModificationReasonCode="" ModificationReasonText="" OrderLineKey="" OrderedQty="" PrimeLineNo="" ReqDeliveryDate="" ReqShipDate="" Status="" ShipNode="" ShipToID="" ShipToKey="" SubLineNo="" Timezone=""  >
+			<Extn ExtnSAPOrderNo="" ExtnLegacyOMSChildOrderNo="" />
+			<Item CustomerItemDesc="" ISBN=""
+                ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight=""
+                ItemWeightUOM="" ProductClass=""
+                ProductLine="" UnitCost="" UnitOfMeasure="" />
+		</OrderLine>
+	</OrderLines>
+</Order>

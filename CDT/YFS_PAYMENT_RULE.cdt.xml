@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_PAYMENT_RULEList TableName="YFS_PAYMENT_RULE">
+<PaymentRule AllowRefundFromHoldAmount="N"
+    AuthRequiredBeforeSchedule="Y" CollectExternalThroughAr="N"
+    Createprogid="SYSTEM" Createts="2018-03-28T12:30:23-04:00"
+    Createuserid="SYSTEM" CustomerAccountMaintainedInternally="N"
+    DefaultFlag="N" DeferredCreditOnReturnRequired="N"
+    Description="Default Payment Rule" FinancialHandlingRequired="B"
+    IgnorePaymentStatusForPurge="N" InterfaceTime="AT_COLLECT"
+    Lockid="0" MerchantId=" " Modifyprogid="SYSTEM"
+    Modifyts="2018-03-28T12:30:23-04:00" Modifyuserid="SYSTEM"
+    OrganizationCode="DEFAULT" PaymentRuleId="DEFAULT"
+    PaymentRuleKey="DEFAULT" PostponeReauthorization="N"
+    ReauthHoursBeforeAppointment="0.00" ReauthHoursBeforeRelease="0.00" UseChargeTransactionRequestsForAuthorization="N"/>
+</YFS_PAYMENT_RULEList>

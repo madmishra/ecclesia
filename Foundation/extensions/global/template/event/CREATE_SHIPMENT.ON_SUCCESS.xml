@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+Licensed Materials - Property of IBM
+IBM Sterling Selling And Fulfillment Suite
+(C) Copyright IBM Corp. 2005, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ -->
+<Shipment ActualDeliveryDate=" " ActualFreightCharge=" "
+    ActualShipmentDate=" " AppointmentNo=" " 
+    BolNo=" " BuyerOrganizationCode=" " CarrierAccountNo=" "
+    CarrierServiceCode=" " CarrierType=" " Code=" " CommercialValue=" "
+       Currency=" "
+    DeliveryCode=" " DeliveryPlanKey=" " DeliveryTS=" "
+    DestinationZone=" " DownLoadCount=" " EnterpriseCode=" "
+    ExpectedDeliveryDate=" " ExpectedShipmentDate=" "
+    ExportTaxpayerID=" " FreightTerms=" " FromAddressKey=" "
+    FromAppointment=" " HasOtherShipments=" " HazardousMaterialFlag=" "
+    HeldForConfirmation=" " ITDate=" " ITNo=" " 
+    ManifestKey=" " ManifestNo=" "   
+    NextAlertTs=" " NumOfCartons=" " NumOfPallets=" "
+    DocumentType=" " OrderAvailableOnSystem=" " OriginZone=" " PackListType=" "
+    ParentShipmentKey=" " PickListNo=" " PickticketNo=" "
+    PipelineKey=" " PodNo=" " ProNo=" " ReceivingNode=" " SCAC=" "
+    SealNo=" " SellerOrganizationCode=" " ShipDate=" " ShipMode=" "
+    ShipNode=" " ShipVia=" " ShipmentClosedFlag=" "
+    ShipmentConfirmUpdatesDone=" " ShipmentContainerizedFlag=" "
+    ShipmentDeliverUpdatesDone=" " ShipmentKey=" " ShipmentNo=" "
+    ShipmentPlannedFlag=" " ShipmentType=" " Status=" " StatusDate=" "
+    ToAddressKey=" " ToAppointment=" " TotalActualCharge=" "
+    TotalEstimatedCharge=" " TotalVolume=" " TotalVolumeUOM=" "
+    TotalWeight=" " TotalWeightUOM=" " TrackingNo=" " TrailerNo=" " StationId=" " StationType=" ">
+	<ToAddress AddressLine1=" " AddressLine2=" " AddressLine3=" "
+        AddressLine4=" " AddressLine5=" " AddressLine6=" "
+        AlternateEmailID=" " Beeper=" " City=" " Company=" " Country=" "
+           DayFaxNo=" "
+        DayPhone=" " Department=" " EMailID=" " ErrorTxt=" "
+        EveningFaxNo=" " EveningPhone=" " FirstName=" " HttpUrl=" "
+        JobTitle=" " LastName=" "  MiddleName=" "
+        MobilePhone=" "   
+        OtherPhone=" " PersonID=" " PersonInfoKey=" "
+        PreferredShipAddress=" " State=" " Suffix=" " Title=" "
+        UseCount=" " VerificationStatus=" " ZipCode=" "/>
+	<FromAddress AddressLine1=" " AddressLine2=" " AddressLine3=" "
+        AddressLine4=" " AddressLine5=" " AddressLine6=" "
+        AlternateEmailID=" " Beeper=" " City=" " Company=" " Country=" "
+           DayFaxNo=" "
+        DayPhone=" " Department=" " EMailID=" " ErrorTxt=" "
+        EveningFaxNo=" " EveningPhone=" " FirstName=" " HttpUrl=" "
+        JobTitle=" " LastName=" "  MiddleName=" "
+        MobilePhone=" "   
+        OtherPhone=" " PersonID=" " PersonInfoKey=" "
+        PreferredShipAddress=" " State=" " Suffix=" " Title=" "
+        UseCount=" " VerificationStatus=" " ZipCode=" "/>
+	<Instructions>
+		<Instruction   
+            InstructionDetailKey="" InstructionText=" "
+            InstructionType=" " InstructionURL=" " InstructionUsage=" "
+            ReferenceKey=" " SequenceNo=" " TableName=" "/>
+	</Instructions>
+	<ShipmentLines>
+		<ShipmentLine  ShipmentLineKey=" " ItemID=" " OrderHeaderKey=" " OrderLineKey=" " DocumentType="" OrderNo=" " OrderReleaseKey=" " PrimeLineNo=" " ProductClass=" " Quantity=" " OverShipQuantity=" " ActualQuantity=" " ReleaseNo=" " ShipmentKey=" " UnitOfMeasure=" " ShipmentLineNo=" " SubLineNo=" " ItemDesc=" " Segment=" " SegmentType=" " isHistory="" IsHazmat="" >
+			<OrderLine AllocationLeadTime="" CarrierAccountNo="" CarrierServiceCode="" CustomerLinePONo="" CustomerPONo="" DeliveryMethod="" DepartmentCode="" DocumentType="" EnterpriseCode="" FulfillmentType="" LineSeqNo="" LineType="" Modifyts="" MinShipByDate="" OrderAuditKey="" OrderHeaderKey="" OrderLineKey="" OrderedQty="" OrderingUOM="" OrigOrderLineKey="" OriginalOrderedQty="" OrderType="" PackListType="" ParentOfDependentGroup="" ParentOrderLineKey="" PersonalizeCode="" PersonalizeFlag="" PipelineKey="" PrimeLineNo="" ReceivingNode="" ReqCancelDate="" ReqDeliveryDate="" ReqShipDate="" ReservationID="" ReservationPool="" ReturnReason="" SerialNo="" ShipNode="" ShipToID="" ShipTogetherNo="" ShipmentCosolidationGroupId="" SplitQty="" Status="" SubLineNo="" />
+			<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" />
+			<Item AlternateItemID="" BundleFulfillmentMode="" CostCurrency="" CountryOfOrigin="" CreditWOReceipt="" CustomerItem="" CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN="" IsReturnable="" ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight="" ItemWeightUOM="" ManufacturerItem="" ManufacturerItemDesc="" ManufacturerName="" NMFCClass="" NMFCCode="" NMFCDescription="" ProductClass="" ProductLine="" ReturnWindow="" ScheduleBCode="" SupplierItem="" SupplierItemDesc="" TaxProductCode="" UPCCode="" UnitCost="" UnitOfMeasure="">
+			</Item>
+			<ShipmentLineInvAttRequest LotNumber=" " LotKeyReference=" " ManufacturingDate=" " LotAttribute1=" " LotAttribute2=" " LotAttribute3=" " RevisionNo=" " BatchNo=" "/>
+			<ShipmentTagSerials TotalNumberOfRecords="">
+				<ShipmentTagSerial Quantity=" " SerialNo=" " ShipByDate=" " ShipmentLineKey=" " ShipmentTagSerialKey=" " RevisionNo=" " BatchNo=" " LotNumber=" " LotKeyReference=" " ManufacturingDate=" " LotAttribute1=" " LotAttribute2=" " LotAttribute3=" " />
+			</ShipmentTagSerials>
+			<Instructions>
+				<Instruction   
+                    InstructionDetailKey="" InstructionText=" "
+                    InstructionType=" " InstructionURL=" "
+                    InstructionUsage=" "  
+                      ReferenceKey=" "
+                    SequenceNo=" " TableName=" "/>
+			</Instructions>
+		</ShipmentLine>
+	</ShipmentLines>
+	<ShipmentCharges>
+		<ShipmentCharge ActualCharge=" " ChargeCategory=" "
+            ChargeName=" "  
+             EstimatedCharge=" " InvoiceNo=" "
+            KeyReference1=" " KeyReference2=" " LoadKey=" "
+            LoadShipmentChargeKey=" "  
+              PayeeOrganizationCode=" " ShipmentKey=" "/>
+	</ShipmentCharges>
+</Shipment>

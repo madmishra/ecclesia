@@ -29,10 +29,10 @@
 						<xsl:value-of select="PriceInfo/@Currency" />
 					</xsl:attribute>
 					<xsl:attribute name="CustReqDeliveryDate">
-						<xsl:value-of select="@ReqDeliveryDate" />
+						<xsl:value-of select="OrderLines/OrderLine/@ReqDeliveryDate" />
 					</xsl:attribute>
 					<xsl:attribute name="CustReqShipDate">
-						<xsl:value-of select="@ReqShipDate" />
+						<xsl:value-of select="OrderLines/OrderLine/@ReqShipDate" />
 					</xsl:attribute>
 					<xsl:attribute name="DocumentType">
 						<xsl:value-of select="@DocumentType" />

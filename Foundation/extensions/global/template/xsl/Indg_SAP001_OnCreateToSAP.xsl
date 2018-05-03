@@ -11,6 +11,7 @@
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="CustomerRewardsNo">
+						<xsl:value-of select="@CustomerRewardsNo" />
 					</xsl:attribute>
 					<xsl:attribute name="OrderDate">
 						<xsl:value-of select="@OrderDate" />

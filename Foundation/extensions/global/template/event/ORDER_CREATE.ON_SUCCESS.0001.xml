@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Order_Create.On_Success Event XML-->
-<Order BillToID=""   BuyerOrganizationCode="" CustomerEMailID="" CustomerPONo=""
+<Order BillToID=""   BuyerOrganizationCode="" CustomerEMailID="" CustomerPONo="" CustomerRewardsNo=""
     DeliveryCode="" Division="" DocumentType="" DraftOrderFlag=""
     EnterpriseCode="" HoldFlag="" MaxOrderStatus=""
     MaxOrderStatusDesc="" MinOrderStatus="" MinOrderStatusDesc=""

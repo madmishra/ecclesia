@@ -7,7 +7,7 @@
     OrderDate="" OrderHeaderKey="" OrderName="" OrderNo="" OrderType=""  
 	OriginalTotalAmount="" OtherCharges="" PaymentStatus=""
     Purpose="" ReceivingNode="" ReqShipDate="" SellerOrganizationCode=""
-    ShipToID="" Status="" >
+    ShipToID="" Status="" Modifyts="" >
 	<Extn />
     <OrderLines NumberOfOrderLines="">
 		<OrderLine CustomerLinePONo="" CustomerPONo="" DerivedFromOrderHeaderKey="" HoldFlag="" InvoicedQty="" 

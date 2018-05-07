@@ -15,7 +15,7 @@
 					<xsl:value-of select="@ParentLegacyOMSOrderNo" />
 				</xsl:attribute>
 				<xsl:attribute name="ScheduleAndRelease">Y</xsl:attribute>
-				<xsl:attribute name="OverrideReleaseDate">Y</xsl:attribute>
+				<xsl:attribute name="IgnoreReleaseDate">Y</xsl:attribute>
 				<PromiseLines>
 					<xsl:for-each select="OrderLines/OrderLine">
 						<PromiseLine>

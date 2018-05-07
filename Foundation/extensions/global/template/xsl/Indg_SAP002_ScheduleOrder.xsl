@@ -12,7 +12,7 @@
 					<xsl:value-of select="@EnterpriseCode" />
 				</xsl:attribute>
 				<xsl:attribute name="OrderNo">
-					<xsl:value-of select="@ParentLegacyOMSOrderNo" />
+					<xsl:value-of select="@SterlingOrderNo" />
 				</xsl:attribute>
 				<xsl:attribute name="ScheduleAndRelease">Y</xsl:attribute>
 				<xsl:attribute name="IgnoreReleaseDate">Y</xsl:attribute>

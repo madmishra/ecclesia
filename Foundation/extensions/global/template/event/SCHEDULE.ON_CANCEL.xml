@@ -68,16 +68,6 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
 				</CanceledFrom>
 			</StatusBreakupForCanceledQty>
 			<Extn ExtnSAPOrderNo="" />
-			<OrderAudit AuditTransactionId=""
-        OrderAuditKey=""
-        OrderHeaderKey=""
-        ReasonCode="" ReasonText="" Reference1=""
-        Reference2="" Reference3="" Reference4="" XMLFlag="">
-				<Order EnterpriseCode="" OrderNo=""/>
-				<ModificationTypes>
-					<ModificationType Name="CANCEL" ScreenName="Cancel"/>
-				</ModificationTypes>
-			</OrderAudit>
 		</OrderLine>
 	</OrderLines>
 	<PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
@@ -96,4 +86,14 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
         PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
 	<PriceInfo ChangeInTotalAmount="" Currency="" EnterpriseCurrency=""
         ReportingConversionDate="" ReportingConversionRate="" TotalAmount=""/>
+		<OrderAudit AuditTransactionId=""
+        OrderAuditKey=""
+        OrderHeaderKey=""
+        ReasonCode="" ReasonText="" Reference1=""
+        Reference2="" Reference3="" Reference4="" XMLFlag="">
+				<Order EnterpriseCode="" OrderNo=""/>
+				<ModificationTypes>
+					<ModificationType Name="CANCEL" ScreenName="Cancel"/>
+				</ModificationTypes>
+			</OrderAudit>
 </Order>

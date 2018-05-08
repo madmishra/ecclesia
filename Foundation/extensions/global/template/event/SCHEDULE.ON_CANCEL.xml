@@ -46,6 +46,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
             ScacAndServiceKey="" ShipNode="" ShipToID=""
             ShipTogetherNo="" SplitQty="" Status="" StatusQuantity=""
             SubLineNo="" isHistory="">
+			<Extn ExtnSAPOrderNo="" />
 			<Item CostCurrency="" CountryOfOrigin="" CustomerItem=""
                 CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""
                 ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight=""
@@ -67,7 +68,6 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
                         ShipByDate="" ShipNode="" TagNumber=""/>
 				</CanceledFrom>
 			</StatusBreakupForCanceledQty>
-			<Extn ExtnSAPOrderNo="" />
 		</OrderLine>
 	</OrderLines>
 	<PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""

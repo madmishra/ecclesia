@@ -45,7 +45,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
             ReservationPool="" SCAC="" ScacAndService=""
             ScacAndServiceKey="" ShipNode="" ShipToID=""
             ShipTogetherNo="" SplitQty="" Status="" StatusQuantity=""
-            SubLineNo="" isHistory="" Modifyts>
+            SubLineNo="" isHistory="" Modifyts="">
 			<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" />
 			<Item CostCurrency="" CountryOfOrigin="" CustomerItem=""
                 CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""

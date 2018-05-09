@@ -85,10 +85,12 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
         } else {
           manageInvSyncTable(itemID,shipNode,transactionDate,generationDate,XMLLiterals.UPDATE_FULL_SYNC);
         }
-        rset.close();
     }  catch(Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
     } finally {
+      if(rset!=null) {
+        rset.close();
+      }
       if(stmt!=null) {
         stmt.close();
       }

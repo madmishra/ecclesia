@@ -118,12 +118,13 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
       }  catch(Exception exp) {
         throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
       } finally {
-        if(stmt!=null) {
-          stmt.close();
-        }
         if(rset!=null) {
           rset.close();
         }
+        if(stmt!=null) {
+          stmt.close();
+        }
+        
         conn.close();
       }
   }

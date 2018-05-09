@@ -145,6 +145,8 @@ public static final String INDG_FULL_SYNC_STATUS_CREATE = "CreateINDGFullSyncSta
 public static final String INDG_FULL_SYNC_STATUS_DELETE = "DeleteINDGFullSyncStatus";
 public static final String REMOVE_INV_NODE_CTRL = "RemoveInventoryNodeControl";
 public static final String INDG_FULL_SYNC_STATUS_LIST = "INDGFullSyncStatusList";
+public static final String INDG_INV_FULL_SYNC_LIST = "INDGInvSyncCtrlList";
+public static final String INV_FULL_SYNC_LIST_FLOW = "IndgGetInvCtrlList";
 public static final String ADJUST_INVENTORY_API = "adjustInventory";
 public static final String ADJUSTMENT_TYPE = "AdjustmentType";
 public static final String ADJUSTMENT = "ADJUSTMENT";
@@ -160,7 +162,5 @@ public static final String CREATE_FULL_SYNC = "CREATE_FULL_SYNC_TABLE";
 public static final String UPDATE_FULL_SYNC = "UPDATE_FULL_SYNC_TABLE";
 public static final String INDG_INV_SYNC_CTRL = "INDGInvSyncCtrl";
 public static final String ABSOLUTE = "ABSOLUTE";
-public static final String INDG_INV_FULL_SYNC_LIST = "INDGInvSyncCtrlList";
-public static final String INDG_INV_FULL_SYNC_LIST_FLOW = "INDGGetInvSyncCtrlList";
 }
 

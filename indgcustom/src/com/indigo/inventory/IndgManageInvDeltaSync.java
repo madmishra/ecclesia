@@ -17,9 +17,7 @@ import com.yantra.yfc.dom.YFCElement;
  */
 public class IndgManageInvDeltaSync extends AbstractCustomApi{
 
-  private static final String POS_MOVEMENT = "CC";
-  private static final String ADJUSTMENT_MOVEMENT = "Adjustment";
-  private static final String INDG_INV_SYNC_CTRL_LIST = "IndgGetInvSyncCtrlList";
+  private static final String INDG_INV_SYNC_CTRL_LIST = "IndgGetInvCtrlList";
   private static final String INDG_INV_ADJ_LOG_CREATE ="IndgCreateInvAdjLog";
   private static final String INDG_INV_ADJ_LOG_LIST ="IndgGetInvAdjLogList";
   private static final String FLAG_YES = "Y";
@@ -159,9 +157,9 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
     YFCDocument syncCtrlListOp = getSyncCtrlList(itemEle.getAttribute(XMLLiterals.ITEM_ID)
         ,XMLLiterals.SHIPNODE);
     if(syncCtrlListOp.hasChildNodes()) {
-      invokeYantraService(XMLLiterals.UPDATE_FULL_SYNC, syncCtrlListOIn);
+      invokeYantraService(XMLLiterals.UPDATE_FULL_SYNC_CTRL, syncCtrlListOIn);
     } else {
-      invokeYantraService(XMLLiterals.CREATE_FULL_SYNC, syncCtrlListOIn);
+      invokeYantraService(XMLLiterals.CREATE_FULL_SYNC_CTRL, syncCtrlListOIn);
     }
   }
   

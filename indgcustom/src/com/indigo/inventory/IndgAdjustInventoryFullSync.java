@@ -72,12 +72,14 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
     YFCDocument syncCtrlListDoc = YFCDocument.createDocument(XMLLiterals.INDG_INV_FULL_SYNC);
     syncCtrlListDoc.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, shipNode);
     syncCtrlListDoc.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemID);
-    YFCDocument syncCtrlListOpDoc = invokeYantraService(XMLLiterals.INDG_INV_FULL_SYNC_LIST_FLOW, 
+    YFCDocument syncCtrlListOpDoc = invokeYantraService(XMLLiterals.INV_FULL_SYNC_LIST_FLOW, 
         syncCtrlListDoc);
         if(!syncCtrlListOpDoc.getDocumentElement().hasChildNodes()) {
-          manageInvSyncTable(itemID,shipNode,transactionDate,generationDate,XMLLiterals.CREATE_FULL_SYNC);
+          manageInvSyncTable(itemID,shipNode,transactionDate,generationDate,
+              XMLLiterals.CREATE_FULL_SYNC_CTRL);
         } else {
-          manageInvSyncTable(itemID,shipNode,transactionDate,generationDate,XMLLiterals.UPDATE_FULL_SYNC);
+          manageInvSyncTable(itemID,shipNode,transactionDate,generationDate,
+              XMLLiterals.UPDATE_FULL_SYNC_CTRL);
         }
     }
   

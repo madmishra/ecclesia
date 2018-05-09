@@ -16,7 +16,7 @@ import com.yantra.yfc.dom.YFCDocument;
 public class IndgManageFullSyncStatus extends AbstractCustomApi {
 
   private static final String EMPTY_STRING = "";
-  private static final String INDG_FULL_SYNC_STATUS_LIST_FLOW= "IndgFullSyncStatusList";
+  private static final String INDG_FULL_SYNC_STATUS_LIST_FLOW= "IndgGetSyncStatusList";
   private static final String INITIAL_SLEEP_TIME = "InitialSleepTime";
   private static final String DELTA_SLEEP_TIME = "DeltaSleepTime";
 

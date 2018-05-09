@@ -26,10 +26,10 @@ import com.yantra.yfs.japi.YFSException;
  */
 public class IndgManageInventoryMismatch extends AbstractCustomApi {
 
-  private static final String FULL_SYNC_QUEUE_FLOW = "FULL_SYNC_QUEUE_FLOW";
+  private static final String FULL_SYNC_QUEUE_FLOW = "IndgFullSyncQ";
   private static final String TRUNCATE_LOG_QUERY = "TRUNCATE TABLE INDG_INV_ADJUSTMENT_LOG";
   private static final int INITAL_ITRATOR_COUNT = 1;
-  private static final int MAX_ITEM_ELEMENT_COUNT = 3;
+  private static final int MAX_ITEM_ELEMENT_COUNT = 100;
   private static final String EMPTY_STRING = "";
   private static final String INDG = "INDG";
   
@@ -49,8 +49,8 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
     YFCDocument mismatchDoc = getInventoryMisMatch(inXml);
     String shipNode = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE)
         .getAttribute(XMLLiterals.SHIPNODE);
-    formInputForAdjust(inXml,mismatchDoc);
-    formInputForFullAdjustInventory(mismatchDoc,shipNode);
+    getDocumentWithDates(inXml,mismatchDoc);
+    pushInputForAdjustInventory(mismatchDoc,shipNode);
     return inXml;
   }
   
@@ -72,26 +72,18 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * @param inXml
    * @param mismatchDoc
    */
-  private void formInputForFullAdjustInventory(YFCDocument mismatchDoc,String shipNode) {
+  private void pushInputForAdjustInventory(YFCDocument mismatchDoc,String shipNode) {
     YFCDocument adjustInventoryDoc = YFCDocument.createDocument(XMLLiterals.ITEMS);
     String manageInventoryService = getProperty(FULL_SYNC_QUEUE_FLOW);
     YFCIterable<YFCElement> yfcItrator = mismatchDoc.getDocumentElement()
         .getChildren(XMLLiterals.ITEM);
     int itratorCount = INITAL_ITRATOR_COUNT;
-    Date dateKey = new Date();
-    String invSyncStatusKey =INDG+dateKey.getTime();
-    adjustInventoryDoc.getDocumentElement().setAttribute(XMLLiterals.INDG_FULL_SYNC_STATUS_KEY,
-        invSyncStatusKey);
-    addRecordToManageStatusTable(invSyncStatusKey,shipNode);
+    setInvSyncStatusKey(adjustInventoryDoc,shipNode);
     for(YFCElement itemEle : yfcItrator) {
       if(itratorCount == MAX_ITEM_ELEMENT_COUNT) {
-        dateKey = new Date();
-        invSyncStatusKey = INDG+dateKey.getTime();
-        addRecordToManageStatusTable(invSyncStatusKey,shipNode);
         invokeYantraService(FULL_SYNC_QUEUE_FLOW, adjustInventoryDoc);
         adjustInventoryDoc = YFCDocument.createDocument(XMLLiterals.ITEMS);
-        adjustInventoryDoc.getDocumentElement().setAttribute(XMLLiterals.INDG_FULL_SYNC_STATUS_KEY,
-            invSyncStatusKey);
+        setInvSyncStatusKey(adjustInventoryDoc,shipNode);
         itratorCount = INITAL_ITRATOR_COUNT;
       }
       itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ADJUSTMENT);
@@ -128,7 +120,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * @param inXml
    * @param misMatchDoc
    */
-  private void formInputForAdjust(YFCDocument inXml, YFCDocument misMatchDoc){
+  private void getDocumentWithDates(YFCDocument inXml, YFCDocument misMatchDoc){
     YFCElement shipNodeEle = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE);
     String shipNode = shipNodeEle.getAttribute(XMLLiterals.SHIPNODE);
     YFCIterable<YFCElement> yfsItrator = shipNodeEle.getChildren(XMLLiterals.ITEM);
@@ -165,5 +157,18 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
     inEle.setAttribute(XMLLiterals.INDG_FULL_SYNC_STATUS_KEY,invSyncStatusKey);
     inEle.setAttribute(XMLLiterals.SHIPNODE, shipNode);
     invokeYantraService(XMLLiterals.INDG_FULL_SYNC_STATUS_CREATE, inXml);
+  }
+  
+  /**
+   * 
+   * This method gets and sets Sync Status Key
+   * @param adjustInventoryDoc
+   */
+  private void setInvSyncStatusKey(YFCDocument adjustInventoryDoc,String shipNode) {
+    Date dateKey = new Date();
+    String invSyncStatusKey =INDG+dateKey.getTime();
+    adjustInventoryDoc.getDocumentElement().setAttribute(XMLLiterals.INDG_FULL_SYNC_STATUS_KEY,
+        invSyncStatusKey);
+    addRecordToManageStatusTable(invSyncStatusKey,shipNode);
   }
 }

@@ -162,5 +162,6 @@ public static final String CREATE_FULL_SYNC_CTRL = "IndgCreateInvCtrl";
 public static final String UPDATE_FULL_SYNC_CTRL = "IndgChangeInvCtrl";
 public static final String INDG_INV_SYNC_CTRL = "INDGInvSyncCtrl";
 public static final String ABSOLUTE = "ABSOLUTE";
+public static final String GET_INVENTORY_MISMATCH = "getInventoryMismatch";
 }
 

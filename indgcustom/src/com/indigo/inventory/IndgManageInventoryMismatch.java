@@ -27,7 +27,7 @@ import com.yantra.yfs.japi.YFSException;
 public class IndgManageInventoryMismatch extends AbstractCustomApi {
 
   private static final String FULL_SYNC_QUEUE_FLOW = "IndgFullSyncQ";
-  private static final String TRUNCATE_LOG_QUERY = "TRUNCATE TABLE INDG_INV_ADJUSTMENT_LOG";
+  private static final String TRUNCATE_LOG_QUERY = "DELETE FROM INDG_INV_ADJUSTMENT_LOG";
   private static final int INITAL_ITRATOR_COUNT = 1;
   private static final int MAX_ITEM_ELEMENT_COUNT = 100;
   private static final String EMPTY_STRING = "";
@@ -61,7 +61,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * @param inXml
    */
   private YFCDocument getInventoryMisMatch(YFCDocument inXml){
-    return invokeYantraApi("getInventoryMismatch", inXml);
+    return invokeYantraApi(XMLLiterals.GET_INVENTORY_MISMATCH, inXml);
   }
   
   /**

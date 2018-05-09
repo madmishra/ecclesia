@@ -1,7 +1,6 @@
 package com.indigo.inventory;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
@@ -43,7 +42,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
     try{
-      truncateInventoryLogTable();
+    truncateInventoryLogTable();
     } catch (Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
     }
@@ -110,19 +109,16 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    */
   private void truncateInventoryLogTable() throws SQLException {
       Statement stmt = null;
-      ResultSet rset = null;
-      Connection conn = getDBConnection();
       try{
+          Connection conn = getDBConnection();
           stmt = conn.createStatement();
-          rset = stmt.executeQuery(TRUNCATE_LOG_QUERY);
+          stmt.execute(TRUNCATE_LOG_QUERY);
       }  catch(Exception exp) {
         throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
       } finally {
-        if(rset!=null && stmt!=null) {
-          rset.close();
+        if(stmt!=null) {
           stmt.close();
         }
-        conn.close();
       }
   }
   

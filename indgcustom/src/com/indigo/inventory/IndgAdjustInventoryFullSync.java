@@ -1,9 +1,6 @@
 package com.indigo.inventory;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
@@ -72,29 +69,17 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
     String transactionDate = itemEle.getAttribute(XMLLiterals.TRANSACTION_DATE);
     String generationDate = itemEle.getAttribute(XMLLiterals.GENERATION_DATE);
     String shipNode = itemEle.getAttribute(XMLLiterals.SHIPNODE);
-    String selectQry = "SELECT * FROM indg_inv_sync_ctrl WHERE "
-        + "ITEM_ID = '"+itemID+"' AND SHIP_NODE='"+shipNode+"'";
-    Statement stmt = null;
-    ResultSet rset = null;
-    Connection conn = getDBConnection();
-    try{
-      stmt = conn.createStatement();
-      rset = stmt.executeQuery(selectQry);
-        if(!rset.isBeforeFirst()) {
+    YFCDocument syncCtrlListDoc = YFCDocument.createDocument(XMLLiterals.INDG_INV_FULL_SYNC);
+    syncCtrlListDoc.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, shipNode);
+    syncCtrlListDoc.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemID);
+    YFCDocument syncCtrlListOpDoc = invokeYantraService(XMLLiterals.INDG_INV_FULL_SYNC_LIST_FLOW, 
+        syncCtrlListDoc);
+        if(!syncCtrlListOpDoc.getDocumentElement().hasChildNodes()) {
           manageInvSyncTable(itemID,shipNode,transactionDate,generationDate,XMLLiterals.CREATE_FULL_SYNC);
         } else {
           manageInvSyncTable(itemID,shipNode,transactionDate,generationDate,XMLLiterals.UPDATE_FULL_SYNC);
         }
-    }  catch(Exception exp) {
-      throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
-    } finally {
-      if(rset!=null && stmt!=null) {
-        rset.close();
-        stmt.close();
-      }
-      conn.close();
     }
-  }
   
   /**
    * 

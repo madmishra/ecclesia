@@ -111,8 +111,8 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   private void truncateInventoryLogTable() throws SQLException {
       Statement stmt = null;
       ResultSet rset = null;
+      Connection conn = getDBConnection();
       try{
-          Connection conn = getDBConnection();
           stmt = conn.createStatement();
           rset = stmt.executeQuery(TRUNCATE_LOG_QUERY);
       }  catch(Exception exp) {
@@ -124,6 +124,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
         if(rset!=null) {
           rset.close();
         }
+        conn.close();
       }
   }
   

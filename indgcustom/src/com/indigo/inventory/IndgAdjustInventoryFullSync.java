@@ -94,6 +94,7 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
       if(rset!=null) {
         rset.close();
       }
+      conn.close();
     }
   }
   

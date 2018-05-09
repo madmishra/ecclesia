@@ -88,10 +88,8 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
     }  catch(Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
     } finally {
-      if(rset!=null) {
+      if(rset!=null && stmt!=null) {
         rset.close();
-      }
-      if(stmt!=null) {
         stmt.close();
       }
       conn.close();

@@ -160,5 +160,7 @@ public static final String CREATE_FULL_SYNC = "CREATE_FULL_SYNC_TABLE";
 public static final String UPDATE_FULL_SYNC = "UPDATE_FULL_SYNC_TABLE";
 public static final String INDG_INV_SYNC_CTRL = "INDGInvSyncCtrl";
 public static final String ABSOLUTE = "ABSOLUTE";
+public static final String INDG_INV_FULL_SYNC_LIST = "INDGInvSyncCtrlList";
+public static final String INDG_INV_FULL_SYNC_LIST_FLOW = "INDGGetInvSyncCtrlList";
 }
 

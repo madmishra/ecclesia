@@ -139,5 +139,11 @@ public static final String USER_GROUP_LIST = "UserGroupList";
 public static final String USER_GROUP_ID = "UsergroupId";
 public static final String ORDER_LINES = "OrderLines";
 public static final String ORDER_LINE = "OrderLine";
+public static final String INDG_FULL_SYNC_STATUS = "INDGFullSyncStatus";
+public static final String INDG_FULL_SYNC_STATUS_KEY = "IndgFullSyncStatusKey";
+public static final String INDG_FULL_SYNC_STATUS_CREATE = "CreateINDGFullSyncStatus";
+public static final String INDG_FULL_SYNC_STATUS_DELETE = "DeleteINDGFullSyncStatus";
+public static final String REMOVE_INV_NODE_CTRL = "RemoveInventoryNodeControl";
+public static final String INDG_FULL_SYNC_STATUS_LIST = "INDGFullSyncStatusList";
 }
 

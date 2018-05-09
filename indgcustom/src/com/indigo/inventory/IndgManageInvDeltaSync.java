@@ -42,7 +42,6 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
     String itemID = itemEle.getAttribute(XMLLiterals.ITEM_ID);
     String shipNode = itemEle.getAttribute(XMLLiterals.SHIPNODE);
     if(canApplyInvAdjustment(getSyncCtrlList(itemID,shipNode),itemEle,XMLLiterals.GENERATION_DATE)) {
-      System.out.println(inXml);
       inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM).setAttribute(XMLLiterals.ADJUSTMENT_TYPE,
           XMLLiterals.ADJUSTMENT);
        invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, inXml);
@@ -75,13 +74,11 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
    * @param inXml
    */
   private void manageInvFeedBasedOnMovement(YFCDocument inXml){
-    String movementType = XPathUtil.getXpathAttribute(inXml, "/Items/Item/@ReasonText");
-    if(POS_MOVEMENT.equals(movementType) || ADJUSTMENT_MOVEMENT.equals(movementType)) {
-      System.out.println("POS");
-      managePOSInvFeed(inXml);
-    } else {
-      System.out.println("COUNT");
+    String movementType = XPathUtil.getXpathAttribute(inXml, "/Items/Item/@AdjustmentType");
+    if(XMLLiterals.ABSOLUTE.equalsIgnoreCase(movementType)) {
       manageCountSAPFeed(inXml);
+    } else {
+      managePOSInvFeed(inXml);
     }
   }
   
@@ -94,12 +91,10 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
    * @return
    */
   private boolean canApplyInvAdjustment(YFCDocument fullSyncOpDoc,YFCElement itemEle,String dateType) {
-    System.out.println(fullSyncOpDoc+"fullSyncOpDoc");
     if(fullSyncOpDoc.getDocumentElement().hasChildNodes()) {
       String generationDateFullSync = XPathUtil.getXpathAttribute(fullSyncOpDoc, 
           "/INDGInvSyncCtrlList/INDGInvSyncCtrl/@"+dateType+"");
       String generationDateItem = itemEle.getAttribute(dateType);
-      System.out.println(generationDateFullSync+"____"+generationDateItem);
       if(!XmlUtils.isVoid(generationDateItem) && !XmlUtils.isVoid(generationDateFullSync)) {
         return IndgManageItemFeed.validateTimeDifference(generationDateItem,generationDateFullSync);
       }
@@ -121,7 +116,6 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
     inEle.setAttribute(XMLLiterals.QUANTITY, itemEle.getAttribute(XMLLiterals.QUANTITY));
     inEle.setAttribute(XMLLiterals.GENERATION_DATE, itemEle.getAttribute(XMLLiterals.GENERATION_DATE));
     inEle.setAttribute(XMLLiterals.TRANSACTION_DATE, itemEle.getAttribute(XMLLiterals.TRANSACTION_DATE));
-    System.out.println(inXml+"insertIntoAdjusmentLogTable");
     invokeYantraService(INDG_INV_ADJ_LOG_CREATE, inXml);
   }
   
@@ -137,7 +131,9 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
     for(YFCElement itemEle : yfsItrator) {
       String itemID = itemEle.getAttribute(XMLLiterals.ITEM_ID);
       String shipNode = itemEle.getAttribute(XMLLiterals.SHIPNODE);
-      if(canApplyInvAdjustment(getSyncCtrlList(itemID,shipNode),itemEle,XMLLiterals.TRANSACTION_DATE)) {
+      YFCDocument syncCtrlListDoc = getSyncCtrlList(itemID,shipNode);
+      if(canApplyInvAdjustment(syncCtrlListDoc,itemEle,XMLLiterals.TRANSACTION_DATE) && 
+          canApplyInvAdjustment(syncCtrlListDoc,itemEle,XMLLiterals.GENERATION_DATE) ) {
         insertOrUpdateSyncCtrlTS(itemEle);
         itemEle.setAttribute(XMLLiterals.QUANTITY, itemEle.getDoubleAttribute(XMLLiterals.QUANTITY)
             + calculateAbsoluteQuantity(itemEle));
@@ -145,7 +141,6 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
       itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ABSOLUTE);
       itemEle.setAttribute(XMLLiterals.REMOVE_INV_NODE_CTRL, FLAG_YES);
     }
-    System.out.println(inXml);
     invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, inXml);
   }
   
@@ -213,12 +208,10 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
       String logTransactionDate = invAdjLog.getAttribute(XMLLiterals.TRANSACTION_DATE);
       String itemTransactionDate = inEle.getAttribute(XMLLiterals.TRANSACTION_DATE);
       double logQty = invAdjLog.getDoubleAttribute(XMLLiterals.QUANTITY);
-      System.out.println(logTransactionDate+"-----"+itemTransactionDate);
       if(IndgManageItemFeed.validateTimeDifference(logTransactionDate,itemTransactionDate)) {
         totalAdjQty = totalAdjQty + logQty;
       }
     }
-    System.out.println(totalAdjQty+"totalAdjQty");
     return totalAdjQty;
   }
 }

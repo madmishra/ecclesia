@@ -1,64 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
-Licensed Materials  Property of IBM
-IBM Sterling Selling And Fulfillment Suite
-(C) Copyright IBM Corp 25, 23 All Rights Reserved
-US Government Users Restricted Rights  Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp
- -->
-
-<!-- getOrderLineList Output XML -->
 <OrderLineList>
-	<OrderLine AllocationLeadTime="" CarrierAccountNo="" CarrierServiceCode=""
-    CustomerLinePONo="" CustomerPONo="" DeliveryMethod="" DepartmentCode=""
-    DocumentType="" EnterpriseCode="" FulfillmentType="" LineSeqNo=""
-    LineType="" Modifyts="" MinShipByDate="" OrderAuditKey="" OrderHeaderKey=""
-    OrderLineKey="" OrderedQty="" OrderingUOM="" OrigOrderLineKey=""
-    OriginalOrderedQty="" PackListType="" ParentOfDependentGroup=""
-    ParentOrderLineKey="" PersonalizeCode="" PersonalizeFlag=""
-    PipelineKey="" PrimeLineNo="" ReceivingNode="" ReqCancelDate="" 
-        ReqDeliveryDate="" ReqShipDate="" 
-    ReservationID="" ReservationPool="" ReturnReason="" 
-    SerialNo="" ShipNode="" ShipToID="" ShipTogetherNo=""
-    ShipmentCosolidationGroupId="" SplitQty="" Status="" SubLineNo="">
-		<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" />
-		<Item AlternateItemID="" BundleFulfillmentMode="" CostCurrency=""
-        CountryOfOrigin="" CreditWOReceipt="" CustomerItem=""
-        CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""
-        IsReturnable="" ItemDesc="" ItemID="" ItemShortDesc=""
-        ItemWeight="" ItemWeightUOM="" ManufacturerItem=""
-        ManufacturerItemDesc="" ManufacturerName="" NMFCClass=""
-        NMFCCode="" NMFCDescription="" ProductClass="" ProductLine=""
-        ReturnWindow="" ScheduleBCode="" SupplierItem=""
-        SupplierItemDesc="" TaxProductCode="" UPCCode="" UnitCost="" UnitOfMeasure="">
-		</Item>
-		<LinePriceInfo BundleTotal="" DiscountPercentage="" InvoicedPricingQty="" IsLinePriceForInformationOnly="" LineTotal="" ListPrice="" PricingQty="" PricingQtyConversionFactor="" PricingUOM="" RetailPrice="" TaxExemptionCertificate="" TaxableFlag="" UnitPrice=""/>
-		<DerivedFrom DocumentType="" EnterpriseCode="" OrderHeaderKey="" OrderNo=""/>
-		<OrderDate ActualDate="" DateTypeId="" ExpectedDate=""
-        OrderHeaderKey="" OrderLineKey="" OrderReleaseKey="" RequestedDate=""/>
-		<Order AllocationRuleID="" AuthorizationExpirationDate=""
-        AuthorizedClient="" BillToID="" BuyerOrganizationCode=""
-        BuyerUserId="" CarrierAccountNo="" CarrierServiceCode=""
-        CustomerContactID="" CustomerEMailID="" CustomerPONo=""
-        CustomerRewardsNo="" DefaultTemplate="" DeliveryCode=""
-        Division="" DocumentType="" DraftOrderFlag="" EnteredBy=""
-        EnterpriseCode="" EntryType="" ExpirationDate="" FreightTerms=""
-        HasDerivedChild="" HasDerivedParent="" HoldFlag=""
-        HoldReasonCode="" HoursBeforeNextIteration="" InvoiceComplete=""
-        IsExpirationDateOverridden="" LevelOfService=""
-        LinkedSourceKey="" Modifyts="" NextIterationDate="" NextIterationSeqNo=""
-        NotificationReference="" NotificationType=""
-        NotifyAfterShipmentFlag="" OpportunityKey="" OrderDate=""
-        OrderHeaderKey="" OrderName="" OrderNo="" OrderType=""
-        OriginalContainerKey="" PaymentRuleId="" PaymentStatus=""
-        PersonalizeCode="" PriceProgramKey=""
-        PricingClassificationCode="" PriorityCode="" PriorityNumber=""
-        Purpose="" ReceivingNode="" ReqCancelDate="" ReqDeliveryDate=""
-        ReqShipDate="" SCAC="" SearchCriteria1="" SearchCriteria2=""
-        SellerOrganizationCode="" ShipNode="" ShipToID="" SoldToKey=""
-        SourceKey="" SourceType="" TaxExemptFlag=""
-        TaxExemptionCertificate="" TaxJurisdiction="" TaxPayerId=""
-        TermsCode="" TotalAdjustmentAmount="">
-			<PersonInfoBillTo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo="" EveningPhone="" FirstName="" IsAddressVerified="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" State="" Suffix="" TaxGeoCode="" Title="" ZipCode=""/>
-		</Order>
-	</OrderLine>
+	<OrderLines NumberOfOrderLines="">
+		<OrderLine CustomerLinePONo="" CustomerPONo="" DerivedFromOrderHeaderKey="" HoldFlag="" InvoicedQty="" 
+			KitCode="" LineSeqNo="" LineType="" Modifyts=""
+            OpenQty=""  OrderHeaderKey="" OrderLineKey=""
+            OrderedQty="" OrigOrderLineKey="" OriginalOrderedQty=""
+            PrimeLineNo=""  ReceivingNode="" RemainingQty="" ReqShipDate="" ReqDeliveryDate="" ShipNode="" 
+			ShipToID="" SerialNo="" Status="" StatusQuantity="" SubLineNo="" >
+			<Order BillToID="" BuyerOrganizationCode="" CustomerEMailID="" CustomerPONo=""
+			CustomerRewardsNo="" DeliveryCode="" Division="" DocumentType="" DraftOrderFlag=""
+			EnterpriseCode="" HoldFlag="" MaxOrderStatus=""
+			MaxOrderStatusDesc="" MinOrderStatus="" MinOrderStatusDesc=""
+			OrderDate="" OrderHeaderKey="" OrderName="" OrderNo="" OrderType=""  
+			OriginalTotalAmount="" OtherCharges="" PaymentStatus=""
+			Purpose="" ReceivingNode="" ReqShipDate="" SellerOrganizationCode=""
+			ShipToID="" >
+			<PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
+			AddressLine4="" AddressLine5="" AddressLine6=""
+			AlternateEmailID="" Beeper="" City="" Company="" Country=""
+			DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+			EveningPhone="" FirstName="" JobTitle="" LastName=""
+			MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+			PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+			<PersonInfoBillTo AddressID="" AddressLine1="" AddressLine2="" AddressLine3=""
+			AddressLine4="" AddressLine5="" AddressLine6=""
+			AlternateEmailID="" Beeper="" City="" Company="" Country=""
+			DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+			EveningPhone="" FirstName="" JobTitle="" LastName=""
+			MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+			PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+			</Order>
+			<LinePriceInfo Currency="" RetailPrice="" EnterpriseCurrency=""
+			ReportingConversionDate="" ReportingConversionRate="" TotalAmount=""/>
+			<Item CostCurrency="" CountryOfOrigin="" 
+                ItemDesc="" ItemID="" ItemShortDesc="" ManufacturerItem=""
+                ProductClass="" UnitCost="" UnitOfMeasure=""/>
+			<Notes>									
+				<Note NoteText="" SequenceNo="" ReasonCode=""/>									
+			</Notes>
+			<Extn />
+		</OrderLine>
+	</OrderLines>
 </OrderLineList>

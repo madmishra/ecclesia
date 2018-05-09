@@ -63,13 +63,7 @@ public class ExceptionLiterals {
   public static final String ERR_PUTAWAY_INVALID_LOC_OVVERRIDE = "ERRPUTAWAYINVALIDILOCOVERRIDE";
   public static final String ERR_TASKMGNT_MANDATORY_FIELDS_MISSING =
       "ERRTASKMGNTMANDATORYFIELDSMISSING";
-
-  public static final String ERR_INVALID_BARCODE = "GKE0000011";
-  public static final String ERR_MANDATORY_PARAMETERS_NOT_PASSED = "GKE0000012";
-  public static final String ERR_SHIPMENT_NOT_SINGLE_UNIT = "GKE0000013";
-  public static final String ERR_INVALID_SERIAL_NO = "GKE0000014";
-  public static final String ERR_SHIPMENT_HELD = "GKE0000015";
-  public static final String ERR_NO_OPEN_TASK = "GKE0000016";
-  public static final String ERR_INVALID_SHIPMENT = "GKE0000105";
+	  
+	public static final String ERRORCODE_SYNC_EXP = "ERRFullSyncStatus";
   
 }

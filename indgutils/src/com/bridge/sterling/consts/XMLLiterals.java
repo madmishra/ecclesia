@@ -158,8 +158,8 @@ public static final String ON_HAND = "ONHAND";
 public static final String TRANSACTION_DATE = "TransactionDate";
 public static final String GENERATION_DATE = "GenerationDate";
 public static final String INDG_INV_ADJUSTMENT_LOG = "INDGInvAdjustmentLog";
-public static final String CREATE_FULL_SYNC = "CREATE_FULL_SYNC_TABLE";
-public static final String UPDATE_FULL_SYNC = "UPDATE_FULL_SYNC_TABLE";
+public static final String CREATE_FULL_SYNC_CTRL = "IndgCreateInvCtrl";
+public static final String UPDATE_FULL_SYNC_CTRL = "IndgChangeInvCtrl";
 public static final String INDG_INV_SYNC_CTRL = "INDGInvSyncCtrl";
 public static final String ABSOLUTE = "ABSOLUTE";
 }

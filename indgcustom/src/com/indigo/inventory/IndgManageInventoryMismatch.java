@@ -42,7 +42,11 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
-    truncateInventoryLogTable();
+    try{
+      truncateInventoryLogTable();
+    } catch (Exception exp) {
+      throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
+    }
     YFCDocument mismatchDoc = getInventoryMisMatch(inXml);
     String shipNode = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE)
         .getAttribute(XMLLiterals.SHIPNODE);
@@ -104,17 +108,22 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * @throws SQLException 
    * 
    */
-  private void truncateInventoryLogTable() {
+  private void truncateInventoryLogTable() throws SQLException {
       Statement stmt = null;
       ResultSet rset = null;
       try{
           Connection conn = getDBConnection();
           stmt = conn.createStatement();
           rset = stmt.executeQuery(TRUNCATE_LOG_QUERY);
-          rset.close();
-          stmt.close();
       }  catch(Exception exp) {
         throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
+      } finally {
+        if(stmt!=null) {
+          stmt.close();
+        }
+        if(rset!=null) {
+          rset.close();
+        }
       }
   }
   

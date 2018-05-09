@@ -2,6 +2,7 @@ package com.indigo.inventory;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.bridge.sterling.consts.ExceptionLiterals;
@@ -48,7 +49,12 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
         itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ADJUSTMENT);
         adjustInventoryDoc.getDocumentElement().importNode(itemEle);
       }
-      updateInventorySyncTable(itemEle);
+      try{
+        updateInventorySyncTable(itemEle);
+      }
+      catch(Exception exp) {
+        throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
+      }
     }
     deleteFullSyncStatusRecord(inputEle.getAttribute(XMLLiterals.INDG_FULL_SYNC_STATUS_KEY),shipNode);
     return adjustInventoryDoc;
@@ -59,8 +65,9 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
    * 
    * 
    * @param itemEle
+   * @throws SQLException 
    */
-  public void updateInventorySyncTable(YFCElement itemEle) {
+  public void updateInventorySyncTable(YFCElement itemEle) throws SQLException {
     String itemID = itemEle.getAttribute(XMLLiterals.ITEM_ID);
     String transactionDate = itemEle.getAttribute(XMLLiterals.TRANSACTION_DATE);
     String generationDate = itemEle.getAttribute(XMLLiterals.GENERATION_DATE);
@@ -72,16 +79,21 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
     Connection conn = getDBConnection();
     try{
       stmt = conn.createStatement();
-        rset = stmt.executeQuery(selectQry);
+      rset = stmt.executeQuery(selectQry);
         if(!rset.isBeforeFirst()) {
           manageInvSyncTable(itemID,shipNode,transactionDate,generationDate,XMLLiterals.CREATE_FULL_SYNC);
         } else {
           manageInvSyncTable(itemID,shipNode,transactionDate,generationDate,XMLLiterals.UPDATE_FULL_SYNC);
         }
-        rset.close();
-        stmt.close();
     }  catch(Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
+    } finally {
+      if(stmt!=null) {
+        stmt.close();
+      }
+      if(rset!=null) {
+        rset.close();
+      }
     }
   }
   

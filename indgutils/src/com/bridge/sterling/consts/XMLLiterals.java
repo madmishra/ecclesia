@@ -163,5 +163,17 @@ public static final String UPDATE_FULL_SYNC_CTRL = "IndgChangeInvCtrl";
 public static final String INDG_INV_SYNC_CTRL = "INDGInvSyncCtrl";
 public static final String ABSOLUTE = "ABSOLUTE";
 public static final String GET_INVENTORY_MISMATCH = "getInventoryMismatch";
+public static final String COMMON_CODE_KEY = "CommonCodeKey";
+public static final String COMMON_CODE_ATTRIBUTE_LIST = "CommonCodeAttributeList";
+public static final String COMMON_CODE_ATTRIBUTE = "CommonCodeAttribute";
+public static final String RESET = "Reset";
+public static final String NAME = "Name";
+public static final String VALUE = "Value";
+public static final String DEPARTMENT_GROUP_LIST = "DepartmentGroupList";
+public static final String DEPARTMENT_GROUP = "DepartmentGroup";
+public static final String GROUP_NAME = "GroupName";
+public static final String ORG_ROLE_LIST = "OrgRoleList";
+public static final String ORG_ROLE = "OrgRole";
+public static final String ROLE_KEY = "RoleKey";
 }
 

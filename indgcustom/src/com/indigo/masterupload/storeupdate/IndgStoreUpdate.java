@@ -31,6 +31,7 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	
 	private static final String EMPTY_STRING = "";
 	private static final String INACTIVATE_FLAG = "N";
+	private static final String NODE = "NODE";
 	
 	/**	 
 	 * This method is the invoke point of the service.
@@ -134,6 +135,11 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	    	  
 	    	  String sInpOrgCodeEle = organizationEle.toString();
 	    	  YFCDocument docCreateOrgInput = YFCDocument.getDocumentFor(sInpOrgCodeEle);
+	    	  YFCElement organization = docCreateOrgInput.getDocumentElement();
+	    	  YFCElement orgRoleEle = organization.createChild(XMLLiterals.ORG_ROLE_LIST);
+	    	  YFCElement orgRole = orgRoleEle.createChild(XMLLiterals.ORG_ROLE);
+	    	  orgRole.setAttribute(XMLLiterals.ROLE_KEY, NODE);
+	    	  
 	    	  invokeYantraApi(XMLLiterals.CREATE_ORGANIZATION_HIERARCHY, docCreateOrgInput);
 	    	  
 	    	  YFCNode parent = organizationEle.getParentNode();

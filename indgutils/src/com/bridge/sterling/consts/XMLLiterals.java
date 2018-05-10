@@ -175,5 +175,6 @@ public static final String GROUP_NAME = "GroupName";
 public static final String ORG_ROLE_LIST = "OrgRoleList";
 public static final String ORG_ROLE = "OrgRole";
 public static final String ROLE_KEY = "RoleKey";
+public static final String SERVICE_SLOT_DESC = "ServiceSlotDesc";
 }
 

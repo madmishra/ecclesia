@@ -72,7 +72,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
     YFCElement fullSyncEle = fullSyncInDoc.getDocumentElement();
     fullSyncEle.setAttribute(XMLLiterals.ITEM_ID, itemID);
     fullSyncEle.setAttribute(XMLLiterals.SHIPNODE, shipNode);
-    return invokeYantraService(XMLLiterals.INDG_INV_SYNC_CTRL_LIST, fullSyncInDoc);
+    return invokeYantraService(XMLLiterals.INV_FULL_SYNC_LIST_FLOW, fullSyncInDoc);
   }
   
   

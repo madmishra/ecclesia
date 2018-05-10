@@ -286,6 +286,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 					sortEle.setAttribute(XMLLiterals.START_TIME,shiftTime[0]);
 					sortEle.setAttribute(XMLLiterals.END_TIME,shiftTime[1]);
 					sortEle.setAttribute(XMLLiterals.SERVICE_SLOT_DESC, shiftTime[0]+"_"+shiftTime[1]);
+					sortEle.setAttribute(XMLLiterals.SERVICE_SLOT_KEY, shiftTime[0]+"_"+shiftTime[1]);
 				}
 			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc);
 			map.clear();

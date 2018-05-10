@@ -1,57 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OrderLineList>
-<OrderLine AllocationLeadTime="" CarrierAccountNo="" CarrierServiceCode=""
-    CustomerLinePONo="" CustomerPONo="" DeliveryMethod="" DepartmentCode=""
-    DocumentType="" EnterpriseCode="" FulfillmentType="" LineSeqNo=""
-    LineType="" MinShipByDate="" OrderAuditKey="" OrderHeaderKey=""
-    OrderLineKey="" OrderedQty="" OrderingUOM="" OrigOrderLineKey=""
-    OriginalOrderedQty="" PackListType="" ParentOfDependentGroup=""
-    ParentOrderLineKey="" PersonalizeCode="" PersonalizeFlag=""
-    PipelineKey="" PrimeLineNo="" ReceivingNode="" ReqCancelDate="" 
-	ReqDeliveryDate="" ReqShipDate=""
-    ReservationID="" ReservationPool="" ReturnReason="" 
-    SerialNo="" ShipNode="" ShipToID="" ShipTogetherNo=""
-    ShipmentCosolidationGroupId="" SplitQty="" Status="" SubLineNo="">
+	<OrderLine DocumentType="" EnterpriseCode="" PrimeLineNo="" ShipNode="" SubLineNo="" Status="" OrderHeaderKey="">
 	<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" />
-    <Item AlternateItemID="" BundleFulfillmentMode="" CostCurrency=""
-        CountryOfOrigin="" CreditWOReceipt="" CustomerItem=""
-        CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""
-        IsReturnable="" ItemDesc="" ItemID="" ItemShortDesc=""
-        ItemWeight="" ItemWeightUOM="" ManufacturerItem=""
-        ManufacturerItemDesc="" ManufacturerName="" NMFCClass=""
-        NMFCCode="" NMFCDescription="" ProductClass="" ProductLine=""
-        ReturnWindow="" ScheduleBCode="" SupplierItem=""
-        SupplierItemDesc="" TaxProductCode="" UPCCode="" UnitCost="" UnitOfMeasure="">
-    </Item>
-    <DerivedFrom DocumentType="" EnterpriseCode="" OrderHeaderKey="" OrderNo=""/>
-    <OrderDate ActualDate="" DateTypeId="" ExpectedDate=""
-        OrderHeaderKey="" OrderLineKey="" OrderReleaseKey="" RequestedDate=""/>
-    <Order AllocationRuleID="" AuthorizationExpirationDate=""
-        AuthorizedClient="" BillToID="" BuyerOrganizationCode=""
-        BuyerUserId="" CarrierAccountNo="" CarrierServiceCode=""
-        CustomerContactID="" CustomerEMailID="" CustomerPONo=""
-        CustomerRewardsNo="" DefaultTemplate="" DeliveryCode=""
-        Division="" DocumentType="" DraftOrderFlag="" EnteredBy=""
-        EnterpriseCode="" EntryType="" ExpirationDate="" FreightTerms=""
-        HasDerivedChild="" HasDerivedParent="" HoldFlag=""
-        HoldReasonCode="" HoursBeforeNextIteration="" InvoiceComplete=""
-        IsExpirationDateOverridden="" LevelOfService=""
-        LinkedSourceKey="" NextIterationDate="" NextIterationSeqNo=""
-        NotificationReference="" NotificationType=""
-        NotifyAfterShipmentFlag="" OpportunityKey="" OrderDate=""
-        OrderHeaderKey="" OrderName="" OrderNo="" OrderType=""
-        OriginalContainerKey="" PaymentRuleId="" PaymentStatus=""
-        PersonalizeCode="" PriceProgramKey=""
-        PricingClassificationCode="" PriorityCode="" PriorityNumber=""
-        Purpose="" ReceivingNode="" ReqCancelDate="" ReqDeliveryDate=""
-        ReqShipDate="" SCAC="" SearchCriteria1="" SearchCriteria2=""
-        SellerOrganizationCode="" ShipNode="" ShipToID="" SoldToKey=""
-        SourceKey="" SourceType="" TaxExemptFlag=""
-        TaxExemptionCertificate="" TaxJurisdiction="" TaxPayerId=""
-        TermsCode="" TotalAdjustmentAmount="">
-    </Order>
+	<Order OrderNo="" EnterpriseCode="" DocumentType=""/>
 	<OrderStatuses>
-<OrderStatus Status = ''/>
-</OrderStatuses>
-</OrderLine>
+		<OrderStatus Status = ""/>
+	</OrderStatuses>
+	</OrderLine>
 </OrderLineList>

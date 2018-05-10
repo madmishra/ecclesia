@@ -177,7 +177,6 @@ public static final String ORG_ROLE = "OrgRole";
 public static final String ROLE_KEY = "RoleKey";
 public static final String SERVICE_SLOT_DESC = "ServiceSlotDesc";
 public static final String SERVICE_SLOT_KEY = "ServiceSlotKey";
-public static final String GET_INVENTORY_MISMATCH = "getInventoryMismatch";
 public static final String INVENTORY_NODE_CONTROL = "InventoryNodeControl";
 public static final String INVENTORY_PICTURE_CORRECT = "InventoryPictureCorrect";
 public static final String REASON_CODE = "ReasonCode";

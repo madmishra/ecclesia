@@ -105,7 +105,6 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
   /**
    * This method delete record from Full Sync status table
    * 
-   * 
    * @param invSyncEOFKey
    * @param shipNode
    */

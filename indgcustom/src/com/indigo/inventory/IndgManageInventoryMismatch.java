@@ -74,7 +74,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    */
   private void pushInputForAdjustInventory(YFCDocument mismatchDoc,String shipNode) {
     YFCDocument adjustInventoryDoc = YFCDocument.createDocument(XMLLiterals.ITEMS);
-    String manageInventoryService = getProperty(FULL_SYNC_QUEUE_FLOW);
+    String manageInventoryService = FULL_SYNC_QUEUE_FLOW;
     YFCIterable<YFCElement> yfcItrator = mismatchDoc.getDocumentElement()
         .getChildren(XMLLiterals.ITEM);
     int itratorCount = INITAL_ITRATOR_COUNT;

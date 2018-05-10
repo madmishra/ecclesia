@@ -177,5 +177,11 @@ public static final String ORG_ROLE = "OrgRole";
 public static final String ROLE_KEY = "RoleKey";
 public static final String SERVICE_SLOT_DESC = "ServiceSlotDesc";
 public static final String SERVICE_SLOT_KEY = "ServiceSlotKey";
+public static final String INDG_INV_ADJ_LOG_CREATE ="IndgCreateInvAdjLog";
+public static final String INDG_INV_ADJ_LOG_LIST ="IndgGetInvAdjLogList";
+public static final String SHIPMENT = "Shipment";
+public static final String SHIPMENT_LINES = "ShipmentLines";
+public static final String SHIPMENT_LINE = "ShipmentLine";
+public static final String DOCUMENT_TYPE = "DocumentType";
 }
 

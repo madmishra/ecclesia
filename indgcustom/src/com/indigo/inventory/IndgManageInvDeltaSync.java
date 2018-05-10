@@ -10,19 +10,22 @@ import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
 /**
- * 
+ * This is an custom service to manage Delta
+ * inventory feed from the Different Source 
  * 
  * @author BSG109
  *
  */
 public class IndgManageInvDeltaSync extends AbstractCustomApi{
 
-  private static final String INDG_INV_SYNC_CTRL_LIST = "IndgGetInvCtrlList";
-  private static final String INDG_INV_ADJ_LOG_CREATE ="IndgCreateInvAdjLog";
-  private static final String INDG_INV_ADJ_LOG_LIST ="IndgGetInvAdjLogList";
   private static final String FLAG_YES = "Y";
+  private static final String POS_SALES="POS Sales";
+  private static final String DEFAULT_UNIT_OF_MEASURE = "EACH";
+  private static final String INDIGO_CA = "Indigo_CA";
+  private static final String ONHAND = "ONHAND";
   
   /**
+   * This is the  
    * 
    */
   @Override
@@ -32,16 +35,25 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
   }
   
   /**
-   * 
+   * This method call adjust inventory for non cycle count
+   * adjustment if the transaction date matches
    * 
    */
-  private void managePOSInvFeed(YFCDocument inXml){
+  private void manageAdjustmentInvFeed(YFCDocument inXml){
     YFCElement itemEle = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM);
     String itemID = itemEle.getAttribute(XMLLiterals.ITEM_ID);
     String shipNode = itemEle.getAttribute(XMLLiterals.SHIPNODE);
-    if(canApplyInvAdjustment(getSyncCtrlList(itemID,shipNode),itemEle,XMLLiterals.GENERATION_DATE)) {
-      inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM).setAttribute(XMLLiterals.ADJUSTMENT_TYPE,
+    if(canApplyInvAdjustment(getSyncCtrlList(itemID,shipNode),itemEle,XMLLiterals.TRANSACTION_DATE)) {
+      itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE,
           XMLLiterals.ADJUSTMENT);
+      if(XmlUtils.isVoid(itemEle.getAttribute(XMLLiterals.REASON_TEXT)) &&
+          XmlUtils.isVoid(itemEle.getAttribute(XMLLiterals.REASON_CODE))) {
+        itemEle.setAttribute(XMLLiterals.REASON_CODE,POS_SALES);
+        itemEle.setAttribute(XMLLiterals.REASON_TEXT,POS_SALES);
+        itemEle.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
+        itemEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, INDIGO_CA);
+        itemEle.setAttribute(XMLLiterals.SUPPLY_TYPE, ONHAND);
+      }
        invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, inXml);
        insertIntoAdjusmentLogTable(itemEle);
       }
@@ -60,7 +72,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
     YFCElement fullSyncEle = fullSyncInDoc.getDocumentElement();
     fullSyncEle.setAttribute(XMLLiterals.ITEM_ID, itemID);
     fullSyncEle.setAttribute(XMLLiterals.SHIPNODE, shipNode);
-    return invokeYantraService(INDG_INV_SYNC_CTRL_LIST, fullSyncInDoc);
+    return invokeYantraService(XMLLiterals.INDG_INV_SYNC_CTRL_LIST, fullSyncInDoc);
   }
   
   
@@ -73,17 +85,20 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
    */
   private void manageInvFeedBasedOnMovement(YFCDocument inXml){
     String movementType = XPathUtil.getXpathAttribute(inXml, "/Items/Item/@AdjustmentType");
-    if(XMLLiterals.ABSOLUTE.equalsIgnoreCase(movementType)) {
-      manageCountSAPFeed(inXml);
-    } else {
-      managePOSInvFeed(inXml);
+    if(inXml.getDocumentElement().hasChildNodes()) {
+      if(XMLLiterals.ABSOLUTE.equalsIgnoreCase(movementType)) {
+        manageCycleCountSAPFeed(inXml);
+      } else {
+        manageAdjustmentInvFeed(inXml);
+      }
     }
   }
   
   
   /**
    * 
-   * 
+   * This method validates the Generation and Transaction Date for Cycle Count
+   * Feed.
    * 
    * @param fullSyncOpDoc
    * @return
@@ -114,7 +129,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
     inEle.setAttribute(XMLLiterals.QUANTITY, itemEle.getAttribute(XMLLiterals.QUANTITY));
     inEle.setAttribute(XMLLiterals.GENERATION_DATE, itemEle.getAttribute(XMLLiterals.GENERATION_DATE));
     inEle.setAttribute(XMLLiterals.TRANSACTION_DATE, itemEle.getAttribute(XMLLiterals.TRANSACTION_DATE));
-    invokeYantraService(INDG_INV_ADJ_LOG_CREATE, inXml);
+    invokeYantraService(XMLLiterals.INDG_INV_ADJ_LOG_CREATE, inXml);
   }
   
   
@@ -123,7 +138,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
    * 
    * @param inXml
    */
-  private void manageCountSAPFeed(YFCDocument inXml) {
+  private void manageCycleCountSAPFeed(YFCDocument inXml) {
     YFCElement inEle = inXml.getDocumentElement();
     YFCIterable<YFCElement> yfsItrator = inEle.getChildren(XMLLiterals.ITEM);
     for(YFCElement itemEle : yfsItrator) {
@@ -135,11 +150,13 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
         insertOrUpdateSyncCtrlTS(itemEle);
         itemEle.setAttribute(XMLLiterals.QUANTITY, itemEle.getDoubleAttribute(XMLLiterals.QUANTITY)
             + calculateAbsoluteQuantity(itemEle));
+        itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ABSOLUTE);
+        itemEle.setAttribute(XMLLiterals.REMOVE_INV_NODE_CTRL, FLAG_YES);
+        invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, inXml);
+      } else {
+        removeNodeControl(shipNode,itemID);
       }
-      itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ABSOLUTE);
-      itemEle.setAttribute(XMLLiterals.REMOVE_INV_NODE_CTRL, FLAG_YES);
     }
-    invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, inXml);
   }
   
   /**
@@ -188,7 +205,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
     YFCElement invAdjLogEle = invAdjLogDoc.getDocumentElement();
     invAdjLogEle.setAttribute(XMLLiterals.ITEM_ID, itemEle.getAttribute(XMLLiterals.ITEM_ID));
     invAdjLogEle.setAttribute(XMLLiterals.SHIPNODE, itemEle.getAttribute(XMLLiterals.SHIPNODE));
-    return invokeYantraService(INDG_INV_ADJ_LOG_LIST, invAdjLogDoc);
+    return invokeYantraService(XMLLiterals.INDG_INV_ADJ_LOG_LIST, invAdjLogDoc);
   }
   
   /**
@@ -211,5 +228,19 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
       }
     }
     return totalAdjQty;
+  }
+  
+  /**
+   * This method removes Node Control for the Node and Item 
+   * combination. 
+   * 
+   * @param shipNode
+   * @param Item
+   */
+  private void removeNodeControl(String shipNode, String itemID) {
+    YFCDocument inXml = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
+    inXml.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, shipNode);
+    inXml.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemID);
+    inXml.getDocumentElement().setAttribute(XMLLiterals.INVENTORY_PICTURE_CORRECT, FLAG_YES);
   }
 }

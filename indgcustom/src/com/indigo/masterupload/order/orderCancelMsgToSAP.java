@@ -32,7 +32,7 @@ public class orderCancelMsgToSAP extends AbstractCustomApi{
 		 return inXml;
 }
 	 private YFCDocument inputGetOrderLineList(String shipNode,String orderNo,String enterPriseCode) {
-		 YFCDocument inputGetOrderLineListDoc=YFCDocument.createDocument("OrdeLine");
+		 YFCDocument inputGetOrderLineListDoc=YFCDocument.createDocument("OrderLine");
 		 YFCElement orderLineEle=inputGetOrderLineListDoc.getDocumentElement();
 		 orderLineEle.setAttribute("ShipNode",shipNode );
 		 YFCElement orderEle=orderLineEle.createChild("Order");
@@ -78,8 +78,14 @@ public class orderCancelMsgToSAP extends AbstractCustomApi{
 		 
 	 }
 
-	/* private YFCDocument  formMessageSAP051(String IS_FULL_ORDER_CANCELLED,YFCDocument  inXml) {
+ /*private YFCDocument  formMessageSAP051(String IS_FULL_ORDER_CANCELLED,YFCDocument  inXml) {
+	 	YFCElement orderEle=inXml.getDocumentElement();
+	 	String modifyts= orderEle.getAttribute("Modifyts");
+	 
 		 YFCDocument messageSAP051Doc=YFCDocument.createDocument("OrderMessage");
+		 YFCElement orderMessageEle=messageSAP051Doc.getDocumentElement();
+		 orderMessageEle.setAttribute("MessageTypeId", "SAP051");
+		 orderMessageEle.setAttribute("Modifyts", value);
 		 return doc;
 		 
 	 }*/

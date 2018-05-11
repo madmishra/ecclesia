@@ -151,6 +151,5 @@ public static final String ORDER_TYPE="OrderType";
 public static final String CURRENT_QTY="CurrentQty";
 public static final String CANCELLATION_REASON_CODE="CancellationReasonCode";
 public static final String ORDER="Order";
-
 }
 

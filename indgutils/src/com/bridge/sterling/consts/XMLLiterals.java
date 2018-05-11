@@ -168,7 +168,30 @@ public static final String IS_FULL_ORDER_CANCELLED="IsFullOrderCancelled";
 public static final String ORDERED_QTY="OrderedQty";
 public static final String ORIGINAL_ORDERED_QTY="OriginalOrderedQty";
 public static final String ORIGINAL_QTY="OriginalQty";
-
+public static final String ADJUST_INVENTORY_API = "adjustInventory";
+public static final String INDG_INV_FULL_SYNC = "INDGInvFullSync";
+public static final String INDG_INV_ADJUSTMENT_LOG = "INDGInvAdjustmentLog";
+public static final String CREATE_FULL_SYNC_CTRL = "IndgCreateInvCtrl";
+public static final String UPDATE_FULL_SYNC_CTRL = "IndgChangeInvCtrl";
+public static final String INDG_INV_SYNC_CTRL = "INDGInvSyncCtrl";
+public static final String ABSOLUTE = "ABSOLUTE";
+public static final String INDG_FULL_SYNC_STATUS = "INDGFullSyncStatus";
+public static final String INDG_FULL_SYNC_STATUS_KEY = "IndgFullSyncStatusKey";
+public static final String INDG_FULL_SYNC_STATUS_CREATE = "IndgCreateInvSyncStatus";
+public static final String INDG_FULL_SYNC_STATUS_DELETE = "IndgDeleteInvSyncStatus";
+public static final String REMOVE_INV_NODE_CTRL = "RemoveInventoryNodeControl";
+public static final String INDG_FULL_SYNC_STATUS_LIST = "INDGFullSyncStatusList";
+public static final String INDG_INV_FULL_SYNC_LIST = "INDGInvSyncCtrlList";
+public static final String INV_FULL_SYNC_LIST_FLOW = "IndgGetInvCtrlList";
+public static final String GET_INVENTORY_MISMATCH = "getInventoryMismatch";
+public static final String INVENTORY_NODE_CONTROL = "InventoryNodeControl";
+public static final String INVENTORY_PICTURE_CORRECT = "InventoryPictureCorrect";
+public static final String REASON_CODE = "ReasonCode";
+public static final String REASON_TEXT ="ReasonText";
+public static final String INDG_INV_ADJ_LOG_CREATE ="IndgCreateInvAdjLog";
+public static final String INDG_INV_ADJ_LOG_LIST ="IndgGetInvAdjLogList";
+public static final String SHIPMENT_LINES = "ShipmentLines";
+public static final String SHIPMENT_LINE = "ShipmentLine";
 
 }
 

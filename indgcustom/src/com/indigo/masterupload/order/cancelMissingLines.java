@@ -5,13 +5,13 @@ import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
-public class cancelMissingLines extends AbstractCustomApi{
+public class CancelMissingLines extends AbstractCustomApi{
 	
 	private static final String EMPTY_STRING = "";
 	private String orderNo = "";
 	private String enterpriseCode = "";
 	private String documentType = "";
-	private String shipnode = "";
+	private String shipnode = ""; 
 
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {

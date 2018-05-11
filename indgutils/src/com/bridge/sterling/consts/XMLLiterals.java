@@ -148,13 +148,13 @@ public static final String MODIFYTS="Modifyts";
 public static final String ORDER_TYPE="OrderType";
 public static final String CURRENT_QTY="CurrentQty";
 public static final String CANCELLATION_REASON_CODE="CancellationReasonCode";
-public static final String IS_FULL_ORDER_CANCELLED="IsFullOrderCancelled";
 public static final String GROUP_NAME="GroupName";
 public static final String DEPARTMENT_GROUP_LIST="DepartmentGroupList";
 public static final String DEPARTMENT_GROUP="DepartmentGroup";
 public static final String ORG_ROLE_LIST="OrgRoleList";
 public static final String ORG_ROLE="OrgRole ";
 public static final String ROLE_KEY="RoleKey ";
+public static final String ORDER="Order";
 
 }
 

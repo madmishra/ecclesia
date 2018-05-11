@@ -1,4 +1,4 @@
-package com.indigo.masterupload.ordercancelMsg;
+package com.indigo.masterupload.order;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;

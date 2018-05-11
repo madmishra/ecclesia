@@ -1,7 +1,5 @@
 package com.bridge.sterling.consts;
 
-import com.yantra.yfc.util.YFCLocale;
-
 public class XMLLiterals {
 public static final String CATEGORY = "Category";
 public static final String CATEGORY_ID = "CategoryID";
@@ -151,6 +149,12 @@ public static final String ORDER_TYPE="OrderType";
 public static final String CURRENT_QTY="CurrentQty";
 public static final String CANCELLATION_REASON_CODE="CancellationReasonCode";
 public static final String IS_FULL_ORDER_CANCELLED="IsFullOrderCancelled";
+public static final String GROUP_NAME="GroupName";
+public static final String DEPARTMENT_GROUP_LIST="DepartmentGroupList";
+public static final String DEPARTMENT_GROUP="DepartmentGroup";
+public static final String ORG_ROLE_LIST="OrgRoleList";
+public static final String ORG_ROLE="OrgRole ";
+public static final String ROLE_KEY="RoleKey ";
 
 }
 

@@ -156,6 +156,19 @@ public static final String ORG_ROLE = "OrgRole ";
 public static final String ROLE_KEY = "RoleKey ";
 public static final String ORDER = "Order";
 public static final String ORDER_LINE_LIST="OrderLineList";
+public static final String ORDER_HEADER_KEY = "OrderHeaderKey";
+public static final String EXTN_LEGACY_OMS_CHILD_ORDERNO = "ExtnLegacyOMSChildOrderNo";
+public static final String ORDER_STATUSES = "OrderStatuses";
+public static final String ORDER_STATUS = "OrderStatus";
+public static final String MESSAGE_BODY = "MessageBody";
+public static final String STERLING_ORDER_NO = "SterlingOrderNo";
+public static final String ORDER_MESSAGE="OrderMessage";
+public static final String SAP_ORDER_NO="SAPOrderNo";
+public static final String IS_FULL_ORDER_CANCELLED="IsFullOrderCancelled";
+public static final String ORDERED_QTY="OrderedQty";
+public static final String ORIGINAL_ORDERED_QTY="OriginalOrderedQty";
+public static final String ORIGINAL_QTY="OriginalQty";
+
 
 }
 

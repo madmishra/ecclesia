@@ -29,7 +29,7 @@ public class orderCancelMsgToSAP extends AbstractCustomApi{
 		 System.out.println("---orderNo value----"+orderNo);
 		 String enterPriseCode=inXmlEle.getAttribute(XMLLiterals.ENTERPRISE_CODE);
 		 System.out.println("----enterPriseCode---"+enterPriseCode);
-		 YFCIterable<YFCElement> orderLinesEle =inXmlEle.getChildren(XMLLiterals.ORDER_LINES);
+		 YFCIterable<YFCElement> orderLinesEle =inXmlEle.getChildren(XMLLiterals.ORDER_LINE);
 		 for(YFCElement orderElement : orderLinesEle) {
 		 YFCElement orderLineEle=orderElement.getChildElement(XMLLiterals.ORDER_LINE);
 		 String shipNode=orderLineEle.getAttribute(XMLLiterals.SHIPNODE);

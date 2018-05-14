@@ -27,26 +27,28 @@ public class orderCancelMsgToSAP extends AbstractCustomApi{
 		 YFCElement inXmlEle=inXml.getDocumentElement();
 		 String orderNo=inXmlEle.getAttribute(XMLLiterals.ORDER_NO);
 		 System.out.println("---orderNo value----"+orderNo);
-		 String enterPriseCode=inXmlEle.getAttribute(XMLLiterals.ENTERPRISE_CODE);
-		 System.out.println("----enterPriseCode---"+enterPriseCode);
-		 YFCIterable<YFCElement> orderLinesEle =inXmlEle.getChildren(XMLLiterals.ORDER_LINE);
-		 for(YFCElement orderElement : orderLinesEle) {
+		 String enterpriseCode=inXmlEle.getAttribute(XMLLiterals.ENTERPRISE_CODE);
+		 System.out.println("----enterPriseCode---"+enterpriseCode);
+		 YFCElement orderLinesrootEle=inXmlEle.getChildElement(XMLLiterals.ORDER_LINES);
+		 YFCIterable<YFCElement> orderLineListEle =orderLinesrootEle.getChildren();
+		 System.out.println("-------------Children check------------------");
+		 for(YFCElement orderElement : orderLineListEle) {
 		 YFCElement orderLineEle=orderElement.getChildElement(XMLLiterals.ORDER_LINE);
 		 String shipNode=orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
 		 System.out.println("---shipNode--"+shipNode);
-		 String isFullOrderCancelled=invokeGetOrderLineList(orderNo,enterPriseCode,shipNode,inXml);
+		 String isFullOrderCancelled=invokeGetOrderLineList(orderNo,enterpriseCode,shipNode,inXml);
 		 }
 		YFCDocument messageSAP051Doc=formMessageSAP051(isFullOrderCancelled,inXml);
 		System.out.println("final message----"+messageSAP051Doc);
 		 return messageSAP051Doc;
 }
-	 private YFCDocument inputGetOrderLineList(String shipNode,String orderNo,String enterPriseCode) {
+	 private YFCDocument inputGetOrderLineList(String shipNode,String orderNo,String enterpriseCode) {
 		 YFCDocument inputGetOrderLineListDoc=YFCDocument.createDocument(XMLLiterals.ORDER_LINE);
 		 YFCElement orderLineEle=inputGetOrderLineListDoc.getDocumentElement();
 		 orderLineEle.setAttribute(XMLLiterals.SHIPNODE,shipNode );
 		 YFCElement orderEle=orderLineEle.createChild(XMLLiterals.ORDER);
 		 orderEle.setAttribute(XMLLiterals.ORDER_NO, orderNo);
-		 orderEle.setAttribute(XMLLiterals.ENTERPRISE_CODE, enterPriseCode);
+		 orderEle.setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
 		 System.out.println("----inputGetOrderLineList-----"+inputGetOrderLineListDoc);
 		 return inputGetOrderLineListDoc;
 	 }
@@ -68,9 +70,9 @@ public class orderCancelMsgToSAP extends AbstractCustomApi{
 		 
 	 }
 	 
-	 private String invokeGetOrderLineList(String orderNo,String enterPriseCode,String shipNode,YFCDocument inXml)
+	 private String invokeGetOrderLineList(String orderNo,String enterpriseCode,String shipNode,YFCDocument inXml)
 	 {
-		YFCDocument getOrderLineListOutputDoc= invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST,inputGetOrderLineList(shipNode,orderNo,enterPriseCode),getOrderLineListTemplate());
+		YFCDocument getOrderLineListOutputDoc= invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST,inputGetOrderLineList(shipNode,orderNo,enterpriseCode),getOrderLineListTemplate());
 		System.out.println(getOrderLineListOutputDoc+"----output");
 		YFCElement getOrderLineListOutputEle=getOrderLineListOutputDoc.getDocumentElement();
 		YFCIterable<YFCElement> inputOrderLineEle = getOrderLineListOutputEle.getChildren(XMLLiterals.ORDER_LINE);

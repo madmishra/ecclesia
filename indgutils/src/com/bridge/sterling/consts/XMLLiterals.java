@@ -201,5 +201,7 @@ public static final String TRANSACTION_DATE = "TransactionDate";
 public static final String GENERATION_DATE = "GenerationDate";
 public static final String ITEMS = "Items";
 public static final String QUANTITY = "Quantity";
+public static final String SUPPLY_TYPE = "SupplyType";
+public static final String ON_HAND = "ONHAND";
 }
 

@@ -6,6 +6,9 @@
 			<xsl:attribute name="Modifyts">
 				<xsl:value-of select="@Modifyts"/>
 			</xsl:attribute>
+			<xsl:attribute name="OrderNo">
+				<xsl:value-of select="MessageBody/Order/@SterlingOrderNo"/>
+			</xsl:attribute>
 			<xsl:attribute name="LegacyOMSMessageSequenceNumber">
 			</xsl:attribute>
 			<MessageBody>
@@ -27,16 +30,16 @@
 					</xsl:attribute>
 					<OrderLines>
 						<xsl:for-each select="MessageBody/Order/OrderLines/OrderLine">
-								<OrderLine>
-									<xsl:attribute name="PrimeLineNo">
-										<xsl:value-of select="@PrimeLineNo"/>
+							<OrderLine>
+								<xsl:attribute name="PrimeLineNo">
+									<xsl:value-of select="@PrimeLineNo"/>
+								</xsl:attribute>
+								<Item>
+									<xsl:attribute name="ItemID">
+										<xsl:value-of select="Item/@ItemID"/>
 									</xsl:attribute>
-									<Item>
-										<xsl:attribute name="ItemID">
-											<xsl:value-of select="Item/@ItemID"/>
-										</xsl:attribute>
-									</Item>
-								</OrderLine>
+								</Item>
+							</OrderLine>
 						</xsl:for-each>
 					</OrderLines>
 				</Order>

@@ -32,9 +32,7 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 		 YFCIterable<YFCElement> orderLineListEle =orderLinesrootEle.getChildren();
 		 System.out.println(orderLineListEle+"-------------Children check------------------");
 		 for(YFCElement orderElement : orderLineListEle) {
-		 YFCElement orderLineEle=orderElement.getChildElement(XMLLiterals.ORDER_LINE);
-		 System.out.println(orderLineEle+"------ORDERLINe ELEMENt");
-		 String shipNode=orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
+		 String shipNode=orderElement.getAttribute(XMLLiterals.SHIPNODE);
 		 System.out.println("---shipNode--"+shipNode);
 		 isFullOrderCancelled=invokeGetOrderLineList(orderNo,enterpriseCode,shipNode,inXml);
 		 }

@@ -26,15 +26,13 @@ import com.yantra.yfc.dom.YFCElement;
  */
 public class IndgCalendarFeed extends AbstractCustomApi{
 	private static final String EMPTY_STRING = "";
-	private static final String CALENDER= "_Calender";
+	private static final String CALENDER= "_Calendar";
 	private static final String POOLID="_PICK_RLS_RP";
 	private static final String EXCEPTION_TIME = "00 00";
 	private static final String OFF_DAY = "0";
 	private static final String PICK="_PICK_";
 	private static final String ITEM_GROUP_CODE="PROD";
 	private static final String WORKING_DAY="1";
-	private static final String SHIFT_NAME ="SHIFT1";
-	
 	YFCDocument createCalenderInXml = null;
 	Map<String, String> map=new HashMap<>();
 	/**
@@ -124,7 +122,6 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 		  shiftEle.setAttribute(XMLLiterals.FRIDAY_VALID,yes);
 		  shiftEle.setAttribute(XMLLiterals.SHIFT_START_TIME,defShiftStartTime);
 		  shiftEle.setAttribute(XMLLiterals.SHIFT_END_TIME,defShiftEndTime);
-		  shiftEle.setAttribute(XMLLiterals.SHIFT_NAME,SHIFT_NAME);
 	 }
 	
 	  /**
@@ -284,9 +281,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 					String[] shiftTime = map.get(s).split("-");
 					YFCElement sortEle = slotList.createChild(XMLLiterals.SERVICE_SLOT);
 					sortEle.setAttribute(XMLLiterals.START_TIME,shiftTime[0]);
-					sortEle.setAttribute(XMLLiterals.END_TIME,shiftTime[1]);
-					sortEle.setAttribute(XMLLiterals.SERVICE_SLOT_DESC, shiftTime[0]+"_"+shiftTime[1]);
-					sortEle.setAttribute(XMLLiterals.SERVICE_SLOT_KEY, shiftTime[0]+"_"+shiftTime[1]);
+					sortEle.setAttribute(XMLLiterals.END_TIME, shiftTime[1]);
 				}
 			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc);
 			map.clear();

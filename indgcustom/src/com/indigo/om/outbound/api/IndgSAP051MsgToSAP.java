@@ -21,6 +21,7 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 	
 	 public YFCDocument invoke(YFCDocument inXml)  {
 		 
+		 System.out.println("Inside Main");
 		 YFCElement inXmlEle=inXml.getDocumentElement();
 		 String orderNo=inXmlEle.getAttribute(XMLLiterals.ORDER_NO);
 		 System.out.println("---orderNo value----"+orderNo);

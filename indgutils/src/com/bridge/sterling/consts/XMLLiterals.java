@@ -193,5 +193,13 @@ public static final String INDG_INV_ADJ_LOG_LIST ="IndgGetInvAdjLogList";
 public static final String SHIPMENT_LINES = "ShipmentLines";
 public static final String SHIPMENT_LINE = "ShipmentLine";
 public static final String SUB_LINE_NO = "SubLineNo";
+public static final String SERVICE_SLOT_DESC = "ServiceSlotDesc";
+public static final String SERVICE_SLOT_KEY = "ServiceSlotKey";
+public static final String ORGANIZATION_LIST = "OrganizationList";
+public static final String GET_ORGANIZATION_LIST = "getOrganizationList";
+public static final String TRANSACTION_DATE = "TransactionDate";
+public static final String GENERATION_DATE = "GenerationDate";
+public static final String ITEMS = "Items";
+public static final String QUANTITY = "Quantity";
 }
 

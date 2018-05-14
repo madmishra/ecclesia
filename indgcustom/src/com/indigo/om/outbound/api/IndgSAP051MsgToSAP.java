@@ -118,7 +118,9 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 		 messageBodyOrderEle.setAttribute(XMLLiterals.ORDER_TYPE, orderType);
 		 messageBodyOrderEle.setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED,isFullOrderCancelled );
 		  
-		 YFCIterable<YFCElement> orderLinesEle =inXmlEle.getChildren(XMLLiterals.ORDER_LINES);
+		 YFCElement orderLinesrootEle=inXmlEle.getChildElement(XMLLiterals.ORDER_LINES);
+		 System.out.println("----list of children-----"+orderLinesrootEle);
+		 YFCIterable<YFCElement> orderLinesEle =orderLinesrootEle.getChildren();
 		 for(YFCElement msgElement : orderLinesEle) {
 		 String primeLineNo=msgElement.getAttribute(XMLLiterals.PRIME_LINE_NO);
 		 String shipNode=msgElement.getAttribute(XMLLiterals.SHIPNODE);

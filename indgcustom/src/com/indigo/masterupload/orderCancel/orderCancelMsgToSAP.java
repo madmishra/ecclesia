@@ -29,10 +29,12 @@ public class orderCancelMsgToSAP extends AbstractCustomApi{
 		 String enterpriseCode=inXmlEle.getAttribute(XMLLiterals.ENTERPRISE_CODE);
 		 System.out.println("----enterPriseCode---"+enterpriseCode);
 		 YFCElement orderLinesrootEle=inXmlEle.getChildElement(XMLLiterals.ORDER_LINES);
+		 System.out.println("----list of children-----"+orderLinesrootEle);
 		 YFCIterable<YFCElement> orderLineListEle =orderLinesrootEle.getChildren();
 		 System.out.println("-------------Children check------------------");
 		 for(YFCElement orderElement : orderLineListEle) {
 		 YFCElement orderLineEle=orderElement.getChildElement(XMLLiterals.ORDER_LINE);
+		 System.out.println(orderLineEle+"------ORDERLINe ELEMENt");
 		 String shipNode=orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
 		 System.out.println("---shipNode--"+shipNode);
 		 isFullOrderCancelled=invokeGetOrderLineList(orderNo,enterpriseCode,shipNode,inXml);

@@ -115,5 +115,4 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
          IndgCategoryMasterUpload.getInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
          IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());
    }
-   
 }

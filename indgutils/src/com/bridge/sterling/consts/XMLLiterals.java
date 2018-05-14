@@ -193,6 +193,5 @@ public static final String INDG_INV_ADJ_LOG_LIST ="IndgGetInvAdjLogList";
 public static final String SHIPMENT_LINES = "ShipmentLines";
 public static final String SHIPMENT_LINE = "ShipmentLine";
 public static final String SUB_LINE_NO = "SubLineNo";
-
 }
 

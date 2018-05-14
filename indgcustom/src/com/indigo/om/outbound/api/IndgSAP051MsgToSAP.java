@@ -8,14 +8,10 @@ import com.yantra.yfc.dom.YFCElement;
 
 public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 	private static final String EMPTY_STRING = "";
-	private static  String isFullOrderCancelled="N";
-	private static final String YES="Y"; 
+	private static  String isFullOrderCancelled="Y";
+	private static final String NO="N"; 
 	private static final String CANCELLED="Cancelled";
 	private static final String cancellationReasonCode="05";
-	
-	
-	
-	
 	
 	/**
 	   * This is the invoke point of the Service
@@ -80,11 +76,11 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 		YFCElement getOrderLineListOutputEle=getOrderLineListOutputDoc.getDocumentElement();
 		YFCIterable<YFCElement> inputOrderLineEle = getOrderLineListOutputEle.getChildren(XMLLiterals.ORDER_LINE);
 		 for(YFCElement orderElement : inputOrderLineEle) {
-		String orderLineStatus=orderElement.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.STATUS);
+		String orderLineStatus=orderElement.getAttribute(XMLLiterals.STATUS);
 		System.out.println(orderLineStatus+"------orderLineStatus---");
 		if(!orderLineStatus.equals(CANCELLED))
 		{
-			isFullOrderCancelled=YES;
+			isFullOrderCancelled=NO;
 			System.out.println("----IS_FULL_ORDER_CANCELLED-----"+isFullOrderCancelled);
 			break;
 		}

@@ -1,7 +1,5 @@
 package com.indigo.masterupload.ordercancelMsg;
 
-import org.apache.soap.util.net.SSLUtils;
-
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.yantra.yfc.core.YFCIterable;
@@ -14,6 +12,7 @@ public class orderCancelMsgToSAP extends AbstractCustomApi{
 	private static final String YES="Y"; 
 	private static final String CANCELLED="Cancelled";
 	private static final String cancellationReasonCode="05";
+	
 	
 	
 	/**
@@ -36,7 +35,7 @@ public class orderCancelMsgToSAP extends AbstractCustomApi{
 		 YFCElement orderLineEle=orderElement.getChildElement(XMLLiterals.ORDER_LINE);
 		 String shipNode=orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
 		 System.out.println("---shipNode--"+shipNode);
-		 String isFullOrderCancelled=invokeGetOrderLineList(orderNo,enterpriseCode,shipNode,inXml);
+		 isFullOrderCancelled=invokeGetOrderLineList(orderNo,enterpriseCode,shipNode,inXml);
 		 }
 		YFCDocument messageSAP051Doc=formMessageSAP051(isFullOrderCancelled,inXml);
 		System.out.println("final message----"+messageSAP051Doc);
@@ -79,7 +78,7 @@ public class orderCancelMsgToSAP extends AbstractCustomApi{
 		 for(YFCElement orderElement : inputOrderLineEle) {
 		String orderLineStatus=orderElement.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.STATUS);
 		System.out.println(orderLineStatus+"------orderLineStatus---");
-		if(!orderLineStatus.equals("Cancelled"))
+		if(!orderLineStatus.equals(CANCELLED))
 		{
 			isFullOrderCancelled=YES;
 			System.out.println("----IS_FULL_ORDER_CANCELLED-----"+isFullOrderCancelled);

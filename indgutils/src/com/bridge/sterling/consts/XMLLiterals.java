@@ -203,5 +203,8 @@ public static final String ITEMS = "Items";
 public static final String QUANTITY = "Quantity";
 public static final String SUPPLY_TYPE = "SupplyType";
 public static final String ON_HAND = "ONHAND";
+public static final String ADJUST_INVENTORY_API = "adjustInventory";
+public static final String ADJUSTMENT_TYPE = "AdjustmentType";
+public static final String ADJUSTMENT = "ADJUSTMENT";
 }
 

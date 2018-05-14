@@ -94,7 +94,7 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 	 	YFCElement inXmlEle=inXml.getDocumentElement();
 	 	String modifyts= inXmlEle.getAttribute(XMLLiterals.MODIFYTS);
 	 	System.out.println("---messageSAP051Doc-----"+modifyts);
-	 	String sapOrderNo=inXmlEle.getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
+	 	String sapOrderNo=inXmlEle.getChildElement(XMLLiterals.EXTN).getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
 	 	System.out.println("------sapOrderNo---"+sapOrderNo);
 	 	String enterpriseCode=inXmlEle.getAttribute(XMLLiterals.ENTERPRISE_CODE);
 	 	System.out.println("-----enterpriseCode---"+enterpriseCode);

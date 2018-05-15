@@ -194,7 +194,11 @@ public static final String SHIPMENT_LINES = "ShipmentLines";
 public static final String SHIPMENT_LINE = "ShipmentLine";
 public static final String SUB_LINE_NO = "SubLineNo";
 public static final String CHANGE_ORDER_API = "changeOrder";
-
-
+public static final String ADJUSTMENT_TYPE = "AdjustmentType";
+public static final String ADJUSTMENT = "ADJUSTMENT";
+public static final String ORGANIZATION_LIST = "OrganizationList";
+public static final String GET_ORGANIZATION_LIST = "getOrganizationList";
+public static final String TRANSACTION_DATE = "TransactionDate";
+public static final String GENERATION_DATE = "GenerationDate";
 }
 

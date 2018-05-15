@@ -61,15 +61,16 @@ public class IndgManageFullSyncStatus extends AbstractCustomApi {
    */
   private void sleepTillEOF() {
     int deltaSleepTime = Integer.parseInt(getProperty(DELTA_SLEEP_TIME));
+    String myShellScript = "nohup /Indigo/OMS95/Foundation/bin/startIntegrationServer.sh Indg_Category_File \"-Xms512m -Xmx2048m -XX:MaxPermSize=512m\" > /Indigo/OMS95/Foundation/logs/Indg_Category_File_${date}.log &";  
     try {
       Thread.sleep(deltaSleepTime);
       YFCDocument fullSyncStatusList = isFullSyncCompleted();
      if(fullSyncStatusList.getDocumentElement().hasChildNodes()){
         sleepTillEOF();
       }
+     Runtime.getRuntime().exec(myShellScript);
     } catch (Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SYNC_EXP, exp);
     }
   }
-
 }

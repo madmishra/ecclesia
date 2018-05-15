@@ -11,7 +11,8 @@ import com.yantra.yfc.dom.YFCElement;
 
 /**
  * This is an custom service to manage Delta
- * inventory feed from the Different Source 
+ * inventory feed from the Different Source and
+ * manages the Inventory sync between systems
  * 
  * @author BSG109
  *
@@ -25,7 +26,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
   private static final String ONHAND = "ONHAND";
   
   /**
-   * This is the  
+   * This is the invoke point fo the service
    * 
    */
   @Override

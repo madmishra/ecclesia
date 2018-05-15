@@ -204,5 +204,8 @@ public static final String QUANTITY = "Quantity";
 public static final String ITEMS = "Items";
 public static final String SUPPLY_TYPE = "SupplyType";
 public static final String ON_HAND = "ONHAND";
+public static final String APPLY_DIFFERENCE = "ApplyDifferences";
+public static final String COMPLETE_INVENTORY_FLAG = "CompleteInventoryFlag";
+public static final String VALIDATE_ITEMS = "ValidateItems";
 }
 

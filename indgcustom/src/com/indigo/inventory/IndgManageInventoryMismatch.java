@@ -32,6 +32,8 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   private static final int MAX_ITEM_ELEMENT_COUNT = 100;
   private static final String EMPTY_STRING = "";
   private static final String INDG = "INDG";
+  private static final String FLAG_NO = "N";
+  private static final String FLAG_YES = "Y";
   
   /**
    * 
@@ -46,6 +48,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
     } catch (Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
     }
+    setDefaultComponents(inXml);
     YFCDocument mismatchDoc = getInventoryMisMatch(inXml);
     String shipNode = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE)
         .getAttribute(XMLLiterals.SHIPNODE);
@@ -170,5 +173,19 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
     adjustInventoryDoc.getDocumentElement().setAttribute(XMLLiterals.INDG_FULL_SYNC_STATUS_KEY,
         invSyncStatusKey);
     addRecordToManageStatusTable(invSyncStatusKey,shipNode);
+  }
+  
+  /**
+   * This method set the default parameters for
+   * Adjust Inventory
+   * 
+   * @param inXml
+   */
+  private void setDefaultComponents(YFCDocument inXml) {
+    YFCElement inEle = inXml.getDocumentElement();
+    inEle.setAttribute(XMLLiterals.APPLY_DIFFERENCE, FLAG_NO);
+    YFCElement shipNodeEle = inEle.getChildElement(XMLLiterals.SHIPNODE);
+    shipNodeEle.setAttribute(XMLLiterals.COMPLETE_INVENTORY_FLAG, FLAG_YES);
+    shipNodeEle.setAttribute(XMLLiterals.VALIDATE_ITEMS, FLAG_YES);
   }
 }

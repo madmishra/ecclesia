@@ -25,6 +25,20 @@
 					<xsl:attribute name="OrderType">
 						<xsl:value-of select="ShipmentLines/ShipmentLine/OrderLine/Order/@OrderType" />
 					</xsl:attribute>
+					<OrderLines>
+						<xsl:for-each select="ShipmentLines/ShipmentLine">
+							<OrderLine>
+								<xsl:attribute name="PrimeLineNo">
+									<xsl:value-of select="OrderLine/@PrimeLineNo"/>
+								</xsl:attribute>
+								<Item>
+									<xsl:attribute name="ItemID">
+										<xsl:value-of select="Item/@ItemID"/>
+									</xsl:attribute>
+								</Item>
+							</OrderLine>
+						</xsl:for-each>
+					</OrderLines>
 				</Order>
 			</MessageBody>
 		</OrderMessage>

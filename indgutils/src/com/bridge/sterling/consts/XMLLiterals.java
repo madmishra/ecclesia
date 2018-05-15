@@ -207,5 +207,6 @@ public static final String ON_HAND = "ONHAND";
 public static final String APPLY_DIFFERENCE = "ApplyDifferences";
 public static final String COMPLETE_INVENTORY_FLAG = "CompleteInventoryFlag";
 public static final String VALIDATE_ITEMS = "ValidateItems";
+public static final String RELEASE_NO = "ReleaseNo";
 }
 

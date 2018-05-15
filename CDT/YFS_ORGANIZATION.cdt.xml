@@ -71,7 +71,7 @@
     InventoryKeptExternally="N" InventoryOrganizationCode="Indigo_CA"
     InventoryPublished="Y" IsBuyer="Y" IsCarrier="N"
     IsDeliverySourcingKept=" " IsEnterprise="Y" IsHubOrganization="N"
-    IsLegalEntity=" " IsNode="N" IsSeller="Y" IsServiceSourcingKept=" "
+    IsLegalEntity="Y" IsNode="N" IsSeller="Y" IsServiceSourcingKept=" "
     IsSourcingKept="N" IsTemplate="N" IssuingAuthority=" "
     ItemXrefRule=" " LocaleCode="en_US_EST" Lockid="2"
     Modifyprogid=".YCPOrgDetailsAPI"

@@ -830,9 +830,9 @@
     AgentCriteriaKey="CONSOLIDATE_TO_SHIPMENT"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:09-04:00"
     Createuserid="SYSTEM" FlowKey="CONSOLIDATE_TO_SHIPMENT" Lockid="0"
-    MessageXml="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &lt;Attributes>                     &lt;Attribute DataType=&quot;Text-20&quot;         Modifiable=&quot;N&quot; Name=&quot;Action&quot; Value=&quot;Get&quot;/>                 &lt;/Attributes> "
+    MessageXml="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;Attributes>&#xa;    &lt;Attribute DataType=&quot;Text-20&quot; DisplayName=&quot;Action&quot; Modifiable=&quot;N&quot;&#xa;        Name=&quot;Action&quot; Value=&quot;Get&quot;/>&#xa;    &lt;Attribute DataType=&quot;Boolean&quot; DisplayName=&quot;Collect Pending Jobs&quot;&#xa;        Modifiable=&quot;Y&quot; Name=&quot;CollectPendingJobs&quot; Value=&quot;Y&quot;/>&#xa;    &lt;Attribute DataType=&quot;Integer4AgentCriteria&quot;&#xa;        DisplayName=&quot;Number of Records To Buffer&quot; Modifiable=&quot;Y&quot;&#xa;        Name=&quot;NumRecordsToBuffer&quot; Value=&quot;0&quot;/>&#xa;&lt;/Attributes>&#xa;"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:09-04:00"
-    Modifyuserid="SYSTEM" ServerKey="DEFAULT_SERVER" TransactionKey="CONSOLIDATE_TO_SHIPMENT"/>
+    Modifyuserid="SYSTEM" ServerKey="2018050710115211689" TransactionKey="CONSOLIDATE_TO_SHIPMENT"/>
 <AgentCriteria AgentCriteriaId="CONSOLIDATE_TO_SHIPMENT.0003"
     AgentCriteriaKey="CONSOL_TO_SHIP.0003" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:09-04:00" Createuserid="SYSTEM"
@@ -1093,9 +1093,9 @@
     AgentCriteriaKey="ORDER_MONITOR_EX" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:09-04:00" Createuserid="SYSTEM"
     FlowKey="ORDER_MONITOR_EX" Lockid="0"
-    MessageXml="&lt;Attributes> &lt;Attribute Name=&quot;Action&quot; Value=&quot;Get&quot; DataType=&quot;Text-20&quot; Modifiable=&quot;N&quot; /> &lt;/Attributes>"
+    MessageXml="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;Attributes>&#xa;    &lt;Attribute DataType=&quot;Text-20&quot; DisplayName=&quot;Action&quot; Modifiable=&quot;N&quot;&#xa;        Name=&quot;Action&quot; Value=&quot;Get&quot;/>&#xa;    &lt;Attribute DataType=&quot;Boolean&quot; DisplayName=&quot;Collect Pending Jobs&quot;&#xa;        Modifiable=&quot;Y&quot; Name=&quot;CollectPendingJobs&quot; Value=&quot;Y&quot;/>&#xa;    &lt;Attribute DataType=&quot;Integer4AgentCriteria&quot;&#xa;        DisplayName=&quot;Number of Records To Buffer&quot; Modifiable=&quot;Y&quot;&#xa;        Name=&quot;NumRecordsToBuffer&quot; Value=&quot;0&quot;/>&#xa;&lt;/Attributes>&#xa;"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:09-04:00"
-    Modifyuserid="SYSTEM" ServerKey="DEFAULT_SERVER" TransactionKey="ORDER_MONITOR_EX"/>
+    Modifyuserid="SYSTEM" ServerKey="2018051506441712417" TransactionKey="ORDER_MONITOR_EX"/>
 <AgentCriteria AgentCriteriaId="ORDER_MONITOR_EX.0002"
     AgentCriteriaKey="ORDER_MONITOR_EX.0002" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:09-04:00" Createuserid="SYSTEM"

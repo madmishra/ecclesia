@@ -545,7 +545,7 @@
     ExtendEnterpriseFlag=" " ExtendSupplierFlag=" " Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:57-04:00"
     Modifyuserid="SYSTEM" ShipnodeKey=" " TransactionKey="SCHEDULE.0005" Version=" "/>
-<Event ActionKey=" " ActiveFlag="Y" Createprogid="XMLMigrator"
+<Event ActionKey=" " ActiveFlag="N" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:57-04:00" Createuserid="SYSTEM"
     EnterpriseKey="DEFAULT" EventKey="200206122336150010"
     EventName="On release creation or change"
@@ -596,7 +596,7 @@
     ExtendSupplierFlag=" " Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:57-04:00" Modifyuserid="SYSTEM"
     ShipnodeKey=" " TransactionKey="RELEASE.0005" Version=" "/>
-<Event ActionKey=" " ActiveFlag="N" Createprogid="XMLMigrator"
+<Event ActionKey=" " ActiveFlag="Y" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:57-04:00" Createuserid="SYSTEM"
     EnterpriseKey="DEFAULT" EventKey="200206122336160071"
     EventName="On Cancel" Eventid="ON_CANCEL" ExceptionType="ON_CANCEL"

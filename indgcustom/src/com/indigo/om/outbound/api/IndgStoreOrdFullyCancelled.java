@@ -27,9 +27,11 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 		 YFCIterable<YFCElement> orderLineListEle =orderLinesrootEle.getChildren();
 		 for(YFCElement orderElement : orderLineListEle) {
 		 String shipNode=orderElement.getAttribute(XMLLiterals.SHIPNODE);
-		 isFullOrderCancelled=invokeGetOrderLineList(orderNo,enterpriseCode,shipNode,inXml);
+		if((isFullOrderCancelled=invokeGetOrderLineList(orderNo,enterpriseCode,shipNode,inXml)).equals(NO))
+		break;
 		 }
 		 inXmlEle.setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
+		
 		 invokeService(inXml);
 		 return inXml;
 }

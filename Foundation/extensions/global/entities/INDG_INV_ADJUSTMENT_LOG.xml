@@ -48,12 +48,22 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
           Size="20" 
           Type="NVARCHAR" 
           XMLName="MovementType"/>
-		  <Attribute ColumnName="TRANSACTION_DATE" DataType="TimeStamp"  
-           DefaultValue="sysdate" XMLName="TransactionDate"
-		   Description="Inventory adjustment TimeStamp" />
-		   <Attribute ColumnName="GENERATION_DATE" DataType="TimeStamp"  
-           DefaultValue="sysdate" XMLName="GenerationDate"
-		   Description="Inventory adjustment TimeStamp" /> 
+		  <Attribute ColumnName="TRANSACTION_DATE"
+          DataType="Text-50"
+          DefaultValue="sysdate"
+          Description="TransactionDate"
+          Nullable="false"
+          Size="50"
+          Type="NVARCHAR"
+          XMLName="TransactionDate" />
+		  <Attribute ColumnName="GENERATION_DATE" 
+          DataType="Text-50"
+          DefaultValue="sysdate" 
+          Description="GenerationDate"  
+          Nullable="false" 
+          Size="50" 
+          Type="NVARCHAR" 
+          XMLName="GenerationDate"/>
 		  <Attribute ColumnName="CREATETS" DataType="TimeStamp"  
            DefaultValue="sysdate" Description="Create TimeStamp" /> 
          <Attribute ColumnName="MODIFYTS" DataType="TimeStamp" 

@@ -76,8 +76,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 	
 	public void getPrimeLineNoFromBothDoc(YFCDocument inXml, YFCDocument getOrderLineListDoc) {
 		YFCElement orderLineListEle = getOrderLineListDoc.getDocumentElement();
-		YFCElement orderLinesEle=orderLineListEle.getChildElement(XMLLiterals.ORDER_LINES);
-		YFCIterable<YFCElement> apiPrimeLineNo = orderLinesEle.getChildren();
+		YFCIterable<YFCElement> apiPrimeLineNo = orderLineListEle.getChildren();
 		for(YFCElement primeLineEle1:apiPrimeLineNo) {
 			String primeLineNo= primeLineEle1.getAttribute(XMLLiterals.PRIME_LINE_NO);
 			lineList1.add(primeLineNo);

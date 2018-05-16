@@ -32,7 +32,7 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 		 }
 		 inXmlEle.setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
 		
-		 invokeService(inXml);
+		 //invokeService(inXml);
 		 return inXml;
 }
 	 /** This method forms input for getOrderLineList api
@@ -101,10 +101,10 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 	  * @param inXml
 	  */
 
- private void invokeService(YFCDocument inXml) {
+/* private void invokeService(YFCDocument inXml) {
 	 invokeYantraService(INDG_SEND_CANCELLED_LINES,inXml);
  }
-	 
+	 */
 }
 
 

@@ -16,8 +16,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 	YFCDocument inputDocForChangeOrderAPIDOC=null;
 	
 	private static final String EMPTY_STRING = "";
-	private List<String> lineList1;
-	private List<String> lineList2;
+	
 	private static final String PRIMELINE_STATUS = "9000";
 	private static final String ACTION_STATUS = "CANCEL";
 
@@ -78,13 +77,15 @@ public class CancelMissingLines extends AbstractCustomApi{
 	 }
 	
 	public void getPrimeLineNoFromBothDoc(YFCDocument inXml, YFCDocument getOrderLineListDoc) {
+	 List<String> lineList1=new ArrayList<String>();
+	 List<String> lineList2=new ArrayList<String>();
 		YFCElement orderLineListEle = getOrderLineListDoc.getDocumentElement();
 		YFCIterable<YFCElement> apiPrimeLineNo = orderLineListEle.getChildren();
 		System.out.println("<<<<<<<<<<<<<<<<orderLineListEle>>>>>>>>>>>>"+orderLineListEle);
 		for(YFCElement primeLineEle1:apiPrimeLineNo) {
 			String primeLineNo= primeLineEle1.getAttribute(XMLLiterals.PRIME_LINE_NO);
 			System.out.println("primeLineNo IS:"+primeLineNo);
-			lineList1.add("primeLineNo");
+			lineList1.add(primeLineNo);
 			System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<lineList1>>>>>>>>>>>>"+lineList1);
 		}
 		YFCElement sapLineListEle = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
@@ -95,7 +96,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 		for(YFCElement primeLineEle2:inputLineListEle) {
 			String primeLineNo= primeLineEle2.getAttribute(XMLLiterals.PRIME_LINE_NO);
 			System.out.println("<<<<<<<<<<<<<<primeLineNo 222222222>>>>>>>>>>>>>>>"+primeLineNo);
-			lineList2.add("primeLineNo");
+			lineList2.add(primeLineNo);
 			System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<lineList2>>>>>>>>>>>>"+lineList2);
 		}
 		removeCommonPrimeLineNo(lineList1, lineList2, getOrderLineListDoc, inXml);
@@ -103,7 +104,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 	
 	public void removeCommonPrimeLineNo(List<String> lineList1, List<String> lineList2, YFCDocument getOrderLineListDoc,
 			YFCDocument inXml) {
-		Collection<String> list=new ArrayList<>();
+		Collection<String> list=new ArrayList<String>();
 		List<String> union=new ArrayList<>(lineList2);
 		union.addAll(lineList1);
 		List<String> common=new ArrayList<>(lineList2);

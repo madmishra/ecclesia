@@ -40,7 +40,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 		String shipnode = orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
 	    YFCDocument getOrderDoc = YFCDocument.createDocument(XMLLiterals.ORDER_LINE);
 	    getOrderDoc.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, shipnode);
-	    YFCElement orderEle = getOrderDoc.createElement(XMLLiterals.ORDER);
+	    YFCElement orderEle = getOrderDoc.getDocumentElement().createChild(XMLLiterals.ORDER);
 	    orderEle.setAttribute(XMLLiterals.ORDER_NO, orderNo);
 	    orderEle.setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
 	    orderEle.setAttribute(XMLLiterals.DOCUMENT_TYPE, documentType);
@@ -85,6 +85,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 			String primeLineNo= primeLineEle1.getAttribute(XMLLiterals.PRIME_LINE_NO);
 			System.out.println("primeLineNo IS:"+primeLineNo);
 			lineList1.add(primeLineNo);
+			System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<lineList1>>>>>>>>>>>>"+lineList1);
 		}
 		YFCElement sapLineListEle = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);

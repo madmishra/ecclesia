@@ -14,10 +14,10 @@
 				<xsl:value-of select="@SterlingOrderNo"/>
 			</xsl:attribute>
 			<xsl:attribute name="ModificationReasonCode">
-			<xsl:value-of select="@HeaderErrorCode">
+			<xsl:value-of select="@HeaderErrorCode"/>
 			</xsl:attribute>
 			<xsl:attribute name="ModificationReasonText">
-			<xsl:value-of select="@HeaderErrorDescription">
+			<xsl:value-of select="@HeaderErrorDescription"/>
 			</xsl:attribute>
 			
 			<xsl:element name="OrderLines">

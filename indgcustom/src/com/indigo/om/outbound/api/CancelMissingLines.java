@@ -96,6 +96,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 			String primeLineNo= primeLineEle2.getAttribute(XMLLiterals.PRIME_LINE_NO);
 			System.out.println("<<<<<<<<<<<<<<primeLineNo 222222222>>>>>>>>>>>>>>>"+primeLineNo);
 			lineList2.add(primeLineNo);
+			System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<lineList1>>>>>>>>>>>>"+lineList2);
 		}
 		removeCommonPrimeLineNo(lineList1, lineList2, getOrderLineListDoc, inXml);
 	}

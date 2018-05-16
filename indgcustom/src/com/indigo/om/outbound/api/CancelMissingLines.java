@@ -117,6 +117,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 	}
 	
 	private void cancelMissingPrimeLineNo(Collection<String> list, YFCDocument getOrderLineListDoc, YFCDocument inXml) {
+		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<LISt VALue>>>>>>>>>>"+list);
 		for(String primeLineNoValue:list) {
 			YFCElement getOrderLineListEle = XPathUtil.getXPathElement(getOrderLineListDoc, 
 					"/OrderLineList/OrderLine[@PrimeLineNo = \""+primeLineNoValue+"\"]");
@@ -160,6 +161,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 	private void sendCancelledPrimeLineNoDoc(YFCDocument changeOrderOutputDoc, YFCDocument inXml, 
 			YFCDocument inputDocForChangeOrderAPI) {
 		String modifyTs = changeOrderOutputDoc.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS);
+		System.out.println("<<<<<<<<<<<<<<MODIFYTS>>>>>>>>>>"+modifyTs);
 		String childOrderNo = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.RELEASE_NO);
 		inputDocForChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER).
@@ -183,7 +185,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 	    orderLineEle.setAttribute(XMLLiterals.ACTION, EMPTY_STRING);
 	    YFCElement extnEle = orderLineEle.createChild(XMLLiterals.EXTN);
 	    extnEle.setAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO, EMPTY_STRING);
-	    
+	    System.out.println("<<<<<<<<<<<<<<<<<<CHANGE ORDER TEMPLATE>>>>>>>>>>>>"+changeOrderInputDoc);
 	    return changeOrderInputDoc;
 	  }
 }

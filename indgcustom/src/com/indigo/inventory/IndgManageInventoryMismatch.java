@@ -48,9 +48,11 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
     String rootEleName = inXml.getDocumentElement().getNodeName();
-    manageDeltaServer(rootEleName);
     if(EOF.equals(rootEleName)) {
       invokeYantraService(MANAGE_SYNC_STATUS_FLOW, inXml);
+      return inXml;
+    } else if(SOF.equals(rootEleName)) {
+      manageDeltaServer(rootEleName);
       return inXml;
     }
     YFCDocument mismatchDoc = getInventoryMisMatch(inXml);
@@ -203,14 +205,12 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * @param inXml
    */
   private void manageDeltaServer(String rootEleName) {
-    if(SOF.equals(rootEleName)) {
       try{
-        truncateInventoryLogTable();
         String shellScript = getProperty(SCRIPT_PATH);
         Runtime.getRuntime().exec(shellScript);
+        truncateInventoryLogTable();
         } catch (Exception exp) {
           throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
         }
-    }
   }
 }

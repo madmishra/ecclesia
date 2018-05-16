@@ -27,6 +27,7 @@ import com.yantra.yfs.japi.YFSException;
 public class IndgManageInventoryMismatch extends AbstractCustomApi {
 
   private static final String FULL_SYNC_QUEUE_FLOW = "IndgFullSyncQ";
+  private static final String MANAGE_SYNC_STATUS_FLOW = "IndgManageSyncStatus";
   private static final String TRUNCATE_LOG_QUERY = "DELETE FROM INDG_INV_ADJUSTMENT_LOG";
   private static final int INITAL_ITRATOR_COUNT = 1;
   private static final String MAX_ITEM_ELEMENT_COUNT = "MAX_ITEM_ELEMENT_COUNT";
@@ -35,6 +36,8 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   private static final String FLAG_NO = "N";
   private static final String FLAG_YES = "Y";
   private static final String SCRIPT_PATH = "SCRIPT_PATH";
+  private static final String SOF = "SOF";
+  private static final String EOF = "EOF";
   
   /**
    * 
@@ -44,14 +47,12 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
-    try{
-    truncateInventoryLogTable();
-    String shellScript = getProperty(SCRIPT_PATH);
-    Runtime.getRuntime().exec(shellScript);
-    } catch (Exception exp) {
-      throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
+    String rootEleName = inXml.getDocumentElement().getNodeName();
+    manageDeltaServer(rootEleName);
+    if(EOF.equals(rootEleName)) {
+      invokeYantraService(MANAGE_SYNC_STATUS_FLOW, inXml);
+      return inXml;
     }
-    setDefaultComponents(inXml);
     YFCDocument mismatchDoc = getInventoryMisMatch(inXml);
     String shipNode = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE)
         .getAttribute(XMLLiterals.SHIPNODE);
@@ -67,6 +68,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * @param inXml
    */
   private YFCDocument getInventoryMisMatch(YFCDocument inXml){
+    setDefaultComponents(inXml);
     return invokeYantraApi(XMLLiterals.GET_INVENTORY_MISMATCH, inXml);
   }
   
@@ -191,5 +193,24 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
     YFCElement shipNodeEle = inEle.getChildElement(XMLLiterals.SHIPNODE);
     shipNodeEle.setAttribute(XMLLiterals.COMPLETE_INVENTORY_FLAG, FLAG_YES);
     shipNodeEle.setAttribute(XMLLiterals.VALIDATE_ITEMS, FLAG_YES);
+  }
+  
+  
+  /**
+   * 
+   * This method starts or stops the server based on the
+   * SOF/EOF file
+   * @param inXml
+   */
+  private void manageDeltaServer(String rootEleName) {
+    if(SOF.equals(rootEleName)) {
+      try{
+        truncateInventoryLogTable();
+        String shellScript = getProperty(SCRIPT_PATH);
+        Runtime.getRuntime().exec(shellScript);
+        } catch (Exception exp) {
+          throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
+        }
+    }
   }
 }

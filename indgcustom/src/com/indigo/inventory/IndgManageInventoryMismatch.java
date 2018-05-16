@@ -29,7 +29,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   private static final String FULL_SYNC_QUEUE_FLOW = "IndgFullSyncQ";
   private static final String TRUNCATE_LOG_QUERY = "DELETE FROM INDG_INV_ADJUSTMENT_LOG";
   private static final int INITAL_ITRATOR_COUNT = 1;
-  private static final int MAX_ITEM_ELEMENT_COUNT = 100;
+  private static final String MAX_ITEM_ELEMENT_COUNT = "MAX_ITEM_ELEMENT_COUNT";
   private static final String EMPTY_STRING = "";
   private static final String INDG = "INDG";
   private static final String FLAG_NO = "N";
@@ -45,6 +45,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   public YFCDocument invoke(YFCDocument inXml) {
     try{
     truncateInventoryLogTable();
+    Runtime.getRuntime().exec("./stopDeltaServer.sh");
     } catch (Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
     }
@@ -76,6 +77,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * @param mismatchDoc
    */
   private void pushInputForAdjustInventory(YFCDocument mismatchDoc,String shipNode) {
+    int maxItemElementCount = Integer.parseInt(getProperty(MAX_ITEM_ELEMENT_COUNT));
     YFCDocument adjustInventoryDoc = YFCDocument.createDocument(XMLLiterals.ITEMS);
     String manageInventoryService = FULL_SYNC_QUEUE_FLOW;
     YFCIterable<YFCElement> yfcItrator = mismatchDoc.getDocumentElement()
@@ -83,7 +85,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
     int itratorCount = INITAL_ITRATOR_COUNT;
     setInvSyncStatusKey(adjustInventoryDoc,shipNode);
     for(YFCElement itemEle : yfcItrator) {
-      if(itratorCount == MAX_ITEM_ELEMENT_COUNT) {
+      if(itratorCount == maxItemElementCount) {
         invokeYantraService(FULL_SYNC_QUEUE_FLOW, adjustInventoryDoc);
         adjustInventoryDoc = YFCDocument.createDocument(XMLLiterals.ITEMS);
         setInvSyncStatusKey(adjustInventoryDoc,shipNode);

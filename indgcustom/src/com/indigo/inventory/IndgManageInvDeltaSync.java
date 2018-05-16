@@ -17,7 +17,7 @@ import com.yantra.yfc.dom.YFCElement;
  * @author BSG109
  *
  */
-public class IndgManageInvDeltaSync extends AbstractCustomApi{
+public class IndgManageInvDeltaSync extends AbstractCustomApi {
 
   private static final String FLAG_YES = "Y";
   private static final String POS_SALES="POS Sales";
@@ -26,7 +26,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
   private static final String ONHAND = "ONHAND";
   
   /**
-   * This is the invoke point fo the service
+   * This is the invoke point for the service
    * 
    */
   @Override
@@ -40,7 +40,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
    * adjustment if the transaction date matches
    * 
    */
-  private void manageAdjustmentInvFeed(YFCDocument inXml){
+  private void manageAdjustmentInvFeed(YFCDocument inXml) {
     YFCElement itemEle = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM);
     String itemID = itemEle.getAttribute(XMLLiterals.ITEM_ID);
     String shipNode = itemEle.getAttribute(XMLLiterals.SHIPNODE);
@@ -84,7 +84,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
    * 
    * @param inXml
    */
-  private void manageInvFeedBasedOnMovement(YFCDocument inXml){
+  private void manageInvFeedBasedOnMovement(YFCDocument inXml) {
     String movementType = XPathUtil.getXpathAttribute(inXml, "/Items/Item/@AdjustmentType");
     if(inXml.getDocumentElement().hasChildNodes()) {
       if(XMLLiterals.ABSOLUTE.equalsIgnoreCase(movementType)) {
@@ -110,7 +110,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
           "/INDGInvSyncCtrlList/INDGInvSyncCtrl/@"+dateType+"");
       String generationDateItem = itemEle.getAttribute(dateType);
       if(!XmlUtils.isVoid(generationDateItem) && !XmlUtils.isVoid(generationDateFullSync)) {
-        return IndgManageItemFeed.validateTimeDifference(generationDateItem,generationDateFullSync);
+        return IndgManageItemFeed.validateTimeDifferenceWithMS(generationDateItem,generationDateFullSync);
       }
     }
     return true;
@@ -122,7 +122,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
    * 
    * @param itemEle
    */
-  private void insertIntoAdjusmentLogTable(YFCElement itemEle){
+  private void insertIntoAdjusmentLogTable(YFCElement itemEle) {
     YFCDocument inXml = YFCDocument.createDocument(XMLLiterals.INDG_INV_ADJUSTMENT_LOG);
     YFCElement inEle = inXml.getDocumentElement();
     inEle.setAttribute(XMLLiterals.ITEM_ID, itemEle.getAttribute(XMLLiterals.ITEM_ID));
@@ -136,6 +136,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
   
   /**
    * 
+   * This method manages Cycle Count SAP FEED
    * 
    * @param inXml
    */
@@ -161,11 +162,11 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
   }
   
   /**
-   * 
+   * Insert or Update Sync control table for time stamp
    * 
    * @param inEle
    */
-  private void insertOrUpdateSyncCtrlTS(YFCElement itemEle){
+  private void insertOrUpdateSyncCtrlTS(YFCElement itemEle) {
     YFCDocument syncCtrlListOIn = getInputDocForFullSyncCtrl(itemEle);
     YFCElement syncCtrlEle = syncCtrlListOIn.getDocumentElement();
     syncCtrlEle.setAttribute(XMLLiterals.TRANSACTION_DATE, 
@@ -201,7 +202,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
    * combination 
    * 
    */
-  private YFCDocument getAdjLogInventoryList(YFCElement itemEle){
+  private YFCDocument getAdjLogInventoryList(YFCElement itemEle) {
     YFCDocument invAdjLogDoc = YFCDocument.createDocument(XMLLiterals.INDG_INV_ADJUSTMENT_LOG);
     YFCElement invAdjLogEle = invAdjLogDoc.getDocumentElement();
     invAdjLogEle.setAttribute(XMLLiterals.ITEM_ID, itemEle.getAttribute(XMLLiterals.ITEM_ID));
@@ -224,7 +225,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi{
       String logTransactionDate = invAdjLog.getAttribute(XMLLiterals.TRANSACTION_DATE);
       String itemTransactionDate = inEle.getAttribute(XMLLiterals.TRANSACTION_DATE);
       double logQty = invAdjLog.getDoubleAttribute(XMLLiterals.QUANTITY);
-      if(IndgManageItemFeed.validateTimeDifference(logTransactionDate,itemTransactionDate)) {
+      if(IndgManageItemFeed.validateTimeDifferenceWithMS(logTransactionDate,itemTransactionDate)) {
         totalAdjQty = totalAdjQty + logQty;
       }
     }

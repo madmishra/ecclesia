@@ -34,6 +34,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   private static final String INDG = "INDG";
   private static final String FLAG_NO = "N";
   private static final String FLAG_YES = "Y";
+  private static final String SCRIPT_PATH = "SCRIPT_PATH";
   
   /**
    * 
@@ -45,7 +46,8 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   public YFCDocument invoke(YFCDocument inXml) {
     try{
     truncateInventoryLogTable();
-    Runtime.getRuntime().exec("./stopDeltaServer.sh");
+    String shellScript = getProperty(SCRIPT_PATH);
+    Runtime.getRuntime().exec(shellScript);
     } catch (Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SQL_EXP, exp);
     }

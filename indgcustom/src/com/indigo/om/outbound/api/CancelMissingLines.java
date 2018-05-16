@@ -23,6 +23,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
+		System.out.println("INSIDE PROGRAM");
 		YFCDocument getOrderLineListDoc = getOrderLineListFunc(inXml);
 		System.out.println(getOrderLineListDoc + "Final Document");
 		getPrimeLineNoFromBothDoc(inXml, getOrderLineListDoc);
@@ -43,6 +44,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 	    orderEle.setAttribute(XMLLiterals.ORDER_NO, orderNo);
 	    orderEle.setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
 	    orderEle.setAttribute(XMLLiterals.DOCUMENT_TYPE, documentType);
+	    System.out.println("<<<<<<<<<<<<<<<<<<getOrderLineListInDoc>>>>>>>>>>>>>>>>>>>>>>"+getOrderDoc);
 	    return getOrderDoc;
 	  }
 	
@@ -66,6 +68,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 	    YFCElement orderStatusEle = getOrderListTemp.getDocumentElement().createChild(XMLLiterals.ORDER_STATUSES);
 	    YFCElement statusEle = orderStatusEle.createChild(XMLLiterals.ORDER_STATUS);
 	    statusEle.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
+	    System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<getOrderLineListTemplateDoc>>>>>>>>>>>>>>>>>>>"+getOrderListTemp);
 	    
 	    return getOrderListTemp;
 	  }
@@ -77,12 +80,15 @@ public class CancelMissingLines extends AbstractCustomApi{
 	public void getPrimeLineNoFromBothDoc(YFCDocument inXml, YFCDocument getOrderLineListDoc) {
 		YFCElement orderLineListEle = getOrderLineListDoc.getDocumentElement();
 		YFCIterable<YFCElement> apiPrimeLineNo = orderLineListEle.getChildren();
+		System.out.println("<<<<<<<<<<<<<<<<orderLineListEle>>>>>>>>>>>>"+orderLineListEle);
 		for(YFCElement primeLineEle1:apiPrimeLineNo) {
 			String primeLineNo= primeLineEle1.getAttribute(XMLLiterals.PRIME_LINE_NO);
+			System.out.println("primeLineNo IS:"+primeLineNo);
 			lineList1.add(primeLineNo);
 		}
 		YFCElement sapLineListEle = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
+		System.out.println("<<<<<<<<<<<<<<<<<sapLineListEle>>>>>>"+sapLineListEle);
 		YFCIterable<YFCElement> inputLineListEle = sapLineListEle.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement primeLineEle2:inputLineListEle) {
 			String primeLineNo= primeLineEle2.getAttribute(XMLLiterals.PRIME_LINE_NO);

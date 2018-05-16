@@ -89,9 +89,11 @@ public class CancelMissingLines extends AbstractCustomApi{
 		YFCElement sapLineListEle = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
 		System.out.println("<<<<<<<<<<<<<<<<<sapLineListEle>>>>>>"+sapLineListEle);
-		YFCIterable<YFCElement> inputLineListEle = sapLineListEle.getChildren(XMLLiterals.ORDER_LINE);
+		YFCIterable<YFCElement> inputLineListEle = sapLineListEle.getChildren();
+		System.out.println("<<<<<<<<<<<<<inputLineListEle>>>>>>>>>>"+inputLineListEle);
 		for(YFCElement primeLineEle2:inputLineListEle) {
 			String primeLineNo= primeLineEle2.getAttribute(XMLLiterals.PRIME_LINE_NO);
+			System.out.println("<<<<<<<<<<<<<<primeLineNo 222222222>>>>>>>>>>>>>>>"+primeLineNo);
 			lineList2.add(primeLineNo);
 		}
 		removeCommonPrimeLineNo(lineList1, lineList2, getOrderLineListDoc, inXml);

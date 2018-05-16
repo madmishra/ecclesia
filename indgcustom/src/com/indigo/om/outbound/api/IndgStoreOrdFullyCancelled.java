@@ -100,8 +100,7 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 	  * 
 	  * @param inXml
 	  */
-
- private void invokeService(YFCDocument inXml) {
+private void invokeService(YFCDocument inXml) {
 	 invokeYantraService(INDG_SEND_CANCELLED_LINES,inXml);
  }
 	 

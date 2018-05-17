@@ -134,9 +134,6 @@ public class CancelMissingLines extends AbstractCustomApi{
 						getChildElement(XMLLiterals.ORDER_STATUS).getAttribute(XMLLiterals.STATUS);
 				System.out.println("<<<<<<StATUS>>>>"+status);
 				if(!PRIMELINE_STATUS.equals(status)) {
-					String orderHeaderKey = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-							getAttribute(XMLLiterals.ORDER_HEADER_KEY);
-					System.out.println("<<<<<<<<<<<<<<<<<<orderHeaderKey>>>>>>>>>>>>"+orderHeaderKey);
 					String orderNumber = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 							getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_NO);
 					System.out.println("<<<<<<<<<<<<<<<<<orderNumber>>>>>>>>>>>>>>>>>>>"+orderNumber);
@@ -151,7 +148,6 @@ public class CancelMissingLines extends AbstractCustomApi{
 					System.out.println("<<<<<<<<<<<<<subLineNo>>>>>>>>>>>>>"+subLineNo);
 					
 					YFCDocument inputDocForChangeOrderAPI = YFCDocument.createDocument(XMLLiterals.ORDER);
-					inputDocForChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_HEADER_KEY, orderHeaderKey);
 					inputDocForChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_NO, orderNumber);
 					inputDocForChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCodeVal);
 					inputDocForChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, documentTypeVal);
@@ -163,7 +159,8 @@ public class CancelMissingLines extends AbstractCustomApi{
 					System.out.println(inputDocForChangeOrderAPI + "<<<<<<ForChangeOrderDoc>>>>");
 					YFCDocument changeOrderOutputDoc = invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, inputDocForChangeOrderAPI, 
 							changeOrderTemplateDoc());	
-					System.out.println(changeOrderOutputDoc + "both prime lines");
+					System.out.println("hu8chhhhiiiiiiiii");
+					System.out.println(changeOrderOutputDocssss + "both prime lines");
 	    			sendCancelledPrimeLineNoDoc(changeOrderOutputDoc, inXml, inputDocForChangeOrderAPI);
 				}
 			}
@@ -191,6 +188,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 	    changeOrderInputDoc.getDocumentElement().setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 	    changeOrderInputDoc.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
 	    changeOrderInputDoc.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
+	    changeOrderInputDoc.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
 	    YFCElement orderLinesEle = changeOrderInputDoc.getDocumentElement().createChild(XMLLiterals.ORDER_LINES);
 	    YFCElement orderLineEle = orderLinesEle.createChild(XMLLiterals.ORDER_LINE);
 	    orderLineEle.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);

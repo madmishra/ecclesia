@@ -160,7 +160,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 					YFCDocument changeOrderOutputDoc = invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, inputDocForChangeOrderAPI, 
 							changeOrderTemplateDoc());	
 					System.out.println("hu8chhhhiiiiiiiii");
-					System.out.println(changeOrderOutputDocssss + "both prime lines");
+					System.out.println(changeOrderOutputDoc + "both prime lines");
 	    			sendCancelledPrimeLineNoDoc(changeOrderOutputDoc, inXml, inputDocForChangeOrderAPI);
 				}
 			}

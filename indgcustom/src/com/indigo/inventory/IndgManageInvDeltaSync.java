@@ -120,8 +120,11 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
     inEle.setAttribute(XMLLiterals.ITEM_ID, itemEle.getAttribute(XMLLiterals.ITEM_ID));
     inEle.setAttribute(XMLLiterals.SHIPNODE, itemEle.getAttribute(XMLLiterals.SHIPNODE));
     inEle.setAttribute(XMLLiterals.QUANTITY, itemEle.getAttribute(XMLLiterals.QUANTITY));
-    inEle.setAttribute(XMLLiterals.GENERATION_DATE, itemEle.getAttribute(XMLLiterals.GENERATION_DATE));
-    inEle.setAttribute(XMLLiterals.TRANSACTION_DATE, itemEle.getAttribute(XMLLiterals.TRANSACTION_DATE));
+    inEle.setAttribute(XMLLiterals.GENERATION_DATE, 
+        itemEle.getAttribute(XMLLiterals.GENERATION_DATE
+            ,itemEle.getAttribute(XMLLiterals.TRANSACTION_DATE)));
+    inEle.setAttribute(XMLLiterals.TRANSACTION_DATE, 
+        itemEle.getAttribute(XMLLiterals.TRANSACTION_DATE));
     invokeYantraService(XMLLiterals.INDG_INV_ADJ_LOG_CREATE, inXml);
   }
   
@@ -271,6 +274,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
         + calculateAbsoluteQuantity(itemEle));
     itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ABSOLUTE);
     itemEle.setAttribute(XMLLiterals.REMOVE_INV_NODE_CTRL, FLAG_YES);
+    itemEle.setAttribute(XMLLiterals.SUPPLY_TYPE, ONHAND);
     adjEle.importNode(itemEle);
     invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, adjDoc);
   }

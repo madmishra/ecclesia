@@ -27,7 +27,6 @@ import com.yantra.yfs.japi.YFSException;
 public class IndgManageInventoryMismatch extends AbstractCustomApi {
 
   private static final String FULL_SYNC_QUEUE_FLOW = "IndgFullSyncQ";
-  private static final String MANAGE_SYNC_STATUS_FLOW = "IndgManageSyncStatus";
   private static final String TRUNCATE_LOG_QUERY = "DELETE FROM INDG_INV_ADJUSTMENT_LOG";
   private static final int INITAL_ITRATOR_COUNT = 1;
   private static final String MAX_ITEM_ELEMENT_COUNT = "MAX_ITEM_ELEMENT_COUNT";
@@ -37,7 +36,6 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   private static final String FLAG_YES = "Y";
   private static final String SCRIPT_PATH = "SCRIPT_PATH";
   private static final String SOF = "SOF";
-  private static final String EOF = "EOF";
   
   /**
    * 
@@ -48,11 +46,8 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
     String rootEleName = inXml.getDocumentElement().getNodeName();
-    if(EOF.equals(rootEleName)) {
-      invokeYantraService(MANAGE_SYNC_STATUS_FLOW, inXml);
-      return inXml;
-    } else if(SOF.equals(rootEleName)) {
-      manageDeltaServer(rootEleName);
+    if(SOF.equals(rootEleName)) {
+      manageDeltaServer();
       return inXml;
     }
     YFCDocument mismatchDoc = getInventoryMisMatch(inXml);
@@ -204,7 +199,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * SOF/EOF file
    * @param inXml
    */
-  private void manageDeltaServer(String rootEleName) {
+  private void manageDeltaServer() {
       try{
         String shellScript = getProperty(SCRIPT_PATH);
         Runtime.getRuntime().exec(shellScript);

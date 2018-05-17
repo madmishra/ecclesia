@@ -41,23 +41,15 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
    * 
    */
   private void manageAdjustmentInvFeed(YFCDocument inXml) {
-    YFCElement itemEle = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM);
-    String itemID = itemEle.getAttribute(XMLLiterals.ITEM_ID);
-    String shipNode = itemEle.getAttribute(XMLLiterals.SHIPNODE);
-    if(canApplyInvAdjustment(getSyncCtrlList(itemID,shipNode),itemEle,XMLLiterals.TRANSACTION_DATE)) {
-      itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE,
-          XMLLiterals.ADJUSTMENT);
-      if(XmlUtils.isVoid(itemEle.getAttribute(XMLLiterals.REASON_TEXT)) &&
-          XmlUtils.isVoid(itemEle.getAttribute(XMLLiterals.REASON_CODE))) {
-        itemEle.setAttribute(XMLLiterals.REASON_CODE,POS_SALES);
-        itemEle.setAttribute(XMLLiterals.REASON_TEXT,POS_SALES);
-        itemEle.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
-        itemEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, INDIGO_CA);
-        itemEle.setAttribute(XMLLiterals.SUPPLY_TYPE, ONHAND);
+    YFCElement itemsEle = inXml.getDocumentElement();
+    YFCIterable<YFCElement> yfsItrator = itemsEle.getChildren(XMLLiterals.ITEM);
+    for(YFCElement itemEle : yfsItrator) {
+      String itemID = itemEle.getAttribute(XMLLiterals.ITEM_ID);
+      String shipNode = itemEle.getAttribute(XMLLiterals.SHIPNODE);
+      if(canApplyInvAdjustment(getSyncCtrlList(itemID,shipNode),itemEle,XMLLiterals.TRANSACTION_DATE)) {
+        applyAdjustInvForDelta(itemEle);
       }
-       invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, inXml);
-       insertIntoAdjusmentLogTable(itemEle);
-      }
+    }
   }
   
   /**
@@ -149,12 +141,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
       YFCDocument syncCtrlListDoc = getSyncCtrlList(itemID,shipNode);
       if(canApplyInvAdjustment(syncCtrlListDoc,itemEle,XMLLiterals.TRANSACTION_DATE) && 
           canApplyInvAdjustment(syncCtrlListDoc,itemEle,XMLLiterals.GENERATION_DATE) ) {
-        insertOrUpdateSyncCtrlTS(itemEle);
-        itemEle.setAttribute(XMLLiterals.QUANTITY, itemEle.getDoubleAttribute(XMLLiterals.QUANTITY)
-            + calculateAbsoluteQuantity(itemEle));
-        itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ABSOLUTE);
-        itemEle.setAttribute(XMLLiterals.REMOVE_INV_NODE_CTRL, FLAG_YES);
-        invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, inXml);
+        applyAdjustInvForCycleCount(itemEle);
       } else {
         removeNodeControl(shipNode,itemID);
       }
@@ -244,5 +231,47 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
     inXml.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, shipNode);
     inXml.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemID);
     inXml.getDocumentElement().setAttribute(XMLLiterals.INVENTORY_PICTURE_CORRECT, FLAG_YES);
+  }
+  
+  /**
+   * 
+   * This method adjust inventory for Delta Feeds
+   * 
+   * @param itemEle
+   */
+  private void applyAdjustInvForDelta(YFCElement itemEle) {
+    YFCDocument adjDoc= YFCDocument.createDocument(XMLLiterals.ITEMS);
+    YFCElement adjEle = adjDoc.getDocumentElement();
+    
+    if(XmlUtils.isVoid(itemEle.getAttribute(XMLLiterals.REASON_TEXT)) &&
+        XmlUtils.isVoid(itemEle.getAttribute(XMLLiterals.REASON_CODE))) {
+      itemEle.setAttribute(XMLLiterals.REASON_CODE,POS_SALES);
+      itemEle.setAttribute(XMLLiterals.REASON_TEXT,POS_SALES);
+    }
+    itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE,
+        XMLLiterals.ADJUSTMENT);
+    itemEle.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
+    itemEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, INDIGO_CA);
+    itemEle.setAttribute(XMLLiterals.SUPPLY_TYPE, ONHAND);
+    adjEle.importNode(itemEle);
+    invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, adjDoc);
+    insertIntoAdjusmentLogTable(itemEle);
+  }
+  
+  /**
+   * This method adjust inventory for Cycle count delta Feeds
+   * 
+   * @param itemEle
+   */
+  private void applyAdjustInvForCycleCount(YFCElement itemEle) {
+    YFCDocument adjDoc= YFCDocument.createDocument(XMLLiterals.ITEMS);
+    YFCElement adjEle = adjDoc.getDocumentElement();
+    insertOrUpdateSyncCtrlTS(itemEle);
+    itemEle.setAttribute(XMLLiterals.QUANTITY, itemEle.getDoubleAttribute(XMLLiterals.QUANTITY)
+        + calculateAbsoluteQuantity(itemEle));
+    itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ABSOLUTE);
+    itemEle.setAttribute(XMLLiterals.REMOVE_INV_NODE_CTRL, FLAG_YES);
+    adjEle.importNode(itemEle);
+    invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, adjDoc);
   }
 }

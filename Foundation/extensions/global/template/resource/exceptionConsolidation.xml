@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed Materials - Property of IBM
+     IBM Sterling Selling and Fulfillment Suite
+     (C) Copyright IBM Corp. 2001, 2013 All Rights Reserved.
+     US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<Inbox ActiveFlag="" ApiName="" AssignedToUserId="" AssignedToUserKey=""
+    AutoResolvedFlag="" ClosedOn="" Description="" DetailDescription=""
+    EnterpriseKey="" ErrorReason="" ErrorType=""
+    ExceptionEscalatedFlag="" ExceptionType="" FlowName=""
+    FollowupDate="" GeneratedOn="" InboxType="" ItemId=""
+    LastExceedAlert="" LastUnassignAlert="" LastUnresolveAlert=""
+    ListDescription="" LocationId="" LockedByUserKey="" LockedFlag=""
+    LockedOn="" MoveRequestKey="" OrderHeaderKey="" OrderLineKey=""
+    OrderNo="" OwnerKey="" OwnerType="" ParentInboxKey="" QueueId=""
+    QueueKey="" ResolutionDate="" ResolveBy="" ShipmentKey=""
+    ShipmentNo="" ShipnodeKey="" Status="" SubFlowName="" SupplierKey="" ViewId="">
+    <Extn ExtnLegacyOMSChildOrderNo="" />
+</Inbox>

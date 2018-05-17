@@ -126,6 +126,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 		for(String primeLineNoValue:list) {
 			YFCElement getOrderLineListEle = XPathUtil.getXPathElement(getOrderLineListDoc, 
 					"/OrderLineList/OrderLine[@PrimeLineNo = \""+primeLineNoValue+"\"]");
+			System.out.println(getOrderLineListEle + "Element in the hdfg");
 			if(!XmlUtils.isVoid(getOrderLineListEle)) {
 				String status = getOrderLineListEle.getChildElement(XMLLiterals.ORDER_LINE).
 						getChildElement(XMLLiterals.ORDER_STATUSES).getChildElement(XMLLiterals.ORDER_STATUS).

@@ -162,7 +162,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
         itemEle.getAttribute(XMLLiterals.GENERATION_DATE));
     YFCDocument syncCtrlListOp = getSyncCtrlList(itemEle.getAttribute(XMLLiterals.ITEM_ID)
         ,XMLLiterals.SHIPNODE);
-    if(syncCtrlListOp.hasChildNodes()) {
+    if(syncCtrlListOp.getDocumentElement().hasChildNodes()) {
       invokeYantraService(XMLLiterals.UPDATE_FULL_SYNC_CTRL, syncCtrlListOIn);
     } else {
       invokeYantraService(XMLLiterals.CREATE_FULL_SYNC_CTRL, syncCtrlListOIn);

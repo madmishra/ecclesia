@@ -1,7 +1,9 @@
 package com.indigo.inventory;
 
+import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
+import com.bridge.sterling.utils.ExceptionUtil;
 import com.bridge.sterling.utils.XPathUtil;
 import com.indigo.masterupload.itemfeedupload.IndgManageItemFeed;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
@@ -24,6 +26,8 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
   private static final String DEFAULT_UNIT_OF_MEASURE = "EACH";
   private static final String INDIGO_CA = "Indigo_CA";
   private static final String ONHAND = "ONHAND";
+  private static final String INDG_FULL_SYNC_STATUS_LIST_FLOW = "IndgGetSyncStatusList";
+  private static final String DELTA_SLEEP_TIME = "DeltaSleepTime";
   
   /**
    * This is the invoke point for the service
@@ -31,6 +35,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
+    sleepTillEOF();
     manageInvFeedBasedOnMovement(inXml);
     return inXml;
   }
@@ -278,4 +283,33 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
     adjEle.importNode(itemEle);
     invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, adjDoc);
   }
+  
+  /**
+   * 
+   * This is an recursive method to check for
+   * EOF inventory Full Sync
+   * 
+   */
+  private void sleepTillEOF() {
+    int deltaSleepTime = Integer.parseInt(getProperty(DELTA_SLEEP_TIME));
+    try {
+      Thread.sleep(deltaSleepTime);
+      YFCDocument fullSyncStatusList = isFullSyncCompleted();
+     if(fullSyncStatusList.getDocumentElement().hasChildNodes()){
+        sleepTillEOF();
+      }
+    } catch (Exception exp) {
+      throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SYNC_EXP, exp);
+    }
+  }
+    /**
+     * This method gets the List of Full Sync Status Table records
+     * 
+     * @return
+     */
+    private YFCDocument isFullSyncCompleted() {
+      YFCDocument inXml = YFCDocument.createDocument(XMLLiterals.INDG_FULL_SYNC_STATUS);
+      return invokeYantraService(INDG_FULL_SYNC_STATUS_LIST_FLOW, inXml);
+    }
+  
 }

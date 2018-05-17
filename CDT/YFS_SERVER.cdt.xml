@@ -316,6 +316,18 @@
     Modifyuserid="admin" MonitorStartTime="1"
     ServerKey="2018050209290910592" ServerName="OrderMsgServer"
     ServerType="00" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-05-07T10:11:52-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-07T10:11:52-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="2018050710115211689" ServerName="OrderAgentServer"
+    ServerType="01" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-05-15T06:44:17-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-15T06:44:17-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="2018051506441712417" ServerName="OrderMonitorServer"
+    ServerType="01" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
 <Server Createprogid="XMLMigrator" Createts="2018-03-28T12:30:08-04:00"
     Createuserid="SYSTEM" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:08-04:00" Modifyuserid="SYSTEM"

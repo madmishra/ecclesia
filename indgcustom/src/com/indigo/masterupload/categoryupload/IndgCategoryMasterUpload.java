@@ -85,7 +85,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
           createCategory(categoryId,categorydomain,path,organizationCode);
         }
       }
-      if(iCategoryPathDepth == 3){
+      if(iCategoryPathDepth == 3 && !isDepartmentExist(categoryId)){
         invokeYantraApi(XMLLiterals.MANAGE_ORGANIZATION_HIERARCHY,getInputDocForDepartmentCreation(categoryId));
       }
       iCategoryPathDepth++;
@@ -275,6 +275,27 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
       itemListDoc.createElement(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, itemID);
     }
     return itemListDoc;
+  }
+  
+  /**
+   * 
+   * This method calls getOrganization List with 
+   * categoryID as search criteria
+   * 
+   * @param categoryId
+   * @return
+   */
+  private boolean isDepartmentExist(String categoryId) {
+    YFCDocument orgDoc = YFCDocument.createDocument(XMLLiterals.ORGANIZATION);
+    orgDoc.getDocumentElement().createChild(XMLLiterals.DEPARTMENT_LIST)
+    .createChild(XMLLiterals.DEPARTMENT).setAttribute(XMLLiterals.DEPARTMENT_NAME, categoryId);
+    YFCDocument orgTempDoc = YFCDocument.createDocument(XMLLiterals.ORGANIZATION_LIST);
+    orgTempDoc.getDocumentElement().createChild(XMLLiterals.ORGANIZATION).setAttribute(XMLLiterals.ORGANIZATION_CODE, EMPTY_STRING);
+    YFCDocument orgListDoc = invokeYantraApi(XMLLiterals.GET_ORGANIZATION_LIST, orgDoc, orgDoc);
+    if(orgListDoc.getDocumentElement().hasChildNodes()) {
+      return true;
+    }
+    return false;
   }
   
 }

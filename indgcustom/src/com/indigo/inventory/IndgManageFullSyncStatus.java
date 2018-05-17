@@ -19,6 +19,7 @@ public class IndgManageFullSyncStatus extends AbstractCustomApi {
   private static final String INDG_FULL_SYNC_STATUS_LIST_FLOW= "IndgGetSyncStatusList";
   private static final String INITIAL_SLEEP_TIME = "InitialSleepTime";
   private static final String DELTA_SLEEP_TIME = "DeltaSleepTime";
+  private static final String SCRIPT_PATH = "SCRIPT_PATH";
 
 /**
  * This method is the invoke point of the class. This method
@@ -61,15 +62,16 @@ public class IndgManageFullSyncStatus extends AbstractCustomApi {
    */
   private void sleepTillEOF() {
     int deltaSleepTime = Integer.parseInt(getProperty(DELTA_SLEEP_TIME));
+    String myShellScript = getProperty(SCRIPT_PATH);
     try {
       Thread.sleep(deltaSleepTime);
       YFCDocument fullSyncStatusList = isFullSyncCompleted();
      if(fullSyncStatusList.getDocumentElement().hasChildNodes()){
         sleepTillEOF();
       }
+     Runtime.getRuntime().exec(myShellScript);
     } catch (Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SYNC_EXP, exp);
     }
   }
-
 }

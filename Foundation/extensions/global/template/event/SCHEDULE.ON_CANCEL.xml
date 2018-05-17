@@ -24,10 +24,10 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
     ScacAndServiceKey="" SearchCriteria1="" SearchCriteria2=""
     SellerOrganizationCode="" ShipCompleteFlag="" ShipToID="" Status=""
     TaxExemptFlag="" TaxExemptionCertificate="" TaxJurisdiction=""
-    TaxPayerId="" TermsCode="" TotalAdjustmentAmount="" isHistory="" Modifyts="">
-	<OrderLines>
-		<!--ChangeInOrderedQty is returned with sign. In case of this event it should always come with negative sign. -->
-		<OrderLine Action="" AllocationDate=""
+    TaxPayerId="" TermsCode="" TotalAdjustmentAmount="" isHistory="" IsFullOrderCancelled="" >
+    <OrderLines>
+        <!--ChangeInOrderedQty is returned with sign. In case of this event it should always come with negative sign. -->
+        <OrderLine Action="" AllocationDate=""
             BackorderNotificationQty="" CarrierAccountNo=""
             CarrierServiceCode="" ChangeInOrderedQty=""
             CustomerLinePONo="" CustomerPONo="" DeliveryCode=""
@@ -45,9 +45,8 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
             ReservationPool="" SCAC="" ScacAndService=""
             ScacAndServiceKey="" ShipNode="" ShipToID=""
             ShipTogetherNo="" SplitQty="" Status="" StatusQuantity=""
-            SubLineNo="" isHistory="" Modifyts="">
-			<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" />
-			<Item CostCurrency="" CountryOfOrigin="" CustomerItem=""
+            SubLineNo="" isHistory="">
+            <Item CostCurrency="" CountryOfOrigin="" CustomerItem=""
                 CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""
                 ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight=""
                 ItemWeightUOM="" ManufacturerItem=""
@@ -56,18 +55,34 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
                 ProductLine="" ScheduleBCode="" SupplierItem=""
                 SupplierItemDesc="" TaxProductCode="" UPCCode=""
                 UnitCost="" UnitOfMeasure=""/>
-			<LineOverallTotals Charges="" Discount="" ExtendedPrice=""
+            <LineOverallTotals Charges="" Discount="" ExtendedPrice=""
                 LineTotal="" Tax="" UnitPrice=""/>
-			<LinePriceInfo ChangeInLineTotal="" LineTotal=""/>
-			<StatusBreakupForCanceledQty>
-				<CanceledFrom OrderLineScheduleKey="" OrderReleaseKey=""
+            <LinePriceInfo ChangeInLineTotal="" LineTotal=""/>
+            <StatusBreakupForCanceledQty>
+                <CanceledFrom OrderLineScheduleKey="" OrderReleaseKey=""
                     OrderReleaseStatusKey="" Quantity="" Status=""
                     StatusDate="" StatusDescription="">
-					<Details ExpectedDeliveryDate=""
+                    <Details ExpectedDeliveryDate=""
                         ExpectedShipmentDate="" ReceivingNode=""
                         ShipByDate="" ShipNode="" TagNumber=""/>
-				</CanceledFrom>
-			</StatusBreakupForCanceledQty>
-		</OrderLine>
-	</OrderLines>
+                </CanceledFrom>
+            </StatusBreakupForCanceledQty>
+        </OrderLine>
+    </OrderLines>
+    <PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+    <PersonInfoBillTo AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+    <PriceInfo ChangeInTotalAmount="" Currency="" EnterpriseCurrency=""
+        ReportingConversionDate="" ReportingConversionRate="" TotalAmount=""/>
 </Order>

@@ -240,4 +240,16 @@
     OrganizationCode=" " PipelineKey="201804120904073062"
     Priority="12.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
     RealertInterval="24.00" RealertRequired="N" StatusToMonitor=" "/>
+<MonitorRule ActivateDate="1900-01-01" Age="2.00" AgeType="00"
+    ComparisonDateSubType="" ComparisonDateType="" ComparisonStatus=""
+    ConditionKey="" Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-05-15T06:49:18-04:00" Createuserid="admin"
+    DateSubTypeToMonitor="" DateTypeToMonitor="" ExceptionType=""
+    IsActive="Y" Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-05-15T06:49:18-04:00" Modifyuserid="admin"
+    MonitorConsolidationKey="2018051506470212448"
+    MonitorRuleKey="2018051506491812454" MonitorType="HBS"
+    OrganizationCode="" PipelineKey="201804120904073062"
+    Priority="16.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=""
+    RealertInterval="24.00" RealertRequired="N" StatusToMonitor="1100"/>
 </YFS_MONITOR_RULEList>

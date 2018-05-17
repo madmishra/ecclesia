@@ -109,6 +109,17 @@
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
     OrganizationCode="DEFAULT" Priority="1.00"
     QueueId="YCD_VERIFY_ADDRESS" QueueOwnerKey="DEFAULT" ResolutionForm="com.yantra.pca.ycd.rcp.tasks.alert.screens.YCDAlertDetails_VERIFY_ADDRESS"/>
+<ExceptionType ConfigForm="" ConsolidationRequired="N"
+    ConsolidationWindow="" Createprogid=".YEntityServlet"
+    Createts="2018-05-15T06:48:11-04:00" Createuserid="admin"
+    ExceptionType="INDG_ORDER_ALERT"
+    ExceptionTypeDescription="Order Status in created status over 2 hours"
+    ExceptionTypeKey="2018051506481112451" ExpirationDays="1"
+    FollowUpHours="1.00" HighPriorityThreshold="1.00" IsConfigurable="N"
+    ListForm="" Lockid="0" Modifyprogid=".YEntityServlet"
+    Modifyts="2018-05-15T06:48:11-04:00" Modifyuserid="admin"
+    OrganizationCode="DEFAULT" Priority="1.00" QueueId="DEFAULT"
+    QueueOwnerKey="DEFAULT" ResolutionForm=""/>
 <ExceptionType ConfigForm=" " ConsolidationRequired="N"
     ConsolidationWindow=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:15-04:00" Createuserid="SYSTEM"

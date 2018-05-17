@@ -171,15 +171,15 @@ public class CancelMissingLines extends AbstractCustomApi{
 	
 	private void sendCancelledPrimeLineNoDoc(YFCDocument changeOrderOutputDoc, YFCDocument inXml, 
 			YFCDocument inputDocForChangeOrderAPI) {
+		System.out.println("---------------INPUT^___________"+inXml);
 		String modifyTs = changeOrderOutputDoc.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS);
 		System.out.println("<<<<<<<<<<<<<<MODIFYTS>>>>>>>>>>"+modifyTs);
 		String childOrderNo = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.RELEASE_NO);
-		inputDocForChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER).
-		setAttribute(XMLLiterals.MODIFYTS, modifyTs);
+		inputDocForChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 		System.out.println("<<<<<<CHILDORDERNO>>>>>>>>>"+childOrderNo);
-		inputDocForChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER).
-		getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
+		inputDocForChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).
+		getChildElement(XMLLiterals.ORDER_LINE).
 		getChildElement(XMLLiterals.EXTN).setAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO, childOrderNo);
 		System.out.println("----------END OF LIFELINE"+inputDocForChangeOrderAPI);
 	

@@ -130,9 +130,8 @@ public class CancelMissingLines extends AbstractCustomApi{
 					"/OrderLineList/OrderLine[@PrimeLineNo = \""+primeLineNoValue+"\"]");
 			System.out.println(getOrderLineListEle + "Element in the hdfg");
 			if(!XmlUtils.isVoid(getOrderLineListEle)) {
-				String status = getOrderLineListEle.getChildElement(XMLLiterals.ORDER_LINE).
-						getChildElement(XMLLiterals.ORDER_STATUSES).getChildElement(XMLLiterals.ORDER_STATUS).
-						getAttribute(XMLLiterals.STATUS);
+				String status = getOrderLineListEle.getChildElement(XMLLiterals.ORDER_STATUSES).
+						getChildElement(XMLLiterals.ORDER_STATUS).getAttribute(XMLLiterals.STATUS);
 				System.out.println("<<<<<<StATUS>>>>"+status);
 				if(!PRIMELINE_STATUS.equals(status)) {
 					String orderHeaderKey = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).

@@ -13,7 +13,7 @@ import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
 public class CancelMissingLines extends AbstractCustomApi{
-	YFCDocument inputDocForChangeOrderAPIDOC=null;
+	YFCDocument inputDocForChangeOrderAPI=null;
 	
 	private static final String EMPTY_STRING = "";
 	
@@ -26,8 +26,9 @@ public class CancelMissingLines extends AbstractCustomApi{
 		YFCDocument getOrderLineListDoc = getOrderLineListFunc(inXml);
 		System.out.println(getOrderLineListDoc + "Final Document");
 		getPrimeLineNoFromBothDoc(inXml, getOrderLineListDoc);
-		System.out.println(inputDocForChangeOrderAPIDOC + "FINAL DOC");
-		return inputDocForChangeOrderAPIDOC;
+		System.out.println(inputDocForChangeOrderAPI + "FINAL DOC");
+		
+		return inputDocForChangeOrderAPI;
 	}
 	
 	public YFCDocument getOrderLineListInDoc(YFCDocument inXml) {
@@ -147,7 +148,7 @@ public class CancelMissingLines extends AbstractCustomApi{
 							getAttribute(XMLLiterals.SUB_LINE_NO);
 					System.out.println("<<<<<<<<<<<<<subLineNo>>>>>>>>>>>>>"+subLineNo);
 					
-					YFCDocument inputDocForChangeOrderAPI = YFCDocument.createDocument(XMLLiterals.ORDER);
+					inputDocForChangeOrderAPI = YFCDocument.createDocument(XMLLiterals.ORDER);
 					inputDocForChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_NO, orderNumber);
 					inputDocForChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCodeVal);
 					inputDocForChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, documentTypeVal);
@@ -176,9 +177,11 @@ public class CancelMissingLines extends AbstractCustomApi{
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.RELEASE_NO);
 		inputDocForChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER).
 		setAttribute(XMLLiterals.MODIFYTS, modifyTs);
+		System.out.println("<<<<<<CHILDORDERNO>>>>>>>>>"+childOrderNo);
 		inputDocForChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER).
 		getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
 		getChildElement(XMLLiterals.EXTN).setAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO, childOrderNo);
+		System.out.println("----------END OF LIFELINE"+inputDocForChangeOrderAPI);
 	
 	}
 	

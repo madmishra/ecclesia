@@ -119,10 +119,12 @@ public class CancelMissingLines extends AbstractCustomApi{
 			System.out.println(i+"LIST UNCOMMON values");
 		}
 		cancelMissingPrimeLineNo(list, getOrderLineListDoc, inXml);
+		System.out.println(getOrderLineListDoc + "doc1");
 	}
 	
 	private void cancelMissingPrimeLineNo(Collection<String> list, YFCDocument getOrderLineListDoc, YFCDocument inXml) {
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<LISt VALue>>>>>>>>>>"+list);
+		System.out.println(getOrderLineListDoc + "retorderlinelsitdoc");
 		for(String primeLineNoValue:list) {
 			YFCElement getOrderLineListEle = XPathUtil.getXPathElement(getOrderLineListDoc, 
 					"/OrderLineList/OrderLine[@PrimeLineNo = \""+primeLineNoValue+"\"]");

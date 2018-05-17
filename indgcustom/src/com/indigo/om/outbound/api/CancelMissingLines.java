@@ -57,14 +57,14 @@ public class CancelMissingLines extends AbstractCustomApi{
 	    orderLineEle.setAttribute(XMLLiterals.ORDER_HEADER_KEY, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.ORDERED_QTY, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, EMPTY_STRING);
-	    YFCElement extnEle = getOrderListTemp.getDocumentElement().createChild(XMLLiterals.EXTN);
+	    YFCElement extnEle = orderLineEle.createChild(XMLLiterals.EXTN);
 	    extnEle.setAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO, EMPTY_STRING);
 	    extnEle.setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, EMPTY_STRING);
-	    YFCElement orderEle = getOrderListTemp.getDocumentElement().createChild(XMLLiterals.ORDER);
+	    YFCElement orderEle = orderLineEle.createChild(XMLLiterals.ORDER);
 	    orderEle.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 	    orderEle.setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
 	    orderEle.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
-	    YFCElement orderStatusEle = getOrderListTemp.getDocumentElement().createChild(XMLLiterals.ORDER_STATUSES);
+	    YFCElement orderStatusEle = orderLineEle.createChild(XMLLiterals.ORDER_STATUSES);
 	    YFCElement statusEle = orderStatusEle.createChild(XMLLiterals.ORDER_STATUS);
 	    statusEle.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
 	    System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<getOrderLineListTemplateDoc>>>>>>>>>>>>>>>>>>>"+getOrderListTemp);

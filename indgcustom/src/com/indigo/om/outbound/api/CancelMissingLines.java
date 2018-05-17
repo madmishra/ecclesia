@@ -138,13 +138,13 @@ public class CancelMissingLines extends AbstractCustomApi{
 							getAttribute(XMLLiterals.ORDER_HEADER_KEY);
 					System.out.println("<<<<<<<<<<<<<<<<<<orderHeaderKey>>>>>>>>>>>>"+orderHeaderKey);
 					String orderNumber = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-							getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ENTERPRISE_CODE);
+							getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_NO);
 					System.out.println("<<<<<<<<<<<<<<<<<orderNumber>>>>>>>>>>>>>>>>>>>"+orderNumber);
 					String enterpriseCodeVal = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-							getChildElement(XMLLiterals.EXTN).getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
+							getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ENTERPRISE_CODE);
 					System.out.println("<<<<<<<<<<<<enterpriseCodeVal>>>>>>>>>>>>>>>>>>>>"+enterpriseCodeVal);
 					String documentTypeVal = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-							getChildElement(XMLLiterals.EXTN).getAttribute(XMLLiterals.DOCUMENT_TYPE);
+							getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.DOCUMENT_TYPE);
 					System.out.println("<<<<<<<<<<<<<<<<documentTypeVal>>>>>>>>"+documentTypeVal);
 					String subLineNo = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 							getAttribute(XMLLiterals.SUB_LINE_NO);

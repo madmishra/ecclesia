@@ -11,7 +11,6 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 	private static  String isFullOrderCancelled="Y";
 	private static final String NO="N"; 
 	private static final String CANCELLED="Cancelled";
-	private static final String INDG_SEND_CANCELLED_LINES="Indg_SendCancelledLines";
 	
 	/**
 	   * This is the invoke point of the Service
@@ -32,7 +31,6 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 		 }
 		 inXmlEle.setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
 		
-		 invokeService(inXml);
 		 return inXml;
 }
 	 /** This method forms input for getOrderLineList api
@@ -96,13 +94,6 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 	 }
 		 return isFullOrderCancelled;	 
 	 }
-	 /**This method invokes service Indg_SendCancelledLines
-	  * 
-	  * @param inXml
-	  */
-private void invokeService(YFCDocument inXml) {
-	 invokeYantraService(INDG_SEND_CANCELLED_LINES,inXml);
- }
 	 
 }
 

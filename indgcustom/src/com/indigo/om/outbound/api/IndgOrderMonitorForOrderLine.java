@@ -41,10 +41,10 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 	 public YFCDocument invoke(YFCDocument inXml)  {
 		 YFCElement inXmlEle=inXml.getDocumentElement();
 		 String orderNo=inXmlEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_NO);
-		 String sellerOrganizationCode=inXmlEle.getChildElement(XMLLiterals.SELLER_ORGANIZATION_CODE).getAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE);
-		 String documentType=inXmlEle.getChildElement(XMLLiterals.DOCUMENT_TYPE).getAttribute(XMLLiterals.DOCUMENT_TYPE);
+		 String enterpriseCode=inXmlEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE);
+		 String documentType=inXmlEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.DOCUMENT_TYPE);
 		 YFCDocument orderDetailDoc = invokeYantraApi(XMLLiterals.GET_ORDER_DETAILS, 
-				 getOrderDetailsinput(orderNo,sellerOrganizationCode,documentType), getOrderDetailsTemplate());
+				 getOrderDetailsinput(orderNo,enterpriseCode,documentType), getOrderDetailsTemplate());
 		 getOrderDetailsGroupedByShipNode(orderDetailDoc);
 		return inXml;
 	 }
@@ -62,8 +62,8 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 		 YFCDocument getOrderDetailsinput=YFCDocument.createDocument(XMLLiterals.ORDER);
 		 YFCElement orderEle=getOrderDetailsinput.getDocumentElement();
 		 orderEle.setAttribute(XMLLiterals.ORDER_NO,orderNo);
-		 orderEle.setAttribute(XMLLiterals.DOCUMENT_TYPE,enterpriseCode);
-		 orderEle.setAttribute(XMLLiterals.ENTERPRISE_CODE,documentType);
+		 orderEle.setAttribute(XMLLiterals.DOCUMENT_TYPE,documentType);
+		 orderEle.setAttribute(XMLLiterals.ENTERPRISE_CODE,enterpriseCode);
 		 LoggerUtil.verboseLog("=================getOrderDetailsinput========================", logger, getOrderDetailsinput);
 		 return getOrderDetailsinput;
 	 }
@@ -98,7 +98,7 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 	   */
 	  private void getOrderDetailsGroupedByShipNode(YFCDocument inputDocForOrderMonitor){
 	    YFCElement orderElement = inputDocForOrderMonitor.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
-	    YFCIterable<YFCElement> yfsItrator = orderElement.getChildren(XMLLiterals.ORDER_LINE);
+	    YFCIterable<YFCElement> yfsItrator = orderElement.getChildren();
 	    for(YFCElement orderLine: yfsItrator) {
 	      String shipNode = orderLine.getAttribute(XMLLiterals.SHIPNODE);
 	      LoggerUtil.verboseLog("=================ShipNode========================", logger, shipNode);

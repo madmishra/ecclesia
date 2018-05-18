@@ -165,14 +165,12 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 				}
 			}
 		}
-		sendCancelledPrimeLineNoDoc(inXml, inputDocForChangeOrderAPI);
+		sendCancelledPrimeLineNoDoc(inXml, inputDocForChangeOrderAPI,getOrderLineListDoc);
 	}
 	
-	private YFCDocument sendCancelledPrimeLineNoDoc(YFCDocument inXml, YFCDocument inputDocForChangeOrderAPI) {
-		YFCDocument getOrderLineListOpDoc = invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, getOrderLineListInDoc(inXml),
-				getOrderLineListTemplateDoc());
-				YFCElement orderLineEle=getOrderLineListOpDoc.getDocumentElement();
-		System.out.println(getOrderLineListOpDoc + "2nd time is a charm");
+	private YFCDocument sendCancelledPrimeLineNoDoc(YFCDocument inXml, YFCDocument inputDocForChangeOrderAPI,YFCDocument getOrderLineListDoc) {
+				YFCElement orderLineEle=getOrderLineListDoc.getDocumentElement();
+		System.out.println(getOrderLineListDoc + "2nd time is a charm");
 		String modifyTs = orderLineEle.getChildElement(XMLLiterals.ORDER_LINE).getChildElement(XMLLiterals.ORDER).
 				getAttribute(XMLLiterals.MODIFYTS);
 		System.out.println("<<<<<<<<<<<<<<MODIFYTS>>>>>>>>>>!!!!!!!!!!!!"+modifyTs);
@@ -186,10 +184,9 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	    		String primeLineNo2 = changeOrderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
 	    		
 	    		if(primeLineNo1.equals(primeLineNo2)) {
-	    			String currentQty = getOrderLineListOpDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE)
-	    					.getAttribute(XMLLiterals.ORDERED_QTY);
+	    			String currentQty = "0";
 	    			System.out.println("<<<<<<<<<<<<<<<<change order currentqty>>>>>>>"+currentQty);
-	    			String originalQty = getOrderLineListOpDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE)
+	    			String originalQty = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE)
 	    					.getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY);
 	    			System.out.println("<<<<<<<<<<<<<<<<<<<<<<changeorder originalQty>>>>>>"+originalQty);
 	    			inputDocForChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).

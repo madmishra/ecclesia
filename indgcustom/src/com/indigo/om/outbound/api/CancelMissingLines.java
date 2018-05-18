@@ -187,8 +187,10 @@ public class CancelMissingLines extends AbstractCustomApi{
 	    		if(primeLineNo1.equals(primeLineNo2)) {
 	    			String currentQty = getOrderLineListOpDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 	    					getAttribute(XMLLiterals.ORDERED_QTY);
+	    			System.out.println("<<<<<<<<<<<<<<<<change order currentqty>>>>>>>"+currentQty);
 	    			String originalQty = getOrderLineListOpDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 	    					getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY);
+	    			System.out.println("<<<<<<<<<<<<<<<<<<<<<<changeorder originalQty>>>>>>"+originalQty);
 	    			inputDocForChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).
 	    			getChildElement(XMLLiterals.ORDER_LINE).setAttribute(XMLLiterals.CURRENT_QTY, currentQty);
 	    			inputDocForChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).

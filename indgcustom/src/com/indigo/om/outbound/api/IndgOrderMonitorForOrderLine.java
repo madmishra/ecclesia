@@ -41,8 +41,11 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 	 public YFCDocument invoke(YFCDocument inXml)  {
 		 YFCElement inXmlEle=inXml.getDocumentElement();
 		 String orderNo=inXmlEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_NO);
+		 System.out.println(orderNo+"----------------------------orderNo-----------------------");
 		 String enterpriseCode=inXmlEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE);
+		 System.out.println("------------------enterpriseCode-------------"+enterpriseCode);
 		 String documentType=inXmlEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.DOCUMENT_TYPE);
+		 System.out.println("-------------documentType-----"+documentType);
 		 YFCDocument orderDetailDoc = invokeYantraApi(XMLLiterals.GET_ORDER_DETAILS, 
 				 getOrderDetailsinput(orderNo,enterpriseCode,documentType), getOrderDetailsTemplate());
 		 getOrderDetailsGroupedByShipNode(orderDetailDoc);
@@ -64,7 +67,8 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 		 orderEle.setAttribute(XMLLiterals.ORDER_NO,orderNo);
 		 orderEle.setAttribute(XMLLiterals.DOCUMENT_TYPE,documentType);
 		 orderEle.setAttribute(XMLLiterals.ENTERPRISE_CODE,enterpriseCode);
-		 LoggerUtil.verboseLog("=================getOrderDetailsinput========================", logger, getOrderDetailsinput);
+		 System.out.println("--------------getOrderDetailsinputDocument-------"+getOrderDetailsinput);
+		// LoggerUtil.verboseLog("=================getOrderDetailsinput========================", logger, getOrderDetailsinput);
 		 return getOrderDetailsinput;
 	 }
 	 
@@ -84,7 +88,8 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 		 orderLineEle.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
 		 YFCElement extnEle=orderLineEle.createChild(XMLLiterals.EXTN);
 		 extnEle.setAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO, EMPTY_STRING);
-		 LoggerUtil.verboseLog("=================getOrderDetailsTempDoc========================", logger, getOrderDetailsTempDoc);
+		 //LoggerUtil.verboseLog("=================getOrderDetailsTempDoc========================", logger, getOrderDetailsTempDoc);
+		System.out.println("-----getOrderDetailsTempDoc-----"+getOrderDetailsTempDoc);
 		 return getOrderDetailsTempDoc;
 		 
 	 }
@@ -101,11 +106,13 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 	    YFCIterable<YFCElement> yfsItrator = orderElement.getChildren();
 	    for(YFCElement orderLine: yfsItrator) {
 	      String shipNode = orderLine.getAttribute(XMLLiterals.SHIPNODE);
-	      LoggerUtil.verboseLog("=================ShipNode========================", logger, shipNode);
+		  System.out.println("-----shipNode---"+shipNode);
+	     // LoggerUtil.verboseLog("=================ShipNode========================", logger, shipNode);
 	      if(XmlUtils.isVoid(orderLineMap.get(shipNode))) {
 	    	  orderLineMap.put(shipNode,shipNode);
 	    	  if(shipNode.equals(STATUS)) {
 	    		  invokeYantraService(getProperty(ORDER_MONITOR), inputDocForOrderMonitor);
+				  System.out.println("---------------ALERT-------");
 	    	  }
 	      }
 	    }

@@ -41,10 +41,10 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 	 public YFCDocument invoke(YFCDocument inXml)  {
 		 YFCElement inXmlEle=inXml.getDocumentElement();
 		 String orderNo=inXmlEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_NO);
-		 String SellerOrganizationCode=inXmlEle.getChildElement(XMLLiterals.SELLER_ORGANIZATION_CODE).getAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE);
+		 String sellerOrganizationCode=inXmlEle.getChildElement(XMLLiterals.SELLER_ORGANIZATION_CODE).getAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE);
 		 String documentType=inXmlEle.getChildElement(XMLLiterals.DOCUMENT_TYPE).getAttribute(XMLLiterals.DOCUMENT_TYPE);
 		 YFCDocument orderDetailDoc = invokeYantraApi(XMLLiterals.GET_ORDER_DETAILS, 
-				 getOrderDetailsinput(orderNo,SellerOrganizationCode,documentType), getOrderDetailsTemplate());
+				 getOrderDetailsinput(orderNo,sellerOrganizationCode,documentType), getOrderDetailsTemplate());
 		 getOrderDetailsGroupedByShipNode(orderDetailDoc);
 		return inXml;
 	 }

@@ -23,11 +23,13 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
 		<OrderLines>
 			<OrderLine>
 				<Extn ExtnLegacyOMSChildOrderNo="" />
+				<OrderStatuses>
+					<OrderStatus Status="" StatusQty=""/>
+				</OrderStatuses>
 			</OrderLine>
 		</OrderLines>
 		<OrderStatuses>
-			<OrderStatus  
-					OrderHeaderKey="" OrderLineKey="" OrderLineScheduleKey=""
+			<OrderStatus OrderHeaderKey="" OrderLineKey="" OrderLineScheduleKey=""
 					OrderReleaseKey="" OrderReleaseStatusKey="" PipelineKey=""
 					Status="" StatusDate="" StatusDescription="" StatusQty=""
 					StatusReason="" TotalQuantity="" ShipNode="" ReceivingNode="">

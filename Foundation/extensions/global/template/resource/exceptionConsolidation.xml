@@ -4,16 +4,20 @@
      (C) Copyright IBM Corp. 2001, 2013 All Rights Reserved.
      US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
 -->
-<Inbox ActiveFlag="" ApiName="" AssignedToUserId="" AssignedToUserKey=""
-    AutoResolvedFlag="" ClosedOn="" Description="" DetailDescription=""
-    EnterpriseKey="" ErrorReason="" ErrorType=""
-    ExceptionEscalatedFlag="" ExceptionType="" FlowName=""
-    FollowupDate="" GeneratedOn="" InboxType="" ItemId=""
-    LastExceedAlert="" LastUnassignAlert="" LastUnresolveAlert=""
-    ListDescription="" LocationId="" LockedByUserKey="" LockedFlag=""
-    LockedOn="" MoveRequestKey="" OrderHeaderKey="" OrderLineKey=""
-    OrderNo="" OwnerKey="" OwnerType="" ParentInboxKey="" QueueId=""
-    QueueKey="" ResolutionDate="" ResolveBy="" ShipmentKey=""
+<Inbox Description="" EnterpriseKey="" ErrorReason="" ErrorType=""
+    ExceptionType="" FlowName="" InboxType="" ItemId=""
+    OrderHeaderKey="" OrderLineKey=""
+    OrderNo="" ResolveBy="" ShipmentKey=""
     ShipmentNo="" ShipnodeKey="" Status="" SubFlowName="" SupplierKey="" ViewId="">
-    <Extn ExtnLegacyOMSChildOrderNo="" />
+	<Order DocumentType="" DraftOrderFlag="" EnterpriseCode="" EntryType="" 
+			OrderDate="" OrderHeaderKey="" OrderNo="" OrderType="" SellerOrganizationCode="" >
+		<OrderLines>
+			<OrderLine>
+				<Extn ExtnLegacyOMSChildOrderNo="" />
+				<OrderStatuses>
+					<OrderStatus Status="" StatusQty=""/>
+				</OrderStatuses>
+			</OrderLine>
+		</OrderLines>
+    </Order>
 </Inbox>

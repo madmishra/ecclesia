@@ -44,12 +44,14 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
 		String inputDocString = inXml.toString();
-		
 	    YFCDocument docLegacy051Input = YFCDocument.getDocumentFor(inputDocString);
+	    
 	    getOrderLinesGroupByReasonCode(docLegacy051Input);
 	    docCancelOrderLines(docLegacy051Input, inXml);
-		getOrderLinesGroupByShipNode(inXml);
-		docSAP051GetAttributes(inXml);
+	    
+	    YFCDocument docSAP051Input = YFCDocument.getDocumentFor(inputDocString);
+		getOrderLinesGroupByShipNode(docSAP051Input);
+		docSAP051GetAttributes(docSAP051Input);
 		return inXml;
 	}
 	
@@ -194,8 +196,8 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 	 * @param inXml
 	 */
 	
-	public void getOrderLinesGroupByShipNode(YFCDocument inXml) {
-		YFCElement orderLinesEle = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY)
+	public void getOrderLinesGroupByShipNode(YFCDocument docSAP051Input) {
+		YFCElement orderLinesEle = docSAP051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY)
 	    		.getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
 	    YFCIterable<YFCElement> yfsItrator = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
 	    for(YFCElement orderLine: yfsItrator) {
@@ -222,9 +224,9 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 	 * @param inXml
 	 */
 	
-	private void docSAP051GetAttributes(YFCDocument inXml) {
+	private void docSAP051GetAttributes(YFCDocument docSAP051Input) {
 		for (Entry<String, List<YFCElement>> entry : orderLineMapGroupByShipNode.entrySet()) {
-			String shipNodeDoc = inXml.toString();
+			String shipNodeDoc = docSAP051Input.toString();
 		    YFCDocument groupByShipNodeDoc = YFCDocument.getDocumentFor(shipNodeDoc);
 			YFCElement orderLinesEle = groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 					getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);

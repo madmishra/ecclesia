@@ -55,7 +55,7 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 		YFCNodeList<YFCElement> ordlineList = inXml.getElementsByTagName(XMLLiterals.ORDER_LINE);
 		for (YFCElement curOrdLineElement : ordlineList) {
 			String shipNode =curOrdLineElement.getAttribute(XMLLiterals.SHIPNODE,ValueConstants.EMPTY_STRING);
-			YFCNodeList<YFCElement> ordStatusEleList = curOrdLineElement.getChildElement(XMLLiterals.ORDER_STATUSES,true).getChildElement(XMLLiterals.ORDER_STATUS,true).getElementsByTagName(XMLLiterals.ORDER_STATUS);
+			YFCNodeList<YFCElement> ordStatusEleList = curOrdLineElement.getChildElement(XMLLiterals.ORDER_STATUSES,true).getElementsByTagName(XMLLiterals.ORDER_STATUS);
 			System.out.println("Indigo OrdLineMap OrderStatusElementList==>ordStatusEleList ==============="+ordStatusEleList.toString());
 			for (YFCElement curOrdStatusEle : ordStatusEleList) {
 				String status = curOrdStatusEle.getAttribute(XMLLiterals.STATUS,ValueConstants.EMPTY_STRING);

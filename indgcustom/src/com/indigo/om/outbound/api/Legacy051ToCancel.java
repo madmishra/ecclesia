@@ -194,11 +194,13 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 		YFCIterable<YFCElement> getOrderLineAPIOpEle = getOrderLineListDoc.getDocumentElement().getChildren();
 	    for(YFCElement orderLine: getOrderLineAPIOpEle) {
 	    	String primeLineNo1 = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
+	    	System.out.println(primeLineNo1 + "firstListval");
 	    	YFCIterable<YFCElement> getOrderLineEle = groupByShipNodeDoc.getDocumentElement().
 	    			getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
 	    			getChildElement(XMLLiterals.ORDER_LINES).getChildren();
 	    	for(YFCElement orderLineEle: getOrderLineEle) {
 	    		String primeLineNo2 = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
+	    		System.out.println(primeLineNo2 + "secondlistval");
 	    		if(primeLineNo1.equals(primeLineNo2)) {
 	    			String currentQty = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 	    					getAttribute(XMLLiterals.ORDERED_QTY);

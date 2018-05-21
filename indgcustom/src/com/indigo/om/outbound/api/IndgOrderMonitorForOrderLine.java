@@ -27,7 +27,7 @@ import com.yantra.yfc.log.*;
 
 public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 	Map<String,ArrayList<YFCElement>> orderLineMap = new HashMap<>();
-	private static final String ORDER_MONITOR="IndgOrderMonitor";
+	private static final String ORDER_MONITOR="ORDER_MONITOR";
 	private static final String STATUS = "1100";	
 
 	/**
@@ -53,10 +53,10 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 	private void getOrderDetailsGroupedByShipNode(YFCDocument inXml){
 
 		YFCNodeList<YFCElement> ordlineList = inXml.getElementsByTagName(XMLLiterals.ORDER_LINE);
-
 		for (YFCElement curOrdLineElement : ordlineList) {
 			String shipNode =curOrdLineElement.getAttribute(XMLLiterals.SHIPNODE,ValueConstants.EMPTY_STRING);
 			YFCNodeList<YFCElement> ordStatusEleList = curOrdLineElement.getChildElement(XMLLiterals.ORDER_STATUSES,true).getChildElement(XMLLiterals.ORDER_STATUS,true).getElementsByTagName(XMLLiterals.ORDER_STATUS);
+			System.out.println("Indigo OrdLineMap OrderStatusElementList==>ordStatusEleList ==============="+ordStatusEleList.toString());
 			for (YFCElement curOrdStatusEle : ordStatusEleList) {
 				String status = curOrdStatusEle.getAttribute(XMLLiterals.STATUS,ValueConstants.EMPTY_STRING);
 				if(STATUS.equals(status)) {
@@ -68,18 +68,21 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 						orderLineMap.put(shipNode, alertOrderLineList);
 					}
 				}
+				System.out.println("Indigo OrdLineMap Status Check==>status ==============="+status.toString());
 			}
 
-			System.out.println(orderLineMap.toString());
+			System.out.println("Indigo OrdLineMap ShipNode==>OrdLine ==============="+orderLineMap.toString());
 
 			for (ArrayList<YFCElement> ordLineList : orderLineMap.values()) {
 				 YFCDocument inDocClone = inXml.getCopy();
 				  YFCElement ordLinesEle = inDocClone.getDocumentElement().getChildElement(XMLLiterals.ORDER,true).getChildElement(XMLLiterals.ORDER_LINES,true);
 				  inDocClone.removeChild(ordLinesEle);
 				  ordLinesEle = inDocClone.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES,true);			  
+				  System.out.println("Indigo ordLinesEle Status Check==>ordLinesEle ==============="+ordLinesEle.toString());
 				  for(int i=0; i<ordLineList.size() ; i++) {
 					 XMLUtil.importNode(ordLinesEle,ordLineList.get(i));
 				  }
+				  System.out.println("Indigo ordLineList ===================== "+ordLineList.toString());
 				  System.out.println(ordLineList.toString());
 				  invokeYantraService(getProperty(ORDER_MONITOR), inDocClone);		
 			}

@@ -210,6 +210,8 @@ public static final String VALIDATE_ITEMS = "ValidateItems";
 public static final String RELEASE_NO = "ReleaseNo";
 public static final String GET_ORDER_DETAILS = "GetOrderDetails";
 public static final String SELLER_ORGANIZATION_CODE = "SellerOrganizationCode";
-public static final String SHIP_NODE="ShipNode";
+public static final String MODIFICATION_REASON_CODE = "ModificationReasonText";
+public static final String MODIFICATION_REASON_TEXT = "ModificationReasonCode";
+public static final String CANCELLATION_TEXT = "CancellationText";
 }
 

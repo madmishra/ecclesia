@@ -31,7 +31,7 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 	 private static final String ACTION_VALUE = "CANCEL";
 	 private static final String EMPTY_STRING = "";
 	 private static final String CALL_SAP051_SERVICE = "Indg_SAP051_OnLegacy051";
-	 private String FULL_ORDER_CANCELLED = "IsFullOrderCancelled";
+	 private String isFullOrderCancelled = "";
 	 private static final String CANCELLED = "Cancelled";
 	 private static final String NO = "N";
 	 private static final String YES = "Y";
@@ -95,7 +95,6 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 	 */
 	
 	private YFCDocument docCancelOrderLines(YFCDocument docLegacy051Input, YFCDocument inXml){
-		System.out.println(docLegacy051Input + "InsideGroupbyCode");
 		for (Entry<String, List<YFCElement>> entry : orderLineMapGroupByReasonCode.entrySet()) {
 			YFCDocument docChangeOrderInputLines = YFCDocument.createDocument(XMLLiterals.ORDER_LINES);
 		      List<YFCElement> orderLineList = orderLineMapGroupByReasonCode.get(entry.getKey());
@@ -104,7 +103,6 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 		      docGetAttributesForCancel(orderLineList, orderLinesEle, docChangeOrderInputLines, docLegacy051Input, inXml);
 		      
 		}
-		System.out.println(inXml + "returned doc");
 		return inXml;
 	}
 	
@@ -183,7 +181,6 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 			orderLineEle.setAttribute(XMLLiterals.SUB_LINE_NO, SUBLINE_VALUE);
 			orderLineEle.setAttribute(XMLLiterals.ACTION, ACTION_VALUE);
 		}
-		System.out.println(docChangeOrderApiInput + "changeorderinput");
 	    YFCDocument changeOrderOutput = invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput,
 	    		getChangeOrderTemplateDoc());    
 	    String modifyTS = changeOrderOutput.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS);
@@ -235,9 +232,6 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 		      orderLinesEle.importNode(lineEle);
 		    }
 		    YFCDocument getOrderLineListDoc = getOrderLineListFunc(groupByShipNodeDoc);
-		    System.out.println(groupByShipNodeDoc + "shipnodeinput");
-		    System.out.println(getOrderLineListDoc + "API O/P");
-		    
 		    docSAP052Input(groupByShipNodeDoc, getOrderLineListDoc);
 		}
 	}
@@ -284,19 +278,18 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 		for(YFCElement orderElement : inputOrderLineEle) {
 			String orderLineStatus=orderElement.getAttribute(XMLLiterals.STATUS);
 			if(!orderLineStatus.equals(CANCELLED))
-			{ FULL_ORDER_CANCELLED = NO;
+			{ isFullOrderCancelled = NO;
 				break; }
 			else
-			{ FULL_ORDER_CANCELLED = YES; }
+			{ isFullOrderCancelled = YES; }
 		}	
-		if(FULL_ORDER_CANCELLED.equals(NO)) {
+		if(isFullOrderCancelled.equals(NO)) {
 			groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
-		    .setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, FULL_ORDER_CANCELLED);
+		    .setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
 		}
 		else
 			groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
-		    .setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, FULL_ORDER_CANCELLED);
-	   System.out.println(groupByShipNodeDoc + "sap051 doc");
+		    .setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
 		callUserUpdateQueue(groupByShipNodeDoc);
 	}
 	

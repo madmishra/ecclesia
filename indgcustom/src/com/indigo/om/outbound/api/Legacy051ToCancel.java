@@ -203,8 +203,9 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 			String originalQty = orderLineEle.getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY);
 			orderLine.setAttribute(XMLLiterals.CURRENT_QTY, currentQty);
 			orderLine.setAttribute(XMLLiterals.ORIGINAL_QTY, originalQty);
-			System.out.println(groupByShipNodeDoc + "what got appended");
+			
 	    }
+	    System.out.println(groupByShipNodeDoc + "what got appended");
 	    sendShipNodeDocToService(groupByShipNodeDoc, getOrderLineListDoc);
 	}
 	

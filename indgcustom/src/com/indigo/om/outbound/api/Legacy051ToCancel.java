@@ -105,8 +105,7 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 		    		  getAttribute(XMLLiterals.CANCELLATION_REASON_CODE);
 		      String reasonText = docChangeOrderInputLines.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 		    		  getAttribute(XMLLiterals.CANCELLATION_TEXT);
-		      String orderNo = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-		    		  getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_NO);
+		      String orderNo = docLegacy051Input.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO);
 		      String enterpriseCode = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 		    		  getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ENTERPRISE_CODE);
 		      String documentType = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).

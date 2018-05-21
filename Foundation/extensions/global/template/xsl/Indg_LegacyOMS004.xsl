@@ -3,12 +3,15 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:template match="Order">
 		<OrderMessage>
-			<xsl:attribute name="MessageTypeId">LEGACYOMS003</xsl:attribute>
+			<xsl:attribute name="MessageTypeId">LEGACYOMS004</xsl:attribute>
 			<xsl:attribute name="Modifyts">
 				<xsl:value-of select="@Modifyts"/>
 			</xsl:attribute>
 			<MessageBody>
 				<Order>
+					<xsl:attribute name="SAPOrderNo">
+						<xsl:value-of select="OrderLines/OrderLine/Extn/@ExtnSAPOrderNo"/>
+					</xsl:attribute>
 					<xsl:attribute name="LegacyOMSOrderNo">
 						<xsl:value-of select="OrderLines/OrderLine/Extn/@ExtnLegacyOMSChildOrderNo"/>
 					</xsl:attribute>

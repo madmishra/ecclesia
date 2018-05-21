@@ -198,7 +198,7 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 	    for(YFCElement orderLine : yfsItrator) {
 	    	String primeLineNo = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
 	    	System.out.println(primeLineNo + "thisNO");
-	    	YFCElement orderLineEle = XPathUtil.getXPathElement(getOrderLineListDoc, "/OrderLineList/OrderLine/[@PrimeLineNo = \""+
+	    	YFCElement orderLineEle = XPathUtil.getXPathElement(getOrderLineListDoc, "/OrderLineList/OrderLine[@PrimeLineNo = \""+
 	    	primeLineNo+"\"]");
 	    	System.out.println(orderLineEle.toString() + "inELE");
 	    	String currentQty = orderLineEle.getAttribute(XMLLiterals.ORDERED_QTY);

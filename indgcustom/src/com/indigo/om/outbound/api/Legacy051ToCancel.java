@@ -128,7 +128,8 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 					orderLineEle.setAttribute(XMLLiterals.ACTION, ACTION_VALUE);
 				}
 				System.out.println(docChangeOrderApiInput + "changeorderinput");
-		    YFCDocument changeOrderOutput = invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    
+		    YFCDocument changeOrderOutput = invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput,
+		    		getChangeOrderTemplateDoc());    
 		    String modifyTS = changeOrderOutput.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS);
 		    inXml.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTS);
 		}
@@ -292,4 +293,10 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 	    return  invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, getOrderLineListInDoc(groupByShipNodeDoc), 
 	    		getOrderLineListTemplateDoc());
 	 }
+	
+	public YFCDocument getChangeOrderTemplateDoc() {
+		 YFCDocument getChangeOrderTemp = YFCDocument.createDocument(XMLLiterals.ORDER);
+		 getChangeOrderTemp.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
+		 return getChangeOrderTemp;
+	}
 }

@@ -76,7 +76,7 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi {
 			for (ArrayList<YFCElement> ordLineList : orderLineMap.values()) {
 				 YFCDocument inDocClone = inXml.getCopy();
 				  YFCElement ordLinesEle = inDocClone.getDocumentElement().getChildElement(XMLLiterals.ORDER,true).getChildElement(XMLLiterals.ORDER_LINES,true);
-				  inDocClone.removeChild(ordLinesEle);
+				  ordLinesEle.removeChild(ordLinesEle);
 				  ordLinesEle = inDocClone.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES,true);			  
 				  System.out.println("Indigo ordLinesEle Status Check==>ordLinesEle ==============="+ordLinesEle.toString());
 				  for(int i=0; i<ordLineList.size() ; i++) {

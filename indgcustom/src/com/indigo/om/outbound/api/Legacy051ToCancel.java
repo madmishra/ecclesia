@@ -201,12 +201,8 @@ public class Legacy051ToCancel extends AbstractCustomApi{
 	    	primeLineNo+"\"]");
 	    	String currentQty = orderLineEle.getAttribute(XMLLiterals.ORDERED_QTY);
 			String originalQty = orderLineEle.getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY);
-			groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
-			getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
-			setAttribute(XMLLiterals.CURRENT_QTY, currentQty);
-			groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
-			getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
-			setAttribute(XMLLiterals.ORIGINAL_QTY, originalQty);
+			orderLine.setAttribute(XMLLiterals.CURRENT_QTY, currentQty);
+			orderLine.setAttribute(XMLLiterals.ORIGINAL_QTY, originalQty);
 			System.out.println(groupByShipNodeDoc + "what got appended");
 	    }
 	    sendShipNodeDocToService(groupByShipNodeDoc, getOrderLineListDoc);

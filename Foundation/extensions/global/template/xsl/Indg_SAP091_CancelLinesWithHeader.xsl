@@ -6,7 +6,6 @@
 			<xsl:attribute name="EnterpriseCode">
 				<xsl:value-of select="@EnterpriseCode"/>
 			</xsl:attribute>
-			
 			<xsl:attribute name="DocumentType">
 				<xsl:value-of select="@DocumentType"/>
 			</xsl:attribute>
@@ -14,12 +13,11 @@
 				<xsl:value-of select="@SterlingOrderNo"/>
 			</xsl:attribute>
 			<xsl:attribute name="ModificationReasonCode">
-			<xsl:value-of select="@HeaderErrorCode"/>
+				<xsl:value-of select="@HeaderErrorCode"/>
 			</xsl:attribute>
 			<xsl:attribute name="ModificationReasonText">
-			<xsl:value-of select="@HeaderErrorDescription"/>
+				<xsl:value-of select="substring(@HeaderErrorDescription,1,8)"/>
 			</xsl:attribute>
-			
 			<xsl:element name="OrderLines">
 				<xsl:for-each select="OrderLines/OrderLine">
 					<xsl:element name="OrderLine">
@@ -30,7 +28,7 @@
 							<xsl:value-of select="@ShipNode"/>
 						</xsl:attribute>
 						<xsl:attribute name="SubLineNo">1</xsl:attribute>
-						<xsl:attribute name="Action">CANCEL</xsl:attribute>	
+						<xsl:attribute name="Action">CANCEL</xsl:attribute>
 					</xsl:element>
 				</xsl:for-each>
 			</xsl:element>

@@ -12,6 +12,7 @@ import com.bridge.sterling.utils.XPathUtil;
 import com.indigo.masterupload.categoryupload.IndgCategoryMasterUpload;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
+import com.yantra.yfc.date.YTimestamp;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
@@ -31,12 +32,17 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private static final String DELETE_ACTION = "Delete";
   private static final String ORGANIZATION_CODE = "Indigo_CA";
   private static final String GET_UNPUBLISHED_ITMES = "GetUnpublishedItems";
-  private String inputCategoryID=""; 
+  private static final String DEFAULT_ATP_RULE = "DEFAULT_Indigo_CA";
+  private String inputCategoryID="";
   private String categoryPath = "";
   private static final String FLAG_YES = "Y";
+  private static final String UN_PUBLISH_STATUS = "2000";
   
   
-
+  /**
+   * This is the invoke method of the service
+   * 
+   */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
     YFCElement inputEle = inXml.getDocumentElement();
@@ -51,7 +57,8 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   
   /**
    * This method is the starting for the Manage Item
-   * Operation for Initial Load and Delta Load
+   * Operation for Initial Load and Delta Load. Calls Manage Item
+   * to un-publish the Item if Status is 2000
    * 
    * @param inXml
    */
@@ -59,10 +66,15 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     String inputItemID = itemEle.getAttribute(XMLLiterals.ITEM_ID);
     YFCDocument itemListOp = getItemList(inputItemID);
     if(itemListOp.getDocumentElement().hasChildNodes()) {
-      String opSyncTS = itemListOp.getDocumentElement().getChildElement(XMLLiterals.ITEM)
-          .getAttribute(XMLLiterals.SYNC_TS);
-      if(validateTimeDifference(itemEle.getAttribute(XMLLiterals.SYNC_TS),opSyncTS)){
-        if(!isItemAssignedToCategory(itemListOp.getDocumentElement().getChildElement(XMLLiterals.ITEM))){
+      YTimestamp opSyncTS = itemListOp.getDocumentElement().getChildElement(XMLLiterals.ITEM)
+          .getYTimestampAttribute(XMLLiterals.SYNC_TS);
+      if(validateTimeDifference(itemEle.getYTimestampAttribute(XMLLiterals.SYNC_TS),opSyncTS)) {
+        if(UN_PUBLISH_STATUS.equals(itemEle.getChildElement(XMLLiterals.PRIMARY_INFORMATION)
+            .getAttribute(XMLLiterals.STATUS))) {
+          invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
+          return;
+        } else if(!isItemAssignedToCategory(itemListOp.getDocumentElement()
+            .getChildElement(XMLLiterals.ITEM))){
           modifyCategoryItem(itemEle,CREATE_ACTION);
         } else {
           validateCategoryItempath(itemEle,itemListOp);
@@ -70,6 +82,8 @@ public class IndgManageItemFeed extends AbstractCustomApi{
         invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
       }
     } else {
+      itemEle.createChild(XMLLiterals.INVENTORY_PARAMETERS)
+        .setAttribute(XMLLiterals.ATP_RULE, DEFAULT_ATP_RULE);
       invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
       modifyCategoryItem(itemEle,CREATE_ACTION);
     }
@@ -259,13 +273,11 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     * @param outputSyncTS
     * @return
     */
-   public static boolean validateTimeDifference(String inputSyncTS, String outputSyncTS) {
+   public static boolean validateTimeDifference(YTimestamp inputSyncTS, YTimestamp outputSyncTS) {
        try{
          if(!XmlUtils.isVoid(inputSyncTS) && !XmlUtils.isVoid(outputSyncTS)){
-          String synctsIn = inputSyncTS.substring(0,10)+" "+inputSyncTS.substring(11,19);
-          String synctsOp = outputSyncTS.substring(0,10)+" "+outputSyncTS.substring(11,19);
           SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-          return getTimeDifference(synctsIn,synctsOp,format);
+          return getTimeDifferenceWithUTC(inputSyncTS,outputSyncTS,format);
          }
        }
        catch(Exception exp) {
@@ -309,6 +321,25 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    private static boolean getTimeDifference(String synctsIn,String synctsOp,SimpleDateFormat format) throws ParseException {
      Date date1 = format.parse(synctsIn);
      Date date2 = format.parse(synctsOp);
+     long difference = date2.getTime() - date1.getTime();
+     if(difference < 0) {
+       return true;
+     }
+     return false;
+   }
+   
+   /**
+    * 
+    * This method compares two Dates and return the difference
+    * 
+    * @param date1
+    * @param date2
+    * @return
+   * @throws ParseException 
+    */
+   private static boolean getTimeDifferenceWithUTC(YTimestamp synctsIn,YTimestamp synctsOp,SimpleDateFormat format) throws ParseException {
+     Date date1 = format.parse(format.format(synctsIn));
+     Date date2 = format.parse(format.format(synctsOp));
      long difference = date2.getTime() - date1.getTime();
      if(difference < 0) {
        return true;

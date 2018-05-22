@@ -20,7 +20,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
     ProcessTypeKey="" RealertInterval="" RealertRequired="">
 	<Order DocumentType="" DraftOrderFlag="" EnterpriseCode="" EntryType="" 
 			OrderDate="" OrderHeaderKey="" OrderNo="" OrderType="" SellerOrganizationCode="" >
-		<OrderLines>
+		<OrderLines Modifyts="" ShipNode="" OrderHeaderKey="" OrderLineKey="" ReqDeliveryDate="" ReqShipDate="">
 			<OrderLine>
 				<Extn ExtnLegacyOMSChildOrderNo="" />
 				<OrderStatuses>
@@ -28,19 +28,5 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
 				</OrderStatuses>
 			</OrderLine>
 		</OrderLines>
-		<OrderStatuses>
-			<OrderStatus OrderHeaderKey="" OrderLineKey="" OrderLineScheduleKey=""
-					OrderReleaseKey="" OrderReleaseStatusKey="" PipelineKey=""
-					Status="" StatusDate="" StatusDescription="" StatusQty=""
-					StatusReason="" TotalQuantity="" ShipNode="" ReceivingNode="">
-				<Details ExpectedDeliveryDate="" ExpectedShipmentDate="" TagNumber=""  ShipByDate="" />
-				<MonitorRule CalendarException="" Age="" AgeType="" ComparisonDateSubType="" ComparisonDateType="" 
-					ComparisonStatus="" ConditionKey="" Createprogid="" Createts="" 
-					Createuserid="" DateSubTypeToMonitor="" DateTypeToMonitor=""
-					FlowKey="" Modifyprogid="" Modifyts="" Modifyuserid=""
-					MonitorConsolidationKey="" MonitorRuleKey="" MonitorType=""
-					PipelineKey="" Priority="" ProcessTypeKey="" StatusToMonitor=""/>
-			</OrderStatus>
-		</OrderStatuses>
 	</Order>
 </MonitorConsolidation>

@@ -37,6 +37,9 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 private static final String YES = "Y";
 	 private static final String REASON_CODE = "03";
 	 private String orderNo = "";
+	 private String documentType = "";
+	 private String enterpriseCode = "";
+	 private String orderType = "";
 	 
 	 /**
 	  * This method is the invoke point of the service.
@@ -46,6 +49,8 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
 		orderNo = inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO);
+		orderType = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
+				getAttribute(XMLLiterals.ORDER_TYPE);
 		String inputDocString = inXml.toString();
 	    YFCDocument docLegacy051Input = YFCDocument.getDocumentFor(inputDocString);
 	    
@@ -125,9 +130,9 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	        orderLinesEle.importNode(lineEle);
 	      } 
 		YFCDocument docChangeOrderApiInput = YFCDocument.createDocument(XMLLiterals.ORDER);
-	      String enterpriseCode = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
+	      enterpriseCode = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 	    		  getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ENTERPRISE_CODE);
-	      String documentType = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
+	      documentType = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 	    		  getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.DOCUMENT_TYPE);
 	      
 	      docSetAttributesForCancel(docChangeOrderApiInput, enterpriseCode, documentType,
@@ -183,7 +188,6 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			orderLineEle.setAttribute(XMLLiterals.SUB_LINE_NO, SUBLINE_VALUE);
 			orderLineEle.setAttribute(XMLLiterals.ACTION, ACTION_VALUE);
 		}
-		 System.out.println(docChangeOrderApiInput + "ChangeOrderInput");
 	    YFCDocument changeOrderOutput = invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput,
 	    		getChangeOrderTemplateDoc());    
 	    String modifyTS = changeOrderOutput.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS);
@@ -233,7 +237,6 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		      orderLinesEle.importNode(lineEle);
 		    }
 		    YFCDocument getOrderLineListDoc = getOrderLineListFunc(groupByShipNodeDoc);
-		    System.out.println(getOrderLineListDoc + "APIOutpuy");
 		    docSAP052Input(groupByShipNodeDoc, getOrderLineListDoc);
 		}
 	}
@@ -255,11 +258,10 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    	primeLineNo+"\"]");
 	    	String currentQty = orderLineEle.getAttribute(XMLLiterals.ORDERED_QTY);
 			String originalQty = orderLineEle.getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY);
-			orderLine.setAttribute(XMLLiterals.CURRENT_QTY, currentQty);
-			orderLine.setAttribute(XMLLiterals.ORIGINAL_QTY, originalQty);
+			orderLine.setAttribute(XMLLiterals.ORDERED_QTY, currentQty);
+			orderLine.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, originalQty);
 			orderLine.setAttribute(XMLLiterals.CANCELLATION_REASON_CODE, REASON_CODE);
 	    }
-	    System.out.println(rootEle.toString() + "rootElement");
 	    sendShipNodeDocToService(groupByShipNodeDoc, getOrderLineListDoc);
 	}
 	
@@ -293,7 +295,20 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		}
 		else
 			groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
-		System.out.println(groupByShipNodeDoc + "seconddoc");
+		docAddOrderLevelAttr(groupByShipNodeDoc);
+	}
+	
+	/**
+	 * This code adds the necessary attributes to the SAP051 doc
+	 * 
+	 * @param groupByShipNodeDoc
+	 */
+	
+	private void docAddOrderLevelAttr(YFCDocument groupByShipNodeDoc) {
+		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, documentType);
+		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
+		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, orderType);
+		
 		callUserUpdateQueue(groupByShipNodeDoc);
 	}
 	
@@ -325,7 +340,6 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    orderEle.setAttribute(XMLLiterals.ORDER_NO, orderNo);
 	    orderEle.setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
 	    orderEle.setAttribute(XMLLiterals.DOCUMENT_TYPE, documentType);
-	    System.out.println(getOrderDoc + "inputdoc211");
 	    return getOrderDoc;
 	  }
 	

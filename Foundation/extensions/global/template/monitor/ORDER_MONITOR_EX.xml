@@ -20,8 +20,8 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
     ProcessTypeKey="" RealertInterval="" RealertRequired="">
 	<Order DocumentType="" DraftOrderFlag="" EnterpriseCode="" EntryType="" 
 			OrderDate="" OrderHeaderKey="" OrderNo="" OrderType="" SellerOrganizationCode="" >
-		<OrderLines Modifyts="" ShipNode="" OrderHeaderKey="" OrderLineKey="" ReqDeliveryDate="" ReqShipDate="">
-			<OrderLine>
+		<OrderLines>
+			<OrderLine Modifyts="" ShipNode="" OrderHeaderKey="" OrderLineKey="" ReqDeliveryDate="" ReqShipDate="">
 				<Extn ExtnLegacyOMSChildOrderNo="" />
 				<OrderStatuses>
 					<OrderStatus Status="" StatusQty=""/>

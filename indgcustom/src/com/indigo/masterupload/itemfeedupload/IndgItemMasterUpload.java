@@ -30,6 +30,9 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
+    inXml.getDocumentElement().createChild(XMLLiterals.ITEM)
+      .createChild(XMLLiterals.INVENTORY_PARAMETERS)
+        .setAttribute(XMLLiterals.ATP_RULE, DEFAULT_ATP_RULE);
     invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
     createCategoryItem(inXml);
     return inXml;
@@ -44,13 +47,12 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
     YFCElement itemEle = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM);
     String categoryId = IndgManageItemFeed.getCategoryID(itemEle);
     YFCDocument categoryList = getCategoryList(categoryId, organizationCode);
-    itemEle.createChild(XMLLiterals.INVENTORY_PARAMETERS)
-      .setAttribute(XMLLiterals.ATP_RULE, DEFAULT_ATP_RULE);
     if(categoryList.getDocumentElement().hasChildNodes()) {
       String categoryPath = XPathUtil.getXpathAttribute(categoryList, 
           "/CategoryList/Category/@CategoryPath");
       invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
-          IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),CREATE_ACTION,categoryPath,organizationCode));
+          IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID)
+              ,CREATE_ACTION,categoryPath,organizationCode));
     } else {
       invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), inXml);
     }

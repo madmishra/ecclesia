@@ -4,20 +4,15 @@
      (C) Copyright IBM Corp. 2001, 2013 All Rights Reserved.
      US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
 -->
-<Inbox Description="" EnterpriseKey="" ErrorReason="" ErrorType=""
-    ExceptionType="" FlowName="" InboxType="" ItemId=""
-    OrderHeaderKey="" OrderLineKey=""
-    OrderNo="" ResolveBy="" ShipmentKey=""
-    ShipmentNo="" ShipnodeKey="" Status="" SubFlowName="" SupplierKey="" ViewId="">
-	<Order DocumentType="" DraftOrderFlag="" EnterpriseCode="" EntryType="" 
-			OrderDate="" OrderHeaderKey="" OrderNo="" OrderType="" SellerOrganizationCode="" >
+<Inbox ExceptionType="" ShipnodeKey="" Status="" SubFlowName="" SupplierKey="" ViewId="">
+	<Order OrderNo="" EnterpriseCode="" DocumenType="">
 		<OrderLines>
-			<OrderLine>
-				<Extn ExtnLegacyOMSChildOrderNo="" />
+			<OrderLine PrimeLineNo="" ShipNode="">
+				<Extn ExtnLegacyOMSChildOrderNo=""/>
 				<OrderStatuses>
 					<OrderStatus Status="" StatusQty=""/>
 				</OrderStatuses>
 			</OrderLine>
 		</OrderLines>
-    </Order>
+	</Order>
 </Inbox>

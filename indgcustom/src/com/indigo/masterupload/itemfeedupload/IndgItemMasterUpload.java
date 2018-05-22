@@ -30,7 +30,7 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
-    inXml.getDocumentElement().createChild(XMLLiterals.ITEM)
+    inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM)
       .createChild(XMLLiterals.INVENTORY_PARAMETERS)
         .setAttribute(XMLLiterals.ATP_RULE, DEFAULT_ATP_RULE);
     invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);

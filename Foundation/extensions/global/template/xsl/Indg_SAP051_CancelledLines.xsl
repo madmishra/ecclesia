@@ -9,7 +9,7 @@
 		<MessageBody>
 			<Order>
 				    <xsl:attribute name="SAPOrderNo">
-						<xsl:value-of select="@SAPOrderNo"/>
+						<xsl:value-of select="@ExtnSAPOrderNo"/>
 					</xsl:attribute>
 					<xsl:attribute name="EnterpriseCode">
 						<xsl:value-of select="@EnterpriseCode"/>

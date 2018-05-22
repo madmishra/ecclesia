@@ -45,6 +45,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
+		orderNo = inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO);
 		String inputDocString = inXml.toString();
 	    YFCDocument docLegacy051Input = YFCDocument.getDocumentFor(inputDocString);
 	    
@@ -53,7 +54,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    
 	    YFCDocument docSAP051Input = YFCDocument.getDocumentFor(inputDocString);
 		getOrderLinesGroupByShipNode(docSAP051Input);
-		docSAP051GetAttributes(docSAP051Input);
+		docSAP051GetAttributes();
 		return inXml;
 	}
 	
@@ -223,10 +224,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 * @param inXml
 	 */
 	
-	private void docSAP051GetAttributes(YFCDocument docSAP051Input) {
-		System.out.println(docSAP051Input + "onlyHeaderDoc");
-		orderNo = docSAP051Input.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO); 
-		System.out.println(orderNo + "orderNumbver");
+	private void docSAP051GetAttributes() {
 		for (Entry<String, List<YFCElement>> entry : orderLineMapGroupByShipNode.entrySet()) {
 			YFCDocument groupByShipNodeDoc = YFCDocument.createDocument(XMLLiterals.ORDER);
 			YFCElement orderLinesEle = groupByShipNodeDoc.getDocumentElement().createChild(XMLLiterals.ORDER_LINES);

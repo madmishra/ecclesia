@@ -24,7 +24,7 @@ import com.yantra.yfc.dom.YFCNode;
  * The lines will be grouped by ShipNode to sends SAP051 message to SAP.
  * 
  */
-public class Indg_Legacy051ToCancel extends AbstractCustomApi{
+public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 Map<String,List<YFCElement>> orderLineMapGroupByReasonCode = new HashMap<>();
 	 Map<String,List<YFCElement>> orderLineMapGroupByShipNode = new HashMap<>();
 	 private static final String SUBLINE_VALUE = "1";
@@ -36,6 +36,7 @@ public class Indg_Legacy051ToCancel extends AbstractCustomApi{
 	 private static final String NO = "N";
 	 private static final String YES = "Y";
 	 private static final String REASON_CODE = "03";
+	 private String orderNo = "";
 	 
 	 /**
 	  * This method is the invoke point of the service.
@@ -52,7 +53,7 @@ public class Indg_Legacy051ToCancel extends AbstractCustomApi{
 	    
 	    YFCDocument docSAP051Input = YFCDocument.getDocumentFor(inputDocString);
 		getOrderLinesGroupByShipNode(docSAP051Input);
-		docSAP051GetAttributes();
+		docSAP051GetAttributes(docSAP051Input);
 		return inXml;
 	}
 	
@@ -123,13 +124,12 @@ public class Indg_Legacy051ToCancel extends AbstractCustomApi{
 	        orderLinesEle.importNode(lineEle);
 	      } 
 		YFCDocument docChangeOrderApiInput = YFCDocument.createDocument(XMLLiterals.ORDER);
-	      String orderNo = docLegacy051Input.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO);
 	      String enterpriseCode = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 	    		  getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ENTERPRISE_CODE);
 	      String documentType = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 	    		  getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.DOCUMENT_TYPE);
 	      
-	      docSetAttributesForCancel(docChangeOrderApiInput, orderNo, enterpriseCode, documentType,
+	      docSetAttributesForCancel(docChangeOrderApiInput, enterpriseCode, documentType,
 	    		  docChangeOrderInputLines, inXml);
 	}
 	
@@ -145,7 +145,7 @@ public class Indg_Legacy051ToCancel extends AbstractCustomApi{
 	 * @param inXml
 	 */
 	
-	private void docSetAttributesForCancel(YFCDocument docChangeOrderApiInput, String orderNo, String enterpriseCode,
+	private void docSetAttributesForCancel(YFCDocument docChangeOrderApiInput, String enterpriseCode,
 			String documentType, YFCDocument docChangeOrderInputLines, YFCDocument inXml) {
 		  String reasonCode = docChangeOrderInputLines.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 	    		  getAttribute(XMLLiterals.CANCELLATION_REASON_CODE);
@@ -222,7 +222,8 @@ public class Indg_Legacy051ToCancel extends AbstractCustomApi{
 	 * @param inXml
 	 */
 	
-	private void docSAP051GetAttributes() {
+	private void docSAP051GetAttributes(YFCDocument docSAP051Input) {
+		orderNo = docSAP051Input.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO);
 		for (Entry<String, List<YFCElement>> entry : orderLineMapGroupByShipNode.entrySet()) {
 			YFCDocument groupByShipNodeDoc = YFCDocument.createDocument(XMLLiterals.ORDER);
 			YFCElement orderLinesEle = groupByShipNodeDoc.getDocumentElement().createChild(XMLLiterals.ORDER_LINES);
@@ -309,11 +310,9 @@ public class Indg_Legacy051ToCancel extends AbstractCustomApi{
 	 */
 	
 	public YFCDocument getOrderLineListInDoc(YFCDocument groupByShipNodeDoc) {
-		YFCElement inEle = groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-				getChildElement(XMLLiterals.ORDER);
+		YFCElement inEle = groupByShipNodeDoc.getDocumentElement();
 		String enterpriseCode = inEle.getAttribute(XMLLiterals.ENTERPRISE_CODE);
 		String documentType = inEle.getAttribute(XMLLiterals.DOCUMENT_TYPE);
-		String orderNo = groupByShipNodeDoc.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO);
 		String shipnode = inEle.getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
 				getAttribute(XMLLiterals.SHIPNODE);
 	    YFCDocument getOrderDoc = YFCDocument.createDocument(XMLLiterals.ORDER_LINE);

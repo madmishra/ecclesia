@@ -278,7 +278,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    		getChildElement(XMLLiterals.EXTN).getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
 	    String modifyTs = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 	    		getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
-	    groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.SAP_ORDER_NO, sapOrderNo);
+	    groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, sapOrderNo);
 	    groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 	    YFCElement getOrderLineListOutputEle=getOrderLineListDoc.getDocumentElement();
 		YFCIterable<YFCElement> inputOrderLineEle = getOrderLineListOutputEle.getChildren(XMLLiterals.ORDER_LINE);

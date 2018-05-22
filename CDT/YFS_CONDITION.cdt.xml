@@ -1089,7 +1089,7 @@
     GroupId="IndgOrderCond" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-09T11:06:45-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsFullOrderCancelled"
     ConditionKey="2018051507030712479"
@@ -1101,7 +1101,7 @@
     GroupId="IndgOrderCond" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-15T07:03:07-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_PORTAL" ConditionKey="DEFAULT_PORTAL"
     ConditionName="Is Shipment confirmed through Console?"

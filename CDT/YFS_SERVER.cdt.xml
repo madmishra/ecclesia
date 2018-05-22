@@ -328,6 +328,24 @@
     Modifyuserid="admin" MonitorStartTime="1"
     ServerKey="2018051506441712417" ServerName="OrderMonitorServer"
     ServerType="01" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-05-22T05:36:11-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-22T05:36:11-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="2018052205361115373" ServerName="Indg_InvDeltaSync"
+    ServerType="00" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-05-22T05:38:45-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-22T05:38:45-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="2018052205384515398" ServerName="Indg_InvFullSync"
+    ServerType="00" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-05-22T08:10:49-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-22T08:10:49-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="2018052208104915906" ServerName="Indg_InvMisMatch"
+    ServerType="00" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
 <Server Createprogid="XMLMigrator" Createts="2018-03-28T12:30:08-04:00"
     Createuserid="SYSTEM" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:08-04:00" Modifyuserid="SYSTEM"

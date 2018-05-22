@@ -213,5 +213,8 @@ public static final String SELLER_ORGANIZATION_CODE = "SellerOrganizationCode";
 public static final String MODIFICATION_REASON_CODE = "ModificationReasonText";
 public static final String MODIFICATION_REASON_TEXT = "ModificationReasonCode";
 public static final String CANCELLATION_TEXT = "CancellationText";
+public static final String ATP_RULE = "ATPRule";
+public static final String INVENTORY_PARAMETERS = "InventoryParameters";
+public static final String PRIMARY_INFORMATION = "PrimaryInformation";
 }
 

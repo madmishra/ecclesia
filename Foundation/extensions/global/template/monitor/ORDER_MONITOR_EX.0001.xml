@@ -21,26 +21,12 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
 	<Order DocumentType="" DraftOrderFlag="" EnterpriseCode="" EntryType="" 
 			OrderDate="" OrderHeaderKey="" OrderNo="" OrderType="" SellerOrganizationCode="" >
 		<OrderLines>
-			<OrderLine>
+			<OrderLine  Modifyts="" ShipNode="" OrderHeaderKey="" OrderLineKey="" ReqDeliveryDate="" ReqShipDate="">
 				<Extn ExtnLegacyOMSChildOrderNo="" />
 				<OrderStatuses>
 					<OrderStatus Status="" StatusQty=""/>
 				</OrderStatuses>
 			</OrderLine>
 		</OrderLines>
-		<OrderStatuses>
-			<OrderStatus OrderHeaderKey="" OrderLineKey="" OrderLineScheduleKey=""
-					OrderReleaseKey="" OrderReleaseStatusKey="" PipelineKey=""
-					Status="" StatusDate="" StatusDescription="" StatusQty=""
-					StatusReason="" TotalQuantity="" ShipNode="" ReceivingNode="">
-				<Details ExpectedDeliveryDate="" ExpectedShipmentDate="" TagNumber=""  ShipByDate="" />
-				<MonitorRule CalendarException="" Age="" AgeType="" ComparisonDateSubType="" ComparisonDateType="" 
-					ComparisonStatus="" ConditionKey="" Createprogid="" Createts="" 
-					Createuserid="" DateSubTypeToMonitor="" DateTypeToMonitor=""
-					FlowKey="" Modifyprogid="" Modifyts="" Modifyuserid=""
-					MonitorConsolidationKey="" MonitorRuleKey="" MonitorType=""
-					PipelineKey="" Priority="" ProcessTypeKey="" StatusToMonitor=""/>
-			</OrderStatus>
-		</OrderStatuses>
 	</Order>
 </MonitorConsolidation>

@@ -240,6 +240,8 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
     YFCDocument inXml = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
     inXml.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, shipNode);
     inXml.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemID);
+    inXml.getDocumentElement().setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
+    inXml.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, INDIGO_CA);
     inXml.getDocumentElement().setAttribute(XMLLiterals.INVENTORY_PICTURE_CORRECT, FLAG_YES);
   }
   

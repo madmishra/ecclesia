@@ -236,7 +236,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		      orderLinesEle.importNode(lineEle);
 		    }
 		    YFCDocument getOrderLineListDoc = getOrderLineListFunc(groupByShipNodeDoc);
-		    docSAP052Input(groupByShipNodeDoc, getOrderLineListDoc);
+		    docSAP051Input(groupByShipNodeDoc, getOrderLineListDoc);
 		}
 	}
 	
@@ -248,7 +248,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 * @param getOrderLineListDoc
 	 */
 	
-	private void docSAP052Input(YFCDocument groupByShipNodeDoc, YFCDocument getOrderLineListDoc) {
+	private void docSAP051Input(YFCDocument groupByShipNodeDoc, YFCDocument getOrderLineListDoc) {
 		YFCElement rootEle = groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 	    YFCIterable<YFCElement> yfsItrator = rootEle.getChildren(XMLLiterals.ORDER_LINE);
 	    for(YFCElement orderLine : yfsItrator) {

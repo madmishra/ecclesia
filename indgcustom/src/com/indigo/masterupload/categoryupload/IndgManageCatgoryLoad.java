@@ -29,6 +29,8 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
   private static final String EMPTY_STRING = "";
   private static final String MANAGE_CATEGORY_UPLOADQ_FLOW = "Indg_CategoryFeed_Q";
   private static final String UN_PUBLISH_STATUS = "2000";
+  private static final String BACK_SLASH = "/";
+  private static final String CALL_DEPT_MAPPING_SERVICE = "Indg_CategoryFeed_Dept_Mapping";
   
   
   private String organizationCode = "";
@@ -42,6 +44,7 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml)  {
+   createHeaderDeptDoc(inXml);
    setOrganizationCode(inXml);
    YFCDocument categoryListApiOp = getCategoryList(EMPTY_STRING, organizationCode);
    Collection<String> unpublishCategoryIDList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion
@@ -115,4 +118,55 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
          IndgCategoryMasterUpload.getInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
          IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());
    }
+   
+   /**
+    * 
+    * 
+    * @param inXml
+    */
+   
+   private void createHeaderDeptDoc (YFCDocument inXml) {
+		YFCDocument departmentDoc = YFCDocument.createDocument(XMLLiterals.DEPARTMENT_GROUP_LIST);
+		YFCElement categoryListEle = inXml.getDocumentElement();
+		YFCIterable<YFCElement> yfsItrator = categoryListEle.getChildren(XMLLiterals.CATEGORY);
+		for(YFCElement categoryEle :yfsItrator) {
+			String status = categoryEle.getAttribute(XMLLiterals.STATUS);
+			if(!status.equals(UN_PUBLISH_STATUS)) {
+				String path = categoryEle.getAttribute(XMLLiterals.CATEGORY_PATH);
+				String [] categoryPath = path.split(BACK_SLASH);
+				int len = categoryPath.length;
+				createDepartmentDoc(len, departmentDoc, categoryPath);
+			}
+		}
+		callDeptMappingQueue(departmentDoc);
+	}
+	
+	private void createDepartmentDoc(int len, YFCDocument departmentDoc, String [] categoryPath) {
+	if (len >= 4 ) {
+		String deptGroupName = categoryPath[2];
+		String department = categoryPath[3];
+		YFCElement deptGroupEle = XPathUtil.getXPathElement(departmentDoc, "/DepartmentGroupList/DepartmentGroup"
+			  	+ "[@GroupName = \""+deptGroupName+"\"]");
+		if(XmlUtils.isVoid(deptGroupEle)) {
+			YFCElement groupEle = departmentDoc.getDocumentElement().createChild(XMLLiterals.DEPARTMENT_GROUP);
+			groupEle.setAttribute(XMLLiterals.GROUP_NAME, deptGroupName);
+			groupEle.createChild(XMLLiterals.DEPARTMENT).setAttribute(XMLLiterals.DEPARTMENT_NAME, department);
+		} else {
+			deptGroupEle.createChild(XMLLiterals.DEPARTMENT).setAttribute(XMLLiterals.DEPARTMENT_NAME, department);
+			}
+		}
+		else if(len == 3) {
+			String deptGroupName = categoryPath[2];
+			YFCElement deptGroupEle = XPathUtil.getXPathElement(departmentDoc, "/DepartmentGroupList/DepartmentGroup"
+		  		+ "[@GroupName = \""+deptGroupName+"\"]");
+			if(XmlUtils.isVoid(deptGroupEle)) {
+				YFCElement groupEle = departmentDoc.getDocumentElement().createChild(XMLLiterals.DEPARTMENT_GROUP);
+				groupEle.setAttribute(XMLLiterals.GROUP_NAME, deptGroupName);
+			}
+		}
+	}
+	
+	private void callDeptMappingQueue(YFCDocument doc) {
+	     invokeYantraService(CALL_DEPT_MAPPING_SERVICE, doc);
+	}
 }

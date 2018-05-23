@@ -286,6 +286,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 					shiftStartTimeList(shiftTime[0],slotList);
 					sortEle.setAttribute(XMLLiterals.END_TIME, shiftTime[1]);
 				}
+				setadditionalShift(shiftList,slotList);
 				System.out.println("-----------DOCUMENT---------"+mangSlotDoc);
 				
 			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc);
@@ -293,18 +294,22 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			}
 			private void shiftStartTimeList(String shiftTime,YFCElement slotList)
 			{
-				String sShiftStartTime="00:00:00";
+				
 				if (!shiftList.contains(shiftTime)) {
 					shiftList.add(shiftTime);
 				}
-				for(String eleShiftTime:shiftList) {
-				YFCElement sortEle = slotList.getChildElement(XMLLiterals.SERVICE_SLOT);
-				sortEle.setAttribute(XMLLiterals.START_TIME,sShiftStartTime);
-				sortEle.setAttribute(XMLLiterals.END_TIME, eleShiftTime);
-			}
+				
 				
 			}
-			
+			private void setadditionalShift(List<String> shiftList,YFCElement slotList)
+			{
+				String sShiftStartTime="00:00:00";
+				for(String eleShiftTime:shiftList) {
+					YFCElement sortEle = slotList.getChildElement(XMLLiterals.SERVICE_SLOT);
+					sortEle.setAttribute(XMLLiterals.START_TIME,sShiftStartTime);
+					sortEle.setAttribute(XMLLiterals.END_TIME, eleShiftTime);
+				}
+			}
 			/**
 			 * 
 			 * this method creates input for getResourceList api

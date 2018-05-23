@@ -219,5 +219,6 @@ public static final String PRIMARY_INFORMATION = "PrimaryInformation";
 public static final String MATERIAL_DOC_NUMBER = "MaterialDocNumber";
 public static final String REFERENCE_1 = "Reference_1";
 public static final String REFERENCE_5 = "Reference_5";
+public static final String REFERENCE_2 = "Reference_2";
 }
 

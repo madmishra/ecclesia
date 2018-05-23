@@ -19,6 +19,7 @@ import com.yantra.yfc.dom.YFCElement;
  * @author BSG109
  *
  */
+
 public class IndgManageInvDeltaSync extends AbstractCustomApi {
 
   private static final String FLAG_YES = "Y";
@@ -28,6 +29,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
   private static final String ONHAND = "ONHAND";
   private static final String INDG_FULL_SYNC_STATUS_LIST_FLOW = "IndgGetSyncStatusList";
   private static final String DELTA_SLEEP_TIME = "DeltaSleepTime";
+  private static final String EMPTY_STRING = "";
   
   /**
    * This is the invoke point for the service
@@ -150,10 +152,10 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
       if(canApplyInvAdjustment(syncCtrlListDoc,itemEle,XMLLiterals.TRANSACTION_DATE) && 
           canApplyInvAdjustment(syncCtrlListDoc,itemEle,XMLLiterals.GENERATION_DATE) ) {
         applyAdjustInvForCycleCount(itemEle);
-      } else {
-        removeNodeControl(shipNode,itemID);
       }
+      removeNodeControl(shipNode,itemID);
     }
+    
   }
   
   /**
@@ -250,12 +252,13 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
   private void applyAdjustInvForDelta(YFCElement itemEle) {
     YFCDocument adjDoc= YFCDocument.createDocument(XMLLiterals.ITEMS);
     YFCElement adjEle = adjDoc.getDocumentElement();
-    
     if(XmlUtils.isVoid(itemEle.getAttribute(XMLLiterals.REASON_TEXT)) &&
         XmlUtils.isVoid(itemEle.getAttribute(XMLLiterals.REASON_CODE))) {
       itemEle.setAttribute(XMLLiterals.REASON_CODE,POS_SALES);
       itemEle.setAttribute(XMLLiterals.REASON_TEXT,POS_SALES);
     }
+    itemEle.setAttribute(XMLLiterals.REFERENCE_2, 
+        itemEle.getAttribute(XMLLiterals.MATERIAL_DOC_NUMBER,EMPTY_STRING));
     itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE,
         XMLLiterals.ADJUSTMENT);
     itemEle.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
@@ -302,6 +305,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SYNC_EXP, exp);
     }
   }
+  
     /**
      * This method gets the List of Full Sync Status Table records
      * 
@@ -311,5 +315,4 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
       YFCDocument inXml = YFCDocument.createDocument(XMLLiterals.INDG_FULL_SYNC_STATUS);
       return invokeYantraService(INDG_FULL_SYNC_STATUS_LIST_FLOW, inXml);
     }
-  
 }

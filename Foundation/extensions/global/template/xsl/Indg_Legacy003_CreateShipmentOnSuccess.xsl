@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
    <xsl:template match="Shipment">
       <OrderMessage>
-         <xsl:attribute name="MessageTypeId">LegacyOMS003</xsl:attribute>
+         <xsl:attribute name="MessageTypeId">LEGACYOMS003</xsl:attribute>
          <xsl:attribute name="Modifyts">
             <xsl:value-of select="ShipmentLines/ShipmentLine/OrderLine/@Modifyts" />
          </xsl:attribute>

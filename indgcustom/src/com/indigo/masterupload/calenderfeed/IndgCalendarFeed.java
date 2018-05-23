@@ -35,6 +35,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	private static final String WORKING_DAY="1";
 	YFCDocument createCalenderInXml = null;
 	Map<String, String> map=new HashMap<>();
+	List<String> shiftList=new ArrayList();
 	/**
 	   * This is the invoke point of the Service
 	 * @throws  
@@ -45,29 +46,29 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 
 	YFCElement calInEle = inXml.getDocumentElement();
 	List<String> exceptionList = new ArrayList<>();
-		  YFCIterable<YFCElement> inputCalendarEle = calInEle.getChildren(XMLLiterals.CALENDAR);
+		  YFCIterable<YFCElement> eleCalendar = calInEle.getChildren(XMLLiterals.CALENDAR);
 		  String organizationCode="";
-		  for(YFCElement calElement : inputCalendarEle) {
+		  for(YFCElement eleCal : eleCalendar) {
 			  if(XmlUtils.isVoid(organizationCode)) {
-				  organizationCode=calElement.getAttribute(XMLLiterals.ORGANIZATION_CODE);
-				  String effectiveFromDate = dateFormatter(calElement.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE));
+				  organizationCode=eleCal.getAttribute(XMLLiterals.ORGANIZATION_CODE);
+				  String effectiveFromDate = dateFormatter(eleCal.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE));
 				  createCalendarInputDoc(organizationCode,effectiveFromDate);
 				 }
 			  else if(!organizationCode
-					  .equals(calElement.getAttribute(XMLLiterals.ORGANIZATION_CODE))) {
+					  .equals(eleCal.getAttribute(XMLLiterals.ORGANIZATION_CODE))) {
 				 createCalendar(exceptionList);
 				 createResourcePool(organizationCode);
-				  organizationCode=calElement.getAttribute(XMLLiterals.ORGANIZATION_CODE);
-				  String effectiveFromDate = dateFormatter(calElement.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE));
+				  organizationCode=eleCal.getAttribute(XMLLiterals.ORGANIZATION_CODE);
+				  String effectiveFromDate = dateFormatter(eleCal.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE));
 				  createCalendarInputDoc(organizationCode,effectiveFromDate);
 			  }
-	 			String sSerSlotShiftStartTime = calElement.getAttribute(XMLLiterals.SHIFT_START_TIME);
-	 			String sSerSlotShiftEndTime = calElement.getAttribute(XMLLiterals.SHIFT_END_TIME);
+	 			String sSerSlotShiftStartTime = eleCal.getAttribute(XMLLiterals.SHIFT_START_TIME);
+	 			String sSerSlotShiftEndTime = eleCal.getAttribute(XMLLiterals.SHIFT_END_TIME);
 	 				try {
 	 					if(EXCEPTION_TIME.equals(sSerSlotShiftStartTime) && EXCEPTION_TIME.equals(sSerSlotShiftEndTime)) 
-	 					  exceptionList.add(dateFormatter(calElement.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE)));
+	 					  exceptionList.add(dateFormatter(eleCal.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE)));
 	 					else
-	 					  setShiftValues(calElement);
+	 					  setShiftValues(eleCal);
 	 					}
 	 				catch (ParseException e) {
 	 						throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, e);
@@ -275,16 +276,33 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				serviceSlotEle.setAttribute(XMLLiterals.ITEM_GROUP_CODE, ITEM_GROUP_CODE);
 				serviceSlotEle.setAttribute(XMLLiterals.ORGANIZATION_KEY,XMLLiterals.INDIGO_CA);
 				serviceSlotEle.setAttribute(XMLLiterals.SERVICE_SLOT_GROUP_ID,orgCode+PICK+XMLLiterals.SERVICE_SLOT_GROUP);
-				serviceSlotEle.setAttribute(XMLLiterals.SERVICE_SLOT_GROUP_DESC,orgCode+"_"+PICK+XMLLiterals.SERVICE_SLOT_GROUP);
+				serviceSlotEle.setAttribute(XMLLiterals.SERVICE_SLOT_GROUP_DESC,orgCode+PICK+XMLLiterals.SERVICE_SLOT_GROUP);
 				YFCElement slotList=serviceSlotEle.createChild(XMLLiterals.SERVICE_SLOT_LIST);
 				for(Object s:keySet) {
 					String[] shiftTime = map.get(s).split("-");
 					YFCElement sortEle = slotList.createChild(XMLLiterals.SERVICE_SLOT);
+					
 					sortEle.setAttribute(XMLLiterals.START_TIME,shiftTime[0]);
+					shiftStartTimeList(shiftTime[0],slotList);
 					sortEle.setAttribute(XMLLiterals.END_TIME, shiftTime[1]);
 				}
+				System.out.println("-----------DOCUMENT---------"+mangSlotDoc);
+				
 			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc);
 			map.clear();
+			}
+			private void shiftStartTimeList(String shiftTime,YFCElement slotList)
+			{
+				String sShiftStartTime="00:00:00";
+				if (!shiftList.contains(shiftTime)) {
+					shiftList.add(shiftTime);
+				}
+				for(String eleShiftTime:shiftList) {
+				YFCElement sortEle = slotList.getChildElement(XMLLiterals.SERVICE_SLOT);
+				sortEle.setAttribute(XMLLiterals.START_TIME,sShiftStartTime);
+				sortEle.setAttribute(XMLLiterals.END_TIME, eleShiftTime);
+			}
+				
 			}
 			
 			/**

@@ -145,6 +145,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 			primeLineNoList.add(i);
 			
 		}
+		if(!primeLineNoList.isEmpty())
 		cancelMissingPrimeLineNo(primeLineNoList, docGetOrderLineList, docInXml);
 	}
 	/**
@@ -204,6 +205,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	 */
 	private YFCDocument sendCancelledPrimeLineNoDoc(YFCDocument docInXml, YFCDocument docInputChangeOrderAPI,YFCDocument docGetOrderLineList) {
 		YFCElement eleorderLine=docGetOrderLineList.getDocumentElement();
+		
 		String sModifyts = eleorderLine.getChildElement(XMLLiterals.ORDER_LINE).getChildElement(XMLLiterals.ORDER).
 				getAttribute(XMLLiterals.MODIFYTS);
 		cancellingLine(docGetOrderLineList,eleorderLine);
@@ -222,6 +224,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 		docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.SAP_ORDER_NO, sSapOrderNo);
 		docInputChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).setAttribute(XMLLiterals.SHIPNODE, sShipNode);
 		docInputChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).createChild(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, sItemId);
+		
 		return docInputChangeOrderAPI;
 	}
 	/**

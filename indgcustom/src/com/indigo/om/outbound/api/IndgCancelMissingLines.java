@@ -20,7 +20,7 @@ import com.yantra.yfc.dom.YFCElement;
  *
  */
 public class IndgCancelMissingLines extends AbstractCustomApi{
-	YFCDocument docInputChangeOrderAPI=null;
+	//YFCDocument docInputChangeOrderAPI=null;
 	
 	private static final String EMPTY_STRING = "";
 	
@@ -36,7 +36,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	public YFCDocument invoke(YFCDocument docInXml) {
 		YFCDocument docGetOrderLineList = getOrderLineListFunc(docInXml);
 		System.out.println("<<<<get OrderLineList DOCUMENT>>>>"+docGetOrderLineList);
-		getPrimeLineNo(docInXml, docGetOrderLineList);
+		YFCDocument docInputChangeOrderAPI=getPrimeLineNo(docInXml, docGetOrderLineList);
 		
 		return docInputChangeOrderAPI;
 	}
@@ -107,7 +107,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	 * @param inXml
 	 * @param getOrderLineListDoc
 	 */
-	public void getPrimeLineNo(YFCDocument docInXml, YFCDocument docGetOrderLineList) {
+	public YFCDocument getPrimeLineNo(YFCDocument docInXml, YFCDocument docGetOrderLineList) {
+		YFCDocument docInputChangeOrderAPI=null;
 	 List<String> inXmlLineList=new ArrayList<String>();
 	 List<String> getOrderLinesList=new ArrayList<String>();
 		YFCElement eleOrderLineList = docGetOrderLineList.getDocumentElement();
@@ -129,7 +130,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 		}
 		for(String i:inXmlLineList)
 			System.out.println("<<<<GETORDERLINELIST PRIMELINE LIST>>>>"+i);
-		removeCommonPrimeLineNo(inXmlLineList, getOrderLinesList, docGetOrderLineList, docInXml);
+		docInputChangeOrderAPI=removeCommonPrimeLineNo(inXmlLineList, getOrderLinesList, docGetOrderLineList, docInXml);
+		return docInputChangeOrderAPI;
 	}
 	/**
 	 * this method removes common primeline no
@@ -139,8 +141,9 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	 * @param inXml
 	 */
 	
-	public void removeCommonPrimeLineNo(List<String> inXmlLineList, List<String> getOrderLinesList, YFCDocument docGetOrderLineList,
+	public YFCDocument removeCommonPrimeLineNo(List<String> inXmlLineList, List<String> getOrderLinesList, YFCDocument docGetOrderLineList,
 			YFCDocument docInXml) {
+		YFCDocument docInputChangeOrderAPI=null;
 		Collection<String> primeLineNoList=new ArrayList<String>();
 		List<String> union=new ArrayList<>(getOrderLinesList);
 		union.addAll(inXmlLineList);
@@ -157,7 +160,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 		System.out.println("<<<<PRIMELINENOLIST>>>>"+i);
 		}
 		if(!primeLineNoList.isEmpty())
-		cancelMissingPrimeLineNo(primeLineNoList, docGetOrderLineList, docInXml);
+	docInputChangeOrderAPI=cancelMissingPrimeLineNo(primeLineNoList, docGetOrderLineList, docInXml);
+		return docInputChangeOrderAPI;
 	}
 	/**
 	 * this method cancels the missing prime line no
@@ -165,7 +169,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	 * @param getOrderLineListDoc
 	 * @param inXml
 	 */
-	private void cancelMissingPrimeLineNo(Collection<String> primeLineNoList, YFCDocument docGetOrderLineList, YFCDocument docInXml) {
+	private YFCDocument cancelMissingPrimeLineNo(Collection<String> primeLineNoList, YFCDocument docGetOrderLineList, YFCDocument docInXml) {
+		YFCDocument docInputChangeOrderAPI=null;
 		System.out.println("<<<<docGetOrderLineList in cancelMissingPrimeLineNo>>>>"+docGetOrderLineList);
 		
 		for(String primeLineNoValue:primeLineNoList) {
@@ -177,11 +182,12 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 						getChildElement(XMLLiterals.ORDER_STATUS).getAttribute(XMLLiterals.STATUS);
 				System.out.println("<<<<<STATUS in cancelMissingPrimeLineNo>>>>"+status);
 				if(!PRIMELINE_STATUS.equals(status)) {
-					changeOrderInput(docGetOrderLineList,primeLineNoValue);
+					docInputChangeOrderAPI=changeOrderInput(docGetOrderLineList,primeLineNoValue);
 				}
 			}
 		}
-		sendCancelledPrimeLineNoDoc(docInXml, docInputChangeOrderAPI,docGetOrderLineList);
+		docInputChangeOrderAPI=sendCancelledPrimeLineNoDoc(docInXml, docInputChangeOrderAPI,docGetOrderLineList);
+		return docInputChangeOrderAPI;
 	}
 	
 	/**
@@ -189,17 +195,21 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	 * @param getOrderLineListDoc
 	 * @param primeLineNoValue
 	 */
-	private void changeOrderInput(YFCDocument docGetOrderLineList,String sPrimeLineNo) {
+	private YFCDocument changeOrderInput(YFCDocument docGetOrderLineList,String sPrimeLineNo) {
 		String sOrderNumber = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_NO);
+		System.out.println("<<<<sOrderNumber>>>>"+sOrderNumber);
 		String sEnterpriseCode = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ENTERPRISE_CODE);
+		System.out.println("<<<<sEnterpriseCode>>>>"+sEnterpriseCode);
 		String sDocumentType = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.DOCUMENT_TYPE);
+		System.out.println("<<<<sDocumentType>>>>"+sDocumentType);
 		String sSubLineNo = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 				getAttribute(XMLLiterals.SUB_LINE_NO);
+		System.out.println("<<<<sSubLineNo>>>>"+sSubLineNo);
 		
-		docInputChangeOrderAPI = YFCDocument.createDocument(XMLLiterals.ORDER);
+		YFCDocument docInputChangeOrderAPI = YFCDocument.createDocument(XMLLiterals.ORDER);
 		docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_NO, sOrderNumber);
 		docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, sEnterpriseCode);
 		docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, sDocumentType);
@@ -210,6 +220,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 		eleOrderLine.setAttribute(XMLLiterals.ACTION, ACTION_STATUS);
 		System.out.println("<<<<docInputChangeOrderAPI inchangeOrderInput>>>> "+docInputChangeOrderAPI);
 		invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docInputChangeOrderAPI);
+		return docInputChangeOrderAPI;
 	}
 	
 	/**
@@ -228,7 +239,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 				getAttribute(XMLLiterals.MODIFYTS);
 		System.out.println("<<<<sModifyts>>>>"+sModifyts);
 		System.out.println("<<<<<CANCELLING PRIMELINE>>>>>");
-		cancellingLine(docGetOrderLineList,eleorderLine);
+		cancellingLine(docGetOrderLineList,eleorderLine,docInputChangeOrderAPI);
 		String sChildOrderNo = docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.RELEASE_NO);
 		System.out.println("<<<<sChildOrderNo>>>>"+sChildOrderNo);
@@ -257,7 +268,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	 * @param getOrderLineListDoc
 	 * @param orderLineEle
 	 */
-	private void cancellingLine(YFCDocument docGetOrderLineList,YFCElement eleorderLine) {
+	private void cancellingLine(YFCDocument docGetOrderLineList,YFCElement eleorderLine,YFCDocument docInputChangeOrderAPI) {
 		System.out.println("<<<<eleorderLine>>>>"+eleorderLine);
 		if(eleorderLine.getChildren()!=null) {
 		YFCIterable<YFCElement> getOrderLineEle = eleorderLine.getChildren();

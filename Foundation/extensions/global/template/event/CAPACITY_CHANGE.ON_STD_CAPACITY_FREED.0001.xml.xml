@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+IBM Sterling Selling And Fulfillment Suite
+(C) Copyright IBM Corp. 2005, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<Node EndDate="" Node="" StartDate="">
+	<ResourcePools>
+		<ResourcePool AllRegionsServiced="" CalendarKey=""
+            CapacityInfoAvailable="" CapacityMaintainAtResourceLevel=""
+            CapacityOrganizationCode="" CapacityUnitOfMeasure=""
+            ItemGroupCode="" Node="" ProviderContactAddressKey=""
+            ProviderOrganizationCode="" ProvidesAllServices=""
+            RegionSchemaKey="" ResourcePoolDescription=""
+            ResourcePoolId="" ResourcePoolKey="" ServiceSlotGroupId="" ServiceSupervisorId="">
+			<ResourcePoolAttributeList>
+				<ResourcePoolAttribute DeliveryMethod=""
+            ResourcePoolAttributeKey="" ResourcePoolKey=""/>
+			</ResourcePoolAttributeList>
+			<ServiceSlots>
+				<ServiceSlot CanUseForAppointment="" EndTime=""
+                    ParentSlotKey="" ServiceSlotDesc=""
+                    ServiceSlotGroupKey="" ServiceSlotKey="" StartTime="">
+					<Dates>
+						<Date AllocatedConsumption="" Availability=""
+                            Capacity="" CapacityUnitOfMeasure=""
+                            ComputedCapacityFromResources="" Date=""
+                            DayOfWeek="" IsCapacityOverridden=""
+                            IsWorkingDay="" OverrideReason=""
+                            StandardCapacity=""
+                            StandardSupplementalCapacity="" SupplementalCapacity=""/>
+					</Dates>
+				</ServiceSlot>
+			</ServiceSlots>
+		</ResourcePool>
+	</ResourcePools>
+</Node>

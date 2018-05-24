@@ -153,8 +153,9 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 			
 		}
 		
-		for(String i:primeLineNoList)
+		for(String i:primeLineNoList) {
 		System.out.println("<<<<PRIMELINENOLIST>>>>"+i);
+		}
 		if(!primeLineNoList.isEmpty())
 		cancelMissingPrimeLineNo(primeLineNoList, docGetOrderLineList, docInXml);
 	}

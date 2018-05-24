@@ -220,5 +220,11 @@ public static final String MATERIAL_DOC_NUMBER = "MaterialDocNumber";
 public static final String REFERENCE_1 = "Reference_1";
 public static final String REFERENCE_5 = "Reference_5";
 public static final String REFERENCE_2 = "Reference_2";
+public static final String COMMON_CODE_ATTRIBUTE_LIST = "CommonCodeAttributeList";
+public static final String COMMON_CODE_ATTRIBUTE = "CommonCodeAttribute";
+public static final String RESET = "Reset";
+public static final String NAME = "Name";
+public static final String VALUE = "Value";
+public static final String MANAGE_COMMON_CODE_API = "manageCommonCode";
 }
 

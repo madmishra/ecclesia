@@ -119,7 +119,6 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
                 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL_STATUS);
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
                 System.out.println(eleOrderLine+"Before");
-                addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLine);
                 deleteChildNodes(eleOrderLine);
                 System.out.println(eleOrderLine+"after");
                 orderLines.importNode(eleOrderLine);

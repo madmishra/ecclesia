@@ -160,8 +160,20 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 		System.out.println("<<<<PRIMELINENOLIST>>>>"+i);
 		}
 		if(!primeLineNoList.isEmpty())
-	docInputChangeOrderAPI=cancelMissingPrimeLineNo(primeLineNoList, docGetOrderLineList, docInXml);
+			docInputChangeOrderAPI=cancelMissingPrimeLineNo(primeLineNoList, docGetOrderLineList, docInXml);
+		else {
+			docInputChangeOrderAPI=createDocument();
+			return docInputChangeOrderAPI;
+		}
 		System.out.println("<<<<docInputChangeOrderAPI after cancelMissingPrimeLineNo>>>>"+docInputChangeOrderAPI);
+		return docInputChangeOrderAPI;
+	}
+	
+	private YFCDocument createDocument() {
+		String SAP051_MSG_REQ="SAP051MsgReq";
+		String N="N";
+		YFCDocument docInputChangeOrderAPI=YFCDocument.createDocument(XMLLiterals.ORDER);
+		docInputChangeOrderAPI.getDocumentElement().setAttribute(SAP051_MSG_REQ, N);
 		return docInputChangeOrderAPI;
 	}
 	/**

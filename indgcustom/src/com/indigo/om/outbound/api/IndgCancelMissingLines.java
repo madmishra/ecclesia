@@ -273,15 +273,18 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	 */
 	private void cancellingLine(YFCDocument docGetOrderLineList,YFCElement eleorderLine,YFCDocument docInputChangeOrderAPI) {
 		System.out.println("<<<<eleorderLine>>>>"+eleorderLine);
+		System.out.println("<<<<docInputChangeOrderAPI>>>>"+docInputChangeOrderAPI);
 		if(eleorderLine.getChildren()!=null) {
 		YFCIterable<YFCElement> getOrderLineEle = eleorderLine.getChildren();
 		System.out.println("<<<<getOrderLineEle>>>>"+getOrderLineEle);
 	    for(YFCElement orderLine: getOrderLineEle) {
 	    	String primeLineNo1 = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
 	    	System.out.println("<<<<primeLineNo1>>>>"+primeLineNo1);
+	    	if(docInputChangeOrderAPI.getDocumentElement().
+	    			getChildElement(XMLLiterals.ORDER_LINES).getChildren()!=null) {
 	    	YFCIterable<YFCElement> changeOrderLineEle = docInputChangeOrderAPI.getDocumentElement().
 	    			getChildElement(XMLLiterals.ORDER_LINES).getChildren();
-	    	if(changeOrderLineEle!=null) {
+	    
 	    	for(YFCElement changeOrderLine: changeOrderLineEle) {
 	    		String primeLineNo2 = changeOrderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
 	    		System.out.println("<<<<primeLineNo2>>>>"+primeLineNo2);

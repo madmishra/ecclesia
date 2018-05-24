@@ -119,7 +119,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
                 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL_STATUS);
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
                 System.out.println(eleOrderLine+"Before");
-                addOrderInfomrationForSAP(docInXml,cancelLineDoc,docGetOrderLineList);
+                addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLine);
                 deleteChildNodes(eleOrderLine);
                 System.out.println(eleOrderLine+"after");
                 orderLines.importNode(eleOrderLine);
@@ -160,10 +160,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
      * @param getOrderLineListDoc
      * @return
      */
-    private void addOrderInfomrationForSAP(YFCDocument docInXml, YFCDocument docInputChangeOrderAPI,YFCDocument docGetOrderLineList) {
-      
-        YFCElement eleorderLine=docGetOrderLineList.getDocumentElement();
-        String sModifyts = eleorderLine.getChildElement(XMLLiterals.ORDER_LINE).getChildElement(XMLLiterals.ORDER).
+    private void addOrderInfomrationForSAP(YFCDocument docInXml, YFCDocument docInputChangeOrderAPI,YFCElement eleOrderLine) {
+        String sModifyts = eleOrderLine.getChildElement(XMLLiterals.ORDER).
                 getAttribute(XMLLiterals.MODIFYTS);
         String sOrderType=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_TYPE);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, sModifyts);

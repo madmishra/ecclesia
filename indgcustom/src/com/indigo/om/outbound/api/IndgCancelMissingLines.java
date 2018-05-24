@@ -109,7 +109,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         YFCIterable<YFCElement> apiPrimeLineNo = eleOrderLineList.getChildren(XMLLiterals.ORDER_LINE);
         YFCDocument cancelLineDoc = changeOrderInput(docGetOrderLineList);
         YFCElement orderLines = cancelLineDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
-        addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLineList);
+        
         for(YFCElement eleOrderLine:apiPrimeLineNo) {
           System.out.println(eleOrderLine);
             String sPrimeLineNo= eleOrderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
@@ -118,6 +118,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
                 !CALCEL_ORDER_STATUS.equals(eleOrderLine.getAttribute(XMLLiterals.STATUS))) {
                 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL_STATUS);
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
+                addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLine);
                 System.out.println(eleOrderLine+"Before");
                 deleteChildNodes(eleOrderLine);
                 System.out.println(eleOrderLine+"after");
@@ -130,7 +131,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         } else {
           cancelLineDoc.getDocumentElement().setAttribute(IS_SAP_MSG_REQ,FLAG_NO);
         }
-       
+        cancelLineDoc.getDocumentElement().setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED,FLAG_NO);
         return cancelLineDoc;
     }
     
@@ -160,11 +161,14 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
      * @return
      */
     private void addOrderInfomrationForSAP(YFCDocument docInXml, YFCDocument docInputChangeOrderAPI,YFCElement eleOrderLine) {
-        String sModifyts = eleOrderLine.getChildElement(XMLLiterals.ORDER_LINE).getChildElement(XMLLiterals.ORDER).
+        String sModifyts = eleOrderLine.getChildElement(XMLLiterals.ORDER).
                 getAttribute(XMLLiterals.MODIFYTS);
         String sOrderType=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_TYPE);
+        String sapOrderNo = eleOrderLine.getChildElement(XMLLiterals.EXTN).
+            getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, sModifyts);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, sOrderType);
+        docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, sapOrderNo);
     }
     
     /**

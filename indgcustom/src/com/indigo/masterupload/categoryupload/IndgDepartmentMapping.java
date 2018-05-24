@@ -2,7 +2,6 @@ package com.indigo.masterupload.categoryupload;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
-import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
@@ -25,6 +24,7 @@ public class IndgDepartmentMapping extends AbstractCustomApi {
 	private static final String MANAGE = "Manage";
 	private static final String WSC_DEPART_GROUP = "WSC_DEPART_GROUP";
 	private static final String VALUE = "Y";
+	YFCElement commonCodeAttributeList;
 
 	/**
 	 * This method is invoke point of the service.
@@ -86,16 +86,15 @@ public class IndgDepartmentMapping extends AbstractCustomApi {
 	private void docGetAttributesFromInXml(YFCDocument inXml, YFCDocument docGetShipNodeList) {
 		YFCElement deptGroupListEle = inXml.getDocumentElement();
 	    YFCIterable<YFCElement> deptGroup = deptGroupListEle.getChildren(XMLLiterals.DEPARTMENT_GROUP);
-	    for(YFCElement L1 : deptGroup) {
-	    	String groupName = L1.getAttribute(XMLLiterals.GROUP_NAME);
-	    	if(XmlUtils.isVoid(L1.getChildElement(XMLLiterals.DEPARTMENT))) {
-	    		docCommonCodeNoDept(groupName, docGetShipNodeList);
+	    for(YFCElement deptGroupName : deptGroup) {
+	    	String groupName = deptGroupName.getAttribute(XMLLiterals.GROUP_NAME);
+	    	YFCDocument commonCode = docCommonCodeNoDept(groupName);
+	    	YFCIterable<YFCElement> department = deptGroupName.getChildren(XMLLiterals.DEPARTMENT);
+	    	for(YFCElement departmentName : department) {
+	    		String deptName = departmentName.getAttribute(XMLLiterals.DEPARTMENT_NAME);
+	    		docManageCommonCodeInp(deptName);
 	    	}
-	    	YFCIterable<YFCElement> department = L1.getChildren(XMLLiterals.DEPARTMENT);
-	    	for(YFCElement L11 : department) {
-	    		String deptName = L11.getAttribute(XMLLiterals.DEPARTMENT_NAME);
-	    		docManageCommonCodeInp(groupName, deptName, docGetShipNodeList);
-	    	}
+	    	docSetShipNodeToInp(commonCode, docGetShipNodeList);
 	    }
 	}
 	
@@ -107,13 +106,14 @@ public class IndgDepartmentMapping extends AbstractCustomApi {
 	 * @param docGetShipNodeList
 	 */
 	
-	private void docCommonCodeNoDept(String groupName, YFCDocument docGetShipNodeList) {
+	private YFCDocument docCommonCodeNoDept(String groupName) {
 		YFCDocument commonCode = YFCDocument.createDocument(XMLLiterals.COMMON_CODE);
 		commonCode.getDocumentElement().setAttribute(XMLLiterals.ACTION, MANAGE);	
 		commonCode.getDocumentElement().setAttribute(XMLLiterals.CODE_TYPE, WSC_DEPART_GROUP);
 		commonCode.getDocumentElement().setAttribute(XMLLiterals.CODE_SHORT_DESCRIPTION, groupName);
 		commonCode.getDocumentElement().setAttribute(XMLLiterals.CODE_VALUE, groupName);
-		docSetShipNodeToInp(commonCode, docGetShipNodeList);
+		commonCodeAttributeList = commonCode.getDocumentElement().createChild(XMLLiterals.COMMON_CODE_ATTRIBUTE_LIST);
+		return commonCode; 
 	}
 	
 	/**
@@ -125,18 +125,11 @@ public class IndgDepartmentMapping extends AbstractCustomApi {
 	 * @param docGetShipNodeList
 	 */
 	
-	private void docManageCommonCodeInp(String groupName, String deptName, YFCDocument docGetShipNodeList) {
-		YFCDocument commonCode = YFCDocument.createDocument(XMLLiterals.COMMON_CODE);
-		commonCode.getDocumentElement().setAttribute(XMLLiterals.ACTION, MANAGE);	
-		commonCode.getDocumentElement().setAttribute(XMLLiterals.CODE_TYPE, WSC_DEPART_GROUP);
-		commonCode.getDocumentElement().setAttribute(XMLLiterals.CODE_SHORT_DESCRIPTION, groupName);
-		commonCode.getDocumentElement().setAttribute(XMLLiterals.CODE_VALUE, groupName);
-		YFCElement commonCodeAttributeList = commonCode.getDocumentElement().createChild(XMLLiterals.COMMON_CODE_ATTRIBUTE_LIST);
+	private void docManageCommonCodeInp(String deptName) {
 		commonCodeAttributeList.setAttribute(XMLLiterals.RESET, VALUE);
 		YFCElement commonCodeAttribute = commonCodeAttributeList.createChild(XMLLiterals.COMMON_CODE_ATTRIBUTE);
 		commonCodeAttribute.setAttribute(XMLLiterals.NAME, deptName);
 		commonCodeAttribute.setAttribute(XMLLiterals.VALUE, VALUE);
-		docSetShipNodeToInp(commonCode, docGetShipNodeList);
 	}
 	
 	/**

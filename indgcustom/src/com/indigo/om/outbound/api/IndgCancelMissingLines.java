@@ -161,6 +161,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 		}
 		if(!primeLineNoList.isEmpty())
 	docInputChangeOrderAPI=cancelMissingPrimeLineNo(primeLineNoList, docGetOrderLineList, docInXml);
+		System.out.println("<<<<docInputChangeOrderAPI after cancelMissingPrimeLineNo>>>>"+docInputChangeOrderAPI);
 		return docInputChangeOrderAPI;
 	}
 	/**
@@ -183,10 +184,12 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 				System.out.println("<<<<<STATUS in cancelMissingPrimeLineNo>>>>"+status);
 				if(!PRIMELINE_STATUS.equals(status)) {
 					docInputChangeOrderAPI=changeOrderInput(docGetOrderLineList,primeLineNoValue);
+					System.out.println("<<<<docInputChangeOrderAPI in cancelMissingPrimeLineNo of CHANGEORDERINPUT>>>> "+docInputChangeOrderAPI);
 				}
 			}
 		}
-		docInputChangeOrderAPI=sendCancelledPrimeLineNoDoc(docInXml, docInputChangeOrderAPI,docGetOrderLineList);
+		sendCancelledPrimeLineNoDoc(docInXml, docInputChangeOrderAPI,docGetOrderLineList);
+		System.out.println("<<<<docInputChangeOrderAPI after sendCancelledPrimeLineNoDoc>>>>"+docInputChangeOrderAPI);
 		return docInputChangeOrderAPI;
 	}
 	
@@ -272,11 +275,13 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 		System.out.println("<<<<eleorderLine>>>>"+eleorderLine);
 		if(eleorderLine.getChildren()!=null) {
 		YFCIterable<YFCElement> getOrderLineEle = eleorderLine.getChildren();
+		System.out.println("<<<<getOrderLineEle>>>>"+getOrderLineEle);
 	    for(YFCElement orderLine: getOrderLineEle) {
 	    	String primeLineNo1 = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
 	    	System.out.println("<<<<primeLineNo1>>>>"+primeLineNo1);
 	    	YFCIterable<YFCElement> changeOrderLineEle = docInputChangeOrderAPI.getDocumentElement().
 	    			getChildElement(XMLLiterals.ORDER_LINES).getChildren();
+	    	if(changeOrderLineEle!=null) {
 	    	for(YFCElement changeOrderLine: changeOrderLineEle) {
 	    		String primeLineNo2 = changeOrderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
 	    		System.out.println("<<<<primeLineNo2>>>>"+primeLineNo2);
@@ -291,6 +296,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	    		}
 	    	}
 	    }
+	   }
 	}
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ORDER CANCELLLED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 	}

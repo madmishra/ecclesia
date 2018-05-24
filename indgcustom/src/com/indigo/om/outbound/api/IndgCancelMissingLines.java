@@ -191,7 +191,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
       YFCElement orderEle = eleOrderLine.getChildElement(XMLLiterals.ORDER);
       YFCNode parent = orderEle.getParentNode();
       parent.removeChild(orderEle);
-      YFCElement statusEle = eleOrderLine.getChildElement(XMLLiterals.ORDER);
+      YFCElement statusEle = eleOrderLine.getChildElement(XMLLiterals.ORDER_STATUSES);
       parent = statusEle.getParentNode();
       parent.removeChild(statusEle);
     }

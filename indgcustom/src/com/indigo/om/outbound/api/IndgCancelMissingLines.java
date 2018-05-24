@@ -161,7 +161,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
      * @return
      */
     private void addOrderInfomrationForSAP(YFCDocument docInXml, YFCDocument docInputChangeOrderAPI,YFCElement eleOrderLine) {
-        String sModifyts = eleOrderLine.getChildElement(XMLLiterals.ORDER).
+        String sModifyts = eleOrderLine.getChildElement(XMLLiterals.ORDER_LINE).getChildElement(XMLLiterals.ORDER).
                 getAttribute(XMLLiterals.MODIFYTS);
         String sOrderType=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_TYPE);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, sModifyts);

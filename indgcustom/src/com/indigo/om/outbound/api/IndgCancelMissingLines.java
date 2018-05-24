@@ -37,7 +37,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 		YFCDocument docGetOrderLineList = getOrderLineListFunc(docInXml);
 		System.out.println("<<<<get OrderLineList DOCUMENT>>>>"+docGetOrderLineList);
 		YFCDocument docInputChangeOrderAPI=getPrimeLineNo(docInXml, docGetOrderLineList);
-		
+		System.out.println("<<<<<docInputChangeOrderAPI>>>>"+docInputChangeOrderAPI);
 		return docInputChangeOrderAPI;
 	}
 	  /**
@@ -188,8 +188,10 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 				}
 			}
 		}
-		sendCancelledPrimeLineNoDoc(docInXml, docInputChangeOrderAPI,docGetOrderLineList);
-		System.out.println("<<<<docInputChangeOrderAPI after sendCancelledPrimeLineNoDoc>>>>"+docInputChangeOrderAPI);
+		if(!XmlUtils.isVoid(docInputChangeOrderAPI)) {
+			sendCancelledPrimeLineNoDoc(docInXml, docInputChangeOrderAPI,docGetOrderLineList);
+			System.out.println("<<<<docInputChangeOrderAPI after sendCancelledPrimeLineNoDoc>>>>"+docInputChangeOrderAPI);
+		}
 		return docInputChangeOrderAPI;
 	}
 	

@@ -8,6 +8,7 @@ import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
+import com.yantra.yfc.dom.YFCNode;
 
 /**
  * 
@@ -119,16 +120,18 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
                 System.out.println(eleOrderLine);
                 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL_STATUS);
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
+                deleteChildNodes(eleOrderLine);
                 orderLines.importNode(eleOrderLine);
             }
         }
         if(orderLines.hasChildNodes()) {
+            System.out.println(cancelLineDoc);
             invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, cancelLineDoc);
             addOrderInfomrationForSAP(docInXml,cancelLineDoc,docGetOrderLineList);
         } else {
           cancelLineDoc.getDocumentElement().setAttribute(IS_SAP_MSG_REQ,FLAG_NO);
         }
-        System.out.println(cancelLineDoc);
+       
         return cancelLineDoc;
     }
     
@@ -177,6 +180,20 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         docInputChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).setAttribute(XMLLiterals.SHIPNODE, sShipNode);
         docInputChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).createChild(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, sItemId);
         System.out.println("<<<<docInputChangeOrderAPI>>>>"+docInputChangeOrderAPI);
+    }
+    
+    /**
+     * Deletes unwanted child nodes from the Change Order Input
+     * 
+     * @param eleOrderLine
+     */
+    private void deleteChildNodes(YFCElement eleOrderLine) {
+      YFCElement orderEle = eleOrderLine.getChildElement(XMLLiterals.ORDER);
+      YFCNode parent = orderEle.getParentNode();
+      parent.removeChild(orderEle);
+      YFCElement statusEle = eleOrderLine.getChildElement(XMLLiterals.ORDER);
+      parent = statusEle.getParentNode();
+      parent.removeChild(statusEle);
     }
 }
     

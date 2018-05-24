@@ -35,6 +35,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	  @Override
 	public YFCDocument invoke(YFCDocument docInXml) {
 		YFCDocument docGetOrderLineList = getOrderLineListFunc(docInXml);
+		System.out.println("<<<<get OrderLineList DOCUMENT>>>>"+docGetOrderLineList);
 		getPrimeLineNo(docInXml, docGetOrderLineList);
 		
 		return docInputChangeOrderAPI;
@@ -58,6 +59,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	    eleOrder.setAttribute(XMLLiterals.ORDER_NO, sOrderNo);
 	    eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, sEnterpriseCode);
 	    eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, sDocumentType);
+	    System.out.println("<<<<docGetOrderLineListInput>>>>"+docGetOrderLineList);
 	    return docGetOrderLineList;
 	  }
 	/**
@@ -87,7 +89,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	    YFCElement eleOrderStatus = eleOrderLine.createChild(XMLLiterals.ORDER_STATUSES);
 	    YFCElement eleStatus = eleOrderStatus.createChild(XMLLiterals.ORDER_STATUS);
 	    eleStatus.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
-	    
+	    System.out.println("<<<<docGetOrderLineListTemplate>>>>"+docGetOrderListTemp);
 	    return docGetOrderListTemp;
 	  }
 	/**
@@ -115,6 +117,9 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 			inXmlLineList.add(sPrimeLineNo);
 	
 		}
+		
+		for(String i:inXmlLineList)
+			System.out.println("<<<<INPUT PRIMELINE LIST>>>>"+i);
 		YFCElement eleSapLineList= docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
 		YFCIterable<YFCElement> inputLineListEle = eleSapLineList.getChildren();
@@ -122,6 +127,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 			String sPrimeLineNo= primeLineEle2.getAttribute(XMLLiterals.PRIME_LINE_NO);
 			getOrderLinesList.add(sPrimeLineNo);
 		}
+		for(String i:inXmlLineList)
+			System.out.println("<<<<GETORDERLINELIST PRIMELINE LIST>>>>"+i);
 		removeCommonPrimeLineNo(inXmlLineList, getOrderLinesList, docGetOrderLineList, docInXml);
 	}
 	/**
@@ -145,6 +152,9 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 			primeLineNoList.add(i);
 			
 		}
+		
+		for(String i:primeLineNoList)
+		System.out.println("<<<<PRIMELINENOLIST>>>>"+i);
 		if(!primeLineNoList.isEmpty())
 		cancelMissingPrimeLineNo(primeLineNoList, docGetOrderLineList, docInXml);
 	}
@@ -155,12 +165,16 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	 * @param inXml
 	 */
 	private void cancelMissingPrimeLineNo(Collection<String> primeLineNoList, YFCDocument docGetOrderLineList, YFCDocument docInXml) {
+		System.out.println("<<<<docGetOrderLineList in cancelMissingPrimeLineNo>>>>"+docGetOrderLineList);
+		
 		for(String primeLineNoValue:primeLineNoList) {
 			YFCElement eleGetOrderLineList = XPathUtil.getXPathElement(docGetOrderLineList, 
 					"/OrderLineList/OrderLine[@PrimeLineNo = \""+primeLineNoValue+"\"]");
+			System.out.println("<<<<ORDERLINELIST in CANCELMISSINGPRIMELINENO>>>>"+eleGetOrderLineList);
 			if(!XmlUtils.isVoid(eleGetOrderLineList)) {
 				String status = eleGetOrderLineList.getChildElement(XMLLiterals.ORDER_STATUSES).
 						getChildElement(XMLLiterals.ORDER_STATUS).getAttribute(XMLLiterals.STATUS);
+				System.out.println("<<<<<STATUS in cancelMissingPrimeLineNo>>>>"+status);
 				if(!PRIMELINE_STATUS.equals(status)) {
 					changeOrderInput(docGetOrderLineList,primeLineNoValue);
 				}
@@ -193,6 +207,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 		eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, sPrimeLineNo);
 		eleOrderLine.setAttribute(XMLLiterals.SUB_LINE_NO, sSubLineNo);
 		eleOrderLine.setAttribute(XMLLiterals.ACTION, ACTION_STATUS);
+		System.out.println("<<<<docInputChangeOrderAPI inchangeOrderInput>>>> "+docInputChangeOrderAPI);
 		invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docInputChangeOrderAPI);
 	}
 	
@@ -204,27 +219,36 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	 * @return
 	 */
 	private YFCDocument sendCancelledPrimeLineNoDoc(YFCDocument docInXml, YFCDocument docInputChangeOrderAPI,YFCDocument docGetOrderLineList) {
+		System.out.println("<<<<docGetOrderLineList>>>>"+docGetOrderLineList);
+		System.out.println("<<<<docInputChangeOrderAPI>>>>"+docInputChangeOrderAPI);
 		YFCElement eleorderLine=docGetOrderLineList.getDocumentElement();
 		
 		String sModifyts = eleorderLine.getChildElement(XMLLiterals.ORDER_LINE).getChildElement(XMLLiterals.ORDER).
 				getAttribute(XMLLiterals.MODIFYTS);
+		System.out.println("<<<<sModifyts>>>>"+sModifyts);
+		System.out.println("<<<<<CANCELLING PRIMELINE>>>>>");
 		cancellingLine(docGetOrderLineList,eleorderLine);
 		String sChildOrderNo = docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.RELEASE_NO);
+		System.out.println("<<<<sChildOrderNo>>>>"+sChildOrderNo);
 		String sSapOrderNo=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.SAP_ORDER_NO);
+		System.out.println("<<<<sSapOrderNo>>>>"+sSapOrderNo);
 		String sOrderType=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_TYPE);
+		System.out.println("<<<<sOrderType>>>>"+sOrderType);
 		String sShipNode=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
 				.getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.SHIPNODE);
+		System.out.println("<<<<sShipNode>>>>"+sShipNode);
 		String sItemId=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
 				.getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID);
+		System.out.println("<<<<sItemId>>>>"+sItemId);
 		docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, sModifyts);
 		docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, sOrderType);
 		docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO, sChildOrderNo);
 		docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.SAP_ORDER_NO, sSapOrderNo);
 		docInputChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).setAttribute(XMLLiterals.SHIPNODE, sShipNode);
 		docInputChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).createChild(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, sItemId);
-		
+		System.out.println("<<<<docInputChangeOrderAPI>>>>"+docInputChangeOrderAPI);
 		return docInputChangeOrderAPI;
 	}
 	/**
@@ -233,15 +257,17 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	 * @param orderLineEle
 	 */
 	private void cancellingLine(YFCDocument docGetOrderLineList,YFCElement eleorderLine) {
-	
+		System.out.println("<<<<eleorderLine>>>>"+eleorderLine);
+		if(eleorderLine.getChildren()!=null) {
 		YFCIterable<YFCElement> getOrderLineEle = eleorderLine.getChildren();
 	    for(YFCElement orderLine: getOrderLineEle) {
 	    	String primeLineNo1 = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
+	    	System.out.println("<<<<primeLineNo1>>>>"+primeLineNo1);
 	    	YFCIterable<YFCElement> changeOrderLineEle = docInputChangeOrderAPI.getDocumentElement().
 	    			getChildElement(XMLLiterals.ORDER_LINES).getChildren();
 	    	for(YFCElement changeOrderLine: changeOrderLineEle) {
 	    		String primeLineNo2 = changeOrderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
-	    		
+	    		System.out.println("<<<<primeLineNo2>>>>"+primeLineNo2);
 	    		if(primeLineNo1.equals(primeLineNo2)) {
 	    			String sCurrentQty = "0";
 	    			String sOriginalQty = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE)
@@ -254,5 +280,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	    	}
 	    }
 	}
-	
+		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<ORDER CANCELLLED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+	}
 }
+	
+

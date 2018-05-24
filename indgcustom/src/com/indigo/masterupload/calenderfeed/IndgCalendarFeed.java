@@ -35,7 +35,7 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 	private static final String WORKING_DAY="1";
 	YFCDocument createCalenderInXml = null;
 	Map<String, String> map=new HashMap<>();
-	List<String> shiftList=new ArrayList();
+	List<String> shiftList=new ArrayList<String>();
 	/**
 	   * This is the invoke point of the Service
 	 * @throws  
@@ -283,7 +283,9 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 					YFCElement sortEle = slotList.createChild(XMLLiterals.SERVICE_SLOT);
 					
 					sortEle.setAttribute(XMLLiterals.START_TIME,shiftTime[0]);
-					shiftStartTimeList(shiftTime[0],slotList);
+					if (!shiftList.contains(shiftTime[0])) {
+						shiftList.add(shiftTime[0]);
+					}
 					sortEle.setAttribute(XMLLiterals.END_TIME, shiftTime[1]);
 				}
 				setadditionalShift(shiftList,slotList);
@@ -292,17 +294,13 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc);
 			map.clear();
 			}
-			private void shiftStartTimeList(String shiftTime,YFCElement slotList)
-			{
-				
-				if (!shiftList.contains(shiftTime)) {
-					shiftList.add(shiftTime);
-				}
-				
-				
-			}
+		
 			private void setadditionalShift(List<String> shiftList,YFCElement slotList)
 			{
+				for(String eleShift:shiftList)
+				{
+					System.out.println("LIST OF SHIFTs"+eleShift);
+				}
 				String sShiftStartTime="00:00:00";
 				for(String eleShiftTime:shiftList) {
 					YFCElement sortEle = slotList.getChildElement(XMLLiterals.SERVICE_SLOT);

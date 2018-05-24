@@ -109,13 +109,13 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         YFCIterable<YFCElement> apiPrimeLineNo = eleOrderLineList.getChildren(XMLLiterals.ORDER_LINE);
         YFCDocument cancelLineDoc = changeOrderInput(docGetOrderLineList);
         YFCElement orderLines = cancelLineDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
+        addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLineList);
         for(YFCElement eleOrderLine:apiPrimeLineNo) {
           System.out.println(eleOrderLine);
             String sPrimeLineNo= eleOrderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
             YFCElement orderLineEle = XPathUtil.getXPathElement(docInXml,"//OrderLines/OrderLine[@PrimeLineNo=\""+sPrimeLineNo+"\"]");
             if(XmlUtils.isVoid(orderLineEle) && 
                 !CALCEL_ORDER_STATUS.equals(eleOrderLine.getAttribute(XMLLiterals.STATUS))) {
-                
                 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL_STATUS);
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
                 System.out.println(eleOrderLine+"Before");

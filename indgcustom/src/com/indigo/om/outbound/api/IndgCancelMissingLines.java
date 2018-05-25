@@ -101,7 +101,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
      }
     
    /**
-    * this method fetches common primeline no present in input Xml and getOrderLineList api output
+    * this method fetches unique primeline no present in input Xml and getOrderLineList api output
+    * and invokes changeOrder api for htose whose status is not cancelled
     * 
     * @param docInXml
     * @param docGetOrderLineList

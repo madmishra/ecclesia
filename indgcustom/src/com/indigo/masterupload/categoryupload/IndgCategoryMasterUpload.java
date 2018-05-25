@@ -31,9 +31,9 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   private static final String CREATE_ACTION = "Create";
   private static final String DELETE_ACTION = "Delete";
   private static final String DEFAULT_UOM = "EACH";
-  private static final String UNPUBLISH_STATUS="2000";
-  private static final String PUBLISH_STATUS="3000";
-  private static final String ORG_CODE="Indigo_CA";
+  private static final String UNPUBLISH_STATUS = "2000";
+  private static final String PUBLISH_STATUS = "3000";
+  private static final String ORG_CODE = "Indigo_CA";
   List<String> itemIDList = new ArrayList<>();
   
   
@@ -57,7 +57,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
      manageDeleteCategory(categoryInEle.getAttribute(XMLLiterals.CATEGORY_ID),
          categoryInEle.getAttribute(XMLLiterals.CATEGORY_PATH),categoryItemList);
      manageSubCategory(categoryInEle.getAttribute(XMLLiterals.CATEGORY_PATH),
-          categoryInEle.getAttribute(XMLLiterals.CATEGORY_DOMAIN));
+    		 categoryInEle.getAttribute(XMLLiterals.CATEGORY_DOMAIN));
      invokeYantraApi(XMLLiterals.MANAGE_CATEGORY, inXml);
      manageCategoryItem(categoryInEle);
     }
@@ -202,9 +202,12 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * @param categoryEle
    */
   private void manageCategoryItem(YFCElement categoryEle) {
+	  System.out.println(categoryEle.toString() + "InCategoryEle");
     String categoryPath = categoryEle.getAttribute(XMLLiterals.CATEGORY_PATH);
+    System.out.println(categoryPath + "inCategoryPath");
     String action = CREATE_ACTION;
     YFCDocument itemList = getItemListDocumentFromList();
+    System.out.println(itemList + "ListOfItems");
     if(XmlUtils.isVoid(itemList)) {
       itemList = getItemList(categoryPath);
       action = DELETE_ACTION;
@@ -224,6 +227,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
         categoryItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UOM);
         itemIDList.add(itemEle.getAttribute(XMLLiterals.ITEM_ID));
       }
+      System.out.println(deleteCategoryItemDoc + "InsideDoc");
       invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, deleteCategoryItemDoc);
     }
   }
@@ -297,5 +301,4 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
     }
     return false;
   }
-  
 }

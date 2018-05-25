@@ -226,6 +226,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
         categoryItem.setAttribute(XMLLiterals.ITEM_ID, itemEle.getAttribute(XMLLiterals.ITEM_ID));
         categoryItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UOM);
         itemIDList.add(itemEle.getAttribute(XMLLiterals.ITEM_ID));
+        System.out.println(itemIDList + "Likhjkhaskjdhhd");
       }
       System.out.println(deleteCategoryItemDoc + "InsideDoc");
       invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, deleteCategoryItemDoc);
@@ -275,6 +276,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   public YFCDocument getItemListDocumentFromList(){
     YFCDocument itemListDoc  = null;
     for(String itemID: itemIDList) {
+    	System.out.println(itemIDList + "dskjhgdsg");
       itemListDoc = YFCDocument.createDocument(XMLLiterals.ITEM_LIST);
       itemListDoc.createElement(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, itemID);
     }

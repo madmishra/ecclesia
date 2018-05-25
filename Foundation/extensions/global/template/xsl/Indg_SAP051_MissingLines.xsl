@@ -10,7 +10,10 @@
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="SAPOrderNo">
-						<xsl:value-of select="@SAPOrderNo"/>
+						<xsl:value-of select="@ExtnSAPOrderNo"/>
+					</xsl:attribute>
+					<xsl:attribute name="SterlingOrderNo">
+						<xsl:value-of select="@OrderNo"/>
 					</xsl:attribute>
 					<xsl:attribute name="EnterpriseCode">
 						<xsl:value-of select="@EnterpriseCode"/>
@@ -21,15 +24,17 @@
 					<xsl:attribute name="OrderType">
 						<xsl:value-of select="@OrderType"/>
 					</xsl:attribute>
-					<xsl:attribute name="IsFullOrderCancelled">N</xsl:attribute>
+					<xsl:attribute name="IsFullOrderCancelled">
+					<xsl:value-of select="@IsFullOrderCancelled"/>
+					</xsl:attribute>
 					<OrderLines>
 						<xsl:for-each select="OrderLines/OrderLine">
 							<OrderLine>
 								<xsl:attribute name="CurrentQty">
-									<xsl:value-of select="@CurrentQty"/>
+									<xsl:value-of select="@OrderedQty"/>
 								</xsl:attribute>
 								<xsl:attribute name="OriginalQty">
-									<xsl:value-of select="@OriginalQty"/>
+									<xsl:value-of select="@OriginalOrderedQty"/>
 								</xsl:attribute>
 								<xsl:attribute name="PrimeLineNo">
 									<xsl:value-of select="@PrimeLineNo"/>

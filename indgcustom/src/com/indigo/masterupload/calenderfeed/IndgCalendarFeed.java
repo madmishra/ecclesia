@@ -281,32 +281,21 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				for(Object s:keySet) {
 					String[] shiftTime = map.get(s).split("-");
 					YFCElement sortEle = slotList.createChild(XMLLiterals.SERVICE_SLOT);
-					
+					if(!shiftList.contains(shiftTime[0]))
+					setShift(sortEle,shiftTime[0]);
 					sortEle.setAttribute(XMLLiterals.START_TIME,shiftTime[0]);
-					if (!shiftList.contains(shiftTime[0])) {
-						shiftList.add(shiftTime[0]);
-					}
 					sortEle.setAttribute(XMLLiterals.END_TIME, shiftTime[1]);
 				}
-				setadditionalShift(shiftList,slotList);
-				System.out.println("-----------DOCUMENT---------"+mangSlotDoc);
-				
+				System.out.println("---p-DOCUMENT---"+mangSlotDoc);
 			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc);
 			map.clear();
 			}
 		
-			private void setadditionalShift(List<String> shiftList,YFCElement slotList)
-			{
-				for(String eleShift:shiftList)
-				{
-					System.out.println("LIST OF SHIFTs"+eleShift);
-				}
-				String sShiftStartTime="00:00:00";
-				for(String eleShiftTime:shiftList) {
-					YFCElement sortEle = slotList.getChildElement(XMLLiterals.SERVICE_SLOT);
-					sortEle.setAttribute(XMLLiterals.START_TIME,sShiftStartTime);
-					sortEle.setAttribute(XMLLiterals.END_TIME, eleShiftTime);
-				}
+			
+			private  void setShift(YFCElement sortEle,String shiftTime ) {
+				String START_TIME="00:00:00";
+				sortEle.setAttribute(XMLLiterals.START_TIME,START_TIME);
+				sortEle.setAttribute(XMLLiterals.END_TIME, shiftTime);
 			}
 			/**
 			 * 

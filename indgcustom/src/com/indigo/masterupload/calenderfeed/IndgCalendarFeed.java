@@ -281,12 +281,13 @@ public class IndgCalendarFeed extends AbstractCustomApi{
 				for(Object s:keySet) {
 					String[] shiftTime = map.get(s).split("-");
 					YFCElement sortEle = slotList.createChild(XMLLiterals.SERVICE_SLOT);
-					if(!shiftList.contains(shiftTime[0]))
+					if(!shiftList.contains(shiftTime[0])) {
 					setShift(sortEle,shiftTime[0]);
+					}
 					sortEle.setAttribute(XMLLiterals.START_TIME,shiftTime[0]);
 					sortEle.setAttribute(XMLLiterals.END_TIME, shiftTime[1]);
 				}
-				System.out.println("---p-DOCUMENT---"+mangSlotDoc);
+				System.out.println("---DOCUMENT---"+mangSlotDoc);
 			invokeYantraApi(XMLLiterals.MANAGE_SERVICE_SLOT_GROUP,mangSlotDoc);
 			map.clear();
 			}

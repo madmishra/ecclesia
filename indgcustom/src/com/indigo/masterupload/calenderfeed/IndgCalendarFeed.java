@@ -79,6 +79,7 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 		  }
 		  createCalendar(exceptionList);
 		  createResourcePool(organizationCode);
+		  System.out.println("FINAL DOCUMENT"+docCreateCalenderInXml);
 		  return docCreateCalenderInXml;
 }
 	  
@@ -439,9 +440,7 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 	  }
 	}
 	private void raiseAlert(YFCDocument calenderDetailXml) {
-		String PROD="PROD";
-	
-				
+		String PROD="PROD";		
 		YFCElement docCalenderDetail=calenderDetailXml.getDocumentElement();
 		YFCDocument docGetResPoolCapcityDetails=YFCDocument.createDocument(XMLLiterals.RESOURCE_POOL);
 	    YFCElement eleResourcePool=docGetResPoolCapcityDetails.getDocumentElement();
@@ -450,6 +449,7 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 	    eleResourcePool.setAttribute(XMLLiterals.PROVIDER_ORGANIZATION_CODE,XMLLiterals.INDIGO_CA);
 	    eleResourcePool.setAttribute(XMLLiterals.NODE,docCalenderDetail.getAttribute(XMLLiterals.ORGANIZATION_CODE));
 	    eleResourcePool.setAttribute(XMLLiterals.ITEM_GROUP_CODE,PROD);
+	    System.out.println("RAISE DOCUMENT "+docGetResPoolCapcityDetails);
 		invokeYantraService(INDG_GET_RESOURCE_POOL_CAPACITY , docGetResPoolCapcityDetails);
 		
 		

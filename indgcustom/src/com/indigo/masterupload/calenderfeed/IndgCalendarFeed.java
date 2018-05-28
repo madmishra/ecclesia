@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.json.utils.XML;
+
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
@@ -446,6 +448,7 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 	    eleResourcePool.setAttribute(XMLLiterals.CAPACITYORGCODE, XMLLiterals.INDIGO_CA);
 	    eleResourcePool.setAttribute(XMLLiterals.RESOURCE_POOL_ID,docCalenderDetail.getAttribute(XMLLiterals.ORGANIZATION_CODE)+POOLID);
 	    eleResourcePool.setAttribute(XMLLiterals.PROVIDER_ORGANIZATION_CODE,XMLLiterals.INDIGO_CA);
+	    eleResourcePool.setAttribute(XMLLiterals.NODE,docCalenderDetail.getAttribute(XMLLiterals.ORGANIZATION_CODE));
 	    eleResourcePool.setAttribute(XMLLiterals.ITEM_GROUP_CODE,PROD);
 		invokeYantraService(INDG_GET_RESOURCE_POOL_CAPACITY , docGetResPoolCapcityDetails);
 		

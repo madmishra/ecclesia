@@ -14,9 +14,7 @@
 			<xsl:attribute name="ProviderOrganizationCode">
 				<xsl:value-of select="@EnterpriseCode" />
 			</xsl:attribute>
-			<xsl:attribute name="ItemGroupCode">
-				<xsl:value-of select="OrderLine/Item/@ItemGroupCode" />
-			</xsl:attribute>
+			<xsl:attribute name="ItemGroupCode">PROD</xsl:attribute>
 		</ResourcePool>
 	</xsl:template>
 </xsl:stylesheet>

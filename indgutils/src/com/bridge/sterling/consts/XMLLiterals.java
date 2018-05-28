@@ -226,5 +226,7 @@ public static final String RESET = "Reset";
 public static final String NAME = "Name";
 public static final String VALUE = "Value";
 public static final String MANAGE_COMMON_CODE_API = "manageCommonCode";
+public static final String GET_CALENDAR_DETAILS="getCalendarDetails";
+public static final String PROVIDER_ORGANIZATION_CODE ="ProviderOrganizationCode" ;
 }
 

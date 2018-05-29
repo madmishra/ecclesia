@@ -732,9 +732,9 @@
     AgentCriteriaKey="CALC_CAPCTY_AVAIL" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:10-04:00" Createuserid="SYSTEM"
     FlowKey="CALC_CAPCTY_AVAIL" Lockid="0"
-    MessageXml="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &lt;Attributes>                     &lt;Attribute DataType=&quot;Text-20&quot;         Modifiable=&quot;N&quot; ModifyFlag=&quot;Y&quot; Name=&quot;Action&quot; Value=&quot;Get&quot;/>         &lt;Attribute DataType=&quot;Integer4AgentCriteria&quot; Modifiable=&quot;Y&quot;         Name=&quot;NumRecordsToBuffer&quot; Value=&quot;0&quot;/>  &lt;Attribute Name=&quot;CapacityOrganizationCode&quot; Value=&quot;&quot; DataType=&quot;Key&quot; Modifiable=&quot;Y&quot; />  &lt;/Attributes> "
+    MessageXml="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;Attributes>&#xa;    &lt;Attribute DataType=&quot;Text-20&quot; DisplayName=&quot;Action&quot; Modifiable=&quot;N&quot;&#xa;        ModifyFlag=&quot;Y&quot; Name=&quot;Action&quot; Value=&quot;Get&quot;/>&#xa;    &lt;Attribute DataType=&quot;Integer4AgentCriteria&quot;&#xa;        DisplayName=&quot;Number of Records To Buffer&quot; Modifiable=&quot;Y&quot;&#xa;        Name=&quot;NumRecordsToBuffer&quot; Value=&quot;0&quot;/>&#xa;    &lt;Attribute DisplayName=&quot;Collect Pending Jobs&quot;&#xa;        Name=&quot;CollectPendingJobs&quot; Value=&quot;Y&quot;/>&#xa;&lt;/Attributes>&#xa;"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" ServerKey="DEFAULT_SERVER" TransactionKey="CALC_CAPCTY_AVAIL"/>
+    Modifyuserid="SYSTEM" ServerKey="2018052809194217249" TransactionKey="CALC_CAPCTY_AVAIL"/>
 <AgentCriteria AgentCriteriaId="CAPACITYPRG"
     AgentCriteriaKey="CAPACITYPRG" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:09-04:00" Createuserid="SYSTEM"

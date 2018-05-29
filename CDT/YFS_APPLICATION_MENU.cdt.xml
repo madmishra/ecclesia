@@ -30,6 +30,24 @@
     Lockid="0" MenuId="SUPPLIER_PORTAL_MENU"
     MenuKey="200401201012104605" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:36:15-04:00" Modifyuserid="SYSTEM" SystemDefined="N"/>
+<ApplicationMenu ApplicationMenuKey="WSC_APP_MENU"
+    ApplicationName="WSCSYS00001" Createprogid="XMLMigrator"
+    Createts="2018-05-23T08:09:12-04:00" Createuserid="SYSTEM"
+    Lockid="0" MenuId="SOP_MENU" MenuKey="WSC_MENU_KEY"
+    Modifyprogid="XMLMigrator" Modifyts="2018-05-23T08:09:12-04:00"
+    Modifyuserid="SYSTEM" SystemDefined="Y"/>
+<ApplicationMenu ApplicationMenuKey="WSC_CONSOLE_MENU"
+    ApplicationName="YFSSYS00004" Createprogid="XMLMigrator"
+    Createts="2018-05-23T08:09:12-04:00" Createuserid="SYSTEM"
+    Lockid="0" MenuId="SOP_MENU" MenuKey="YANTRA_MENU_KEY"
+    Modifyprogid="XMLMigrator" Modifyts="2018-05-23T08:09:12-04:00"
+    Modifyuserid="SYSTEM" SystemDefined="Y"/>
+<ApplicationMenu ApplicationMenuKey="WSC_MENU"
+    ApplicationName="WSCSYS00001" Createprogid="XMLMigrator"
+    Createts="2018-05-23T08:09:12-04:00" Createuserid="SYSTEM"
+    Lockid="0" MenuId="DEFAULT_MENU" MenuKey="WSC_DEFAULT_MENU_KEY"
+    Modifyprogid="XMLMigrator" Modifyts="2018-05-23T08:09:12-04:00"
+    Modifyuserid="SYSTEM" SystemDefined="Y"/>
 <ApplicationMenu ApplicationMenuKey="YANTRA_MENU"
     ApplicationName="YFSSYS00004" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:53-04:00" Createuserid="SYSTEM"

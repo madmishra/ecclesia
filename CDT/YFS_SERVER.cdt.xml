@@ -346,6 +346,12 @@
     Modifyuserid="admin" MonitorStartTime="1"
     ServerKey="2018052208104915906" ServerName="Indg_InvMisMatch"
     ServerType="00" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-05-28T09:19:42-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-05-28T09:19:42-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="2018052809194217249" ServerName="OrderCapacityServer"
+    ServerType="01" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
 <Server Createprogid="XMLMigrator" Createts="2018-03-28T12:30:08-04:00"
     Createuserid="SYSTEM" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:08-04:00" Modifyuserid="SYSTEM"

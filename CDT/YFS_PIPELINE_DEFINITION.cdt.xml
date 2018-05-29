@@ -3749,4 +3749,10 @@
     Modifyts="2018-05-21T12:11:26-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018052112112613864"
     PipelineKey="201804120904073062" TransactionInstanceKey="74" TransactionKey="CONSOLIDATE_TO_SHIPMENT"/>
+<PipelineDefinition Createprogid="Manual"
+    Createts="2018-05-23T18:00:00-04:00" Createuserid="SYSTEM"
+    DropStatus="1100" Lockid="0" Modifyprogid="Manual"
+    Modifyts="2018-05-23T18:00:00-04:00" Modifyuserid="SYSTEM"
+    PipelineDefinitionKey="20180523180010126544"
+    PipelineKey="201804120904073062" TransactionInstanceKey="76" TransactionKey="REMOVE_SHIPMENT"/>
 </YFS_PIPELINE_DEFINITIONList>

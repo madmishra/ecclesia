@@ -17656,7 +17656,7 @@
     StatusModGroupKey="Indigo_CA_OF"
     StatusModificationKey="2018050309114711418"
     StatusModificationTypeKey="OF_OL_OTHERS" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:31:42-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:31:42-04:00" Modifyuserid="admin"
@@ -17664,7 +17664,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309314216672"
     StatusModificationTypeKey="SHIPMENT_MOD_4" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:31:45-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:31:45-04:00" Modifyuserid="admin"
@@ -17672,7 +17672,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309314516675"
     StatusModificationTypeKey="SHIPMENT_MOD_4" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:31:47-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:31:47-04:00" Modifyuserid="admin"
@@ -17680,7 +17680,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309314716678"
     StatusModificationTypeKey="SHIPMENT_MOD_4" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:31:48-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:31:48-04:00" Modifyuserid="admin"
@@ -17688,7 +17688,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309314816681"
     StatusModificationTypeKey="SHIPMENT_MOD_4" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:31:50-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:31:50-04:00" Modifyuserid="admin"
@@ -17696,7 +17696,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309315016684"
     StatusModificationTypeKey="SHIPMENT_MOD_4" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:31:53-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:31:53-04:00" Modifyuserid="admin"
@@ -17704,7 +17704,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309315316687"
     StatusModificationTypeKey="SHIPMENT_MOD_4" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:31:57-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:31:57-04:00" Modifyuserid="admin"
@@ -17712,7 +17712,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309315716690"
     StatusModificationTypeKey="SHIPMENT_MOD_4" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:31:59-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:31:59-04:00" Modifyuserid="admin"
@@ -17720,7 +17720,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309315916693"
     StatusModificationTypeKey="SHIPMENT_MOD_4" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:32:00-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:32:00-04:00" Modifyuserid="admin"
@@ -17728,7 +17728,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309320016696"
     StatusModificationTypeKey="SHIPMENT_MOD_4" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:32:24-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:32:24-04:00" Modifyuserid="admin"
@@ -17736,7 +17736,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309322416699"
     StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:32:26-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:32:26-04:00" Modifyuserid="admin"
@@ -17744,7 +17744,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309322616702"
     StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:32:27-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:32:27-04:00" Modifyuserid="admin"
@@ -17752,7 +17752,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309322716705"
     StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:32:29-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:32:29-04:00" Modifyuserid="admin"
@@ -17760,7 +17760,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309322916708"
     StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:32:32-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:32:32-04:00" Modifyuserid="admin"
@@ -17768,7 +17768,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309323216711"
     StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:32:36-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:32:36-04:00" Modifyuserid="admin"
@@ -17776,7 +17776,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309323616714"
     StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:32:38-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:32:38-04:00" Modifyuserid="admin"
@@ -17784,7 +17784,7 @@
     StatusModGroupKey="Indigo_CA_OD"
     StatusModificationKey="2018052309323816717"
     StatusModificationTypeKey="SHIPMENT_MOD_9" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:47:08-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:47:08-04:00" Modifyuserid="admin"
@@ -17792,7 +17792,7 @@
     StatusModGroupKey="Indigo_CA_OF"
     StatusModificationKey="2018052309470816720"
     StatusModificationTypeKey="OF_OL_ADD_NOTE" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:47:11-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:47:11-04:00" Modifyuserid="admin"
@@ -17800,7 +17800,7 @@
     StatusModGroupKey="Indigo_CA_OF"
     StatusModificationKey="2018052309471116723"
     StatusModificationTypeKey="OF_OL_ADD_NOTE" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:47:13-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:47:13-04:00" Modifyuserid="admin"
@@ -17808,7 +17808,7 @@
     StatusModGroupKey="Indigo_CA_OF"
     StatusModificationKey="2018052309471316726"
     StatusModificationTypeKey="OF_OL_ADD_NOTE" SystemDefinedCode="N"/>
-<StatusModification AccessGroupId="" AllowValue="01"
+<StatusModification AccessGroupId=" " AllowValue="01"
     Createprogid=".YCPRuleSetAPI" Createts="2018-05-23T09:47:14-04:00"
     Createuserid="admin" Lockid="0" Modifyprogid=".YCPRuleSetAPI"
     Modifyts="2018-05-23T09:47:14-04:00" Modifyuserid="admin"

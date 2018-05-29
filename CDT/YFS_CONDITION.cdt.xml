@@ -1112,7 +1112,7 @@
     GroupId="IndgOrderCond" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-24T11:44:38-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="SAP051" ConditionKey="2018052411545316869"
     ConditionName="SAP051" ConditionType="PROCESS_MODELLING"
@@ -1121,7 +1121,7 @@
     GroupId="IndgOrderCond" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-24T11:54:53-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="SAP051MsgReq" ConditionKey="2018052503383816933"
     ConditionName="SAP051MsgReq" ConditionType="PROCESS_MODELLING"
@@ -1131,7 +1131,7 @@
     GroupId="IndgOrderCond" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-25T03:38:38-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_PORTAL" ConditionKey="DEFAULT_PORTAL"
     ConditionName="Is Shipment confirmed through Console?"

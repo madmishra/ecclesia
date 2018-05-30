@@ -221,6 +221,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
     System.out.println(itemList + "ListOfItems");
     if(XmlUtils.isVoid(itemList)) {
       itemList = getItemList(categoryPath);
+      System.out.println(itemList + "insideLoop");
       action = DELETE_ACTION;
     }
     if(itemList.getDocumentElement().hasChildNodes()) {
@@ -283,7 +284,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   }
   
   /**
-   * For Output Document for Item from List
+   * Form Output Document for Item from List
    * 
    * @return
    */

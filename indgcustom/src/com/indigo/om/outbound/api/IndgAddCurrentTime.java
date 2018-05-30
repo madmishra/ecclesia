@@ -27,7 +27,7 @@ public class IndgAddCurrentTime extends AbstractCustomApi {
 	{
 		Date date = new Date();
 		SimpleDateFormat sdf1=new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat sdf2=new SimpleDateFormat("HH:mm:ss.SS");
+		SimpleDateFormat sdf2=new SimpleDateFormat("HH:mm:ssZ");
 		String dateString1=sdf1.format(date);
 		String dateString2=sdf2.format(date);
 		return dateString1+"T"+dateString2;

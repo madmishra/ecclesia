@@ -61,6 +61,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
      manageSubCategory(categoryInEle.getAttribute(XMLLiterals.CATEGORY_PATH),
     		 categoryInEle.getAttribute(XMLLiterals.CATEGORY_DOMAIN));
      invokeYantraApi(XMLLiterals.MANAGE_CATEGORY, inXml);
+     System.out.println(categoryInEle.toString() + "categhdshg");
      manageCategoryItem(categoryInEle);
     }
     return inXml;
@@ -275,6 +276,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
         "/CategoryList/Category[@CategoryID=\""+categoryId+"\"]");
     if(!XmlUtils.isVoid(categoryEle) && !categoryPath.equals(categoryEle.getAttribute(XMLLiterals.CATEGORY_PATH))) {
       categoryEle.setAttribute(XMLLiterals.ACTION,DELETE_ACTION);
+      System.out.println(categoryEle.toString() + "kjkdsaj");
       manageCategoryItem(categoryEle);
       invokeYantraApi(XMLLiterals.MANAGE_CATEGORY, categoryListApiOp);
     }

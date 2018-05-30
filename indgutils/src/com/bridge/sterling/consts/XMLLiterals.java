@@ -228,5 +228,8 @@ public static final String VALUE = "Value";
 public static final String MANAGE_COMMON_CODE_API = "manageCommonCode";
 public static final String GET_CALENDAR_DETAILS="getCalendarDetails";
 public static final String PROVIDER_ORGANIZATION_CODE ="ProviderOrganizationCode" ;
+public static final String NODE_CAPACITY="NodeCapacity";
+public static final String DATES="Dates";
+public static final String LAST_UPDATED_TIME="LastUpdatedTime";
 }
 

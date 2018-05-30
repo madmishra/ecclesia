@@ -1329,13 +1329,13 @@
     MeantForEnterprise=" " MeantForInternal=" " MeantForSupplier=" "
     Modifyprogid=".YEntityServlet" Modifyts="2018-04-12T11:13:03-04:00"
     Modifyuserid="admin" OrganizationCode="Indigo_CA" SystemDefinedCode="N"/>
-<CommonCode CodeLength="0" CodeLongDescription="French" CodeName=""
-    CodeShortDescription="French" CodeSymbol="" CodeType="LANGUAGE"
+<CommonCode CodeLength="0" CodeLongDescription="French" CodeName=" "
+    CodeShortDescription="French" CodeSymbol=" " CodeType="LANGUAGE"
     CodeValue="fr" CommonCodeKey="2018052907495217817"
     Createprogid=".YEntityServlet" Createts="2018-05-29T07:49:52-04:00"
-    Createuserid="admin" DocumentType="" DocumentTypeSpecific=""
-    Lockid="0" MeantForEnterprise="" MeantForInternal=""
-    MeantForSupplier="" Modifyprogid=".YEntityServlet"
+    Createuserid="admin" DocumentType=" " DocumentTypeSpecific=" "
+    Lockid="0" MeantForEnterprise=" " MeantForInternal=" "
+    MeantForSupplier=" " Modifyprogid=".YEntityServlet"
     Modifyts="2018-05-29T07:49:52-04:00" Modifyuserid="admin"
     OrganizationCode="DEFAULT" SystemDefinedCode="N"/>
 <CommonCode CodeLength="0"

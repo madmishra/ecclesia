@@ -2620,7 +2620,7 @@
     ExtendSupplierFlag=" " Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:58-04:00" Modifyuserid="SYSTEM"
     ShipnodeKey=" " TransactionKey="ITEM_DEFINITION" Version=" "/>
-<Event ActionKey=" " ActiveFlag="N" Createprogid="XMLMigrator"
+<Event ActionKey=" " ActiveFlag="Y" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:58-04:00" Createuserid="SYSTEM"
     EnterpriseKey="DEFAULT" EventKey="DEFAULT_CAP_FILL"
     EventName="On Standard Capacity Filled"
@@ -2629,7 +2629,7 @@
     ExtendSupplierFlag=" " Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:58-04:00" Modifyuserid="SYSTEM"
     ShipnodeKey=" " TransactionKey="CAPACITY_CHANGE" Version=" "/>
-<Event ActionKey=" " ActiveFlag="N" Createprogid="XMLMigrator"
+<Event ActionKey=" " ActiveFlag="Y" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:58-04:00" Createuserid="SYSTEM"
     EnterpriseKey="DEFAULT" EventKey="DEFAULT_CAP_FREE"
     EventName="On Standard Capacity Freed"
@@ -2722,7 +2722,7 @@
     ExtendSupplierFlag=" " Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:57-04:00" Modifyuserid="SYSTEM"
     ShipnodeKey=" " TransactionKey="ITEM_DEFINITION" Version=" "/>
-<Event ActionKey=" " ActiveFlag="N" Createprogid="XMLMigrator"
+<Event ActionKey=" " ActiveFlag="Y" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:57-04:00" Createuserid="SYSTEM"
     EnterpriseKey="DEFAULT" EventKey="DEFAULT_EVENT_KEY_131"
     EventName="On Capacity Adjustment" Eventid="ON_CAPACITY_ADJUSTMENT"

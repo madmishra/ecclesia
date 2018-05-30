@@ -291,12 +291,10 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   
   public YFCDocument getItemListDocumentFromList(){
     YFCDocument itemListDoc  = null;
-    if(!XmlUtils.isVoid(itemListDoc)){
     	for(String itemID: itemIDList) {
     		System.out.println(itemIDList + "dskjhgdsg");
     		itemListDoc = YFCDocument.createDocument(XMLLiterals.ITEM_LIST);
     		itemListDoc.createElement(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, itemID);
-    	}
     }
     System.out.println(itemListDoc + "itemListDoc");
     return itemListDoc;

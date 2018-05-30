@@ -40,7 +40,7 @@
 								<xsl:value-of select="@Availability" />
 							</xsl:attribute>
 							<xsl:attribute name="ConsumedCapacity">
-								<xsl:value-of select="@Capacity" />
+								<xsl:value-of select="@AllocatedConsumption" />
 							</xsl:attribute>
 							<xsl:attribute name="TotalCapacity">
 								<xsl:value-of select="@StandardCapacity" />

@@ -1,7 +1,9 @@
 package com.indigo.inventory;
 
+import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
+import com.bridge.sterling.utils.ExceptionUtil;
 import com.bridge.sterling.utils.XPathUtil;
 import com.indigo.masterupload.itemfeedupload.IndgManageItemFeed;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
@@ -17,6 +19,7 @@ import com.yantra.yfc.dom.YFCElement;
  * @author BSG109
  *
  */
+
 public class IndgManageInvDeltaSync extends AbstractCustomApi {
 
   private static final String FLAG_YES = "Y";
@@ -24,6 +27,9 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
   private static final String DEFAULT_UNIT_OF_MEASURE = "EACH";
   private static final String INDIGO_CA = "Indigo_CA";
   private static final String ONHAND = "ONHAND";
+  private static final String INDG_FULL_SYNC_STATUS_LIST_FLOW = "IndgGetSyncStatusList";
+  private static final String DELTA_SLEEP_TIME = "DeltaSleepTime";
+  private static final String EMPTY_STRING = "";
   
   /**
    * This is the invoke point for the service
@@ -31,6 +37,7 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
+    sleepTillEOF();
     manageInvFeedBasedOnMovement(inXml);
     return inXml;
   }
@@ -120,8 +127,11 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
     inEle.setAttribute(XMLLiterals.ITEM_ID, itemEle.getAttribute(XMLLiterals.ITEM_ID));
     inEle.setAttribute(XMLLiterals.SHIPNODE, itemEle.getAttribute(XMLLiterals.SHIPNODE));
     inEle.setAttribute(XMLLiterals.QUANTITY, itemEle.getAttribute(XMLLiterals.QUANTITY));
-    inEle.setAttribute(XMLLiterals.GENERATION_DATE, itemEle.getAttribute(XMLLiterals.GENERATION_DATE));
-    inEle.setAttribute(XMLLiterals.TRANSACTION_DATE, itemEle.getAttribute(XMLLiterals.TRANSACTION_DATE));
+    inEle.setAttribute(XMLLiterals.GENERATION_DATE, 
+        itemEle.getAttribute(XMLLiterals.GENERATION_DATE
+            ,itemEle.getAttribute(XMLLiterals.TRANSACTION_DATE)));
+    inEle.setAttribute(XMLLiterals.TRANSACTION_DATE, 
+        itemEle.getAttribute(XMLLiterals.TRANSACTION_DATE));
     invokeYantraService(XMLLiterals.INDG_INV_ADJ_LOG_CREATE, inXml);
   }
   
@@ -142,10 +152,10 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
       if(canApplyInvAdjustment(syncCtrlListDoc,itemEle,XMLLiterals.TRANSACTION_DATE) && 
           canApplyInvAdjustment(syncCtrlListDoc,itemEle,XMLLiterals.GENERATION_DATE) ) {
         applyAdjustInvForCycleCount(itemEle);
-      } else {
-        removeNodeControl(shipNode,itemID);
       }
+      removeNodeControl(shipNode,itemID);
     }
+    
   }
   
   /**
@@ -161,8 +171,8 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
     syncCtrlEle.setAttribute(XMLLiterals.GENERATION_DATE, 
         itemEle.getAttribute(XMLLiterals.GENERATION_DATE));
     YFCDocument syncCtrlListOp = getSyncCtrlList(itemEle.getAttribute(XMLLiterals.ITEM_ID)
-        ,XMLLiterals.SHIPNODE);
-    if(syncCtrlListOp.hasChildNodes()) {
+        ,itemEle.getAttribute(XMLLiterals.SHIPNODE));
+    if(syncCtrlListOp.getDocumentElement().hasChildNodes()) {
       invokeYantraService(XMLLiterals.UPDATE_FULL_SYNC_CTRL, syncCtrlListOIn);
     } else {
       invokeYantraService(XMLLiterals.CREATE_FULL_SYNC_CTRL, syncCtrlListOIn);
@@ -230,6 +240,8 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
     YFCDocument inXml = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
     inXml.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, shipNode);
     inXml.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemID);
+    inXml.getDocumentElement().setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
+    inXml.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, INDIGO_CA);
     inXml.getDocumentElement().setAttribute(XMLLiterals.INVENTORY_PICTURE_CORRECT, FLAG_YES);
   }
   
@@ -242,12 +254,13 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
   private void applyAdjustInvForDelta(YFCElement itemEle) {
     YFCDocument adjDoc= YFCDocument.createDocument(XMLLiterals.ITEMS);
     YFCElement adjEle = adjDoc.getDocumentElement();
-    
     if(XmlUtils.isVoid(itemEle.getAttribute(XMLLiterals.REASON_TEXT)) &&
         XmlUtils.isVoid(itemEle.getAttribute(XMLLiterals.REASON_CODE))) {
       itemEle.setAttribute(XMLLiterals.REASON_CODE,POS_SALES);
       itemEle.setAttribute(XMLLiterals.REASON_TEXT,POS_SALES);
     }
+    itemEle.setAttribute(XMLLiterals.REFERENCE_2, 
+        itemEle.getAttribute(XMLLiterals.MATERIAL_DOC_NUMBER,EMPTY_STRING));
     itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE,
         XMLLiterals.ADJUSTMENT);
     itemEle.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
@@ -271,7 +284,37 @@ public class IndgManageInvDeltaSync extends AbstractCustomApi {
         + calculateAbsoluteQuantity(itemEle));
     itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ABSOLUTE);
     itemEle.setAttribute(XMLLiterals.REMOVE_INV_NODE_CTRL, FLAG_YES);
+    itemEle.setAttribute(XMLLiterals.SUPPLY_TYPE, ONHAND);
     adjEle.importNode(itemEle);
     invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, adjDoc);
   }
+  
+  /**
+   * 
+   * This is an recursive method to check for
+   * EOF inventory Full Sync
+   * 
+   */
+  private void sleepTillEOF() {
+    int deltaSleepTime = Integer.parseInt(getProperty(DELTA_SLEEP_TIME));
+    try {
+      Thread.sleep(deltaSleepTime);
+      YFCDocument fullSyncStatusList = isFullSyncCompleted();
+     if(fullSyncStatusList.getDocumentElement().hasChildNodes()){
+        sleepTillEOF();
+      }
+    } catch (Exception exp) {
+      throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SYNC_EXP, exp);
+    }
+  }
+  
+    /**
+     * This method gets the List of Full Sync Status Table records
+     * 
+     * @return
+     */
+    private YFCDocument isFullSyncCompleted() {
+      YFCDocument inXml = YFCDocument.createDocument(XMLLiterals.INDG_FULL_SYNC_STATUS);
+      return invokeYantraService(INDG_FULL_SYNC_STATUS_LIST_FLOW, inXml);
+    }
 }

@@ -813,13 +813,12 @@
     StatusName="Carried" StatusType="USER"/>
 <Status Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-04-12T09:10:46-04:00" Createuserid="admin"
-    Description="Backroom Pick In Progress" Lockid="0"
+    Description="Picking In Progress" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-04-12T09:10:46-04:00" Modifyuserid="admin"
     OwnerKey="DEFAULT" ProcessTypeKey="ORDER_FULFILLMENT"
     RequiresCollaboration=" " Status="3350.100"
-    StatusKey="201804120910463313"
-    StatusName="Backroom Pick In Progress" StatusType="USER"/>
+    StatusKey="201804120910463313" StatusName="Picking In Progress" StatusType="USER"/>
 <Status Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-04-12T09:11:37-04:00" Createuserid="admin"
     Description="Ready For Print" Lockid="0"
@@ -838,12 +837,13 @@
     StatusKey="201804120912033323" StatusName="Ready For Gift Wrap" StatusType="USER"/>
 <Status Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-04-12T09:12:37-04:00" Createuserid="admin"
-    Description="Ready For Pick Up" Lockid="0"
+    Description="Ready For Customer Pickup" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-04-12T09:12:37-04:00" Modifyuserid="admin"
     OwnerKey="DEFAULT" ProcessTypeKey="ORDER_FULFILLMENT"
     RequiresCollaboration=" " Status="3350.400"
-    StatusKey="201804120912373328" StatusName="Ready For Pick Up" StatusType="USER"/>
+    StatusKey="201804120912373328"
+    StatusName="Ready For Customer Pickup" StatusType="USER"/>
 <Status Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-04-12T09:36:02-04:00" Createuserid="admin"
     Description="Ready For Print" Lockid="0"
@@ -862,20 +862,22 @@
     StatusKey="201804120940523765" StatusName="Ready For Gift Wrap" StatusType="USER"/>
 <Status Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-04-12T09:41:12-04:00" Createuserid="admin"
-    Description="Ready For Pick Up" Lockid="0"
+    Description="Ready For Customer Pickup" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-04-12T09:41:12-04:00" Modifyuserid="admin"
     OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
     RequiresCollaboration=" " Status="1100.70.300"
-    StatusKey="201804120941123770" StatusName="Ready For Pick Up" StatusType="USER"/>
+    StatusKey="201804120941123770"
+    StatusName="Ready For Customer Pickup" StatusType="USER"/>
 <Status Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-04-12T09:41:32-04:00" Createuserid="admin"
-    Description="Ready For PICK UP" Lockid="0"
+    Description="Ready For Customer Pickup" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-04-12T09:41:32-04:00" Modifyuserid="admin"
     OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
     RequiresCollaboration=" " Status="1100.70.400"
-    StatusKey="201804120941323775" StatusName="Ready For PICK UP" StatusType="USER"/>
+    StatusKey="201804120941323775"
+    StatusName="Ready For Customer Pickup" StatusType="USER"/>
 <Status Createprogid="XMLMigrator" Createts="2018-03-28T12:36:06-04:00"
     Createuserid="SYSTEM" Description="Batched" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:06-04:00"
@@ -1800,21 +1802,19 @@
     Status="3700.0101" StatusKey="YCD_AWAIT_INVOICE"
     StatusName="Awaiting Invoice" StatusType="USER"/>
 <Status Createprogid="XMLMigrator" Createts="2018-03-28T12:31:14-04:00"
-    Createuserid="SYSTEM" Description="Backroom Pick in Progress"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:31:14-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
-    RequiresCollaboration=" " Status="1100.70.06.20"
-    StatusKey="YCD_BACKROOM_PICK_PROGRS"
-    StatusName="Backroom Pick in Progress" StatusType="USER"/>
+    Createuserid="SYSTEM" Description="Picking in Progress" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT"
+    ProcessTypeKey="ORDER_DELIVERY" RequiresCollaboration=" "
+    Status="1100.70.06.20" StatusKey="YCD_BACKROOM_PICK_PROGRS"
+    StatusName="Picking in Progress" StatusType="USER"/>
 <Status Createprogid="XMLMigrator" Createts="2018-03-28T12:31:14-04:00"
-    Createuserid="SYSTEM" Description="Ready For Backroom Pick"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:31:14-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" ProcessTypeKey="ORDER_DELIVERY"
-    RequiresCollaboration=" " Status="1100.70.06.10"
-    StatusKey="YCD_READY_BACKROOM_PICK"
-    StatusName="Ready For Backroom Pick" StatusType="USER"/>
+    Createuserid="SYSTEM" Description="Ready For Pick" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT"
+    ProcessTypeKey="ORDER_DELIVERY" RequiresCollaboration=" "
+    Status="1100.70.06.10" StatusKey="YCD_READY_BACKROOM_PICK"
+    StatusName="Ready For Pick" StatusType="USER"/>
 <Status Createprogid="XMLMigrator" Createts="2018-03-28T12:31:14-04:00"
     Createuserid="SYSTEM" Description="Ready For Customer" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"

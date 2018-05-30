@@ -13,12 +13,21 @@
 			<xsl:attribute name="OrderNo">
 				<xsl:value-of select="@SterlingOrderNo"/>
 			</xsl:attribute>
+			<xsl:choose>
+			<xsl:when test="@HeaderErrorCode !='' " >
 			<xsl:attribute name="ModificationReasonCode">
 			<xsl:value-of select="@HeaderErrorCode"/>
 			</xsl:attribute>
 			<xsl:attribute name="ModificationReasonText">
 			<xsl:value-of select="@HeaderErrorDescription"/>
 			</xsl:attribute>
+			</xsl:when>
+			<xsl:otherwise>
+			<xsl:attribute name="ModificationReasonCode">SAP091_CANCEL_LINE</xsl:attribute>
+			<xsl:attribute name="ModificationReasonText">SAP091 Order Line Cancellation</xsl:attribute>
+			</xsl:otherwise>
+			</xsl:choose>
+			
 			
 			<xsl:element name="OrderLines">
 				<xsl:for-each select="OrderLines/OrderLine">

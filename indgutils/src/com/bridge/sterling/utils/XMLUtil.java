@@ -110,4 +110,16 @@ public class XMLUtil {
   public static List<YFCDocument> getDocumentsForChildElements(YFCElement yElement, String childName) {
     return getDocumentsFromElements(getChildren(yElement, childName));
   }
+  
+  /**
+   * import element to a parent element.
+   * @param yfcEleParentEle
+   * @param yfcEleChildEle
+   */
+  public static void importNode(YFCElement yfcEleParentEle,
+			YFCElement yfcEleChildEle) {
+		YFCDocument yfcDocOwnerDoc = yfcEleParentEle.getOwnerDocument();
+		YFCElement newEle = yfcDocOwnerDoc.importNode(yfcEleChildEle, true);
+		yfcEleParentEle.appendChild(newEle);
+	} 
 }

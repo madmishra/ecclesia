@@ -1061,6 +1061,19 @@
     Modifyts="2018-03-28T12:36:15-04:00" Modifyuserid="SYSTEM"
     OwnerKey="DEFAULT" ParentMenuKey="200311121502157077"
     ResourceKey="YWMD830" SystemDefined=" "/>
+<Menu Createprogid="XMLMigrator" Createts="2018-05-23T08:09:12-04:00"
+    Createuserid="SYSTEM" DisplayMode=" " Icon=" " Lockid="0"
+    MenuDescription="Default_Web_Store_Menu_Default"
+    MenuKey="WSC_DEFAULT_MENU_KEY" MenuSeq="0" MenuType="MENU"
+    Modifyprogid="XMLMigrator" Modifyts="2018-05-23T08:09:12-04:00"
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ParentMenuKey=" "
+    ResourceKey=" " SystemDefined="Y"/>
+<Menu Createprogid="XMLMigrator" Createts="2018-05-23T08:09:12-04:00"
+    Createuserid="SYSTEM" DisplayMode=" " Icon=" " Lockid="0"
+    MenuDescription="Default_Web_Store_Menu" MenuKey="WSC_MENU_KEY"
+    MenuSeq="0" MenuType="MENU" Modifyprogid="XMLMigrator"
+    Modifyts="2018-05-23T08:09:12-04:00" Modifyuserid="SYSTEM"
+    OwnerKey="DEFAULT" ParentMenuKey=" " ResourceKey=" " SystemDefined="Y"/>
 <Menu Createprogid="XMLMigrator" Createts="2018-03-28T12:36:15-04:00"
     Createuserid="SYSTEM" DisplayMode=" " Icon=" " Lockid="0"
     MenuDescription="Weigh_Station" MenuKey="Weight_Entry_Menu"

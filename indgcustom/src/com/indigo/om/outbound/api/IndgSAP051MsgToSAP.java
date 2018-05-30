@@ -8,10 +8,10 @@ import com.yantra.yfc.dom.YFCElement;
 
 public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 	private static final String EMPTY_STRING = "";
-	private static  String isFullOrderCancelled="Y";
+	private  String isFullOrderCancelled="Y";
 	private static final String NO="N"; 
 	private static final String CANCELLED="Cancelled";
-	private static final String cancellationReasonCode="05";
+	private static final String REASON_CODE="05";
 	private static final String SAP051="SAP051";
 	
 	/**
@@ -28,10 +28,9 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 		 YFCIterable<YFCElement> orderLineListEle =orderLinesrootEle.getChildren();
 		 for(YFCElement orderElement : orderLineListEle) {
 		 String shipNode=orderElement.getAttribute(XMLLiterals.SHIPNODE);
-		 isFullOrderCancelled=invokeGetOrderLineList(orderNo,enterpriseCode,shipNode,inXml);
+		 isFullOrderCancelled=invokeGetOrderLineList(orderNo,enterpriseCode,shipNode);
 		 }
-		YFCDocument messageSAP051Doc=formMessageSAP051(isFullOrderCancelled,inXml);
-		 return messageSAP051Doc;
+		 return formMessageSAP051(isFullOrderCancelled,inXml);
 }
 	 /** This method forms input for getOrderLineList api
 	  * 
@@ -78,7 +77,7 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 	   * @param inXml
 	   * @return
 	   */
-	 private String invokeGetOrderLineList(String orderNo,String enterpriseCode,String shipNode,YFCDocument inXml)
+	 private String invokeGetOrderLineList(String orderNo,String enterpriseCode,String shipNode)
 	 {
 		YFCDocument getOrderLineListOutputDoc= invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST,inputGetOrderLineList(shipNode,orderNo,enterpriseCode),getOrderLineListTemplate());
 		YFCElement getOrderLineListOutputEle=getOrderLineListOutputDoc.getDocumentElement();
@@ -135,7 +134,7 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 		 orderLineEle.setAttribute(XMLLiterals.ORIGINAL_QTY, originalQty);
 		 orderLineEle.setAttribute(XMLLiterals.PRIME_LINE_NO, primeLineNo);
 		 orderLineEle.setAttribute(XMLLiterals.SHIPNODE,shipNode);
-		 orderLineEle.setAttribute(XMLLiterals.CANCELLATION_REASON_CODE, cancellationReasonCode);
+		 orderLineEle.setAttribute(XMLLiterals.CANCELLATION_REASON_CODE, REASON_CODE);
 		 YFCElement itemEle=orderLinesmsgEle.createChild(XMLLiterals.ITEM);
 		 itemEle.setAttribute(XMLLiterals.ITEM_ID, itemId);
 		 }

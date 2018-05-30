@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+Licensed Materials - Property of IBM
+IBM Sterling Selling And Fulfillment Suite
+(C) Copyright IBM Corp. 2005, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ -->
+<MonitorConsolidation AutoResolve="" Createprogid=""
+    Createts="" Createuserid=""  Description="" 
+	Field10IsKey="" Field1IsKey="" Field2IsKey="" 
+	Field3IsKey="" Field4IsKey="" Field5IsKey=""
+    Field6IsKey="" Field7IsKey="" Field8IsKey="" 
+	Field9IsKey="" FlowKey="" GroupByField1="" 
+	GroupByField10="" GroupByField2="" GroupByField3="" 
+	GroupByField4="" GroupByField5=""  GroupByField6="" 
+	GroupByField7="" GroupByField8="" GroupByField9=""
+    InventoryOrganizationCode=""  Modifyprogid="" Modifyts=""
+    Modifyuserid="" MonitorConsolidationId=""
+    MonitorConsolidationKey="" MonitorTypeKey=""
+    ProcessTypeKey="" RealertInterval="" RealertRequired="">
+	<Order DocumentType="" DraftOrderFlag="" EnterpriseCode="" EntryType="" 
+			OrderDate="" OrderHeaderKey="" OrderNo="" OrderType="" SellerOrganizationCode="" >
+		<OrderLines>
+			<OrderLine  Modifyts="" ShipNode="" OrderHeaderKey="" OrderLineKey="" ReqDeliveryDate="" ReqShipDate="">
+				<Extn ExtnLegacyOMSChildOrderNo="" />
+				<OrderStatuses>
+					<OrderStatus Status="" StatusQty=""/>
+				</OrderStatuses>
+			</OrderLine>
+		</OrderLines>
+	</Order>
+</MonitorConsolidation>

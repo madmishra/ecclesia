@@ -144,7 +144,7 @@
     MonitorConsolidationKey="2007080613323034-9.5"
     MonitorRuleKey="201804120904073065" MonitorType="CMNRBD"
     OrganizationCode=" " PipelineKey="201804120904073062"
-    Priority="6.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
+    Priority="8.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
     RealertInterval="120.00" RealertRequired="Y" StatusToMonitor=" "/>
 <MonitorRule ActivateDate="1900-01-01" Age="48.00" AgeType="00"
     ComparisonDateSubType="03" ComparisonDateType="YCD_FTC_PROMISE_DATE"
@@ -157,7 +157,7 @@
     MonitorConsolidationKey="2007080613310534-9.5"
     MonitorRuleKey="201804120904073067" MonitorType="CMNRBD"
     OrganizationCode=" " PipelineKey="201804120904073062"
-    Priority="4.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
+    Priority="6.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
     RealertInterval="48.00" RealertRequired="Y" StatusToMonitor=" "/>
 <MonitorRule ActivateDate="1900-01-01" Age="120.00" AgeType="00"
     ComparisonDateSubType="03"
@@ -171,7 +171,7 @@
     MonitorConsolidationKey="2007080613332034-9.5"
     MonitorRuleKey="201804120904073069" MonitorType="CMNRBD"
     OrganizationCode=" " PipelineKey="201804120904073062"
-    Priority="2.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
+    Priority="4.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
     RealertInterval="120.00" RealertRequired="Y" StatusToMonitor=" "/>
 <MonitorRule ActivateDate="1900-01-01" Age="48.00" AgeType="00"
     ComparisonDateSubType="03"
@@ -185,7 +185,7 @@
     MonitorConsolidationKey="2007080613304434-9.5"
     MonitorRuleKey="201804120904073071" MonitorType="CMNRBD"
     OrganizationCode=" " PipelineKey="201804120904073062"
-    Priority="0.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
+    Priority="2.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
     RealertInterval="48.00" RealertRequired="Y" StatusToMonitor=" "/>
 <MonitorRule ActivateDate="1900-01-01" Age="120.00" AgeType="00"
     ComparisonDateSubType="03" ComparisonDateType="YCD_FTC_PROMISE_DATE"
@@ -198,7 +198,7 @@
     MonitorConsolidationKey="2007080613325334-9.5"
     MonitorRuleKey="201804120904073073" MonitorType="CMNRBD"
     OrganizationCode=" " PipelineKey="201804120904073062"
-    Priority="10.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
+    Priority="12.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
     RealertInterval="24.00" RealertRequired="N" StatusToMonitor=" "/>
 <MonitorRule ActivateDate="1900-01-01" Age="48.00" AgeType="00"
     ComparisonDateSubType="03" ComparisonDateType="YCD_FTC_PROMISE_DATE"
@@ -211,7 +211,7 @@
     MonitorConsolidationKey="2007080613314534-9.5"
     MonitorRuleKey="201804120904073075" MonitorType="CMNRBD"
     OrganizationCode=" " PipelineKey="201804120904073062"
-    Priority="8.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
+    Priority="10.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
     RealertInterval="24.00" RealertRequired="N" StatusToMonitor=" "/>
 <MonitorRule ActivateDate="1900-01-01" Age="1.00" AgeType="00"
     ComparisonDateSubType="03" ComparisonDateType="YCD_FTC_CANCEL_DATE"
@@ -224,7 +224,7 @@
     MonitorConsolidationKey="2007080208101834-9.5"
     MonitorRuleKey="201804120904073077" MonitorType="MNRWD"
     OrganizationCode=" " PipelineKey="201804120904073062"
-    Priority="14.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
+    Priority="16.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
     RealertInterval="24.00" RealertRequired="N" StatusToMonitor=" "/>
 <MonitorRule ActivateDate="1900-01-01" Age="1.00" AgeType="00"
     ComparisonDateSubType="03"
@@ -238,18 +238,19 @@
     MonitorConsolidationKey="2007080208084034-9.5"
     MonitorRuleKey="201804120904073079" MonitorType="MNRWD"
     OrganizationCode=" " PipelineKey="201804120904073062"
-    Priority="12.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
+    Priority="14.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
     RealertInterval="24.00" RealertRequired="N" StatusToMonitor=" "/>
 <MonitorRule ActivateDate="1900-01-01" Age="2.00" AgeType="00"
-    ComparisonDateSubType="" ComparisonDateType="" ComparisonStatus=""
-    ConditionKey="" Createprogid=".YCPWFRepositoryAPI"
+    ComparisonDateSubType=" " ComparisonDateType=" "
+    ComparisonStatus=" " ConditionKey=" "
+    Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-05-15T06:49:18-04:00" Createuserid="admin"
-    DateSubTypeToMonitor="" DateTypeToMonitor="" ExceptionType=""
+    DateSubTypeToMonitor=" " DateTypeToMonitor=" " ExceptionType=" "
     IsActive="Y" Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-15T06:49:18-04:00" Modifyuserid="admin"
     MonitorConsolidationKey="2018051506470212448"
     MonitorRuleKey="2018051506491812454" MonitorType="HBS"
-    OrganizationCode="" PipelineKey="201804120904073062"
-    Priority="16.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=""
+    OrganizationCode=" " PipelineKey="201804120904073062"
+    Priority="0.00" ProcessTypeKey="ORDER_FULFILLMENT" Purpose=" "
     RealertInterval="24.00" RealertRequired="N" StatusToMonitor="1100"/>
 </YFS_MONITOR_RULEList>

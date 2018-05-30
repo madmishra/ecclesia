@@ -5,36 +5,40 @@ import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
-
+/**
+ * 
+ * 
+ * @author BSG170
+ *
+ */
 public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 	private static final String EMPTY_STRING = "";
-	private static  String isFullOrderCancelled="Y";
+	private String sIsFullOrderCancelled="Y";
 	private static final String NO="N"; 
 	private static final String CANCELLED="Cancelled";
-	private static final String INDG_SEND_CANCELLED_LINES="Indg_SendCancelledLines";
 	
-	/**
+	 /**
 	   * This is the invoke point of the Service
-	 * @throws  
+	   * @throws  
 	   * 
 	   */
 	
-	 public YFCDocument invoke(YFCDocument inXml)  {
-		 YFCElement inXmlEle=inXml.getDocumentElement();
-		 String orderNo=inXmlEle.getAttribute(XMLLiterals.ORDER_NO);
-		 String enterpriseCode=inXmlEle.getAttribute(XMLLiterals.ENTERPRISE_CODE);
-		 YFCElement orderLinesrootEle=inXmlEle.getChildElement(XMLLiterals.ORDER_LINES);
-		 YFCIterable<YFCElement> orderLineListEle =orderLinesrootEle.getChildren();
-		 for(YFCElement orderElement : orderLineListEle) {
-		 String shipNode=orderElement.getAttribute(XMLLiterals.SHIPNODE);
-		if((isFullOrderCancelled=invokeGetOrderLineList(orderNo,enterpriseCode,shipNode,inXml)).equals(NO))
-		break;
-		 }
-		 inXmlEle.setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
-		
-		 invokeService(inXml);
-		 return inXml;
-}
+	  @Override
+	  public YFCDocument invoke(YFCDocument docInXml)  {
+		  YFCElement eleInXml=docInXml.getDocumentElement();
+		  String sOrderNo=eleInXml.getAttribute(XMLLiterals.ORDER_NO);
+		  String sEnterpriseCode=eleInXml.getAttribute(XMLLiterals.ENTERPRISE_CODE);
+		  YFCElement orderLinesrootEle=eleInXml.getChildElement(XMLLiterals.ORDER_LINES);
+		  YFCIterable<YFCElement> orderLineListEle =orderLinesrootEle.getChildren();
+		  for(YFCElement orderElement : orderLineListEle) {
+			  String sShipNode=orderElement.getAttribute(XMLLiterals.SHIPNODE);
+			  if((sIsFullOrderCancelled = invokeGetOrderLineList(sOrderNo,sEnterpriseCode,sShipNode)).equals(NO))
+				  break;
+		  }
+		  eleInXml.setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, sIsFullOrderCancelled);
+		  return docInXml;
+	  }
+	  
 	 /** This method forms input for getOrderLineList api
 	  * 
 	  * @param shipNode
@@ -42,36 +46,39 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 	  * @param enterpriseCode
 	  * @return
 	  */
-	 private YFCDocument inputGetOrderLineList(String shipNode,String orderNo,String enterpriseCode) {
-		 YFCDocument inputGetOrderLineListDoc=YFCDocument.createDocument(XMLLiterals.ORDER_LINE);
-		 YFCElement orderLineEle=inputGetOrderLineListDoc.getDocumentElement();
-		 orderLineEle.setAttribute(XMLLiterals.SHIPNODE,shipNode );
-		 YFCElement orderEle=orderLineEle.createChild(XMLLiterals.ORDER);
-		 orderEle.setAttribute(XMLLiterals.ORDER_NO, orderNo);
-		 orderEle.setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
-		 return inputGetOrderLineListDoc;
+	  
+	 private YFCDocument inputGetOrderLineList(String sShipNode,String sOrderNo,String sEnterpriseCode) {
+		 YFCDocument docInputGetOrderLineList=YFCDocument.createDocument(XMLLiterals.ORDER_LINE);
+		 YFCElement eleOrderLineEle=docInputGetOrderLineList.getDocumentElement();
+		 eleOrderLineEle.setAttribute(XMLLiterals.SHIPNODE,sShipNode );
+		 YFCElement eleOrder=eleOrderLineEle.createChild(XMLLiterals.ORDER);
+		 eleOrder.setAttribute(XMLLiterals.ORDER_NO, sOrderNo);
+		 eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, sEnterpriseCode);
+		 return docInputGetOrderLineList;
 	 }
 	 
 	 /**
 	  * This method forms template for getOrderLineList template
 	  * @return
 	  */
+	 
 	 private YFCDocument getOrderLineListTemplate() {
-		 YFCDocument getOrderLineListTempDoc=YFCDocument.createDocument(XMLLiterals.ORDER_LINE_LIST);
-		 YFCElement orderLineListEle=getOrderLineListTempDoc.getDocumentElement();
-		 YFCElement orderLineEle=orderLineListEle.createChild(XMLLiterals.ORDER_LINE);
-		 orderLineEle.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
-		 orderLineEle.setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
-		 orderLineEle.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
-		 orderLineEle.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
-		 orderLineEle.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
-		 YFCElement extnEle=orderLineEle.createChild(XMLLiterals.EXTN);
-		 extnEle.setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, EMPTY_STRING);
-		 YFCElement orderEle=orderLineEle.createChild(XMLLiterals.ORDER);
-		 orderEle.setAttribute(XMLLiterals.ORDER_NO,EMPTY_STRING);
-		 return getOrderLineListTempDoc;
+		 YFCDocument docGetOrderLineListTemp=YFCDocument.createDocument(XMLLiterals.ORDER_LINE_LIST);
+		 YFCElement eleOrderLineList=docGetOrderLineListTemp.getDocumentElement();
+		 YFCElement eleOrderLine=eleOrderLineList.createChild(XMLLiterals.ORDER_LINE);
+		 eleOrderLine.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
+		 eleOrderLine.setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
+		 eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
+		 eleOrderLine.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
+		 eleOrderLine.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
+		 YFCElement eleExtn=eleOrderLine.createChild(XMLLiterals.EXTN);
+		 eleExtn.setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, EMPTY_STRING);
+		 YFCElement eleOrder=eleOrderLine.createChild(XMLLiterals.ORDER);
+		 eleOrder.setAttribute(XMLLiterals.ORDER_NO,EMPTY_STRING);
+		 return docGetOrderLineListTemp;
 		 
 	 }
+	 
 	  /**
 	   * This method invokes getOrderLineList API
 	   * @param orderNo
@@ -80,30 +87,22 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 	   * @param inXml
 	   * @return
 	   */
-	 private String invokeGetOrderLineList(String orderNo,String enterpriseCode,String shipNode,YFCDocument inXml)
+	 
+	 private String invokeGetOrderLineList(String sOrderNo,String sEnterpriseCode,String sShipNode)
 	 {
-		YFCDocument getOrderLineListOutputDoc= invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST,inputGetOrderLineList(shipNode,orderNo,enterpriseCode),getOrderLineListTemplate());
-		YFCElement getOrderLineListOutputEle=getOrderLineListOutputDoc.getDocumentElement();
-		YFCIterable<YFCElement> inputOrderLineEle = getOrderLineListOutputEle.getChildren(XMLLiterals.ORDER_LINE);
-		 for(YFCElement orderElement : inputOrderLineEle) {
-		String orderLineStatus=orderElement.getAttribute(XMLLiterals.STATUS);
-		if(!orderLineStatus.equals(CANCELLED))
+		YFCDocument docGetOrderLineListOutput= invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST,inputGetOrderLineList(sShipNode,sOrderNo,sEnterpriseCode),getOrderLineListTemplate());
+		YFCElement eleGetOrderLineListOutput=docGetOrderLineListOutput.getDocumentElement();
+		YFCIterable<YFCElement> eleInputOrderLine = eleGetOrderLineListOutput.getChildren(XMLLiterals.ORDER_LINE);
+		 for(YFCElement eleOrder : eleInputOrderLine) {
+		String sOrderLineStatus=eleOrder.getAttribute(XMLLiterals.STATUS);
+		if(!sOrderLineStatus.equals(CANCELLED))
 		{
-			isFullOrderCancelled=NO;
+			sIsFullOrderCancelled=NO;
 			break;
 		}
-			
 	 }
-		 return isFullOrderCancelled;	 
+		 return sIsFullOrderCancelled;	 
 	 }
-	 /**This method invokes service Indg_SendCancelledLines
-	  * 
-	  * @param inXml
-	  */
-private void invokeService(YFCDocument inXml) {
-	 invokeYantraService(INDG_SEND_CANCELLED_LINES,inXml);
- }
-	 
 }
 
 

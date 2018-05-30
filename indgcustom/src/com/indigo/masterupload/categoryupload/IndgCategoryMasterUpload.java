@@ -21,6 +21,7 @@ import com.yantra.yfc.dom.YFCElement;
  * @author BSG109
  *
  */
+
 public class IndgCategoryMasterUpload extends AbstractCustomApi {
 
   private static final String EMPTY_STRING = "";
@@ -31,9 +32,9 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   private static final String CREATE_ACTION = "Create";
   private static final String DELETE_ACTION = "Delete";
   private static final String DEFAULT_UOM = "EACH";
-  private static final String UNPUBLISH_STATUS="2000";
-  private static final String PUBLISH_STATUS="3000";
-  private static final String ORG_CODE="Indigo_CA";
+  private static final String UNPUBLISH_STATUS = "2000";
+  private static final String PUBLISH_STATUS = "3000";
+  private static final String ORG_CODE = "Indigo_CA";
   List<String> itemIDList = new ArrayList<>();
   
   
@@ -41,6 +42,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * This is the invoke point of the Service
    * 
    */
+  
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
     YFCElement categoryInEle = inXml.getDocumentElement().getChildElement(XMLLiterals.CATEGORY);
@@ -57,8 +59,9 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
      manageDeleteCategory(categoryInEle.getAttribute(XMLLiterals.CATEGORY_ID),
          categoryInEle.getAttribute(XMLLiterals.CATEGORY_PATH),categoryItemList);
      manageSubCategory(categoryInEle.getAttribute(XMLLiterals.CATEGORY_PATH),
-          categoryInEle.getAttribute(XMLLiterals.CATEGORY_DOMAIN));
+    		 categoryInEle.getAttribute(XMLLiterals.CATEGORY_DOMAIN));
      invokeYantraApi(XMLLiterals.MANAGE_CATEGORY, inXml);
+     System.out.println(categoryInEle.toString() + "categhdshg");
      manageCategoryItem(categoryInEle);
     }
     return inXml;
@@ -74,6 +77,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * @param categorydomain
    * @return
    */
+  
   private void manageSubCategory(String categoryPath, String categorydomain) {
     String [] sCategoryList = categoryPath.split(BACK_SLASH);
     int iCategoryPathDepth = 0;
@@ -101,6 +105,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * @param categoryPath
    * @return
    */
+  
   public static YFCDocument getInputXmlForGetCategoryList(String categoryId,String org,String categoryPath) {
     YFCDocument getCategoryListDoc = YFCDocument.createDocument(XMLLiterals.CATEGORY);
     getCategoryListDoc.getDocumentElement().setAttribute(XMLLiterals.CATEGORY_ID, categoryId);
@@ -116,6 +121,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * 
    * @return
    */
+  
   public static YFCDocument formTemplateXmlForgetCategoryList() {
     YFCDocument getCategoryListTemp = YFCDocument.createDocument(XMLLiterals.CATEGORY_LIST);
     YFCElement categoryEle = getCategoryListTemp.getDocumentElement().createChild(XMLLiterals.CATEGORY);
@@ -132,6 +138,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   * @param categoryPath
   * @return
   */
+  
   public YFCDocument getCategoryList(String categoryId, String org,String categoryPath){
     return invokeYantraApi(XMLLiterals.GET_CATEGORY_LIST, 
         getInputXmlForGetCategoryList(categoryId,org,categoryPath),formTemplateXmlForgetCategoryList());
@@ -147,6 +154,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * @param organizationCode
    * @return
    */
+  
   public static YFCDocument getInputXmlForCreateCategory(String categoryId,String categoryDomain,
       String path,String organizationCode) {
     YFCDocument createCategoryIn = formTemplateXmlForgetCategoryList();
@@ -170,6 +178,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * @param path
    * @param orgCode
    */
+  
   public void createCategory(String categoryId,String categoryDomain,String path,String orgCode) {
     invokeYantraApi(XMLLiterals.CREATE_CATEGORY, 
         getInputXmlForCreateCategory(categoryId,categoryDomain,path,orgCode));
@@ -183,6 +192,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * @param categoryId
    * @return
    */
+  
   private YFCDocument getInputDocForDepartmentCreation(String categoryId){
     YFCDocument inputXml = YFCDocument.createDocument(XMLLiterals.ORGANIZATION);
     YFCElement organizationEle = inputXml.getDocumentElement();
@@ -201,12 +211,17 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * 
    * @param categoryEle
    */
+  
   private void manageCategoryItem(YFCElement categoryEle) {
+	  System.out.println(categoryEle.toString() + "InCategoryEle");
     String categoryPath = categoryEle.getAttribute(XMLLiterals.CATEGORY_PATH);
+    System.out.println(categoryPath + "inCategoryPath");
     String action = CREATE_ACTION;
     YFCDocument itemList = getItemListDocumentFromList();
+    System.out.println(itemList + "ListOfItems");
     if(XmlUtils.isVoid(itemList)) {
       itemList = getItemList(categoryPath);
+      System.out.println(itemList + "insideLoop");
       action = DELETE_ACTION;
     }
     if(itemList.getDocumentElement().hasChildNodes()) {
@@ -223,7 +238,9 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
         categoryItem.setAttribute(XMLLiterals.ITEM_ID, itemEle.getAttribute(XMLLiterals.ITEM_ID));
         categoryItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UOM);
         itemIDList.add(itemEle.getAttribute(XMLLiterals.ITEM_ID));
+        System.out.println(itemIDList + "Likhjkhaskjdhhd");
       }
+      System.out.println(deleteCategoryItemDoc + "InsideDoc");
       invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, deleteCategoryItemDoc);
     }
   }
@@ -234,13 +251,14 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * @param categoryPath
    * @return
    */
+  
   private YFCDocument getItemList(String categoryPath) {
     YFCDocument itemInXml = YFCDocument.createDocument(XMLLiterals.ITEM);
     itemInXml.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
     YFCElement categoryFilter = itemInXml.getDocumentElement().createChild(XMLLiterals.CATEGORY_FILTER);
     categoryFilter.setAttribute(XMLLiterals.CATEGORY_PATH,categoryPath);
     categoryFilter.setAttribute(XMLLiterals.ORGANIZATION_CODE, organizationCode);
-   return invokeYantraApi(XMLLiterals.GET_ITEM_LIST_API,itemInXml,
+    return invokeYantraApi(XMLLiterals.GET_ITEM_LIST_API,itemInXml,
        IndgManageItemFeed.getTemplateForGetItemList());
   }
   
@@ -253,27 +271,34 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * @param categoryPath
    * @param categoryListApiOp
    */
+  
   public void manageDeleteCategory(String categoryId,String categoryPath,YFCDocument categoryListApiOp) {
     YFCElement categoryEle = XPathUtil.getXPathElement(categoryListApiOp,
         "/CategoryList/Category[@CategoryID=\""+categoryId+"\"]");
     if(!XmlUtils.isVoid(categoryEle) && !categoryPath.equals(categoryEle.getAttribute(XMLLiterals.CATEGORY_PATH))) {
       categoryEle.setAttribute(XMLLiterals.ACTION,DELETE_ACTION);
+      System.out.println(categoryEle.toString() + "kjkdsaj");
       manageCategoryItem(categoryEle);
       invokeYantraApi(XMLLiterals.MANAGE_CATEGORY, categoryListApiOp);
     }
   }
   
   /**
-   * For Output Document for Item from List
+   * Form Output Document for Item from List
    * 
    * @return
    */
+  
   public YFCDocument getItemListDocumentFromList(){
     YFCDocument itemListDoc  = null;
-    for(String itemID: itemIDList) {
-      itemListDoc = YFCDocument.createDocument(XMLLiterals.ITEM_LIST);
-      itemListDoc.createElement(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, itemID);
+    if(!XmlUtils.isVoid(itemListDoc)){
+    	for(String itemID: itemIDList) {
+    		System.out.println(itemIDList + "dskjhgdsg");
+    		itemListDoc = YFCDocument.createDocument(XMLLiterals.ITEM_LIST);
+    		itemListDoc.createElement(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, itemID);
+    	}
     }
+    System.out.println(itemListDoc + "itemListDoc");
     return itemListDoc;
   }
   
@@ -285,6 +310,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    * @param categoryId
    * @return
    */
+  
   private boolean isDepartmentExist(String categoryId) {
     YFCDocument orgDoc = YFCDocument.createDocument(XMLLiterals.ORGANIZATION);
     orgDoc.getDocumentElement().createChild(XMLLiterals.DEPARTMENT_LIST)
@@ -297,5 +323,4 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
     }
     return false;
   }
-  
 }

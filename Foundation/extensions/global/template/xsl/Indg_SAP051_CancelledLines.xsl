@@ -8,8 +8,12 @@
 			</xsl:attribute>
 		<MessageBody>
 			<Order>
-				    <xsl:attribute name="SAPOrderNo">
-						<xsl:value-of select="OrderLines/OrderLine/Extn/@ExtnSAPOrderNo"/>
+			
+					<xsl:attribute name="SterlingOrderNo">
+						<xsl:value-of select="@OrderNo"/>
+					</xsl:attribute>
+					<xsl:attribute name="SAPOrderNo">
+						<xsl:value-of select="@ExtnSAPOrderNo"/>
 					</xsl:attribute>
 					<xsl:attribute name="EnterpriseCode">
 						<xsl:value-of select="@EnterpriseCode"/>
@@ -38,7 +42,15 @@
 							<xsl:attribute name="ShipNode">
 								<xsl:value-of select="@ShipNode"/>
 							</xsl:attribute>
+							<xsl:choose>
+							<xsl:when test="@CancellationReasonCode = '03'">
+							<xsl:attribute name="CancellationReasonCode">03</xsl:attribute>
+							</xsl:when>
+							<xsl:otherwise>
 							<xsl:attribute name="CancellationReasonCode">05</xsl:attribute>
+							</xsl:otherwise>
+							</xsl:choose>
+							
 							<Item>
 							<xsl:attribute name="ItemID">
 								<xsl:value-of select="Item/@ItemID"/>

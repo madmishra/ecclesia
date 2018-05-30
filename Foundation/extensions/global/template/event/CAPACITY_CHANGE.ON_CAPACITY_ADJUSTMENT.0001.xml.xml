@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+IBM Sterling Selling And Fulfillment Suite
+(C) Copyright IBM Corp. 2005, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<ResourcePool AllRegionsServiced="" AssociateRegionBySlot=""
+    CalendarKey="" CapacityInfoAvailable=""
+    CapacityMaintainAtResourceLevel="" CapacityOrganizationCode=""
+    CapacityUnitOfMeasure="" ItemGroupCode="" Node=""
+    ProviderContactAddressKey="" ProviderOrganizationCode=""
+    ProvidesAllServices="" Purpose="" RegionSchemaKey=""
+    ResourcePoolDescription="" ResourcePoolId="" ResourcePoolKey=""
+    ServiceSlotGroupId="" ServiceSupervisorId="" TransactInWorkDay="">
+	<ProviderContactAddress AddressLine1="" AddressLine2=""
+        AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt=""
+        EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl=""
+        IsCommercialAddress="" JobTitle="" LastName="" MiddleName=""
+        MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey=""
+        PreferredShipAddress="" State="" Suffix="" TaxGeoCode=""
+        Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+	<ResourceCalendar CalendarDescription="" CalendarId=""
+        CalendarKey="" OrganizationCode=""/>
+	<!--		<ServiceSkills TotalNumberOfRecords="">
+			<ServiceSkill Description="" ResPoolServiceSkillKey="" ServiceSkillId=""/>
+		</ServiceSkills>                                                                        -->
+	<AdditionalCapacityLimitList TotalNumberOfRecords="">
+		<AdditionalCapacityLimit CapacityUnitOfMeasure=""/>
+	</AdditionalCapacityLimitList>
+	<EffectiveDateRanges TotalNumberOfRecords="">
+		<EffectiveDateRange EffectiveEndDate="" EffectiveStartDate=""
+            ResPoolStdCapacityPeriodKey="" ResourcePoolKey="">
+			<CapacitiesPerSlot TotalNumberOfRecords="">
+				<CapacityPerSlot CapacityUnitOfMeasure="" EndTime=""
+                    FridayCapacity="" FridaySupplementalCapacity=""
+                    MondayCapacity="" MondaySupplementalCapacity=""
+                    ResPoolDowCapctyKey=""
+                    ResPoolStdCapacityPeriodKey="" SaturdayCapacity=""
+                    SaturdaySupplementalCapacity="" StartTime=""
+                    SundayCapacity="" SundaySupplementalCapacity=""
+                    ThursdayCapacity="" ThursdaySupplementalCapacity=""
+                    TuesdayCapacity="" TuesdaySupplementalCapacity=""
+                    UndefinedSlot="" WednesdayCapacity="" WednesdaySupplementalCapacity=""/>
+			</CapacitiesPerSlot>
+			<!-- Note:  DayValidity Element is not template controlled -->
+			<DayValidity Friday="" Monday="" Saturday="" Sunday=""
+					Thursday="" Tuesday="" Wednesday=""/>
+		</EffectiveDateRange>
+	</EffectiveDateRanges>
+	<ServiceResources TotalNumberOfRecords="">
+		<ServiceResource Node="" Notes="" ServiceResourceId="" ServiceResourceKey="">
+			<ServiceResourceCalendar CalendarId="" CalendarKey="" OrganizationCode=""/>
+			<ServiceResourceContactAddress AddressLine1=""
+                AddressLine2="" AddressLine3="" AddressLine4=""
+                AddressLine5="" AddressLine6="" AlternateEmailID=""
+                Beeper="" City="" Company="" Country="" DayFaxNo=""
+                DayPhone="" Department="" EMailID="" ErrorTxt=""
+                EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl=""
+                IsCommercialAddress="" JobTitle="" LastName=""
+                MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+                PersonInfoKey="" PreferredShipAddress="" State=""
+                Suffix="" TaxGeoCode="" Title="" UseCount=""
+                VerificationStatus="" ZipCode=""/>
+			<ServiceResourceUsers TotalNumberOfRecords="">
+				<ServiceResourceUser UserId=""/>
+			</ServiceResourceUsers>
+		</ServiceResource>
+	</ServiceResources>
+	<RegionsServiced TotalNumberOfRecords="">
+		<RegionServiced EndTime="" FridayValid="" MondayValid=""
+            Priority="" RegionKey="" ResPoolRegionKey=""
+            ResourcePoolKey="" SaturdayValid="" ServiceSlotDesc=""
+            StartTime="" SundayValid="" ThursdayValid="" TuesdayValid="" WednesdayValid="">
+			<Region CanAggregate="" ParentRegionKey=""
+                RegionDescription="" RegionLevelName="" RegionName=""/>
+		</RegionServiced>
+	</RegionsServiced>
+	<ServiceSlotGroup OrganizationKey="" ServiceSlotGroupId="" ServiceSlotGroupKey="">
+		<ServiceSlotList TotalNumberOfRecords="">
+			<ServiceSlot CanUseForAppointment="" EndTime=""
+                ParentSlotKey="" ServiceSlotDesc=""
+                ServiceSlotGroupKey="" ServiceSlotKey="" StartTime=""/>
+		</ServiceSlotList>
+	</ServiceSlotGroup>
+	<ResourcePoolAttributeList>
+		<ResourcePoolAttribute DeliveryMethod=""
+            ResourcePoolAttributeKey="" ResourcePoolKey=""/>
+	</ResourcePoolAttributeList>
+</ResourcePool>

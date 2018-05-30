@@ -21,15 +21,18 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
   
   
   private static final String CREATE_ACTION = "Create";
-
-
+  private static final String DEFAULT_ATP_RULE = "DEFAULT_Indigo_CA";
   private static final String EMPTY_STRING = "";
+  private static final String CATEGORY_ALERT_FLOW="CATEGORY_ALERT_FLOW";
   /**
    * This is the starting point of the class
    * 
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
+    inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM)
+      .createChild(XMLLiterals.INVENTORY_PARAMETERS)
+        .setAttribute(XMLLiterals.ATP_RULE, DEFAULT_ATP_RULE);
     invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
     createCategoryItem(inXml);
     return inXml;
@@ -48,7 +51,10 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
       String categoryPath = XPathUtil.getXpathAttribute(categoryList, 
           "/CategoryList/Category/@CategoryPath");
       invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
-          IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),CREATE_ACTION,categoryPath,organizationCode));
+          IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID)
+              ,CREATE_ACTION,categoryPath,organizationCode));
+    } else {
+      invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), inXml);
     }
   }
   

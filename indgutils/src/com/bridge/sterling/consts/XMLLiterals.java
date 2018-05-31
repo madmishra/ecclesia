@@ -234,5 +234,6 @@ public static final String LAST_UPDATED_TIME = "LastUpdatedTime";
 public static final String GET_INDG_MSG_SEQ_NO_LIST="getINDGMsgSeqNoList";
 public static final String CREATE_INDG_MSG_SEQ_NO="createINDGMsgSeqNo";
 public static final String SAP_MSG_SEQ_NO="SAP_MSG_SEQ_NO";
+public static final String AVAILABILITY_CHANGE = "AvailabilityChange";
 }
 

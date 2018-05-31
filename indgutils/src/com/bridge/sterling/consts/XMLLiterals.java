@@ -231,5 +231,8 @@ public static final String PROVIDER_ORGANIZATION_CODE = "ProviderOrganizationCod
 public static final String NODE_CAPACITY = "NodeCapacity";
 public static final String DATES = "Dates";
 public static final String LAST_UPDATED_TIME = "LastUpdatedTime";
+public static final String GET_INDG_MSG_SEQ_NO_LIST="getINDGMsgSeqNoList";
+public static final String CREATE_INDG_MSG_SEQ_NO="createINDGMsgSeqNo";
+public static final String SAP_MSG_SEQ_NO="SAP_MSG_SEQ_NO";
 }
 

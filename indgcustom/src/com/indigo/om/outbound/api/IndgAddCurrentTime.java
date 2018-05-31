@@ -1,6 +1,12 @@
 package com.indigo.om.outbound.api;
 
 import java.text.SimpleDateFormat;
+/**
+ * 
+ * 
+ * @author BSG170
+ *
+ */
 import java.util.Date;
 
 import com.bridge.sterling.consts.XMLLiterals;

@@ -19,7 +19,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
           DataType="Text-20"
           DefaultValue="' '" 
           Description="Sterling to SAP message sequence number"  
-          Nullable="false" 
+          Nullable="true" 
           Size="20" 
           Type="NVARCHAR" 
           XMLName="SterlingToSAPMessageSequenceNumber"/>
@@ -27,7 +27,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
           DataType="Text-20"
           DefaultValue="' '" 
           Description="Sterling to legacy OMS message sequence number"  
-          Nullable="false" 
+          Nullable="true" 
           Size="20" 
           Type="NVARCHAR" 
           XMLName="SterlingToLegacyOMSMessageSequenceNumber"/>
@@ -35,7 +35,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
           DataType="Text-20"
           DefaultValue="''" 
           Description="Order No"  
-          Nullable="false" 
+          Nullable="true" 
           Size="20" 
           Type="NVARCHAR" 
           XMLName="OrderNo"/>
@@ -43,7 +43,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
           DataType="Text-20"
           DefaultValue="''"
           Description="SAPOrderNo"
-          Nullable="false"
+          Nullable="true"
           Size="20"
           Type="NVARCHAR"
           XMLName="SAPOrderNo" />

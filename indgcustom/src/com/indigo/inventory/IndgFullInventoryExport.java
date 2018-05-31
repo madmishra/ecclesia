@@ -6,9 +6,12 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 import com.bridge.sterling.consts.ExceptionLiterals;
+import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.ExceptionUtil;
+import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
+import com.yantra.yfc.dom.YFCElement;
 
 /**
  * This method writes to the file for export of
@@ -25,12 +28,16 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
       try {
-        String sInventoryUpload = inXml.toString();
-        if (sInventoryUpload.startsWith("<?xml ")) {
-          sInventoryUpload = sInventoryUpload.substring(sInventoryUpload.indexOf("?>") + 2);
-        }
         setFileOutputStream();
-        fileOutputStream.write(sInventoryUpload.getBytes());
+        YFCElement availabilityChanges = inXml.getDocumentElement();
+        YFCIterable<YFCElement> yfcItrator = availabilityChanges.getChildren(XMLLiterals.AVAILABILITY_CHANGE);
+        for(YFCElement availabilityChange:yfcItrator) {
+          String sInventoryUpload = availabilityChange.toString();
+          if (sInventoryUpload.startsWith("<?xml ")) {
+            sInventoryUpload = sInventoryUpload.substring(sInventoryUpload.indexOf("?>") + 2);
+            fileOutputStream.write(sInventoryUpload.getBytes());
+          }
+        }
         if(inputMessageCount == 25) 
           fileOutputStream.flush();
         inputMessageCount++;
@@ -40,7 +47,6 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
     return inXml;
   }
   
-  
   /**
    * This method opens the steam in case of Stream if null
    * 
@@ -48,7 +54,6 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
    * @throws FileNotFoundException
    */
   private void setFileOutputStream() throws FileNotFoundException {
-    
     if(null == fileOutputStream) {
       fileOutputStream = new FileOutputStream(new File(getProperty(RTAM_FULL_UPLOAD_FILE_LOCATION)),true);
     }

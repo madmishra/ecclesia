@@ -731,10 +731,11 @@
 <AgentCriteria AgentCriteriaId="CALCULATE_CAPACITY_AVAILABILITY"
     AgentCriteriaKey="CALC_CAPCTY_AVAIL" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:10-04:00" Createuserid="SYSTEM"
-    FlowKey="CALC_CAPCTY_AVAIL" Lockid="0"
+    FlowKey="CALC_CAPCTY_AVAIL" Lockid="1"
     MessageXml="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;Attributes>&#xa;    &lt;Attribute DataType=&quot;Text-20&quot; DisplayName=&quot;Action&quot; Modifiable=&quot;N&quot;&#xa;        ModifyFlag=&quot;Y&quot; Name=&quot;Action&quot; Value=&quot;Get&quot;/>&#xa;    &lt;Attribute DataType=&quot;Integer4AgentCriteria&quot;&#xa;        DisplayName=&quot;Number of Records To Buffer&quot; Modifiable=&quot;Y&quot;&#xa;        Name=&quot;NumRecordsToBuffer&quot; Value=&quot;0&quot;/>&#xa;    &lt;Attribute DisplayName=&quot;Collect Pending Jobs&quot;&#xa;        Name=&quot;CollectPendingJobs&quot; Value=&quot;Y&quot;/>&#xa;&lt;/Attributes>&#xa;"
-    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" ServerKey="2018052809194217249" TransactionKey="CALC_CAPCTY_AVAIL"/>
+    Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-05-28T09:21:15-04:00" Modifyuserid="admin"
+    ServerKey="2018052809194217249" TransactionKey="CALC_CAPCTY_AVAIL"/>
 <AgentCriteria AgentCriteriaId="CAPACITYPRG"
     AgentCriteriaKey="CAPACITYPRG" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:09-04:00" Createuserid="SYSTEM"
@@ -829,10 +830,11 @@
 <AgentCriteria AgentCriteriaId="CONSOLIDATE_TO_SHIPMENT"
     AgentCriteriaKey="CONSOLIDATE_TO_SHIPMENT"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:09-04:00"
-    Createuserid="SYSTEM" FlowKey="CONSOLIDATE_TO_SHIPMENT" Lockid="0"
+    Createuserid="SYSTEM" FlowKey="CONSOLIDATE_TO_SHIPMENT" Lockid="1"
     MessageXml="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;Attributes>&#xa;    &lt;Attribute DataType=&quot;Text-20&quot; DisplayName=&quot;Action&quot; Modifiable=&quot;N&quot;&#xa;        Name=&quot;Action&quot; Value=&quot;Get&quot;/>&#xa;    &lt;Attribute DataType=&quot;Boolean&quot; DisplayName=&quot;Collect Pending Jobs&quot;&#xa;        Modifiable=&quot;Y&quot; Name=&quot;CollectPendingJobs&quot; Value=&quot;Y&quot;/>&#xa;    &lt;Attribute DataType=&quot;Integer4AgentCriteria&quot;&#xa;        DisplayName=&quot;Number of Records To Buffer&quot; Modifiable=&quot;Y&quot;&#xa;        Name=&quot;NumRecordsToBuffer&quot; Value=&quot;0&quot;/>&#xa;&lt;/Attributes>&#xa;"
-    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:09-04:00"
-    Modifyuserid="SYSTEM" ServerKey="2018050710115211689" TransactionKey="CONSOLIDATE_TO_SHIPMENT"/>
+    Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-05-15T06:36:47-04:00" Modifyuserid="admin"
+    ServerKey="2018050710115211689" TransactionKey="CONSOLIDATE_TO_SHIPMENT"/>
 <AgentCriteria AgentCriteriaId="CONSOLIDATE_TO_SHIPMENT.0003"
     AgentCriteriaKey="CONSOL_TO_SHIP.0003" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:09-04:00" Createuserid="SYSTEM"
@@ -1092,10 +1094,11 @@
 <AgentCriteria AgentCriteriaId="ORDER_MONITOR_EX"
     AgentCriteriaKey="ORDER_MONITOR_EX" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:09-04:00" Createuserid="SYSTEM"
-    FlowKey="ORDER_MONITOR_EX" Lockid="0"
+    FlowKey="ORDER_MONITOR_EX" Lockid="1"
     MessageXml="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;Attributes>&#xa;    &lt;Attribute DataType=&quot;Text-20&quot; DisplayName=&quot;Action&quot; Modifiable=&quot;N&quot;&#xa;        Name=&quot;Action&quot; Value=&quot;Get&quot;/>&#xa;    &lt;Attribute DataType=&quot;Boolean&quot; DisplayName=&quot;Collect Pending Jobs&quot;&#xa;        Modifiable=&quot;Y&quot; Name=&quot;CollectPendingJobs&quot; Value=&quot;Y&quot;/>&#xa;    &lt;Attribute DataType=&quot;Integer4AgentCriteria&quot;&#xa;        DisplayName=&quot;Number of Records To Buffer&quot; Modifiable=&quot;Y&quot;&#xa;        Name=&quot;NumRecordsToBuffer&quot; Value=&quot;0&quot;/>&#xa;&lt;/Attributes>&#xa;"
-    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:09-04:00"
-    Modifyuserid="SYSTEM" ServerKey="2018051506441712417" TransactionKey="ORDER_MONITOR_EX"/>
+    Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-05-15T06:44:48-04:00" Modifyuserid="admin"
+    ServerKey="2018051506441712417" TransactionKey="ORDER_MONITOR_EX"/>
 <AgentCriteria AgentCriteriaId="ORDER_MONITOR_EX.0002"
     AgentCriteriaKey="ORDER_MONITOR_EX.0002" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:09-04:00" Createuserid="SYSTEM"

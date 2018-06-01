@@ -104,7 +104,7 @@
     Modifyts="2018-03-28T12:30:14-04:00" Modifyuserid="SYSTEM"
     OwnerKey="DEFAULT" ProcessTypeKey="QUOTE_FULFILLMENT"
     RequestedFlag="N" SystemDefined="Y"/>
-<DateType ActualFlag="Y" CommittedFlag=" " Createprogid="XMLMigrator"
+<DateType ActualFlag="Y" CommittedFlag="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:18-04:00" Createuserid="SYSTEM"
     DateTypeId="YCD_FTC_CANCEL_DATE" DateTypeKey="FTCCANCELDATE"
     Description="FTC Cancel Date" ExpectedFlag="N" IsMilestone="N"
@@ -112,7 +112,7 @@
     Modifyts="2018-03-28T12:31:18-04:00" Modifyuserid="SYSTEM"
     OwnerKey="DEFAULT" ProcessTypeKey="ORDER_FULFILLMENT"
     RequestedFlag="N" SystemDefined="N"/>
-<DateType ActualFlag="Y" CommittedFlag=" " Createprogid="XMLMigrator"
+<DateType ActualFlag="Y" CommittedFlag="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:18-04:00" Createuserid="SYSTEM"
     DateTypeId="YCD_FTC_NEXT_PROMISE_DATE"
     DateTypeKey="FTCNEXTPRMISEDATE" Description="Next FTC Promise Date"
@@ -546,7 +546,7 @@
     Modifyts="2018-03-28T12:30:14-04:00" Modifyuserid="SYSTEM"
     OwnerKey="DEFAULT" ProcessTypeKey="ORDER_FULFILLMENT"
     RequestedFlag="N" SystemDefined="Y"/>
-<DateType ActualFlag="Y" CommittedFlag=" " Createprogid="XMLMigrator"
+<DateType ActualFlag="Y" CommittedFlag="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:18-04:00" Createuserid="SYSTEM"
     DateTypeId="YCD_COMPLETELY_SHIPPED_OR_CANCELLED"
     DateTypeKey="YCDSHPCANCELLED"
@@ -555,7 +555,7 @@
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:18-04:00"
     Modifyuserid="SYSTEM" OwnerKey="DEFAULT"
     ProcessTypeKey="ORDER_FULFILLMENT" RequestedFlag="N" SystemDefined="N"/>
-<DateType ActualFlag="Y" CommittedFlag=" " Createprogid="XMLMigrator"
+<DateType ActualFlag="Y" CommittedFlag="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:18-04:00" Createuserid="SYSTEM"
     DateTypeId="YCD_UNREACHABLE" DateTypeKey="YCDUNREACHABL"
     Description="YCD Unreachable Milestone" ExpectedFlag="N"

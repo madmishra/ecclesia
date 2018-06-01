@@ -66,6 +66,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    YFCDocument docSAP051Input = YFCDocument.getDocumentFor(inputDocString);
 		getOrderLinesGroupByShipNode(docSAP051Input);
 		docSAP051GetAttributes();
+		
 		return inXml;
 	}
 	
@@ -168,7 +169,10 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			orderLineEle.setAttribute(XMLLiterals.SUB_LINE_NO, SUBLINE_VALUE);
 			orderLineEle.setAttribute(XMLLiterals.ACTION, ACTION_VALUE);
 		}
-	    invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput, getChangeOrderTemplateDoc());    
+		 YFCDocument changeOrderOutput = invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput,
+		    		getChangeOrderTemplateDoc());    
+		 String modifyTS = changeOrderOutput.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS);
+		 docLegacy051Input.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTS);    
 	}
 	
 	/**
@@ -215,8 +219,30 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		    }
 		    YFCDocument getOrderLineListDoc = getOrderLineListFunc(groupByShipNodeDoc);
 		    docSAP051Input(groupByShipNodeDoc, getOrderLineListDoc);
+		    docAddLegacyOMSOdrNo(getOrderLineListDoc);
 		}
 		callLegacyOMS051opQueue(docLegacy051Input);
+	}
+	
+	/**
+	 * This method appends the legacyOMSOrderNo at OrderLine level for 
+	 * each primeLineNo taking the value from getOrderLineList API
+	 * 
+	 * @param getOrderLineListDoc
+	 */
+	
+	private void docAddLegacyOMSOdrNo(YFCDocument getOrderLineListDoc) {
+		YFCElement orderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
+				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
+	    YFCIterable<YFCElement> yfsItrator = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
+	    for(YFCElement orderLine : yfsItrator) {
+	    	String primeLineNo = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
+	    	YFCElement orderLineEle = XPathUtil.getXPathElement(getOrderLineListDoc, "/OrderLineList/OrderLine[@PrimeLineNo = \""+
+	    	primeLineNo+"\"]");
+	    	String legacyOMSOrderNo = orderLineEle.getChildElement(XMLLiterals.EXTN).
+	    			getAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO);
+	    	orderLine.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOMSOrderNo);
+	    }
 	}
 	
 	/**

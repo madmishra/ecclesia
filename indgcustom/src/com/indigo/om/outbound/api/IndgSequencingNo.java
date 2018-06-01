@@ -8,6 +8,12 @@ import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
 public class IndgSequencingNo extends AbstractCustomApi{
+	private static final String ONE="1";
+	private static final String INDG_CHANGE_INDG_MSG_SEQ_NO="INDG_changeINDGMsgSeqNo";
+	private static final String INDG_CREATE_INDG_MSG_SEQ_NO="INDG_createINDGMsgSeqNo";
+	private static final String INDG_DELETE_INDG_MSG_SEQ_NO="INDG_deleteINDGMsgSeqNo";
+	private static final String INDG_GET_INDG_MSG_SEQ_NO="INDG_getINDGMsgSeqNo";
+	private static final String INDG_GET_INDG_MSG_SEQ_NO_LIST="INDG_getINDGMsgSeqNoList";
 	/**
 	   * This is the invoke point of the Service
 	 * @throws  
@@ -21,30 +27,41 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			
 		private YFCDocument docGetINDGMsgSeqNoList(YFCDocument inXml) {
 			YFCDocument docGetINDGMsgSeqNoList=null;
-			String ONE="1";
+		
 			YFCElement eleOrderMessage=inXml.getDocumentElement();
 			YFCElement eleOrder= eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 			if(eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO)!=null) {
-				docGetINDGMsgSeqNoList=YFCDocument.createDocument(XMLLiterals.GET_INDG_MSG_SEQ_NO_LIST);
+				docGetINDGMsgSeqNoList=inputGetINDGMsgSeqNoList(eleOrder);
+				
+			if(!XmlUtils.isVoid(invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList)))
+				docGetINDGMsgSeqNoList.getDocumentElement().setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, Integer.parseInt(eleOrderMessage.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO))+ONE);
+			
+			else 
+				docGetINDGMsgSeqNoList=	invokeCreateINDGMsgSeqNo(eleOrder);
+			}
+
+			return docGetINDGMsgSeqNoList;
+		}
+		private YFCDocument inputGetINDGMsgSeqNoList(YFCElement eleOrder) {
+			 YFCDocument docGetINDGMsgSeqNoList=YFCDocument.createDocument(XMLLiterals.GET_INDG_MSG_SEQ_NO_LIST);
 			YFCElement eleGetINDGMsgSeqNoList=docGetINDGMsgSeqNoList.getDocumentElement();
 			eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_ORDER_NO,eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO));
 			eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.ORDER_NO, eleOrder.getAttribute(XMLLiterals.STERLING_ORDER_NO));
-			if(!XmlUtils.isVoid(invokeYantraApi("getINDGMsgSeqNoList",docGetINDGMsgSeqNoList)))
-				eleGetINDGMsgSeqNoList.setAttribute("SterlingToSterlingToSAPMessageSequenceNumber", Integer.parseInt(eleOrderMessage.getAttribute("SterlingToSterlingToSAPMessageSequenceNumber"))+1);
-			
-			else {
-				docGetINDGMsgSeqNoList=YFCDocument.createDocument(XMLLiterals.CREATE_INDG_MSG_SEQ_NO);
-				YFCElement eleCreateINDGMsgSeqNo=docGetINDGMsgSeqNoList.getDocumentElement();
-				eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,ONE);
-				eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.ORDER_NO,eleOrder.getAttribute(XMLLiterals.STERLING_ORDER_NO));
-				eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.SAP_ORDER_NO,eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO));
-				eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleOrder.getAttribute(XMLLiterals.DOCUMENT_TYPE));
-				eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE,eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
-				
-			}
-				}
-			System.out.println(docGetINDGMsgSeqNoList+"*****");
 			return docGetINDGMsgSeqNoList;
+			
+		}
+		
+		private YFCDocument invokeCreateINDGMsgSeqNo(YFCElement eleOrder) {
+			YFCDocument docGetINDGMsgSeqNoList=YFCDocument.createDocument(XMLLiterals.CREATE_INDG_MSG_SEQ_NO);
+			YFCElement eleCreateINDGMsgSeqNo=docGetINDGMsgSeqNoList.getDocumentElement();
+			eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,ONE);
+			eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.ORDER_NO,eleOrder.getAttribute(XMLLiterals.STERLING_ORDER_NO));
+			eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.SAP_ORDER_NO,eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO));
+			eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleOrder.getAttribute(XMLLiterals.DOCUMENT_TYPE));
+			eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE,eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
+			invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docGetINDGMsgSeqNoList);
+			return docGetINDGMsgSeqNoList;
+			
 		}
 			
 	  

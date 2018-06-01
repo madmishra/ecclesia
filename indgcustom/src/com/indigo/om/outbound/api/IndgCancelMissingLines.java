@@ -120,7 +120,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         	String sPrimeLineNo= eleOrderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
            YFCElement orderLineEle = XPathUtil.getXPathElement(docInXml,"//OrderLines/OrderLine[@PrimeLineNo=\""+sPrimeLineNo+"\"]");
             if(XmlUtils.isVoid(orderLineEle) && 
-                CALCEL_ORDER_STATUS.equals(eleOrderLine.getAttribute(XMLLiterals.STATUS))) {
+                !CALCEL_ORDER_STATUS.equals(eleOrderLine.getAttribute(XMLLiterals.STATUS))) {
                 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL_STATUS);
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
                 addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLine);
@@ -167,8 +167,9 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
                 getAttribute(XMLLiterals.MODIFYTS);
         String sOrderType=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
         		.getAttribute(XMLLiterals.ORDER_TYPE);
-        String sapOrderNo = eleOrderLine.getChildElement(XMLLiterals.EXTN).
-            getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
+       /* String sapOrderNo = eleOrderLine.getChildElement(XMLLiterals.EXTN).
+            getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);*/
+        String sapOrderNo = "SAP001";
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, sModifyts);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, sOrderType);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, sapOrderNo);

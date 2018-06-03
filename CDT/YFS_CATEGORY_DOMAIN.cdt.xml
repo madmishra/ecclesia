@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YFS_CATEGORY_DOMAINList TableName="YFS_CATEGORY_DOMAIN">
-<CategoryDomain AttributeName=" "
-    CategoryDomain="Indigo_CAMasterCatalog"
+<CategoryDomain AttributeName="" CategoryDomain="Indigo_CAMasterCatalog"
     CategoryDomainKey="201804121105054705"
     Createprogid=".YCPOrgDetailsAPI"
     Createts="2018-04-12T11:05:05-04:00" Createuserid="admin"
@@ -9,7 +8,7 @@
     Lockid="0" Modifyprogid=".YCPOrgDetailsAPI"
     Modifyts="2018-04-12T11:05:05-04:00" Modifyuserid="admin"
     OrganizationCode="Indigo_CA" ShortDescription="Master Catalog"/>
-<CategoryDomain AttributeName=" " CategoryDomain="DEFAULTMasterCatalog"
+<CategoryDomain AttributeName="" CategoryDomain="DEFAULTMasterCatalog"
     CategoryDomainKey="DefaultMasterCatalog" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
     Description="Master Catalog for DEFAULT" IsClassification="N"

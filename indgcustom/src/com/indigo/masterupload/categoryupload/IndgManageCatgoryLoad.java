@@ -44,13 +44,13 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml)  {
-   createHeaderDeptDoc(inXml);
    setOrganizationCode(inXml);
    YFCDocument categoryListApiOp = getCategoryList(EMPTY_STRING, organizationCode);
    Collection<String> unpublishCategoryIDList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion
        (inXml, categoryListApiOp,XMLLiterals.CATEGORY_ID, XMLLiterals.CATEGORY);
    addInputDocToManageCategory(inXml.getDocumentElement());
    manageUnPublishCategory(unpublishCategoryIDList,categoryListApiOp);
+   createHeaderDeptDoc(inXml);
    return inXml;
   }
  

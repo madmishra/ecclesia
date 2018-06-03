@@ -32,7 +32,7 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
         YFCElement availabilityChanges = inXml.getDocumentElement();
         YFCIterable<YFCElement> yfcItrator = availabilityChanges.getChildren(XMLLiterals.AVAILABILITY_CHANGE);
         for(YFCElement availabilityChange:yfcItrator) {
-          String sInventoryUpload = availabilityChange.toString();
+          String sInventoryUpload = " "+availabilityChange.toString();
           if (sInventoryUpload.startsWith("<?xml ")) {
             sInventoryUpload = sInventoryUpload.substring(sInventoryUpload.indexOf("?>") + 2);
             fileOutputStream.write(sInventoryUpload.getBytes());

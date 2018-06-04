@@ -3,6 +3,7 @@
    <xsl:template match="/">
    <EOF>
    <xsl:attribute name="Message">Completed</xsl:attribute>
+   <xsl:attribute name="YantraMessageGroupID">RTAM_FULL_SYNC</xsl:attribute>
    </EOF>
    </xsl:template>
 </xsl:stylesheet>

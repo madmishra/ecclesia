@@ -5,6 +5,7 @@ import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
+import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 
 /**
  * 

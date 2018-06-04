@@ -231,10 +231,13 @@ public static final String PROVIDER_ORGANIZATION_CODE = "ProviderOrganizationCod
 public static final String NODE_CAPACITY = "NodeCapacity";
 public static final String DATES = "Dates";
 public static final String LAST_UPDATED_TIME = "LastUpdatedTime";
-public static final String GET_INDG_MSG_SEQ_NO_LIST="getINDGMsgSeqNoList";
-public static final String CREATE_INDG_MSG_SEQ_NO="createINDGMsgSeqNo";
+public static final String INDG_MSG_SEQ_NO="INDGMsgSeqNo";
 public static final String AVAILABILITY_CHANGE = "AvailabilityChange";
-public static final String LEGACY_OMS_ORDER_NO = "LegacyOMSOrderNo";
 public static final String SAP_MSG_SEQ_NO="SterlingToSAPMessageSequenceNumber";
+public static final String SEQUENCE_TYPE_ID="Sequence_Type";
+public static final String SAP_OUTBOUND="SAPOutbound";
+public static final String LEGACY_OUTBOUND="LEGACYOutbound";
+public static final String SEQUENCE_NO_KEY="SequenceNoKey";
+public static final String LEGACY_MSG_SEQ_NO="SterlingToLegacyOMSMessageSequenceNumber";
 }
 

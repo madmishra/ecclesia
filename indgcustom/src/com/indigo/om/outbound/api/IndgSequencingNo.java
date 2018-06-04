@@ -47,10 +47,11 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			System.out.println("SAP_ORDER_NO"+eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO));
 			System.out.println("SEQUENCE_NO"+eleOrderMessage.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO));
 			
-			if(!(XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO)) && (XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)))))
-				return invokeCreateINDGMsgSeqNo(inXml);
+			if(!(XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO)) && (XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO))))
+					|| (!XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO))  ))
+				return inputGetINDGMsgSeqNoList(eleOrderMessage);
 			else
-				return inputGetINDGMsgSeqNoList(eleOrderMessage);	
+				return invokeCreateINDGMsgSeqNo(inXml);	
 		}
 		
 		
@@ -65,7 +66,10 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.SAP_ORDER_NO,elegetMsgSeqList.getAttribute(XMLLiterals.SAP_ORDER_NO));
 			else
 				eleIndgMsgSeqNo.setAttribute(XMLLiterals.SAP_ORDER_NO,EMPTY_STRING);
+			if(!XmlUtils.isVoid(elegetMsgSeqList.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)))
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,(Integer.parseInt(elegetMsgSeqList.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)))+ONE);
+			else
+				eleIndgMsgSeqNo.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,(Integer.parseInt(elegetMsgSeqList.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO)))+ONE);
 			System.out.println("docChangeGetMsgSeq"+docChangeGetMsgSeq);
 			return invokeYantraService(INDG_CHANGE_INDG_MSG_SEQ_NO, docChangeGetMsgSeq);
 		}

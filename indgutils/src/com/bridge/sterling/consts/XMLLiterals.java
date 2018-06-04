@@ -239,6 +239,6 @@ public static final String SAP_OUTBOUND="SAPOutbound";
 public static final String LEGACY_OUTBOUND="LEGACYOutbound";
 public static final String SEQUENCE_NO_KEY="SequenceNoKey";
 public static final String LEGACY_MSG_SEQ_NO="SterlingToLegacyOMSMessageSequenceNumber";
-public static final String LEGACY_OMS_ORDER_NO="LegacyOMSOrderNo";
+public static final String LEGACY_OMS_ORDER_NO = "LegacyOMSOrderNo";
 }
 

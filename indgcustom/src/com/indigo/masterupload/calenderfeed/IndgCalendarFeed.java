@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.json.utils.XML;
-
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
@@ -38,7 +36,7 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 	private static final String INDG_GET_RESOURCE_POOL_CAPACITY ="Indg_getResourcePoolCapacity"; 
 	YFCDocument docCreateCalenderInXml = null;
 	Map<String, String> map=new HashMap<>();
-	List<String> shiftList=new ArrayList<String>();
+	List<String> shiftList=new ArrayList<>();
 	/**
 	   * This is the invoke point of the Service
 	 * @throws  

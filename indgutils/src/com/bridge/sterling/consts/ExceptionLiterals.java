@@ -65,5 +65,6 @@ public class ExceptionLiterals {
       "ERRTASKMGNTMANDATORYFIELDSMISSING";
 	  
 	public static final String ERRORCODE_SYNC_EXP = "ERRFullSyncStatus";
+	public static final String ERRORCODE_RTAM_UPLOAD = "ERRFULLSyncRTAMUpload";
   
 }

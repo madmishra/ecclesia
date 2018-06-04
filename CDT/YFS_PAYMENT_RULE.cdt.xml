@@ -7,7 +7,7 @@
     DefaultFlag="N" DeferredCreditOnReturnRequired="N"
     Description="Default Payment Rule" FinancialHandlingRequired="B"
     IgnorePaymentStatusForPurge="N" InterfaceTime="AT_COLLECT"
-    Lockid="0" MerchantId=" " Modifyprogid="SYSTEM"
+    Lockid="0" MerchantId="" Modifyprogid="SYSTEM"
     Modifyts="2018-03-28T12:30:23-04:00" Modifyuserid="SYSTEM"
     OrganizationCode="DEFAULT" PaymentRuleId="DEFAULT"
     PaymentRuleKey="DEFAULT" PostponeReauthorization="N"

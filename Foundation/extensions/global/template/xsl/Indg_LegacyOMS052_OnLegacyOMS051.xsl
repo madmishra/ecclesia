@@ -36,6 +36,9 @@
 								<xsl:attribute name="LegacyOMSCancellationRequestId">
 									<xsl:value-of select="../../@LegacyOMSCancellationRequestId"/>
 								</xsl:attribute>
+								<xsl:attribute name="LegacyOMSOrderNo">
+									<xsl:value-of select="@LegacyOMSOrderNo" />
+								</xsl:attribute>
 								<Item>
 									<xsl:attribute name="ItemID">
 										<xsl:value-of select="Item/@ItemID" />

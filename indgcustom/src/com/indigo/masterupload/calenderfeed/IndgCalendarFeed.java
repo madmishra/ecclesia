@@ -83,7 +83,7 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 }
 	  
 	/**
-	 * 
+	 *this method form documentfor  createCalendar API input
 	 * @param organizationCode
 	 * @param effectiveFromDate
 	 * @return
@@ -153,7 +153,7 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 		}
 		
 		/**
-		 * 
+		 * this method formats the time
 		 * @param time
 		 * @return
 		 * @throws ParseException
@@ -298,7 +298,11 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 			map.clear();
 			}
 
-		
+		/**
+		 * this method form the shift list
+		 * @param slotList
+		 * @param shiftList
+		 */
 			private static void setShift(YFCElement slotList,List<String> shiftList ) {
 				String sStartTime="00:00:00";
 				for(String shiftTime:shiftList) {
@@ -408,7 +412,7 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 	}
 	
 	/**
-	 * 
+	 * this method gets the list of exception dates
 	 * @param calenderInXml
 	 * @param calenderDetailXml
 	 */
@@ -427,18 +431,22 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 	        inputExcepEle.setAttribute(XMLLiterals.DATE, exceptionDate);
 	        inputExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE, WORKING_DAY);
 	        inputExcepEle.createChild(XMLLiterals.EXCEPTION_SHIFTS).createChild(XMLLiterals.EXCEPTION_SHIFT).setAttribute(XMLLiterals.SHIFT_KEY, shiftKey);
-	        raiseAlert(calenderDetailXml);
+	        formMessageOnChange(calenderDetailXml);
 	      } else {
 	        inputExcepEle = docCreateCalenderInXml.getDocumentElement().getChildElement(XMLLiterals.CALENDAR_DAY_EXCEPTIONS).createChild(XMLLiterals.CALENDAR_DAY_EXCEPTION);
             inputExcepEle.setAttribute(XMLLiterals.DATE, exceptionDate);
             inputExcepEle.setAttribute(XMLLiterals.EXCEPTION_TYPE, WORKING_DAY);
             inputExcepEle.createChild(XMLLiterals.EXCEPTION_SHIFTS).createChild(XMLLiterals.EXCEPTION_SHIFT).setAttribute(XMLLiterals.SHIFT_KEY, shiftKey);
-            raiseAlert(calenderDetailXml);
+            formMessageOnChange(calenderDetailXml);
 	      }
 	    }
 	  }
 	}
-	private void raiseAlert(YFCDocument calenderDetailXml) {
+	/**
+	 * this method drop a message when working day is changed from non working day and vice versa
+	 * @param calenderDetailXml
+	 */
+	private void formMessageOnChange(YFCDocument calenderDetailXml) {
 		String sProd="PROD";		
 		YFCElement docCalenderDetail=calenderDetailXml.getDocumentElement();
 		YFCDocument docGetResPoolCapcityDetails=YFCDocument.createDocument(XMLLiterals.RESOURCE_POOL);

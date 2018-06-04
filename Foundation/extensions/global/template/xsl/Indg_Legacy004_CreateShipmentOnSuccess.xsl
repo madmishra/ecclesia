@@ -31,6 +31,9 @@
 								<xsl:attribute name="PrimeLineNo">
 									<xsl:value-of select="OrderLine/@PrimeLineNo"/>
 								</xsl:attribute>
+								<xsl:attribute name="Quantity">
+									<xsl:value-of select="OrderLine/@Quantity"/>
+								</xsl:attribute>
 								<Item>
 									<xsl:attribute name="ItemID">
 										<xsl:value-of select="Item/@ItemID"/>

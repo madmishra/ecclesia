@@ -6,7 +6,7 @@
 				<xsl:value-of select="@EnterpriseCode" />
 			</xsl:attribute>
 			<xsl:attribute name="ResourcePoolId">
-				<xsl:value-of select="concat(@ShipNode,'-','_PICK_RLS_RP')" />
+				<xsl:value-of select="concat(@ShipNode,'_PICK_RLS_RP')" />
 			</xsl:attribute>
 			<xsl:attribute name="Node">
 				<xsl:value-of select="@ShipNode" />

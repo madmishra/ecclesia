@@ -7,6 +7,9 @@
 			<xsl:attribute name="Modifyts">
 				<xsl:value-of select="@Modifyts"/>
 			</xsl:attribute>
+			<xsl:attribute name="SterlingToSterlingToSAPMessageSequenceNumber">
+				<xsl:value-of select="@SterlingToSterlingToSAPMessageSequenceNumber"/>
+			</xsl:attribute>
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="SAPOrderNo">
@@ -42,7 +45,7 @@
 								<xsl:attribute name="ShipNode">
 									<xsl:value-of select="@ShipNode"/>
 								</xsl:attribute>
-								<xsl:attribute name="CancellationReasonCode">06</xsl:attribute>
+								<xsl:attribute name="CancellationReasonCode">03</xsl:attribute>
 								<Item>
 									<xsl:attribute name="ItemID">
 										<xsl:value-of select="Item/@ItemID"/>

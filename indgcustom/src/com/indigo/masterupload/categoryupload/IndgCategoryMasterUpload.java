@@ -61,7 +61,6 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
      manageSubCategory(categoryInEle.getAttribute(XMLLiterals.CATEGORY_PATH),
     		 categoryInEle.getAttribute(XMLLiterals.CATEGORY_DOMAIN));
      invokeYantraApi(XMLLiterals.MANAGE_CATEGORY, inXml);
-     System.out.println(categoryInEle.toString() + "categhdshg");
      manageCategoryItem(categoryInEle);
     }
     return inXml;
@@ -213,15 +212,11 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
    */
   
   private void manageCategoryItem(YFCElement categoryEle) {
-	  System.out.println(categoryEle.toString() + "InCategoryEle");
     String categoryPath = categoryEle.getAttribute(XMLLiterals.CATEGORY_PATH);
-    System.out.println(categoryPath + "inCategoryPath");
     String action = CREATE_ACTION;
     YFCDocument itemList = getItemListDocumentFromList();
-    System.out.println(itemList + "ListOfItems");
     if(XmlUtils.isVoid(itemList)) {
       itemList = getItemList(categoryPath);
-      System.out.println(itemList + "insideLoop");
       action = DELETE_ACTION;
     }
     if(itemList.getDocumentElement().hasChildNodes()) {
@@ -238,9 +233,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
         categoryItem.setAttribute(XMLLiterals.ITEM_ID, itemEle.getAttribute(XMLLiterals.ITEM_ID));
         categoryItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UOM);
         itemIDList.add(itemEle.getAttribute(XMLLiterals.ITEM_ID));
-        System.out.println(itemIDList + "Likhjkhaskjdhhd");
       }
-      System.out.println(deleteCategoryItemDoc + "InsideDoc");
       invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, deleteCategoryItemDoc);
     }
   }
@@ -277,7 +270,6 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
         "/CategoryList/Category[@CategoryID=\""+categoryId+"\"]");
     if(!XmlUtils.isVoid(categoryEle) && !categoryPath.equals(categoryEle.getAttribute(XMLLiterals.CATEGORY_PATH))) {
       categoryEle.setAttribute(XMLLiterals.ACTION,DELETE_ACTION);
-      System.out.println(categoryEle.toString() + "kjkdsaj");
       manageCategoryItem(categoryEle);
       invokeYantraApi(XMLLiterals.MANAGE_CATEGORY, categoryListApiOp);
     }
@@ -291,14 +283,10 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   
   public YFCDocument getItemListDocumentFromList(){
     YFCDocument itemListDoc  = null;
-    if(!XmlUtils.isVoid(itemListDoc)){
     	for(String itemID: itemIDList) {
-    		System.out.println(itemIDList + "dskjhgdsg");
     		itemListDoc = YFCDocument.createDocument(XMLLiterals.ITEM_LIST);
-    		itemListDoc.createElement(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, itemID);
-    	}
+    		itemListDoc.getDocumentElement().createChild(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, itemID);
     }
-    System.out.println(itemListDoc + "itemListDoc");
     return itemListDoc;
   }
   

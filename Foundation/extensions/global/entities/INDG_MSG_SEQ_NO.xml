@@ -23,15 +23,6 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
           Size="20" 
           Type="NVARCHAR" 
           XMLName="SterlingToSAPMessageSequenceNumber"/>
-		  <Attribute ColumnName="LEGACY_OMS_ORDER_NO" 
-          DataType="Text-20"
-          DefaultValue="' '" 
-          Description="Child order number from legacy OMS"  
-          Nullable="true" 
-          Size="20" 
-          Type="NVARCHAR" 
-          XMLName="LegacyOMSOrderNo"/>
-		  
 		  <Attribute ColumnName="SEQUENCE_TYPE_ID" 
           DataType="Text-20"
           DefaultValue="' '" 

@@ -72,7 +72,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		 * @return
 		 */
 		 private YFCDocument invokechangeINDGMsgSeqNo(YFCDocument docgetMsgSeqList) {
-			 YFCElement elegetMsgSeqList=docgetMsgSeqList.getDocumentElement();
+			 YFCElement elegetMsgSeqList=docgetMsgSeqList.getDocumentElement().getChildElement(XMLLiterals.INDG_MSG_SEQ_NO);
 			YFCDocument docChangeGetMsgSeq=YFCDocument.createDocument(XMLLiterals.INDG_MSG_SEQ_NO);
 			YFCElement eleIndgMsgSeqNo=docChangeGetMsgSeq.getDocumentElement();
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.SEQUENCE_NO_KEY, elegetMsgSeqList.getAttribute(XMLLiterals.SEQUENCE_NO_KEY));

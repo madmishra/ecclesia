@@ -6,10 +6,16 @@ import com.bridge.sterling.utils.XMLUtil;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
-
+/**
+ * 
+ * 
+ * @author BSG170
+ *
+ */
 public class IndgSequencingNo extends AbstractCustomApi{
 	private static final String EMPTY_STRING = "";
-	private static final int ONE=1;
+	private static final long ONE=1;
+	private static final CharSequence SAP="SAP";
 	private static final String INDG_CHANGE_INDG_MSG_SEQ_NO="INDG_changeINDGMsgSeqNo";
 	private static final String INDG_CREATE_INDG_MSG_SEQ_NO="INDG_createINDGMsgSeqNo";
 	private static final String INDG_GET_INDG_MSG_SEQ_NO_LIST="INDG_getINDGMsgSeqNoList";
@@ -23,8 +29,12 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		  verifyTypeOfMsg(inXml);
 		  return inXml;
 	  }
+	  /**
+	   * this method identifies the type of message i.e LEGACY OR SAP message
+	   * @param inXml
+	   */
 	  private void verifyTypeOfMsg(YFCDocument inXml) {
-		  final CharSequence SAP="SAP";
+		
 		  YFCElement eleOrderMessage=inXml.getDocumentElement();
 		  YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		  if(eleOrderMessage.getAttribute(XMLLiterals.MESSAGE_TYPE_ID).contains(SAP))
@@ -40,13 +50,15 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		 
 			  
 	  }
-	 
+	  
+	 /**this method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method
+	  * 
+	  * @param inXml
+	  * @return
+	  */
 		private YFCDocument docGetINDGMsgSeqNoList(YFCDocument inXml) {
 			YFCElement eleOrderMessage=inXml.getDocumentElement();
 			YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
-			System.out.println("SAP_ORDER_NO"+eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO));
-			System.out.println("SEQUENCE_NO"+eleOrderMessage.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO));
-			
 			if(!(XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO)) && (XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO))))
 					|| (!XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO))  ))
 				return inputGetINDGMsgSeqNoList(eleOrderMessage);
@@ -54,7 +66,11 @@ public class IndgSequencingNo extends AbstractCustomApi{
 				return invokeCreateINDGMsgSeqNo(inXml);	
 		}
 		
-		
+		/**this method invokes chengeINDGMsgSeqNo api
+		 * 
+		 * @param docgetMsgSeqList
+		 * @return
+		 */
 		 private YFCDocument invokechangeINDGMsgSeqNo(YFCDocument docgetMsgSeqList) {
 			 YFCElement elegetMsgSeqList=docgetMsgSeqList.getDocumentElement();
 			YFCDocument docChangeGetMsgSeq=YFCDocument.createDocument(XMLLiterals.INDG_MSG_SEQ_NO);
@@ -69,12 +85,15 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			if(!XmlUtils.isVoid(elegetMsgSeqList.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)))
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,(Integer.parseInt(elegetMsgSeqList.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)))+ONE);
 			else
-				eleIndgMsgSeqNo.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,(Integer.parseInt(elegetMsgSeqList.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO)))+ONE);
-			System.out.println("docChangeGetMsgSeq"+docChangeGetMsgSeq);
+				eleIndgMsgSeqNo.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO,(Integer.parseInt(elegetMsgSeqList.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO)))+ONE);
 			return invokeYantraService(INDG_CHANGE_INDG_MSG_SEQ_NO, docChangeGetMsgSeq);
 		}
 		
-		
+		/**
+		 * this method invokes getINDGMsgSeqNoList api
+		 * @param eleOrderMessage
+		 * @return
+		 */
 			
 		private YFCDocument inputGetINDGMsgSeqNoList(YFCElement eleOrderMessage) {
 			YFCElement eleOrder= eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
@@ -91,14 +110,17 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			else
 				eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_ORDER_NO,EMPTY_STRING );
 			
-			System.out.println("inputGetINDGMsgSeqNoList method"+docGetINDGMsgSeqNoList);
 			if(XmlUtils.isVoid(invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList)))
 				return 	invokeCreateINDGMsgSeqNo(docGetINDGMsgSeqNoList);
 			else 
 				return invokechangeINDGMsgSeqNo(invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList));
 		}
 	
-		
+		/**
+		 * this method invokes createINDGMsgSeqNo api
+		 * @param docOrderMessage
+		 * @return
+		 */
 		private YFCDocument invokeCreateINDGMsgSeqNo(YFCDocument docOrderMessage) {
 			YFCElement eleOrderMessage=docOrderMessage.getDocumentElement();
 			YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
@@ -119,7 +141,6 @@ public class IndgSequencingNo extends AbstractCustomApi{
 				eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.ORDER_NO,sOrderNo);
 			eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleOrder.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 			eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE,eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
-			System.out.println("invokeCreateINDGMsgSeqNo---"+docGetINDGMsgSeqNoList);
 			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docGetINDGMsgSeqNoList);
 			
 		}

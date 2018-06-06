@@ -105,7 +105,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		private YFCDocument inputGetINDGMsgSeqNoList(YFCElement eleOrderMessage) {
 			System.out.println("inputGetINDGMsgSeqNoList INPUT"+eleOrderMessage);
 			YFCElement eleOrder= eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
-			 YFCDocument docGetINDGMsgSeqNoList=YFCDocument.createDocument(XMLLiterals.INDG_MSG_SEQ);
+			 YFCDocument docGetINDGMsgSeqNoList=YFCDocument.createDocument(XMLLiterals.INDG_MSG_SEQ_NO);
 			YFCElement eleGetINDGMsgSeqNoList=docGetINDGMsgSeqNoList.getDocumentElement();
 			String sOrderNo=eleOrderMessage.getAttribute(XMLLiterals.ORDER_NO);
 			System.out.println("ORDER_NO"+sOrderNo);
@@ -137,7 +137,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			System.out.println("invokeCreateINDGMsgSeqNo INPUT"+docOrderMessage);
 			YFCElement eleOrderMessage=docOrderMessage.getDocumentElement();
 			YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
-			YFCDocument docGetINDGMsgSeqNoList=YFCDocument.createDocument(XMLLiterals.INDG_MSG_SEQ);
+			YFCDocument docGetINDGMsgSeqNoList=YFCDocument.createDocument(XMLLiterals.INDG_MSG_SEQ_NO);
 			YFCElement eleCreateINDGMsgSeqNo=docGetINDGMsgSeqNoList.getDocumentElement();
 			eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID, eleOrder.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID));
 			eleCreateINDGMsgSeqNo.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,ONE);

@@ -121,10 +121,11 @@ public class IndgSequencingNo extends AbstractCustomApi{
 				eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_ORDER_NO,EMPTY_STRING );
 			
 			System.out.println("inputGetINDGMsgSeqNoList DOCUMENT"+docGetINDGMsgSeqNoList);
-			if(XmlUtils.isVoid(invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList)))
-				return 	invokeCreateINDGMsgSeqNo(docGetINDGMsgSeqNoList);
-			else 
+			if(!XmlUtils.isVoid(invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList)))
 				return invokechangeINDGMsgSeqNo(invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList));
+			else 
+				
+			return 	invokeCreateINDGMsgSeqNo(docGetINDGMsgSeqNoList);
 		}
 	
 		/**

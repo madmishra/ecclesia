@@ -30,7 +30,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
           Nullable="true" 
           Size="20" 
           Type="NVARCHAR" 
-          XMLName="SterlingToLegacyOMSMessageSequenceNumber"/>s
+          XMLName="SterlingToLegacyOMSMessageSequenceNumber"/>
 		  <Attribute ColumnName="SEQUENCE_TYPE_ID" 
           DataType="Text-20"
           DefaultValue="' '" 

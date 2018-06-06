@@ -29,7 +29,9 @@
 					<OrderLines>
 						<xsl:for-each select="MessageBody/Order/OrderLines/OrderLine">
 							<OrderLine>
-								<xsl:attribute name="IsProcessed">Y</xsl:attribute>
+								<xsl:attribute name="IsProcessed">
+									<xsl:value-of select="@IsProcessed" />
+								</xsl:attribute>
 								<xsl:attribute name="PrimeLineNo">
 									<xsl:value-of select="@PrimeLineNo" />
 								</xsl:attribute>

@@ -58,17 +58,44 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    documentType = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
 	    		getAttribute(XMLLiterals.DOCUMENT_TYPE);
 		String inputDocString = inXml.toString();
-		
 	    docLegacy051Input = YFCDocument.getDocumentFor(inputDocString);
-	    getOrderLinesGroupByReasonCode();
+	    
+	    YFCDocument shipmentListApiOp = getShipmentList();
+	    getOrderLinesGroupByReasonCode(shipmentListApiOp);
 	    docCancelOrderLines();
 	    
-	    YFCDocument docSAP051Input = YFCDocument.getDocumentFor(inputDocString);
-		getOrderLinesGroupByShipNode(docSAP051Input);
-		docSAP051GetAttributes();
+	    YFCDocument.getDocumentFor(inputDocString);
+		docSAP051GetAttributes(inXml);
 		
 		return inXml;
 	}
+	
+	public YFCDocument inputXmlForGetShipmentList() {
+	    YFCDocument getShipmentListDoc = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
+	    YFCElement shipmentLinesEle = getShipmentListDoc.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES);
+	    YFCElement shipmentLineEle = shipmentLinesEle.createChild(XMLLiterals.SHIPMENT_LINE);
+	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, orderNo);
+	    return getShipmentListDoc;
+	  }
+	
+	public YFCDocument inputTemplateForGetShipmentList() {
+	    YFCDocument getShipmentListTemp = YFCDocument.createDocument(XMLLiterals.SHIPMENTS);
+	    YFCElement shipmentEle = getShipmentListTemp.getDocumentElement().createChild(XMLLiterals.SHIPMENT);
+	    YFCElement shipmentLinesEle = shipmentEle.createChild(XMLLiterals.SHIPMENT_LINES);
+	    YFCElement shipmentLineEle = shipmentLinesEle.createChild(XMLLiterals.SHIPMENT_LINE);
+	    shipmentLineEle.setAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE, EMPTY_STRING);
+	    shipmentLineEle.setAttribute(XMLLiterals.BACKROOM_PICK_QUANTITY, EMPTY_STRING);
+	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
+	    shipmentLineEle.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
+	    YFCElement orderLineEle = shipmentLineEle.createChild(XMLLiterals.ORDER_LINE);
+	    orderLineEle.setAttribute(XMLLiterals.DELIVERY_METHOD, EMPTY_STRING);
+	    orderLineEle.setAttribute(XMLLiterals.DEPARTMENT_CODE, EMPTY_STRING);
+	    return getShipmentListTemp;
+	  }
+	
+	public YFCDocument getShipmentList(){
+	    return  invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(), inputTemplateForGetShipmentList());
+	 }
 	
 	/**
 	 * This method takes the input file and group the OrderLines
@@ -77,14 +104,46 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 * @param docLegacy051Input
 	 */
 	
-	private void getOrderLinesGroupByReasonCode(){
+	private void getOrderLinesGroupByReasonCode(YFCDocument shipmentListApiOp){
+		orderLineIsPickedStatus(shipmentListApiOp);
 	    YFCElement orderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY)
 	    		.getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
 	    YFCIterable<YFCElement> yfsItrator = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
 	    for(YFCElement orderLine: yfsItrator) {
-	      List<YFCElement> orderLineList;
 	      String cancellationReasonCode = orderLine.getAttribute(XMLLiterals.CANCELLATION_REASON_CODE);
-	      if(XmlUtils.isVoid(orderLineMapGroupByReasonCode.get(cancellationReasonCode))) {
+	      String shipNodeValue = orderLine.getAttribute(XMLLiterals.SHIPNODE);
+	      docGroupByCodeAndNode(cancellationReasonCode, shipNodeValue, orderLine);
+	      
+	    }
+	  }
+	
+	private void orderLineIsPickedStatus(YFCDocument shipmentListApiOp) {
+		YFCElement orderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
+				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
+		YFCIterable<YFCElement> yfsItratorShipNode = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
+		for(YFCElement orderLineEle : yfsItratorShipNode) {
+			String shipNode = orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
+			String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
+			YFCElement shipmentEle = XPathUtil.getXPathElement(shipmentListApiOp, "/Shipments/Shipment[@ShipNode=\""+shipNode+"\"]");
+			YFCIterable<YFCElement> yfsItratorPrimeLine = shipmentEle.getChildElement(XMLLiterals.SHIPMENT_LINES)
+					.getChildren(XMLLiterals.SHIPMENT_LINE);
+			for(YFCElement shipmentLineEle : yfsItratorPrimeLine) {
+				if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO))) {
+					if(!XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE))) {
+						String isPickComplete = shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE);
+						if(isPickComplete.equals(YES)) {
+							YFCNode parent = orderLineEle.getParentNode();
+					    	parent.removeChild(orderLineEle);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	private void docGroupByCodeAndNode (String cancellationReasonCode, String shipNodeValue, YFCElement orderLine) {
+		List<YFCElement> orderLineList;
+		if(XmlUtils.isVoid(orderLineMapGroupByReasonCode.get(cancellationReasonCode))) {
 	        orderLineList = new ArrayList<>();	
 	        orderLineList.add(orderLine);
 	        orderLineMapGroupByReasonCode.put(cancellationReasonCode,orderLineList);
@@ -94,10 +153,20 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	        orderLineList.add(orderLine);
 	        orderLineMapGroupByReasonCode.put(cancellationReasonCode,orderLineList);
 	      }
+	      if(XmlUtils.isVoid(orderLineMapGroupByShipNode.get(shipNodeValue))) {
+		        orderLineList = new ArrayList<>();	
+		        orderLineList.add(orderLine);
+		        orderLineMapGroupByShipNode.put(shipNodeValue,orderLineList);
+		   }
+		   else {
+		        orderLineList = orderLineMapGroupByShipNode.get(shipNodeValue);
+		        orderLineList.add(orderLine);
+		        orderLineMapGroupByShipNode.put(shipNodeValue,orderLineList);
+		  }
 	      YFCNode parent = orderLine.getParentNode();
 	      parent.removeChild(orderLine);
-	    }
-	  }
+    }
+	
 	
 	/**
 	 * This method fetches the required order lines for cancellation (lines grouped by ReasonCode).
@@ -172,35 +241,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		 YFCDocument changeOrderOutput = invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput,
 		    		getChangeOrderTemplateDoc());    
 		 String modifyTS = changeOrderOutput.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS);
-		 docLegacy051Input.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTS);    
-	}
-	
-	/**
-	 * This method will group the OrderLines based on the ShipNode.
-	 * 
-	 * @param inXml
-	 */
-	
-	public void getOrderLinesGroupByShipNode(YFCDocument docSAP051Input) {
-		YFCElement orderLinesEle = docSAP051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY)
-	    		.getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
-	    YFCIterable<YFCElement> yfsItrator = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
-	    for(YFCElement orderLine: yfsItrator) {
-	      List<YFCElement> orderLineList;
-	      String shipNodeValue = orderLine.getAttribute(XMLLiterals.SHIPNODE);
-	      if(XmlUtils.isVoid(orderLineMapGroupByShipNode.get(shipNodeValue))) {
-	        orderLineList = new ArrayList<>();	
-	        orderLineList.add(orderLine);
-	        orderLineMapGroupByShipNode.put(shipNodeValue,orderLineList);
-	      }
-	      else {
-	        orderLineList = orderLineMapGroupByShipNode.get(shipNodeValue);
-	        orderLineList.add(orderLine);
-	        orderLineMapGroupByShipNode.put(shipNodeValue,orderLineList);
-	      }
-	      YFCNode parent = orderLine.getParentNode();
-	      parent.removeChild(orderLine);
-	    }
+		 docLegacy051Input.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTS);   
 	}
 	
 	/**
@@ -209,7 +250,8 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 * @param inXml
 	 */
 	
-	private void docSAP051GetAttributes() {
+	private void docSAP051GetAttributes(YFCDocument inXml) {
+		YFCDocument getOrderLineListDoc = null;
 		for (Entry<String, List<YFCElement>> entry : orderLineMapGroupByShipNode.entrySet()) {
 			YFCDocument groupByShipNodeDoc = YFCDocument.createDocument(XMLLiterals.ORDER);
 			YFCElement orderLinesEle = groupByShipNodeDoc.getDocumentElement().createChild(XMLLiterals.ORDER_LINES);
@@ -217,10 +259,11 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		    for(YFCElement lineEle : orderLineList) {
 		      orderLinesEle.importNode(lineEle);
 		    }
-		    YFCDocument getOrderLineListDoc = getOrderLineListFunc(groupByShipNodeDoc);
+		    getOrderLineListDoc = getOrderLineListFunc(groupByShipNodeDoc);
 		    docSAP051Input(groupByShipNodeDoc, getOrderLineListDoc);
-		    docAddLegacyOMSOdrNo(getOrderLineListDoc);
 		}
+		docSetIsProcessedAttr(inXml);
+		docAddLegacyOMSOdrNo(getOrderLineListDoc);
 		callLegacyOMS051opQueue(docLegacy051Input);
 	}
 	
@@ -338,6 +381,25 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		}
 	}
 	
+	private void docSetIsProcessedAttr(YFCDocument inXml) {
+		YFCElement orderLinesEle = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
+				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
+		YFCElement docOrderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
+				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
+		YFCIterable<YFCElement> yfsItrator = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
+		for(YFCElement orderLineEle : yfsItrator) {
+			String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
+			orderLineEle.setAttribute(XMLLiterals.IS_PROCESSED, NO);
+			YFCElement docOrderLineEle = XPathUtil.getXPathElement(docLegacy051Input, "/OrderMessage/MessageBody/Order/"
+					+ "OrderLines/OrderLine[@PrimeLineNo=\""+primeLineNo+"\"]");
+			if(!XmlUtils.isVoid(docOrderLineEle)) {
+				docOrderLineEle.setAttribute(XMLLiterals.IS_PROCESSED, YES);
+			}
+			else
+				docOrderLinesEle.importNode(orderLineEle);
+		}
+	}
+	
 	/**
 	 * This method calls the service where SAP051 message will be dropped
 	 * @param doc
@@ -404,7 +466,6 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    YFCElement orderStatusEle = orderLineEle.createChild(XMLLiterals.ORDER_STATUSES);
 	    YFCElement statusEle = orderStatusEle.createChild(XMLLiterals.ORDER_STATUS);
 	    statusEle.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
-	    
 	    return getOrderListTemp;
 	  }
 	

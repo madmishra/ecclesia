@@ -70,6 +70,12 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		return inXml;
 	}
 	
+	/**
+	 * This method forms the Input XML for getShipmentListAPI
+	 * 
+	 * @return
+	 */
+	
 	public YFCDocument inputXmlForGetShipmentList() {
 	    YFCDocument getShipmentListDoc = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
 	    YFCElement shipmentLinesEle = getShipmentListDoc.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES);
@@ -77,6 +83,12 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, orderNo);
 	    return getShipmentListDoc;
 	  }
+	
+	/**
+	  * This method forms template for the getShipmentListAPI
+	  * 
+	  * @return
+	  */
 	
 	public YFCDocument inputTemplateForGetShipmentList() {
 	    YFCDocument getShipmentListTemp = YFCDocument.createDocument(XMLLiterals.SHIPMENTS);
@@ -93,19 +105,27 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    return getShipmentListTemp;
 	  }
 	
+	/**
+	 * This method calls getShipmentList API
+	 * 
+	 * @return
+	 */
+	
 	public YFCDocument getShipmentList(){
 	    return  invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(), inputTemplateForGetShipmentList());
 	 }
 	
 	/**
-	 * This method takes the input file and group the OrderLines
-	 * based on ReasonCode.
+	 * This method fetches the shipNode and cancellationCode and passes
+	 * it to another method where order lines can be grouped based on it
 	 * 
-	 * @param docLegacy051Input
+	 * @param shipmentListApiOp
 	 */
 	
 	private void getOrderLinesGroupByReasonCode(YFCDocument shipmentListApiOp){
-		orderLineIsPickedStatus(shipmentListApiOp);
+		if(!XmlUtils.isVoid(shipmentListApiOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT))) {
+			orderLineIsPickedStatus(shipmentListApiOp);
+		}
 	    YFCElement orderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY)
 	    		.getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
 	    YFCIterable<YFCElement> yfsItrator = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
@@ -116,6 +136,14 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	      
 	    }
 	  }
+	
+	/**
+	 * this method is used to check if the order Lines are picked 
+	 * or not. If it is already picked it will not be sent to get
+	 * cancelled.
+	 * 
+	 * @param shipmentListApiOp
+	 */
 	
 	private void orderLineIsPickedStatus(YFCDocument shipmentListApiOp) {
 		YFCElement orderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
@@ -128,18 +156,26 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			YFCIterable<YFCElement> yfsItratorPrimeLine = shipmentEle.getChildElement(XMLLiterals.SHIPMENT_LINES)
 					.getChildren(XMLLiterals.SHIPMENT_LINE);
 			for(YFCElement shipmentLineEle : yfsItratorPrimeLine) {
-				if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO))) {
-					if(!XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE))) {
-						String isPickComplete = shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE);
-						if(isPickComplete.equals(YES)) {
-							YFCNode parent = orderLineEle.getParentNode();
-					    	parent.removeChild(orderLineEle);
-						}
+				if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO)) && 
+						(!XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
+					String isPickComplete = shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE);
+					if(isPickComplete.equals(YES)) {
+						YFCNode parent = orderLineEle.getParentNode();
+				    	parent.removeChild(orderLineEle);
 					}
-				}
+				}				
 			}
 		}
 	}
+	
+	/**
+	 * This method is used to create groups based on shipNode and 
+	 * cancellationCode
+	 * 
+	 * @param cancellationReasonCode
+	 * @param shipNodeValue
+	 * @param orderLine
+	 */
 	
 	private void docGroupByCodeAndNode (String cancellationReasonCode, String shipNodeValue, YFCElement orderLine) {
 		List<YFCElement> orderLineList;
@@ -170,10 +206,6 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	
 	/**
 	 * This method fetches the required order lines for cancellation (lines grouped by ReasonCode).
-	 * 
-	 * @param docLegacy051Input
-	 * @param inXml
-	 * @return
 	 */
 	
 	private void docCancelOrderLines(){
@@ -195,11 +227,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 * changeOrder API
 	 * 
 	 * @param docChangeOrderApiInput
-	 * @param orderNo
-	 * @param enterpriseCode
-	 * @param documentType
 	 * @param docChangeOrderInputLines
-	 * @param inXml
 	 */
 	
 	private void docSetAttributesForCancel(YFCDocument docChangeOrderApiInput, YFCDocument docChangeOrderInputLines) {
@@ -223,7 +251,6 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 * calls the API.
 	 * 
 	 * @param docChangeOrderApiInput
-	 * @param inXml
 	 * @param inputEle
 	 * @param orderLinesElement
 	 */
@@ -245,7 +272,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	}
 	
 	/**
-	 * This message now forms the LegacyOMS051 message grouped by ship nodes
+	 * this method calls the getOrderLineListAPI based on shipNode
 	 * 
 	 * @param inXml
 	 */
@@ -381,6 +408,14 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		}
 	}
 	
+	/**
+	 * This method adds the attribute isProcessed based on the order
+	 * lines. If all the orderLines have been cancelled the value will 
+	 * be Y or else N.
+	 * 
+	 * @param inXml
+	 */
+	
 	private void docSetIsProcessedAttr(YFCDocument inXml) {
 		YFCElement orderLinesEle = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
@@ -493,4 +528,3 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		 return getChangeOrderTemp;
 	}
 }
-

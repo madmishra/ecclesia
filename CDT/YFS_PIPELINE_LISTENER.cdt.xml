@@ -2,7 +2,7 @@
 <YFS_PIPELINE_LISTENERList TableName="YFS_PIPELINE_LISTENER">
 <PipelineListener Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:17-04:00" Createuserid="SYSTEM"
-    DropStatus="" ListenerType="02"
+    DropStatus=" " ListenerType="02"
     ListeningToProcessTypeKey="RETURN_FULFILLMENT"
     ListeningToStatus="3780" ListeningToStatusKey="RT_STATUS_3780"
     Lockid="0" Modifyprogid="XMLMigrator"
@@ -11,7 +11,7 @@
     PipelineListenerKey="20072004162133100-9.5" TransactionKey="UNRECEIVE_RETURN"/>
 <PipelineListener Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:17-04:00" Createuserid="SYSTEM"
-    DropStatus="" ListenerType="02"
+    DropStatus=" " ListenerType="02"
     ListeningToProcessTypeKey="RETURN_FULFILLMENT"
     ListeningToStatus="3900"
     ListeningToStatusKey="RETURN_ORDER_STS_3900" Lockid="0"
@@ -20,7 +20,7 @@
     PipelineListenerKey="20072004162133200-9.5" TransactionKey="20020619225301852"/>
 <PipelineListener Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:17-04:00" Createuserid="SYSTEM"
-    DropStatus="" ListenerType="02"
+    DropStatus=" " ListenerType="02"
     ListeningToProcessTypeKey="RETURN_FULFILLMENT"
     ListeningToStatus="9000" ListeningToStatusKey="200206122311155866"
     Lockid="0" Modifyprogid="XMLMigrator"
@@ -29,7 +29,7 @@
     PipelineListenerKey="20072004162133300-9.5" TransactionKey="20020628161026701"/>
 <PipelineListener Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:17-04:00" Createuserid="SYSTEM"
-    DropStatus="" ListenerType="02"
+    DropStatus=" " ListenerType="02"
     ListeningToProcessTypeKey="RETURN_FULFILLMENT"
     ListeningToStatus="9020"
     ListeningToStatusKey="RETURN_ORDER_STS_9020" Lockid="0"
@@ -38,7 +38,7 @@
     PipelineListenerKey="20072004162133400-9.5" TransactionKey="20020628161026701"/>
 <PipelineListener Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:17-04:00" Createuserid="SYSTEM"
-    DropStatus="" ListenerType="02"
+    DropStatus=" " ListenerType="02"
     ListeningToProcessTypeKey="RETURN_FULFILLMENT"
     ListeningToStatus="9100"
     ListeningToStatusKey="RETURN_ORDER_STS_9100" Lockid="0"
@@ -55,7 +55,7 @@
     PipelineListenerKey="2015112414064919154" TransactionKey="RCPT_CLOSURE_LSNR.0005"/>
 <PipelineListener Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:01-04:00" Createuserid="SYSTEM"
-    DropStatus="" ListenerType="05"
+    DropStatus=" " ListenerType="05"
     ListeningToProcessTypeKey="RETURN_RECEIPT" ListeningToStatus="1500"
     ListeningToStatusKey="RT_RECEIPT_STATUS_1500" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:01-04:00"

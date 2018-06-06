@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YFS_HOLD_TYPEList TableName="YFS_HOLD_TYPE">
-<HoldType ApplyConditionKey="" ApplyOnResolveOfHoldTypeKey=""
+<HoldType ApplyConditionKey=" " ApplyOnResolveOfHoldTypeKey=" "
     BaseProcessTypeKey="ORDER_FULFILLMENT" CanAllUsersCreateHoldType="Y"
     CanAllUsersResolveHoldType="Y" CanResolveOnCancel="N"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:25-04:00"

@@ -246,5 +246,8 @@ public static final String BACKROOM_PICK_COMPLETE = "BackroomPickComplete";
 public static final String BACKROOM_PICK_QUANTITY = "BackroomPickedQuantity";
 public static final String GET_SHIPMENT_LIST = "getShipmentList";
 public static final String IS_PROCESSED = "IsProcessed";
+public static final String TRIGGER_AGENT = "TriggerAgent";
+public static final String CRITERIA_ID = "CriteriaId";
+public static final String BASE_TRANSACTION_ID = "BaseTransactionId"; 
 }
 

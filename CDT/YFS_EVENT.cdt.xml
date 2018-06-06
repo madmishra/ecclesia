@@ -518,15 +518,16 @@
     ExtendSupplierFlag="" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:57-04:00" Modifyuserid="SYSTEM"
     ShipnodeKey="" TransactionKey="RELEASE.0005" Version=""/>
-<Event ActionKey="" ActiveFlag="N" Createprogid="XMLMigrator"
+<Event ActionKey="" ActiveFlag="Y" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:57-04:00" Createuserid="SYSTEM"
     EnterpriseKey="DEFAULT" EventKey="200206122336150007"
     EventName="On release creation or change"
     Eventid="ON_RELEASE_CREATION_OR_CHANGE"
     ExceptionType="ON_RELEASE_CREATION_OR_CHANGE"
-    ExtendEnterpriseFlag="" ExtendSupplierFlag="" Lockid="0"
-    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:57-04:00"
-    Modifyuserid="SYSTEM" ShipnodeKey="" TransactionKey="SCHEDULE.0001" Version=""/>
+    ExtendEnterpriseFlag="" ExtendSupplierFlag="" Lockid="1"
+    Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-06-04T11:35:34-04:00" Modifyuserid="admin"
+    ShipnodeKey="" TransactionKey="SCHEDULE.0001" Version=""/>
 <Event ActionKey="" ActiveFlag="N" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:57-04:00" Createuserid="SYSTEM"
     EnterpriseKey="DEFAULT" EventKey="200206122336150008"

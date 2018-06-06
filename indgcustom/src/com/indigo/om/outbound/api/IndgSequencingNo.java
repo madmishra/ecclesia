@@ -26,8 +26,8 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	   */
 	  @Override
 	 public YFCDocument invoke(YFCDocument inXml) {  
-		  verifyTypeOfMsg(inXml);
-		  return inXml;
+		  return  verifyTypeOfMsg(inXml);
+		   
 	  }
 	  /**
 	   * this method identifies the type of message i.e LEGACY OR SAP message
@@ -118,7 +118,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			if(!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO)))
 				eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_ORDER_NO,eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO));
 			else
-				eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_ORDER_NO,EMPTY_STRING );
+				eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_ORDER_NO,EMPTY_STRING);
 			
 			System.out.println("inputGetINDGMsgSeqNoList DOCUMENT"+docGetINDGMsgSeqNoList);
 			if(!XmlUtils.isVoid(invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList)))

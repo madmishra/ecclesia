@@ -20,6 +20,8 @@ public class IndgManageFullSyncStatus extends AbstractCustomApi {
   private static final String INITIAL_SLEEP_TIME = "InitialSleepTime";
   private static final String DELTA_SLEEP_TIME = "DeltaSleepTime";
   private static final String SCRIPT_PATH = "SCRIPT_PATH";
+  private static final String RTAM_CRITERIA_ID = "REALTIME_ATP_MONITOR_OP3";
+  private static final String TRANSACTION_ID = "REALTIME_ATP_MONITOR";
 
 /**
  * This method is the invoke point of the class. This method
@@ -70,8 +72,20 @@ public class IndgManageFullSyncStatus extends AbstractCustomApi {
         sleepTillEOF();
       }
      Runtime.getRuntime().exec(myShellScript);
+     triggerFullSync(); 
     } catch (Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SYNC_EXP, exp);
     }
+  }
+  
+  /**
+   * This method triggers RTAM for FULL SYNC 
+   * RTAM 
+   * 
+   */
+  private void triggerFullSync() {
+    YFCDocument triggerXml = YFCDocument.createDocument(XMLLiterals.TRIGGER_AGENT);
+    triggerXml.getDocumentElement().setAttribute(XMLLiterals.CRITERIA_ID, RTAM_CRITERIA_ID);
+    triggerXml.getDocumentElement().setAttribute(XMLLiterals.BASE_TRANSACTION_ID, TRANSACTION_ID);
   }
 }

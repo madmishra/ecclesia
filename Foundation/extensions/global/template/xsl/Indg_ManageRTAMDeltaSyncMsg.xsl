@@ -4,9 +4,7 @@
 		<xsl:variable name="itemID">
 		<xsl:value-of select="InventoryItem/@ItemID" />
 		</xsl:variable>
-		<AvailabilityChanges>
-			<xsl:for-each select="InventoryItem/AvailabilityChanges/AvailabilityChange">
-			<xsl:if test = " @Node = '' " >
+			<xsl:for-each select="AvailabilityChanges/AvailabilityChange">
 				<AvailabilityChange>
 					<xsl:attribute name="OnhandAvailableQuantity">
 						<xsl:value-of select="@OnhandAvailableQuantity" />
@@ -24,9 +22,6 @@
 						<xsl:attribute name="OrganizationCode">Indigo_CA</xsl:attribute>
 					</Item>
 				</AvailabilityChange>
-				</xsl:if>
 			</xsl:for-each>
-			
-		</AvailabilityChanges>
 	</xsl:template>
 </xsl:stylesheet>

@@ -33,19 +33,19 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	   * this method identifies the type of message i.e LEGACY OR SAP message
 	   * @param inXml
 	   */
-	  private void verifyTypeOfMsg(YFCDocument inXml) {
+	  private YFCDocument verifyTypeOfMsg(YFCDocument inXml) {
 		
 		  YFCElement eleOrderMessage=inXml.getDocumentElement();
 		  YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		  if(eleOrderMessage.getAttribute(XMLLiterals.MESSAGE_TYPE_ID).contains(SAP))
 		  {	
 			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID, XMLLiterals.SAP_OUTBOUND);
-			  docGetINDGMsgSeqNoList(inXml);
+			  return docGetINDGMsgSeqNoList(inXml);
 		  }
 		  else
 		  {
 			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID, XMLLiterals.LEGACY_OUTBOUND);
-			  docGetINDGMsgSeqNoList(inXml);  
+			 return  docGetINDGMsgSeqNoList(inXml);  
 		  }
 		 
 			  

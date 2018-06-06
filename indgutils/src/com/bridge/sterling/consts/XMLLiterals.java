@@ -240,5 +240,11 @@ public static final String LEGACY_OUTBOUND="LEGACYOutbound";
 public static final String SEQUENCE_NO_KEY="SequenceNoKey";
 public static final String LEGACY_MSG_SEQ_NO="SterlingToLegacyOMSMessageSequenceNumber";
 public static final String LEGACY_OMS_ORDER_NO = "LegacyOMSOrderNo";
+public static final String SHIPMENT = "Shipment";
+public static final String SHIPMENTS = "Shipments";
+public static final String BACKROOM_PICK_COMPLETE = "BackroomPickComplete";
+public static final String BACKROOM_PICK_QUANTITY = "BackroomPickedQuantity";
+public static final String GET_SHIPMENT_LIST = "getShipmentList";
+public static final String IS_PROCESSED = "IsProcessed";
 }
 

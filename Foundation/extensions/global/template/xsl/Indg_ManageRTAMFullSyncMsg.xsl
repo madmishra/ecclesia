@@ -6,7 +6,7 @@
 		</xsl:variable>
 		<AvailabilityChanges>
 			<xsl:for-each select="InventoryItem/AvailabilityChanges/AvailabilityChange">
-			<xsl:if test = " @Node = '' " >
+			<xsl:if test = " @Node != '' " >
 				<AvailabilityChange>
 					<xsl:attribute name="OnhandAvailableQuantity">
 						<xsl:value-of select="@OnhandAvailableQuantity" />

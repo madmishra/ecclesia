@@ -39,12 +39,12 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		  YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		  if(eleOrderMessage.getAttribute(XMLLiterals.MESSAGE_TYPE_ID).contains(SAP))
 		  {	
-			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID, XMLLiterals.SAP_OUTBOUND);
+			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID,XMLLiterals.SAP_OUTBOUND);
 			  return docGetINDGMsgSeqNoList(inXml);
 		  }
 		  else
 		  {
-			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID, XMLLiterals.LEGACY_OUTBOUND);
+			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID,XMLLiterals.LEGACY_OUTBOUND);
 			 return  docGetINDGMsgSeqNoList(inXml);  
 		  }
 		 
@@ -57,6 +57,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	  * @return
 	  */
 		private YFCDocument docGetINDGMsgSeqNoList(YFCDocument inXml) {
+			System.out.println("docGetINDGMsgSeqNoList"+inXml);
 			YFCElement eleOrderMessage=inXml.getDocumentElement();
 			YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 			System.out.println("----docGetINDGMsgSeqNoList    SAP_ORDER_NO----"+eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO));
@@ -120,11 +121,13 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			else
 				eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_ORDER_NO,EMPTY_STRING);
 			eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID, eleOrder.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID));
-			
+			eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SEQUENCE_NO_KEY, eleOrder.getAttribute(XMLLiterals.SEQUENCE_NO_KEY));
 			System.out.println("inputGetINDGMsgSeqNoList DOCUMENT"+docGetINDGMsgSeqNoList);
 			if(!XmlUtils.isVoid(invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList))) {
 				YFCDocument docinvokeYantraService=invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList);
+				System.out.println(docinvokeYantraService+"docinvokeYantraService");
 				YFCDocument changesDoc= invokechangeINDGMsgSeqNo(docinvokeYantraService);
+				System.out.println("changesDoc"+changesDoc);
 				return changesDoc;
 			}
 			else 

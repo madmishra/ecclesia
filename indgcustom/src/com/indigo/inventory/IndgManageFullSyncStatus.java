@@ -72,7 +72,7 @@ public class IndgManageFullSyncStatus extends AbstractCustomApi {
         sleepTillEOF();
       }
      Runtime.getRuntime().exec(myShellScript);
-     triggerFullSync(); 
+     triggerFullSync();
     } catch (Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_SYNC_EXP, exp);
     }
@@ -87,5 +87,6 @@ public class IndgManageFullSyncStatus extends AbstractCustomApi {
     YFCDocument triggerXml = YFCDocument.createDocument(XMLLiterals.TRIGGER_AGENT);
     triggerXml.getDocumentElement().setAttribute(XMLLiterals.CRITERIA_ID, RTAM_CRITERIA_ID);
     triggerXml.getDocumentElement().setAttribute(XMLLiterals.BASE_TRANSACTION_ID, TRANSACTION_ID);
+	System.out.println(triggerXml);
   }
 }

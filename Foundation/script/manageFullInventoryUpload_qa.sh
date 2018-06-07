@@ -8,7 +8,7 @@ cd /home/oms95/inventoryUpload
   for f in *.xml
         do
              echo "Compressing file: ${f}"
-            gzip -c -f < $f > ${f%%.xml}.gz
+            gzip $f
         done
 
   echo "GZip Compression Completed..."

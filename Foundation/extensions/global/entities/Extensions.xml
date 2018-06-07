@@ -1,22 +1,2 @@
 <DBSchema>
-	<Entities>
-		<Entity TableName="YFS_ORDER_LINE">
-			<Attributes>
-				<Attribute ColumnName="EXTN_LEGACY_OMS_CHILD_ORDER_NO"
-					DataType="VARCHAR2" DecimalDigits="" DefaultValue=""
-					Description="LegacyOMS ChildOrderNo" Nullable="true" 
-					Size="100" Type="VARCHAR2" XMLName="ExtnLegacyOMSChildOrderNo" XMLGroup="Extn" 
-					SqlServerDataType="" />
-			</Attributes>
-		</Entity>
-		<Entity TableName="YFS_ORDER_LINE">
-			<Attributes>
-				<Attribute ColumnName="EXTN_SAP_ORDER_NO"
-					DataType="VARCHAR2" DecimalDigits="" DefaultValue=""
-					Description="SAP OrderNo" Nullable="true" 
-					Size="100" Type="VARCHAR2" XMLName="ExtnSAPOrderNo" XMLGroup="Extn" 
-					SqlServerDataType="" />
-			</Attributes>
-		</Entity>			
-	</Entities>
 </DBSchema>

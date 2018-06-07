@@ -21,7 +21,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	private static final String INDG_GET_INDG_MSG_SEQ_NO_LIST="INDG_getINDGMsgSeqNoList";
 	/**
 	   * This is the invoke point of the Service
-	 * @throws  
+	   * @throws  
 	   * 
 	   */
 	  @Override
@@ -119,10 +119,14 @@ public class IndgSequencingNo extends AbstractCustomApi{
 				eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_ORDER_NO,eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO));
 			else
 				eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_ORDER_NO,EMPTY_STRING);
+			eleGetINDGMsgSeqNoList.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID, eleOrder.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID));
 			
 			System.out.println("inputGetINDGMsgSeqNoList DOCUMENT"+docGetINDGMsgSeqNoList);
-			if(!XmlUtils.isVoid(invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList)))
-				return invokechangeINDGMsgSeqNo(invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList));
+			if(!XmlUtils.isVoid(invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList))) {
+				YFCDocument docinvokeYantraService=invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList);
+				YFCDocument changesDoc= invokechangeINDGMsgSeqNo(docinvokeYantraService);
+				return changesDoc;
+			}
 			else 
 				
 			return 	invokeCreateINDGMsgSeqNo(docGetINDGMsgSeqNoList);
@@ -160,8 +164,4 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docGetINDGMsgSeqNoList);
 			
 		}
-			
-	  
-	  
-
 }

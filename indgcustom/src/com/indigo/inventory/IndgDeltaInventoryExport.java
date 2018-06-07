@@ -31,8 +31,8 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
     YFCIterable<YFCElement> yfsItr = inEle.getChildren(XMLLiterals.AVAILABILITY_CHANGE);
     for(YFCElement availabilityEle : yfsItr) {
       if(!XmlUtils.isVoid(availabilityEle.getAttribute(XMLLiterals.NODE))) {
-         String availability = availabilityEle.toString();
-        YFCDocument invExp = YFCDocument.createDocument(availability);
+        String inputString = availabilityEle.toString();
+        YFCDocument invExp = YFCDocument.getDocumentFor(inputString);
         invokeYantraService(getProperty(INDG_DELTA_EXPORT_Q), invExp);
       }
     }

@@ -6,7 +6,7 @@ IBM Sterling Selling And Fulfillment Suite
 US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
  -->
 <OrderRelease CarrierAccountNo="" CarrierServiceCode="" Currency=""
-    CustomerPoNo="" CustomerRewardsNo="" DeliveryCode="" Division="" EnterpriseCode=""
+    CustomerPONo="" CustomerRewardsNo="" DeliveryCode="" Division="" EnterpriseCode=""
     FOB="" HoldFlag="" HoldReasonCode="" MarkForKey=""
     MaxOrderReleaseStatus="" MaxOrderReleaseStatusDesc="" MergeNode=""
     MinOrderReleaseStatus="" MinOrderReleaseStatusDesc=""
@@ -35,10 +35,8 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
         EveningPhone="" FirstName="" JobTitle="" LastName=""
         MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
         PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
-	<OrderLine GiftFlag="" GiftWrap="" OrderHeaderKey=""
+	<OrderLine CustomerLinePONo="" CustomerPONo="" GiftFlag="" GiftWrap="" OrderHeaderKey=""
         OrderLineKey="" PrimeLineNo="" SubLineNo="">
-		<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" >
-		</Extn>
 		<Item CostCurrency="" CountryOfOrigin="" CustomerItem=""
             CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""
             ItemDesc="" ItemID="" ItemGroupCode="" ItemShortDesc="" ItemWeight=""

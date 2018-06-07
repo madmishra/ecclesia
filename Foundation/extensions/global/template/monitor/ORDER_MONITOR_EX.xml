@@ -21,8 +21,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
 	<Order DocumentType="" DraftOrderFlag="" EnterpriseCode="" EntryType="" 
 			OrderDate="" OrderHeaderKey="" OrderNo="" OrderType="" SellerOrganizationCode="" >
 		<OrderLines>
-			<OrderLine Modifyts="" ShipNode="" OrderHeaderKey="" OrderLineKey="" ReqDeliveryDate="" ReqShipDate="">
-				<Extn ExtnLegacyOMSChildOrderNo="" />
+			<OrderLine CustomerLinePONo="" CustomerPONo="" Modifyts="" ShipNode="" OrderHeaderKey="" OrderLineKey="" ReqDeliveryDate="" ReqShipDate="">
 				<OrderStatuses>
 					<OrderStatus Status="" StatusQty=""/>
 				</OrderStatuses>

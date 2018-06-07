@@ -9,12 +9,12 @@
 			<xsl:attribute name="OrderNo">
 				<xsl:value-of select="ShipmentLines/ShipmentLine/@OrderNo"/>
 			</xsl:attribute>
-			<xsl:attribute name="LegacyOMSMessageSequenceNumber">
+			<xsl:attribute name="SterlingToLegacyOMSMessageSequenceNumber">
 			</xsl:attribute>
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="LegacyOMSOrderNo">
-						<xsl:value-of select="ShipmentLines/ShipmentLine/OrderLine/Extn/@ExtnLegacyOMSChildOrderNo" />
+						<xsl:value-of select="ShipmentLines/ShipmentLine/OrderLine/@CustomerPONo" />
 					</xsl:attribute>
 					<xsl:attribute name="EnterpriseCode">
 						<xsl:value-of select="@SellerOrganizationCode" />

@@ -35,7 +35,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
         EveningPhone="" FirstName="" JobTitle="" LastName=""
         MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
         PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
-	<OrderLine GiftFlag="" GiftWrap="" OrderHeaderKey=""
+	<OrderLine CustomerLinePONo="" CustomerPONo="" GiftFlag="" GiftWrap="" OrderHeaderKey=""
         OrderLineKey="" PrimeLineNo="" SubLineNo="">
 		<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" >
 		</Extn>

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OrderLineList>
-	<OrderLine DocumentType="" EnterpriseCode="" PrimeLineNo="" ShipNode="" SubLineNo="" Status="" OrderHeaderKey="">
-	<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" />
-	<Order OrderNo="" EnterpriseCode="" DocumentType=""/>
-	<OrderStatuses>
-		<OrderStatus Status = ""/>
-	</OrderStatuses>
+	<OrderLine CustomerLinePONo="" CustomerPONo="" DocumentType="" EnterpriseCode="" PrimeLineNo="" ShipNode="" SubLineNo="" Status="" OrderHeaderKey="">
+		<Order OrderNo="" EnterpriseCode="" DocumentType=""/>
+		<OrderStatuses>
+			<OrderStatus Status = ""/>
+		</OrderStatuses>
 	</OrderLine>
 </OrderLineList>

@@ -234,10 +234,20 @@ public static final String LAST_UPDATED_TIME = "LastUpdatedTime";
 public static final String INDG_MSG_SEQ_NO="INDGMsgSeqNo";
 public static final String AVAILABILITY_CHANGE = "AvailabilityChange";
 public static final String SAP_MSG_SEQ_NO="SterlingToSAPMessageSequenceNumber";
-public static final String SEQUENCE_TYPE_ID="Sequence_Type";
+public static final String SEQUENCE_TYPE_ID="SequenceTypeID";
 public static final String SAP_OUTBOUND="SAPOutbound";
 public static final String LEGACY_OUTBOUND="LEGACYOutbound";
 public static final String SEQUENCE_NO_KEY="SequenceNoKey";
 public static final String LEGACY_MSG_SEQ_NO="SterlingToLegacyOMSMessageSequenceNumber";
+public static final String LEGACY_OMS_ORDER_NO = "LegacyOMSOrderNo";
+public static final String SHIPMENT = "Shipment";
+public static final String SHIPMENTS = "Shipments";
+public static final String BACKROOM_PICK_COMPLETE = "BackroomPickComplete";
+public static final String BACKROOM_PICK_QUANTITY = "BackroomPickedQuantity";
+public static final String GET_SHIPMENT_LIST = "getShipmentList";
+public static final String IS_PROCESSED = "IsProcessed";
+public static final String TRIGGER_AGENT = "TriggerAgent";
+public static final String CRITERIA_ID = "CriteriaId";
+public static final String BASE_TRANSACTION_ID = "BaseTransactionId"; 
 }
 

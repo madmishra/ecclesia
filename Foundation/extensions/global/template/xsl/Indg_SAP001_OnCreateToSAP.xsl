@@ -6,7 +6,7 @@
 			<xsl:attribute name="Modifyts">
 				<xsl:value-of select="@Modifyts"/>
 			</xsl:attribute>
-			<xsl:attribute name="SAPMessageSequenceNumber">1</xsl:attribute>
+			<xsl:attribute name="SterlingToSAPMessageSequenceNumber">1</xsl:attribute>
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="CustomerRewardsNo">
@@ -16,7 +16,7 @@
 						<xsl:value-of select="@OrderDate" />
 					</xsl:attribute>
 					<xsl:attribute name="LegacyOMSOrderNo">
-						<xsl:value-of select="OrderLines/OrderLine/Extn/@ExtnLegacyOMSChildOrderNo" />
+						<xsl:value-of select="OrderLines/OrderLine/@CustomerPONo" />
 					</xsl:attribute>
 					<xsl:attribute name="ParentLegacyOMSOrderNo">
 						<xsl:value-of select="@OrderNo" />

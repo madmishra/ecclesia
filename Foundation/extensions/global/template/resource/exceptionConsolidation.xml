@@ -7,8 +7,7 @@
 <Inbox ExceptionType="" ShipnodeKey="" Status="" SubFlowName="" SupplierKey="" ViewId="">
 	<Order OrderNo="" EnterpriseCode="" DocumenType="">
 		<OrderLines>
-			<OrderLine PrimeLineNo="" ShipNode="">
-				<Extn ExtnLegacyOMSChildOrderNo=""/>
+			<OrderLine CustomerLinePONo="" CustomerPONo="" PrimeLineNo="" ShipNode="">
 				<OrderStatuses>
 					<OrderStatus Status="" StatusQty=""/>
 				</OrderStatuses>

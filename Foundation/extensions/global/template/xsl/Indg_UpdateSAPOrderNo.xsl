@@ -15,6 +15,9 @@
 				<OrderLines>
 					<xsl:for-each select="OrderLines/OrderLine">
 						<OrderLine Action="MODIFY">
+							<xsl:attribute name="CustomerLinePONo">
+								<xsl:value-of select="/OrderMessage/MessageBody/Order/@SAPOrderNo" />
+							</xsl:attribute>
 							<xsl:attribute name="PrimeLineNo">
 								<xsl:value-of select="@PrimeLineNo" />
 							</xsl:attribute>
@@ -27,11 +30,6 @@
 									<xsl:value-of select="Item/@ItemID" />
 								</xsl:attribute>
 							</Item>
-							<Extn>
-								<xsl:attribute name="ExtnSAPOrderNo">
-									<xsl:value-of select="/OrderMessage/MessageBody/Order/@SAPOrderNo" />
-								</xsl:attribute>
-							</Extn>
 						</OrderLine>
 					</xsl:for-each>
 				</OrderLines>

@@ -5,6 +5,7 @@ import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
+import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 
 /**
  * 
@@ -47,7 +48,6 @@ public class IndgDepartmentMapping extends AbstractCustomApi {
 	public YFCDocument formInputXmlForGetStoreList() {
 	    YFCDocument getStoreListDoc = YFCDocument.createDocument(XMLLiterals.SHIPNODE);
 	    getStoreListDoc.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
-	    getStoreListDoc.getDocumentElement().setAttribute(XMLLiterals.ACTIVATEFLAG, VALUE);
 	    return getStoreListDoc;
 	 }
 	
@@ -145,8 +145,11 @@ public class IndgDepartmentMapping extends AbstractCustomApi {
 	    YFCIterable<YFCElement> yfsItrator = shipNodeListEle.getChildren(XMLLiterals.SHIPNODE);
 	    for(YFCElement shipNodeEle : yfsItrator) {
 	    	String shipNode = shipNodeEle.getAttribute(XMLLiterals.SHIP_NODE_CODE);
-	    	commonCode.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, shipNode);
-	    	invokeYantraApi(XMLLiterals.MANAGE_COMMON_CODE_API, commonCode);
+			if(XmlUtils.isVoid(shipNodeEle.getAttribute("Activateflag")) || 
+				VALUE.equals(shipNodeEle.getAttribute("Activateflag"))) {
+				commonCode.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, shipNode);
+				invokeYantraApi(XMLLiterals.MANAGE_COMMON_CODE_API, commonCode);
+			}
 	    }
 	}
 }

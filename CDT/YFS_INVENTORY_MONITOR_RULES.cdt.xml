@@ -1,3 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YFS_INVENTORY_MONITOR_RULESList TableName="YFS_INVENTORY_MONITOR_RULES">
+<InventoryMonitorRules BeyondLeadTimeLevel1Action=" "
+    BeyondLeadTimeLevel1Qty="0.00" BeyondLeadTimeLevel2Action=" "
+    BeyondLeadTimeLevel2Qty="0.00" BeyondLeadTimeLevel3Action=" "
+    BeyondLeadTimeLevel3Qty="0.00" Createprogid=".YEntityServlet"
+    Createts="2018-06-06T16:40:23-04:00" Createuserid="admin"
+    DisableFlag="N" InventoryMonitorRule="DEFAULT_RTAM_RULE"
+    InventoryMonitorRuleName="DEFAULT_RTAM_RULE"
+    InventoryMonitorRuleType="EVENT"
+    InventoryMonitorRulesKey="2018060616402320296"
+    LeadTimeLevel1Action=" " LeadTimeLevel1Qty="9999999.00"
+    LeadTimeLevel2Action=" " LeadTimeLevel2Qty="10.00"
+    LeadTimeLevel3Action=" " LeadTimeLevel3Qty="3.00" Lockid="0"
+    MaxMonitorDays="0" Modifyprogid=".YEntityServlet"
+    Modifyts="2018-06-06T16:40:23-04:00" Modifyuserid="admin" OrganizationCode="Indigo_CA"/>
 </YFS_INVENTORY_MONITOR_RULESList>

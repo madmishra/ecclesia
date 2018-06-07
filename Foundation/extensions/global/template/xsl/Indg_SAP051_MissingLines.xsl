@@ -7,13 +7,12 @@
 			<xsl:attribute name="Modifyts">
 				<xsl:value-of select="@Modifyts"/>
 			</xsl:attribute>
-			<xsl:attribute name="SterlingToSterlingToSAPMessageSequenceNumber">
-				<xsl:value-of select="@SterlingToSterlingToSAPMessageSequenceNumber"/>
+			<xsl:attribute name="SterlingToSAPMessageSequenceNumber">
 			</xsl:attribute>
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="SAPOrderNo">
-						<xsl:value-of select="@ExtnSAPOrderNo"/>
+						<xsl:value-of select="@CustomerLinePONo"/>
 					</xsl:attribute>
 					<xsl:attribute name="SterlingOrderNo">
 						<xsl:value-of select="@SterlingOrderNo"/>
@@ -58,5 +57,4 @@
 			</MessageBody>
 		</OrderMessage>
 	</xsl:template>
-</xsl:stylesheet>
-							
+</xsl:stylesheet>				

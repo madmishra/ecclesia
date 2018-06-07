@@ -6,8 +6,7 @@
             <xsl:attribute name="Modifyts">
                 <xsl:value-of select="@Modifyts" />
             </xsl:attribute>
-			<xsl:attribute name="SterlingToLegacyOMSMessageSequenceNumber">
-                <xsl:value-of select="@SterlingToLegacyOMSMessageSequenceNumber" />
+			<xsl:attribute name="SterlingToSAPMessageSequenceNumber">
             </xsl:attribute>
 			<MessageBody>
 				<Order>

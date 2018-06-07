@@ -9,7 +9,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
 <Order DocumentType="" EnterpriseCode="" Status="" ModificationReasonCode="" ModificationReasonText="" 
 	   OrderHeaderKey="" OrderNo="" OrderDate="" OrderType="" >
 	<OrderLines>
-		<OrderLine Action="MODIFY" ModificationReasonCode="" ModificationReasonText="" OrderLineKey="" OrderedQty="" PrimeLineNo="" ReqDeliveryDate="" ReqShipDate="" Status="" ShipNode="" ShipToID="" ShipToKey="" SubLineNo="" Timezone=""  >
+		<OrderLine Action="MODIFY" CustomerLinePONo="" CustomerPONo="" ModificationReasonCode="" ModificationReasonText="" OrderLineKey="" OrderedQty="" PrimeLineNo="" ReqDeliveryDate="" ReqShipDate="" Status="" ShipNode="" ShipToID="" ShipToKey="" SubLineNo="" Timezone=""  >
 			<Extn ExtnSAPOrderNo="" ExtnLegacyOMSChildOrderNo="" />
 			<Item CustomerItemDesc="" ISBN=""
                 ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight=""

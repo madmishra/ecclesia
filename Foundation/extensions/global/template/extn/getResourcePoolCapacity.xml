@@ -4,9 +4,6 @@
 			<ResourcePoolAttributeList>
 				<ResourcePoolAttribute DeliveryMethod="" ResourcePoolAttributeKey="" ResourcePoolKey=""/>
 			</ResourcePoolAttributeList>
-			<ResourcePoolAttributeList>
-				<ResourcePoolAttribute DeliveryMethod="" ResourcePoolAttributeKey="" ResourcePoolKey=""/>
-			</ResourcePoolAttributeList>
 			<ServiceSlots>
 				<ServiceSlot CanUseForAppointment="" EndTime="" ParentSlotKey="" ServiceSlotDesc="" ServiceSlotGroupKey="" ServiceSlotKey="" StartTime="">
 					<Dates>

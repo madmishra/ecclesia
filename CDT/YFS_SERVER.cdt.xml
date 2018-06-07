@@ -352,6 +352,18 @@
     Modifyuserid="admin" MonitorStartTime="1"
     ServerKey="2018052809194217249" ServerName="OrderCapacityServer"
     ServerType="01" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-06-06T16:18:51-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-06-06T16:18:51-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="2018060616185120053" ServerName="Indg_RTAMDeltaAgent"
+    ServerType="01" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-06-06T16:22:42-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-06-06T16:22:42-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="2018060616224220065" ServerName="Indg_RTAMFullAgent"
+    ServerType="01" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
 <Server Createprogid="XMLMigrator" Createts="2018-03-28T12:30:08-04:00"
     Createuserid="SYSTEM" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:08-04:00" Modifyuserid="SYSTEM"

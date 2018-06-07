@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YFS_USER_EXITList TableName="YFS_USER_EXIT">
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:22-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:22-04:00"
@@ -8,7 +8,7 @@
     PropertyName="yfs.ue.getExternalResourcePoolCapacity.class"
     ProxyClass="com.yantra.inv.api.INVUserExitProxy"
     UserExitKey="INVUE00001" UserExitName="com.yantra.yfs.japi.ue.YFSGetExternalResourcePoolCapacityUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:22-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:22-04:00"
@@ -16,7 +16,7 @@
     PropertyName="yfs.ue.getDemandCorrections.class"
     ProxyClass="com.yantra.inv.api.INVUserExitProxy"
     UserExitKey="INVUE00002" UserExitName="com.yantra.yfs.japi.ue.INVGetDemandCorrectionsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:22-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:22-04:00"
@@ -24,7 +24,7 @@
     PropertyName="yfs.ue.getExternalSupply.class"
     ProxyClass="com.yantra.inv.api.INVUserExitProxy"
     UserExitKey="INVUE75_001" UserExitName="com.yantra.yfs.japi.ue.INVGetExternalSupplyUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:22-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:22-04:00"
@@ -32,7 +32,7 @@
     PropertyName="yfs.ue.checkIdleAssets.class"
     ProxyClass="com.yantra.inv.api.INVUserExitProxy"
     UserExitKey="INVUE77_001" UserExitName="com.yantra.yfs.japi.ue.INVCheckIdleAssetsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:22-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:22-04:00"
@@ -40,7 +40,7 @@
     PropertyName="yfs.ue.getSupplyCorrections.class"
     ProxyClass="com.yantra.inv.api.INVUserExitProxy"
     UserExitKey="INVUE80_001" UserExitName="com.yantra.yfs.japi.ue.INVGetSupplyCorrectionsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:22-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:22-04:00"
@@ -48,7 +48,7 @@
     PropertyName="yfs.ue.generateSerialSequence.class"
     ProxyClass="com.yantra.inv.api.INVUserExitProxy"
     UserExitKey="INVUE81_001" UserExitName="com.yantra.yfs.japi.ue.INVGetSerialSequenceUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:22-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:22-04:00"
@@ -56,7 +56,7 @@
     PropertyName="yfs.ue.determineActualInventoryItem.class"
     ProxyClass="com.yantra.inv.api.INVUserExitProxy"
     UserExitKey="INVUE921_05" UserExitName="com.yantra.yfs.japi.ue.INVDetermineActualInventoryItemUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -64,7 +64,7 @@
     PropertyName="omp.ue.getInvoiceNo.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE79_001" UserExitName="com.yantra.yfs.japi.ue.OMPGetInvoiceNoUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -72,7 +72,7 @@
     PropertyName="yfs.ue.getTagListForOrdering.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE79_002" UserExitName="com.yantra.yfs.japi.ue.YFSGetTagListForOrderingUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -80,7 +80,7 @@
     PropertyName="yfs.ue.getCarrierServiceOptionsForOrdering.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE79_003" UserExitName="com.yantra.yfs.japi.ue.OMPGetCarrierServiceOptionsForOrderingUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -88,7 +88,7 @@
     PropertyName="omp.ue.getSurroundingNodeList.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE79_004" UserExitName="com.yantra.yfs.japi.ue.OMPGetSurroundingNodeListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -96,7 +96,7 @@
     PropertyName="yfs.ue.getExternalPriceListForOrdering.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE80_001" UserExitName="com.yantra.yfs.japi.ue.YFSGetExternalPriceListForOrderingUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -104,7 +104,7 @@
     PropertyName="yfs.ue.getExternalInventoryForItemList.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE80_002" UserExitName="com.yantra.yfs.japi.ue.YFSGetExternalInventoryForItemListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -112,7 +112,7 @@
     PropertyName="yfs.ue.confirmRefundDistribution.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE80_003" UserExitName="com.yantra.yfs.japi.ue.OMPConfirmRefundDistributionUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -120,7 +120,7 @@
     PropertyName="yfs.ue.determineBestMultiStopTransferRoute.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE85_001" UserExitName="com.yantra.yfs.japi.ue.OMPDetermineBestMultiStopTransferUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -128,7 +128,7 @@
     PropertyName="yfs.ue.modifyChargeTransactionRequestMapping.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE85_011" UserExitName="com.yantra.yfs.japi.ue.OMPModifyChargeTransactionRequestMappingUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -136,7 +136,7 @@
     PropertyName="yfs.ue.getSourcedFromNodesExternally.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE85_105" UserExitName="com.yantra.yfs.japi.ue.OMPGetSourcedFromNodesExternallyUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -144,7 +144,7 @@
     PropertyName="yfs.ue.getOverriddenDGForItem.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE91_02" UserExitName="com.yantra.yfs.japi.ue.YFSGetOverriddenDGForItemUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -152,7 +152,7 @@
     PropertyName="omp.ue.manageReturnOrderAssociation.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE921_005" UserExitName="com.yantra.yfs.japi.ue.OMPReturnOrderAssociationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -160,7 +160,7 @@
     PropertyName="omp.ue.validateExternalPromotions.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE921_006" UserExitName="com.yantra.yfs.japi.ue.YFSValidateExternalPromotionsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -168,7 +168,7 @@
     PropertyName="omp.ue.getReturnOrderPrice.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE921_007" UserExitName="com.yantra.yfs.japi.ue.OMPGetReturnOrderPriceUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -176,7 +176,7 @@
     PropertyName="yfs.ue.getInventoryFromCache.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE921_010" UserExitName="com.yantra.yfs.japi.ue.OMPGetInventoryFromCacheUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -184,7 +184,7 @@
     PropertyName="omp.ue.validatePlannedRefund.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE921_011" UserExitName="com.yantra.yfs.japi.ue.OMPValidatePlannedRefundUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -192,7 +192,7 @@
     PropertyName="yfs.ue.getExternalCostForOptions.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE92_001" UserExitName="com.yantra.yfs.japi.ue.OMPGetExternalCostForOptionsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -200,7 +200,7 @@
     PropertyName="yfs.ue.getSourcingCorrections.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="OMPUE92_005" UserExitName="com.yantra.yfs.japi.ue.OMPGetSourcingCorrectionsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -208,7 +208,7 @@
     PropertyName="scw.ue.beforeManageDockAppointment.class"
     ProxyClass="com.yantra.scw.api.SCWUserExitProxy"
     UserExitKey="SCWMSUE00023" UserExitName="com.yantra.wms.japi.ue.WMSBeforeManageDockAppointmentUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:36-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:36-04:00"
@@ -216,7 +216,7 @@
     PropertyName="vas.ue.beforeCreateWorkOrder.class"
     ProxyClass="com.yantra.vas.api.VASUserExitProxy"
     UserExitKey="VASUE00001" UserExitName="com.yantra.vas.japi.ue.VASBeforeCreateWorkOrderUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:36-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:36-04:00"
@@ -224,7 +224,7 @@
     PropertyName="vas.ue.shouldWorkOrderMonitorAlertBeRaised.class"
     ProxyClass="com.yantra.vas.api.VASUserExitProxy"
     UserExitKey="VASUE00002" UserExitName="com.yantra.vas.japi.ue.VASShouldWorkOrderMonitorAlertBeRaisedUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:36-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:36-04:00"
@@ -232,7 +232,7 @@
     PropertyName="vas.ue.getMonitoringCalendarForWorkOrder.class"
     ProxyClass="com.yantra.vas.api.VASUserExitProxy"
     UserExitKey="VASUE00003" UserExitName="com.yantra.vas.japi.ue.VASGetMonitoringCalendarForWorkOrderUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:36-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:36-04:00"
@@ -240,7 +240,7 @@
     PropertyName="vas.ue.processWorkOrderHoldType.class"
     ProxyClass="com.yantra.vas.api.VASUserExitProxy"
     UserExitKey="VASUE00004" UserExitName="com.yantra.vas.japi.ue.VASProcessWorkOrderHoldTypeUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:36-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:36-04:00"
@@ -248,7 +248,7 @@
     PropertyName="vas.ue.confirmAssignmentsForWorkOrderAllocation.class"
     ProxyClass="com.yantra.vas.api.VASUserExitProxy"
     UserExitKey="VASUE00005" UserExitName="com.yantra.vas.japi.ue.VASConfirmAssignmentsForWorkOrderAllocationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -256,7 +256,7 @@
     PropertyName="wms.ue.beforeCreateLocation.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00001" UserExitName="com.yantra.wms.japi.ue.WMSBeforeCreateLocationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -264,7 +264,7 @@
     PropertyName="wms.ue.beforeCreateZone.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00002" UserExitName="com.yantra.wms.japi.ue.WMSBeforeCreateZoneUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -272,7 +272,7 @@
     PropertyName="wms.ue.getFifoNumber.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00003" UserExitName="com.yantra.wms.japi.ue.WMSGetFifoNumberUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -280,7 +280,7 @@
     PropertyName="wms.ue.beforeCreateLPN.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00004" UserExitName="com.yantra.wms.japi.ue.WMSBeforeCreateLPNUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -288,7 +288,7 @@
     PropertyName="wms.ue.beforeAdjustInventory.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00005" UserExitName="com.yantra.wms.japi.ue.WMSBeforeAdjustInventoryUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -296,7 +296,7 @@
     PropertyName="wms.ue.beforeChangeAttributes.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00006" UserExitName="com.yantra.wms.japi.ue.WMSBeforeChangeAttributesUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -304,7 +304,7 @@
     PropertyName="wms.ue.getLocationPriorityScheme.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00007" UserExitName="com.yantra.wms.japi.ue.WMSGetLocationPrioritySchemeUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -312,7 +312,7 @@
     PropertyName="wms.ue.canLocationBeSuggestedForPutaway.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00008" UserExitName="com.yantra.wms.japi.ue.WMSCanLocationBeSuggestedForPutawayUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -320,7 +320,7 @@
     PropertyName="wms.ue.getPreferenceZoneList.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00009" UserExitName="com.yantra.wms.japi.ue.WMSGetPreferenceZoneListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -328,7 +328,7 @@
     PropertyName="wms.ue.beforeCreateCountRequest.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00010" UserExitName="com.yantra.wms.japi.ue.WMSBeforeCreateCountRequestUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -336,7 +336,7 @@
     PropertyName="wms.ue.beforeCreateWave.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00011" UserExitName="com.yantra.wms.japi.ue.WMSBeforeCreateWaveUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -344,7 +344,7 @@
     PropertyName="wms.ue.overrideShipmentGroup.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00012" UserExitName="com.yantra.wms.japi.ue.WMSOverrideShipmentGroupUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -352,7 +352,7 @@
     PropertyName="wms.ue.getSuggestedContainers.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00013" UserExitName="com.yantra.wms.japi.ue.WMSGetSuggestedContainersUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -360,7 +360,7 @@
     PropertyName="wms.ue.canAddTocontainer.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00014" UserExitName="com.yantra.wms.japi.ue.WMSCanAddToContainerUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -368,7 +368,7 @@
     PropertyName="wms.ue.beforeLooseContainerization.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00015" UserExitName="com.yantra.wms.japi.ue.WMSBeforeLooseContainerizationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -376,7 +376,7 @@
     PropertyName="wms.ue.beforeCreateMoveRequest.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00016" UserExitName="com.yantra.wms.japi.ue.WMSBeforeCreateMoveRequestUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -384,7 +384,7 @@
     PropertyName="wms.ue.overrideAssignLane.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00017" UserExitName="com.yantra.wms.japi.ue.WMSOverrideAssignLaneUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -392,7 +392,7 @@
     PropertyName="wms.ue.circumventLooseContainerization.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00018" UserExitName="com.yantra.wms.japi.ue.WMSCircumventLooseContainerizationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -400,7 +400,7 @@
     PropertyName="wms.ue.overrideSuggestedContainerList.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00019" UserExitName="com.yantra.wms.japi.ue.WMSOverrideSuggestedContainerListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -408,7 +408,7 @@
     PropertyName="wms.ue.overridePickLocationAssignment.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00020" UserExitName="com.yantra.wms.japi.ue.WMSOverridePickLocationAssignmentUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -416,7 +416,7 @@
     PropertyName="wms.ue.canReleaseMoveRequest.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00021" UserExitName="com.yantra.wms.japi.ue.WMSCanReleaseMoveRequestUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -424,7 +424,7 @@
     PropertyName="wms.ue.beforePrepareForDeposit.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00022" UserExitName="com.yantra.wms.japi.ue.WMSBeforePrepareForDepositUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -432,7 +432,7 @@
     PropertyName="wms.ue.sortShipmentLines.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00024" UserExitName="com.yantra.wms.japi.ue.WMSSortShipmentLinesUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -440,7 +440,7 @@
     PropertyName="wms.ue.beforeDeleteLPN.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00025" UserExitName="com.yantra.wms.japi.ue.WMSBeforeDelateLPNUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -448,7 +448,7 @@
     PropertyName="wms.ue.beforeMoveLocationInventory.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00026" UserExitName="com.yantra.wms.japi.ue.WMSBeforeMoveLocationInventoryUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -456,7 +456,7 @@
     PropertyName="wms.ue.adjustLocationInventory"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00027" UserExitName="com.yantra.wms.japi.ue.WMSAdjustLocationInventoryUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -464,7 +464,7 @@
     PropertyName="wms.ue.canChangeInventoryAttributesWithOpenTasks.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00998" UserExitName="com.yantra.wms.japi.ue.WMSCanChangeInventoryAttrsWithOpenTasksUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:14-04:00"
@@ -472,7 +472,7 @@
     PropertyName="wms.ue.overrideContainerizationCategory.class"
     ProxyClass="com.yantra.wms.api.WMSUserExitProxy"
     UserExitKey="WMSUE00999" UserExitName="com.yantra.wms.japi.ue.WMSOverrideContainerizationCategoryUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -480,7 +480,7 @@
     PropertyName="ycd.ue.verifyAddressWithAVS.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00001" UserExitName="com.yantra.pca.ycd.japi.ue.YCDVerifyAddressWithAVSUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -488,7 +488,7 @@
     PropertyName="ycd.ue.processDuplicateOrderCheck.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00002" UserExitName="com.yantra.pca.ycd.japi.ue.YCDProcessDuplicateOrderCheckUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -496,7 +496,7 @@
     PropertyName="ycd.ue.processOrderFraudCheck.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00004" UserExitName="com.yantra.pca.ycd.japi.ue.YCDProcessOrderFraudCheckUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -504,7 +504,7 @@
     PropertyName="ycd.ue.checkNoHasslePriceMatch.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00005" UserExitName="com.yantra.pca.ycd.japi.ue.YCDCheckNoHasslePriceMatchUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -512,7 +512,7 @@
     PropertyName="ycd.ue.checkOrderPriceMatch.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00006" UserExitName="com.yantra.pca.ycd.japi.ue.YCDCheckOrderPriceMatchUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -520,7 +520,7 @@
     PropertyName="ycd.ue.getReturnMethod.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00007" UserExitName="com.yantra.pca.ycd.japi.ue.YCDGetReturnMethodUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -528,7 +528,7 @@
     PropertyName="ycd.ue.getReturnPolicy.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00008" UserExitName="com.yantra.pca.ycd.japi.ue.YCDGetReturnPolicyUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -536,7 +536,7 @@
     PropertyName="ycd.ue.getPromotionValidity.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE000100" UserExitName="com.yantra.pca.ycd.japi.ue.YCDPromotionValidationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -544,7 +544,7 @@
     PropertyName="ycd.ue.canPriceMatchBePerformed.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00015" UserExitName="com.yantra.pca.ycd.japi.ue.YCDCanPriceMatchBePerformedUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -552,7 +552,7 @@
     PropertyName="ycd.ue.sendFutureOrderCustomerAppeasement.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00016" UserExitName="com.yantra.pca.ycd.japi.ue.YCDSendFutureOrderCustomerAppeasementUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -560,7 +560,7 @@
     PropertyName="ycd.ue.getPriceMatchCompetitors.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00017" UserExitName="com.yantra.pca.ycd.japi.ue.YCDGetPriceMatchCompetitorsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -568,7 +568,7 @@
     PropertyName="ycd.ue.managePriceMatch.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00018" UserExitName="com.yantra.pca.ycd.japi.ue.YCDManagePriceMatchUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -576,7 +576,7 @@
     PropertyName="ycd.ue.getTrackingNumberUE.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00019" UserExitName="com.yantra.pca.ycd.japi.ue.YCDGetTrackingNumberURLUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -584,7 +584,7 @@
     PropertyName="ycd.ue.processReturnCompletion.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00020" UserExitName="com.yantra.pca.ycd.japi.ue.YCDProcessReturnCompletionUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -592,7 +592,7 @@
     PropertyName="ycd.ue.overrideDeliveryMethodUE.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00021" UserExitName="com.yantra.pca.ycd.japi.ue.YCDOverrideDeliveryMethodUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -600,7 +600,7 @@
     PropertyName="ycd.ue.validateCreditCardInfo.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00022" UserExitName="com.yantra.pca.ycd.japi.ue.YCDValidateCreditCardInfoUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -608,7 +608,7 @@
     PropertyName="ycd.ue.updateLocationInventory.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00023" UserExitName="com.yantra.pca.ycd.japi.ue.YCDUpdateLocationInventoryUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -616,7 +616,7 @@
     PropertyName="ycd.ue.getPriceMatchList.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00024" UserExitName="com.yantra.pca.ycd.japi.ue.YCDgetPriceMatchListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -624,7 +624,7 @@
     PropertyName="ycd.ue.getPriceMatchDetails.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00025" UserExitName="com.yantra.pca.ycd.japi.ue.YCDgetPriceMatchDetailsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -632,7 +632,7 @@
     PropertyName="ycd.ue.getCompetitorDetails.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00026" UserExitName="com.yantra.pca.ycd.japi.ue.YCDgetCompetitorDetailsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -640,7 +640,7 @@
     PropertyName="ycd.ue.getCompetitorList.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00027" UserExitName="com.yantra.pca.ycd.japi.ue.YCDgetCompetitorListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -648,7 +648,7 @@
     PropertyName="ycd.ue.emailOrder.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00028" UserExitName="com.yantra.pca.ycd.japi.ue.YCDEmailOrderUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -656,7 +656,7 @@
     PropertyName="ycd.ue.overrideDeliveryMethodForLines.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00029" UserExitName="com.yantra.pca.ycd.japi.ue.YCDOverrideDeliveryMethodForLinesUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -664,7 +664,7 @@
     PropertyName="ycd.ue.canPriceMatchBePerformedOnLines.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00030" UserExitName="com.yantra.pca.ycd.japi.ue.YCDCanPriceMatchBePerformedOnLinesUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -672,7 +672,7 @@
     PropertyName="ycd.ue.beforeConfirmShipmentOfRecordCustomerPick.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00031" UserExitName="com.yantra.pca.ycd.japi.ue.YCDBeforeConfirmShipmentOfRecordCustomerPickUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -680,7 +680,7 @@
     PropertyName="ycd.ue.afterConfirmShipmentOfRecordCustomerPick.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00032" UserExitName="com.yantra.pca.ycd.japi.ue.YCDAfterConfirmShipmentOfRecordCustomerPickUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -688,7 +688,7 @@
     PropertyName="ycd.ue.handleShortageForBatchLine.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00033" UserExitName="com.yantra.pca.ycd.japi.ue.YCDhandleShortageForBatchLineUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -696,7 +696,7 @@
     PropertyName="ycd.ue.getNewBatches.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00034" UserExitName="com.yantra.pca.ycd.japi.ue.YCDGetNewBatchesUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -704,7 +704,7 @@
     PropertyName="ycd.ue.sortBatchLines.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00035" UserExitName="com.yantra.pca.ycd.japi.ue.YCDSortBatchLinesUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -712,7 +712,7 @@
     PropertyName="ycd.ue.getBatchPickPriority.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00036" UserExitName="com.yantra.pca.ycd.japi.ue.YCDGetBatchPickPriorityUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:14-04:00"
@@ -720,7 +720,7 @@
     PropertyName="ycd.ue.getAppeasementOffersUE.class"
     ProxyClass="com.yantra.pca.ycd.api.YCDUserExitProxy"
     UserExitKey="YCDUE00099" UserExitName="com.yantra.pca.ycd.japi.ue.YCDGetAppeasementOffersUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:21-04:00"
@@ -728,7 +728,7 @@
     PropertyName="ycm.ue.getItemAssociations.class"
     ProxyClass="com.yantra.ycm.api.YCMUserExitProxy"
     UserExitKey="YCMUE00001" UserExitName="com.yantra.ycm.japi.ue.YCMGetItemAssociationsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:21-04:00"
@@ -736,7 +736,7 @@
     PropertyName="ycm.ue.getItemDetails.class"
     ProxyClass="com.yantra.ycm.api.YCMUserExitProxy"
     UserExitKey="YCMUE00002" UserExitName="com.yantra.ycm.japi.ue.YCMGetItemDetailsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:21-04:00"
@@ -744,7 +744,7 @@
     PropertyName="ycm.ue.getItemList.class"
     ProxyClass="com.yantra.ycm.api.YCMUserExitProxy"
     UserExitKey="YCMUE00003" UserExitName="com.yantra.ycm.japi.ue.YCMGetItemListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:21-04:00"
@@ -752,7 +752,7 @@
     PropertyName="ycm.ue.validateItemCreation.class"
     ProxyClass="com.yantra.ycm.api.YCMUserExitProxy"
     UserExitKey="YCMUE00004" UserExitName="com.yantra.ycm.japi.ue.YCMValidateItemCreationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:21-04:00"
@@ -760,7 +760,7 @@
     PropertyName="ycm.ue.validateItemModification.class"
     ProxyClass="com.yantra.ycm.api.YCMUserExitProxy"
     UserExitKey="YCMUE00005" UserExitName="com.yantra.ycm.japi.ue.YCMValidateItemModificationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:21-04:00"
@@ -768,7 +768,7 @@
     PropertyName="ycm.ue.getDisplayItemAttributes.class"
     ProxyClass="com.yantra.ycm.api.YCMUserExitProxy"
     UserExitKey="YCMUE00006" UserExitName="com.yantra.ycm.japi.ue.YCMGetDisplayItemAttributesUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:21-04:00"
@@ -776,7 +776,7 @@
     PropertyName="ycm.ue.parseAsset.class"
     ProxyClass="com.yantra.ycm.api.YCMUserExitProxy"
     UserExitKey="YCMUE00007" UserExitName="com.yantra.ycm.japi.ue.YCMParseAssetUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:21-04:00"
@@ -784,7 +784,7 @@
     PropertyName="ycm.ue.getWebChannelItemPreviewURL.class"
     ProxyClass="com.yantra.ycm.api.YCMUserExitProxy"
     UserExitKey="YCMUE00008" UserExitName="com.yantra.ycm.japi.ue.YCMGetWebChannelItemPreviewURLUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:21-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:21-04:00"
@@ -792,7 +792,7 @@
     PropertyName="ycm.ue.getAdditionalCatalogIndexInformation.class"
     ProxyClass="com.yantra.ycm.api.YCMUserExitProxy"
     UserExitKey="YCMUE00010" UserExitName="com.yantra.ycm.japi.ue.YCMGetAdditionalCatalogIndexInformationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -800,7 +800,7 @@
     PropertyName="ycp.ue.beforeCreateNegotiation.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YCPUE00001" UserExitName="com.yantra.ycp.japi.ue.YCPBeforeCreateNegotiationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -808,7 +808,7 @@
     PropertyName="ycp.ue.exceptionChangeNotification.class"
     ProxyClass="com.yantra.ycp.api.YCPUserExitProxy"
     UserExitKey="YCPUE00002" UserExitName="com.yantra.ycp.japi.ue.YCPExceptionChangeNotificationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -816,7 +816,7 @@
     PropertyName="ycp.ue.getNegotiationNo.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YCPUE00003" UserExitName="com.yantra.ycp.japi.ue.YCPGetNegotiationNoUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -824,7 +824,7 @@
     PropertyName="yfs.ue.beforePurge.class"
     ProxyClass="com.yantra.ycp.api.YCPUserExitProxy"
     UserExitKey="YCPUE00004" UserExitName="com.yantra.yfs.japi.ue.YFSBeforePurgeUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -832,7 +832,7 @@
     PropertyName="ycp.ue.beforeCreateTask.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00005" UserExitName="com.yantra.ycp.japi.ue.YCPBeforeCreateTaskUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -840,7 +840,7 @@
     PropertyName="ycp.ue.beforeChangeTask.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00006" UserExitName="com.yantra.ycp.japi.ue.YCPBeforeChangeTaskUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -848,7 +848,7 @@
     PropertyName="ycp.ue.beforeCancelTask.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00007" UserExitName="com.yantra.ycp.japi.ue.YCPBeforeCancelTaskUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -856,7 +856,7 @@
     PropertyName="ycp.ue.beforeTaskInProgress.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00008" UserExitName="com.yantra.ycp.japi.ue.YCPBeforeTaskInProgressUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -864,7 +864,7 @@
     PropertyName="ycp.ue.determineTaskType.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00010" UserExitName="com.yantra.ycp.japi.ue.YCPDetermineTaskTypeUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -872,7 +872,7 @@
     PropertyName="ycp.ue.beforeRegisterTaskCompletion.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00011" UserExitName="com.yantra.ycp.japi.ue.YCPBeforeTaskCompletionUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -880,7 +880,7 @@
     PropertyName="ycp.ue.beforeCreateBatch.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00012" UserExitName="com.yantra.ycp.japi.ue.YCPBeforeCreateBatchUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -888,7 +888,7 @@
     PropertyName="ycp.ue.canTaskBeSuggested.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00013" UserExitName="com.yantra.ycp.japi.ue.YCPCanTaskBeSuggestedUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -896,7 +896,7 @@
     PropertyName="ycp.ue.recalculateCreditedMins.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00014" UserExitName="com.yantra.ycp.japi.ue.YCPRecalculateCreditedMinsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -904,7 +904,7 @@
     PropertyName="ycp.ue.determinePrinter.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00015" UserExitName="com.yantra.ycp.japi.ue.YCPDeterminePrinterUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -912,7 +912,7 @@
     PropertyName="ycp.ue.determineLabelFormat.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00016" UserExitName="com.yantra.ycp.japi.ue.YCPDetermineLabelFormatUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -920,7 +920,7 @@
     PropertyName="ycp.ue.determinePrintJobName.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00017" UserExitName="com.yantra.ycp.japi.ue.YCPDeterminePrintJobNameUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -928,7 +928,7 @@
     PropertyName="ycp.ue.checkPasswordsMatch.class"
     ProxyClass="com.yantra.ycp.api.YCPUserExitProxy"
     UserExitKey="YCPUE00018" UserExitName="com.yantra.ycp.japi.ue.YCPCheckPasswordsMatchUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -936,7 +936,7 @@
     PropertyName="ycp.ue.validateChangedPassword.class"
     ProxyClass="com.yantra.ycp.api.YCPUserExitProxy"
     UserExitKey="YCPUE00019" UserExitName="com.yantra.ycp.japi.ue.YCPValidateChangedPasswordUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -944,7 +944,7 @@
     PropertyName="ycp.ue.getCustomerDetails.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00020" UserExitName="com.yantra.ycp.japi.ue.YCPGetCustomerDetailsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -952,7 +952,7 @@
     PropertyName="ycp.ue.getCustomerList.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00021" UserExitName="com.yantra.ycp.japi.ue.YCPGetCustomerListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -960,7 +960,7 @@
     PropertyName="ycp.ue.getCustomerContactList.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE00022" UserExitName="com.yantra.ycp.japi.ue.YCPGetCustomerContactListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -968,7 +968,7 @@
     PropertyName="yfs.ue.getCustomerID.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE77_01" UserExitName="com.yantra.yfs.japi.ue.YFSGetCustomerIDUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -976,7 +976,7 @@
     PropertyName="ycp.ue.beforeCreateException.class"
     ProxyClass="com.yantra.ycp.api.YCPUserExitProxy"
     UserExitKey="YCPUE77_02" UserExitName="com.yantra.ycp.japi.ue.YCPBeforeCreateExceptionUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -984,7 +984,7 @@
     PropertyName="yfs.ue.getNodeMinimumNotificationTime.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE80_001" UserExitName="com.yantra.ycp.japi.ue.YCPGetNodeMinimumNotificationTimeUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -992,7 +992,7 @@
     PropertyName="ycp.ue.generatePassword.class"
     ProxyClass="com.yantra.ycp.api.YCPUserExitProxy"
     UserExitKey="YCPUE85_001" UserExitName="com.yantra.ycp.japi.ue.YCPGeneratePasswordUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -1000,7 +1000,7 @@
     PropertyName="ycp.ue.getShortZipCode.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YCPUE85_002" UserExitName="com.yantra.ycp.japi.ue.YCPGetShortZipCodeUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1008,7 +1008,7 @@
     PropertyName="ycs.ue.openManifest.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00001" UserExitName="com.yantra.ycs.japi.ue.YCSopenManifestUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1016,7 +1016,7 @@
     PropertyName="ycs.ue.isValidCarrierApiCombination.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00002" UserExitName="com.yantra.ycs.japi.ue.YCSCarrierApiCombinationUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1024,7 +1024,7 @@
     PropertyName="ycs.ue.closeManifest.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00004" UserExitName="com.yantra.ycs.japi.ue.YCScloseManifestUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1032,7 +1032,7 @@
     PropertyName="ycs.ue.DeleteCarton.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00006" UserExitName="com.yantra.ycs.japi.ue.YCSdeleteCartonUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1040,7 +1040,7 @@
     PropertyName="ycs.ue.getCodeData.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00008" UserExitName="com.yantra.ycs.japi.ue.YCSgetCodeDataUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1048,7 +1048,7 @@
     PropertyName="ycs.ue.getFreightCharge.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00009" UserExitName="com.yantra.ycs.japi.ue.YCSGetFreightChargeUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1056,7 +1056,7 @@
     PropertyName="ycs.ue.getServices.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00010" UserExitName="com.yantra.ycs.japi.ue.YCSgetServicesUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1064,7 +1064,7 @@
     PropertyName="ycs.ue.getSpecialServiceGroup.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00011" UserExitName="com.yantra.ycs.japi.ue.YCSgetSpecialServiceGroupUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1072,7 +1072,7 @@
     PropertyName="ycs.ue.getSpecialServices.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00012" UserExitName="com.yantra.ycs.japi.ue.YCSgetSpecialServicesUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1080,7 +1080,7 @@
     PropertyName="ycs.ue.getTimeinTransit.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00013" UserExitName="com.yantra.ycs.japi.ue.YCSgetTimeinTransitUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1088,7 +1088,7 @@
     PropertyName="ycs.ue.getTrackingNumber.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00014" UserExitName="com.yantra.ycs.japi.ue.YCSGetTrackingNumberUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1096,7 +1096,7 @@
     PropertyName="ycs.ue.PLDUpload0200.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00015" UserExitName="com.yantra.ycs.japi.ue.YCSPLDUpload0200UserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1104,7 +1104,7 @@
     PropertyName="ycs.ue.PLDUpload.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00016" UserExitName="com.yantra.ycs.japi.ue.YCSPLDUploadUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1112,7 +1112,7 @@
     PropertyName="ycs.ue.shipCarton.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00017" UserExitName="com.yantra.ycs.japi.ue.YCSshipCartonUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1120,7 +1120,7 @@
     PropertyName="ycs.ue.validateShipment.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00022" UserExitName="com.yantra.ycs.japi.ue.YCSvalidateShipmentUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1128,7 +1128,7 @@
     PropertyName="ycs.ue.getReturnShippingLabel.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00023" UserExitName="com.yantra.ycs.japi.ue.YCSreturnShippingLabelUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:39-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:39-04:00"
@@ -1136,7 +1136,7 @@
     PropertyName="ycs.ue.reprintCarrierLabel.class"
     ProxyClass="com.yantra.ycs.api.YCSUserExitProxy"
     UserExitKey="YCSUE00024" UserExitName="com.yantra.ycs.japi.ue.YCSreprintCarrierLabelUserExit"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1144,7 +1144,7 @@
     PropertyName="ydm.ue.beforeConsolidateToShipment.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00001" UserExitName="com.yantra.ydm.japi.ue.YDMBeforeConsolidateToShipment"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1152,7 +1152,7 @@
     PropertyName="ydm.ue.beforeCreateLoad.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00002" UserExitName="com.yantra.ydm.japi.ue.YDMBeforeCreateLoad"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1160,7 +1160,7 @@
     PropertyName="ydm.ue.beforeCreateShipment.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00003" UserExitName="com.yantra.ydm.japi.ue.YDMBeforeCreateShipment"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1168,7 +1168,7 @@
     PropertyName="ydm.ue.beforePackShipment.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00004" UserExitName="com.yantra.ydm.japi.ue.YDMBeforePackShipment"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1176,7 +1176,7 @@
     PropertyName="ydm.ue.determineShipmentToConsolidateWith.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00005" UserExitName="com.yantra.ydm.japi.ue.YDMDetermineShipmentToConsolidateWith"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1184,7 +1184,7 @@
     PropertyName="ycs.ue.beforeYCSshipCartonAPI.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00006" UserExitName="com.yantra.ydm.integration.ycs.japi.ue.YCSBeforeShipCartonUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1192,7 +1192,7 @@
     PropertyName="ycs.ue.beforeYCSdeleteCartonAPI.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00007" UserExitName="com.yantra.ydm.integration.ycs.japi.ue.YCSBeforeDeleteCartonUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1200,7 +1200,7 @@
     PropertyName="ycs.ue.beforeYCScloseManifestAPI.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00008" UserExitName="com.yantra.ydm.integration.ycs.japi.ue.YCSBeforeCloseManifestUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1208,7 +1208,7 @@
     PropertyName="ydm.ue.shouldShipmentMonitorAlertBeRaised.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00009" UserExitName="com.yantra.ydm.japi.ue.YDMShouldShipmentMonitorAlertBeRaisedUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1216,7 +1216,7 @@
     PropertyName="ydm.ue.overrideDetermineRouting.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00010" UserExitName="com.yantra.ydm.japi.ue.YDMOverrideDetermineRoutingUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1224,7 +1224,7 @@
     PropertyName="ydm.ue.beforeDetermineRouting.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00011" UserExitName="com.yantra.ydm.japi.ue.YDMBeforeDetermineRoutingUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1232,7 +1232,7 @@
     PropertyName="ydm.ue.canAddToContainer.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00012" UserExitName="com.yantra.ydm.japi.ue.YDMCanAddToContainerUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1240,7 +1240,7 @@
     PropertyName="ydm.ue.getMonitoringCalendarForShipment.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00013" UserExitName="com.yantra.ydm.japi.ue.YDMGetMonitoringCalendarForShipmentUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1248,7 +1248,7 @@
     PropertyName="ydm.ue.beforeManageRoutingGuide.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00014" UserExitName="com.yantra.ydm.japi.ue.YDMBeforeManageRoutingGuideUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1256,7 +1256,7 @@
     PropertyName="ydm.ue.canShipmentBeProcessed.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00015" UserExitName="com.yantra.ydm.japi.ue.YDMCanShipmentBeProcessedUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1264,7 +1264,7 @@
     PropertyName="ydm.ue.getNextSCM.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00016" UserExitName="com.yantra.ydm.japi.ue.YDMGetNextSCMUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1272,7 +1272,7 @@
     PropertyName="ydm.ue.beforeChangeShipmentContainer.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00017" UserExitName="com.yantra.ydm.japi.ue.YDMBeforeChangeShipmentContainerUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1280,7 +1280,7 @@
     PropertyName="ydm.ue.getNextContainerSCM.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00018" UserExitName="com.yantra.ydm.japi.ue.YDMGetNextContainerSCMUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1288,7 +1288,7 @@
     PropertyName="ydm.ue.getNextProNo.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00019" UserExitName="com.yantra.ydm.japi.ue.YDMGetNextProNoUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1296,7 +1296,7 @@
     PropertyName="ydm.ue.computeCheckDigit.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00020" UserExitName="com.yantra.ydm.japi.ue.YDMComputeCheckDigitUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1304,7 +1304,7 @@
     PropertyName="ydm.ue.getShipmentInstructions.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00021" UserExitName="com.yantra.ydm.japi.ue.YDMGetShipmentInstructionsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1312,7 +1312,7 @@
     PropertyName="ydm.ue.getTransportationCost.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00022" UserExitName="com.yantra.ydm.japi.ue.YDMGetTransportationCostUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1320,7 +1320,7 @@
     PropertyName="ydm.ue.determineRoutingExternally.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00023" UserExitName="com.yantra.ydm.japi.ue.YDMDetermineRoutingExternallyUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1328,7 +1328,7 @@
     PropertyName="ydm.ue.getOverridenAttributesForShipmentLineItem.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00098" UserExitName="com.yantra.ydm.japi.ue.YDMGetOverridenAttributesForShipmentLineItemUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1336,7 +1336,7 @@
     PropertyName="ydm.ue.beforeAddToContainer.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00099" UserExitName="com.yantra.ydm.japi.ue.YDMBeforeAddToContainerUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1344,7 +1344,7 @@
     PropertyName="ydm.ue.beforeChangeShipment.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00100" UserExitName="com.yantra.ydm.japi.ue.YDMBeforeChangeShipment"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:35-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:35-04:00"
@@ -1352,7 +1352,7 @@
     PropertyName="ydm.ue.beforeAddContainerToManifest.class"
     ProxyClass="com.yantra.ydm.api.YDMUserExitProxy"
     UserExitKey="YDMUE00101" UserExitName="com.yantra.ydm.japi.ue.YDMBeforeAddContainerToManifestUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -1360,7 +1360,7 @@
     PropertyName="yfs.ue.addAdditionalKeyData.class"
     ProxyClass="com.yantra.ycp.api.YCPUserExitProxy"
     UserExitKey="YFSUE00001" UserExitName="com.yantra.yfs.japi.ue.YFSAddAdditionalKeyDataUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1368,7 +1368,7 @@
     PropertyName="yfs.ue.beforeCreateOrder.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00002" UserExitName="com.yantra.yfs.japi.ue.YFSBeforeCreateOrderUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1376,7 +1376,7 @@
     PropertyName="yfs.ue.canOrderBeProcessed.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00003" UserExitName="com.yantra.yfs.japi.ue.YFSCanOrderBeProcessedUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1384,7 +1384,7 @@
     PropertyName="yfs.ue.collectionCreditCard.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00004" UserExitName="com.yantra.yfs.japi.ue.YFSCollectionCreditCardUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:22-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:22-04:00"
@@ -1392,7 +1392,7 @@
     PropertyName="yfs.ue.getTagNo.class"
     ProxyClass="com.yantra.inv.api.INVUserExitProxy"
     UserExitKey="YFSUE000049" UserExitName="com.yantra.yfs.japi.ue.YFSGetTagNoUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1400,7 +1400,7 @@
     PropertyName="yfs.ue.collectionCustomerAccount.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00005" UserExitName="com.yantra.yfs.japi.ue.YFSCollectionCustomerAccountUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1408,7 +1408,7 @@
     PropertyName="yfs.ue.collectionOthers.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00006" UserExitName="com.yantra.yfs.japi.ue.YFSCollectionOthersUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1416,7 +1416,7 @@
     PropertyName="yfs.ue.confirmAssignments.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00007" UserExitName="com.yantra.yfs.japi.ue.YFSConfirmAssignmentsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -1424,7 +1424,7 @@
     PropertyName="yfs.ue.convertCurrency.class"
     ProxyClass="com.yantra.ycp.api.YCPUserExitProxy"
     UserExitKey="YFSUE00008" UserExitName="com.yantra.yfs.japi.ue.YFSConvertCurrencyUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1432,7 +1432,7 @@
     PropertyName="yfs.ue.determineChainedOrderForConsolidation.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00009" UserExitName="com.yantra.yfs.japi.ue.YFSDetermineChainedOrderForConsolidationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1440,7 +1440,7 @@
     PropertyName="yfs.ue.determineDateForPricing.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00010" UserExitName="com.yantra.yfs.japi.ue.YFSDetermineDateForPricingUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1448,7 +1448,7 @@
     PropertyName="yfs.ue.determineDerivedOrderForConsolidation.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00011" UserExitName="com.yantra.yfs.japi.ue.YFSDetermineDerivedOrderForConsolidationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -1456,7 +1456,7 @@
     PropertyName="yfs.ue.doAction.class"
     ProxyClass="com.yantra.ycp.api.YCPUserExitProxy"
     UserExitKey="YFSUE00013" UserExitName="com.yantra.yfs.japi.ue.YFSDoActionUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:22-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:22-04:00"
@@ -1464,7 +1464,7 @@
     PropertyName="yfs.ue.getAdjustmentDetails.class"
     ProxyClass="com.yantra.inv.api.INVUserExitProxy"
     UserExitKey="YFSUE00015" UserExitName="com.yantra.yfs.japi.ue.YFSGetAdjustmentDetailsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1472,7 +1472,7 @@
     PropertyName="yfs.ue.getDeliveryLeadTime.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00018" UserExitName="com.yantra.yfs.japi.ue.YFSGetDeliveryLeadTimeUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1480,7 +1480,7 @@
     PropertyName="yfs.ue.getExternalInventory.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00019" UserExitName="com.yantra.yfs.japi.ue.YFSGetExternalInventoryUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1488,7 +1488,7 @@
     PropertyName="yfs.ue.getHeaderChargesForAllocation.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00020" UserExitName="com.yantra.yfs.japi.ue.YFSGetHeaderChargesForAllocationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1496,7 +1496,7 @@
     PropertyName="yfs.ue.getHeaderChargesForShipment.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00021" UserExitName="com.yantra.yfs.japi.ue.YFSGetHeaderChargesForShipmentUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1504,7 +1504,7 @@
     PropertyName="yfs.ue.getInvoiceNo.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00022" UserExitName="com.yantra.yfs.japi.ue.YFSGetInvoiceNoUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1512,7 +1512,7 @@
     PropertyName="yfs.ue.getLineChargesForAllocation.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00023" UserExitName="com.yantra.yfs.japi.ue.YFSGetLineChargesForAllocationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1520,7 +1520,7 @@
     PropertyName="yfs.ue.getLineChargesForShipment.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00024" UserExitName="com.yantra.yfs.japi.ue.YFSGetLineChargesForShipmentUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1528,7 +1528,7 @@
     PropertyName="yfs.ue.getOrderNo.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00026" UserExitName="com.yantra.yfs.japi.ue.YFSGetOrderNoUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1536,7 +1536,7 @@
     PropertyName="yfs.ue.recalculateHeaderTax.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00029" UserExitName="com.yantra.yfs.japi.ue.YFSRecalculateHeaderTaxUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1544,7 +1544,7 @@
     PropertyName="yfs.ue.recalculateLineTax.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00030" UserExitName="com.yantra.yfs.japi.ue.YFSRecalculateLineTaxUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1552,7 +1552,7 @@
     PropertyName="yfs.ue.verifyOrderConfirmation.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00034" UserExitName="com.yantra.yfs.japi.ue.YFSVerifyOrderConfirmationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1560,7 +1560,7 @@
     PropertyName="yfs.ue.verifyOrder.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00035" UserExitName="com.yantra.yfs.japi.ue.YFSVerifyOrderUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1568,7 +1568,7 @@
     PropertyName="yfs.ue.getAvailabilityCorrections.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00036" UserExitName="com.yantra.yfs.japi.ue.YFSGetAvailabilityCorrectionsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1576,7 +1576,7 @@
     PropertyName="yfs.ue.shouldOrderMonitorAlertBeRaised.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00037" UserExitName="com.yantra.yfs.japi.ue.YFSShouldOrderMonitorAlertBeRaisedUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1584,7 +1584,7 @@
     PropertyName="yfs.ue.checkOrderBeforeProcessing.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00048" UserExitName="com.yantra.yfs.japi.ue.YFSCheckOrderBeforeProcessingUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1592,7 +1592,7 @@
     PropertyName="yfs.ue.beforeChangeOrder.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00049" UserExitName="com.yantra.yfs.japi.ue.YFSBeforeChangeOrderUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1600,7 +1600,7 @@
     PropertyName="yfs.ue.getReceiptNo.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00050" UserExitName="com.yantra.yfs.japi.ue.YFSGetReceiptNoUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1608,7 +1608,7 @@
     PropertyName="yfs.ue.getDistance.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00051" UserExitName="com.yantra.yfs.japi.ue.YFSGetDistanceUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1616,7 +1616,7 @@
     PropertyName="yfs.ue.beforeReceiveOrder.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00052" UserExitName="com.yantra.yfs.japi.ue.YFSBeforeReceiveOrderUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1624,7 +1624,7 @@
     PropertyName="yfs.ue.beforeSendReturnReleaseToDCS.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00053" UserExitName="com.yantra.yfs.japi.ue.YFSBeforeSendReturnReleaseToDCSUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1632,7 +1632,7 @@
     PropertyName="yfs.ue.beforeSendPOToWMS.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00055" UserExitName="com.yantra.yfs.japi.ue.YFSBeforeSendPOToWMSUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1640,7 +1640,7 @@
     PropertyName="yfs.ue.beforeSendShipAdviceToWMS.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00056" UserExitName="com.yantra.yfs.japi.ue.YFSBeforeSendShipAdviceToWMSUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1648,7 +1648,7 @@
     PropertyName="yfs.ue.getMonitoringCalendarForOrder.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00057" UserExitName="com.yantra.yfs.japi.ue.YFSGetMonitoringCalendarForOrderUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1656,7 +1656,7 @@
     PropertyName="yfs.ue.beforeSplitLine.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00058" UserExitName="com.yantra.yfs.japi.ue.YFSBeforeSplitLineUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1664,7 +1664,7 @@
     PropertyName="yfs.ue.validateInvokedCollection.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00059" UserExitName="com.yantra.yfs.japi.ue.YFSValidateInvokedCollectionUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -1672,7 +1672,7 @@
     PropertyName="yfs.japi.ue.YFSTxnCoordinator.class"
     ProxyClass="com.yantra.ycp.api.YCPUserExitProxy"
     UserExitKey="YFSUE00060" UserExitName="com.yantra.yfs.japi.ue.YFSTxnCoordinatorUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1680,7 +1680,7 @@
     PropertyName="yfs.ue.getFundsAvailable.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00061" UserExitName="com.yantra.yfs.japi.ue.YFSGetFundsAvailableUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1688,7 +1688,7 @@
     PropertyName="yfs.ue.getOverriddenOveragePercentage.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00062" UserExitName="com.yantra.yfs.japi.ue.YFSGetOverriddenOveragePercentageUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1696,7 +1696,7 @@
     PropertyName="yfs.ue.collectionStoredValueCard.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00063" UserExitName="com.yantra.yfs.japi.ue.YFSCollectionStoredValueCardUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1704,7 +1704,7 @@
     PropertyName="yfs.ue.processOrderHoldType.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00064" UserExitName="com.yantra.yfs.japi.ue.YFSProcessOrderHoldTypeUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1712,7 +1712,7 @@
     PropertyName="yfs.ue.getInvoicePricingQty.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00065" UserExitName="com.yantra.yfs.japi.ue.YFSGetInvoicePricingQtyUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1720,7 +1720,7 @@
     PropertyName="yfs.ue.getItemNodeCostForSourcing.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00066" UserExitName="com.yantra.yfs.japi.ue.YFSGetItemNodeCostForSourcingUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1728,7 +1728,7 @@
     PropertyName="yfs.ue.orderRepricing.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00068" UserExitName="com.yantra.yfs.japi.ue.YFSOrderRepricingUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1736,7 +1736,7 @@
     PropertyName="yfs.ue.getPromotionsForItemList.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00069" UserExitName="com.yantra.yfs.japi.ue.YFSGetPromotionsForItemListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1744,7 +1744,7 @@
     PropertyName="yfs.ue.getExternalPricesForItemList.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00070" UserExitName="com.yantra.yfs.japi.ue.YFSGetExternalPricesForItemListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1752,7 +1752,7 @@
     PropertyName="yfs.ue.getOverallStatus.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00071" UserExitName="com.yantra.yfs.japi.ue.YFSGetOverallStatusUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1760,7 +1760,7 @@
     PropertyName="yfs.ue.validateReship.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00072" UserExitName="com.yantra.yfs.japi.ue.YFSValidateReshipUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1768,7 +1768,7 @@
     PropertyName="yfs.ue.reshipOrderLines.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE00073" UserExitName="com.yantra.yfs.japi.ue.YFSReshipOrderLinesUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -1776,7 +1776,7 @@
     PropertyName="yfs.ue.massageApiOutputBeforeReturning.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YFSUE0088" UserExitName="com.yantra.ycp.japi.ue.YCPMassageApiOutputUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1784,7 +1784,7 @@
     PropertyName="yfs.ue.getDistanceForNodeList.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE80_007" UserExitName="com.yantra.yfs.japi.ue.YFSGetDistanceForNodeListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1792,7 +1792,7 @@
     PropertyName="yfs.ue.getItemSubstitutesOverride.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE80_101" UserExitName="com.yantra.yfs.japi.ue.YFSGetItemSubstitutesOverrideUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1800,7 +1800,7 @@
     PropertyName="yfs.ue.getAvailabilityCorrectionsForItemList.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE80_102" UserExitName="com.yantra.yfs.japi.ue.YFSGetAvailabilityCorrectionsForItemListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1808,7 +1808,7 @@
     PropertyName="yfs.ue.generateWorkOrder.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE80_103" UserExitName="com.yantra.yfs.japi.ue.YFSGenerateWorkOrderUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1816,7 +1816,7 @@
     PropertyName="yfs.ue.beforeCloseReceipt.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE80_104" UserExitName="com.yantra.yfs.japi.ue.YFSBeforeCloseReceiptUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1824,7 +1824,7 @@
     PropertyName="yfs.ue.processRoutingExternally.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE80_105" UserExitName="com.yantra.yfs.japi.ue.OMPProcessRoutingExternallyUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1832,7 +1832,7 @@
     PropertyName="yfs.ue.getExternalAvailability.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE80_99" UserExitName="com.yantra.yfs.japi.ue.YFSGetExternalAvailabilityUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1840,7 +1840,7 @@
     PropertyName="yfs.ue.getOpportunityID.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE90_01" UserExitName="com.yantra.yfs.japi.ue.YFSGetOpportunityIDUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -1848,7 +1848,7 @@
     PropertyName="ycp.ue.generateAccessToken.class"
     ProxyClass="com.yantra.ycp.api.YCPUserExitProxy"
     UserExitKey="YFSUE90_02" UserExitName="com.yantra.ycp.japi.ue.YCPAccessTokenGenerationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="Y" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1856,7 +1856,7 @@
     PropertyName="yfs.ue.getOrdersForReturn.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE921_001" UserExitName="com.yantra.yfs.japi.ue.YFSGetOrdersForReturnUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:24-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:24-04:00"
@@ -1864,7 +1864,7 @@
     PropertyName="yfs.ue.collectionDebitCard.class"
     ProxyClass="com.yantra.omp.api.OMPUserExitProxy"
     UserExitKey="YFSUE921_002" UserExitName="com.yantra.yfs.japi.ue.YFSCollectionDebitCardUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -1872,7 +1872,7 @@
     PropertyName="yfs.ue.getExternalDataForValidation.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YFSUE921_003" UserExitName="com.yantra.yfs.japi.ue.YFSGetExternalDataForValidationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1880,7 +1880,7 @@
     PropertyName="ypm.ue.selectPricelistHeaderList.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00001" UserExitName="com.yantra.ypm.japi.ue.YPMPricelistHeaderSelectionUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1888,7 +1888,7 @@
     PropertyName="ypm.ue.getItemPrice.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00002" UserExitName="com.yantra.ypm.japi.ue.YPMGetItemPriceUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1896,7 +1896,7 @@
     PropertyName="ypm.ue.overrideGetItemPrice.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00003" UserExitName="com.yantra.ypm.japi.ue.YPMOverrideGetItemPriceUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1904,7 +1904,7 @@
     PropertyName="ypm.ue.calculateShippingCharge.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00004" UserExitName="com.yantra.ypm.japi.ue.YPMCalculateShippingChargeUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1912,7 +1912,7 @@
     PropertyName="ypm.ue.validateCoupon.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00005" UserExitName="com.yantra.ypm.japi.ue.YPMValidateCouponUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1920,7 +1920,7 @@
     PropertyName="ypm.ue.getOrderPrice.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00006" UserExitName="com.yantra.ypm.japi.ue.YPMGetOrderPriceUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1928,7 +1928,7 @@
     PropertyName="ypm.ue.overrideGetOrderPrice.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00007" UserExitName="com.yantra.ypm.japi.ue.YPMOverrideGetOrderPriceUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1936,7 +1936,7 @@
     PropertyName="ypm.ue.selectPricelistLine.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00008" UserExitName="com.yantra.ypm.japi.ue.YPMPricelistLineSelectionUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1944,7 +1944,7 @@
     PropertyName="ypm.ue.runCustomPricingRule.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00009" UserExitName="com.yantra.ypm.japi.ue.YPMRunCustomPricingRuleUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1952,7 +1952,7 @@
     PropertyName="ypm.ue.loadCustomPricingRules.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00010" UserExitName="com.yantra.ypm.japi.ue.YPMLoadCustomPricingRulesUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1960,7 +1960,7 @@
     PropertyName="ypm.ue.getPricingRuleDetails.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00011" UserExitName="com.yantra.ypm.japi.ue.YPMGetPricingRuleDetailsUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1968,7 +1968,7 @@
     PropertyName="ypm.ue.getLowestItemPrice.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00012" UserExitName="com.yantra.ypm.japi.ue.YPMGetLowestItemPriceUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1976,7 +1976,7 @@
     PropertyName="ypm.ue.overrideGetLowestItemPrice.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00013" UserExitName="com.yantra.ypm.japi.ue.YPMOverrideGetLowestItemPriceUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1984,7 +1984,7 @@
     PropertyName="ypm.ue.getApplicablePricingRuleList.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00014" UserExitName="com.yantra.ypm.japi.ue.YPMGetApplicablePricingRuleListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:40-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:40-04:00"
@@ -1992,7 +1992,7 @@
     PropertyName="ypm.ue.overrideGetApplicablePricingRuleList.class"
     ProxyClass="com.yantra.ypm.api.YPMUserExitProxy"
     UserExitKey="YPMUE00015" UserExitName="com.yantra.ypm.japi.ue.YPMOverrideGetApplicablePricingRuleListUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -2000,7 +2000,7 @@
     PropertyName="ysc.ue.getExternalDataAccessPolicyOnRead.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YSCUE90_01" UserExitName="com.yantra.ysc.japi.ue.YSCGetExternalDataAccessPolicyOnReadUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="N" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -2008,7 +2008,7 @@
     PropertyName="ysc.ue.shouldAccessPolicyBeAppliedOnUpdate.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YSCUE90_02" UserExitName="com.yantra.ysc.japi.ue.YSCShouldAccessPolicyBeAppliedOnUpdateUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
@@ -2016,7 +2016,7 @@
     PropertyName="ysc.ue.getAdditionalCustomerInformation.class"
     ProxyClass="com.yantra.ysc.api.YSCUserExitProxy"
     UserExitKey="YSCUE91_01" UserExitName="com.yantra.ysc.japi.ue.YSCGetAdditionalCustomerInformationUE"/>
-<UserExit BaseDocumentTypeKey="" Createprogid="XMLMigrator"
+<UserExit BaseDocumentTypeKey=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DocTypeOverrideFlag="N" FlowDesignable="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"

@@ -10,7 +10,7 @@
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="LegacyOMSOrderNo">
-						<xsl:value-of select="OrderLines/OrderLine/Extn/@ExtnLegacyOMSChildOrderNo"/>
+						<xsl:value-of select="OrderLines/OrderLine/@CustomerPONo"/>
 					</xsl:attribute>
 					<xsl:attribute name="EnterpriseCode">
 						<xsl:value-of select="@EnterpriseCode"/>

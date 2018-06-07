@@ -88,5 +88,6 @@ public class IndgManageFullSyncStatus extends AbstractCustomApi {
     triggerXml.getDocumentElement().setAttribute(XMLLiterals.CRITERIA_ID, RTAM_CRITERIA_ID);
     triggerXml.getDocumentElement().setAttribute(XMLLiterals.BASE_TRANSACTION_ID, TRANSACTION_ID);
 	System.out.println(triggerXml);
+	invokeYantraApi("triggerAgent", triggerXml);
   }
 }

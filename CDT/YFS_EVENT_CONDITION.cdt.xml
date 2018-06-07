@@ -279,22 +279,22 @@
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-06-04T11:52:02-04:00" Modifyuserid="admin"
     MoreActionsFlag="N" OwnerKey="DEFAULT" OwnerType=" " Priority="0.00"/>
-<EventCondition ActionKey="2018060616381720273" ConditionKey=""
+<EventCondition ActionKey="2018060616381720273" ConditionKey=" "
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-06T16:38:56-04:00" Createuserid="admin"
     EventConditionKey="2018060616385620283"
     EventKey="REALTIME_CHANGE_LIST" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-06-06T16:38:56-04:00" Modifyuserid="admin"
-    MoreActionsFlag="N" OwnerKey="DEFAULT" OwnerType="" Priority="0.00"/>
-<EventCondition ActionKey="2018060616171620045" ConditionKey=""
+    MoreActionsFlag="N" OwnerKey="DEFAULT" OwnerType=" " Priority="0.00"/>
+<EventCondition ActionKey="2018060616171620045" ConditionKey=" "
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-06T16:39:11-04:00" Createuserid="admin"
     EventConditionKey="2018060616391120294"
     EventKey="DEFAULT_EVENT_KEY71_1" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-06-06T16:39:11-04:00" Modifyuserid="admin"
-    MoreActionsFlag="N" OwnerKey="DEFAULT" OwnerType="" Priority="0.00"/>
+    MoreActionsFlag="N" OwnerKey="DEFAULT" OwnerType=" " Priority="0.00"/>
 <EventCondition ActionKey="MARK_RULE_INACTIVE" ConditionKey=" "
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:40-04:00"
     Createuserid="SYSTEM" EventConditionKey="DEFAULT_EC.YPM_01"

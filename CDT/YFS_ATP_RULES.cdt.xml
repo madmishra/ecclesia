@@ -3,7 +3,7 @@
 <AtpRules AccumulationDays="0" AdvanceNotificationTime="0"
     AtpRule="DEFAULT" AtpRuleKey="201804121101594624"
     AtpRuleName="DEFAULT_Indigo_CA" BackwardConsumptionDays="0"
-    ConsiderPoForAlloc=" " Createprogid=".YEntityServlet"
+    ConsiderPoForAlloc="" Createprogid=".YEntityServlet"
     Createts="2018-04-12T11:01:59-04:00" Createuserid="admin"
     ForwardConsumptionDays="0" Lockid="0" MaxInventoryHoldDays="0"
     Modifyprogid=".YEntityServlet" Modifyts="2018-04-12T11:01:59-04:00"

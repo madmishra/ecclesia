@@ -251,5 +251,8 @@ public static final String CRITERIA_ID = "CriteriaId";
 public static final String BASE_TRANSACTION_ID = "BaseTransactionId"; 
 public static final String CUSTOMER_LINE_PO_NO = "CustomerLinePONo";
 public static final String CUSTOMER_PO_NO = "CustomerPONo"; 
+public static final String CONDITION_VARIABLE_1 = "ConditionVariable1";
+public static final String CONDITION_VARIABLE_2 = "ConditionVariable2";
+public static final String CANCELLATION_REQUEST_ID = "LegacyOMSCancellationRequestId";
 }
 

@@ -309,8 +309,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    	String primeLineNo = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
 	    	YFCElement orderLineEle = XPathUtil.getXPathElement(getOrderLineListDoc, "/OrderLineList/OrderLine[@PrimeLineNo = \""+
 	    	primeLineNo+"\"]");
-	    	String legacyOMSOrderNo = orderLineEle.getChildElement(XMLLiterals.EXTN).
-	    			getAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO);
+	    	String legacyOMSOrderNo = orderLineEle.getAttribute(XMLLiterals.CUSTOMER_PO_NO);
 	    	orderLine.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOMSOrderNo);
 	    }
 	}
@@ -337,7 +336,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			orderLine.setAttribute(XMLLiterals.CANCELLATION_REASON_CODE, REASON_CODE);
 	    }
 	    String sapOrderNo = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-	    		getChildElement(XMLLiterals.EXTN).getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
+	    		getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
 	    String modifyTs = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 	    		getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
 	    sendShipNodeDocToService(groupByShipNodeDoc, getOrderLineListDoc);
@@ -488,11 +487,10 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    orderLineEle.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.ORDERED_QTY, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, EMPTY_STRING);
+	    orderLineEle.setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, EMPTY_STRING);
+	    orderLineEle.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
 	    YFCElement itemEle = orderLineEle.createChild(XMLLiterals.ITEM);
 	    itemEle.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
-	    YFCElement extnEle = orderLineEle.createChild(XMLLiterals.EXTN);
-	    extnEle.setAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO, EMPTY_STRING);
-	    extnEle.setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, EMPTY_STRING);
 	    YFCElement orderEle = orderLineEle.createChild(XMLLiterals.ORDER);
 	    orderEle.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
 	    orderEle.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);

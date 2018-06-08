@@ -62,8 +62,7 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 		 orderLineEle.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
 		 orderLineEle.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
 		 orderLineEle.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
-		 YFCElement extnEle=orderLineEle.createChild(XMLLiterals.EXTN);
-		 extnEle.setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, EMPTY_STRING);
+		 orderLineEle.setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, EMPTY_STRING);
 		 YFCElement orderEle=orderLineEle.createChild(XMLLiterals.ORDER);
 		 orderEle.setAttribute(XMLLiterals.ORDER_NO,EMPTY_STRING);
 		 return getOrderLineListTempDoc;
@@ -89,11 +88,8 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 			isFullOrderCancelled=NO;
 			break;
 		}
-			
 	 }
 		 return isFullOrderCancelled;
-		
-		 
 	 }
 /**
  * This method forms SAP051 message
@@ -104,12 +100,13 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
  private YFCDocument  formMessageSAP051(String isFullOrderCancelled,YFCDocument  inXml) {
 	 	YFCElement inXmlEle=inXml.getDocumentElement();
 	 	String modifyts= inXmlEle.getAttribute(XMLLiterals.MODIFYTS);
-	 	String sapOrderNo=inXmlEle.getChildElement(XMLLiterals.EXTN).getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
+	 	String sapOrderNo=inXmlEle.getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
 	 	String enterpriseCode=inXmlEle.getAttribute(XMLLiterals.ENTERPRISE_CODE);
 	 	String documentType=inXmlEle.getAttribute(XMLLiterals.DOCUMENT_TYPE);
 	 	String orderType=inXmlEle.getAttribute(XMLLiterals.ORDER_TYPE);
 	 	String currentQty=inXmlEle.getAttribute(XMLLiterals.ORDERED_QTY);
-	 	String originalQty=inXmlEle.getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY);
+	 	String originalQty=inXmlEle.getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
+	 			getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY);
 		
 	 	YFCDocument messageSAP051Doc=YFCDocument.createDocument(XMLLiterals.ORDER_MESSAGE);
 		 YFCElement orderMessageEle=messageSAP051Doc.getDocumentElement();
@@ -139,10 +136,8 @@ public class IndgSAP051MsgToSAP extends AbstractCustomApi{
 		 itemEle.setAttribute(XMLLiterals.ITEM_ID, itemId);
 		 }
 		 return messageSAP051Doc;
-		 
 	 }
 
-	 
 }
 
 

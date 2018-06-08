@@ -249,5 +249,7 @@ public static final String IS_PROCESSED = "IsProcessed";
 public static final String TRIGGER_AGENT = "TriggerAgent";
 public static final String CRITERIA_ID = "CriteriaId";
 public static final String BASE_TRANSACTION_ID = "BaseTransactionId"; 
+public static final String CUSTOMER_LINE_PO_NO = "CustomerLinePONo";
+public static final String CUSTOMER_PO_NO = "CustomerPONo"; 
 }
 

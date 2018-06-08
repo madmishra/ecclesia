@@ -19,7 +19,7 @@ import com.yantra.yfc.dom.YFCNode;
 public class IndgCancelMissingLines extends AbstractCustomApi{
   
     private static final String EMPTY_STRING = "";
-    private static final String CALCEL_ORDER_STATUS = "9000";
+    private static final String CANCEL_ORDER_STATUS = "9000";
     private static final String CANCEL_STATUS = "CANCEL";
     private static final String ZERO_QTY = "0";
     private static final String IS_SAP_MSG_REQ="SAP051MsgReq";
@@ -77,7 +77,6 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         YFCElement eleItemEle = eleOrderLine.createChild(XMLLiterals.ITEM);
         eleItemEle.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
         YFCElement eleExtn = eleOrderLine.createChild(XMLLiterals.EXTN);
-        eleExtn.setAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO, EMPTY_STRING);
         eleExtn.setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, EMPTY_STRING);
         YFCElement eleOrder = eleOrderLine.createChild(XMLLiterals.ORDER);
         eleOrder.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
@@ -120,7 +119,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         	String sPrimeLineNo= eleOrderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
            YFCElement orderLineEle = XPathUtil.getXPathElement(docInXml,"//OrderLines/OrderLine[@PrimeLineNo=\""+sPrimeLineNo+"\"]");
             if(XmlUtils.isVoid(orderLineEle) && 
-                !CALCEL_ORDER_STATUS.equals(eleOrderLine.getAttribute(XMLLiterals.STATUS))) {
+                !CANCEL_ORDER_STATUS.equals(eleOrderLine.getAttribute(XMLLiterals.STATUS))) {
                 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL_STATUS);
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
                 addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLine);

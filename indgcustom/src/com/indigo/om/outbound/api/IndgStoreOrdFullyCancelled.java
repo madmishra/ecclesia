@@ -71,8 +71,7 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 		 eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
 		 eleOrderLine.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
 		 eleOrderLine.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
-		 YFCElement eleExtn=eleOrderLine.createChild(XMLLiterals.EXTN);
-		 eleExtn.setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, EMPTY_STRING);
+		 eleOrderLine.setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, EMPTY_STRING);
 		 YFCElement eleOrder=eleOrderLine.createChild(XMLLiterals.ORDER);
 		 eleOrder.setAttribute(XMLLiterals.ORDER_NO,EMPTY_STRING);
 		 return docGetOrderLineListTemp;

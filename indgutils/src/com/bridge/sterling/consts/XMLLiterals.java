@@ -254,5 +254,6 @@ public static final String CUSTOMER_PO_NO = "CustomerPONo";
 public static final String CONDITION_VARIABLE_1 = "ConditionVariable1";
 public static final String CONDITION_VARIABLE_2 = "ConditionVariable2";
 public static final String CANCELLATION_REQUEST_ID = "LegacyOMSCancellationRequestId";
+public static final String QUANTITY_AFTER_CANCELLATION = "QuantityAfterCancellation";
 }
 

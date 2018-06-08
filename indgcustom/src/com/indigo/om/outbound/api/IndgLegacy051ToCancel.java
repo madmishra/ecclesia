@@ -240,12 +240,16 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		 YFCIterable<YFCElement> yfsItrator = inputEle.getChildren(XMLLiterals.ORDER_LINE);
 		 for(YFCElement orderLine : yfsItrator) {
 			String primeLineNo = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
+			YFCElement odrLineQtyEle = XPathUtil.getXPathElement(docLegacy051Input, "/OrderMessage/MessageBody/Order/OrderLines/"
+					+ "OrderLine[@PrimeLineNo=\""+primeLineNo+"\"]");
+			String orderedQty = odrLineQtyEle.getAttribute(XMLLiterals.QUANTITY_AFTER_CANCELLATION);
 			YFCElement orderLineEle = orderLinesElement.createChild(XMLLiterals.ORDER_LINE);
 			orderLineEle.setAttribute(XMLLiterals.PRIME_LINE_NO, primeLineNo);
 			orderLineEle.setAttribute(XMLLiterals.SUB_LINE_NO, SUBLINE_VALUE);
 			orderLineEle.setAttribute(XMLLiterals.ACTION, ACTION_VALUE);
 			orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
 			orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, CANCELLATION_TYPE);
+			orderLineEle.setAttribute(XMLLiterals.ORDERED_QTY, orderedQty);
 		}
 		 YFCDocument changeOrderOutput = invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput,
 		    		getChangeOrderTemplateDoc());    

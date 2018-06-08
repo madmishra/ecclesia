@@ -35,6 +35,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 private String enterpriseCode = "";
 	 private String cancellationReqId = "";
 	 YFCDocument docLegacy051Input = null;
+	 YFCDocument docInputXml = null;
 	 private static final String CANCELLATION_TYPE = "Legacy051";
 	 
 	 /**
@@ -53,7 +54,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    		getAttribute(XMLLiterals.CANCELLATION_REQUEST_ID);
 		String inputDocString = inXml.toString();
 	    docLegacy051Input = YFCDocument.getDocumentFor(inputDocString);
-	    
+	    docInputXml = YFCDocument.getDocumentFor(inputDocString);
 	    YFCDocument shipmentListApiOp = getShipmentList();
 	    getOrderLinesGroupByReasonCode(shipmentListApiOp);
 	    docCancelOrderLines();
@@ -240,7 +241,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		 YFCIterable<YFCElement> yfsItrator = inputEle.getChildren(XMLLiterals.ORDER_LINE);
 		 for(YFCElement orderLine : yfsItrator) {
 			String primeLineNo = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
-			YFCElement odrLineQtyEle = XPathUtil.getXPathElement(docLegacy051Input, "/OrderMessage/MessageBody/Order/OrderLines/"
+			YFCElement odrLineQtyEle = XPathUtil.getXPathElement(docInputXml, "/OrderMessage/MessageBody/Order/OrderLines/"
 					+ "OrderLine[@PrimeLineNo=\""+primeLineNo+"\"]");
 			String orderedQty = odrLineQtyEle.getAttribute(XMLLiterals.QUANTITY_AFTER_CANCELLATION);
 			YFCElement orderLineEle = orderLinesElement.createChild(XMLLiterals.ORDER_LINE);

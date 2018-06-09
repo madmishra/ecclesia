@@ -255,5 +255,8 @@ public static final String CONDITION_VARIABLE_1 = "ConditionVariable1";
 public static final String CONDITION_VARIABLE_2 = "ConditionVariable2";
 public static final String CANCELLATION_REQUEST_ID = "LegacyOMSCancellationRequestId";
 public static final String QUANTITY_AFTER_CANCELLATION = "QuantityAfterCancellation";
+public static final String SHIPMENT_NO= "ShipmentNo";
+public static final String SHIPMENT_LINE_NO = "ShipmentLineNo"; 
+public static final String CHANGE_SHIPMENT="changeShipment";
 }
 

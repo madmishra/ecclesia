@@ -53,6 +53,7 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
                 inputMessageCount = 0;
           }
         }
+        gzipOS.close();
         inputMessageCount++;
       } catch (Exception exp) {
         throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_RTAM_UPLOAD, exp);

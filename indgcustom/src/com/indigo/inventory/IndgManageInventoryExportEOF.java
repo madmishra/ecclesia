@@ -26,6 +26,7 @@ public class IndgManageInventoryExportEOF extends AbstractCustomApi{
       fileOutputStream.flush();
       fileOutputStream.close();
       }
+	 System.out.println("EOF Done");
     fileOutputStream = null;
     Runtime.getRuntime().exec(myShellScript);
     } 

@@ -1,2 +1,3 @@
-cd /data/oms95/Foundation/bin
-nohup /data/oms95/Foundation/bin/startIntegrationServer.sh IndgDeltaSync \"-Xms512m -Xmx512m -XX:MaxPermSize=512m\" > /data/oms95/Foundation/logs/Delta_Sync.log &
+nohup /datadrive/opt/IBM/bin/startIntegrationServer.sh Indg_InvDeltaSync \"-Xms512m -Xmx512m -XX:MaxPermSize=512m\" > /datadrive/opt/IBM/logs/Delta_Sync.log &
+
+nohup /datadrive/opt/IBM/bin/stopIntegrationServer.sh -name Indg_RTAMDeltaAgent &

@@ -1,5 +1,7 @@
 package com.indigo.inventory;
 
+import java.text.SimpleDateFormat;
+
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
@@ -33,7 +35,9 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
     for(YFCElement availabilityEle : yfsItr) {
       if(!XmlUtils.isVoid(availabilityEle.getAttribute(XMLLiterals.NODE))) {
         YTimestamp ts = availabilityEle.getYTimestampAttribute("OnhandAvailableDate");
-        String onHandAvlDate = ts.toString().substring(0,10)+"T"+ts.toString().substring(11,23)+"Z";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+        String onHandAvlDate = format.format(ts);
+        onHandAvlDate = onHandAvlDate.substring(0,10)+"T"+onHandAvlDate.substring(11,23)+"Z";
         availabilityEle.setAttribute("OnhandAvailableDate", onHandAvlDate);
         String inputString = availabilityEle.toString();
         YFCDocument invExp = YFCDocument.getDocumentFor(inputString);

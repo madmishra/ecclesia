@@ -28,7 +28,7 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
   private static final String MAX_MESSAGE_COUNT = "MAX_MESSAGE_COUNT";
   private static FileOutputStream fileOutputStream = null;
   private GZIPOutputStream gzipOS = null;
-  int inputMessageCount = 0;
+  private static int inputMessageCount = 0;
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
       try {
@@ -43,15 +43,15 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
             System.out.println(sInventoryUpload);
           }
           gzipOS.write(sInventoryUpload.getBytes());
-          gzipOS.close();
-        }
-        int maxMessageCount = Integer.parseInt(getProperty(MAX_MESSAGE_COUNT));
-        if(inputMessageCount == maxMessageCount) {
-          fileOutputStream.flush();
-          fileOutputStream.close();
-          fileOutputStream=null;
-          setFileOutputStream();
-          inputMessageCount = 0;
+          int maxMessageCount = Integer.parseInt(getProperty(MAX_MESSAGE_COUNT));
+            if(inputMessageCount == maxMessageCount) {
+                gzipOS.close();
+                fileOutputStream.flush();
+                fileOutputStream.close();
+                fileOutputStream=null;
+                setFileOutputStream();
+                inputMessageCount = 0;
+          }
         }
         inputMessageCount++;
       } catch (Exception exp) {

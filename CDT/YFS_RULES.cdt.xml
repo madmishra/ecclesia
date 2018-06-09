@@ -531,7 +531,8 @@
     MeantForSupplier=" " Modifyprogid=".YCPBusinessRulesAPI"
     Modifyts="2018-04-12T11:02:02-04:00" Modifyuserid="admin"
     OrganizationCode="Indigo_CA" RuleSetFieldDescription=" "
-    RuleSetFieldName="DISTR_RULE_FOR_NODE_MONITOR" RuleSetValue=" " RulesKey="201804121102024648"/>
+    RuleSetFieldName="DISTR_RULE_FOR_NODE_MONITOR"
+    RuleSetValue="RTAM_DIST_GROUP" RulesKey="201804121102024648"/>
 <Rules Createprogid=".YCPBusinessRulesAPI"
     Createts="2018-04-12T11:02:02-04:00" Createuserid="admin"
     DocumentType=" " Lockid="0" MeantForInternal=" "

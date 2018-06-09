@@ -50,6 +50,8 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
           fileOutputStream.flush();
           gzipOS.close();
           fileOutputStream.close();
+          gzipOS=null;
+          fileOutputStream=null;
           setFileOutputStream();
           inputMessageCount = 0;
         }
@@ -72,6 +74,9 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
     if(null == fileOutputStream) {
       fileOutputStream = new FileOutputStream(new File(getProperty(RTAM_FULL_UPLOAD_FILE_LOCATION)
           +""+format.format(new Date())+"_RTAM.xml.gz"),true);
+      
+    }
+    if(null == gzipOS) {
       gzipOS = new GZIPOutputStream(fileOutputStream,true);
     }
   }

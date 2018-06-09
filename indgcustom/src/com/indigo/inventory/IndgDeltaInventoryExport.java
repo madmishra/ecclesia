@@ -35,13 +35,11 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
     for(YFCElement availabilityEle : yfsItr) {
       if(!XmlUtils.isVoid(availabilityEle.getAttribute(XMLLiterals.NODE))) {
         YTimestamp ts = availabilityEle.getYTimestampAttribute("OnhandAvailableDate");
-		availabilityEle.removeAttribute("OnhandAvailableDate");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
         String onHandAvlDate = format.format(ts);
         onHandAvlDate = onHandAvlDate.substring(0,10)+"T"+onHandAvlDate.substring(11,23)+"Z";
-        availabilityEle.setAttribute("OnhandAvailableDate", onHandAvlDate,true);
+        availabilityEle.setAttribute("OnhandAvailableDate", onHandAvlDate);
         String inputString = availabilityEle.toString();
-		System.out.println(inputString);
         YFCDocument invExp = YFCDocument.getDocumentFor(inputString);
         invokeYantraService(getProperty(INDG_DELTA_EXPORT_Q), invExp);
       }

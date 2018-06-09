@@ -2983,7 +2983,7 @@
     Modifyts="2018-06-04T11:01:24-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060411012418849"
     PipelineDropStsCondKey="2018060411012418851" ProcessTypeKey="ORDER_DELIVERY"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="1100" Lockid="0"
@@ -2991,7 +2991,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521368"
     PipelineDropStsCondKey="2018060905530521370" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="1300" Lockid="0"
@@ -2999,7 +2999,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521382"
     PipelineDropStsCondKey="2018060905530521384" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="1500" Lockid="0"
@@ -3007,7 +3007,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521386"
     PipelineDropStsCondKey="2018060905530521388" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="1300" Lockid="0"
@@ -3015,7 +3015,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521404"
     PipelineDropStsCondKey="2018060905530521406" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="3200" Lockid="0"
@@ -3023,7 +3023,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521408"
     PipelineDropStsCondKey="2018060905530521410" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="3700" Lockid="0"
@@ -3031,7 +3031,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521412"
     PipelineDropStsCondKey="2018060905530521414" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="3700.01" Lockid="0"
@@ -3039,7 +3039,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521416"
     PipelineDropStsCondKey="2018060905530521418" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="3700.02" Lockid="0"
@@ -3047,7 +3047,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521420"
     PipelineDropStsCondKey="2018060905530521422" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="9000" Lockid="0"
@@ -3055,7 +3055,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521436"
     PipelineDropStsCondKey="2018060905530521438" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="3350.200" Lockid="0"
@@ -3063,7 +3063,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521442"
     PipelineDropStsCondKey="2018060905530521444" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="3350.400" Lockid="0"
@@ -3071,7 +3071,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521446"
     PipelineDropStsCondKey="2018060905530521448" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="3350.300" Lockid="0"
@@ -3079,7 +3079,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521450"
     PipelineDropStsCondKey="2018060905530521452" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="3350.400" Lockid="0"
@@ -3087,7 +3087,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521454"
     PipelineDropStsCondKey="2018060905530521456" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="3350.100" Lockid="0"
@@ -3095,7 +3095,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521458"
     PipelineDropStsCondKey="2018060905530521460" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="1100" Lockid="0"
@@ -3103,7 +3103,7 @@
     Modifyts="2018-06-09T05:53:05-04:00" Modifyuserid="admin"
     PipelineDefinitionKey="2018060905530521462"
     PipelineDropStsCondKey="2018060905530521464" ProcessTypeKey="ORDER_FULFILLMENT"/>
-<PipelineDropStatusCondition ConditionKey="" ConditionPriority="0.00"
+<PipelineDropStatusCondition ConditionKey=" " ConditionPriority="0.00"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-09T05:53:05-04:00" Createuserid="admin"
     ExtendedDropStatus="3350" Lockid="0"

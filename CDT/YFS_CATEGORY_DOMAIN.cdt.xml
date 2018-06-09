@@ -9,7 +9,7 @@
     Lockid="0" Modifyprogid=".YCPOrgDetailsAPI"
     Modifyts="2018-04-12T11:05:05-04:00" Modifyuserid="admin"
     OrganizationCode="Indigo_CA" ShortDescription="Master Catalog"/>
-<CategoryDomain AttributeName="" CategoryDomain="IndigoInStoreCategory"
+<CategoryDomain AttributeName=" " CategoryDomain="IndigoInStoreCategory"
     CategoryDomainKey="2018060907361221643"
     Createprogid="Business_Center" Createts="2018-06-09T07:36:12-04:00"
     Createuserid="admin" Description="Indigo In Store Category"

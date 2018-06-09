@@ -35,7 +35,7 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
     for(YFCElement availabilityEle : yfsItr) {
       if(!XmlUtils.isVoid(availabilityEle.getAttribute(XMLLiterals.NODE))) {
         YTimestamp ts = availabilityEle.getYTimestampAttribute("OnhandAvailableDate");
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH24:mm:ss.SSS");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         String onHandAvlDate = format.format(ts);
         onHandAvlDate = onHandAvlDate.substring(0,10)+"T"+onHandAvlDate.substring(11,23)+"Z";
         availabilityEle.setAttribute("OnhandAvailableDate", onHandAvlDate);

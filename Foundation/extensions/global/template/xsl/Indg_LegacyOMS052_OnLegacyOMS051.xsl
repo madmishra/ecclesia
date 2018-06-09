@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-    <xsl:template match="OrderMessage">
+    <xsl:template match="Order">
 		<OrderMessage>
 			<xsl:attribute name="MessageTypeId">LEGACYOMS052</xsl:attribute>
             <xsl:attribute name="Modifyts">
-                <xsl:value-of select="@Modifyts" />
+                <xsl:value-of select="OrderLines/OrderLine/@Modifyts" />
             </xsl:attribute>
 			<xsl:attribute name="SterlingToLegacyOMSMessageSequenceNumber">
-                <xsl:value-of select="@SterlingToLegacyOMSMessageSequenceNumber" />
             </xsl:attribute>
 			<xsl:attribute name="OrderNo">
                 <xsl:value-of select="@OrderNo" />
@@ -15,19 +14,19 @@
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="LegacyOMSParentOrderNo">
-						<xsl:value-of select="MessageBody/Order/@LegacyOMSParentOrderNo" />
+						<xsl:value-of select="@OrderNo" />
 					</xsl:attribute>
 					<xsl:attribute name="EnterpriseCode">
-						<xsl:value-of select="MessageBody/Order/@EnterpriseCode" />
+						<xsl:value-of select="@EnterpriseCode" />
 					</xsl:attribute>
 					<xsl:attribute name="DocumentType">
-						<xsl:value-of select="MessageBody/Order/@DocumentType" />
+						<xsl:value-of select="@DocumentType" />
 					</xsl:attribute>
 					<xsl:attribute name="OrderType">
-						<xsl:value-of select="MessageBody/Order/@OrderType" />
+						<xsl:value-of select="@OrderType" />
 					</xsl:attribute>
 					<OrderLines>
-						<xsl:for-each select="MessageBody/Order/OrderLines/OrderLine">
+						<xsl:for-each select="OrderLines/OrderLine">
 							<OrderLine>
 								<xsl:attribute name="IsProcessed">
 									<xsl:value-of select="@IsProcessed" />
@@ -36,7 +35,7 @@
 									<xsl:value-of select="@PrimeLineNo" />
 								</xsl:attribute>
 								<xsl:attribute name="LegacyOMSCancellationRequestId">
-									<xsl:value-of select="../../@LegacyOMSCancellationRequestId"/>
+									<xsl:value-of select="@ConditionVariable1"/>
 								</xsl:attribute>
 								<xsl:attribute name="LegacyOMSOrderNo">
 									<xsl:value-of select="@LegacyOMSOrderNo" />

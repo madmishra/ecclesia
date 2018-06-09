@@ -34,12 +34,7 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
     YFCIterable<YFCElement> yfsItr = inEle.getChildren(XMLLiterals.AVAILABILITY_CHANGE);
     for(YFCElement availabilityEle : yfsItr) {
       if(!XmlUtils.isVoid(availabilityEle.getAttribute(XMLLiterals.NODE))) {
-        YTimestamp ts = availabilityEle.getYTimestampAttribute("OnhandAvailableDate");
-        availabilityEle.removeAttribute("OnhandAvailableDate");
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-        String onHandAvlDate = format.format(ts);
-        onHandAvlDate = onHandAvlDate.substring(0,10)+"T"+onHandAvlDate.substring(11,23)+"Z";
-        availabilityEle.setAttribute("OnhandAvailableDate", dateFormatChangeForInv(ts));
+        
         String inputString = availabilityEle.toString();
         YFCDocument invExp = YFCDocument.getDocumentFor(inputString);
         invokeYantraService(getProperty(INDG_DELTA_EXPORT_Q), invExp);
@@ -49,14 +44,19 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
   } 
   
   /**
-   * 
-   * @param ts
+   * THis is an static method to get UTC time and convert to
+   * required date format
+   * @param availabilityEle
    * @return
    */
-  public static String dateFormatChangeForInv(YTimestamp ts) {
+  public static YFCElement  dateFormatChangeForInv(YFCElement availabilityEle) {
+    YTimestamp ts = availabilityEle.getYTimestampAttribute(XMLLiterals.ONHAND_AVAILABLE_DATE);
+    availabilityEle.removeAttribute(XMLLiterals.ONHAND_AVAILABLE_DATE);
     SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
     String onHandAvlDate = format.format(ts);
-    return onHandAvlDate.substring(0,10)+"T"+onHandAvlDate.substring(11,23)+"Z";
+    onHandAvlDate = onHandAvlDate.substring(0,10)+"T"+onHandAvlDate.substring(11,23)+"Z";
+    availabilityEle.setAttribute(XMLLiterals.ONHAND_AVAILABLE_DATE, onHandAvlDate);
+    return availabilityEle;
   }
 
 }

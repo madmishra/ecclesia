@@ -252,21 +252,6 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, CANCELLATION_TYPE);
 			orderLineEle.setAttribute(XMLLiterals.ORDERED_QTY, orderedQty);
 		}
-		 YFCDocument changeOrderOutput = invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput,
-		    		getChangeOrderTemplateDoc());    
-		 String modifyTS = changeOrderOutput.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS);
-		 docLegacy051Input.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTS);   
-	}
-	
-	/**
-	 * This method forms the template for changeOrde API
-	 * 
-	 * @return
-	 */
-	
-	public YFCDocument getChangeOrderTemplateDoc() {
-		 YFCDocument getChangeOrderTemp = YFCDocument.createDocument(XMLLiterals.ORDER);
-		 getChangeOrderTemp.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
-		 return getChangeOrderTemp;
+		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    
 	}
 }

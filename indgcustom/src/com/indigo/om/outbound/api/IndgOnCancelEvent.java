@@ -48,17 +48,13 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
 		orderNo = inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO);
-		orderType = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
-				getAttribute(XMLLiterals.ORDER_TYPE);
-		enterpriseCode = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
-				getAttribute(XMLLiterals.ENTERPRISE_CODE);
-	    documentType = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
-	    		getAttribute(XMLLiterals.DOCUMENT_TYPE);
+		orderType = inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_TYPE);
+		enterpriseCode = inXml.getDocumentElement().getAttribute(XMLLiterals.ENTERPRISE_CODE);
+	    documentType = inXml.getDocumentElement().getAttribute(XMLLiterals.DOCUMENT_TYPE);
+	    
 		String inputDocString = inXml.toString();
 	    docLegacy051Input = YFCDocument.getDocumentFor(inputDocString);
 	    getOrderLinesGroupByReasonCode();
-	    
-	    YFCDocument.getDocumentFor(inputDocString);
 		docSAP051GetAttributes(inXml);
 		
 		return inXml;
@@ -73,8 +69,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void getOrderLinesGroupByReasonCode(){
-	    YFCElement orderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY)
-	    		.getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
+	    YFCElement orderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 	    YFCIterable<YFCElement> yfsItrator = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
 	    for(YFCElement orderLine: yfsItrator) {
 	      String shipNodeValue = orderLine.getAttribute(XMLLiterals.SHIPNODE);
@@ -138,15 +133,20 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void docAddLegacyOMSOdrNo(YFCDocument getOrderLineListDoc) {
-		YFCElement orderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
+		YFCElement orderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 	    YFCIterable<YFCElement> yfsItrator = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
 	    for(YFCElement orderLine : yfsItrator) {
 	    	String primeLineNo = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
 	    	YFCElement orderLineEle = XPathUtil.getXPathElement(getOrderLineListDoc, "/OrderLineList/OrderLine[@PrimeLineNo = \""+
 	    	primeLineNo+"\"]");
 	    	String legacyOMSOrderNo = orderLineEle.getAttribute(XMLLiterals.CUSTOMER_PO_NO);
+	    	String cancellationReqId = orderLineEle.getAttribute(XMLLiterals.CONDITION_VARIABLE_1);
+	    	String cancellationType = orderLineEle.getAttribute(XMLLiterals.CONDITION_VARIABLE_2);
+	    	String modifyTs = orderLineEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
 	    	orderLine.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOMSOrderNo);
+	    	orderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
+	    	orderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, cancellationType);
+	    	orderLine.setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 	    }
 	}
 	
@@ -218,7 +218,6 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, sapOrderNo);
 	    groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 	    groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.STERLING_ORDER_NO, orderNo);
-		
 	    docCheckForSAPOrderNo(groupByShipNodeDoc);
 	}
 	
@@ -236,8 +235,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 			YFCElement orderLinesEle = groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 			YFCIterable<YFCElement> inputOrderLineEle = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
 			for(YFCElement orderLineEle : inputOrderLineEle) {
-				YFCElement orderLines = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
+				YFCElement orderLines = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 				orderLines.importNode(orderLineEle);
 			}
 		}
@@ -252,16 +250,14 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void docSetIsProcessedAttr(YFCDocument inXml) {
-		YFCElement orderLinesEle = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
-		YFCElement docOrderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
+		YFCElement orderLinesEle = inXml.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
+		YFCElement docOrderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 		YFCIterable<YFCElement> yfsItrator = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLineEle : yfsItrator) {
 			String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
 			orderLineEle.setAttribute(XMLLiterals.IS_PROCESSED, NO);
-			YFCElement docOrderLineEle = XPathUtil.getXPathElement(docLegacy051Input, "/OrderMessage/MessageBody/Order/"
-					+ "OrderLines/OrderLine[@PrimeLineNo=\""+primeLineNo+"\"]");
+			YFCElement docOrderLineEle = XPathUtil.getXPathElement(docLegacy051Input, "/Order/OrderLines/OrderLine"
+					+ "[@PrimeLineNo=\""+primeLineNo+"\"]");
 			if(!XmlUtils.isVoid(docOrderLineEle)) {
 				docOrderLineEle.setAttribute(XMLLiterals.IS_PROCESSED, YES);
 			}
@@ -325,6 +321,8 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	    orderLineEle.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
+	    orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, EMPTY_STRING);
+	    orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, EMPTY_STRING);
 	    YFCElement itemEle = orderLineEle.createChild(XMLLiterals.ITEM);
 	    itemEle.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
 	    YFCElement orderEle = orderLineEle.createChild(XMLLiterals.ORDER);

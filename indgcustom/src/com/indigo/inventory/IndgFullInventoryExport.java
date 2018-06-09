@@ -27,12 +27,14 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
   private static final String RTAM_FULL_UPLOAD_FILE_LOCATION = "RTAM_FULL_UPLOAD_FILE_LOCATION";
   private static final String MAX_MESSAGE_COUNT = "MAX_MESSAGE_COUNT";
   private static FileOutputStream fileOutputStream = null;
-  private GZIPOutputStream gzipOS = null;
+  
   private static int inputMessageCount = 0;
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
+    
       try {
         setFileOutputStream();
+        GZIPOutputStream gzipOS = new GZIPOutputStream(fileOutputStream,true);
         YFCElement availabilityChanges = inXml.getDocumentElement();
         YFCIterable<YFCElement> yfcItrator = availabilityChanges.getChildren(XMLLiterals.AVAILABILITY_CHANGE);
         for(YFCElement availabilityChange:yfcItrator) {
@@ -73,9 +75,6 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
     if(null == fileOutputStream) {
       fileOutputStream = new FileOutputStream(new File(getProperty(RTAM_FULL_UPLOAD_FILE_LOCATION)
           +""+format.format(new Date())+"_RTAM.xml.gz"),true);
-    }
-    if(null == gzipOS) {
-      gzipOS = new GZIPOutputStream(fileOutputStream,true);
     }
   }
 }

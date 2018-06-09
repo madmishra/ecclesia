@@ -46,9 +46,9 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
           int maxMessageCount = Integer.parseInt(getProperty(MAX_MESSAGE_COUNT));
             if(inputMessageCount == maxMessageCount) {
                 gzipOS.close();
-                fileOutputStream.flush();
                 fileOutputStream.close();
                 fileOutputStream=null;
+                gzipOS= null;
                 setFileOutputStream();
                 inputMessageCount = 0;
           }

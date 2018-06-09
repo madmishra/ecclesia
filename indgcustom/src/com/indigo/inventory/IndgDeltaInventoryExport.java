@@ -35,10 +35,11 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
     for(YFCElement availabilityEle : yfsItr) {
       if(!XmlUtils.isVoid(availabilityEle.getAttribute(XMLLiterals.NODE))) {
         YTimestamp ts = availabilityEle.getYTimestampAttribute("OnhandAvailableDate");
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        availabilityEle.removeAttribute("OnhandAvailableDate");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         String onHandAvlDate = format.format(ts);
         onHandAvlDate = onHandAvlDate.substring(0,10)+"T"+onHandAvlDate.substring(11,23)+"Z";
-        availabilityEle.setAttribute("OnhandAvailableDate", onHandAvlDate);
+        availabilityEle.setAttribute("OnhandAvailableDate", dateFormatChangeForInv(ts));
         String inputString = availabilityEle.toString();
         YFCDocument invExp = YFCDocument.getDocumentFor(inputString);
         invokeYantraService(getProperty(INDG_DELTA_EXPORT_Q), invExp);
@@ -46,5 +47,16 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
     }
     return inXml;
   } 
+  
+  /**
+   * 
+   * @param ts
+   * @return
+   */
+  public static String dateFormatChangeForInv(YTimestamp ts) {
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    String onHandAvlDate = format.format(ts);
+    return onHandAvlDate.substring(0,10)+"T"+onHandAvlDate.substring(11,23)+"Z";
+  }
 
 }

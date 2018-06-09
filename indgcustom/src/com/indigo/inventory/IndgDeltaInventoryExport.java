@@ -1,14 +1,9 @@
 package com.indigo.inventory;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
-import com.yantra.yfc.date.YDate;
 import com.yantra.yfc.date.YTimestamp;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
@@ -37,13 +32,11 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
     YFCIterable<YFCElement> yfsItr = inEle.getChildren(XMLLiterals.AVAILABILITY_CHANGE);
     for(YFCElement availabilityEle : yfsItr) {
       if(!XmlUtils.isVoid(availabilityEle.getAttribute(XMLLiterals.NODE))) {
+        YTimestamp ts = availabilityEle.getYTimestampAttribute("OnhandAvailableDate");
+        String onHandAvlDate = ts.toString().substring(0,10)+"T"+ts.toString().substring(11,23)+"Z";
+        availabilityEle.setAttribute("OnhandAvailableDate", onHandAvlDate);
         String inputString = availabilityEle.toString();
         YFCDocument invExp = YFCDocument.getDocumentFor(inputString);
-        YTimestamp ts = availabilityEle.getYTimestampAttribute("OnhandAvailableDate");
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
-		System.out.println(format.format(ts)+"Date"+ts);
-        String onHnadAvaDate = format.format(ts);
-        availabilityEle.setAttribute("OnhandAvailableDate", onHnadAvaDate);
         invokeYantraService(getProperty(INDG_DELTA_EXPORT_Q), invExp);
       }
     }

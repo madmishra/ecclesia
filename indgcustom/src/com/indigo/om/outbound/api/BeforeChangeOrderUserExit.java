@@ -29,8 +29,8 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		for(YFCElement orderLine: yfsItrator) {
 			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&& (orderLine.getAttribute(XMLLiterals.ACTION).equals(CANCEL)))
 			{
-			if(XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.CONDITION_VARAIBLE_2)))
-				orderLine.setAttribute(XMLLiterals.CONDITION_VARAIBLE_2, MANUAL);
+			if(XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.CONDITION_VARIABLE_2)))
+				orderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, MANUAL);
 			}
 		}
 		invokeGetShipmentList(inXml);

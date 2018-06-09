@@ -1,9 +1,15 @@
 package com.indigo.inventory;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
+import com.yantra.yfc.date.YDate;
+import com.yantra.yfc.date.YTimestamp;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
@@ -33,6 +39,14 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
       if(!XmlUtils.isVoid(availabilityEle.getAttribute(XMLLiterals.NODE))) {
         String inputString = availabilityEle.toString();
         YFCDocument invExp = YFCDocument.getDocumentFor(inputString);
+        YTimestamp ts = availabilityEle.getYTimestampAttribute("OnhandAvailableQuantity");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+        try {
+          YDate onHnadAvaDate = (YDate) format.parse(format.format(ts));
+          availabilityEle.setAttribute("OnhandAvailableQuantity", onHnadAvaDate);
+        } catch (ParseException e) {
+          e.printStackTrace();
+        }
         invokeYantraService(getProperty(INDG_DELTA_EXPORT_Q), invExp);
       }
     }

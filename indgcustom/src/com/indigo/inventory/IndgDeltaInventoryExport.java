@@ -41,6 +41,7 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
         YFCDocument invExp = YFCDocument.getDocumentFor(inputString);
         YTimestamp ts = availabilityEle.getYTimestampAttribute("OnhandAvailableDate");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+		System.out.ptinyln(format.format(ts)+"Date"+ts);
         String onHnadAvaDate = format.format(ts);
         availabilityEle.setAttribute("OnhandAvailableDate", onHnadAvaDate);
         invokeYantraService(getProperty(INDG_DELTA_EXPORT_Q), invExp);

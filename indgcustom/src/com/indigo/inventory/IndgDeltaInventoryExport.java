@@ -39,10 +39,10 @@ public class IndgDeltaInventoryExport extends AbstractCustomApi{
       if(!XmlUtils.isVoid(availabilityEle.getAttribute(XMLLiterals.NODE))) {
         String inputString = availabilityEle.toString();
         YFCDocument invExp = YFCDocument.getDocumentFor(inputString);
-        YTimestamp ts = availabilityEle.getYTimestampAttribute("OnhandAvailableQuantity");
+        YTimestamp ts = availabilityEle.getYTimestampAttribute("OnhandAvailableDate");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
         String onHnadAvaDate = format.format(ts);
-        availabilityEle.setAttribute("OnhandAvailableQuantity", onHnadAvaDate);
+        availabilityEle.setAttribute("OnhandAvailableDate", onHnadAvaDate);
         invokeYantraService(getProperty(INDG_DELTA_EXPORT_Q), invExp);
       }
     }

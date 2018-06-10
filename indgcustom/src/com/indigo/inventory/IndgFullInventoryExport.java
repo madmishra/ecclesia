@@ -31,6 +31,8 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
   private static int inputMessageCount = 0;
   private static final String RTAM_COMPLETED = "RTAMCompleted";
   private static final String SCRIPT_PATH = "SCRIPT_PATH";
+  private static final String UTF= "UTF-8";
+  private static final String VERSION = "1.0";
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
     YFCElement availabilityChanges = inXml.getDocumentElement();
@@ -50,6 +52,7 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
           gzipOS.write(sInventoryUpload.getBytes());
           int maxMessageCount = Integer.parseInt(getProperty(MAX_MESSAGE_COUNT));
             if(inputMessageCount == maxMessageCount) {
+                gzipOS.write("</AvailabilityChanges>".getBytes());
                 gzipOS.close();
                 fileOutputStream.close();
                 fileOutputStream=null;
@@ -81,7 +84,8 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
     }
     if(null == gzipOS) {
       gzipOS = new GZIPOutputStream(fileOutputStream,true);
-      gzipOS.write("<AvailabilityChange>".getBytes());
+      String rootElement = "<?xml version=\""+VERSION+"\" encoding=\""+UTF+"\"?>\n<AvailabilityChanges>";
+      gzipOS.write(rootElement.getBytes());
     }
     
   }
@@ -95,7 +99,7 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
     String myShellScript = getProperty(SCRIPT_PATH);
     try{
     if(null != fileOutputStream) {
-      gzipOS.write("</AvailabilityChange>".getBytes());
+      gzipOS.write("</AvailabilityChanges>".getBytes());
       gzipOS.close();
       fileOutputStream.flush();
       fileOutputStream.close();

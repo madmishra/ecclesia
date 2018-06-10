@@ -16,7 +16,7 @@ import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
 /**
- * This method writes to the file for export of
+ * This method writes inventory report to the file for export of
  * inventory Dump
  * 
  * @author BSG109
@@ -33,6 +33,7 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
   private static final String SCRIPT_PATH = "SCRIPT_PATH";
   private static final String UTF= "UTF-8";
   private static final String VERSION = "1.0";
+  private static final String EMPTY_SPACE = "";
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
     YFCElement availabilityChanges = inXml.getDocumentElement();
@@ -43,20 +44,9 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
         setFileOutputStream();
         YFCIterable<YFCElement> yfcItrator = availabilityChanges.getChildren(XMLLiterals.AVAILABILITY_CHANGE);
         for(YFCElement availabilityChange:yfcItrator) {
-          availabilityChange = IndgDeltaInventoryExport. dateFormatChangeForInv(availabilityChange);
-          String sInventoryUpload = availabilityChange.toString();
-          if (sInventoryUpload.startsWith("<?xml ")) {
-            sInventoryUpload = sInventoryUpload.substring(sInventoryUpload.indexOf("?>") + 2);
-            System.out.println(sInventoryUpload);
-          }
-          gzipOS.write(sInventoryUpload.getBytes());
-          int maxMessageCount = Integer.parseInt(getProperty(MAX_MESSAGE_COUNT));
-            if(inputMessageCount == maxMessageCount) {
-                manageOutputStream();
-                setFileOutputStream();
-          }
+          writeInventoryReportToFile(availabilityChange);
+          inputMessageCount++;
         }
-        inputMessageCount++;
       } catch (Exception exp) {
         throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_RTAM_UPLOAD, exp);
       }
@@ -117,5 +107,47 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
     fileOutputStream = null;
     gzipOS = null;
     inputMessageCount = 0;
+  }
+  
+  /**
+   * 
+   * 
+   * @param itemId
+   * @return
+   */
+  private boolean validateItemStatus(String itemId){
+    YFCDocument inXml = YFCDocument.createDocument(XMLLiterals.ITEM);
+    inXml.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemId);
+    YFCDocument tempXml = YFCDocument.createDocument(XMLLiterals.ITEM_LIST);
+    tempXml.getDocumentElement().createChild(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, EMPTY_SPACE);
+    YFCDocument outXml = invokeYantraApi(XMLLiterals.GET_ITEM_LIST_API, inXml, tempXml);
+    if(outXml.getDocumentElement().hasChildNodes()) {
+      return true;
+    }
+    return false;
+  }
+  
+  /**
+   * 
+   * This method writes to File if Item is Active
+   * 
+   * @param availabilityChange
+   * @throws IOException
+   */
+  private void writeInventoryReportToFile(YFCElement availabilityChange) throws IOException {
+    if(validateItemStatus(availabilityChange.getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID))) {
+      availabilityChange = IndgDeltaInventoryExport. dateFormatChangeForInv(availabilityChange);
+      String sInventoryUpload = availabilityChange.toString();
+      if (sInventoryUpload.startsWith("<?xml ")) {
+        sInventoryUpload = sInventoryUpload.substring(sInventoryUpload.indexOf("?>") + 2);
+        System.out.println(sInventoryUpload);
+      }
+      gzipOS.write(sInventoryUpload.getBytes());
+      int maxMessageCount = Integer.parseInt(getProperty(MAX_MESSAGE_COUNT));
+        if(inputMessageCount == maxMessageCount) {
+            manageOutputStream();
+            setFileOutputStream();
+      }
+    }
   }
 }

@@ -52,13 +52,8 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
           gzipOS.write(sInventoryUpload.getBytes());
           int maxMessageCount = Integer.parseInt(getProperty(MAX_MESSAGE_COUNT));
             if(inputMessageCount == maxMessageCount) {
-                gzipOS.write("</AvailabilityChanges>".getBytes());
-                gzipOS.close();
-                fileOutputStream.close();
-                fileOutputStream=null;
-                gzipOS= null;
+                manageOutputStream();
                 setFileOutputStream();
-                inputMessageCount = 0;
           }
         }
         inputMessageCount++;
@@ -98,20 +93,29 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
   private void manageFileExportManager() {
     String myShellScript = getProperty(SCRIPT_PATH);
     try{
-    if(null != fileOutputStream) {
-      gzipOS.write("</AvailabilityChanges>".getBytes());
-      gzipOS.close();
-      fileOutputStream.flush();
-      fileOutputStream.close();
-      }
-    fileOutputStream = null;
-    gzipOS = null;
-    Runtime.getRuntime().exec(myShellScript);
-    System.out.println("RTAM Complete");
+      manageOutputStream();
+      Runtime.getRuntime().exec(myShellScript);
+      System.out.println("RTAM Complete");
     } 
     catch(Exception exp) {
       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_RTAM_UPLOAD, exp);
     }
   }
   
+  /**
+   * This method manages Output Stream
+   * @throws IOException 
+   * 
+   */
+  private void manageOutputStream() throws IOException {
+    if(null != fileOutputStream) {
+      gzipOS.write("</AvailabilityChanges>".getBytes());
+      gzipOS.close();
+      fileOutputStream.flush();
+      fileOutputStream.close();
+    }
+    fileOutputStream = null;
+    gzipOS = null;
+    inputMessageCount = 0;
+  }
 }

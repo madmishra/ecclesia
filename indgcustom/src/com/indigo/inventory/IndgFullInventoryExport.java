@@ -81,7 +81,9 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
     }
     if(null == gzipOS) {
       gzipOS = new GZIPOutputStream(fileOutputStream,true);
+      gzipOS.write("<AvailabilityChange>".getBytes());
     }
+    
   }
   
   /**
@@ -93,6 +95,7 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
     String myShellScript = getProperty(SCRIPT_PATH);
     try{
     if(null != fileOutputStream) {
+      gzipOS.write("</AvailabilityChange>".getBytes());
       gzipOS.close();
       fileOutputStream.flush();
       fileOutputStream.close();

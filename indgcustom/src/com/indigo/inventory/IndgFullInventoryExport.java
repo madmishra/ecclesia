@@ -29,11 +29,16 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
   private static FileOutputStream fileOutputStream = null;
   private static GZIPOutputStream gzipOS = null;
   private static int inputMessageCount = 0;
+  private static final String RTAM_COMPLETED = "RTAMCompleted";
+  private static final String SCRIPT_PATH = "SCRIPT_PATH";
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
+    YFCElement availabilityChanges = inXml.getDocumentElement();
+    if(RTAM_COMPLETED.equals(availabilityChanges.getNodeName())) {
+      manageFileExportManager();
+    } else {
       try {
         setFileOutputStream();
-        YFCElement availabilityChanges = inXml.getDocumentElement();
         YFCIterable<YFCElement> yfcItrator = availabilityChanges.getChildren(XMLLiterals.AVAILABILITY_CHANGE);
         for(YFCElement availabilityChange:yfcItrator) {
           availabilityChange = IndgDeltaInventoryExport. dateFormatChangeForInv(availabilityChange);
@@ -57,6 +62,7 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
       } catch (Exception exp) {
         throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_RTAM_UPLOAD, exp);
       }
+      }
     return inXml;
   }
   
@@ -77,4 +83,28 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
       gzipOS = new GZIPOutputStream(fileOutputStream,true);
     }
   }
+  
+  /**
+   * 
+   * This method manages the End of RTAM Full Sync
+   * 
+   */
+  private void manageFileExportManager() {
+    String myShellScript = getProperty(SCRIPT_PATH);
+    try{
+    if(null != fileOutputStream) {
+      gzipOS.close();
+      fileOutputStream.flush();
+      fileOutputStream.close();
+      }
+    fileOutputStream = null;
+    gzipOS = null;
+    Runtime.getRuntime().exec(myShellScript);
+    System.out.println("RTAM Complete");
+    } 
+    catch(Exception exp) {
+      throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_RTAM_UPLOAD, exp);
+    }
+  }
+  
 }

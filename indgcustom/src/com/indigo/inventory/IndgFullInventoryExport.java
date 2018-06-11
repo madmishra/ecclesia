@@ -136,7 +136,6 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
    * @throws IOException
    */
   private void writeInventoryReportToFile(YFCElement availabilityChange) throws IOException {
-    if(validateItemStatus(availabilityChange.getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID))) {
       availabilityChange = IndgDeltaInventoryExport. dateFormatChangeForInv(availabilityChange);
       String sInventoryUpload = availabilityChange.toString();
       if (sInventoryUpload.startsWith("<?xml ")) {
@@ -149,6 +148,5 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
             manageOutputStream();
             setFileOutputStream();
       }
-    }
   }
 }

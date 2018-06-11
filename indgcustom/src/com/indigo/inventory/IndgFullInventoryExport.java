@@ -36,6 +36,7 @@ public class IndgFullInventoryExport extends AbstractCustomApi {
   private static final String EMPTY_SPACE = "";
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
+	System.out.println(inXml);
     YFCElement availabilityChanges = inXml.getDocumentElement();
     if(RTAM_COMPLETED.equals(availabilityChanges.getNodeName())) {
       manageFileExportManager();

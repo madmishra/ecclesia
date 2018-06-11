@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YFS_PERSON_INFOList TableName="YFS_PERSON_INFO">
-<PersonInfo AddressLine1=" " AddressLine2=" " AddressLine3=" "
-    AddressLine4=" " AddressLine5=" " AddressLine6=" "
-    AlternateEmailID=" " Beeper=" " City=" " Company=" " Country="CA"
+<PersonInfo AddressLine1="" AddressLine2="" AddressLine3=""
+    AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID=""
+    Beeper="" City="" Company="" Country="CA"
     Createprogid=".YCPOrgDetailsAPI"
     Createts="2018-04-12T10:57:38-04:00" Createuserid="admin"
-    DayFaxNo=" " DayPhone=" " Department=" " EMailID=" " ErrorTxt=" "
-    EveningFaxNo=" " EveningPhone=" " FirstName="Indigo Books and Store"
-    HttpUrl=" " JobTitle=" " LastName=" " Lockid="0" MiddleName=" "
-    MobilePhone=" " Modifyprogid=".YCPOrgDetailsAPI"
+    DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt=""
+    EveningFaxNo="" EveningPhone="" FirstName="Indigo Books and Store"
+    HttpUrl="" JobTitle="" LastName="" Lockid="0" MiddleName=""
+    MobilePhone="" Modifyprogid=".YCPOrgDetailsAPI"
     Modifyts="2018-04-12T10:57:38-04:00" Modifyuserid="admin"
-    OtherPhone=" " PersonID=" " PersonInfoKey="201804121057384615"
-    PreferredShipAddress=" " State=" " Suffix=" " Title=" " UseCount="0"
-    VerificationStatus=" " ZipCode=" " isHistory="N"/>
+    OtherPhone="" PersonID="" PersonInfoKey="201804121057384615"
+    PreferredShipAddress="" State="" Suffix="" Title="" UseCount="0"
+    VerificationStatus="" ZipCode="" isHistory="N"/>
 </YFS_PERSON_INFOList>

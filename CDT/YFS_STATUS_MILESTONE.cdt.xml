@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YFS_STATUS_MILESTONEList TableName="YFS_STATUS_MILESTONE">
-<StatusMilestone Action=" " Createprogid="XMLMigrator"
+<StatusMilestone Action="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:17-04:00" Createuserid="SYSTEM"
     DateTypeId="YCD_COMPLETELY_SHIPPED_OR_CANCELLED" Lockid="0"
     MilestoneLevel="02" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:17-04:00" Modifyuserid="SYSTEM"
-    OwnerKey=" " ProcessTypeKey="ORDER_FULFILLMENT" QuantityType="02"
+    OwnerKey="" ProcessTypeKey="ORDER_FULFILLMENT" QuantityType="02"
     Status="3700" StatusMilestoneKey="201001738193"/>
-<StatusMilestone Action=" " Createprogid="XMLMigrator"
+<StatusMilestone Action="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:17-04:00" Createuserid="SYSTEM"
     DateTypeId="YCD_COMPLETELY_SHIPPED_OR_CANCELLED" Lockid="0"
     MilestoneLevel="02" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:17-04:00" Modifyuserid="SYSTEM"
-    OwnerKey=" " ProcessTypeKey="ORDER_FULFILLMENT" QuantityType="02"
+    OwnerKey="" ProcessTypeKey="ORDER_FULFILLMENT" QuantityType="02"
     Status="9000" StatusMilestoneKey="201612582724"/>
-<StatusMilestone Action=" " Createprogid="XMLMigrator"
+<StatusMilestone Action="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:17-04:00" Createuserid="SYSTEM"
     DateTypeId="YCD_UNREACHABLE" Lockid="0" MilestoneLevel="01"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:17-04:00"
-    Modifyuserid="SYSTEM" OwnerKey=" "
-    ProcessTypeKey="ORDER_FULFILLMENT" QuantityType="02"
-    Status="3700.7777" StatusMilestoneKey="201857522580"/>
+    Modifyuserid="SYSTEM" OwnerKey="" ProcessTypeKey="ORDER_FULFILLMENT"
+    QuantityType="02" Status="3700.7777" StatusMilestoneKey="201857522580"/>
 </YFS_STATUS_MILESTONEList>

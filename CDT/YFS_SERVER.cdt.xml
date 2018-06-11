@@ -364,6 +364,12 @@
     Modifyuserid="admin" MonitorStartTime="1"
     ServerKey="2018060616224220065" ServerName="Indg_RTAMFullAgent"
     ServerType="01" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-06-09T15:33:59-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-06-09T15:33:59-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="2018060915335921844" ServerName="Indg_InvFileExport"
+    ServerType="00" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
 <Server Createprogid="XMLMigrator" Createts="2018-03-28T12:30:08-04:00"
     Createuserid="SYSTEM" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:08-04:00" Modifyuserid="SYSTEM"

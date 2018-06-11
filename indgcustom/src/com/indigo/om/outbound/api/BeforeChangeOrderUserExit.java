@@ -76,12 +76,12 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 */
 	private void invokeGetShipmentList(YFCDocument inXml)
 	{
-		YFCDocument inputXmlForGetShipmentListdoc=inputXmlForGetShipmentList(inXml);
+		YFCDocument inputXmlForGetShipmentListdoc=invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(inXml));
 		YFCElement eleOrderLines=inXml.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 		YFCIterable<YFCElement> yfsItrator=eleOrderLines.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			String sPrimeLineNo=orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
-			isBackroomPickComplete(inputXmlForGetShipmentListdoc,sPrimeLineNo);
+			isBackroomPickComplete(inputXmlForGetShipmentListdoc,sPrimeLineNo,inXml);
 		}
 		
 	}
@@ -92,10 +92,10 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 * @param docGetShipmentList
 	 * @param inXml
 	 */
-	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sPrimeLineNo)
+	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sPrimeLineNo,YFCDocument inXml)
 	{
 		
-		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES);
+		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getChildElement(XMLLiterals.SHIPMENT_LINES);
 		YFCIterable<YFCElement> yfsItrator = eleShipment.getChildren(XMLLiterals.SHIPMENT_LINE);
 		for(YFCElement shipmentLine: yfsItrator) {
 			if(shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO).equals(sPrimeLineNo)) 
@@ -105,7 +105,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 				break;
 			}
 			else
-				changeShipment(docGetShipmentList);  
+				changeShipment(inXml);  
 			}
 		
 	}

@@ -1,6 +1,6 @@
 package com.indigo.om.outbound.api;
 
-import org.apache.commons.json.utils.XML;
+
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
@@ -13,7 +13,7 @@ import com.yantra.yfs.japi.YFSException;
 public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private static final String EMPTY_STRING = "";
 	private static final String YES="Y";
-	private static final String MANUAL="Manual";
+	private static final String MANUAL="MANUAL";
 	private static final String CANCEL="Cancel";
 	 /**
 	  * this method is the invoke point of the service.

@@ -81,7 +81,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		YFCIterable<YFCElement> yfsItrator=eleOrderLines.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			String sPrimeLineNo=orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
-			isBackroomPickComplete(inputXmlForGetShipmentListdoc,sPrimeLineNo,inXml);
+			isBackroomPickComplete(inputXmlForGetShipmentListdoc,sPrimeLineNo);
 		}
 		
 	}
@@ -92,7 +92,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 * @param docGetShipmentList
 	 * @param inXml
 	 */
-	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sPrimeLineNo,YFCDocument inXml)
+	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sPrimeLineNo)
 	{
 		
 		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT)
@@ -106,7 +106,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 				break;
 			}
 			else
-				changeShipment(inXml,shipmentLine);  
+				changeShipment(docGetShipmentList,shipmentLine);  
 			}
 		
 	}

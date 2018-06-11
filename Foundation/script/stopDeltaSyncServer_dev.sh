@@ -5,3 +5,5 @@ PROCESS_COUNT=$(ps -ef | grep FullSync | grep -v "grep" | wc -l)
                 nohup ./stopIntegrationServer.sh -name Indg_InvDeltaSync /data/oms95/Foundation/logs/Delta_Sync.log &
         exit	
         fi
+
+nohup /data/oms95/Foundation/bin/agentserverstop.sh -name Indg_RTAMDeltaAgent &

@@ -13,6 +13,7 @@
 			<xsl:attribute name="OrderNo">
 				<xsl:value-of select="@SterlingOrderNo"/>
 			</xsl:attribute>
+			<xsl:attribute name="ModificationReference1">SAP</xsl:attribute>
 			<xsl:choose>
 			<xsl:when test="@HeaderErrorCode !='' " >
 			<xsl:attribute name="ModificationReasonCode">

@@ -81,7 +81,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		YFCIterable<YFCElement> yfsItrator=eleOrderLines.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			String sPrimeLineNo=orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
-			isBackroomPickComplete(inputXmlForGetShipmentListdoc,sPrimeLineNo,inXml);
+			isBackroomPickComplete(inputXmlForGetShipmentListdoc,sPrimeLineNo);
 		}
 		
 	}
@@ -92,10 +92,11 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 * @param docGetShipmentList
 	 * @param inXml
 	 */
-	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sPrimeLineNo,YFCDocument inXml)
+	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sPrimeLineNo)
 	{
 		
-		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getChildElement(XMLLiterals.SHIPMENT_LINES);
+		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT)
+				.getChildElement(XMLLiterals.SHIPMENT_LINES);
 		YFCIterable<YFCElement> yfsItrator = eleShipment.getChildren(XMLLiterals.SHIPMENT_LINE);
 		for(YFCElement shipmentLine: yfsItrator) {
 			if(shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO).equals(sPrimeLineNo)) 
@@ -105,7 +106,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 				break;
 			}
 			else
-				changeShipment(inXml);  
+				changeShipment(docGetShipmentList,shipmentLine);  
 			}
 		
 	}
@@ -113,7 +114,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 * this method invokes changeShipment api
 	 * @param docGetShipmentList
 	 */
-	private void changeShipment(YFCDocument docGetShipmentList) {
+	private void changeShipment(YFCDocument docGetShipmentList, YFCElement shipmentLine) {
 		YFCDocument docShipment=YFCDocument.createDocument(XMLLiterals.SHIPMENT);
 		YFCElement eleShipment=docShipment.getDocumentElement();
 		YFCElement eleInputShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT);
@@ -122,20 +123,17 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		eleShipment.setAttribute(XMLLiterals.SHIPNODE, eleInputShipment.getAttribute(XMLLiterals.SHIPNODE));
 		eleShipment.setAttribute(XMLLiterals.SHIPMENT_NO,eleInputShipment.getAttribute(XMLLiterals.SHIPMENT_NO));
 		YFCElement eleShipmentLine=eleShipment.createChild(XMLLiterals.SHIPMENT_LINES).createChild(XMLLiterals.SHIPMENT_LINE);
-		eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, eleInputShipmentLine.getAttribute(XMLLiterals.ORDER_NO));
-		eleShipmentLine.setAttribute(XMLLiterals.ACTION, eleInputShipmentLine.getAttribute(XMLLiterals.ACTION));
-		eleShipmentLine.setAttribute(XMLLiterals.QUANTITY, eleInputShipmentLine.getAttribute(XMLLiterals.QUANTITY));
+		eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, shipmentLine.getAttribute(XMLLiterals.ORDER_NO));
+		eleShipmentLine.setAttribute(XMLLiterals.ACTION, CANCEL);
 		eleShipmentLine.setAttribute(XMLLiterals.SHIPMENT_LINE_NO, eleInputShipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_NO));
-		eleShipmentLine.setAttribute(XMLLiterals.SUB_LINE_NO, eleInputShipmentLine.getAttribute(XMLLiterals.SUB_LINE_NO));
 		invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docShipment);
 	}
 	private void throwException() {
 		YFCDocument errorDoc = YFCDocument.createDocument("Errors");
         YFCElement eleErrors = errorDoc.getDocumentElement();
-        YFCElement eleError = errorDoc.createElement("Error");
+        YFCElement eleError = eleErrors.createChild("Error");
         eleError.setAttribute("ErrorCode", "ERRORCODE_ORDER_CANCEL_EXCEP");
         eleError.setAttribute("ErrorDescription", "Order cannot be cancelled in this status");
-        eleErrors.appendChild(eleError); 
        throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_ORDER_CANCEL_EXCEP, errorDoc.toString()); 
 	}
 }

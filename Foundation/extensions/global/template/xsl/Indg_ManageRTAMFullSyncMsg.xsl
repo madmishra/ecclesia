@@ -12,7 +12,7 @@
 						<xsl:value-of select="@OnhandAvailableQuantity" />
 					</xsl:attribute>
 					<xsl:attribute name="OnhandAvailableDate">
-						<xsl:value-of select="@OnhandAvailableDate" />
+						<xsl:value-of select="@AlertRaisedOn" />
 					</xsl:attribute>
 					<xsl:attribute name="Node">
 						<xsl:value-of select="@Node" />

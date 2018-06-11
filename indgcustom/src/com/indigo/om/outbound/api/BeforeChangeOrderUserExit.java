@@ -1,12 +1,16 @@
 package com.indigo.om.outbound.api;
 
+
+
+import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
+import com.bridge.sterling.utils.ExceptionUtil;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
-import com.yantra.yfs.japi.YFSException;
+
 
 public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private static final String EMPTY_STRING = "";
@@ -25,11 +29,10 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		if(XmlUtils.isVoid(eleInXml.getAttribute(XMLLiterals.ACTION))) {
 		YFCIterable<YFCElement> yfsItrator = eleInXml.getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
-			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&&(orderLine.getAttribute(XMLLiterals.ACTION).
-					equals(CANCEL)) && (XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.CONDITION_VARIABLE_2))))
-			{
+			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&& (orderLine.getAttribute(XMLLiterals.ACTION).
+					equals(CANCEL)) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.CONDITION_VARIABLE_2)))
+		
 				orderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, MANUAL);
-			}
 		}
 		invokeGetShipmentList(inXml);
 		}
@@ -44,8 +47,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 */
 	private YFCDocument inputXmlForGetShipmentList(YFCDocument inXml) {
 	    YFCDocument getShipmentListDoc = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
-	    YFCElement shipmentLineEle = getShipmentListDoc.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES).
-	    		createChild(XMLLiterals.SHIPMENT_LINE);
+	    YFCElement shipmentLineEle = getShipmentListDoc.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES).createChild(XMLLiterals.SHIPMENT_LINE);
 	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO));
 	    return getShipmentListDoc;
 	  }
@@ -93,7 +95,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sPrimeLineNo)
 	{
 		
-		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getChildElement(XMLLiterals.SHIPMENT_LINES);
+		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES);
 		YFCIterable<YFCElement> yfsItrator = eleShipment.getChildren(XMLLiterals.SHIPMENT_LINE);
 		for(YFCElement shipmentLine: yfsItrator) {
 			if(shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO).equals(sPrimeLineNo)) 
@@ -131,9 +133,9 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		YFCDocument errorDoc = YFCDocument.createDocument("Errors");
         YFCElement eleErrors = errorDoc.getDocumentElement();
         YFCElement eleError = errorDoc.createElement("Error");
-        eleError.setAttribute("ErrorCode", "########");
+        eleError.setAttribute("ErrorCode", "ERRORCODE_ORDER_CANCEL_EXCEP");
         eleError.setAttribute("ErrorDescription", "Order cannot be cancelled in this status");
-        eleErrors.appendChild(eleError);
-        throw new YFSException(errorDoc.toString());
+        eleErrors.appendChild(eleError); 
+       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_ORDER_CANCEL_EXCEP, errorDoc.toString()); 
 	}
 }

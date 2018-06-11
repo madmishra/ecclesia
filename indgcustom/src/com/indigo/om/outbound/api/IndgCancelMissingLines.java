@@ -22,8 +22,10 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     private static final String CANCEL_ORDER_STATUS = "9000";
     private static final String CANCEL_STATUS = "CANCEL";
     private static final String ZERO_QTY = "0";
-    private static final String IS_SAP_MSG_REQ="SAP051MsgReq";
-    private static final String FLAG_NO="N";
+    private static final String IS_SAP_MSG_REQ = "SAP051MsgReq";
+    private static final String FLAG_NO = "N";
+    private String cancellationReqId = "";
+    private static final String CANCELLATION_TYPE = "SAP051";
 
     /**
        * This is the invoke point of the Service
@@ -102,8 +104,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
      }
     
    /**
-    * this method fetches unique primeline no present in input Xml and getOrderLineList api output
-    * and invokes changeOrder api for htose whose status is not cancelled
+    * this method fetches unique prime line no present in input XML and getOrderLineList API output
+    * and invokes changeOrder API for those whose status is not cancelled
     * 
     * @param docInXml
     * @param docGetOrderLineList
@@ -122,6 +124,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
                 !CANCEL_ORDER_STATUS.equals(eleOrderLine.getAttribute(XMLLiterals.STATUS))) {
                 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL_STATUS);
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
+                eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
+                eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, CANCELLATION_TYPE);
                 addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLine);
                 deleteChildNodes(eleOrderLine);
                 orderLines.importNode(eleOrderLine);
@@ -137,7 +141,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     }
     
     /**
-     * this method forms input for changeOrder api
+     * this method forms input for changeOrder API
      * @param getOrderLineListDoc
      * @param primeLineNoValue
      */
@@ -166,8 +170,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
                 getAttribute(XMLLiterals.MODIFYTS);
         String sOrderType=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
         		.getAttribute(XMLLiterals.ORDER_TYPE);
-        String sapOrderNo = eleOrderLine.getChildElement(XMLLiterals.EXTN).
-            getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
+        String sapOrderNo = eleOrderLine.getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, sModifyts);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, sOrderType);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, sapOrderNo);

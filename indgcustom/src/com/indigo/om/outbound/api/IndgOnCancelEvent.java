@@ -272,7 +272,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void callSAP051opQueue(YFCDocument doc) {
-	     invokeYantraService(CALL_SAP051_SERVICE, doc);
+	     invokeYantraService(getProperty(CALL_SAP051_SERVICE), doc);
 	}
 	
 	/**
@@ -281,7 +281,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void callLegacyOMS051opQueue(YFCDocument doc) {
-	     invokeYantraService(CALL_LEGACYOMS051_SERVICE, doc);
+	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
 	}
 	
 	/**

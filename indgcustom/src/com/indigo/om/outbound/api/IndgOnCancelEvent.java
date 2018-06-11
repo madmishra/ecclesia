@@ -27,8 +27,8 @@ import com.yantra.yfc.dom.YFCNode;
 public class IndgOnCancelEvent extends AbstractCustomApi{
 	 Map<String,List<YFCElement>> orderLineMapGroupByShipNode = new HashMap<>();
 	 private static final String EMPTY_STRING = "";
-	 private static final String CALL_SAP051_SERVICE = "Indg_SAP051_cancelledLines";
-	 private static final String CALL_LEGACYOMS051_SERVICE = "Indg_LegacyOMS051_ForLegacy052";
+	 private static final String CALL_SAP051_SERVICE = "CALL_SAP051_SERVICE";
+	 private static final String CALL_LEGACYOMS051_SERVICE = "CALL_LEGACYOMS051_SERVICE";
 	 private String isFullOrderCancelled = "";
 	 private static final String CANCELLED = "Cancelled";
 	 private static final String NO = "N";

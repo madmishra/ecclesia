@@ -34,7 +34,7 @@
 									<xsl:value-of select="/ResourcePool/ResourcePool/@ServiceSlotGroupId" />
 								</xsl:attribute>
 								<xsl:attribute name="ShiftId">
-									<xsl:value-of select="concat(@AvailableDate,'-',/ResourcePool/ResourcePool/@ServiceSlotGroupId)" />
+									<xsl:value-of select="concat(translate(@AvailableDate,'-',''),translate(../../@StartTime,':',''),translate(../../@EndTime,':',''))" />
 								</xsl:attribute>
 								<xsl:attribute name="ShiftStartTime">
 									<xsl:value-of select="../../@StartTime" />

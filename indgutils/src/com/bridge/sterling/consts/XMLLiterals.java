@@ -259,5 +259,6 @@ public static final String SHIPMENT_NO= "ShipmentNo";
 public static final String SHIPMENT_LINE_NO = "ShipmentLineNo"; 
 public static final String CHANGE_SHIPMENT="changeShipment";
 public static final String ONHAND_AVAILABLE_DATE = "OnhandAvailableDate";
+public static final String MODIFICATION_REFRENCE_1 = "ModificationReference1";
 }
 

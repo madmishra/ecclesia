@@ -119,7 +119,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			}
 			else 
 				
-			return 	invokeCreateINDGMsgSeqNo(docGetINDGMsgSeqNoList);
+			return 	invokeCreateINDGMsgSeqNo(inXml);
 		}
 	
 		/**

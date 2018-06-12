@@ -20,8 +20,8 @@ import com.yantra.yfc.dom.YFCNode;
  * @author BGS168
  *
  * Custom API to consume LegacyOMS051 message and cancel the given lines 
- * The lines will be grouped by ReasonCode and send it to ChangeOrder API.
- * The lines will be grouped by ShipNode to sends SAP051 message to SAP.
+ * The lines will be grouped by ShipNode to sends SAP051 message to SAP and
+ * LegacyOMS052 message after on_Cancel event is called.
  * 
  */
 public class IndgOnCancelEvent extends AbstractCustomApi{
@@ -322,7 +322,6 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	    orderLineEle.setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, EMPTY_STRING);
-	    orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, EMPTY_STRING);
 	    YFCElement itemEle = orderLineEle.createChild(XMLLiterals.ITEM);
 	    itemEle.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
 	    YFCElement orderEle = orderLineEle.createChild(XMLLiterals.ORDER);

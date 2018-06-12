@@ -112,7 +112,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		private YFCDocument inputGetINDGMsgSeqNoList(YFCDocument inXml) {
 			YFCDocument docGetINDGMsgSeqNoList=formMessageForAPI(inXml);
 			YFCDocument docinvokeYantraService=invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList);
-			if(!XmlUtils.isVoid(docinvokeYantraService)) {
+			if(docinvokeYantraService.getDocumentElement().hasChildNodes()) {
 				YFCDocument changesDoc= invokechangeINDGMsgSeqNo(docinvokeYantraService);
 				System.out.println("changesDoc"+changesDoc);
 				return changesDoc;
@@ -135,7 +135,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, ONE);
 			else
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, ONE);
-System.out.println("CREATE INDG MSG_SEQ_NO"+docINDGMsgSeqNoList);
+			System.out.println("CREATE INDG MSG_SEQ_NO"+docINDGMsgSeqNoList);
 			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
 			
 		}

@@ -33,7 +33,6 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 private static final String CANCELLED = "Cancelled";
 	 private static final String NO = "N";
 	 private static final String YES = "Y";
-	 private static final String REASON_CODE = "03";
 	 private String orderNo = "";
 	 private String documentType = "";
 	 private String enterpriseCode = "";
@@ -141,11 +140,9 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	    	primeLineNo+"\"]");
 	    	String legacyOMSOrderNo = orderLineEle.getAttribute(XMLLiterals.CUSTOMER_PO_NO);
 	    	String cancellationReqId = orderLineEle.getAttribute(XMLLiterals.CONDITION_VARIABLE_1);
-	    	String cancellationType = orderLineEle.getAttribute(XMLLiterals.CONDITION_VARIABLE_2);
 	    	String modifyTs = orderLineEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
 	    	orderLine.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOMSOrderNo);
 	    	orderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
-	    	orderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, cancellationType);
 	    	orderLine.setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 	    }
 	}
@@ -169,7 +166,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 			String originalQty = orderLineEle.getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY);
 			orderLine.setAttribute(XMLLiterals.ORDERED_QTY, currentQty);
 			orderLine.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, originalQty);
-			orderLine.setAttribute(XMLLiterals.CANCELLATION_REASON_CODE, REASON_CODE);
+		orderLine.setAttribute(XMLLiterals.CANCELLATION_REASON_CODE, orderLineEle.getAttribute(XMLLiterals.CONDITION_VARIABLE_2));
 	    }
 	    String sapOrderNo = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 	    		getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
@@ -322,6 +319,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	    orderLineEle.setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, EMPTY_STRING);
+	    orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, EMPTY_STRING);
 	    YFCElement itemEle = orderLineEle.createChild(XMLLiterals.ITEM);
 	    itemEle.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
 	    YFCElement orderEle = orderLineEle.createChild(XMLLiterals.ORDER);

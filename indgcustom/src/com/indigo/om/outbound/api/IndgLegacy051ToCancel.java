@@ -35,6 +35,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 YFCDocument docLegacy051Input = null;
 	 YFCDocument docInputXml = null;
 	 private static final String CANCELLATION_TYPE = "LEGACY051";
+	 private static final String REASON_CODE = "03";
 	 
 	 /**
 	  * This method is the invoke point of the service.
@@ -247,6 +248,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			orderLineEle.setAttribute(XMLLiterals.SUB_LINE_NO, SUBLINE_VALUE);
 			orderLineEle.setAttribute(XMLLiterals.ACTION, ACTION_VALUE);
 			orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
+			orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, REASON_CODE);
 			orderLineEle.setAttribute(XMLLiterals.ORDERED_QTY, orderedQty);
 		}
 		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    

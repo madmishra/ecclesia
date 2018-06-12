@@ -28,6 +28,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     private static final String FLAG_NO = "N";
     private String cancellationReqId = "";
     private static final String CANCELLATION_TYPE = "SAP051";
+    private static final String REASON_CODE = "06";
 
      /**
        * This is the invoke point of the Service
@@ -82,6 +83,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, EMPTY_STRING);
         eleOrderLine.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, EMPTY_STRING);
         eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, EMPTY_STRING);
+        eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, EMPTY_STRING);
         YFCElement eleItemEle = eleOrderLine.createChild(XMLLiterals.ITEM);
         eleItemEle.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
         YFCElement eleExtn = eleOrderLine.createChild(XMLLiterals.EXTN);
@@ -129,6 +131,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
                 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL_STATUS);
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
                 eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
+                eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, REASON_CODE);
                 addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLine);
                 deleteChildNodes(eleOrderLine);
                 orderLines.importNode(eleOrderLine);
@@ -145,8 +148,9 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     
     /**
      * this method forms input for changeOrder API
-     * @param getOrderLineListDoc
-     * @param primeLineNoValue
+     * 
+     * @param docGetOrderLineList
+     * @return
      */
     
     private YFCDocument changeOrderInput(YFCDocument docGetOrderLineList) {
@@ -164,10 +168,10 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     
     /**
      * this method forms document containing cancelled order line
-     * @param inXml
-     * @param inputDocForChangeOrderAPI
-     * @param getOrderLineListDoc
-     * @return
+     * 
+     * @param docInXml
+     * @param docInputChangeOrderAPI
+     * @param eleOrderLine
      */
     
     private void addOrderInfomrationForSAP(YFCDocument docInXml, YFCDocument docInputChangeOrderAPI,YFCElement eleOrderLine) {

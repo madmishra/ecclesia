@@ -1,6 +1,5 @@
 package com.indigo.om.outbound.api;
 
-
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.XPathUtil;
@@ -13,19 +12,24 @@ import com.yantra.yfc.dom.YFCNode;
 /**
  * @author BSG168
  *
- *
+ * Custom API to consume SAP002 message from SAP and check if
+ * there are orderLines to cancel. The orderLines that are present in 
+ * the input XML will get created and if there are extra lines present 
+ * for the order, those orderLines will get cancelled.
  */
 
 public class IndgCancelMissingLines extends AbstractCustomApi{
   
     private static final String EMPTY_STRING = "";
-    private static final String CALCEL_ORDER_STATUS = "9000";
+    private static final String CANCEL_ORDER_STATUS = "9000";
     private static final String CANCEL_STATUS = "CANCEL";
     private static final String ZERO_QTY = "0";
-    private static final String IS_SAP_MSG_REQ="SAP051MsgReq";
-    private static final String FLAG_NO="N";
+    private static final String IS_SAP_MSG_REQ = "SAP051MsgReq";
+    private static final String FLAG_NO = "N";
+    private String cancellationReqId = "";
+    private static final String CANCELLATION_TYPE = "SAP051";
 
-    /**
+     /**
        * This is the invoke point of the Service
        * @throws  
        * 
@@ -33,8 +37,10 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     
       @Override
     public YFCDocument invoke(YFCDocument docInXml) {
-        YFCDocument docGetOrderLineList = getOrderLineListFunc(docInXml);
-        return manageOrderCancellation(docInXml, docGetOrderLineList);
+    		YFCDocument docGetOrderLineList = getOrderLineListFunc(docInXml);
+    		cancellationReqId = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
+    				getAttribute(XMLLiterals.CONDITION_VARIABLE_1);
+    		return manageOrderCancellation(docInXml, docGetOrderLineList);
     }
       
      /**
@@ -60,6 +66,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, sDocumentType);
         return docGetOrderLineList;
       }
+    
     /**
      * this method forms template for getOrderLineList API
      * @return
@@ -74,10 +81,10 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         eleOrderLine.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
         eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, EMPTY_STRING);
         eleOrderLine.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, EMPTY_STRING);
+        eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, EMPTY_STRING);
         YFCElement eleItemEle = eleOrderLine.createChild(XMLLiterals.ITEM);
         eleItemEle.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
         YFCElement eleExtn = eleOrderLine.createChild(XMLLiterals.EXTN);
-        eleExtn.setAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO, EMPTY_STRING);
         eleExtn.setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, EMPTY_STRING);
         YFCElement eleOrder = eleOrderLine.createChild(XMLLiterals.ORDER);
         eleOrder.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
@@ -89,7 +96,6 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         eleStatus.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
         return docGetOrderListTemp;
       }
-    
     
     /**
      * 
@@ -103,26 +109,26 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
      }
     
    /**
-    * this method fetches unique primeline no present in input Xml and getOrderLineList api output
-    * and invokes changeOrder api for htose whose status is not cancelled
+    * this method fetches unique prime line no present in input XML and getOrderLineList API output
+    * and invokes changeOrder API for those whose status is not cancelled
     * 
     * @param docInXml
     * @param docGetOrderLineList
     * @return
     */
+    
     public YFCDocument manageOrderCancellation(YFCDocument docInXml, YFCDocument docGetOrderLineList) {
         YFCElement eleOrderLineList = docGetOrderLineList.getDocumentElement();
         YFCIterable<YFCElement> apiPrimeLineNo = eleOrderLineList.getChildren(XMLLiterals.ORDER_LINE);
         YFCDocument cancelLineDoc = changeOrderInput(docGetOrderLineList);
         YFCElement orderLines = cancelLineDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
-        
         for(YFCElement eleOrderLine:apiPrimeLineNo) {
         	String sPrimeLineNo= eleOrderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
            YFCElement orderLineEle = XPathUtil.getXPathElement(docInXml,"//OrderLines/OrderLine[@PrimeLineNo=\""+sPrimeLineNo+"\"]");
-            if(XmlUtils.isVoid(orderLineEle) && 
-                !CALCEL_ORDER_STATUS.equals(eleOrderLine.getAttribute(XMLLiterals.STATUS))) {
+            if(XmlUtils.isVoid(orderLineEle) && !CANCEL_ORDER_STATUS.equals(eleOrderLine.getAttribute(XMLLiterals.STATUS))) {
                 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL_STATUS);
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
+                eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
                 addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLine);
                 deleteChildNodes(eleOrderLine);
                 orderLines.importNode(eleOrderLine);
@@ -138,10 +144,11 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     }
     
     /**
-     * this method forms input for changeOrder api
+     * this method forms input for changeOrder API
      * @param getOrderLineListDoc
      * @param primeLineNoValue
      */
+    
     private YFCDocument changeOrderInput(YFCDocument docGetOrderLineList) {
         YFCElement orderEle = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
                 getChildElement(XMLLiterals.ORDER);
@@ -162,23 +169,25 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
      * @param getOrderLineListDoc
      * @return
      */
+    
     private void addOrderInfomrationForSAP(YFCDocument docInXml, YFCDocument docInputChangeOrderAPI,YFCElement eleOrderLine) {
         String sModifyts = eleOrderLine.getChildElement(XMLLiterals.ORDER).
                 getAttribute(XMLLiterals.MODIFYTS);
         String sOrderType=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
         		.getAttribute(XMLLiterals.ORDER_TYPE);
-        String sapOrderNo = eleOrderLine.getChildElement(XMLLiterals.EXTN).
-            getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
+        String sapOrderNo = eleOrderLine.getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, sModifyts);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, sOrderType);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, sapOrderNo);
+        docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, CANCELLATION_TYPE);
     }
     
     /**
-     * Deletes unwanted child nodes from the Change Order Input
+     * Deletes unwanted child nodes from the ChangeOrder Input
      * 
      * @param eleOrderLine
      */
+    
     private void deleteChildNodes(YFCElement eleOrderLine) {
       YFCElement orderEle = eleOrderLine.getChildElement(XMLLiterals.ORDER);
       YFCNode parent = orderEle.getParentNode();
@@ -190,4 +199,3 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     }
 }
     
-

@@ -249,5 +249,16 @@ public static final String IS_PROCESSED = "IsProcessed";
 public static final String TRIGGER_AGENT = "TriggerAgent";
 public static final String CRITERIA_ID = "CriteriaId";
 public static final String BASE_TRANSACTION_ID = "BaseTransactionId"; 
+public static final String CUSTOMER_LINE_PO_NO = "CustomerLinePONo";
+public static final String CUSTOMER_PO_NO = "CustomerPONo"; 
+public static final String CONDITION_VARIABLE_1 = "ConditionVariable1";
+public static final String CONDITION_VARIABLE_2 = "ConditionVariable2";
+public static final String CANCELLATION_REQUEST_ID = "LegacyOMSCancellationRequestId";
+public static final String QUANTITY_AFTER_CANCELLATION = "QuantityAfterCancellation";
+public static final String SHIPMENT_NO= "ShipmentNo";
+public static final String SHIPMENT_LINE_NO = "ShipmentLineNo"; 
+public static final String CHANGE_SHIPMENT="changeShipment";
+public static final String ONHAND_AVAILABLE_DATE = "OnhandAvailableDate";
+public static final String MODIFICATION_REFRENCE_1 = "ModificationReference1";
 }
 

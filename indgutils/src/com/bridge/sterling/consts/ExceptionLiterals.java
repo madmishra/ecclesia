@@ -66,5 +66,6 @@ public class ExceptionLiterals {
 	  
 	public static final String ERRORCODE_SYNC_EXP = "ERRFullSyncStatus";
 	public static final String ERRORCODE_RTAM_UPLOAD = "ERRFULLSyncRTAMUpload";
+	public static final String ERRORCODE_ORDER_CANCEL_EXCEP= "ERROrderCanecel";
   
 }

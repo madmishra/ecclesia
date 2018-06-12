@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YFS_ATP_RULESList TableName="YFS_ATP_RULES">
-<AtpRules AccumulationDays="0" AdvanceNotificationTime="0"
+<AtpRules AccumulationDays="730" AdvanceNotificationTime="0"
     AtpRule="DEFAULT" AtpRuleKey="201804121101594624"
-    AtpRuleName="DEFAULT_Indigo_CA" BackwardConsumptionDays="0"
-    ConsiderPoForAlloc=" " Createprogid=".YEntityServlet"
+    AtpRuleName="DEFAULT_Indigo_CA" BackwardConsumptionDays="730"
+    ConsiderPoForAlloc="" Createprogid=".YEntityServlet"
     Createts="2018-04-12T11:01:59-04:00" Createuserid="admin"
-    ForwardConsumptionDays="0" Lockid="0" MaxInventoryHoldDays="0"
-    Modifyprogid=".YEntityServlet" Modifyts="2018-04-12T11:01:59-04:00"
+    ForwardConsumptionDays="730" Lockid="1" MaxInventoryHoldDays="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-06-09T13:51:19-04:00"
     Modifyuserid="admin" OrganizationCode="Indigo_CA"
-    PastDueDemandDays="0" PastDueSupplyDays="0" ProcessingTime="0"/>
+    PastDueDemandDays="730" PastDueSupplyDays="730" ProcessingTime="0"/>
 <AtpRules AccumulationDays="730" AdvanceNotificationTime="0"
     AtpRule="DEFAULT" AtpRuleKey="DEFAULT" AtpRuleName="DEFAULT"
     BackwardConsumptionDays="730" ConsiderPoForAlloc="N"

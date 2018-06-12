@@ -1,7 +1,9 @@
 PROCESS_COUNT=$(ps -ef | grep FullSync | grep -v "grep" | wc -l)
         if [ $PROCESS_COUNT -gt 0 ];
         then
-                cd /data/oms95/Foundation/bin
-                nohup ./stopIntegrationServer.sh -name IndgDeltaSync /data/oms95/Foundation/logs/Delta_Sync.log &
+                cd /datadrive/opt/IBM/bin
+                nohup ./stopIntegrationServer.sh -name Indg_InvDeltaSync /datadrive/opt/IBM/logs/Delta_Sync.log &
         exit	
         fi
+		
+nohup /datadrive/opt/IBM/bin/agentserverstop.sh -name Indg_RTAMDeltaAgent &

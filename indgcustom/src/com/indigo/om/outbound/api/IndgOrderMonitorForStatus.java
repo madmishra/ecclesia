@@ -70,8 +70,7 @@ public class IndgOrderMonitorForStatus extends AbstractCustomApi {
 		 orderLineEle.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
 		 orderLineEle.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
 		 orderLineEle.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
-		 YFCElement extnEle=orderLineEle.createChild(XMLLiterals.EXTN);
-		 extnEle.setAttribute(XMLLiterals.EXTN_LEGACY_OMS_CHILD_ORDERNO, EMPTY_STRING);
+		 orderLineEle.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
 		 return getOrderDetailsTempDoc;
 		 
 	 }

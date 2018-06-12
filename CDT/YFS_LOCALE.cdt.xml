@@ -11,7 +11,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-04-12T10:53:44-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="America/Panama" Variant=" " VolumeUom="CUCENTIMETER" WeightUom="KG"/>
+    Timezone="America/Panama" Variant="" VolumeUom="CUCENTIMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-04-12T10:56:14-04:00"
@@ -24,7 +24,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-29T07:55:05-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="America/Panama" Variant=" " VolumeUom="CUCENTIMETER" WeightUom="KG"/>
+    Timezone="America/Panama" Variant="" VolumeUom="CUCENTIMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-04-27T07:39:40-04:00"
@@ -36,7 +36,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-14T11:50:52-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Canada/Eastern" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="Canada/Eastern" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-04-27T07:42:40-04:00"
@@ -49,7 +49,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-29T07:53:04-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Canada/Eastern" Variant=" " VolumeUom="CUCENTIMETER" WeightUom="KG"/>
+    Timezone="Canada/Eastern" Variant="" VolumeUom="CUCENTIMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-04-27T10:29:26-04:00"
@@ -61,7 +61,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-14T11:45:52-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Canada/Mountain" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="Canada/Mountain" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-04-27T12:16:37-04:00"
@@ -73,7 +73,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-14T11:50:01-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Canada/East-Saskatchewan" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="Canada/East-Saskatchewan" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-04-28T15:29:54-04:00"
@@ -86,7 +86,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-29T07:53:42-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="America/Phoenix" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="America/Phoenix" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-04-28T15:36:18-04:00"
@@ -99,7 +99,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-29T07:52:00-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Canada/East-Saskatchewan" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="Canada/East-Saskatchewan" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-04-30T06:37:21-04:00"
@@ -111,7 +111,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-14T11:43:21-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Canada/Atlantic" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="Canada/Atlantic" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-04-30T06:38:26-04:00"
@@ -124,7 +124,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-29T07:51:14-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Canada/Atlantic" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="Canada/Atlantic" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-05-14T11:46:53-04:00"
@@ -136,7 +136,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-14T11:46:53-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Canada/Newfoundland" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="Canada/Newfoundland" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-05-14T11:47:41-04:00"
@@ -148,7 +148,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-14T11:47:41-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Canada/Pacific" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="Canada/Pacific" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-05-14T11:57:10-04:00"
@@ -161,7 +161,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-29T07:54:16-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Canada/Newfoundland" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="Canada/Newfoundland" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-05-14T11:58:00-04:00"
@@ -174,7 +174,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-29T07:54:48-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Canada/Pacific" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="Canada/Pacific" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="CA"
     Createprogid=".YEntityServlet" Createts="2018-05-31T09:29:26-04:00"
@@ -186,7 +186,7 @@
     Modifyprogid=".YEntityServlet" Modifyts="2018-05-31T09:29:26-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="Etc/UTC" Variant=" " VolumeUom="CUMETER" WeightUom="KG"/>
+    Timezone="Etc/UTC" Variant="" VolumeUom="CUMETER" WeightUom="KG"/>
 <Locale ClientTimeFormat="HH:mm:ss"
     ClientTimestampFormat="MM/dd/yyyy HH:mm:ss" Country="US"
     Createprogid="Migrator" Createts="2018-03-28T12:29:53-04:00"
@@ -198,5 +198,5 @@
     Modifyprogid="Migrator" Modifyts="2018-03-28T12:29:53-04:00"
     Modifyuserid="admin" MonthDisplayDateFormat="MMMMM yyyy"
     TimeFormat="HH:mm:ss" TimestampFormat="MM/dd/yyyy HH:mm:ss"
-    Timezone="America/New_York" Variant=" " VolumeUom="CIN" WeightUom="LBS"/>
+    Timezone="America/New_York" Variant="" VolumeUom="CIN" WeightUom="LBS"/>
 </YFS_LOCALEList>

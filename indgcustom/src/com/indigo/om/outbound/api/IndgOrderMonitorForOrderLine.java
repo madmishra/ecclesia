@@ -42,7 +42,8 @@ public class IndgOrderMonitorForOrderLine extends AbstractCustomApi{
    * 
    */
   private void getOrderLinesGroupedByShipNode(YFCDocument inputDocForMonitor){
-    YFCElement orderLineListEle = inputDocForMonitor.getDocumentElement().getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
+    YFCElement orderLineListEle = inputDocForMonitor.getDocumentElement().getChildElement(XMLLiterals.ORDER).
+    		getChildElement(XMLLiterals.ORDER_LINES);
     YFCIterable<YFCElement> yfsItrator = orderLineListEle.getChildren(XMLLiterals.ORDER_LINE);
     for(YFCElement orderLine: yfsItrator) {
       List<YFCElement> orderLineList;

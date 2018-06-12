@@ -16,18 +16,16 @@ import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
 public class IndgAddCurrentTime extends AbstractCustomApi {
-	  /**
+	 /**
      * This is the invoke point of the Service
-   * @throws  
+     * @throws  
      * 
      */
   
     @Override
   public YFCDocument invoke(YFCDocument docInXml) {
-
     	String sLastUpdatedTime=setTime();
 		return capacityDocument(docInXml,sLastUpdatedTime);
-    	
     }
     private static String setTime()
 	{
@@ -48,8 +46,6 @@ public class IndgAddCurrentTime extends AbstractCustomApi {
 				 eleDateLines.setAttribute(XMLLiterals.LAST_UPDATED_TIME, sLastUpdatedTime);
 			 }
 		}
-		
 		return docInXml;
 	}
-
 }

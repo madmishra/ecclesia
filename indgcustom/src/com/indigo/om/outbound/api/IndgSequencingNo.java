@@ -158,6 +158,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleOrder.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE,eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
+			System.out.println("MESSAGE FORMAT"+docINDGMsgSeqNoList);
 			return docINDGMsgSeqNoList;
 		}
 }

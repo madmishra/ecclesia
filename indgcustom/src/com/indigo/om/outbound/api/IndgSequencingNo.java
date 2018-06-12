@@ -82,7 +82,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.SEQUENCE_NO_KEY, elegetMsgSeqList.getAttribute(XMLLiterals.SEQUENCE_NO_KEY));
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, elegetMsgSeqList.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.ORDER_NO,elegetMsgSeqList.getAttribute(XMLLiterals.ORDER_NO));
-			if(!XmlUtils.isVoid(elegetMsgSeqList.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO))){
+			if(elegetMsgSeqList.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).contains(SAP)){
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.SAP_ORDER_NO,elegetMsgSeqList.getAttribute(XMLLiterals.SAP_ORDER_NO));
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,(Integer.parseInt(elegetMsgSeqList.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)))+ONE);
 			}
@@ -127,10 +127,14 @@ public class IndgSequencingNo extends AbstractCustomApi{
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, ONE);
 			else
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, ONE);
-			System.out.println("CREATE INDG MSG_SEQ_NO"+docINDGMsgSeqNoList);
 			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
 			
 		}
+		/**
+		 * this method forms document for createINDGMsgSeqNo and getINDGMsgseqNoList API
+		 * @param docOrderMessage
+		 * @return
+		 */
 		private YFCDocument formMessageForAPI(YFCDocument docOrderMessage) {
 			YFCElement eleOrderMessage=docOrderMessage.getDocumentElement();
 			YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
@@ -151,7 +155,6 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleOrder.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE,eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
-			System.out.println("FORMED MESSAGE"+docINDGMsgSeqNoList);
 			return docINDGMsgSeqNoList;
 		}
 }

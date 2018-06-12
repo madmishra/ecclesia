@@ -3,6 +3,7 @@ package com.indigo.om.outbound.api;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
+import com.yantra.integration.adapter.SynchronousTransaction;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
@@ -40,11 +41,13 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		  if(eleOrderMessage.getAttribute(XMLLiterals.MESSAGE_TYPE_ID).contains(SAP))
 		  {	
 			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID,XMLLiterals.SAP_OUTBOUND);
+			  System.out.println("SEQUENCE TYPE ID"+inXml);
 			  return docGetINDGMsgSeqNoList(inXml);
 		  }
 		  else
 		  {
 			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID,XMLLiterals.LEGACY_OUTBOUND);
+			  System.out.println("SEQUENCE TYPE ID"+inXml);
 			 return  docGetINDGMsgSeqNoList(inXml);  
 		  }
 		 
@@ -95,7 +98,9 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO,(Integer.parseInt(elegetMsgSeqNo.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO)))+ONE);
 			}
 			}
-			return invokeYantraService(INDG_CHANGE_INDG_MSG_SEQ_NO, docChangeGetMsgSeq);
+			System.out.println("CHANGE ORDER INPUT DOC"+docChangeGetMsgSeq);
+			YFCDocument changeOrderDoc=invokeYantraService(INDG_CHANGE_INDG_MSG_SEQ_NO, docChangeGetMsgSeq);
+			return changeOrderDoc;
 		}
 		
 		/**
@@ -129,7 +134,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, ONE);
 			else
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, ONE);
-
+System.out.println("CREATE INDG MSG_SEQ_NO"+docINDGMsgSeqNoList);
 			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
 			
 		}
@@ -153,6 +158,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleOrder.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE,eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
+			System.out.println("FORMED MESSAGE"+docINDGMsgSeqNoList);
 			return docINDGMsgSeqNoList;
 		}
 }

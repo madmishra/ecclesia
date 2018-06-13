@@ -251,6 +251,6 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, REASON_CODE);
 			orderLineEle.setAttribute(XMLLiterals.ORDERED_QTY, orderedQty);
 		}
-		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    
+		invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    
 	}
 }

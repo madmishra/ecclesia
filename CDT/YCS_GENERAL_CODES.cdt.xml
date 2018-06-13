@@ -3,993 +3,993 @@
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="ALTERNATEPARTYTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000001"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="01"/>
+    Description="" GeneralCodesKey="000000000000000000000001" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="01"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="ALTERNATEPARTYTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000002"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="02"/>
+    Description="" GeneralCodesKey="000000000000000000000002" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="02"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="ALTERNATEPARTYTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000003"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="03"/>
+    Description="" GeneralCodesKey="000000000000000000000003" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="03"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="ALTERNATEPARTYTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000004"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="04"/>
+    Description="" GeneralCodesKey="000000000000000000000004" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="04"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="ALTERNATEPARTYTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000005"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="06"/>
+    Description="" GeneralCodesKey="000000000000000000000005" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="06"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="ALTERNATEPARTYTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000006"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="09"/>
+    Description="" GeneralCodesKey="000000000000000000000006" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="09"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CALLTAGARSIND" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000007"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="0"/>
+    Description="" GeneralCodesKey="000000000000000000000007" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="0"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CALLTAGARSIND" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000008"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="5"/>
+    Description="" GeneralCodesKey="000000000000000000000008" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="5"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CODIND" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000009"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="0"/>
+    Description="" GeneralCodesKey="000000000000000000000009" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="0"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CODIND" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000010"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="1"/>
+    Description="" GeneralCodesKey="000000000000000000000010" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="1"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CODIND" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000011"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="3"/>
+    Description="" GeneralCodesKey="000000000000000000000011" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="3"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000012"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="APR"/>
+    Description="" GeneralCodesKey="000000000000000000000012" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="APR"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000013"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="AVS"/>
+    Description="" GeneralCodesKey="000000000000000000000013" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="AVS"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000014"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="BAG"/>
+    Description="" GeneralCodesKey="000000000000000000000014" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="BAG"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000015"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CIV"/>
+    Description="" GeneralCodesKey="000000000000000000000015" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CIV"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000016"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CTP"/>
+    Description="" GeneralCodesKey="000000000000000000000016" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CTP"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000017"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="ENC"/>
+    Description="" GeneralCodesKey="000000000000000000000017" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="ENC"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000018"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="GBS"/>
+    Description="" GeneralCodesKey="000000000000000000000018" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="GBS"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000019"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="GFT"/>
+    Description="" GeneralCodesKey="000000000000000000000019" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="GFT"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000020"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="GOV"/>
+    Description="" GeneralCodesKey="000000000000000000000020" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="GOV"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000021"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="KMI"/>
+    Description="" GeneralCodesKey="000000000000000000000021" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="KMI"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000022"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="LVS"/>
+    Description="" GeneralCodesKey="000000000000000000000022" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="LVS"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000023"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="NLR"/>
+    Description="" GeneralCodesKey="000000000000000000000023" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="NLR"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000024"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="RPL"/>
+    Description="" GeneralCodesKey="000000000000000000000024" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="RPL"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000025"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="TMP"/>
+    Description="" GeneralCodesKey="000000000000000000000025" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="TMP"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000026"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="TSPA"/>
+    Description="" GeneralCodesKey="000000000000000000000026" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="TSPA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000027"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="TSR"/>
+    Description="" GeneralCodesKey="000000000000000000000027" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="TSR"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINELICENSEINFO" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000028"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="TSU"/>
+    Description="" GeneralCodesKey="000000000000000000000028" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="TSU"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="PACKAGINGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000029"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="00"/>
+    Description="" GeneralCodesKey="000000000000000000000029" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="00"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="PACKAGINGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000030"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="01"/>
+    Description="" GeneralCodesKey="000000000000000000000030" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="01"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="PACKAGINGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000031"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="02"/>
+    Description="" GeneralCodesKey="000000000000000000000031" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="02"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="PACKAGINGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000032"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="03"/>
+    Description="" GeneralCodesKey="000000000000000000000032" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="03"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="PACKAGINGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000033"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="04"/>
+    Description="" GeneralCodesKey="000000000000000000000033" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="04"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="PACKAGINGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000034"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="21"/>
+    Description="" GeneralCodesKey="000000000000000000000034" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="21"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="PACKAGINGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000035"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="24"/>
+    Description="" GeneralCodesKey="000000000000000000000035" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="24"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="PACKAGINGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000036"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="25"/>
+    Description="" GeneralCodesKey="000000000000000000000036" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="25"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="RECORDTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000037"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="0100"/>
+    Description="" GeneralCodesKey="000000000000000000000037" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="0100"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="RECORDTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000038"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="0200"/>
+    Description="" GeneralCodesKey="000000000000000000000038" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="0200"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="RECORDTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000039"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="0300"/>
+    Description="" GeneralCodesKey="000000000000000000000039" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="0300"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="RECORDTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000040"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="0400"/>
+    Description="" GeneralCodesKey="000000000000000000000040" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="0400"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="RECORDTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000041"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="0500"/>
+    Description="" GeneralCodesKey="000000000000000000000041" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="0500"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="RECORDTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000042"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="0600"/>
+    Description="" GeneralCodesKey="000000000000000000000042" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="0600"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="RECORDTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000043"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="0700"/>
+    Description="" GeneralCodesKey="000000000000000000000043" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="0700"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="SHIPCHGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000044"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="COL"/>
+    Description="" GeneralCodesKey="000000000000000000000044" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="COL"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="SHIPCHGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000045"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CAF"/>
+    Description="" GeneralCodesKey="000000000000000000000045" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CAF"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="SHIPCHGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000046"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="DDP"/>
+    Description="" GeneralCodesKey="000000000000000000000046" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="DDP"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="SHIPCHGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000047"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="FOB"/>
+    Description="" GeneralCodesKey="000000000000000000000047" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="FOB"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="SHIPCHGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000048"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PRE"/>
+    Description="" GeneralCodesKey="000000000000000000000048" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PRE"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="SHIPCHGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000049"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="SDT"/>
+    Description="" GeneralCodesKey="000000000000000000000049" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="SDT"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="SHIPCHGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000050"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CBS"/>
+    Description="" GeneralCodesKey="000000000000000000000050" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CBS"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="SHIPCHGTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000051"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="TPB"/>
+    Description="" GeneralCodesKey="000000000000000000000051" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="TPB"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000052"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="3Q"/>
+    Description="" GeneralCodesKey="000000000000000000000052" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="3Q"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000053"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="AJ"/>
+    Description="" GeneralCodesKey="000000000000000000000053" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="AJ"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000054"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="AT"/>
+    Description="" GeneralCodesKey="000000000000000000000054" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="AT"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000055"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="BM"/>
+    Description="" GeneralCodesKey="000000000000000000000055" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="BM"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000056"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="DP"/>
+    Description="" GeneralCodesKey="000000000000000000000056" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="DP"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000057"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="EI"/>
+    Description="" GeneralCodesKey="000000000000000000000057" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="EI"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000058"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="IK"/>
+    Description="" GeneralCodesKey="000000000000000000000058" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="IK"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000059"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="MJ"/>
+    Description="" GeneralCodesKey="000000000000000000000059" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="MJ"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000060"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="MK"/>
+    Description="" GeneralCodesKey="000000000000000000000060" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="MK"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000061"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="ON"/>
+    Description="" GeneralCodesKey="000000000000000000000061" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="ON"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000062"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PC"/>
+    Description="" GeneralCodesKey="000000000000000000000062" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PC"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000063"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PM"/>
+    Description="" GeneralCodesKey="000000000000000000000063" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PM"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000064"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PO"/>
+    Description="" GeneralCodesKey="000000000000000000000064" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PO"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000065"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="RQ"/>
+    Description="" GeneralCodesKey="000000000000000000000065" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="RQ"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000066"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="SA"/>
+    Description="" GeneralCodesKey="000000000000000000000066" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="SA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000067"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="SE"/>
+    Description="" GeneralCodesKey="000000000000000000000067" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="SE"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000068"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="ST"/>
+    Description="" GeneralCodesKey="000000000000000000000068" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="ST"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000069"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="SY"/>
+    Description="" GeneralCodesKey="000000000000000000000069" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="SY"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000070"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="TJ"/>
+    Description="" GeneralCodesKey="000000000000000000000070" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="TJ"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="REFERENCENUMTYPE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000071"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="TN"/>
+    Description="" GeneralCodesKey="000000000000000000000071" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="TN"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000072"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="AK"/>
+    Description="" GeneralCodesKey="000000000000000000000072" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="AK"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000073"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="AL"/>
+    Description="" GeneralCodesKey="000000000000000000000073" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="AL"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000074"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="AR"/>
+    Description="" GeneralCodesKey="000000000000000000000074" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="AR"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000075"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="AZ"/>
+    Description="" GeneralCodesKey="000000000000000000000075" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="AZ"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000076"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CA"/>
+    Description="" GeneralCodesKey="000000000000000000000076" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000077"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CO"/>
+    Description="" GeneralCodesKey="000000000000000000000077" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CO"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000078"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CT"/>
+    Description="" GeneralCodesKey="000000000000000000000078" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CT"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000079"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="DC"/>
+    Description="" GeneralCodesKey="000000000000000000000079" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="DC"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000080"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="DE"/>
+    Description="" GeneralCodesKey="000000000000000000000080" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="DE"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000081"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="FL"/>
+    Description="" GeneralCodesKey="000000000000000000000081" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="FL"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000082"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="GA"/>
+    Description="" GeneralCodesKey="000000000000000000000082" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="GA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000083"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="HI"/>
+    Description="" GeneralCodesKey="000000000000000000000083" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="HI"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000084"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="IA"/>
+    Description="" GeneralCodesKey="000000000000000000000084" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="IA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000085"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="ID"/>
+    Description="" GeneralCodesKey="000000000000000000000085" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="ID"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000086"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="IL"/>
+    Description="" GeneralCodesKey="000000000000000000000086" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="IL"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000087"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="IN"/>
+    Description="" GeneralCodesKey="000000000000000000000087" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="IN"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000088"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="KS"/>
+    Description="" GeneralCodesKey="000000000000000000000088" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="KS"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000089"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="KY"/>
+    Description="" GeneralCodesKey="000000000000000000000089" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="KY"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000090"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="LA"/>
+    Description="" GeneralCodesKey="000000000000000000000090" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="LA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000091"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="MA"/>
+    Description="" GeneralCodesKey="000000000000000000000091" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="MA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000092"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="MD"/>
+    Description="" GeneralCodesKey="000000000000000000000092" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="MD"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000093"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="ME"/>
+    Description="" GeneralCodesKey="000000000000000000000093" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="ME"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000094"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="MI"/>
+    Description="" GeneralCodesKey="000000000000000000000094" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="MI"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000095"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="MN"/>
+    Description="" GeneralCodesKey="000000000000000000000095" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="MN"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000096"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="MO"/>
+    Description="" GeneralCodesKey="000000000000000000000096" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="MO"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000097"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="MS"/>
+    Description="" GeneralCodesKey="000000000000000000000097" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="MS"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000098"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="MT"/>
+    Description="" GeneralCodesKey="000000000000000000000098" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="MT"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000099"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="NC"/>
+    Description="" GeneralCodesKey="000000000000000000000099" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="NC"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000100"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="ND"/>
+    Description="" GeneralCodesKey="000000000000000000000100" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="ND"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000101"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="NE"/>
+    Description="" GeneralCodesKey="000000000000000000000101" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="NE"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000102"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="NH"/>
+    Description="" GeneralCodesKey="000000000000000000000102" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="NH"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000103"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="NJ"/>
+    Description="" GeneralCodesKey="000000000000000000000103" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="NJ"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000104"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="NM"/>
+    Description="" GeneralCodesKey="000000000000000000000104" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="NM"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000105"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="NV"/>
+    Description="" GeneralCodesKey="000000000000000000000105" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="NV"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000106"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="NY"/>
+    Description="" GeneralCodesKey="000000000000000000000106" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="NY"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000107"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="OH"/>
+    Description="" GeneralCodesKey="000000000000000000000107" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="OH"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000108"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="OK"/>
+    Description="" GeneralCodesKey="000000000000000000000108" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="OK"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000109"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="OR"/>
+    Description="" GeneralCodesKey="000000000000000000000109" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="OR"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000110"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PA"/>
+    Description="" GeneralCodesKey="000000000000000000000110" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000111"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="RI"/>
+    Description="" GeneralCodesKey="000000000000000000000111" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="RI"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000112"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="SC"/>
+    Description="" GeneralCodesKey="000000000000000000000112" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="SC"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000113"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="SD"/>
+    Description="" GeneralCodesKey="000000000000000000000113" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="SD"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000114"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="TN"/>
+    Description="" GeneralCodesKey="000000000000000000000114" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="TN"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000115"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="TX"/>
+    Description="" GeneralCodesKey="000000000000000000000115" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="TX"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000116"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="UT"/>
+    Description="" GeneralCodesKey="000000000000000000000116" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="UT"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000117"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="VA"/>
+    Description="" GeneralCodesKey="000000000000000000000117" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="VA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000118"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="VT"/>
+    Description="" GeneralCodesKey="000000000000000000000118" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="VT"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000119"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="WA"/>
+    Description="" GeneralCodesKey="000000000000000000000119" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="WA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000120"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="WI"/>
+    Description="" GeneralCodesKey="000000000000000000000120" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="WI"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000121"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="WV"/>
+    Description="" GeneralCodesKey="000000000000000000000121" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="WV"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="US_STATE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000122"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="WY"/>
+    Description="" GeneralCodesKey="000000000000000000000122" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="WY"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="SEDCODE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000123"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="D"/>
+    Description="" GeneralCodesKey="000000000000000000000123" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="D"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="SEDCODE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000124"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="U"/>
+    Description="" GeneralCodesKey="000000000000000000000124" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="U"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="SEDCODE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000125"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="Y"/>
+    Description="" GeneralCodesKey="000000000000000000000125" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="Y"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000127"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="BA"/>
+    Description="" GeneralCodesKey="000000000000000000000127" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="BA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000128"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="BE"/>
+    Description="" GeneralCodesKey="000000000000000000000128" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="BE"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000129"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="BG"/>
+    Description="" GeneralCodesKey="000000000000000000000129" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="BG"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000130"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="BH"/>
+    Description="" GeneralCodesKey="000000000000000000000130" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="BH"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000131"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="BOX"/>
+    Description="" GeneralCodesKey="000000000000000000000131" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="BOX"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000132"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="BT"/>
+    Description="" GeneralCodesKey="000000000000000000000132" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="BT"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000133"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="BU"/>
+    Description="" GeneralCodesKey="000000000000000000000133" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="BU"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000134"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="BX"/>
+    Description="" GeneralCodesKey="000000000000000000000134" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="BX"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000135"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CI"/>
+    Description="" GeneralCodesKey="000000000000000000000135" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CI"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000136"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CM"/>
+    Description="" GeneralCodesKey="000000000000000000000136" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CM"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000137"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CON"/>
+    Description="" GeneralCodesKey="000000000000000000000137" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CON"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000138"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CR"/>
+    Description="" GeneralCodesKey="000000000000000000000138" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CR"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000139"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CS"/>
+    Description="" GeneralCodesKey="000000000000000000000139" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CS"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000140"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CT"/>
+    Description="" GeneralCodesKey="000000000000000000000140" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CT"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000141"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="CY"/>
+    Description="" GeneralCodesKey="000000000000000000000141" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="CY"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000142"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="DOZ"/>
+    Description="" GeneralCodesKey="000000000000000000000142" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="DOZ"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000143"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="EA"/>
+    Description="" GeneralCodesKey="000000000000000000000143" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="EA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000144"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="EN"/>
+    Description="" GeneralCodesKey="000000000000000000000144" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="EN"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000145"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="FT"/>
+    Description="" GeneralCodesKey="000000000000000000000145" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="FT"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000146"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="KG"/>
+    Description="" GeneralCodesKey="000000000000000000000146" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="KG"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000147"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="KGS"/>
+    Description="" GeneralCodesKey="000000000000000000000147" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="KGS"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000148"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="L"/>
+    Description="" GeneralCodesKey="000000000000000000000148" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="L"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000149"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="LB"/>
+    Description="" GeneralCodesKey="000000000000000000000149" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="LB"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000150"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="LBS"/>
+    Description="" GeneralCodesKey="000000000000000000000150" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="LBS"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000151"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="M"/>
+    Description="" GeneralCodesKey="000000000000000000000151" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="M"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000152"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PA"/>
+    Description="" GeneralCodesKey="000000000000000000000152" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000153"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PAL"/>
+    Description="" GeneralCodesKey="000000000000000000000153" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PAL"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000154"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PC"/>
+    Description="" GeneralCodesKey="000000000000000000000154" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PC"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000155"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PCS"/>
+    Description="" GeneralCodesKey="000000000000000000000155" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PCS"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000156"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PF"/>
+    Description="" GeneralCodesKey="000000000000000000000156" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PF"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000157"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PK"/>
+    Description="" GeneralCodesKey="000000000000000000000157" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PK"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000158"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PKG"/>
+    Description="" GeneralCodesKey="000000000000000000000158" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PKG"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000159"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PR"/>
+    Description="" GeneralCodesKey="000000000000000000000159" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PR"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000160"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="PRS"/>
+    Description="" GeneralCodesKey="000000000000000000000160" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="PRS"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000161"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="RL"/>
+    Description="" GeneralCodesKey="000000000000000000000161" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="RL"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000162"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="SET"/>
+    Description="" GeneralCodesKey="000000000000000000000162" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="SET"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000163"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="SME"/>
+    Description="" GeneralCodesKey="000000000000000000000163" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="SME"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000164"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="SYD"/>
+    Description="" GeneralCodesKey="000000000000000000000164" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="SYD"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000165"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="TU"/>
+    Description="" GeneralCodesKey="000000000000000000000165" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="TU"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LINEQUANTITYUOM" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000166"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="YD"/>
+    Description="" GeneralCodesKey="000000000000000000000166" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="YD"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="COUNTRY" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -1024,9 +1024,9 @@
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="FUELSURCHARGE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000172"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=".0125"/>
+    Description="" GeneralCodesKey="000000000000000000000172" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value=".0125"/>
 <GeneralCodes Carrier="FEDX" CarrierAdapterImplKey="FedexAdaptor"
     Code="PRE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -1059,7 +1059,7 @@
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="ResInd" GeneralCodesKey="000000000000000000000177"
     Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="FEDX" CarrierAdapterImplKey="FedexAdaptor"
     Code="1" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -1069,39 +1069,39 @@
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="FUELSURCHARGESPLSRVC" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000179"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="1TMPICKCHG"/>
+    Description="" GeneralCodesKey="000000000000000000000179" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="1TMPICKCHG"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="FUELSURCHARGESPLSRVC" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000181"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="INTEXARCHG"/>
+    Description="" GeneralCodesKey="000000000000000000000181" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="INTEXARCHG"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="FUELSURCHARGESPLSRVC" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000182"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="REMDELCHG"/>
+    Description="" GeneralCodesKey="000000000000000000000182" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="REMDELCHG"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="FUELSURCHARGESPLSRVC" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000183"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="SATPICKUP"/>
+    Description="" GeneralCodesKey="000000000000000000000183" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="SATPICKUP"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="FUELSURCHARGESPLSRVC" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000184"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="SATDELI"/>
+    Description="" GeneralCodesKey="000000000000000000000184" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="SATDELI"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CURRENCY" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000185"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="INR"/>
+    Description="" GeneralCodesKey="000000000000000000000185" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="INR"/>
 <GeneralCodes Carrier="FEDX" CarrierAdapterImplKey="FedexAdaptor"
     Code="1" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -1121,7 +1121,7 @@
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="CODInd" GeneralCodesKey="000000000000000000000188"
     Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="FEDX" CarrierAdapterImplKey="FedexAdaptor"
     Code="3" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -1132,9 +1132,9 @@
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="EARLYAMSURCHARGE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000190"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="28.5"/>
+    Description="" GeneralCodesKey="000000000000000000000190" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="28.5"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="14" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -1144,15 +1144,15 @@
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="FUELSURCHARGESPLSRVC" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000192"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="DELAREA"/>
+    Description="" GeneralCodesKey="000000000000000000000192" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="DELAREA"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="FUELSURCHARGESPLSRVC" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="000000000000000000000193"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="EXTAREA"/>
+    Description="" GeneralCodesKey="000000000000000000000193" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="EXTAREA"/>
 <GeneralCodes Carrier="USPS" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="USPS" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -1350,19 +1350,19 @@
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="FreightCharge/Shipment@Service" GeneralCodesKey="131"
     Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="13" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="FreightCharge/Shipment@Service" GeneralCodesKey="132"
     Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="01" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="FreightCharge/Shipment@Service" GeneralCodesKey="133"
     Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="71" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -1774,9 +1774,9 @@
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="HUNDREDWGHTSRVC" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="200209261542430000000012"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="01"/>
+    Description="" GeneralCodesKey="200209261542430000000012" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="01"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="HUNDREDWGHT" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -1799,15 +1799,15 @@
 <GeneralCodes Carrier="FEDX" CarrierAdapterImplKey="FedexAdaptor"
     Code="FEDEXREPLYDUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="200209261552360000000022"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="Y"/>
+    Description="" GeneralCodesKey="200209261552360000000022" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="Y"/>
 <GeneralCodes Carrier="FEDX" CarrierAdapterImplKey="FedexAdaptor"
     Code="FEDEXINXMLDUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="200209261552360000000023"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="Y"/>
+    Description="" GeneralCodesKey="200209261552360000000023" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="Y"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CURRENCY" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -1817,15 +1817,15 @@
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_SHIP_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="200404271552370000000000"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="200404271552370000000000" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_SHIP_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="200404271552370000000001"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="200404271552370000000001" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LBS" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -2025,15 +2025,15 @@
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_VOID_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="200404271552370000000032"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="200404271552370000000032" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_VOID_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="200404271552370000000033"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="200404271552370000000033" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="UPSN" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -2126,14 +2126,14 @@
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="16"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
-    Code=" " Createprogid="XMLMigrator"
+    Code="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="UPSPLD/PackageLevelDetail@CODFundsInd"
     GeneralCodesKey="200404271552370000000047" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="31"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
-    Code=" " Createprogid="XMLMigrator"
+    Code="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="Manifest@DocFormat"
     GeneralCodesKey="200404271552370000000048" Lockid="0"
@@ -2142,15 +2142,15 @@
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_SHIP_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000A000"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000A000" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_SHIP_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000A001"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000A001" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LBS" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -2301,15 +2301,15 @@
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_VOID_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000A032"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000A032" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_VOID_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000A033"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000A033" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="UPSA" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -2388,14 +2388,14 @@
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="16"/>
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
-    Code=" " Createprogid="XMLMigrator"
+    Code="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="UPSPLD/PackageLevelDetail@CODFundsInd"
     GeneralCodesKey="20040427155237000000A047" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="31"/>
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
-    Code=" " Createprogid="XMLMigrator"
+    Code="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="Manifest@DocFormat"
     GeneralCodesKey="20040427155237000000A048" Lockid="0"
@@ -2404,15 +2404,15 @@
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_SHIP_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000C000"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000C000" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_SHIP_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000C001"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000C001" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LBS" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -2577,15 +2577,15 @@
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_VOID_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000C032"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000C032" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_VOID_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000C033"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000C033" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="UPSC" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -2664,14 +2664,14 @@
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="16"/>
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
-    Code=" " Createprogid="XMLMigrator"
+    Code="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="UPSPLD/PackageLevelDetail@CODFundsInd"
     GeneralCodesKey="20040427155237000000C047" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="31"/>
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
-    Code=" " Createprogid="XMLMigrator"
+    Code="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="Manifest@DocFormat"
     GeneralCodesKey="20040427155237000000C048" Lockid="0"
@@ -2680,15 +2680,15 @@
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_SHIP_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000E000"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000E000" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_SHIP_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000E001"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000E001" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LBS" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -2846,15 +2846,15 @@
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_VOID_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000E032"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000E032" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_VOID_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000E033"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000E033" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="UPSE" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -2933,14 +2933,14 @@
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="16"/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
-    Code=" " Createprogid="XMLMigrator"
+    Code="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="UPSPLD/PackageLevelDetail@CODFundsInd"
     GeneralCodesKey="20040427155237000000E047" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="31"/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
-    Code=" " Createprogid="XMLMigrator"
+    Code="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="Manifest@DocFormat"
     GeneralCodesKey="20040427155237000000E048" Lockid="0"
@@ -2949,15 +2949,15 @@
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_SHIP_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000L000"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000L000" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_SHIP_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000L001"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000L001" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="LBS" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -3108,15 +3108,15 @@
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_VOID_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000L032"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000L032" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_VOID_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20040427155237000000L033"
-    Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value="N"/>
+    Description="" GeneralCodesKey="20040427155237000000L033" Lockid="0"
+    Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
+    Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="UPSL" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -3195,14 +3195,14 @@
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="16"/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
-    Code=" " Createprogid="XMLMigrator"
+    Code="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="UPSPLD/PackageLevelDetail@CODFundsInd"
     GeneralCodesKey="20040427155237000000L047" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="31"/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
-    Code=" " Createprogid="XMLMigrator"
+    Code="" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="Manifest@DocFormat"
     GeneralCodesKey="20040427155237000000L048" Lockid="0"
@@ -3383,61 +3383,61 @@
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_RATE_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245154" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245154" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_RATE_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245155" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245155" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_RATE_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245156" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245156" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_RATE_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245157" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245157" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_RATE_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245158" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245158" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_RATE_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245159" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245159" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_RATE_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245160" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245160" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_RATE_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245161" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245161" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_RATE_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245162" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245162" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_RATE_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245163" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245163" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
@@ -3499,61 +3499,61 @@
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_LABEL_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245172" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245172" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_LABEL_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245173" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245173" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_LABEL_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245174" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245174" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSA" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_LABEL_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245175" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245175" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_LABEL_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245176" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245176" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_LABEL_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245177" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245177" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_LABEL_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245178" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245178" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSC" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_LABEL_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245179" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245179" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_LABEL_REQ_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245180" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245180" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="ConnectShipAdaptor"
     Code="CS_LABEL_RESP_XML_DUMP" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
-    Description=" " GeneralCodesKey="20060918615591245181" Lockid="0"
+    Description="" GeneralCodesKey="20060918615591245181" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:37-04:00"
     Modifyuserid="SYSTEM" Value="N"/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="ConnectShipAdaptor"
@@ -3973,19 +3973,19 @@
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="ReprintPackage@UPSServiceType" GeneralCodesKey="203"
     Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="13" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="ReprintPackage@UPSServiceType" GeneralCodesKey="204"
     Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="01" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="ReprintPackage@UPSServiceType" GeneralCodesKey="205"
     Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="71" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -4309,7 +4309,7 @@
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="UPSPLD/ReturnShippingLabels/ReturnShippingLabel@UPSServiceType"
     GeneralCodesKey="259" Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSN" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="01" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -4321,13 +4321,13 @@
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="UPSPLD/ReturnShippingLabels/ReturnShippingLabel@UPSServiceType"
     GeneralCodesKey="260" Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="01" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="UPSPLD/ReturnShippingLabels/ReturnShippingLabel@UPSServiceType"
     GeneralCodesKey="261" Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="71" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
@@ -5674,19 +5674,19 @@
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="UPSPLD/PackageLevelDetail@UPSServiceType"
     GeneralCodesKey="51" Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSE" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="13" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="UPSPLD/PackageLevelDetail@UPSServiceType"
     GeneralCodesKey="52" Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="01" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"
     Description="UPSPLD/PackageLevelDetail@UPSServiceType"
     GeneralCodesKey="53" Lockid="0" Modifyprogid="XMLMigrator"
-    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=" "/>
+    Modifyts="2018-03-28T12:30:37-04:00" Modifyuserid="SYSTEM" Value=""/>
 <GeneralCodes Carrier="UPSL" CarrierAdapterImplKey="PierbridgeAdaptor"
     Code="71" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:37-04:00" Createuserid="SYSTEM"

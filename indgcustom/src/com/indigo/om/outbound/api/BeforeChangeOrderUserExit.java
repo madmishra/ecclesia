@@ -79,20 +79,22 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 */
 	private void invokeGetShipmentList(YFCDocument inXml)
 	{
-		YFCDocument inputXmlForGetShipmentListdoc=invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(inXml));
-		System.out.println("wqedrfghj"+inputXmlForGetShipmentListdoc);
+		YFCDocument docGetShipmentList=invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(inXml));
+		System.out.println("wqedrfghj"+docGetShipmentList);
+		if(docGetShipmentList.getDocumentElement().hasChildNodes()) {
 		YFCElement eleOrderLines=inXml.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 		YFCIterable<YFCElement> yfsItrator=eleOrderLines.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			String sPrimeLineNo=orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
-			isBackroomPickComplete(inputXmlForGetShipmentListdoc,sPrimeLineNo);
+			isBackroomPickComplete(docGetShipmentList,sPrimeLineNo);
+		}
 		}
 		
 	}
 	
 	/**
 	 *this method checks if isBackroomPickComplete is set to 'Y' then it throws an exception stating order cannot
-	 *be cancelled in this status else it invokes another mathod which invokes changeShipment api
+	 *be cancelled in this status else it invokes another method which invokes changeShipment api
 	 * @param docGetShipmentList
 	 * @param inXml
 	 */

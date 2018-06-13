@@ -175,14 +175,13 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
      */
     
     private void addOrderInfomrationForSAP(YFCDocument docInXml, YFCDocument docInputChangeOrderAPI,YFCElement eleOrderLine) {
-        String sModifyts = eleOrderLine.getChildElement(XMLLiterals.ORDER).
-                getAttribute(XMLLiterals.MODIFYTS);
         String sOrderType=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
         		.getAttribute(XMLLiterals.ORDER_TYPE);
-        String sapOrderNo = docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.SAP_ORDER_NO);
-        docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, sModifyts);
+        String sapOrderNo = docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
+            .getAttribute(XMLLiterals.SAP_ORDER_NO);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, sOrderType);
-        docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, sapOrderNo);
+        docInputChangeOrderAPI.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES)
+        .getChildElement(XMLLiterals.ORDER_LINE).setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, sapOrderNo);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, CANCELLATION_TYPE);
     }
     

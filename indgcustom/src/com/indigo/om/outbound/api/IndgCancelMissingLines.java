@@ -132,9 +132,9 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
                 eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
                 eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, REASON_CODE);
-                addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLine);
                 deleteChildNodes(eleOrderLine);
                 orderLines.importNode(eleOrderLine);
+				addOrderInfomrationForSAP(docInXml,cancelLineDoc,eleOrderLine);
             }
         }
         if(orderLines.hasChildNodes()) {

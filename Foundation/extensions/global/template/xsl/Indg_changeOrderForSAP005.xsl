@@ -31,7 +31,7 @@
 						</xsl:attribute>	
 						<Item>
 							<xsl:attribute name="ItemID">
-								<xsl:value-of select="@ItemID"/>
+								<xsl:value-of select="Item/@ItemID"/>
 							</xsl:attribute>						
 							<xsl:attribute name="CostCurrency">
 								<xsl:value-of select="@CostCurrency"/>

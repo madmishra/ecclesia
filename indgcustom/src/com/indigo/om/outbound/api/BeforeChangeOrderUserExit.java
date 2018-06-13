@@ -1,7 +1,10 @@
 package com.indigo.om.outbound.api;
-
-
-
+/**
+ * 
+ * 
+ * @author BSG170
+ *
+ */
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
@@ -30,9 +33,9 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		YFCIterable<YFCElement> yfsItrator = eleInXml.getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&& (orderLine.getAttribute(XMLLiterals.ACTION).
-					equals(CANCEL)) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.CONDITION_VARIABLE_2)))
+					equals(CANCEL)) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1)))
 		
-				orderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, MANUAL);
+				orderLine.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);
 		}
 		invokeGetShipmentList(inXml);
 		}
@@ -65,6 +68,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	    shipmentLineEle.setAttribute(XMLLiterals.BACKROOM_PICK_QUANTITY, EMPTY_STRING);
 	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 	    shipmentLineEle.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
+	    shipmentLineEle.setAttribute(XMLLiterals.SHIPMENT_LINE_NO, EMPTY_STRING);
 	    YFCElement orderLineEle = shipmentLineEle.createChild(XMLLiterals.ORDER_LINE);
 	    orderLineEle.setAttribute(XMLLiterals.DELIVERY_METHOD, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.DEPARTMENT_CODE, EMPTY_STRING);
@@ -76,25 +80,26 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 */
 	private void invokeGetShipmentList(YFCDocument inXml)
 	{
-		YFCDocument inputXmlForGetShipmentListdoc=invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(inXml));
+		YFCDocument docGetShipmentList=invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(inXml),templateForGetShipmentList());
+		if(docGetShipmentList.getDocumentElement().hasChildNodes()) {
 		YFCElement eleOrderLines=inXml.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 		YFCIterable<YFCElement> yfsItrator=eleOrderLines.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			String sPrimeLineNo=orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
-			isBackroomPickComplete(inputXmlForGetShipmentListdoc,sPrimeLineNo);
+			isBackroomPickComplete(docGetShipmentList,sPrimeLineNo);
+		}
 		}
 		
 	}
 	
 	/**
-	 *this method checks if isBackroomPickComplete is set to 'Y' then it throws an exception stating order cannot
-	 *be cancelled in this status else it invokes another mathod which invokes changeShipment api
+	 *this method checks if isBackroomPickComplete attribute is set to 'Y' then it throws an exception stating order cannot
+	 *be cancelled in this status else it invokes changeShipment method which invokes changeShipment api
 	 * @param docGetShipmentList
 	 * @param inXml
 	 */
 	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sPrimeLineNo)
 	{
-		
 		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT)
 				.getChildElement(XMLLiterals.SHIPMENT_LINES);
 		YFCIterable<YFCElement> yfsItrator = eleShipment.getChildren(XMLLiterals.SHIPMENT_LINE);
@@ -129,11 +134,13 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docShipment);
 	}
 	private void throwException() {
+		
 		YFCDocument errorDoc = YFCDocument.createDocument("Errors");
         YFCElement eleErrors = errorDoc.getDocumentElement();
         YFCElement eleError = eleErrors.createChild("Error");
         eleError.setAttribute("ErrorCode", "ERRORCODE_ORDER_CANCEL_EXCEP");
         eleError.setAttribute("ErrorDescription", "Order cannot be cancelled in this status");
-       throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_ORDER_CANCEL_EXCEP, errorDoc.toString()); 
+        
+        throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_ORDER_CANCEL_EXCEP, errorDoc.toString()); 
 	}
 }

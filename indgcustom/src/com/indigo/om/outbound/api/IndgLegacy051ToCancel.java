@@ -26,7 +26,7 @@ import com.yantra.yfc.dom.YFCNode;
 public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 Map<String,List<YFCElement>> orderLineMapGroupByReasonCode = new HashMap<>();
 	 private static final String SUBLINE_VALUE = "1";
-	 private static final String ACTION_VALUE = "CANCEL";
+	 private static final String ACTION_VALUE = "MODIFY";
 	 private static final String EMPTY_STRING = "";
 	 private static final String YES = "Y";
 	 private String orderNo = "";
@@ -35,6 +35,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 YFCDocument docLegacy051Input = null;
 	 YFCDocument docInputXml = null;
 	 private static final String CANCELLATION_TYPE = "LEGACY051";
+	 private static final String REASON_CODE = "03";
 	 
 	 /**
 	  * This method is the invoke point of the service.
@@ -247,6 +248,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			orderLineEle.setAttribute(XMLLiterals.SUB_LINE_NO, SUBLINE_VALUE);
 			orderLineEle.setAttribute(XMLLiterals.ACTION, ACTION_VALUE);
 			orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
+			orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, REASON_CODE);
 			orderLineEle.setAttribute(XMLLiterals.ORDERED_QTY, orderedQty);
 		}
 		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    

@@ -39,11 +39,13 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		  if(eleOrderMessage.getAttribute(XMLLiterals.MESSAGE_TYPE_ID).contains(SAP))
 		  {	
 			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID,XMLLiterals.SAP_OUTBOUND);
+			  System.out.println("SAP OUTBOUND"+inXml);
 			  return docGetINDGMsgSeqNoList(inXml);
 		  }
 		  else
 		  {
 			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID,XMLLiterals.LEGACY_OUTBOUND);
+			  System.out.println("LEGACY OUTBOUND"+inXml);
 			  return  docGetINDGMsgSeqNoList(inXml);  
 		  }
 		 
@@ -89,7 +91,8 @@ public class IndgSequencingNo extends AbstractCustomApi{
 				eleIndgMsgSeqNo.setAttribute(XMLLiterals.SAP_ORDER_NO,EMPTY_STRING);
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO,(Integer.parseInt(elegetMsgSeqList.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO)))+ONE);
 			}
-			return invokeYantraService(INDG_CHANGE_INDG_MSG_SEQ_NO, docChangeGetMsgSeq);
+			YFCDocument changeDoc=invokeYantraService(INDG_CHANGE_INDG_MSG_SEQ_NO, docChangeGetMsgSeq);
+			return changeDoc;
 			}
 			
 	
@@ -119,6 +122,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		 * @return
 		 */
 		private YFCDocument invokeCreateINDGMsgSeqNo(YFCDocument docOrderMessage) {
+			System.out.println("invokeCreateINDGMsgSeqNo"+docOrderMessage);
 			YFCDocument docINDGMsgSeqNoList=formMessageForAPI(docOrderMessage);
 			YFCElement eleINDGMsgSeqNoList=docINDGMsgSeqNoList.getDocumentElement();
 			System.out.println("eleINDGMsgSeqNoList"+eleINDGMsgSeqNoList);
@@ -131,8 +135,8 @@ public class IndgSequencingNo extends AbstractCustomApi{
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, ONE);
 			eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,EMPTY_STRING);
 			}
-			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
-			
+			YFCDocument createdDoc=invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
+			return createdDoc;
 		}
 		/**
 		 * this method forms document for createINDGMsgSeqNo and getINDGMsgseqNoList API
@@ -158,6 +162,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleOrder.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE,eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
+			System.out.println("formMessageForAPI"+docINDGMsgSeqNoList);
 			return docINDGMsgSeqNoList;
 		}
 }

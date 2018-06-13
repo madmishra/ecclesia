@@ -179,7 +179,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
                 getAttribute(XMLLiterals.MODIFYTS);
         String sOrderType=docInXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
         		.getAttribute(XMLLiterals.ORDER_TYPE);
-        String sapOrderNo = eleOrderLine.getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
+        String sapOrderNo = eleOrderLine.getChildElement(XMLLiterals.EXTN).getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, sModifyts);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, sOrderType);
         docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, sapOrderNo);

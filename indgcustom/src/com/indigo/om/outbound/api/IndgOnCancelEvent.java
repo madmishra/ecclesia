@@ -37,6 +37,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 private String documentType = "";
 	 private String enterpriseCode = "";
 	 private String orderType = "";
+	  private String customerLinePoNo="";
 	 YFCDocument docLegacy051Input = null;
 	 
 	 /**
@@ -138,6 +139,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	    	YFCElement orderLineEle = XPathUtil.getXPathElement(getOrderLineListDoc, "/OrderLineList/OrderLine[@PrimeLineNo = \""+
 	    	primeLineNo+"\"]");
 	    	String legacyOMSOrderNo = orderLineEle.getAttribute(XMLLiterals.CUSTOMER_PO_NO);
+			customerLinePoNo = orderLineEle.getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
 	    	String cancellationReqId = orderLineEle.getAttribute(XMLLiterals.CONDITION_VARIABLE_1);
 	    	String modifyTs = orderLineEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
 	    	orderLine.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOMSOrderNo);
@@ -167,8 +169,8 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 			orderLine.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, originalQty);
 		orderLine.setAttribute(XMLLiterals.CANCELLATION_REASON_CODE, orderLineEle.getAttribute(XMLLiterals.CONDITION_VARIABLE_2));
 	    }
-	    String sapOrderNo = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-	    		getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
+	    String sapOrderNo = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
+		 customerLinePoNo = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
 	    String modifyTs = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 	    		getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
 	    sendShipNodeDocToService(groupByShipNodeDoc, getOrderLineListDoc);
@@ -268,6 +270,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void callSAP051opQueue(YFCDocument doc) {
+		 if(!XmlUtils.isVoid(customerLinePoNo))
 	     invokeYantraService(getProperty(CALL_SAP051_SERVICE), doc);
 	}
 	
@@ -277,6 +280,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void callLegacyOMS051opQueue(YFCDocument doc) {
+		 if(!XmlUtils.isVoid(customerLinePoNo))
 	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
 	}
 	

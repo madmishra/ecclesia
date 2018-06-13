@@ -138,12 +138,14 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	    	String primeLineNo = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
 	    	YFCElement orderLineEle = XPathUtil.getXPathElement(getOrderLineListDoc, "/OrderLineList/OrderLine[@PrimeLineNo = \""+
 	    	primeLineNo+"\"]");
-	    	String legacyOMSOrderNo = orderLineEle.getAttribute(XMLLiterals.CUSTOMER_PO_NO);
-	    	String cancellationReqId = orderLineEle.getAttribute(XMLLiterals.CONDITION_VARIABLE_1);
-	    	String modifyTs = orderLineEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
-	    	orderLine.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOMSOrderNo);
-	    	orderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
-	    	orderLine.setAttribute(XMLLiterals.MODIFYTS, modifyTs);
+	    	if(!XmlUtils.isVoid(orderLineEle)) {
+	    		String legacyOMSOrderNo = orderLineEle.getAttribute(XMLLiterals.CUSTOMER_PO_NO);
+	    		String cancellationReqId = orderLineEle.getAttribute(XMLLiterals.CONDITION_VARIABLE_1);
+	    		String modifyTs = orderLineEle.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
+	    		orderLine.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOMSOrderNo);
+	    		orderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
+	    		orderLine.setAttribute(XMLLiterals.MODIFYTS, modifyTs);
+	    	}
 	    }
 	}
 	

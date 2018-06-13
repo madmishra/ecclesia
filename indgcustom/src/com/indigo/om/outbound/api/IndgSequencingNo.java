@@ -3,8 +3,6 @@ package com.indigo.om.outbound.api;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
-import com.yantra.integration.adapter.SynchronousTransaction;
-import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 /**
@@ -158,7 +156,6 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleOrder.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE,eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
-			System.out.println("MESSAGE FORMAT"+docINDGMsgSeqNoList);
 			return docINDGMsgSeqNoList;
 		}
 }

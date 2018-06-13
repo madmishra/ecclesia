@@ -108,7 +108,6 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void docSAP051GetAttributes(YFCDocument inXml) {
-		YFCDocument getOrderLineListDoc = null;
 		for (Entry<String, List<YFCElement>> entry : orderLineMapGroupByShipNode.entrySet()) {
 			YFCDocument groupByShipNodeDoc = YFCDocument.createDocument(XMLLiterals.ORDER);
 			YFCElement orderLinesEle = groupByShipNodeDoc.getDocumentElement().createChild(XMLLiterals.ORDER_LINES);
@@ -116,7 +115,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 		    for(YFCElement lineEle : orderLineList) {
 		      orderLinesEle.importNode(lineEle);
 		    }
-		    getOrderLineListDoc = getOrderLineListFunc(groupByShipNodeDoc);
+		    YFCDocument getOrderLineListDoc = getOrderLineListFunc(groupByShipNodeDoc);
 		    docSAP051Input(groupByShipNodeDoc, getOrderLineListDoc);
 		    docAddLegacyOMSOdrNo(getOrderLineListDoc);
 		}

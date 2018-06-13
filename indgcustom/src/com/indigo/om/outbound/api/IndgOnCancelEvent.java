@@ -120,7 +120,6 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 		    docAddLegacyOMSOdrNo(getOrderLineListDoc);
 		}
 		docSetIsProcessedAttr(inXml);
-		callLegacyOMS051opQueue(docLegacy051Input);
 	}
 	
 	/**
@@ -230,12 +229,14 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 		String sapOrderNo = groupByShipNodeDoc.getDocumentElement().getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
 		if(!XmlUtils.isVoid(sapOrderNo)) {
 			callSAP051opQueue(groupByShipNodeDoc);
+		
 			YFCElement orderLinesEle = groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 			YFCIterable<YFCElement> inputOrderLineEle = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
 			for(YFCElement orderLineEle : inputOrderLineEle) {
 				YFCElement orderLines = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 				orderLines.importNode(orderLineEle);
 			}
+			callLegacyOMS051opQueue(docLegacy051Input);
 		}
 	}
 	

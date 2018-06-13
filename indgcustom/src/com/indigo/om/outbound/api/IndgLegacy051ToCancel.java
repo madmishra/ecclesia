@@ -26,7 +26,7 @@ import com.yantra.yfc.dom.YFCNode;
 public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 Map<String,List<YFCElement>> orderLineMapGroupByReasonCode = new HashMap<>();
 	 private static final String SUBLINE_VALUE = "1";
-	 private static final String ACTION_VALUE = "CANCEL";
+	 private static final String ACTION_VALUE = "MODIFY";
 	 private static final String EMPTY_STRING = "";
 	 private static final String YES = "Y";
 	 private String orderNo = "";

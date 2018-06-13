@@ -1,7 +1,10 @@
 package com.indigo.om.outbound.api;
-
-
-
+/**
+ * 
+ * 
+ * @author BSG170
+ *
+ */
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;

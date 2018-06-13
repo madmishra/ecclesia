@@ -121,7 +121,9 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		private YFCDocument invokeCreateINDGMsgSeqNo(YFCDocument docOrderMessage) {
 			YFCDocument docINDGMsgSeqNoList=formMessageForAPI(docOrderMessage);
 			YFCElement eleINDGMsgSeqNoList=docINDGMsgSeqNoList.getDocumentElement();
-			if(eleINDGMsgSeqNoList.getAttribute(XMLLiterals.MESSAGE_TYPE_ID).contains(SAP)) {
+			System.out.println("eleINDGMsgSeqNoList"+eleINDGMsgSeqNoList);
+			if(!(XmlUtils.isVoid(eleINDGMsgSeqNoList.getAttribute(XMLLiterals.SAP_ORDER_NO)) &&
+					(eleINDGMsgSeqNoList.getAttribute(XMLLiterals.MESSAGE_TYPE_ID).contains(SAP)))){
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, ONE);
 			eleINDGMsgSeqNoList.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, EMPTY_STRING);
 			}

@@ -118,9 +118,9 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 		    }
 		    getOrderLineListDoc = getOrderLineListFunc(groupByShipNodeDoc);
 		    docSAP051Input(groupByShipNodeDoc, getOrderLineListDoc);
+		    docAddLegacyOMSOdrNo(getOrderLineListDoc);
 		}
 		docSetIsProcessedAttr(inXml);
-		docAddLegacyOMSOdrNo(getOrderLineListDoc);
 		callLegacyOMS051opQueue(docLegacy051Input);
 	}
 	

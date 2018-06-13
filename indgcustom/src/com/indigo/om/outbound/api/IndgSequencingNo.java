@@ -144,6 +144,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		 * @return
 		 */
 		private YFCDocument formMessageForAPI(YFCDocument docOrderMessage) {
+			System.out.println("---------------------");
 			YFCElement eleOrderMessage=docOrderMessage.getDocumentElement();
 			YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 			YFCDocument docINDGMsgSeqNoList=YFCDocument.createDocument(XMLLiterals.INDG_MSG_SEQ_NO);

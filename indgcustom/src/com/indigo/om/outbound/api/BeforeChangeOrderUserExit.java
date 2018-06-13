@@ -93,8 +93,8 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	}
 	
 	/**
-	 *this method checks if isBackroomPickComplete is set to 'Y' then it throws an exception stating order cannot
-	 *be cancelled in this status else it invokes another method which invokes changeShipment api
+	 *this method checks if isBackroomPickComplete attribute is set to 'Y' then it throws an exception stating order cannot
+	 *be cancelled in this status else it invokes changeShipment method which invokes changeShipment api
 	 * @param docGetShipmentList
 	 * @param inXml
 	 */

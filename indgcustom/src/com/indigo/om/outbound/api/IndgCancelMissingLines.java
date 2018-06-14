@@ -91,6 +91,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         YFCElement eleOrder = eleOrderLine.createChild(XMLLiterals.ORDER);
         eleOrder.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
         eleOrder.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
+		eleOrder.setAttribute(XMLLiterals.ORDER_TYPE, EMPTY_STRING);
         eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
         eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
         YFCElement eleOrderStatus = eleOrderLine.createChild(XMLLiterals.ORDER_STATUSES);

@@ -146,24 +146,23 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		for(YFCElement orderLineEle : yfsItratorShipNode) {
 			String shipNode = orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
 			String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
-			System.out.println(shipNode + "xshgd");
-			System.out.println(shipmentListApiOp + "dochdsg");
 			YFCElement shipmentEle = XPathUtil.getXPathElement(shipmentListApiOp, "/Shipments/Shipment[@ShipNode=\""+shipNode+"\"]");
-			System.out.println(shipmentEle.toString() + "xdshgfg");
-			orderLineEle.setAttribute(XMLLiterals.MODIFYTS, shipmentEle.getAttribute(XMLLiterals.MODIFYTS));
-			String legacyOmsNo = shipmentEle.getAttribute(XMLLiterals.CUSTOMER_PO_NO);
-			orderLineEle.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsNo);
-			orderLineEle.setAttribute(XMLLiterals.IS_PROCESSED, NO);
-			YFCIterable<YFCElement> yfsItratorPrimeLine = shipmentEle.getChildElement(XMLLiterals.SHIPMENT_LINES)
+			if(!XmlUtils.isVoid(shipmentEle)) {
+				orderLineEle.setAttribute(XMLLiterals.MODIFYTS, shipmentEle.getAttribute(XMLLiterals.MODIFYTS));
+				String legacyOmsNo = shipmentEle.getAttribute(XMLLiterals.CUSTOMER_PO_NO);
+				orderLineEle.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsNo);
+				orderLineEle.setAttribute(XMLLiterals.IS_PROCESSED, NO);
+				YFCIterable<YFCElement> yfsItratorPrimeLine = shipmentEle.getChildElement(XMLLiterals.SHIPMENT_LINES)
 					.getChildren(XMLLiterals.SHIPMENT_LINE);
-			for(YFCElement shipmentLineEle : yfsItratorPrimeLine) {
-				if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO)) && 
+				for(YFCElement shipmentLineEle : yfsItratorPrimeLine) {
+					if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO)) && 
 						(!XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
-					String isPickComplete = shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE);
-					if(isPickComplete.equals(YES)) {
-						orderLines.importNode(orderLineEle);
-					}
-				}				
+						String isPickComplete = shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE);
+						if(isPickComplete.equals(YES)) {
+							orderLines.importNode(orderLineEle);
+						}
+					}				
+				}
 			}
 		}
 		docSetAttributesToLeg051(docLegacy051);

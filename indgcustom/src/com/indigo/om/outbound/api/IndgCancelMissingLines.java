@@ -149,7 +149,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         }
         if(msgOrderLines.hasChildNodes()) {
 			System.out.println(cancelLineMsgDoc);
-          invokeYantraApi("Indg_OnCancelEvent", cancelLineMsgDoc);
+          invokeYantraService("Indg_OnCancelEvent", cancelLineMsgDoc);
         }
         cancelLineDoc.getDocumentElement().setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED,FLAG_NO);
         return cancelLineDoc;

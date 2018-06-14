@@ -127,6 +127,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
         YFCElement orderLines = cancelLineDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
         YFCElement msgOrderLines = cancelLineMsgDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
         for(YFCElement eleOrderLine : apiPrimeLineNo) {
+			System.out.println(eleOrderLine);
         	String sPrimeLineNo= eleOrderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
             YFCElement orderLineEle = XPathUtil.getXPathElement(docInXml,"//OrderLines/OrderLine[@PrimeLineNo=\""+sPrimeLineNo+"\"]");
             if(XmlUtils.isVoid(orderLineEle) && !CANCEL_ORDER_STATUS.equals(eleOrderLine.getAttribute(XMLLiterals.STATUS))) {

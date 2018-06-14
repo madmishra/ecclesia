@@ -21,7 +21,7 @@ import com.yantra.yfc.dom.YFCNode;
 public class IndgCancelMissingLines extends AbstractCustomApi{
   
     private static final String EMPTY_STRING = "";
-    private static final String CANCEL_ORDER_STATUS = "9000";
+    private static final String CANCEL_ORDER_STATUS = "Cancelled";
     private static final String CANCEL_STATUS = "CANCEL";
     private static final String ZERO_QTY = "0";
     private static final String IS_SAP_MSG_REQ = "SAP051MsgReq";

@@ -36,7 +36,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 					equals(CANCEL)) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1)))
 		
 				orderLine.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);
-			invokeGetShipmentList(inXml);
+				invokeGetShipmentList(inXml);
 		}
 		
 		}
@@ -105,6 +105,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 				.getChildElement(XMLLiterals.SHIPMENT_LINES);
 		YFCIterable<YFCElement> yfsItrator = eleShipment.getChildren(XMLLiterals.SHIPMENT_LINE);
 		for(YFCElement shipmentLine: yfsItrator) {
+			System.out.println(shipmentLine);
 			if(shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO).equals(sPrimeLineNo)) 
 			if(!XmlUtils.isVoid(shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)) && shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES))
 			{

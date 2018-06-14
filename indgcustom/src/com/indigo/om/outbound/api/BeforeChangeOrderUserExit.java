@@ -36,8 +36,9 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 					equals(CANCEL)) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1)))
 		
 				orderLine.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);
+			invokeGetShipmentList(inXml);
 		}
-		invokeGetShipmentList(inXml);
+		
 		}
 		
 		return inXml;

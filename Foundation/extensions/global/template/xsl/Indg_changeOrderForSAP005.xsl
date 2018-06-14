@@ -29,10 +29,7 @@
 						<xsl:attribute name="ShipNode">
 							<xsl:value-of select="@ShipNode"/>
 						</xsl:attribute>	
-						<Item>
-							<xsl:attribute name="ItemID">
-								<xsl:value-of select="Item/@ItemID"/>
-							</xsl:attribute>						
+						<Item>						
 							<xsl:attribute name="CostCurrency">
 								<xsl:value-of select="@CostCurrency"/>
 							</xsl:attribute>

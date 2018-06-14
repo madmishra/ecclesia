@@ -146,7 +146,10 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		for(YFCElement orderLineEle : yfsItratorShipNode) {
 			String shipNode = orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
 			String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
+			System.out.println(shipNode + "xshgd");
+			System.out.println(shipmentListApiOp + "dochdsg");
 			YFCElement shipmentEle = XPathUtil.getXPathElement(shipmentListApiOp, "/Shipments/Shipment[@ShipNode=\""+shipNode+"\"]");
+			System.out.println(shipmentEle.toString() + "xdshgfg");
 			orderLineEle.setAttribute(XMLLiterals.MODIFYTS, shipmentEle.getAttribute(XMLLiterals.MODIFYTS));
 			String legacyOmsNo = shipmentEle.getAttribute(XMLLiterals.CUSTOMER_PO_NO);
 			orderLineEle.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsNo);

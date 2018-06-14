@@ -260,5 +260,8 @@ public static final String SHIPMENT_LINE_NO = "ShipmentLineNo";
 public static final String CHANGE_SHIPMENT="changeShipment";
 public static final String ONHAND_AVAILABLE_DATE = "OnhandAvailableDate";
 public static final String MODIFICATION_REFRENCE_1 = "ModificationReference1";
+public static final String STERLING_LEGACY_MESSAGE_SEQUENCE_NO = "SterlingToLegacyOMSMessageSequenceNumber";
+public static final String LEGACY_OMS_PARENT_ORDER_NO = "LegacyOMSParentOrderNo"; 
+public static final String LEGACY_OMS_CANCELLATION_REQ_ID = "LegacyOMSCancellationRequestId";
 }
 

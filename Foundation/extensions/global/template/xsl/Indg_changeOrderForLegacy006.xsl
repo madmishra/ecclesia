@@ -17,6 +17,7 @@
 			<OrderLines>
 				<xsl:for-each select="MessageBody/Order/OrderLines/OrderLine">
 					<OrderLine>
+						<xsl:attribute name="Action">MODIFY</xsl:attribute>
 						<xsl:attribute name="Quantity">
 							<xsl:value-of select="@CurrentQty"/>
 						</xsl:attribute>

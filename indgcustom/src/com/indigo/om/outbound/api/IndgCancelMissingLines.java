@@ -147,6 +147,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
           cancelLineDoc.getDocumentElement().setAttribute(IS_SAP_MSG_REQ,FLAG_NO);
         }
         if(msgOrderLines.hasChildNodes()) {
+			System.out.println(cancelLineMsgDoc);
           invokeYantraApi("Indg_OnCancelEvent", cancelLineMsgDoc);
         }
         cancelLineDoc.getDocumentElement().setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED,FLAG_NO);

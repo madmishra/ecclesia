@@ -147,30 +147,10 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
           cancelLineDoc.getDocumentElement().setAttribute(IS_SAP_MSG_REQ,FLAG_NO);
         }
         if(msgOrderLines.hasChildNodes()) {
-          invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, cancelLineMsgDoc);
+          invokeYantraApi("Indg_OnCancelEvent", cancelLineMsgDoc);
         }
         cancelLineDoc.getDocumentElement().setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED,FLAG_NO);
         return cancelLineDoc;
-    }
-    
-    /**
-     * this method forms input for changeOrder API
-     * 
-     * @param docGetOrderLineList
-     * @return
-     */
-    
-    private YFCDocument changeOrderInput(YFCDocument docGetOrderLineList) {
-        YFCElement orderEle = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-                getChildElement(XMLLiterals.ORDER);
-        YFCDocument docInputChangeOrderAPI = YFCDocument.createDocument(XMLLiterals.ORDER);
-        docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ORDER_NO, orderEle.getAttribute(XMLLiterals.ORDER_NO));
-        docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, 
-                orderEle.getAttribute(XMLLiterals.ENTERPRISE_CODE));
-        docInputChangeOrderAPI.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, 
-                orderEle.getAttribute(XMLLiterals.DOCUMENT_TYPE));
-        docInputChangeOrderAPI.getDocumentElement().createChild(XMLLiterals.ORDER_LINES);
-        return docInputChangeOrderAPI;
     }
     
     /**

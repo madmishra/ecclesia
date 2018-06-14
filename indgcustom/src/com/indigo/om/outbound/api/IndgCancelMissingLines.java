@@ -28,7 +28,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     private static final String FLAG_NO = "N";
     private String cancellationReqId = "";
     private static final String CANCELLATION_TYPE = "SAP051";
-    private static final String REASON_CODE = "06";
+    private static final String REASON_CODE = "03";
 
      /**
        * This is the invoke point of the Service

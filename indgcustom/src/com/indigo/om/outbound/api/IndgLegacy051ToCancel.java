@@ -149,6 +149,15 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		docSetAttributesToLeg051(docLegacy051);
 	}
 	
+	/**
+	 * This code checks for the BackroomPickAttribute and if the value
+	 * is Y, it picks the element and appends it to another doc.
+	 * 
+	 * @param orderLines
+	 * @param orderLineEle
+	 * @param shipmentListApiOp
+	 */
+	
 	private void docSetAttributes(YFCElement orderLines, YFCElement orderLineEle, YFCDocument shipmentListApiOp) {
 		String shipNode = orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
 		String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
@@ -172,6 +181,12 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		}
 	}
 	
+	/**
+	 * this code sets the header attributes to the doc
+	 * 
+	 * @param docLegacy051
+	 */
+	
 	private void docSetAttributesToLeg051(YFCDocument docLegacy051) {
 		docLegacy051.getDocumentElement().setAttribute(XMLLiterals.ORDER_NO, orderNo);
 		docLegacy051.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
@@ -189,7 +204,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 				orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, requestId);
 	    	}
 		}	
-		callLegacyOMS051opQueue(docLegacy051);
+		callLegacyOMS052opQueue(docLegacy051);
 	}
 	
 	/**
@@ -290,7 +305,12 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    
 	}
 	
-	private void callLegacyOMS051opQueue(YFCDocument doc) {
+	/**
+	 * This code sends the doc to Legacy052 queue
+	 * @param doc
+	 */
+	
+	private void callLegacyOMS052opQueue(YFCDocument doc) {
 	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
 	}
 }

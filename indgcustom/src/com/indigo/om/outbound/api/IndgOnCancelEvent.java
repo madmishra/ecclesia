@@ -121,7 +121,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 		    docAddLegacyOMSOdrNo(getOrderLineListDoc);
 		}
 		docSetIsProcessedAttr(inXml);
-		callLegacyOMS051opQueue(docLegacy051Input);
+		callLegacyOMS052opQueue(docLegacy051Input);
 	}
 	
 	/**
@@ -275,11 +275,11 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	}
 	
 	/**
-	 * This method calls the service where LegacyOMS051 message will be dropped
+	 * This method calls the service where LegacyOMS052 message will be dropped
 	 * @param doc
 	 */
 	
-	private void callLegacyOMS051opQueue(YFCDocument doc) {
+	private void callLegacyOMS052opQueue(YFCDocument doc) {
 		 if(!XmlUtils.isVoid(customerLinePoNo))
 	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
 	}

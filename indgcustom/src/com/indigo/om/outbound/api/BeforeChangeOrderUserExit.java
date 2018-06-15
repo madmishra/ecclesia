@@ -19,7 +19,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private static final String EMPTY_STRING = "";
 	private static final String YES="Y";
 	private static final String MANUAL="MANUAL";
-	private static final String CANCEL="CANCEL";
+	private static final String CANCEL="Cancel";
 	 /**
 	  * this method is the invoke point of the service.
 	  * 
@@ -33,10 +33,11 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		YFCIterable<YFCElement> yfsItrator = eleInXml.getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&& (orderLine.getAttribute(XMLLiterals.ACTION).
-					equals(CANCEL)) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1)))
+					equals(CANCEL)) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1))) {
 		
 				orderLine.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);
-				invokeGetShipmentList(inXml);
+			}
+			invokeGetShipmentList(inXml);
 		}
 		
 		}
@@ -105,8 +106,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 				.getChildElement(XMLLiterals.SHIPMENT_LINES);
 		YFCIterable<YFCElement> yfsItrator = eleShipment.getChildren(XMLLiterals.SHIPMENT_LINE);
 		for(YFCElement shipmentLine: yfsItrator) {
-			System.out.println(shipmentLine);
-			if(shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO).equals(sPrimeLineNo)) 
+			if(shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO).equals(sPrimeLineNo)) {
 			if(!XmlUtils.isVoid(shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)) && shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES))
 			{
 				throwException();
@@ -115,6 +115,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 			else
 				changeShipment(docGetShipmentList,shipmentLine);  
 			}
+		}
 		
 	}
 	/**

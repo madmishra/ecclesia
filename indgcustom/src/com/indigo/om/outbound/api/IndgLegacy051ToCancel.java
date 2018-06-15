@@ -144,28 +144,32 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
 		YFCIterable<YFCElement> yfsItratorShipNode = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLineEle : yfsItratorShipNode) {
-			String shipNode = orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
-			String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
-			YFCElement shipmentEle = XPathUtil.getXPathElement(shipmentListApiOp, "/Shipments/Shipment[@ShipNode=\""+shipNode+"\"]");
-			if(!XmlUtils.isVoid(shipmentEle)) {
-				orderLineEle.setAttribute(XMLLiterals.MODIFYTS, shipmentEle.getAttribute(XMLLiterals.MODIFYTS));
-				String legacyOmsNo = shipmentEle.getAttribute(XMLLiterals.CUSTOMER_PO_NO);
-				orderLineEle.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsNo);
-				orderLineEle.setAttribute(XMLLiterals.IS_PROCESSED, NO);
-				YFCIterable<YFCElement> yfsItratorPrimeLine = shipmentEle.getChildElement(XMLLiterals.SHIPMENT_LINES)
-					.getChildren(XMLLiterals.SHIPMENT_LINE);
-				for(YFCElement shipmentLineEle : yfsItratorPrimeLine) {
-					if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO)) && 
-						(!XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
-						String isPickComplete = shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE);
-						if(isPickComplete.equals(YES)) {
-							orderLines.importNode(orderLineEle);
-						}
-					}				
-				}
-			}
+			docSetAttributes(orderLines, orderLineEle, shipmentListApiOp);
 		}
 		docSetAttributesToLeg051(docLegacy051);
+	}
+	
+	private void docSetAttributes(YFCElement orderLines, YFCElement orderLineEle, YFCDocument shipmentListApiOp) {
+		String shipNode = orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
+		String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
+		YFCElement shipmentEle = XPathUtil.getXPathElement(shipmentListApiOp, "/Shipments/Shipment[@ShipNode=\""+shipNode+"\"]");
+		if(!XmlUtils.isVoid(shipmentEle)) {
+			orderLineEle.setAttribute(XMLLiterals.MODIFYTS, shipmentEle.getAttribute(XMLLiterals.MODIFYTS));
+			String legacyOmsNo = shipmentEle.getAttribute(XMLLiterals.CUSTOMER_PO_NO);
+			orderLineEle.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsNo);
+			orderLineEle.setAttribute(XMLLiterals.IS_PROCESSED, NO);
+			YFCIterable<YFCElement> yfsItratorPrimeLine = shipmentEle.getChildElement(XMLLiterals.SHIPMENT_LINES)
+					.getChildren(XMLLiterals.SHIPMENT_LINE);
+			for(YFCElement shipmentLineEle : yfsItratorPrimeLine) {
+				if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO)) && 
+					(!XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
+					String isPickComplete = shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE);
+					if(isPickComplete.equals(YES)) {
+						orderLines.importNode(orderLineEle);
+					}
+				}				
+			}
+		}
 	}
 	
 	private void docSetAttributesToLeg051(YFCDocument docLegacy051) {

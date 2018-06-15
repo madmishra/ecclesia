@@ -32,6 +32,14 @@
     Modifyuserid="SYSTEM" OrgKey="DEFAULT" UseFlow=""
     UserExitImplKey="200608081800000020" UserExitKey="YCDUE00028"
     Version="" WaitTime="0" WaitingCalls="0"/>
+<UserExitImpl CallsPerJvm="0" Createprogid=".YEntityServlet"
+    Createts="2018-06-15T06:30:30-04:00" Createuserid="admin"
+    DocumentTypeKey="" FlowKey="2018061506220423494"
+    ImplementationNotes="" JavaClassName="" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-06-15T06:30:30-04:00"
+    Modifyuserid="admin" OrgKey="DEFAULT" UseFlow="Y"
+    UserExitImplKey="2018061506303023513" UserExitKey="YFSUE00049"
+    Version="" WaitTime="0" WaitingCalls="0"/>
 <UserExitImpl CallsPerJvm="0" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:36:14-04:00" Createuserid="SYSTEM"
     DocumentTypeKey="" FlowKey=""

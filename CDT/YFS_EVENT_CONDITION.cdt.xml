@@ -233,13 +233,6 @@
     Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-30T05:27:52-04:00" Modifyuserid="admin"
     MoreActionsFlag="N" OwnerKey="DEFAULT" OwnerType="" Priority="0.00"/>
-<EventCondition ActionKey="2018053005161418020" ConditionKey=""
-    Createprogid=".YCPWFRepositoryAPI"
-    Createts="2018-05-30T05:28:01-04:00" Createuserid="admin"
-    EventConditionKey="2018053005280118105" EventKey="DEFAULT_CAP_FREE"
-    Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
-    Modifyts="2018-05-30T05:28:01-04:00" Modifyuserid="admin"
-    MoreActionsFlag="N" OwnerKey="DEFAULT" OwnerType="" Priority="0.00"/>
 <EventCondition ActionKey="2018052505590217016" ConditionKey=""
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-05-30T05:32:04-04:00" Createuserid="admin"
@@ -294,6 +287,22 @@
     EventConditionKey="2018061209265623170" EventKey="2002081502"
     Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-06-12T09:26:56-04:00" Modifyuserid="admin"
+    MoreActionsFlag="N" OwnerKey="DEFAULT" OwnerType="" Priority="0.00"/>
+<EventCondition ActionKey="2018061510064324014"
+    ConditionKey="2018061510041024009"
+    Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-06-15T10:08:12-04:00" Createuserid="admin"
+    EventConditionKey="2018061510081224027"
+    EventKey="201804120939513763" Lockid="0"
+    Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-06-15T10:08:12-04:00" Modifyuserid="admin"
+    MoreActionsFlag="N" OwnerKey="DEFAULT" OwnerType="" Priority="0.00"/>
+<EventCondition ActionKey="2018053005161418020" ConditionKey=""
+    Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-06-15T10:20:31-04:00" Createuserid="admin"
+    EventConditionKey="2018061510203124085" EventKey="DEFAULT_CAP_FREE"
+    Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-06-15T10:20:31-04:00" Modifyuserid="admin"
     MoreActionsFlag="N" OwnerKey="DEFAULT" OwnerType="" Priority="0.00"/>
 <EventCondition ActionKey="MARK_RULE_INACTIVE" ConditionKey=""
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:40-04:00"

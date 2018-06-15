@@ -156,4 +156,17 @@
     Modifyuserid="admin" MonitorConsolidationId="INDG_ORDER_ALERT"
     MonitorConsolidationKey="2018051506470212448" MonitorTypeKey=""
     ProcessTypeKey="ORDER_FULFILLMENT" RealertInterval="1.00" RealertRequired="Y"/>
+<MonitorConsolidation AutoResolve="" Createprogid=".YEntityServlet"
+    Createts="2018-06-15T10:16:17-04:00" Createuserid="admin"
+    Description="Order is in Ready For CustomerPickUp" Field10IsKey=""
+    Field1IsKey="Y" Field2IsKey="" Field3IsKey="" Field4IsKey=""
+    Field5IsKey="" Field6IsKey="" Field7IsKey="" Field8IsKey=""
+    Field9IsKey="" FlowKey="2018061510113424039" GroupByField1="Y"
+    GroupByField10="" GroupByField2="" GroupByField3="" GroupByField4=""
+    GroupByField5="" GroupByField6="" GroupByField7="" GroupByField8=""
+    GroupByField9="" InventoryOrganizationCode="DEFAULT" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-06-15T10:16:17-04:00"
+    Modifyuserid="admin" MonitorConsolidationId="INDG_SHIPMENT_ALERT"
+    MonitorConsolidationKey="2018061510161724053" MonitorTypeKey=""
+    ProcessTypeKey="ORDER_DELIVERY" RealertInterval="48.00" RealertRequired="Y"/>
 </YFS_MONITORING_CONSOLIDATIONList>

@@ -213,7 +213,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, documentType);
 		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
 		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, orderType);
-		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, sapOrderNo);
+		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, sapOrderNo);
 	    groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 	    groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.STERLING_ORDER_NO, orderNo);
 	    docCheckForSAPOrderNo(groupByShipNodeDoc);
@@ -227,7 +227,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void docCheckForSAPOrderNo(YFCDocument groupByShipNodeDoc) {
-		String sapOrderNo = groupByShipNodeDoc.getDocumentElement().getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
+		String sapOrderNo = groupByShipNodeDoc.getDocumentElement().getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
 		if(!XmlUtils.isVoid(sapOrderNo)) {
 			callSAP051opQueue(groupByShipNodeDoc);
 			YFCElement orderLinesEle = groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);

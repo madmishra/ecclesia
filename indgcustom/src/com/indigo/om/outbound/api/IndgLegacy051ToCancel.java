@@ -26,7 +26,7 @@ import com.yantra.yfc.dom.YFCNode;
 public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 Map<String,List<YFCElement>> orderLineMapGroupByReasonCode = new HashMap<>();
 	 private static final String SUBLINE_VALUE = "1";
-	 private static final String ACTION_VALUE = "CANCEL";
+	 private static final String ACTION_VALUE = "MODIFY";
 	 private static final String EMPTY_STRING = "";
 	 private static final String YES = "Y";
 	 private static final String NO = "N";
@@ -38,7 +38,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 YFCDocument docInputXml = null;
 	 private static final String CANCELLATION_TYPE = "LEGACY051";
 	 private static final String REASON_CODE = "03";
-	 private static final String CALL_LEGACYOMS051_SERVICE = "Indg_LegacyOMS051_ForLegacy052";	 
+	 private static final String CALL_LEGACYOMS051_SERVICE = "CALL_LEGACYOMS051_SERVICE";	 
 	 /**
 	  * This method is the invoke point of the service.
 	  * 
@@ -287,6 +287,6 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	}
 	
 	private void callLegacyOMS051opQueue(YFCDocument doc) {
-	     invokeYantraService(CALL_LEGACYOMS051_SERVICE, doc);
-		}
+	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
+	}
 }

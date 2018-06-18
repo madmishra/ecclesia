@@ -7,6 +7,7 @@ import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
+import com.yantra.yfc.date.YTimestamp;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 /**
@@ -34,8 +35,13 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		  return addMsgSeqNo(docMsg,inXml);
 		   
 	  }
+	  /**
+	   * 
+	   * @param docMsg
+	   * @param inXml
+	   * @return
+	   */
 	  private YFCDocument addMsgSeqNo(YFCDocument docMsg,YFCDocument inXml)  {
-		  String[] sTimeFormats = {"yyyy-MM-dd HH:mm:ss","yyyy-MM-dd'T'HH:mm:ssXXX","yyyy-MM-dd HH:mm:ss.SSS"};
 		  YFCElement eleOrderMessage=inXml.getDocumentElement();
 		  YFCElement eleINDGMsgSeqNo=docMsg.getDocumentElement();
 		  String sSAPMsgSeqNo=eleINDGMsgSeqNo.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO);
@@ -43,35 +49,17 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			  eleOrderMessage.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, sSAPMsgSeqNo);
 		  else
 			  eleOrderMessage.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, eleINDGMsgSeqNo.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO));
-		  try {
-			String sModifyts=parse(eleOrderMessage.getAttribute(XMLLiterals.MODIFYTS),sTimeFormats);
-			eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		 
+		  YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS);
+		  eleOrderMessage.removeAttribute(XMLLiterals.MODIFYTS);
+		  SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+		  String sModifyts= format.format(ts);
+		  sModifyts = sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
+		  eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
 		return   inXml;
 	  }
 	  
-	  public String parse(String sModifyts,String[] sTimeFormats) throws ParseException {
-	        if (sModifyts != null) {
-	            for (String parse : sTimeFormats) {
-	                SimpleDateFormat sdf = new SimpleDateFormat(parse);
-	                    sdf.parse(sModifyts);
-	                   return formModifyts(parse,sModifyts);
-	                
-	            }
-	        }
-	        return sModifyts;
-
-	 }
-	  private String formModifyts(String format,String sModifyts) throws ParseException {
-			 SimpleDateFormat sdf = new SimpleDateFormat(format);
-			     Date date = sdf.parse(sModifyts);
-			     sdf.applyPattern("yyyy-MM-dd HH:mm:ss.SSS");
-			     return sdf.format(date);
-			    
-			
-			}
+	 
 	 
 	  /**
 	   * this method identifies the type of message i.e LEGACY OR SAP message

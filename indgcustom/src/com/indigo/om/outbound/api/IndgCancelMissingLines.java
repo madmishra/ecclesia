@@ -42,8 +42,6 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     		YFCDocument docGetOrderLineList = getOrderLineListFunc(docInXml);
     		String modifyTs = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
     				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
-    		cancellationReqId = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-    				getAttribute(XMLLiterals.CONDITION_VARIABLE_1);
     		String inputDocString = docInXml.toString();
     	    YFCDocument docLegacy003Op = YFCDocument.getDocumentFor(inputDocString);
     	    docLegacy003Op.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);

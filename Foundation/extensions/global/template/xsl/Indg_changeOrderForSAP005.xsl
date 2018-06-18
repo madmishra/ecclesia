@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:template match="OrderMessage">
 		<Order>
+			<xsl:attribute name="Action">MODIFY</xsl:attribute>
 			<xsl:attribute name="CustomerLinePONo">
 				<xsl:value-of select="MessageBody/Order/@SAPOrderNo"/>
 			</xsl:attribute>
@@ -28,7 +29,10 @@
 						<xsl:attribute name="ShipNode">
 							<xsl:value-of select="@ShipNode"/>
 						</xsl:attribute>	
-						<Item>						
+						<Item>
+							<xsl:attribute name="ItemID">
+								<xsl:value-of select="@ItemID"/>
+							</xsl:attribute>						
 							<xsl:attribute name="CostCurrency">
 								<xsl:value-of select="@CostCurrency"/>
 							</xsl:attribute>

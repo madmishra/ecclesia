@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StoreBatch AssignedToUserId="" BatchNo=""
+    BatchType="" OrganizationCode="" Status="" StoreBatchKey="">
+	<StoreBatchLines TotalNumberOfRecords="">
+		<StoreBatchLine BackroomPickComplete=""
+            BackroomPickedQuantity="" DepartmentCode=""
+            ItemID="" OriginalQuantity=""
+            PickBackroomPickedQuantity="" PickQuantity=""
+            PickStagedQuantity="" Quantity="" ShortageQty=""
+            StagedQuantity="" StagingComplete="" UnitOfMeasure="">
+			<ItemDetails ItemGroupCode="" ItemID="" UnitOfMeasure="">
+				<PrimaryInformation ExtendedDisplayDescription="" ItemType=""/>
+			</ItemDetails>
+		</StoreBatchLine>
+	</StoreBatchLines>
+</StoreBatch>

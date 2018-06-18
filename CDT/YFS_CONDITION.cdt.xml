@@ -1114,6 +1114,17 @@
     Modifyts="2018-05-25T03:38:38-04:00" Modifyuserid="admin"
     OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
+<Condition ConditionID="INDG" ConditionKey="2018061510041024009"
+    ConditionName="IsReadyForCustomerPick"
+    ConditionType="PROCESS_MODELLING"
+    ConditionValue="Status = '1100.70.200'"
+    Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-06-15T10:04:10-04:00" Createuserid="admin"
+    GroupId="IsReadyForCustomerPick" Lockid="1"
+    Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-06-15T10:04:56-04:00" Modifyuserid="admin"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_DELIVERY"
+    SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_PORTAL" ConditionKey="DEFAULT_PORTAL"
     ConditionName="Is Shipment confirmed through Console?"
     ConditionType="PROCESS_MODELLING"

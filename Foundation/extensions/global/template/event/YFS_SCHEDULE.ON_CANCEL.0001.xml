@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ORDER_CHANGE.ON_CANCEL event xml -->
+<!--
+Licensed Materials - Property of IBM
+IBM Sterling Selling And Fulfillment Suite
+(C) Copyright IBM Corp. 2005, 2011 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<Order BuyerOrganizationCode="" DocumentType="" EnterpriseCode=""
+    OrderHeaderKey="" OrderNo="" SellerOrganizationCode="" Modifyts="" SAPOrderNo="" IsFullOrderCancelled="">
+    <OrderLines>
+        <!--ChangeInOrderedQty is returned with sign. In case of this event it should always come with negative sign. -->
+        <OrderLine ChangeInOrderedQty="" OrderLineKey="" OrderedQty=""
+            PrimeLineNo="" SubLineNo="" CancellationReasonCode="">
+            <OrderLineTranQuantity ChangeInOrderedQty="" OrderedQty="" TransactionalUOM=""/>
+            <Item ItemID="" ProductClass="" UnitOfMeasure=""/>
+            <!--ChangeInLineTotal is returned with sign. -->
+            <LinePriceInfo ChangeInLineTotal="" LineTotal=""
+                TaxExemptionCertificate="" TaxableFlag=""/>
+            <StatusBreakupForCanceledQty>
+                <CanceledFrom OrderLineScheduleKey="" OrderReleaseKey=""
+                    OrderReleaseStatusKey="" Quantity="" Status=""
+                    StatusDate="" StatusDescription="">
+                    <CanceledFromTranQuantity Quantity="" TransactionalUOM=""/>
+                    <Details ExpectedDeliveryDate=""
+                        ExpectedShipmentDate="" OverrideItemID=""
+                        OverrideProductClass="" OverrideUnitOfMeasure=""
+                        ReceivingNode="" ShipByDate="" ShipNode="" TagNumber=""/>
+                </CanceledFrom>
+            </StatusBreakupForCanceledQty>
+        </OrderLine>
+    </OrderLines>
+    <PriceInfo ChangeInTotalAmount="" Currency="" EnterpriseCurrency=""
+        ReportingConversionDate="" ReportingConversionRate="" TotalAmount=""/>
+</Order>

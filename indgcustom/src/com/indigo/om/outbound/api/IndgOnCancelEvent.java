@@ -37,6 +37,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 private String documentType = "";
 	 private String enterpriseCode = "";
 	 private String orderType = "";
+	 private String customerLinePoNo="";
 	 YFCDocument docLegacy051Input = null;
 	 
 	 /**
@@ -50,7 +51,6 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 		orderType = inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_TYPE);
 		enterpriseCode = inXml.getDocumentElement().getAttribute(XMLLiterals.ENTERPRISE_CODE);
 	    documentType = inXml.getDocumentElement().getAttribute(XMLLiterals.DOCUMENT_TYPE);
-	    
 		String inputDocString = inXml.toString();
 	    docLegacy051Input = YFCDocument.getDocumentFor(inputDocString);
 	    getOrderLinesGroupByReasonCode();
@@ -120,7 +120,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 		    docAddLegacyOMSOdrNo(getOrderLineListDoc);
 		}
 		docSetIsProcessedAttr(inXml);
-		callLegacyOMS051opQueue(docLegacy051Input);
+		callLegacyOMS052opQueue(docLegacy051Input);
 	}
 	
 	/**
@@ -167,8 +167,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 			orderLine.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, originalQty);
 		orderLine.setAttribute(XMLLiterals.CANCELLATION_REASON_CODE, orderLineEle.getAttribute(XMLLiterals.CONDITION_VARIABLE_2));
 	    }
-	    String sapOrderNo = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-	    		getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
+	    String sapOrderNo = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
 	    String modifyTs = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 	    		getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
 	    sendShipNodeDocToService(groupByShipNodeDoc, getOrderLineListDoc);
@@ -211,7 +210,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, documentType);
 		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
 		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, orderType);
-		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.EXTN_SAP_ORDER_NO, sapOrderNo);
+		groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, sapOrderNo);
 	    groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 	    groupByShipNodeDoc.getDocumentElement().setAttribute(XMLLiterals.STERLING_ORDER_NO, orderNo);
 	    docCheckForSAPOrderNo(groupByShipNodeDoc);
@@ -225,8 +224,11 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void docCheckForSAPOrderNo(YFCDocument groupByShipNodeDoc) {
-		String sapOrderNo = groupByShipNodeDoc.getDocumentElement().getAttribute(XMLLiterals.EXTN_SAP_ORDER_NO);
+		String sapOrderNo = groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).
+				getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
 		if(!XmlUtils.isVoid(sapOrderNo)) {
+			customerLinePoNo = groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).
+					getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
 			callSAP051opQueue(groupByShipNodeDoc);
 			YFCElement orderLinesEle = groupByShipNodeDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 			YFCIterable<YFCElement> inputOrderLineEle = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
@@ -268,15 +270,17 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void callSAP051opQueue(YFCDocument doc) {
+		 if(!XmlUtils.isVoid(customerLinePoNo))
 	     invokeYantraService(getProperty(CALL_SAP051_SERVICE), doc);
 	}
 	
 	/**
-	 * This method calls the service where LegacyOMS051 message will be dropped
+	 * This method calls the service where LegacyOMS052 message will be dropped
 	 * @param doc
 	 */
 	
-	private void callLegacyOMS051opQueue(YFCDocument doc) {
+	private void callLegacyOMS052opQueue(YFCDocument doc) {
+		 if(!XmlUtils.isVoid(customerLinePoNo))
 	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
 	}
 	

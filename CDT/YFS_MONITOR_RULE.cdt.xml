@@ -256,4 +256,28 @@
     OrganizationCode="" PipelineKey="201804120904073062" Priority="0.00"
     ProcessTypeKey="ORDER_FULFILLMENT" Purpose=""
     RealertInterval="24.00" RealertRequired="N" StatusToMonitor="1100"/>
+<MonitorRule ActivateDate="1900-01-01" Age="48.00" AgeType="00"
+    ComparisonDateSubType="" ComparisonDateType="" ComparisonStatus=""
+    ConditionKey="" Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-06-15T10:19:08-04:00" Createuserid="admin"
+    DateSubTypeToMonitor="" DateTypeToMonitor="" ExceptionType=""
+    IsActive="Y" Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-06-15T10:19:08-04:00" Modifyuserid="admin"
+    MonitorConsolidationKey="2018061510161724053"
+    MonitorRuleKey="2018061510190824056" MonitorType="HBS"
+    OrganizationCode="" PipelineKey="201804120932203608" Priority="0.00"
+    ProcessTypeKey="ORDER_DELIVERY" Purpose="" RealertInterval="24.00"
+    RealertRequired="N" StatusToMonitor="1100.70.300"/>
+<MonitorRule ActivateDate="1900-01-01" Age="48.00" AgeType="00"
+    ComparisonDateSubType="" ComparisonDateType="" ComparisonStatus=""
+    ConditionKey="" Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-06-15T10:19:08-04:00" Createuserid="admin"
+    DateSubTypeToMonitor="" DateTypeToMonitor="" ExceptionType=""
+    IsActive="Y" Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-06-15T10:19:08-04:00" Modifyuserid="admin"
+    MonitorConsolidationKey="2018061510161724053"
+    MonitorRuleKey="2018061510190824059" MonitorType="HBS"
+    OrganizationCode="" PipelineKey="201804120932203608" Priority="1.00"
+    ProcessTypeKey="ORDER_DELIVERY" Purpose="" RealertInterval="24.00"
+    RealertRequired="N" StatusToMonitor="1100.70.400"/>
 </YFS_MONITOR_RULEList>

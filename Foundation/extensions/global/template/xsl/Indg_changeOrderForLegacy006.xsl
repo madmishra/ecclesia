@@ -17,12 +17,14 @@
 			<OrderLines>
 				<xsl:for-each select="MessageBody/Order/OrderLines/OrderLine">
 					<OrderLine>
+						<xsl:attribute name="Action">MODIFY</xsl:attribute>
 						<xsl:attribute name="Quantity">
 							<xsl:value-of select="@CurrentQty"/>
 						</xsl:attribute>
 						<xsl:attribute name="PrimeLineNo">
 							<xsl:value-of select="@PrimeLineNo"/>
 						</xsl:attribute>
+						<xsl:attribute name="SubLineNo">1</xsl:attribute>
 						<xsl:attribute name="ConditionVariable2">
 							<xsl:value-of select="@CancellationReasonCode"/>
 						</xsl:attribute>	

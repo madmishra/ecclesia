@@ -1,8 +1,13 @@
 package com.indigo.om.outbound.api;
 
+import java.text.ParseException;
+import java.util.Date;
+
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
+import com.yantra.yfc.date.YTimestamp;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 /**
@@ -19,15 +24,43 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	private static final String INDG_CREATE_INDG_MSG_SEQ_NO="INDG_createINDGMsgSeqNo";
 	private static final String INDG_GET_INDG_MSG_SEQ_NO_LIST="INDG_getINDGMsgSeqNoList";
 	/**
+	 * @throws ParseException 
 	   * This is the invoke point of the Service
 	   * @throws  
 	   * 
 	   */
 	  @Override
 	 public YFCDocument invoke(YFCDocument inXml) {  
-		  return  verifyTypeOfMsg(inXml);
+		  YFCDocument docMsg=verifyTypeOfMsg(inXml);
+		  return addMsgSeqNo(docMsg,inXml);
 		   
 	  }
+	  /**
+	   * 
+	   * @param docMsg
+	   * @param inXml
+	   * @return
+	   */
+	  private YFCDocument addMsgSeqNo(YFCDocument docMsg,YFCDocument inXml)  {
+		  YFCElement eleOrderMessage=inXml.getDocumentElement();
+		  YFCElement eleINDGMsgSeqNo=docMsg.getDocumentElement();
+		  String sSAPMsgSeqNo=eleINDGMsgSeqNo.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO);
+		  if(!XmlUtils.isVoid(sSAPMsgSeqNo))
+			  eleOrderMessage.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, sSAPMsgSeqNo);
+		  else
+			  eleOrderMessage.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, eleINDGMsgSeqNo.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO));
+		 
+		  YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS);
+		  eleOrderMessage.removeAttribute(XMLLiterals.MODIFYTS);
+		  SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+		  String sModifyts= format.format(ts);
+		  sModifyts = sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
+		  eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
+		return   inXml;
+	  }
+	  
+	 
+	 
 	  /**
 	   * this method identifies the type of message i.e LEGACY OR SAP message
 	   * @param inXml

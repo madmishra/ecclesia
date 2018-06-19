@@ -19,7 +19,8 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private static final String EMPTY_STRING = "";
 	private static final String YES="Y";
 	private static final String MANUAL="MANUAL";
-	private static final String CANCEL="CANCEL";
+	private static final String CANCEL="Cancel";
+	private static final String ORDER_CANCEL_STATUS="CANCEL";
 	 /**
 	  * this method is the invoke point of the service.
 	  * 
@@ -41,19 +42,13 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 			Boolean c=(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION)));
 			Boolean d=XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION));
 			Boolean b=orderLine.getAttribute(XMLLiterals.ACTION).
-					equals(CANCEL);
+					equals(ORDER_CANCEL_STATUS);
 			Boolean z=XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1));
 			System.out.println("mkMNFkdnknkGf"+a);
 			System.out.println("njkdfnkjZNGKsjrkhjnazijh"+b);
 			System.out.println("hjhncncncncncncrtv"+c);
 			System.out.println("mcknkcvnkdv"+d);
 			System.out.println("jkajfkjkjfkojf"+XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1)));
-			System.out.println("--------------------------------");
-			if((!d && b)&&(z))
-				System.out.println("INDSAHZHZAQWG");
-			else
-				System.out.println("nfsjzghn");
-			System.out.println("---------------------------------");
 			if((!(XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION)))&& (orderLine.getAttribute(XMLLiterals.ACTION).
 					equals(CANCEL))) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1))) {
 		System.out.println("hfdjdkfl"+orderLine);
@@ -80,7 +75,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	    YFCDocument getShipmentListDoc = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
 	    YFCElement shipmentLineEle = getShipmentListDoc.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES).createChild(XMLLiterals.SHIPMENT_LINE);
 	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO));
-	    System.out.println("GETSHIPMENTLIST"+getShipmentListDoc);
+	    System.out.println("GETSHIPMENTLISTgzhrdgkhk"+getShipmentListDoc);
 	    return getShipmentListDoc;
 	  }
 	/**
@@ -101,7 +96,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	    YFCElement orderLineEle = shipmentLineEle.createChild(XMLLiterals.ORDER_LINE);
 	    orderLineEle.setAttribute(XMLLiterals.DELIVERY_METHOD, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.DEPARTMENT_CODE, EMPTY_STRING);
-	    System.out.println("TEMPLATE"+getShipmentListTemp);
+	    System.out.println("TEMPLATEgfehGBJR"+getShipmentListTemp);
 	    return getShipmentListTemp;
 	  }
 	/**

@@ -31,6 +31,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		YFCElement eleInXml=inXml.getDocumentElement();
 		System.out.println("hjhgkjhkthj"+XmlUtils.isVoid(eleInXml.getAttribute(XMLLiterals.ACTION)));
 		if(XmlUtils.isVoid(eleInXml.getAttribute(XMLLiterals.ACTION))) {
+			System.out.println("IIIIIIIIIIIIIIIINNNNNNND");
 		YFCIterable<YFCElement> yfsItrator = eleInXml.getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&& (orderLine.getAttribute(XMLLiterals.ACTION).

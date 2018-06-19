@@ -27,18 +27,20 @@
 					</xsl:attribute>
 					<OrderLines>
 						<xsl:for-each select="OrderLine">
-							<OrderLine>
-								<xsl:attribute name="PrimeLineNo">
-									<xsl:value-of select="@PrimeLineNo"/>	
-								</xsl:attribute>						
-								<xsl:attribute name="CostCurrency">
-									<xsl:value-of select="Item/@CostCurrency"/>
-								</xsl:attribute>
-								<xsl:attribute name="UnitCost">
-									<xsl:value-of select="Item/@UnitCost"/>
-								</xsl:attribute>					
-							</OrderLine>
-						</xsl:for-each>				
+							<xsl:if test="@Status != 'Cancelled'">
+								<OrderLine>
+									<xsl:attribute name="PrimeLineNo">
+										<xsl:value-of select="@PrimeLineNo"/>	
+									</xsl:attribute>						
+									<xsl:attribute name="CostCurrency">
+										<xsl:value-of select="Item/@CostCurrency"/>
+									</xsl:attribute>
+									<xsl:attribute name="UnitCost">
+										<xsl:value-of select="Item/@UnitCost"/>
+									</xsl:attribute>					
+								</OrderLine>
+							</xsl:if>	
+						</xsl:for-each>					
 					</OrderLines>
 				</Order>
 			</MessageBody>

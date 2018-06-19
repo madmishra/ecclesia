@@ -43,6 +43,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		System.out.println("hfdjdkfl"+orderLine);
 				orderLine.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);
 				System.out.println("MANUAL ATTRIBUTE"+inXml);
+				System.out.println("-------------------------");
 				invokeGetShipmentList(inXml);
 			}
 			
@@ -59,6 +60,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 * @return
 	 */
 	private YFCDocument inputXmlForGetShipmentList(YFCDocument inXml) {
+		System.out.println("ghgsahgBJbkjdjhnjf"+inXml);
 	    YFCDocument getShipmentListDoc = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
 	    YFCElement shipmentLineEle = getShipmentListDoc.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES).createChild(XMLLiterals.SHIPMENT_LINE);
 	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO));

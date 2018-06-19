@@ -105,6 +105,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 */
 	private void invokeGetShipmentList(YFCDocument inXml)
 	{
+		System.out.println("huuuuvthnseiy"+inXml);
 		YFCDocument docGetShipmentList=invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(inXml),templateForGetShipmentList());
 		System.out.println("bhjrzhbkdhnylkxfcju"+docGetShipmentList);
 		if(docGetShipmentList.getDocumentElement().hasChildNodes()) {
@@ -128,6 +129,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 */
 	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sPrimeLineNo)
 	{
+		System.out.println("PrimeLineNo"+sPrimeLineNo);
 		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT)
 				.getChildElement(XMLLiterals.SHIPMENT_LINES);
 		System.out.println("jxkcckhil"+eleShipment);
@@ -141,7 +143,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 				break;
 			}
 			else
-				changeShipment(docGetShipmentList,shipmentLine);  
+				changeShipment(docGetShipmentList,shipmentLine);
 			}
 		}
 		

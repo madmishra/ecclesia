@@ -34,9 +34,18 @@
 								<xsl:attribute name="PrimeLineNo">
 									<xsl:value-of select="@PrimeLineNo" />
 								</xsl:attribute>
-								<xsl:attribute name="LegacyOMSCancellationRequestId">
-									<xsl:value-of select="@ConditionVariable1"/>
-								</xsl:attribute>
+								<xsl:choose>
+								<xsl:when test="@LegacyOMSCancellationRequestId">
+									<xsl:attribute name="LegacyOMSCancellationRequestId">
+										<xsl:value-of select="@LegacyOMSCancellationRequestId"/>
+									</xsl:attribute>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:attribute name="LegacyOMSCancellationRequestId">
+										<xsl:value-of select="@ConditionVariable1"/>
+									</xsl:attribute>
+								</xsl:otherwise>
+								</xsl:choose>
 								<xsl:attribute name="LegacyOMSOrderNo">
 									<xsl:value-of select="@LegacyOMSOrderNo" />
 								</xsl:attribute>

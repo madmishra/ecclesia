@@ -20,7 +20,6 @@
 					<xsl:value-of select="@SterlingOrderNo"/>
 					</xsl:attribute>
 					</xsl:when>
-					
 					<xsl:otherwise>
 					<xsl:attribute name="SterlingOrderNo">
 					<xsl:value-of select="@OrderNo"/>

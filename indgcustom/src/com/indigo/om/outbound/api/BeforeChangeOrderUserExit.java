@@ -19,7 +19,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private static final String EMPTY_STRING = "";
 	private static final String YES="Y";
 	private static final String MANUAL="MANUAL";
-	private static final String CANCEL="Cancel";
+	private static final String CANCEL="CANCEL";
 	 /**
 	  * this method is the invoke point of the service.
 	  * 

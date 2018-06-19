@@ -48,7 +48,8 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		  if(!XmlUtils.isVoid(sSAPMsgSeqNo))
 			  eleOrderMessage.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, sSAPMsgSeqNo);
 		  else
-			  eleOrderMessage.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, eleINDGMsgSeqNo.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO));
+			  eleOrderMessage.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, eleINDGMsgSeqNo.
+					  getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO));
 		 
 		  YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS);
 		  eleOrderMessage.removeAttribute(XMLLiterals.MODIFYTS);

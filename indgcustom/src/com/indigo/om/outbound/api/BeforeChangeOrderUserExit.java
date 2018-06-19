@@ -38,11 +38,22 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 			System.out.println("zbyvu6ywn7"+orderLine.getAttribute(XMLLiterals.ACTION));
 			System.out.println("nvbmyoiiiiiiihgtys"+orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1));
 			Boolean a=!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION));
+			Boolean c=(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION)));
+			Boolean d=XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION));
 			Boolean b=orderLine.getAttribute(XMLLiterals.ACTION).
 					equals(CANCEL);
+			Boolean z=XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1));
 			System.out.println("mkMNFkdnknkGf"+a);
 			System.out.println("njkdfnkjZNGKsjrkhjnazijh"+b);
+			System.out.println("hjhncncncncncncrtv"+c);
+			System.out.println("mcknkcvnkdv"+d);
 			System.out.println("jkajfkjkjfkojf"+XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1)));
+			System.out.println("--------------------------------");
+			if((!d && b)&&(z))
+				System.out.println("INDSAHZHZAQWG");
+			else
+				System.out.println("nfsjzghn");
+			System.out.println("---------------------------------");
 			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&& (orderLine.getAttribute(XMLLiterals.ACTION).
 					equals(CANCEL)) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1))) {
 		System.out.println("hfdjdkfl"+orderLine);

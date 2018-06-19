@@ -54,8 +54,8 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 			else
 				System.out.println("nfsjzghn");
 			System.out.println("---------------------------------");
-			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&& (orderLine.getAttribute(XMLLiterals.ACTION).
-					equals(CANCEL)) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1))) {
+			if((!(XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION)))&& (orderLine.getAttribute(XMLLiterals.ACTION).
+					equals(CANCEL))) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1))) {
 		System.out.println("hfdjdkfl"+orderLine);
 				orderLine.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);
 				System.out.println("MANUAL ATTRIBUTE"+inXml);

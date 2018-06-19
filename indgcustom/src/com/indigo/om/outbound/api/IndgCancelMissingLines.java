@@ -26,8 +26,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     private static final String ZERO_QTY = "0";
     private static final String IS_SAP_MSG_REQ = "SAP051MsgReq";
     private static final String FLAG_NO = "N";
-    private String cancellationReqId = "";
-    private static final String CANCELLATION_TYPE = "SAP051";
+    private String cancellationReqId = "SAP051";
+    private static final String CANCELLATION_TYPE = "SAP";
     private static final String REASON_CODE = "03";
     private static final String CALL_LEGACYOMS003_SERVICE = "CALL_LEGACYOMS003_SERVICE";
 

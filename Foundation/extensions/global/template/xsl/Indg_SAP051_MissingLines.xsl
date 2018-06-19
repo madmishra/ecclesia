@@ -14,9 +14,19 @@
 					<xsl:attribute name="SAPOrderNo">
 						<xsl:value-of select="OrderLines/OrderLine/@CustomerLinePONo"/>
 					</xsl:attribute>
-					<xsl:attribute name="SterlingOrderNo">
-						<xsl:value-of select="@SterlingOrderNo"/>
+					<xsl:choose>
+					<xsl:when test="@SterlingOrderNo">
+						<xsl:attribute name="SterlingOrderNo">
+					<xsl:value-of select="@SterlingOrderNo"/>
 					</xsl:attribute>
+					</xsl:when>
+					
+					<xsl:otherwise>
+					<xsl:attribute name="SterlingOrderNo">
+					<xsl:value-of select="@OrderNo"/>
+					</xsl:attribute>
+					</xsl:otherwise>
+					</xsl:choose>
 					<xsl:attribute name="EnterpriseCode">
 						<xsl:value-of select="@EnterpriseCode"/>
 					</xsl:attribute>

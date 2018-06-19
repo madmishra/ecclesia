@@ -29,13 +29,13 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	public YFCDocument invoke(YFCDocument inXml) {
 		System.out.println("INPUT"+inXml);
 		YFCElement eleInXml=inXml.getDocumentElement();
-		
+		System.out.println("hjhgkjhkthj"+XmlUtils.isVoid(eleInXml.getAttribute(XMLLiterals.ACTION)));
 		if(XmlUtils.isVoid(eleInXml.getAttribute(XMLLiterals.ACTION))) {
 		YFCIterable<YFCElement> yfsItrator = eleInXml.getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&& (orderLine.getAttribute(XMLLiterals.ACTION).
 					equals(CANCEL)) && XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1))) {
-		
+		System.out.println("hfdjdkfl"+orderLine);
 				orderLine.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);
 				System.out.println("MANUAL ATTRIBUTE"+inXml);
 				invokeGetShipmentList(inXml);
@@ -88,8 +88,10 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private void invokeGetShipmentList(YFCDocument inXml)
 	{
 		YFCDocument docGetShipmentList=invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(inXml),templateForGetShipmentList());
+		System.out.println("bhjrzhbkdhnylkxfcju"+docGetShipmentList);
 		if(docGetShipmentList.getDocumentElement().hasChildNodes()) {
 		YFCElement eleOrderLines=inXml.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
+		System.out.println("sdjhxkkl"+eleOrderLines);
 		YFCIterable<YFCElement> yfsItrator=eleOrderLines.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			String sPrimeLineNo=orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO);
@@ -110,8 +112,10 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	{
 		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT)
 				.getChildElement(XMLLiterals.SHIPMENT_LINES);
+		System.out.println("jxkcckhil"+eleShipment);
 		YFCIterable<YFCElement> yfsItrator = eleShipment.getChildren(XMLLiterals.SHIPMENT_LINE);
 		for(YFCElement shipmentLine: yfsItrator) {
+			System.out.println("ghjgzfgikdxhi"+shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO).equals(sPrimeLineNo));
 			if(shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO).equals(sPrimeLineNo)) {
 			if(!XmlUtils.isVoid(shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)) && shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES))
 			{

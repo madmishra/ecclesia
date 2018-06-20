@@ -101,6 +101,9 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		YFCElement orderLine = docApiOutput.getDocumentElement().createChild(XMLLiterals.ORDER_LINE);
 		orderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
 		orderLine.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
+		orderLine.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
+		YFCElement item = orderLine.createChild(XMLLiterals.ITEM);
+		item.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
 		YFCElement order = orderLine.createChild(XMLLiterals.ORDER);
 		order.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 		order.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
@@ -114,8 +117,14 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
 		String orderType = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_TYPE);
+		String customerPoNo = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
+				getAttribute(XMLLiterals.CUSTOMER_PO_NO);
+		String itemId = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
+				getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID);
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, orderType);
+		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, customerPoNo);
+		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemId);
 		System.out.println(docChangeShipmentOp);
 		return docChangeShipmentOp;
 	}

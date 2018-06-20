@@ -36,11 +36,9 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	}
 	
 	private void setAbandonmentTimeAttr(YFCDocument inXml) throws ParseException {
-		System.out.println(inXml + "xsbhdg");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar c = Calendar.getInstance();
 		String reqDeliveryDate = inXml.getDocumentElement().getAttribute(XMLLiterals.REQUESTED_DELIVERY_DATE);
-			System.out.println(reqDeliveryDate + "datedssdsd");
 			String[] segments = reqDeliveryDate.split(TIME);
 			String date = segments[0];
 			Date d = sdf.parse(date);
@@ -48,7 +46,6 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 			c.add(Calendar.DATE, ABANDONMENT_DAYS);
 			String output = sdf.format(c.getTime());
 			finalDate = output.concat(TIME).concat(START_TIME);
-			System.out.println(finalDate + "FINALSD");
 	}
 	
 	private YFCDocument docChangeShipmentInp(YFCDocument inXml) {
@@ -61,7 +58,6 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		additionalDate.setAttribute(XMLLiterals.ACTION, CREATE);
 		additionalDate.setAttribute(XMLLiterals.DATE_TYPE_ID, ABANDONMENT);
 		additionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, finalDate);
-		System.out.println(docChangeShipment + "docccccc");
 		return invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docChangeShipment, docChangeShipmentOpTemplate());
 	}
 	
@@ -81,7 +77,6 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		YFCElement additionalDate = additionalDates.createChild(XMLLiterals.ADDITIONAL_DATE);
 		additionalDate.setAttribute(XMLLiterals.DATE_TYPE_ID, EMPTY_STRING);
 		additionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, EMPTY_STRING);
-		System.out.println(docShipment + "ndjshd");
 		return docShipment;
 	}
 	
@@ -92,7 +87,6 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		docGetOrderLineListInp.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, shipNode);
 		YFCElement order = docGetOrderLineListInp.getDocumentElement().createChild(XMLLiterals.ORDER);
 		order.setAttribute(XMLLiterals.ORDER_NO, orderNo);
-		System.out.println(docGetOrderLineListInp + "hsdjfhs");
 		return invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, docGetOrderLineListInp, docGetOrderLineListTemplate());
 	}
 	
@@ -108,7 +102,6 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		order.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 		order.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
 		order.setAttribute(XMLLiterals.ORDER_TYPE, EMPTY_STRING);
-		System.out.println(docApiOutput + "shjhd");
 		return docApiOutput;
 	}
 	
@@ -125,7 +118,6 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, orderType);
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, customerPoNo);
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemId);
-		System.out.println(docChangeShipmentOp);
 		return docChangeShipmentOp;
 	}
 }

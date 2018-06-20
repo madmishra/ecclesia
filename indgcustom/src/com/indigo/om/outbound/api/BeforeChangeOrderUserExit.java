@@ -107,6 +107,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private void invokeGetShipmentList(YFCDocument inXml)
 	{
 		System.out.println("huuuuvthnseiy"+inXml);
+		int i=1;
 		YFCDocument docGetShipmentList=invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(inXml),templateForGetShipmentList());
 		System.out.println("bhjrzhbkdhnylkxfcju"+docGetShipmentList);
 		if(docGetShipmentList.getDocumentElement().hasChildNodes()) {
@@ -116,6 +117,8 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		for(YFCElement orderLine: yfsItrator) {
 			String sOrderLineKey=orderLine.getAttribute(XMLLiterals.ORDER_LINE_KEY);
 			System.out.println("PRIMELINE_NO"+sOrderLineKey);
+			System.out.println("cskjfhjhgkhskJ"+i);
+			i++;
 			isBackroomPickComplete(docGetShipmentList,sOrderLineKey);
 		}
 		}
@@ -131,11 +134,11 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sOrderLineKey)
 	{
 		System.out.println("PrimeLineNo"+sOrderLineKey);
-		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT)
-				.getChildElement(XMLLiterals.SHIPMENT_LINES);
+		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT);
 		System.out.println("jxkcckhil"+eleShipment);
-		YFCIterable<YFCElement> yfsItrator = eleShipment.getChildren(XMLLiterals.SHIPMENT_LINE);
+		YFCIterable<YFCElement> yfsItrator = eleShipment.getChildren(XMLLiterals.SHIPMENT_LINES);
 		for(YFCElement shipmentLine: yfsItrator) {
+			System.out.println("jhjhfijifj"+shipmentLine);
 			System.out.println("ghjgzfgikdxhi"+shipmentLine.getAttribute(XMLLiterals.ORDER_LINE_KEY).equals(sOrderLineKey));
 			if(shipmentLine.getAttribute(XMLLiterals.ORDER_LINE_KEY).equals(sOrderLineKey)) {
 			if(!XmlUtils.isVoid(shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)) && shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES))

@@ -28,7 +28,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		try {
 			setAbandonmentTimeAttr(inXml);
 		} catch (ParseException e) {
-			e.printStackTrace();
+			
 		}
 		YFCDocument docChangeShipmentOp = docChangeShipmentInp(inXml);
 		YFCDocument docGetOrderLineListOp = docGetOrderLineListInp(docChangeShipmentOp);

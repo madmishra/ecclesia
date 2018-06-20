@@ -36,19 +36,15 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 			System.out.println("IIIIIIIIIIIIIIIINNNNNNND");
 		YFCIterable<YFCElement> yfsItrator = eleInXml.getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
-			System.out.println("**********"+orderLine);
+			System.out.println("ORDERLINE"+orderLine);
 			System.out.println("zbyvu6ywn7"+orderLine.getAttribute(XMLLiterals.ACTION));
 			System.out.println("nvbmyoiiiiiiihgtys"+orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1));
 			Boolean a=!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION));
-			Boolean c=(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION)));
-			Boolean d=XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION));
 			Boolean b=orderLine.getAttribute(XMLLiterals.ACTION).
 					equals(ORDER_CANCEL_STATUS);
 			Boolean z=XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1));
 			System.out.println("mkMNFkdnknkGf"+a);
 			System.out.println("njkdfnkjZNGKsjrkhjnazijh"+b);
-			System.out.println("hjhncncncncncncrtv"+c);
-			System.out.println("mcknkcvnkdv"+d);
 			System.out.println("jkajfkjkjfkojf"+XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1)));
 			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&& (orderLine.getAttribute(XMLLiterals.ACTION).
 					equals(ORDER_CANCEL_STATUS))){

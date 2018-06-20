@@ -264,6 +264,12 @@ public static final String STERLING_LEGACY_MESSAGE_SEQUENCE_NO = "SterlingToLega
 public static final String LEGACY_OMS_PARENT_ORDER_NO = "LegacyOMSParentOrderNo"; 
 public static final String LEGACY_OMS_CANCELLATION_REQ_ID = "LegacyOMSCancellationRequestId";
 public static final String ORDER_LINE_KEY = "OrderLineKey";
+public static final String REQUEST_DELIVERY_DATE  = "ReqDeliveryDate";
+public static final String SHIPMENT_KEY  = "ShipmentKey"; 
+public static final String ADDITIONAL_DATES  = "AdditionalDates";
+public static final String ADDITIONAL_DATE  = "AdditionalDate"; 
+public static final String DATE_TYPE_ID  = "DateTypeId";
+public static final String EXPECTED_DATE  = "ExpectedDate";
 
 }
 

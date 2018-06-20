@@ -31,7 +31,9 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	 public YFCDocument invoke(YFCDocument inXml) {  
 		  YFCDocument docMsg=updateMsgSeqNo(inXml);
 		  System.out.println("husnztusrdyvbujmn"+docMsg);
-		  return addMsgSeqNo(docMsg,inXml);
+		  YFCDocument dxvh=addMsgSeqNo(docMsg,inXml);
+		  System.out.println("jnghbbbbbbuiohykitgooir"+dxvh);
+		  return dxvh;
 		   
 	  }
 	  /**

@@ -1,8 +1,6 @@
 package com.indigo.om.outbound.api;
 
 import java.text.ParseException;
-import java.util.Date;
-
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -31,7 +29,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	   */
 	  @Override
 	 public YFCDocument invoke(YFCDocument inXml) {  
-		  YFCDocument docMsg=verifyTypeOfMsg(inXml);
+		  YFCDocument docMsg=updateMsgSeqNo(inXml);
 		  return addMsgSeqNo(docMsg,inXml);
 		   
 	  }
@@ -60,36 +58,12 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		return   inXml;
 	  }
 	  
-	 
-	 
-	  /**
-	   * this method identifies the type of message i.e LEGACY OR SAP message
-	   * @param inXml
-	   */
-	  private YFCDocument verifyTypeOfMsg(YFCDocument inXml) {
-		
-		  YFCElement eleOrderMessage=inXml.getDocumentElement();
-		  YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
-		  if(eleOrderMessage.getAttribute(XMLLiterals.MESSAGE_TYPE_ID).contains(SAP))
-		  {	
-			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID,XMLLiterals.SAP_OUTBOUND);
-			  return docGetINDGMsgSeqNoList(inXml);
-		  }
-		  else
-		  {
-			  eleOrder.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID,XMLLiterals.LEGACY_OUTBOUND);
-			  return  docGetINDGMsgSeqNoList(inXml);  
-		  }
-		 
-			  
-	  }
-	  
 	 /**this method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method
 	  * 
 	  * @param inXml
 	  * @return
 	  */
-		private YFCDocument docGetINDGMsgSeqNoList(YFCDocument inXml) {
+		private YFCDocument updateMsgSeqNo(YFCDocument inXml) {
 			YFCElement eleOrderMessage=inXml.getDocumentElement();
 			YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 			if(!(XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO))

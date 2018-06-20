@@ -36,10 +36,11 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	}
 	
 	private void setAbandonmentTimeAttr(YFCDocument inXml) throws ParseException {
+		System.out.println(inXml + "xsbhdg");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar c = Calendar.getInstance();
 		String reqDeliveryDate = inXml.getDocumentElement().getAttribute(XMLLiterals.REQUESTED_DELIVERY_DATE);
-			System.out.println(reqDeliveryDate + "date");
+			System.out.println(reqDeliveryDate + "datedssdsd");
 			String[] segments = reqDeliveryDate.split(TIME);
 			String date = segments[0];
 			Date d = sdf.parse(date);

@@ -165,7 +165,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		eleShipmentLine.setAttribute(XMLLiterals.ACTION, CANCEL);
 		eleShipmentLine.setAttribute(XMLLiterals.SHIPMENT_LINE_NO, eleInputShipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_NO));
 		System.out.println("CHANGE SHIPMENT INPUt"+docShipment);
-		invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docShipment);
+		YFCDocument changeDoc=invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docShipment);
 	}
 	private void throwException() {
 		

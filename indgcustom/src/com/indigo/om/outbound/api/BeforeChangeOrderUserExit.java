@@ -30,7 +30,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	public YFCDocument invoke(YFCDocument inXml) {
 		System.out.println("INPUT"+inXml);
 		YFCElement eleInXml=inXml.getDocumentElement();
-		Boolean action=XmlUtils.isVoid(eleInXml.getAttribute(XMLLiterals.ACTION));
+		String action=eleInXml.getAttribute(XMLLiterals.ACTION);
 		System.out.println("hjhgkjhkthj"+action);
 		if(XmlUtils.isVoid(eleInXml.getAttribute(XMLLiterals.ACTION))) {
 			System.out.println("IIIIIIIIIIIIIIIINNNNNNND");

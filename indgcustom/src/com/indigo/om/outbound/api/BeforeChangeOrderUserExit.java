@@ -57,8 +57,10 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 						orderLine.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);
 						System.out.println("MANUAL ATTRIBUTE"+inXml);
 						System.out.println("-------------------------");
-						invokeGetShipmentList(inXml);	
+							
 			}
+				System.out.println("INVOKING GETSHIPMENT");
+				invokeGetShipmentList(inXml);
 			}
 			
 		}

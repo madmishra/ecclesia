@@ -138,9 +138,10 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		System.out.println("jxkcckhil"+eleShipment);
 		YFCIterable<YFCElement> yfsItrator = eleShipment.getChildren(XMLLiterals.SHIPMENT_LINE);
 		for(YFCElement shipmentLine: yfsItrator) {
-			System.out.println("jhjhfijifj"+shipmentLine);
+			String key = shipmentLine.getAttribute(XMLLiterals.ORDER_LINE_KEY);
+			System.out.println(key + "njkshd");
 			System.out.println("ghjgzfgikdxhi"+shipmentLine.getAttribute(XMLLiterals.ORDER_LINE_KEY).equals(sOrderLineKey));
-			if(shipmentLine.getAttribute(XMLLiterals.ORDER_LINE_KEY).equals(sOrderLineKey)) {
+			if(key.equals(sOrderLineKey)) {
 			if(!XmlUtils.isVoid(shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)) && shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES))
 			{
 				throwException();

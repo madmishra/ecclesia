@@ -41,6 +41,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	   * @return
 	   */
 	  private YFCDocument addMsgSeqNo(YFCDocument docMsg,YFCDocument inXml)  {
+		  System.out.println("hmnuion vit eo umtin,oivnut");
 		  YFCElement eleOrderMessage=inXml.getDocumentElement();
 		  YFCElement eleINDGMsgSeqNo=docMsg.getDocumentElement();
 		  String sSAPMsgSeqNo=eleINDGMsgSeqNo.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO);
@@ -66,8 +67,10 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	  * @return
 	  */
 		private YFCDocument updateMsgSeqNo(YFCDocument inXml) {
+			System.out.println("yuthynsbvujyhgJFUG"+inXml);
 			YFCElement eleOrderMessage=inXml.getDocumentElement();
 			YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
+			System.out.println("funhuuuuuuuuuuuuuyjmug");
 			if(!(XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO))
 					&& (XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO))))
 					|| (!XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO))  ))

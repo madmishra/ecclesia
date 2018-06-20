@@ -30,7 +30,8 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	public YFCDocument invoke(YFCDocument inXml) {
 		System.out.println("INPUT"+inXml);
 		YFCElement eleInXml=inXml.getDocumentElement();
-		System.out.println("hjhgkjhkthj"+XmlUtils.isVoid(eleInXml.getAttribute(XMLLiterals.ACTION)));
+		Boolean action=XmlUtils.isVoid(eleInXml.getAttribute(XMLLiterals.ACTION));
+		System.out.println("hjhgkjhkthj"+action);
 		if(XmlUtils.isVoid(eleInXml.getAttribute(XMLLiterals.ACTION))) {
 			System.out.println("IIIIIIIIIIIIIIIINNNNNNND");
 		YFCIterable<YFCElement> yfsItrator = eleInXml.getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
@@ -61,7 +62,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		}
 		
 		}
-		
+		System.out.println("NOT INSIDE IF");
 		return inXml;
 
 }

@@ -144,9 +144,11 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 			String sListOrderLineKey=shipmentLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.ORDER_LINE_KEY);
 			System.out.println(sListOrderLineKey + "njkshd");
 			System.out.println("ghjgzfgikdxhi"+shipmentLine.getAttribute(XMLLiterals.ORDER_LINE_KEY).equals(sOrderLineKey));
+			System.out.println("UNHTRSVIUYBVJVVVVVVVVVVVV");
 			if(sListOrderLineKey.equals(sOrderLineKey)) {
 			if(!XmlUtils.isVoid(shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)) && shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES))
 			{
+				System.out.println("GFNYZUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUR");
 				throwException();
 				break;
 			}
@@ -162,6 +164,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 * @param docGetShipmentList
 	 */
 	private void changeShipment(YFCDocument docGetShipmentList, YFCElement shipmentLine) {
+		System.out.println("MJHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
 		YFCDocument docShipment=YFCDocument.createDocument(XMLLiterals.SHIPMENT);
 		YFCElement eleShipment=docShipment.getDocumentElement();
 		YFCElement eleInputShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT);

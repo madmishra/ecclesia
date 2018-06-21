@@ -50,7 +50,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 					equals(ORDER_CANCEL_STATUS))){
 				if(XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1))) {
 				System.out.println("hfdjdkfl"+orderLine);
-						orderLine.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);
+				eleInXml.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);
 						System.out.println("MANUAL ATTRIBUTE"+inXml);
 						System.out.println("-------------------------");
 							
@@ -62,7 +62,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		}
 		
 		}
-		System.out.println("NOT INSIDE IF");
+		System.out.println("END OF W****D");
 		return inXml;
 
 }
@@ -92,11 +92,11 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	    shipmentLineEle.setAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE, EMPTY_STRING);
 	    shipmentLineEle.setAttribute(XMLLiterals.BACKROOM_PICK_QUANTITY, EMPTY_STRING);
 	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
-	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_LINE_KEY, EMPTY_STRING);
 	    shipmentLineEle.setAttribute(XMLLiterals.SHIPMENT_LINE_NO, EMPTY_STRING);
 	    YFCElement orderLineEle = shipmentLineEle.createChild(XMLLiterals.ORDER_LINE);
 	    orderLineEle.setAttribute(XMLLiterals.DELIVERY_METHOD, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.DEPARTMENT_CODE, EMPTY_STRING);
+	    orderLineEle.setAttribute(XMLLiterals.ORDER_LINE_KEY, EMPTY_STRING);
 	    System.out.println("TEMPLATEgfehGBJR"+getShipmentListTemp);
 	    return getShipmentListTemp;
 	  }
@@ -107,9 +107,9 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private void invokeGetShipmentList(YFCDocument inXml)
 	{
 		System.out.println("huuuuvthnseiy"+inXml);
-		int i=1;
+		
 		YFCDocument docGetShipmentList=invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(inXml),templateForGetShipmentList());
-		System.out.println("bhjrzhbkdhnylkxfcju"+docGetShipmentList);
+		System.out.println("bhjrzhbhykdhnylkxfcju"+docGetShipmentList);
 		if(docGetShipmentList.getDocumentElement().hasChildNodes()) {
 		YFCElement eleOrderLines=inXml.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 		System.out.println("sdjhxkkl"+eleOrderLines);
@@ -117,8 +117,6 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		for(YFCElement orderLine: yfsItrator) {
 			String sOrderLineKey=orderLine.getAttribute(XMLLiterals.ORDER_LINE_KEY);
 			System.out.println("PRIMELINE_NO"+sOrderLineKey);
-			System.out.println("cskjfhjhgkhskJ"+i);
-			i++;
 			isBackroomPickComplete(docGetShipmentList,sOrderLineKey);
 		}
 		}
@@ -134,14 +132,17 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sOrderLineKey)
 	{
 		System.out.println("PrimeLineNo"+sOrderLineKey);
-		YFCElement eleShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getChildElement(XMLLiterals.SHIPMENT_LINES);
+		YFCElement eleShipment=docGetShipmentList.getDocumentElement();
 		System.out.println("jxkcckhil"+eleShipment);
-		YFCIterable<YFCElement> yfsItrator = eleShipment.getChildren(XMLLiterals.SHIPMENT_LINE);
-		for(YFCElement shipmentLine: yfsItrator) {
-			String key = shipmentLine.getAttribute(XMLLiterals.ORDER_LINE_KEY);
-			System.out.println(key + "njkshd");
+		YFCIterable<YFCElement> yfsItrator1 = eleShipment.getChildren(XMLLiterals.SHIPMENT);
+		for(YFCElement shipment: yfsItrator1) {
+			YFCElement eleShipmentLines=shipment.getChildElement(XMLLiterals.SHIPMENT_LINES);
+			YFCIterable<YFCElement> yfsItrator2=eleShipmentLines.getChildren(XMLLiterals.SHIPMENT_LINE);
+			for(YFCElement shipmentLine: yfsItrator1) {	
+			String sListOrderLineKey=shipmentLine.getChildElement(XMLLiterals.SHIPMENT_LINE).getAttribute(XMLLiterals.ORDER_LINE_KEY);
+			System.out.println(sListOrderLineKey + "njkshd");
 			System.out.println("ghjgzfgikdxhi"+shipmentLine.getAttribute(XMLLiterals.ORDER_LINE_KEY).equals(sOrderLineKey));
-			if(key.equals(sOrderLineKey)) {
+			if(sListOrderLineKey.equals(sOrderLineKey)) {
 			if(!XmlUtils.isVoid(shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)) && shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES))
 			{
 				throwException();
@@ -152,6 +153,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 			}
 		}
 		
+	}
 	}
 	/**
 	 * this method invokes changeShipment api

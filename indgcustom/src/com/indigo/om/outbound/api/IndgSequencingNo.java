@@ -32,7 +32,12 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	 public YFCDocument invoke(YFCDocument inXml) {  
 		  YFCDocument docMsg=updateMsgSeqNo(inXml);
 		  System.out.println("husnztusrdyvbujmn"+docMsg);
+		  try {
 		  addMsgSeqNo(docMsg,inXml);
+		  }
+		  catch(Exception e) {
+			  e.printStackTrace();
+		  }
 		  System.out.println("jnghbbbbbbuiohykitgooir"+inXml);
 		  return inXml;
 		   
@@ -43,7 +48,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	   * @param inXml
 	   * @return
 	   */
-	  private void addMsgSeqNo(YFCDocument docMsg,YFCDocument inXml)  {
+	  private void addMsgSeqNo(YFCDocument docMsg,YFCDocument inXml) throws NullPointerException {
 		  System.out.println("hmnuion vit eo umtin,oivnut");
 		  YFCElement eleOrderMessage=inXml.getDocumentElement();
 		  YFCElement eleINDGMsgSeqNo=docMsg.getDocumentElement();
@@ -57,6 +62,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			  eleOrderMessage.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, eleINDGMsgSeqNo.
 					  getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO));
 		  }
+		  if(!XmlUtils.isVoid(eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS))) {
 		  YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS);
 		  eleOrderMessage.removeAttribute(XMLLiterals.MODIFYTS);
 		  SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -64,7 +70,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		  sModifyts = sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
 		  eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
 		  System.out.println("huINHCRUSVTUIBJRTNYUK"+inXml);
-		
+		  }
 	  }
 	  
 	 /**this method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method

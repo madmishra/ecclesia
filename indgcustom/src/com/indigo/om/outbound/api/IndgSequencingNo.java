@@ -32,9 +32,9 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	 public YFCDocument invoke(YFCDocument inXml) {  
 		  YFCDocument docMsg=updateMsgSeqNo(inXml);
 		  System.out.println("husnztusrdyvbujmn"+docMsg);
-		  YFCDocument dxvh=addMsgSeqNo(docMsg,inXml);
-		  System.out.println("jnghbbbbbbuiohykitgooir"+dxvh);
-		  return dxvh;
+		  addMsgSeqNo(docMsg,inXml);
+		  System.out.println("jnghbbbbbbuiohykitgooir"+inXml);
+		  return inXml;
 		   
 	  }
 	  /**
@@ -43,17 +43,20 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	   * @param inXml
 	   * @return
 	   */
-	  private YFCDocument addMsgSeqNo(YFCDocument docMsg,YFCDocument inXml)  {
+	  private void addMsgSeqNo(YFCDocument docMsg,YFCDocument inXml)  {
 		  System.out.println("hmnuion vit eo umtin,oivnut");
 		  YFCElement eleOrderMessage=inXml.getDocumentElement();
 		  YFCElement eleINDGMsgSeqNo=docMsg.getDocumentElement();
 		  String sSAPMsgSeqNo=eleINDGMsgSeqNo.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO);
 		  if(!XmlUtils.isVoid(sSAPMsgSeqNo))
+		  {
 			  eleOrderMessage.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, sSAPMsgSeqNo);
+		  }
 		  else
+		  {
 			  eleOrderMessage.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, eleINDGMsgSeqNo.
 					  getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO));
-		 
+		  }
 		  YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS);
 		  eleOrderMessage.removeAttribute(XMLLiterals.MODIFYTS);
 		  SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -61,7 +64,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		  sModifyts = sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
 		  eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
 		  System.out.println("huINHCRUSVTUIBJRTNYUK"+inXml);
-		return   inXml;
+		
 	  }
 	  
 	 /**this method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method

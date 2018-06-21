@@ -7,8 +7,20 @@ import java.util.Date;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
+import com.bridge.sterling.utils.XPathUtil;
+import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
+
+/**
+ * 
+ * @author BSG168	
+ * 
+ * Custom API to consume LegacyOMS005 message and fetch the RequestedDeliveryTime
+ * from the input and set it to a certain abandonment time when the order is
+ * readyForCustomerPickup status.
+ *
+ */
 
 public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	
@@ -21,6 +33,10 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	private String shipNode = "";
 	private static final int ABANDONMENT_DAYS = 15;
 	
+	/**
+	 * This method is the invoke point of the service.
+	 * 
+	 */
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
@@ -35,6 +51,14 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		return setAttrToReturnDoc(docChangeShipmentOp, docGetOrderLineListOp);
 	}
 	
+	/**
+	 * This method consumes the input document and fetched the 
+	 * ReqDeliveryDate attribute and adds x number of days to the current date.
+	 * 
+	 * @param inXml
+	 * @throws ParseException
+	 */
+	
 	private void setAbandonmentTimeAttr(YFCDocument inXml) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar c = Calendar.getInstance();
@@ -48,6 +72,14 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 			finalDate = output.concat(TIME).concat(START_TIME);
 	}
 	
+	/**
+	 * This method forms the input for ChangeShipment API and
+	 * invokes the API. 
+	 * 
+	 * @param inXml
+	 * @return
+	 */
+	
 	private YFCDocument docChangeShipmentInp(YFCDocument inXml) {
 		String shipmentKey = inXml.getDocumentElement().getAttribute(XMLLiterals.SHIPMENT_KEY);
 		YFCDocument docChangeShipment = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
@@ -60,6 +92,12 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		additionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, finalDate);
 		return invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docChangeShipment, docChangeShipmentOpTemplate());
 	}
+	
+	/**
+	 * This method forms the template for ChangeShipment API. 
+	 * 
+	 * @return
+	 */
 	
 	private YFCDocument docChangeShipmentOpTemplate() {
 		YFCDocument docShipment = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
@@ -80,6 +118,14 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		return docShipment;
 	}
 	
+	/**
+	 * This method forms the input for getOrderLineList API and
+	 * invokes the API.
+	 * 
+	 * @param docChangeShipmentOp
+	 * @return
+	 */
+	
 	private YFCDocument docGetOrderLineListInp(YFCDocument docChangeShipmentOp) {
 		String orderNo = docChangeShipmentOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES).
 				getChildElement(XMLLiterals.SHIPMENT_LINE).getAttribute(XMLLiterals.ORDER_NO);
@@ -89,6 +135,12 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		order.setAttribute(XMLLiterals.ORDER_NO, orderNo);
 		return invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, docGetOrderLineListInp, docGetOrderLineListTemplate());
 	}
+	
+	/**
+	 * This method forms the template for getOrderLineList API. 
+	 * 
+	 * @return
+	 */
 	
 	private YFCDocument docGetOrderLineListTemplate() {
 		YFCDocument docApiOutput = YFCDocument.createDocument(XMLLiterals.ORDER_LINE_LIST);
@@ -105,6 +157,14 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		return docApiOutput;
 	}
 	
+	/**
+	 * This method appends the necessary attributes to the return doc.
+	 * 
+	 * @param docChangeShipmentOp
+	 * @param docGetOrderLineListOp
+	 * @return
+	 */
+	
 	private YFCDocument setAttrToReturnDoc(YFCDocument docChangeShipmentOp, YFCDocument docGetOrderLineListOp) {
 		String modifyTs = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
@@ -112,12 +172,17 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_TYPE);
 		String customerPoNo = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 				getAttribute(XMLLiterals.CUSTOMER_PO_NO);
-		String itemId = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-				getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID);
+		YFCIterable<YFCElement> yfsItrator = docChangeShipmentOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES).
+				  getChildren(XMLLiterals.SHIPMENT_LINE);
+		 for(YFCElement shipmentLineEle : yfsItrator) {
+			 String primeLineNo = shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
+			 YFCElement odrLineEle = XPathUtil.getXPathElement(docGetOrderLineListOp, "/OrderLineList/OrderLine/[@PrimeLineNo=\""+primeLineNo+"\"]");
+			 String itemId = odrLineEle.getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID);
+			 shipmentLineEle.createChild(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, itemId);
+		 }
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, orderType);
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, customerPoNo);
-		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, itemId);
 		return docChangeShipmentOp;
 	}
 }

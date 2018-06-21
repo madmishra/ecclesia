@@ -43,7 +43,7 @@
 								</xsl:attribute>
 								<Item>
 									<xsl:attribute name="ItemID">
-										<xsl:value-of select="../../@ItemID"/>
+										<xsl:value-of select="ShipmentLine/Item/@ItemID"/>
 									</xsl:attribute>
 								</Item>
 							</OrderLine>

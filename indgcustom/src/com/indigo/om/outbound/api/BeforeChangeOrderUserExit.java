@@ -116,7 +116,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		YFCIterable<YFCElement> yfsItrator=eleOrderLines.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			String sOrderLineKey=orderLine.getAttribute(XMLLiterals.ORDER_LINE_KEY);
-			System.out.println("PRIMELINE_NO"+sOrderLineKey);
+			System.out.println("OrdeerLimndfty"+sOrderLineKey);
 			isBackroomPickComplete(docGetShipmentList,sOrderLineKey);
 		}
 		}

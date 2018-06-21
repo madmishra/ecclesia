@@ -49,7 +49,8 @@ public class ExceptionLiterals {
   public static final String ERRORCODE_INVALID_DATATYPE = "ERR0010002";
   public static final String ERRORCODE_INVALID_VAULTID = "ERR0010003";
   public static final String ERRORCODE_VAULT_ERROR = "ERR0010004";
-  public static final String ERRORCODE_INVALID_DATE="ERR0010005";
+  public static final String ERRORCODE_INVALID_DATE = "ERR0010005";
+  public static final String ERRORCODE_MISSING_VALUE = "ERR0010006";
 
   public static final String MISSING_REQ_CONFIG = "ERR00003000";
   public static final String INVALID_XPATH = "ERR00003001";
@@ -61,11 +62,10 @@ public class ExceptionLiterals {
   public static final String ERR_PUTAWAY_INVALID_LOC = "ERRPUTAWAYINVALIDLOC";
   public static final String ERR_PUTAWAY_INVALID_ITEM = "ERRPUTAWAYINVALIDITEM";
   public static final String ERR_PUTAWAY_INVALID_LOC_OVVERRIDE = "ERRPUTAWAYINVALIDILOCOVERRIDE";
-  public static final String ERR_TASKMGNT_MANDATORY_FIELDS_MISSING =
-      "ERRTASKMGNTMANDATORYFIELDSMISSING";
+  public static final String ERR_TASKMGNT_MANDATORY_FIELDS_MISSING = "ERRTASKMGNTMANDATORYFIELDSMISSING";
 	  
 	public static final String ERRORCODE_SYNC_EXP = "ERRFullSyncStatus";
 	public static final String ERRORCODE_RTAM_UPLOAD = "ERRFULLSyncRTAMUpload";
-	public static final String ERRORCODE_ORDER_CANCEL_EXCEP= "ERROrderCancel";
+	public static final String ERRORCODE_ORDER_CANCEL_EXCEP = "ERROrderCancel";
   
 }

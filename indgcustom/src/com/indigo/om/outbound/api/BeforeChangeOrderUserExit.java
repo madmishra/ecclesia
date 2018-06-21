@@ -28,41 +28,22 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
-		System.out.println("INPUT"+inXml);
 		YFCElement eleInXml=inXml.getDocumentElement();
-		String action=eleInXml.getAttribute(XMLLiterals.ACTION);
-		System.out.println("hjhgkjhkthj"+action);
 		if(XmlUtils.isVoid(eleInXml.getAttribute(XMLLiterals.ACTION))) {
-			System.out.println("IIIIIIIIIIIIIIIINNNNNNND");
 		YFCIterable<YFCElement> yfsItrator = eleInXml.getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
-			System.out.println("ORDERLINE"+orderLine);
-			System.out.println("zbyvu6ywn7"+orderLine.getAttribute(XMLLiterals.ACTION));
-			System.out.println("nvbmyoiiiiiiihgtys"+orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1));
-			Boolean a=!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION));
-			Boolean b=orderLine.getAttribute(XMLLiterals.ACTION).
-					equals(ORDER_CANCEL_STATUS);
-			Boolean z=XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1));
-			System.out.println("mkMNFkdnknkGf"+a);
-			System.out.println("njkdfnkjZNGKsjrkhjnazijh"+b);
-			System.out.println("jkajfkjkjfkojf"+XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1)));
 			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&& (orderLine.getAttribute(XMLLiterals.ACTION).
 					equals(ORDER_CANCEL_STATUS))){
 				if(XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1))) {
-				System.out.println("hfdjdkfl"+orderLine);
-				eleInXml.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);
-						System.out.println("MANUAL ATTRIBUTE"+inXml);
-						System.out.println("-------------------------");
-							
-			}
-				System.out.println("INVOKING GETSHIPMENT");
+				eleInXml.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);		
+				}
 				invokeGetShipmentList(inXml);
 			}
 			
 		}
 		
 		}
-		System.out.println("END OF W****D");
+	
 		return inXml;
 
 }
@@ -72,15 +53,13 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	 * @return
 	 */
 	private YFCDocument inputXmlForGetShipmentList(YFCDocument inXml) {
-		System.out.println("ghgsahgBJbkjdjhnjf"+inXml);
 	    YFCDocument getShipmentListDoc = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
 	    YFCElement shipmentLineEle = getShipmentListDoc.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES).createChild(XMLLiterals.SHIPMENT_LINE);
 	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_NO));
-	    System.out.println("GETSHIPMENTLISTgzhrdgkhk"+getShipmentListDoc);
 	    return getShipmentListDoc;
 	  }
 	/**
-	 * this method forms template document for getShipmentList api
+	 * this method forms template document for getShipmentList API
 	 * @return
 	 */
 	
@@ -97,26 +76,20 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	    orderLineEle.setAttribute(XMLLiterals.DELIVERY_METHOD, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.DEPARTMENT_CODE, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.ORDER_LINE_KEY, EMPTY_STRING);
-	    System.out.println("TEMPLATEgfehGBJR"+getShipmentListTemp);
 	    return getShipmentListTemp;
 	  }
 	/**
-	 * this method invokes getShipmentList api
+	 * this method invokes getShipmentList API
 	 * @param inXml
 	 */
 	private void invokeGetShipmentList(YFCDocument inXml)
 	{
-		System.out.println("huuuuvthnseiy"+inXml);
-		
 		YFCDocument docGetShipmentList=invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(inXml),templateForGetShipmentList());
-		System.out.println("bhjrzhbhykdhnylkxfcju"+docGetShipmentList);
 		if(docGetShipmentList.getDocumentElement().hasChildNodes()) {
 		YFCElement eleOrderLines=inXml.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
-		System.out.println("sdjhxkkl"+eleOrderLines);
 		YFCIterable<YFCElement> yfsItrator=eleOrderLines.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			String sOrderLineKey=orderLine.getAttribute(XMLLiterals.ORDER_LINE_KEY);
-			System.out.println("OrdeerLimndfty"+sOrderLineKey);
 			isBackroomPickComplete(docGetShipmentList,sOrderLineKey);
 		}
 		}
@@ -125,30 +98,23 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	
 	/**
 	 *this method checks if isBackroomPickComplete attribute is set to 'Y' then it throws an exception stating order cannot
-	 *be cancelled in this status else it invokes changeShipment method which invokes changeShipment api
+	 *be cancelled in this status else it invokes changeShipment method which invokes changeShipment API
 	 * @param docGetShipmentList
 	 * @param inXml
 	 */
 	private void isBackroomPickComplete(YFCDocument docGetShipmentList,String sOrderLineKey)
 	{
-		System.out.println("PrimeLineNo"+sOrderLineKey);
 		YFCElement eleShipment=docGetShipmentList.getDocumentElement();
-		System.out.println("jxkcckhil"+eleShipment);
 		YFCIterable<YFCElement> yfsItrator1 = eleShipment.getChildren(XMLLiterals.SHIPMENT);
 		for(YFCElement shipment: yfsItrator1) {
-			System.out.println("ghbnjkmgihgizxh"+shipment);
 			YFCElement eleShipmentLines=shipment.getChildElement(XMLLiterals.SHIPMENT_LINES);
 			YFCIterable<YFCElement> yfsItrator2=eleShipmentLines.getChildren(XMLLiterals.SHIPMENT_LINE);
 			for(YFCElement shipmentLine: yfsItrator2) {	
-				System.out.println("ngfyhvsuhtbk"+shipmentLine);
 			String sListOrderLineKey=shipmentLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.ORDER_LINE_KEY);
-			System.out.println(sListOrderLineKey + "njkshd");
-			System.out.println("ghjgzfgikdxhi"+sOrderLineKey.equals(sListOrderLineKey));
-			System.out.println("UNHTRSVIUYBVJVVVVVVVVVVVV");
 			if(sListOrderLineKey.equals(sOrderLineKey)) {
-			if(!XmlUtils.isVoid(shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)) && shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES))
+			if(!XmlUtils.isVoid(shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)) && 
+					shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES))
 			{
-				System.out.println("GFNYZUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUR");
 				throwException();
 				break;
 			}
@@ -160,11 +126,10 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	}
 	}
 	/**
-	 * this method invokes changeShipment api
+	 * this method invokes changeShipment API
 	 * @param docGetShipmentList
 	 */
 	private void changeShipment(YFCDocument docGetShipmentList, YFCElement shipmentLine) {
-		System.out.println("MJHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
 		YFCDocument docShipment=YFCDocument.createDocument(XMLLiterals.SHIPMENT);
 		YFCElement eleShipment=docShipment.getDocumentElement();
 		YFCElement eleInputShipment=docGetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT);
@@ -176,9 +141,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, shipmentLine.getAttribute(XMLLiterals.ORDER_NO));
 		eleShipmentLine.setAttribute(XMLLiterals.ACTION, CANCEL);
 		eleShipmentLine.setAttribute(XMLLiterals.SHIPMENT_LINE_NO, eleInputShipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_NO));
-		System.out.println("CHANGE SHIPMENT INPUt"+docShipment);
-		YFCDocument changeDoc=invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docShipment);
-		System.out.println("jzfhjksdzhgkl"+changeDoc);
+		invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docShipment);
 	}
 	private void throwException() {
 		
@@ -187,7 +150,6 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
         YFCElement eleError = eleErrors.createChild("Error");
         eleError.setAttribute("ErrorCode", "ERRORCODE_ORDER_CANCEL_EXCEP");
         eleError.setAttribute("ErrorDescription", "Order cannot be cancelled in this status");
-        System.out.println(errorDoc.toString());
         throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_ORDER_CANCEL_EXCEP, errorDoc.toString()); 
 	}
 }

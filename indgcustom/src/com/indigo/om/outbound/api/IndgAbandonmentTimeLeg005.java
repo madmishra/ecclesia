@@ -50,7 +50,9 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 			throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, e);
 		}
 		YFCDocument docChangeShipmentOp = docChangeShipmentInp(inXml);
+		System.out.println(docChangeShipmentOp + "saghgd");
 		YFCDocument docGetOrderLineListOp = docGetOrderLineListInp(docChangeShipmentOp);
+		System.out.println(docGetOrderLineListOp + "sxajhdd");
 		return setAttrToReturnDoc(docChangeShipmentOp, docGetOrderLineListOp);
 	}
 	
@@ -66,6 +68,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar c = Calendar.getInstance();
 		String reqDeliveryDate = inXml.getDocumentElement().getAttribute(XMLLiterals.REQUESTED_DELIVERY_DATE);
+		System.out.println(reqDeliveryDate + "dsjkhd");
 		if(!XmlUtils.isVoid(reqDeliveryDate)) {
 			String[] segments = reqDeliveryDate.split(TIME);
 			String date = segments[0];
@@ -74,6 +77,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 			c.add(Calendar.DATE, ABANDONMENT_DAYS);
 			String output = sdf.format(c.getTime());
 			finalDate = output.concat(TIME).concat(START_TIME);
+			System.out.println(finalDate + "sjahdg");
 		}
 	}
 	
@@ -95,6 +99,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		additionalDate.setAttribute(XMLLiterals.ACTION, CREATE);
 		additionalDate.setAttribute(XMLLiterals.DATE_TYPE_ID, ABANDONMENT);
 		additionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, finalDate);
+		System.out.println(docChangeShipment + "sjakhdja");
 		return invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docChangeShipment, docChangeShipmentOpTemplate());
 	}
 	
@@ -120,6 +125,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		YFCElement additionalDate = additionalDates.createChild(XMLLiterals.ADDITIONAL_DATE);
 		additionalDate.setAttribute(XMLLiterals.DATE_TYPE_ID, EMPTY_STRING);
 		additionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, EMPTY_STRING);
+		System.out.println(docShipment + "sajhsss");
 		return docShipment;
 	}
 	
@@ -138,6 +144,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		docGetOrderLineListInp.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, shipNode);
 		YFCElement order = docGetOrderLineListInp.getDocumentElement().createChild(XMLLiterals.ORDER);
 		order.setAttribute(XMLLiterals.ORDER_NO, orderNo);
+		System.out.println(docGetOrderLineListInp + "sajksa");
 		return invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, docGetOrderLineListInp, docGetOrderLineListTemplate());
 	}
 	
@@ -159,6 +166,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		order.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 		order.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
 		order.setAttribute(XMLLiterals.ORDER_TYPE, EMPTY_STRING);
+		System.out.println(docApiOutput + "ajshaus");
 		return docApiOutput;
 	}
 	
@@ -180,14 +188,19 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		YFCIterable<YFCElement> yfsItrator = docChangeShipmentOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES).
 				  getChildren(XMLLiterals.SHIPMENT_LINE);
 		 for(YFCElement shipmentLineEle : yfsItrator) {
+			 System.out.println(shipmentLineEle.toString() + "xshjdh");
 			 String primeLineNo = shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
+			 System.out.println(primeLineNo + "dsabhjh");
 			 YFCElement odrLineEle = XPathUtil.getXPathElement(docGetOrderLineListOp, "/OrderLineList/OrderLine/[@PrimeLineNo=\""+primeLineNo+"\"]");
+			 System.out.println(odrLineEle.toString() + "ajksghja");
 			 String itemId = odrLineEle.getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID);
 			 shipmentLineEle.createChild(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, itemId);
+			 System.out.println(shipmentLineEle.toString() + "ashdgd");
 		 }
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, orderType);
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, customerPoNo);
+		System.out.println(docChangeShipmentOp + "saghygdt");
 		return docChangeShipmentOp;
 	}
 }

@@ -47,12 +47,12 @@ public class IndgSequencingNo extends AbstractCustomApi{
 	   * @param inXml
 	   * @return
 	   */
-	  private void addMsgSeqNo(YFCDocument docMsg,YFCDocument inXml) throws NullPointerException {
+	  private void addMsgSeqNo(YFCDocument docMsg,YFCDocument inXml) throws Exception {
 		  System.out.println("hmnuion vit eo umtin,oivnut");
 		  YFCElement eleOrderMessage=inXml.getDocumentElement();
 		  YFCElement eleINDGMsgSeqNo=docMsg.getDocumentElement();
 		  String sSAPMsgSeqNo=eleINDGMsgSeqNo.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO);
-		  if(!XmlUtils.isVoid(sSAPMsgSeqNo))
+		  if(!XmlUtils.isVoid(sSAPMsgSeqNo) && eleINDGMsgSeqNo.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).contains(SAP) )
 		  {
 			  eleOrderMessage.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, sSAPMsgSeqNo);
 		  }
@@ -182,7 +182,8 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		 * @return
 		 */
 		private YFCDocument invokeCreateINDGMsgSeqNo(YFCDocument docOrderMessage) {
-			System.out.println("createindgmsgNMITDN");
+			YFCElement eleOrderMsg=docOrderMessage.getDocumentElement();
+			if(XmlUtils.isVoid(eleOrderMsg.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO))) {
 			YFCDocument docINDGMsgSeqNoList=formMessageForAPI(docOrderMessage);
 			YFCElement eleINDGMsgSeqNoList=docINDGMsgSeqNoList.getDocumentElement();
 			if(!XmlUtils.isVoid(eleINDGMsgSeqNoList.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID)) && 
@@ -196,6 +197,9 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			}
 			System.out.println("NUEHUITROVNY OJ OIIRIURUIORTIURTR"+docINDGMsgSeqNoList);
 			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
+			}
+			else
+				return inputGetINDGMsgSeqNoList(docOrderMessage);
 		}
 		/**
 		 * this method forms document for createINDGMsgSeqNo and getINDGMsgseqNoList API

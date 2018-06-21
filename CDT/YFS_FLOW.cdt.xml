@@ -346,7 +346,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -354,7 +354,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -362,7 +362,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -370,7 +370,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -378,7 +378,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -386,7 +386,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -394,7 +394,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -402,7 +402,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -411,14 +411,14 @@
     GraphUIKey="AgentGraphUI" IsOutGoing="Y" IsPrintService="N"
     IsRealTime="Y" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:10-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" ProcessTypeKey="" SystemDefined="Y" TransportTypeKey="LOCAL"/>
+    OwnerKey="DEFAULT" ProcessTypeKey=" " SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
     FlowKey="20030915201706195001" FlowName="SHIPMENT_MONITOR.0003"
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Putaway"
@@ -441,7 +441,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -449,14 +449,14 @@
     GraphUIKey="AgentGraphUI" IsOutGoing="Y" IsPrintService="N"
     IsRealTime="Y" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:10-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" ProcessTypeKey="" SystemDefined="Y" TransportTypeKey="LOCAL"/>
+    OwnerKey="DEFAULT" ProcessTypeKey=" " SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
     FlowKey="20031001195807501" FlowName="CONSOLIDATE_TO_SHIPMENT.0006"
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -464,7 +464,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -472,14 +472,14 @@
     GraphUIKey="AgentGraphUI" IsOutGoing="Y" IsPrintService="N"
     IsRealTime="Y" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:10-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" ProcessTypeKey="" SystemDefined="Y" TransportTypeKey="LOCAL"/>
+    OwnerKey="DEFAULT" ProcessTypeKey=" " SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
     FlowKey="200310012000382001" FlowName="ORDERHISTPRG.0006"
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -487,7 +487,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -495,21 +495,21 @@
     GraphUIKey="AgentGraphUI" IsOutGoing="Y" IsPrintService="N"
     IsRealTime="Y" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:10-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" ProcessTypeKey="" SystemDefined="Y" TransportTypeKey="LOCAL"/>
+    OwnerKey="DEFAULT" ProcessTypeKey=" " SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
     FlowKey="200310012002303501" FlowName="SCHEDULE.0006" FlowType="01"
     GraphUIKey="AgentGraphUI" IsOutGoing="Y" IsPrintService="N"
     IsRealTime="Y" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:10-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" ProcessTypeKey="" SystemDefined="Y" TransportTypeKey="LOCAL"/>
+    OwnerKey="DEFAULT" ProcessTypeKey=" " SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
     FlowKey="200310012003063505" FlowName="SHIP_ADVICE.0006"
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -517,7 +517,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -525,7 +525,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -533,7 +533,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -541,7 +541,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -549,7 +549,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -557,7 +557,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -565,7 +565,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -573,7 +573,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Prints"
@@ -795,14 +795,14 @@
     GraphUIKey="AgentGraphUI" IsOutGoing="Y" IsPrintService="N"
     IsRealTime="Y" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:10-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" ProcessTypeKey="" SystemDefined="N" TransportTypeKey="LOCAL"/>
+    OwnerKey="DEFAULT" ProcessTypeKey=" " SystemDefined="N" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
     FlowKey="200408031637263408" FlowName="COLLECT_STATISTICS"
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -810,7 +810,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="N" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -818,7 +818,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="N" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -826,7 +826,7 @@
     GraphUIKey="AgentGraphUI" IsOutGoing="Y" IsPrintService="N"
     IsRealTime="Y" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:10-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" ProcessTypeKey="" SystemDefined="Y" TransportTypeKey="LOCAL"/>
+    OwnerKey="DEFAULT" ProcessTypeKey=" " SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Inventory Synchronization"
     FlowKey="2004091510210335551" FlowName="LoadInventoryMismatch"
@@ -930,7 +930,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="N" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:31:15-04:00"
     Createuserid="SYSTEM" FlowGroupName="DefaultAgentGroup"
@@ -3822,12 +3822,30 @@
 <Flow Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-15T10:29:27-04:00" Createuserid="admin"
     FlowGroupName="IndgOrderMsg" FlowKey="2018061510292724106"
-    FlowName="INDG_changeINDGMsgSeqNo" FlowType="00" GraphUIKey=""
+    FlowName="INDG_changeINDGMsgSeqNo" FlowType="00" GraphUIKey=" "
     IsOutGoing="Y" IsPrintService="N" IsRealTime="N" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-06-15T10:29:27-04:00" Modifyuserid="admin"
     OwnerKey="DEFAULT" ProcessTypeKey="ORDER_FULFILLMENT"
-    SystemDefined="N" TransportTypeKey=""/>
+    SystemDefined="N" TransportTypeKey=" "/>
+<Flow Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-06-21T13:23:27-04:00" Createuserid="admin"
+    FlowGroupName="DefaultGroup" FlowKey="2018062113232725058"
+    FlowName="INDG_SAP005" FlowType="00"
+    GraphUIKey="2018062113232725057" IsOutGoing="Y" IsPrintService="N"
+    IsRealTime="N" Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-06-21T13:23:27-04:00" Modifyuserid="admin"
+    OwnerKey="DEFAULT" ProcessTypeKey="ORDER_FULFILLMENT"
+    SystemDefined="N" TransportTypeKey="LOCAL"/>
+<Flow Createprogid=".YCPWFRepositoryAPI"
+    Createts="2018-06-21T13:24:24-04:00" Createuserid="admin"
+    FlowGroupName="DefaultGroup" FlowKey="2018062113242425074"
+    FlowName="INDG_LEGACY007" FlowType="00"
+    GraphUIKey="2018062113242425073" IsOutGoing="Y" IsPrintService="N"
+    IsRealTime="N" Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
+    Modifyts="2018-06-21T13:24:24-04:00" Modifyuserid="admin"
+    OwnerKey="DEFAULT" ProcessTypeKey="ORDER_FULFILLMENT"
+    SystemDefined="N" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:36:08-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
     FlowKey="ACCEPT_WAVE" FlowName="ACCEPT_WAVE" FlowType="01"
@@ -4079,7 +4097,7 @@
     FlowType="01" GraphUIKey="AgentGraphUI" IsOutGoing="Y"
     IsPrintService="N" IsRealTime="Y" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:10-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=""
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" ProcessTypeKey=" "
     SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:36:08-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
@@ -4537,7 +4555,7 @@
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Group"
     FlowKey="POST_INVENTORY_MATCH" FlowName="POST_INVENTORY_MATCH"
-    FlowType="01" GraphUIKey="" IsOutGoing="Y" IsPrintService="N"
+    FlowType="01" GraphUIKey=" " IsOutGoing="Y" IsPrintService="N"
     IsRealTime="Y" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:10-04:00" Modifyuserid="SYSTEM"
     OwnerKey="DEFAULT" ProcessTypeKey="GENERAL" SystemDefined="Y" TransportTypeKey="LOCAL"/>
@@ -5069,7 +5087,7 @@
     GraphUIKey="AgentGraphUI" IsOutGoing="Y" IsPrintService="N"
     IsRealTime="Y" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:10-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" ProcessTypeKey="" SystemDefined="Y" TransportTypeKey="LOCAL"/>
+    OwnerKey="DEFAULT" ProcessTypeKey=" " SystemDefined="Y" TransportTypeKey="LOCAL"/>
 <Flow Createprogid="XMLMigrator" Createts="2018-03-28T12:30:10-04:00"
     Createuserid="SYSTEM" FlowGroupName="Default Agent Group"
     FlowKey="TASK_QUEUE_SYNCHER_VAS" FlowName="TASK_QUEUE_SYNCHER_VAS"

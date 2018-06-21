@@ -37,6 +37,14 @@
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:14-04:00"
     Modifyuserid="SYSTEM" OwnerKey="DEFAULT"
     ProcessTypeKey="200307081424521056" RequestedFlag="Y" SystemDefined="Y"/>
+<DateType ActualFlag="Y" CommittedFlag="Y"
+    Createprogid=".YEntityServlet" Createts="2018-06-21T13:28:12-04:00"
+    Createuserid="admin" DateTypeId="ABANDONMENT"
+    DateTypeKey="2018062113281225089" Description="AbandonmentTime"
+    ExpectedFlag="N" IsMilestone="N" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-06-21T13:28:12-04:00"
+    Modifyuserid="admin" OwnerKey="DEFAULT"
+    ProcessTypeKey="ORDER_DELIVERY" RequestedFlag="N" SystemDefined="N"/>
 <DateType ActualFlag="N" CommittedFlag="N" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:30:14-04:00" Createuserid="SYSTEM"
     DateTypeId="APPTENDDATE" DateTypeKey="APPTENDDATE"
@@ -104,7 +112,7 @@
     Modifyts="2018-03-28T12:30:14-04:00" Modifyuserid="SYSTEM"
     OwnerKey="DEFAULT" ProcessTypeKey="QUOTE_FULFILLMENT"
     RequestedFlag="N" SystemDefined="Y"/>
-<DateType ActualFlag="Y" CommittedFlag="" Createprogid="XMLMigrator"
+<DateType ActualFlag="Y" CommittedFlag=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:18-04:00" Createuserid="SYSTEM"
     DateTypeId="YCD_FTC_CANCEL_DATE" DateTypeKey="FTCCANCELDATE"
     Description="FTC Cancel Date" ExpectedFlag="N" IsMilestone="N"
@@ -112,7 +120,7 @@
     Modifyts="2018-03-28T12:31:18-04:00" Modifyuserid="SYSTEM"
     OwnerKey="DEFAULT" ProcessTypeKey="ORDER_FULFILLMENT"
     RequestedFlag="N" SystemDefined="N"/>
-<DateType ActualFlag="Y" CommittedFlag="" Createprogid="XMLMigrator"
+<DateType ActualFlag="Y" CommittedFlag=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:18-04:00" Createuserid="SYSTEM"
     DateTypeId="YCD_FTC_NEXT_PROMISE_DATE"
     DateTypeKey="FTCNEXTPRMISEDATE" Description="Next FTC Promise Date"
@@ -546,7 +554,7 @@
     Modifyts="2018-03-28T12:30:14-04:00" Modifyuserid="SYSTEM"
     OwnerKey="DEFAULT" ProcessTypeKey="ORDER_FULFILLMENT"
     RequestedFlag="N" SystemDefined="Y"/>
-<DateType ActualFlag="Y" CommittedFlag="" Createprogid="XMLMigrator"
+<DateType ActualFlag="Y" CommittedFlag=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:18-04:00" Createuserid="SYSTEM"
     DateTypeId="YCD_COMPLETELY_SHIPPED_OR_CANCELLED"
     DateTypeKey="YCDSHPCANCELLED"
@@ -555,7 +563,7 @@
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:18-04:00"
     Modifyuserid="SYSTEM" OwnerKey="DEFAULT"
     ProcessTypeKey="ORDER_FULFILLMENT" RequestedFlag="N" SystemDefined="N"/>
-<DateType ActualFlag="Y" CommittedFlag="" Createprogid="XMLMigrator"
+<DateType ActualFlag="Y" CommittedFlag=" " Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:18-04:00" Createuserid="SYSTEM"
     DateTypeId="YCD_UNREACHABLE" DateTypeKey="YCDUNREACHABL"
     Description="YCD Unreachable Milestone" ExpectedFlag="N"

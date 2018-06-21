@@ -83,6 +83,7 @@ public class IndgSequencingNo extends AbstractCustomApi{
 			YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 			System.out.println("funhuuuuuuuuuuuuuyjmug"+eleOrder);
 			System.out.println("urthyuynukbjumituj"+eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO));
+			System.out.println("hntuejyrijmuitji"+eleOrderMessage.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO));
 			System.out.println("jkenhv gutjhykju"+XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)));
 			System.out.println("ycw7tiyh4nwu5i"+eleOrderMessage.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO));
 			if(!(XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO))

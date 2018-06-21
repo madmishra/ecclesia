@@ -191,7 +191,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 			 System.out.println(shipmentLineEle.toString() + "xshjdh");
 			 String primeLineNo = shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
 			 System.out.println(primeLineNo + "dsabhjh");
-			 YFCElement odrLineEle = XPathUtil.getXPathElement(docGetOrderLineListOp, "/OrderLineList/OrderLine/[@PrimeLineNo=\""+primeLineNo+"\"]");
+			 YFCElement odrLineEle = XPathUtil.getXPathElement(docGetOrderLineListOp, "/OrderLineList/OrderLine[@PrimeLineNo=\""+primeLineNo+"\"]");
 			 System.out.println(odrLineEle.toString() + "ajksghja");
 			 String itemId = odrLineEle.getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID);
 			 shipmentLineEle.createChild(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, itemId);

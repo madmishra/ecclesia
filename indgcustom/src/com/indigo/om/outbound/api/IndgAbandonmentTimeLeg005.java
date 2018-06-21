@@ -10,6 +10,7 @@ import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.ExceptionUtil;
 import com.bridge.sterling.utils.XPathUtil;
+import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
@@ -65,6 +66,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar c = Calendar.getInstance();
 		String reqDeliveryDate = inXml.getDocumentElement().getAttribute(XMLLiterals.REQUESTED_DELIVERY_DATE);
+		if(!XmlUtils.isVoid(reqDeliveryDate)) {
 			String[] segments = reqDeliveryDate.split(TIME);
 			String date = segments[0];
 			Date d = sdf.parse(date);
@@ -72,6 +74,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 			c.add(Calendar.DATE, ABANDONMENT_DAYS);
 			String output = sdf.format(c.getTime());
 			finalDate = output.concat(TIME).concat(START_TIME);
+		}
 	}
 	
 	/**

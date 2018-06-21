@@ -143,7 +143,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 				System.out.println("ngfyhvsuhtbk"+shipmentLine);
 			String sListOrderLineKey=shipmentLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.ORDER_LINE_KEY);
 			System.out.println(sListOrderLineKey + "njkshd");
-			System.out.println("ghjgzfgikdxhi"+shipmentLine.getAttribute(XMLLiterals.ORDER_LINE_KEY).equals(sOrderLineKey));
+			System.out.println("ghjgzfgikdxhi"+sOrderLineKey.equals(sListOrderLineKey));
 			System.out.println("UNHTRSVIUYBVJVVVVVVVVVVVV");
 			if(sListOrderLineKey.equals(sOrderLineKey)) {
 			if(!XmlUtils.isVoid(shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)) && shipmentLine.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES))

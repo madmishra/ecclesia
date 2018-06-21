@@ -16,6 +16,7 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 	private String sIsFullOrderCancelled="Y";
 	private static final String NO="N"; 
 	private static final String CANCELLED="Cancelled";
+	private  String sModifyts="";
 	
 	 /**
 	   * This is the invoke point of the Service
@@ -32,10 +33,12 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 		  YFCIterable<YFCElement> orderLineListEle =orderLinesrootEle.getChildren();
 		  for(YFCElement orderElement : orderLineListEle) {
 			  String sShipNode=orderElement.getAttribute(XMLLiterals.SHIPNODE);
-			  if((sIsFullOrderCancelled = invokeGetOrderLineList(sOrderNo,sEnterpriseCode,sShipNode)).equals(NO))
+			  sIsFullOrderCancelled=invokeGetOrderLineList(sOrderNo,sEnterpriseCode,sShipNode);
+			  if((sIsFullOrderCancelled).equals(NO))
 				  break;
 		  }
 		  eleInXml.setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, sIsFullOrderCancelled);
+		  eleInXml.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
 		  return docInXml;
 	  }
 	  
@@ -91,6 +94,7 @@ public class IndgStoreOrdFullyCancelled extends AbstractCustomApi{
 	 {
 		YFCDocument docGetOrderLineListOutput= invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST,inputGetOrderLineList(sShipNode,sOrderNo,sEnterpriseCode),getOrderLineListTemplate());
 		YFCElement eleGetOrderLineListOutput=docGetOrderLineListOutput.getDocumentElement();
+		sModifyts=eleGetOrderLineListOutput.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.MODIFYTS);
 		YFCIterable<YFCElement> eleInputOrderLine = eleGetOrderLineListOutput.getChildren(XMLLiterals.ORDER_LINE);
 		 for(YFCElement eleOrder : eleInputOrderLine) {
 		String sOrderLineStatus=eleOrder.getAttribute(XMLLiterals.STATUS);

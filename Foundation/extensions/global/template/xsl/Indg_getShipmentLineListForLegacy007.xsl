@@ -14,6 +14,11 @@
 			<xsl:attribute name="CustomerPoNo">
 				<xsl:value-of select="MessageBody/Order/@LegacyOMSOrderNo"/>
 			</xsl:attribute>
+			<OrderLine>
+				<xsl:attribute name="ShipNode">
+					<xsl:value-of select="MessageBody/Order/OrderLines/OrderLine/@ShipNode"/>
+				</xsl:attribute>
+			</OrderLine>
 		</ShipmentLine>
 	</xsl:template>
 </xsl:stylesheet>

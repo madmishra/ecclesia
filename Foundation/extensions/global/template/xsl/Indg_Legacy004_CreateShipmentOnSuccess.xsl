@@ -32,7 +32,7 @@
 									<xsl:value-of select="OrderLine/@PrimeLineNo"/>
 								</xsl:attribute>
 								<xsl:attribute name="Quantity">
-									<xsl:value-of select="OrderLine/@Quantity"/>
+									<xsl:value-of select="OrderLine/@OrderedQty"/>
 								</xsl:attribute>
 								<Item>
 									<xsl:attribute name="ItemID">

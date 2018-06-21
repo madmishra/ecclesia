@@ -36,7 +36,6 @@ public class IndgSequencingNo extends AbstractCustomApi{
 		  addMsgSeqNo(docMsg,inXml);
 		  }
 		  catch(Exception e) {
-			  e.printStackTrace();
 		  }
 		  System.out.println("jnghbbbbbbuiohykitgooir"+inXml);
 		  return inXml;

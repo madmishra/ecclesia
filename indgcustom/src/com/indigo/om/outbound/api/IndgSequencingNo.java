@@ -15,7 +15,6 @@ import com.yantra.yfc.dom.YFCElement;
 
 /**
  * 
- * 
  * @author BSG170
  *
  */
@@ -48,7 +47,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		return inXml;
 	}
 	  
-	/**
+	/**This method adds the sequence no to the message
 	 *   
 	 * @param docMsg
 	 * @param inXml
@@ -71,7 +70,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		}
 	}
 	
-	/**
+	/**This method adds milliseconds to the Modifyts time value
 	 * 
 	 * @param eleOrderMessage
 	 */
@@ -86,7 +85,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	}
 	  
 	/**
-	  * this method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method
+	  * This method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method
 	  * 
 	  * @param inXml
 	  * @return
@@ -103,7 +102,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			return invokeCreateINDGMsgSeqNo(inXml);	
 	}
 		
-	/**
+	/**This method invokes getMsgSeqList which is invoking point of changeInsgMsgSeqNo API
 	 * 
 	 * @param docgetMsgSeqList
 	 * @param inXml
@@ -126,7 +125,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		return getMsgSeqList(docgetMsgSeqList, sSequeneceType, sOrderNo);
 	}
 		 
-	/**
+	/**This method is invoking point of changeIndgSeqNo API
 	 * 
 	 * @param docgetMsgSeqList
 	 * @param sSequeneceType
@@ -147,7 +146,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		return docChangeIndgSeqNo;
 	}
 	
-	/**
+	/**This method invokes changeIndgMsgSeqNo API
 	 * 
 	 * @param shipmentLine
 	 * @return
@@ -172,7 +171,8 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		return invokeYantraService(INDG_CHANGE_INDG_MSG_SEQ_NO, docChangeGetMsgSeq);
 	}
 		 
-	/**
+	/**This method invokes invokechangeINDGMsgSeqNo or invokeCreateINDGMsgSeqNo method based on whether the record exists in  
+	 * the INDG_MSG_SEQ_NO table
 	 * 		
 	 * @param inXml
 	 * @return
@@ -188,7 +188,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			return 	invokeCreateINDGMsgSeqNo(inXml);
 	}
 	
-	/**
+	/**This method method is invoking point for createIndgMsgSeqNo API
 	 * 	
 	 * @param docOrderMessage
 	 * @return
@@ -214,7 +214,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			return inputGetINDGMsgSeqNoList(docOrderMessage);
 	}
 		
-	/**
+	/**This method forms input message for getIndgMsgSeqNO or changeIndgMsgSeqNo API
 	 * 
 	 * @param docOrderMessage
 	 * @return

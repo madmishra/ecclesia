@@ -1,4 +1,4 @@
-package com.indigo.masterupload.storeupdate;
+	package com.indigo.masterupload.storeupdate;
 
 import java.util.Collection;
 
@@ -32,6 +32,7 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	private static final String EMPTY_STRING = "";
 	private static final String INACTIVATE_FLAG = "N";
 	private static final String NODE = "NODE";
+	private static final String INDG_STOREFEED_Q="Indg_StoreFeed_Q";
 	
 	/**	 
 	 * This method is the invoke point of the service.
@@ -111,7 +112,7 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	    			inputDocForManageOrgAPI.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, value);
 	    			YFCElement nodeEle = inputDocForManageOrgAPI.getDocumentElement().createChild((XMLLiterals.NODE));
 	    			nodeEle.setAttribute(XMLLiterals.ACTIVATEFLAG, INACTIVATE_FLAG);
-	    			invokeYantraApi(XMLLiterals.MANAGE_ORGANIZATION_HIERARCHY, inputDocForManageOrgAPI);
+	    			invokeYantraService(INDG_STOREFEED_Q, inputDocForManageOrgAPI);
 	    		}
 	    	}
 	    }
@@ -140,7 +141,7 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	    	  YFCElement orgRole = orgRoleEle.createChild(XMLLiterals.ORG_ROLE);
 	    	  orgRole.setAttribute(XMLLiterals.ROLE_KEY, NODE);
 	    	  
-	    	  invokeYantraApi(XMLLiterals.CREATE_ORGANIZATION_HIERARCHY, docCreateOrgInput);
+	    	  invokeYantraApi(INDG_STOREFEED_Q, docCreateOrgInput);
 	    	  
 	    	  YFCNode parent = organizationEle.getParentNode();
 	    	  parent.removeChild(organizationEle);
@@ -160,10 +161,9 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 			YFCElement inEle = inXml.getDocumentElement();
 			YFCIterable<YFCElement> organizationEle = inEle.getChildren(XMLLiterals.ORGANIZATION);
 			for(YFCElement element : organizationEle) {
-			
 				String inputString = element.toString();
 				YFCDocument remainingNodesforModify = YFCDocument.getDocumentFor(inputString);
-				invokeYantraApi(XMLLiterals.MODIFY_ORGANIZATION_HIERARCHY, remainingNodesforModify);
+				invokeYantraApi(INDG_STOREFEED_Q, remainingNodesforModify);
 				}
 			}
 		}

@@ -47,7 +47,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		return inXml;
 	}
 	  
-	/**This method adds the sequence no to the message
+	/**
 	 *   
 	 * @param docMsg
 	 * @param inXml
@@ -70,7 +70,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		}
 	}
 	
-	/**This method adds milliseconds to the Modifyts time value
+	/**
 	 * 
 	 * @param eleOrderMessage
 	 */
@@ -82,27 +82,21 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		String sModifyts= format.format(ts);
 		sModifyts = sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
 		eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
+		
 	}
 	  
 	/**
-	  * This method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method
+	  * this method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method
 	  * 
 	  * @param inXml
 	  * @return
 	  */
 	  
 	private YFCDocument updateMsgSeqNo(YFCDocument inXml) {
-		YFCElement eleOrderMessage=inXml.getDocumentElement();
-		YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
-		if(!(XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO))
-				&& (XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO))))
-				|| (!XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO))))
 			return inputGetINDGMsgSeqNoList(inXml);
-		else
-			return invokeCreateINDGMsgSeqNo(inXml);	
 	}
 		
-	/**This method invokes getMsgSeqList which is invoking point of changeInsgMsgSeqNo API
+	/**
 	 * 
 	 * @param docgetMsgSeqList
 	 * @param inXml
@@ -125,7 +119,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		return getMsgSeqList(docgetMsgSeqList, sSequeneceType, sOrderNo);
 	}
 		 
-	/**This method is invoking point of changeIndgSeqNo API
+	/**
 	 * 
 	 * @param docgetMsgSeqList
 	 * @param sSequeneceType
@@ -146,7 +140,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		return docChangeIndgSeqNo;
 	}
 	
-	/**This method invokes changeIndgMsgSeqNo API
+	/**
 	 * 
 	 * @param shipmentLine
 	 * @return
@@ -171,8 +165,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		return invokeYantraService(INDG_CHANGE_INDG_MSG_SEQ_NO, docChangeGetMsgSeq);
 	}
 		 
-	/**This method invokes invokechangeINDGMsgSeqNo or invokeCreateINDGMsgSeqNo method based on whether the record exists in  
-	 * the INDG_MSG_SEQ_NO table
+	/**
 	 * 		
 	 * @param inXml
 	 * @return
@@ -188,7 +181,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			return 	invokeCreateINDGMsgSeqNo(inXml);
 	}
 	
-	/**This method method is invoking point for createIndgMsgSeqNo API
+	/**
 	 * 	
 	 * @param docOrderMessage
 	 * @return
@@ -196,7 +189,8 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	
 	private YFCDocument invokeCreateINDGMsgSeqNo(YFCDocument docOrderMessage) {
 		YFCElement eleOrderMsg=docOrderMessage.getDocumentElement();
-		if(XmlUtils.isVoid(eleOrderMsg.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)))
+		if(XmlUtils.isVoid(eleOrderMsg.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)) ||
+				XmlUtils.isVoid(eleOrderMsg.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO)))
 		{
 			YFCDocument docINDGMsgSeqNoList=formMessageForAPI(docOrderMessage);
 			YFCElement eleINDGMsgSeqNoList=docINDGMsgSeqNoList.getDocumentElement();
@@ -214,7 +208,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			return inputGetINDGMsgSeqNoList(docOrderMessage);
 	}
 		
-	/**This method forms input message for getIndgMsgSeqNO or changeIndgMsgSeqNo API
+	/**
 	 * 
 	 * @param docOrderMessage
 	 * @return

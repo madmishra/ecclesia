@@ -31,10 +31,11 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 YFCDocument docLegacy051Input = null;
 	 YFCDocument docInputXml = null;
 	 YFCDocument docLegacy051 = null;
-	 private static final String CANCELLATION_TYPE = "LEGACY051";
+	 private static final String CANCELLATION_TYPE = "LEGACY";
 	 private static final String REASON_CODE = "03";
 	 private static final String CALL_LEGACYOMS051_SERVICE = "CALL_LEGACYOMS051_SERVICE";	 
 	 private static final String CUSTOMER_PONO = "CustomerPoNo";
+	 
 	 /**
 	  * This method is the invoke point of the service.
 	  * 

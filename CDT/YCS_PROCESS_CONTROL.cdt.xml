@@ -2,17 +2,17 @@
 <YCS_PROCESS_CONTROLList TableName="YCS_PROCESS_CONTROL">
 <ProcessControl ApiName="GETSERVICES" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000001"/>
 <ProcessControl ApiName="GETSPECIALSERVICES" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000002"/>
 <ProcessControl ApiName="GETTRACKINGNUMBER" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000003"/>
 <ProcessControl ApiName="GETFREIGHTCHARGE" Carrier="UPSN"
@@ -22,37 +22,37 @@
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000004"/>
 <ProcessControl ApiName="GETSPECIALSERVICESGROUP" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000005"/>
 <ProcessControl ApiName="GETCODEDATA" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000006"/>
 <ProcessControl ApiName="VALIDATESHIPMENT" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000007"/>
 <ProcessControl ApiName="SHIPCARTON" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000008"/>
 <ProcessControl ApiName="CLOSEMANIFEST" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000009"/>
 <ProcessControl ApiName="GETTIMEINTRANSIT" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000010"/>
 <ProcessControl ApiName="PLDUPLOAD" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000013"/>
 <ProcessControl ApiName="GETFREIGHTCHARGE" Carrier="UPSN"
@@ -77,12 +77,12 @@
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000017"/>
 <ProcessControl ApiName="PURGE" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000018"/>
 <ProcessControl ApiName="TRACK_AND_PRINT" Carrier="FEDX"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000019"/>
 <ProcessControl ApiName="GETFREIGHTCHARGE" Carrier="FEDX"
@@ -147,7 +147,7 @@
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000031"/>
 <ProcessControl ApiName="PLDUPLOAD0200" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="000000000000000000000200"/>
 <ProcessControl ApiName="SHIPCARTON" Carrier="AIRB"
@@ -162,22 +162,22 @@
     Modifyuserid="SYSTEM" ProcessControlKey="200209261553140000000082"/>
 <ProcessControl ApiName="OPENMANIFEST" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="200309240000000000000001"/>
 <ProcessControl ApiName="OPENMANIFEST" Carrier="FEDX"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="200309240000000000000002"/>
 <ProcessControl ApiName="DELETECARTON" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="200310150000000000000100"/>
 <ProcessControl ApiName="PURGE" Carrier="FEDX"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="200310270000000000000001"/>
 <ProcessControl ApiName="SHIPCARTON" Carrier="UPSN"
@@ -197,7 +197,7 @@
     Modifyuserid="SYSTEM" ProcessControlKey="200404201515000000000002"/>
 <ProcessControl ApiName="TRACK_AND_PRINT" Carrier="UPSN"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="200404201515000000000005"/>
 <ProcessControl ApiName="SHIPCARTON" Carrier="UPSA"
@@ -217,17 +217,17 @@
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000A002"/>
 <ProcessControl ApiName="OPENMANIFEST" Carrier="UPSA"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000A003"/>
 <ProcessControl ApiName="PURGE" Carrier="UPSA"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000A004"/>
 <ProcessControl ApiName="TRACK_AND_PRINT" Carrier="UPSA"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000A005"/>
 <ProcessControl ApiName="SHIPCARTON" Carrier="UPSC"
@@ -247,17 +247,17 @@
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000C002"/>
 <ProcessControl ApiName="OPENMANIFEST" Carrier="UPSC"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000C003"/>
 <ProcessControl ApiName="PURGE" Carrier="UPSC"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000C004"/>
 <ProcessControl ApiName="TRACK_AND_PRINT" Carrier="UPSC"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000C005"/>
 <ProcessControl ApiName="SHIPCARTON" Carrier="UPSE"
@@ -277,17 +277,17 @@
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000E002"/>
 <ProcessControl ApiName="OPENMANIFEST" Carrier="UPSE"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000E003"/>
 <ProcessControl ApiName="PURGE" Carrier="UPSE"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000E004"/>
 <ProcessControl ApiName="TRACK_AND_PRINT" Carrier="UPSE"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000E005"/>
 <ProcessControl ApiName="SHIPCARTON" Carrier="UPSL"
@@ -307,17 +307,17 @@
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000L002"/>
 <ProcessControl ApiName="OPENMANIFEST" Carrier="UPSL"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000L003"/>
 <ProcessControl ApiName="PURGE" Carrier="UPSL"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000L004"/>
 <ProcessControl ApiName="TRACK_AND_PRINT" Carrier="UPSL"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:38-04:00"
-    Createuserid="SYSTEM" Lockid="0" LogicSwitch=""
+    Createuserid="SYSTEM" Lockid="0" LogicSwitch=" "
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:38-04:00"
     Modifyuserid="SYSTEM" ProcessControlKey="20040420151500000000L005"/>
 </YCS_PROCESS_CONTROLList>

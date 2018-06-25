@@ -30,6 +30,10 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     private static final String CANCELLATION_TYPE = "SAP";
     private static final String REASON_CODE = "03";
     private static final String CALL_LEGACYOMS003_SERVICE = "CALL_LEGACYOMS003_SERVICE";
+    private String isFullOrderCancelled = "";
+	private static final String CANCELLED = "Cancelled";
+	private static final String NO = "N";
+	private static final String YES = "Y";
 
      /**
        * This is the invoke point of the Service
@@ -45,7 +49,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     		String inputDocString = docInXml.toString();
     	    YFCDocument docLegacy003Op = YFCDocument.getDocumentFor(inputDocString);
     	    docLegacy003Op.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
-            callLegacy003OnScheduleQueue(docLegacy003Op);
+    	    docCheckIsFullOrderCancelled(docLegacy003Op, docGetOrderLineList);
             
     		return manageOrderCancellation(docInXml, docGetOrderLineList);
     }
@@ -221,6 +225,36 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
       parent = statusEle.getParentNode();
       parent.removeChild(statusEle);
       orderEle.removeAttribute(XMLLiterals.STATUS);
+    }
+    
+    private void docCheckIsFullOrderCancelled(YFCDocument docInXml, YFCDocument getOrderLineListDoc) {
+	    YFCElement getOrderLineListOutputEle = getOrderLineListDoc.getDocumentElement();
+		YFCIterable<YFCElement> inputOrderLineEle = getOrderLineListOutputEle.getChildren(XMLLiterals.ORDER_LINE);
+		for(YFCElement orderElement : inputOrderLineEle) {
+			String orderLineStatus=orderElement.getAttribute(XMLLiterals.STATUS);
+			if(!orderLineStatus.equals(CANCELLED))
+			{ isFullOrderCancelled = NO;
+				break; }
+			else
+			{ isFullOrderCancelled = YES; }
+		}	
+		if(isFullOrderCancelled.equals(NO)) {
+			docInXml.getDocumentElement().setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
+			callLegacy003OnScheduleQueue(docInXml);
+		}
+		else
+			docInXml.getDocumentElement().setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
+		docLegacy003FullOdrCancelled(docInXml);
+	}
+    
+    private void docLegacy003FullOdrCancelled(YFCDocument docLegacy003Op) {
+    	YFCIterable<YFCElement> yfsItratorPrimeLine = docLegacy003Op.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
+    			getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
+		for(YFCElement orderLineEle : yfsItratorPrimeLine) {
+			YFCNode parent = orderLineEle.getParentNode();
+		    parent.removeChild(orderLineEle);
+		}
+    	callLegacy003OnScheduleQueue(docLegacy003Op);
     }
 }
     

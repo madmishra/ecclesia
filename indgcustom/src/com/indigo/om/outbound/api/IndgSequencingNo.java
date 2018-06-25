@@ -95,17 +95,21 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	private YFCDocument invokegetMsgSeqList(YFCDocument docgetMsgSeqList,YFCDocument inXml) {
 		String sSequeneceType;
 		String sOrderNo;
+		String sSAPOrderNo;
 		YFCElement eleOrderMessage=inXml.getDocumentElement();
 		YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		if(eleOrderMessage.getAttribute(XMLLiterals.MESSAGE_TYPE_ID).contains(SAP)) {
 			sSequeneceType = XMLLiterals.SAP_OUTBOUND;
 			sOrderNo=eleOrder.getAttribute(XMLLiterals.STERLING_ORDER_NO);
+			sSAPOrderNo=eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO);
+			return getMsgSeqListForSAP(docgetMsgSeqList, sSequeneceType, sOrderNo,sSAPOrderNo);
 		}
 		else {
 			sSequeneceType = XMLLiterals.LEGACY_OUTBOUND;
 			sOrderNo=eleOrderMessage.getAttribute(XMLLiterals.ORDER_NO);
-		}
-		return getMsgSeqList(docgetMsgSeqList, sSequeneceType, sOrderNo);
+	
+		return getMsgSeqListForLeg(docgetMsgSeqList, sSequeneceType, sOrderNo);
+	}
 	}
 		 
 	/**
@@ -116,18 +120,41 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	 * @return
 	 */
 	
-	private YFCDocument getMsgSeqList(YFCDocument docgetMsgSeqList, String sSequeneceType, String sOrderNo) {
+	private YFCDocument getMsgSeqListForSAP(YFCDocument docgetMsgSeqList, String sSequeneceType, String sOrderNo,String sSAPOrderNo) {
 		YFCDocument docChangeIndgSeqNo=null;
 		YFCElement elegetMsgSeqList=docgetMsgSeqList.getDocumentElement();
 		YFCIterable<YFCElement> yfsItrator =elegetMsgSeqList.getChildren(XMLLiterals.INDG_MSG_SEQ_NO);
 		for(YFCElement shipmentLine: yfsItrator) {
 			if(shipmentLine.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).equals(sSequeneceType) && 
-					shipmentLine.getAttribute(XMLLiterals.ORDER_NO).equals(sOrderNo)) {
+					shipmentLine.getAttribute(XMLLiterals.ORDER_NO).equals(sOrderNo)
+					&& shipmentLine.getAttribute(XMLLiterals.SAP_ORDER_NO).equals(sSAPOrderNo))
 				docChangeIndgSeqNo =invokechangeINDGMsgSeqNo(shipmentLine);
 			}
-		}
 		return docChangeIndgSeqNo;
-	}
+		}
+	/**
+	 * This method invokes invokechangeINDGMsgSeqNo
+	 * @param docgetMsgSeqList
+	 * @param sSequeneceType
+	 * @param sOrderNo
+	 * @return
+	 */
+	
+	
+	
+	private YFCDocument getMsgSeqListForLeg(YFCDocument docgetMsgSeqList, String sSequeneceType, String sOrderNo) {
+		YFCDocument docChangeIndgSeqNo=null;
+		YFCElement elegetMsgSeqList=docgetMsgSeqList.getDocumentElement();
+		YFCIterable<YFCElement> yfsItrator =elegetMsgSeqList.getChildren(XMLLiterals.INDG_MSG_SEQ_NO);
+		for(YFCElement shipmentLine: yfsItrator) {
+			if(shipmentLine.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).equals(sSequeneceType) && 
+					shipmentLine.getAttribute(XMLLiterals.ORDER_NO).equals(sOrderNo))
+				docChangeIndgSeqNo =invokechangeINDGMsgSeqNo(shipmentLine);
+			}
+		return docChangeIndgSeqNo;
+		}
+	
+
 	
 	/**
 	 * This method invokes invoke antraService INDG_changeINDGMsgSeqNo

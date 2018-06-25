@@ -37,7 +37,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {  
-		YFCDocument docMsg=updateMsgSeqNo(inXml);
+		YFCDocument docMsg=checkDataExists(inXml);
 		try {
 			addMsgSeqNo(docMsg,inXml);
 		}
@@ -48,7 +48,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	}
 	  
 	/**
-	 *   
+	 * This method appends SequenceNo to the input file
 	 * @param docMsg
 	 * @param inXml
 	 */
@@ -71,7 +71,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	}
 	
 	/**
-	 * 
+	 * This method modifies the time format of Modifyts attribute
 	 * @param eleOrderMessage
 	 */
 	  
@@ -84,26 +84,15 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
 		
 	}
-	  
-	/**
-	  * this method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method
-	  * 
-	  * @param inXml
-	  * @return
-	  */
-	  
-	private YFCDocument updateMsgSeqNo(YFCDocument inXml) {
-			return inputGetINDGMsgSeqNoList(inXml);
-	}
 		
 	/**
-	 * 
+	 * This method fetches the Sequence type and OrderNo and invokes getMsgSeqList method
 	 * @param docgetMsgSeqList
 	 * @param inXml
 	 * @return
 	 */
 		
-	private YFCDocument invokechangeINDGMsgSeqNo(YFCDocument docgetMsgSeqList,YFCDocument inXml) {
+	private YFCDocument invokegetMsgSeqList(YFCDocument docgetMsgSeqList,YFCDocument inXml) {
 		String sSequeneceType;
 		String sOrderNo;
 		YFCElement eleOrderMessage=inXml.getDocumentElement();
@@ -120,7 +109,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	}
 		 
 	/**
-	 * 
+	 * This method invokes invokechangeINDGMsgSeqNo method
 	 * @param docgetMsgSeqList
 	 * @param sSequeneceType
 	 * @param sOrderNo
@@ -134,19 +123,19 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		for(YFCElement shipmentLine: yfsItrator) {
 			if(shipmentLine.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).equals(sSequeneceType) && 
 					shipmentLine.getAttribute(XMLLiterals.ORDER_NO).equals(sOrderNo)) {
-				docChangeIndgSeqNo =docChangeIndgSeqNo(shipmentLine);
+				docChangeIndgSeqNo =invokechangeINDGMsgSeqNo(shipmentLine);
 			}
 		}
 		return docChangeIndgSeqNo;
 	}
 	
 	/**
-	 * 
+	 * This method invokes invoke antraService INDG_changeINDGMsgSeqNo
 	 * @param shipmentLine
 	 * @return
 	 */
 		 
-	private YFCDocument docChangeIndgSeqNo(YFCElement shipmentLine) {
+	private YFCDocument invokechangeINDGMsgSeqNo(YFCElement shipmentLine) {
 		YFCDocument docChangeGetMsgSeq=YFCDocument.createDocument(XMLLiterals.INDG_MSG_SEQ_NO);
 		YFCElement eleIndgMsgSeqNo=docChangeGetMsgSeq.getDocumentElement();
 		eleIndgMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE, shipmentLine.getAttribute(XMLLiterals.ENTERPRISE_CODE));
@@ -171,11 +160,11 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	 * @return
 	 */
 	
-	private YFCDocument inputGetINDGMsgSeqNoList(YFCDocument inXml) {
+	private YFCDocument checkDataExists(YFCDocument inXml) {
 		YFCDocument docGetINDGMsgSeqNoList=formMessageForAPI(inXml);
 		YFCDocument docMsgSeqList=invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList);
 		if(docMsgSeqList.getDocumentElement().hasChildNodes()) {
-			return invokechangeINDGMsgSeqNo(docMsgSeqList,inXml);
+			return invokegetMsgSeqList(docMsgSeqList,inXml);
 		}
 		else 
 			return 	invokeCreateINDGMsgSeqNo(inXml);
@@ -189,6 +178,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	
 	private YFCDocument invokeCreateINDGMsgSeqNo(YFCDocument docOrderMessage) {
 		YFCElement eleOrderMsg=docOrderMessage.getDocumentElement();
+		YFCDocument docCreateIndgMsgSeqNo=null;
 		if(XmlUtils.isVoid(eleOrderMsg.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)) ||
 				XmlUtils.isVoid(eleOrderMsg.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO)))
 		{
@@ -202,10 +192,10 @@ public class IndgSequencingNo extends AbstractCustomApi {
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, ONE);
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,EMPTY_STRING);
 			}
-			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
+			docCreateIndgMsgSeqNo=invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
 		}
-		else
-			return inputGetINDGMsgSeqNoList(docOrderMessage);
+			return docCreateIndgMsgSeqNo;
+
 	}
 		
 	/**

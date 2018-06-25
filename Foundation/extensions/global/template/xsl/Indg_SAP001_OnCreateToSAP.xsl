@@ -42,6 +42,9 @@
 					<xsl:attribute name="ReleaseNo">
 						<xsl:value-of select="OrderLines/OrderLine/Extn/@ExtnLegacyOMSChildOrderNo" />
 					</xsl:attribute>
+					<xsl:attribute name="SterlingOrderNo">
+						<xsl:value-of select="@OrderNo" />
+					</xsl:attribute>
 					<PersonInfoBillTo>
 						<xsl:attribute name="AddressLine1">
 							<xsl:value-of select="PersonInfoShipTo/@AddressLine1" />

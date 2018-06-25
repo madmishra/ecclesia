@@ -37,7 +37,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {  
-		YFCDocument docMsg=updateMsgSeqNo(inXml);
+		YFCDocument docMsg=checkDataExists(inXml);
 		try {
 			addMsgSeqNo(docMsg,inXml);
 		}
@@ -47,8 +47,8 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		return inXml;
 	}
 	  
-	/**This method adds the sequence no to the message
-	 *   
+	/**
+	 * This method appends SequenceNo to the input file
 	 * @param docMsg
 	 * @param inXml
 	 */
@@ -70,8 +70,8 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		}
 	}
 	
-	/**This method adds milliseconds to the Modifyts time value
-	 * 
+	/**
+	 * This method modifies the time format of Modifyts attribute
 	 * @param eleOrderMessage
 	 */
 	  
@@ -82,77 +82,87 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		String sModifyts= format.format(ts);
 		sModifyts = sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
 		eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
-	}
-	  
-	/**
-	  * This method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method
-	  * 
-	  * @param inXml
-	  * @return
-	  */
-	  
-	private YFCDocument updateMsgSeqNo(YFCDocument inXml) {
-		YFCElement eleOrderMessage=inXml.getDocumentElement();
-		YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
-		if(!(XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO))
-				&& (XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO))))
-				|| (!XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO))))
-			return inputGetINDGMsgSeqNoList(inXml);
-		else
-			return invokeCreateINDGMsgSeqNo(inXml);	
+		
 	}
 		
-	/**This method invokes getMsgSeqList which is invoking point of changeInsgMsgSeqNo API
-	 * 
+	/**
+	 * This method fetches the Sequence type and OrderNo and invokes getMsgSeqList method
 	 * @param docgetMsgSeqList
 	 * @param inXml
 	 * @return
 	 */
 		
-	private YFCDocument invokechangeINDGMsgSeqNo(YFCDocument docgetMsgSeqList,YFCDocument inXml) {
+	private YFCDocument invokegetMsgSeqList(YFCDocument docgetMsgSeqList,YFCDocument inXml) {
 		String sSequeneceType;
 		String sOrderNo;
+		String sSAPOrderNo;
 		YFCElement eleOrderMessage=inXml.getDocumentElement();
 		YFCElement eleOrder=eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		if(eleOrderMessage.getAttribute(XMLLiterals.MESSAGE_TYPE_ID).contains(SAP)) {
 			sSequeneceType = XMLLiterals.SAP_OUTBOUND;
 			sOrderNo=eleOrder.getAttribute(XMLLiterals.STERLING_ORDER_NO);
+			sSAPOrderNo=eleOrder.getAttribute(XMLLiterals.SAP_ORDER_NO);
+			return getMsgSeqListForSAP(docgetMsgSeqList, sSequeneceType, sOrderNo,sSAPOrderNo);
 		}
 		else {
 			sSequeneceType = XMLLiterals.LEGACY_OUTBOUND;
 			sOrderNo=eleOrderMessage.getAttribute(XMLLiterals.ORDER_NO);
-		}
-		return getMsgSeqList(docgetMsgSeqList, sSequeneceType, sOrderNo);
+	
+		return getMsgSeqListForLeg(docgetMsgSeqList, sSequeneceType, sOrderNo);
+	}
 	}
 		 
-	/**This method is invoking point of changeIndgSeqNo API
-	 * 
+	/**
+	 * This method invokes invokechangeINDGMsgSeqNo method
 	 * @param docgetMsgSeqList
 	 * @param sSequeneceType
 	 * @param sOrderNo
 	 * @return
 	 */
 	
-	private YFCDocument getMsgSeqList(YFCDocument docgetMsgSeqList, String sSequeneceType, String sOrderNo) {
+	private YFCDocument getMsgSeqListForSAP(YFCDocument docgetMsgSeqList, String sSequeneceType, String sOrderNo,String sSAPOrderNo) {
 		YFCDocument docChangeIndgSeqNo=null;
 		YFCElement elegetMsgSeqList=docgetMsgSeqList.getDocumentElement();
 		YFCIterable<YFCElement> yfsItrator =elegetMsgSeqList.getChildren(XMLLiterals.INDG_MSG_SEQ_NO);
 		for(YFCElement shipmentLine: yfsItrator) {
 			if(shipmentLine.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).equals(sSequeneceType) && 
-					shipmentLine.getAttribute(XMLLiterals.ORDER_NO).equals(sOrderNo)) {
-				docChangeIndgSeqNo =docChangeIndgSeqNo(shipmentLine);
+					shipmentLine.getAttribute(XMLLiterals.ORDER_NO).equals(sOrderNo)
+					&& shipmentLine.getAttribute(XMLLiterals.SAP_ORDER_NO).equals(sSAPOrderNo))
+				docChangeIndgSeqNo =invokechangeINDGMsgSeqNo(shipmentLine);
 			}
-		}
 		return docChangeIndgSeqNo;
-	}
+		}
+	/**
+	 * This method invokes invokechangeINDGMsgSeqNo
+	 * @param docgetMsgSeqList
+	 * @param sSequeneceType
+	 * @param sOrderNo
+	 * @return
+	 */
 	
-	/**This method invokes changeIndgMsgSeqNo API
-	 * 
+	
+	
+	private YFCDocument getMsgSeqListForLeg(YFCDocument docgetMsgSeqList, String sSequeneceType, String sOrderNo) {
+		YFCDocument docChangeIndgSeqNo=null;
+		YFCElement elegetMsgSeqList=docgetMsgSeqList.getDocumentElement();
+		YFCIterable<YFCElement> yfsItrator =elegetMsgSeqList.getChildren(XMLLiterals.INDG_MSG_SEQ_NO);
+		for(YFCElement shipmentLine: yfsItrator) {
+			if(shipmentLine.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).equals(sSequeneceType) && 
+					shipmentLine.getAttribute(XMLLiterals.ORDER_NO).equals(sOrderNo))
+				docChangeIndgSeqNo =invokechangeINDGMsgSeqNo(shipmentLine);
+			}
+		return docChangeIndgSeqNo;
+		}
+	
+
+	
+	/**
+	 * This method invokes invoke antraService INDG_changeINDGMsgSeqNo
 	 * @param shipmentLine
 	 * @return
 	 */
 		 
-	private YFCDocument docChangeIndgSeqNo(YFCElement shipmentLine) {
+	private YFCDocument invokechangeINDGMsgSeqNo(YFCElement shipmentLine) {
 		YFCDocument docChangeGetMsgSeq=YFCDocument.createDocument(XMLLiterals.INDG_MSG_SEQ_NO);
 		YFCElement eleIndgMsgSeqNo=docChangeGetMsgSeq.getDocumentElement();
 		eleIndgMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE, shipmentLine.getAttribute(XMLLiterals.ENTERPRISE_CODE));
@@ -171,24 +181,23 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		return invokeYantraService(INDG_CHANGE_INDG_MSG_SEQ_NO, docChangeGetMsgSeq);
 	}
 		 
-	/**This method invokes invokechangeINDGMsgSeqNo or invokeCreateINDGMsgSeqNo method based on whether the record exists in  
-	 * the INDG_MSG_SEQ_NO table
+	/**
 	 * 		
 	 * @param inXml
 	 * @return
 	 */
 	
-	private YFCDocument inputGetINDGMsgSeqNoList(YFCDocument inXml) {
+	private YFCDocument checkDataExists(YFCDocument inXml) {
 		YFCDocument docGetINDGMsgSeqNoList=formMessageForAPI(inXml);
 		YFCDocument docMsgSeqList=invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList);
 		if(docMsgSeqList.getDocumentElement().hasChildNodes()) {
-			return invokechangeINDGMsgSeqNo(docMsgSeqList,inXml);
+			return invokegetMsgSeqList(docMsgSeqList,inXml);
 		}
 		else 
 			return 	invokeCreateINDGMsgSeqNo(inXml);
 	}
 	
-	/**This method method is invoking point for createIndgMsgSeqNo API
+	/**
 	 * 	
 	 * @param docOrderMessage
 	 * @return
@@ -196,7 +205,9 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	
 	private YFCDocument invokeCreateINDGMsgSeqNo(YFCDocument docOrderMessage) {
 		YFCElement eleOrderMsg=docOrderMessage.getDocumentElement();
-		if(XmlUtils.isVoid(eleOrderMsg.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)))
+		YFCDocument docCreateIndgMsgSeqNo=null;
+		if(XmlUtils.isVoid(eleOrderMsg.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO)) ||
+				XmlUtils.isVoid(eleOrderMsg.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO)))
 		{
 			YFCDocument docINDGMsgSeqNoList=formMessageForAPI(docOrderMessage);
 			YFCElement eleINDGMsgSeqNoList=docINDGMsgSeqNoList.getDocumentElement();
@@ -208,13 +219,13 @@ public class IndgSequencingNo extends AbstractCustomApi {
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, ONE);
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,EMPTY_STRING);
 			}
-			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
+			docCreateIndgMsgSeqNo=invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
 		}
-		else
-			return inputGetINDGMsgSeqNoList(docOrderMessage);
+			return docCreateIndgMsgSeqNo;
+
 	}
 		
-	/**This method forms input message for getIndgMsgSeqNO or changeIndgMsgSeqNo API
+	/**
 	 * 
 	 * @param docOrderMessage
 	 * @return

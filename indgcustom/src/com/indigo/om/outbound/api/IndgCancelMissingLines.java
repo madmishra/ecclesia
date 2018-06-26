@@ -174,8 +174,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     			if(status.equals(CANCEL_ORDER_STATUS)) {
     				YFCNode parent = orderLineEle.getParentNode();
     	   			parent.removeChild(orderLineEle);
+    	   			invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
     			}
-    			invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
     		}
     	}
     	invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);

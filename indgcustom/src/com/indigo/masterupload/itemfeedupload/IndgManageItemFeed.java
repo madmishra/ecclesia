@@ -156,9 +156,9 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     String categoryID = EMPTY_STRING;
     if(!XmlUtils.isVoid(itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES))) {
         categoryID = itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES)
-            .getAttribute(XMLLiterals.COMMODITY_CODE);
+            .getAttribute(XMLLiterals.COMMODITY_CODE,EMPTY_STRING);
         if(XmlUtils.isVoid(categoryID)) {
-          categoryID = itemEle.getAttribute(XMLLiterals.PRODUCT_LINE);
+          categoryID = itemEle.getAttribute(XMLLiterals.PRODUCT_LINE,EMPTY_STRING);
         }
     }
     return categoryID;
@@ -260,7 +260,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
          .getChildElement(XMLLiterals.ITEM);
      String opListCategoryId =  XPathUtil.getXpathAttribute(opListItemDoc, "//Category/@CategoryID");
      categoryPath =  XPathUtil.getXpathAttribute(opListItemDoc, "//Category/@CategoryPath");
-     if(!ipItemCategoryId.equals(opListCategoryId)) {
+     if(!XmlUtils.isVoid(ipItemCategoryId) && !ipItemCategoryId.equals(opListCategoryId)) {
        modifyCategoryItem(opListItemEle,DELETE_ACTION);
        modifyCategoryItem(inItemEle,CREATE_ACTION);
      }

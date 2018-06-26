@@ -42,13 +42,11 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     		YFCDocument docGetOrderLineList = getOrderLineListFunc(docInXml);
     		String modifyTs = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
     				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
-            YFCDocument docSap002Op = manageOrderCancellation(docInXml, docGetOrderLineList);
-            String inputDocString = docInXml.toString();
-            YFCDocument docLegacy003Op = YFCDocument.getDocumentFor(inputDocString);
-    	    docLegacy003Op.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
-    	    callLegacy003OnScheduleQueue(docLegacy003Op);
-            YFCDocument docEmptyOrderLineList = getOrderLineListFunc(docSap002Op);
-            return isFullOrderCancelled(docLegacy003Op, docEmptyOrderLineList);
+    	    docInXml.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
+    		YFCDocument docSap002Op = manageOrderCancellation(docInXml, docGetOrderLineList);
+    		YFCDocument docEmptyLineList = getOrderLineListFunc(docInXml);
+    		callLegacy003OnScheduleQueue(docEmptyLineList, docInXml);
+    		return docSap002Op;
     }
       
      /**
@@ -165,8 +163,22 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
      * @param doc
      */
     
-    private void callLegacy003OnScheduleQueue(YFCDocument doc) {
-	     invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
+    private void callLegacy003OnScheduleQueue(YFCDocument docEmptyLineList, YFCDocument doc) {
+    	YFCIterable<YFCElement> yfsItratorPrimeLine = doc.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
+    			getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
+    	for(YFCElement orderLineEle : yfsItratorPrimeLine) {
+    		String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
+    		YFCElement odrLineEle = XPathUtil.getXPathElement(docEmptyLineList, "/OrderLineList/OrderLine[@PrimeLineNo=\""+primeLineNo+"\"]");
+    		if(!XmlUtils.isVoid(odrLineEle)) {
+    			String status = odrLineEle.getAttribute(XMLLiterals.STATUS);
+    			if(status.equals(CANCEL_ORDER_STATUS)) {
+    				YFCNode parent = orderLineEle.getParentNode();
+    	   			parent.removeChild(orderLineEle);
+    			}
+    			invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
+    		}
+    	}
+    	invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
 	}
     
     /**
@@ -224,30 +236,5 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
       orderEle.removeAttribute(XMLLiterals.STATUS);
     }
     
-    private YFCDocument isFullOrderCancelled(YFCDocument docLegacy003Op,YFCDocument docEmptyOrderLineList){
-    	YFCIterable<YFCElement> yfsItratorPrimeLine = docLegacy003Op.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-    			getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
-    	for(YFCElement orderLineEle : yfsItratorPrimeLine) {
-    		String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
-    		YFCElement odrLineEle = XPathUtil.getXPathElement(docEmptyOrderLineList, "/OrderLineList/OrderLine[@PrimeLineNo=\""+primeLineNo+"\"]");
-    		if(!XmlUtils.isVoid(odrLineEle)) {
-    			String status = odrLineEle.getAttribute(XMLLiterals.STATUS);
-    			if(status.equals(CANCEL_ORDER_STATUS)) {
-    				docLegacy003FullOdrCancelled(docLegacy003Op);
-    			}
-    		}
-    	}
-    	return docLegacy003Op;
-    }
-    
-    private void docLegacy003FullOdrCancelled(YFCDocument docLegacy003Op) {
-    	YFCIterable<YFCElement> yfsItratorPrimeLine = docLegacy003Op.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-    		getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
-   		for(YFCElement orderLineEle : yfsItratorPrimeLine) {
-   			YFCNode parent = orderLineEle.getParentNode();
-   			parent.removeChild(orderLineEle);
-   		}
-   		callLegacy003OnScheduleQueue(docLegacy003Op);
-    }
 }
     

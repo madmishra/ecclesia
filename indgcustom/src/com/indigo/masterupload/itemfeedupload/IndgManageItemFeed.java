@@ -32,11 +32,12 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private static final String DELETE_ACTION = "Delete";
   private static final String ORGANIZATION_CODE = "Indigo_CA";
   private static final String GET_UNPUBLISHED_ITMES = "GetUnpublishedItems";
-  private static final String DEFAULT_ATP_RULE = "DEFAULT_Indigo_CA";
+  private static final String DEFAULT_ATP_RULE = "DEFAULT";
   private String inputCategoryID="";
   private String categoryPath = "";
   private static final String FLAG_YES = "Y";
   private static final String UN_PUBLISH_STATUS = "2000";
+  private static final String NODE_LEVEL_INV_MONITOR_RULE = "DEFAULT_RTAM_RULE";
   
   
   /**
@@ -82,8 +83,9 @@ public class IndgManageItemFeed extends AbstractCustomApi{
         invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
       }
     } else {
-      itemEle.createChild(XMLLiterals.INVENTORY_PARAMETERS)
-        .setAttribute(XMLLiterals.ATP_RULE, DEFAULT_ATP_RULE);
+      YFCElement invEle = itemEle.createChild(XMLLiterals.INVENTORY_PARAMETERS);
+      invEle.setAttribute(XMLLiterals.ATP_RULE, DEFAULT_ATP_RULE);
+      invEle.setAttribute(XMLLiterals.NODE_LEVEL_INVENTORY_MONITOR_RULE, NODE_LEVEL_INV_MONITOR_RULE);
       invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
       modifyCategoryItem(itemEle,CREATE_ACTION);
     }

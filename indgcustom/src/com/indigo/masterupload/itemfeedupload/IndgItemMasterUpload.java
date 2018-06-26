@@ -21,18 +21,21 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
   
   
   private static final String CREATE_ACTION = "Create";
-  private static final String DEFAULT_ATP_RULE = "DEFAULT_Indigo_CA";
+  private static final String DEFAULT_ATP_RULE = "DEFAULT";
+  private static final String NODE_LEVEL_INV_MONITOR_RULE = "DEFAULT_RTAM_RULE";
   private static final String EMPTY_STRING = "";
   private static final String CATEGORY_ALERT_FLOW="CATEGORY_ALERT_FLOW";
+  
   /**
    * This is the starting point of the class
    * 
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
-    inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM)
-      .createChild(XMLLiterals.INVENTORY_PARAMETERS)
-        .setAttribute(XMLLiterals.ATP_RULE, DEFAULT_ATP_RULE);
+    YFCElement invEle = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM)
+      .createChild(XMLLiterals.INVENTORY_PARAMETERS);
+    invEle.setAttribute(XMLLiterals.ATP_RULE, DEFAULT_ATP_RULE);
+    invEle.setAttribute(XMLLiterals.NODE_LEVEL_INVENTORY_MONITOR_RULE, NODE_LEVEL_INV_MONITOR_RULE);
     invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
     createCategoryItem(inXml);
     return inXml;
@@ -43,7 +46,7 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
    * 
    * @param inXml
    */
-  private void createCategoryItem(YFCDocument inXml){
+  private void createCategoryItem(YFCDocument inXml) {
     YFCElement itemEle = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM);
     String categoryId = IndgManageItemFeed.getCategoryID(itemEle);
     YFCDocument categoryList = getCategoryList(categoryId, organizationCode);
@@ -64,7 +67,7 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
    * @param org
    * @return
    */
-   private YFCDocument getCategoryList(String categoryId, String org){
+   private YFCDocument getCategoryList(String categoryId, String org) {
      return invokeYantraApi(XMLLiterals.GET_CATEGORY_LIST, 
          IndgCategoryMasterUpload.getInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
            IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());

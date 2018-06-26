@@ -40,7 +40,7 @@
 						<xsl:value-of select="@EnterpriseCode" />
 					</xsl:attribute>
 					<xsl:attribute name="ReleaseNo">
-						<xsl:value-of select="@CustomerPONo" />
+						<xsl:value-of select="OrderLines/OrderLine/@CustomerPONo" />
 					</xsl:attribute>
 					<xsl:attribute name="SterlingOrderNo">
 						<xsl:value-of select="@OrderNo" />

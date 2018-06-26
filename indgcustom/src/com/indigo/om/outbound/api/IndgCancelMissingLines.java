@@ -30,7 +30,6 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     private static final String CANCELLATION_TYPE = "SAP";
     private static final String REASON_CODE = "03";
     private static final String CALL_LEGACYOMS003_SERVICE = "CALL_LEGACYOMS003_SERVICE";
-    private String isFullOrderCancelled = "";
 	private static final String CANCELLED = "Cancelled";
 	private static final String NO = "N";
 	private static final String YES = "Y";
@@ -228,6 +227,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     }
     
     private void docCheckIsFullOrderCancelled(YFCDocument docInXml, YFCDocument getOrderLineListDoc) {
+    	String isFullOrderCancelled = "";
 	    YFCElement getOrderLineListOutputEle = getOrderLineListDoc.getDocumentElement();
 		YFCIterable<YFCElement> inputOrderLineEle = getOrderLineListOutputEle.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderElement : inputOrderLineEle) {
@@ -240,21 +240,26 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 		}	
 		if(isFullOrderCancelled.equals(NO)) {
 			docInXml.getDocumentElement().setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
-			callLegacy003OnScheduleQueue(docInXml);
 		}
-		else
+		else {
 			docInXml.getDocumentElement().setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
+		}
 		docLegacy003FullOdrCancelled(docInXml);
 	}
     
     private void docLegacy003FullOdrCancelled(YFCDocument docLegacy003Op) {
-    	YFCIterable<YFCElement> yfsItratorPrimeLine = docLegacy003Op.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
+    	String isFullOdrCancelled = docLegacy003Op.getDocumentElement().getAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED);
+    	if(isFullOdrCancelled.equals(YES)) {
+    		YFCIterable<YFCElement> yfsItratorPrimeLine = docLegacy003Op.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
     			getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
-		for(YFCElement orderLineEle : yfsItratorPrimeLine) {
-			YFCNode parent = orderLineEle.getParentNode();
-		    parent.removeChild(orderLineEle);
-		}
-    	callLegacy003OnScheduleQueue(docLegacy003Op);
+    		for(YFCElement orderLineEle : yfsItratorPrimeLine) {
+    			YFCNode parent = orderLineEle.getParentNode();
+    			parent.removeChild(orderLineEle);
+    		}
+    		callLegacy003OnScheduleQueue(docLegacy003Op);
+    	}
+    	else
+    		callLegacy003OnScheduleQueue(docLegacy003Op);
     }
 }
     

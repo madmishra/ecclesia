@@ -42,11 +42,9 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     		YFCDocument docGetOrderLineList = getOrderLineListFunc(docInXml);
     		String modifyTs = docGetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
     				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
-    	    docInXml.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
-    		manageOrderCancellation(docInXml, docGetOrderLineList);
-    		YFCDocument docEmptyLineList = getOrderLineListFunc(docInXml);
-    		callLegacy003OnScheduleQueue(docEmptyLineList, docInXml);
-    		return docInXml;
+    		docInXml.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
+    	    callLegacy003OnScheduleQueue(docInXml);
+    		return manageOrderCancellation(docInXml, docGetOrderLineList);
     }
       
      /**
@@ -163,30 +161,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
      * @param doc
      */
     
-    private void callLegacy003OnScheduleQueue(YFCDocument docEmptyLineList, YFCDocument doc) {
-    	System.out.println(docEmptyLineList + "cbdgfhjsd");
-    	System.out.println(doc + "xshnjdh");
-    	YFCIterable<YFCElement> yfsItratorPrimeLine = doc.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-    			getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
-    	for(YFCElement orderLineEle : yfsItratorPrimeLine) {
-    		String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
-    		System.out.println(primeLineNo + "xsahdjhy");
-    		YFCElement odrLineEle = XPathUtil.getXPathElement(docEmptyLineList, "/OrderLineList/OrderLine[@PrimeLineNo=\""+primeLineNo+"\"]");
-    		System.out.println(odrLineEle.toString() + "hgdhgsas");
-    		if(!XmlUtils.isVoid(odrLineEle)) {
-    			String status = odrLineEle.getAttribute(XMLLiterals.STATUS);
-    			System.out.println(status + "cdjkfhgujsa");
-    			if(status.equals(CANCEL_ORDER_STATUS)) {
-    				YFCNode parent = orderLineEle.getParentNode();
-    	   			parent.removeChild(orderLineEle);
-    	   			System.out.println(doc + "dsahbdjh");
-    	   			invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
-    			}
-    			else
-    				System.out.println(doc+"xshjdhjs");
-    				invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
-    		}
-    	}
+    private void callLegacy003OnScheduleQueue(YFCDocument doc) {
+	     invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
 	}
     
     /**
@@ -243,6 +219,5 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
       parent.removeChild(statusEle);
       orderEle.removeAttribute(XMLLiterals.STATUS);
     }
-    
 }
     

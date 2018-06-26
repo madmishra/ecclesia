@@ -45,8 +45,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     	    docInXml.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
     		manageOrderCancellation(docInXml, docGetOrderLineList);
     		YFCDocument docEmptyLineList = getOrderLineListFunc(docInXml);
-    		return callLegacy003OnScheduleQueue(docEmptyLineList, docInXml);
-    		
+    		callLegacy003OnScheduleQueue(docEmptyLineList, docInXml);
+    		return docInXml;
     }
       
      /**
@@ -163,22 +163,30 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
      * @param doc
      */
     
-    private YFCDocument callLegacy003OnScheduleQueue(YFCDocument docEmptyLineList, YFCDocument doc) {
+    private void callLegacy003OnScheduleQueue(YFCDocument docEmptyLineList, YFCDocument doc) {
+    	System.out.println(docEmptyLineList + "cbdgfhjsd");
+    	System.out.println(doc + "xshnjdh");
     	YFCIterable<YFCElement> yfsItratorPrimeLine = doc.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
     			getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
     	for(YFCElement orderLineEle : yfsItratorPrimeLine) {
     		String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
+    		System.out.println(primeLineNo + "xsahdjhy");
     		YFCElement odrLineEle = XPathUtil.getXPathElement(docEmptyLineList, "/OrderLineList/OrderLine[@PrimeLineNo=\""+primeLineNo+"\"]");
+    		System.out.println(odrLineEle.toString() + "hgdhgsas");
     		if(!XmlUtils.isVoid(odrLineEle)) {
     			String status = odrLineEle.getAttribute(XMLLiterals.STATUS);
+    			System.out.println(status + "cdjkfhgujsa");
     			if(status.equals(CANCEL_ORDER_STATUS)) {
     				YFCNode parent = orderLineEle.getParentNode();
     	   			parent.removeChild(orderLineEle);
-    	   			return invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
+    	   			System.out.println(doc + "dsahbdjh");
+    	   			invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
     			}
+    			else
+    				System.out.println(doc+"xshjdhjs");
+    				invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
     		}
     	}
-    	return invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
 	}
     
     /**

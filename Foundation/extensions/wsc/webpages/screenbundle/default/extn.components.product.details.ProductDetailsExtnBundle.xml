@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.components.product.details.ProductDetailsExtnBundle" screenId="extn.components.product.details.ProductDetailsExtn">
+    <BundleEntries/>
+</ScreenBundle>

@@ -1,0 +1,409 @@
+<div class="sc-platform-screen-default extnshipmentdetails">
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'screen storeMsgPanel' , 
+		uId : 'storeMsgPnl' , 
+		renderHidden : true  
+ ">
+        <div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="		imageSrc : 'wsc/resources/css/icons/images/alert.png' , 
+		'class' : 'icon-updateNeeded floatleft indicatorImage' , 
+		appendToContextRoot : true , 
+		uId : 'image'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	title : 			this.getSimpleBundleString('Tooltip_DifferentShipNodeMessage')
+,	
+			 	imageAlt : 			this.getSimpleBundleString('Tooltip_DifferentShipNodeMessage')
+			}
+		}
+"></div>
+        <div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="		spanLabel : true , 
+		'class' : 'fieldLabel icon-image-label' , 
+		uId : 'shipNodeMsg'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('Label_DifferentShipNodeMessage')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.ShipNode'
+,
+		 dynamicBindingFunc : 			'toggleShipNodeMsg'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+			}
+		}
+"></div>
+    </div>
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'lineDetails' , 
+		uId : 'lineDetails'  
+ ">
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		uId : 'timeRemainingClockContainer'  
+ ">
+            <div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="		uId : 'img_TimeRmnClock' , 
+		renderHidden : false  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'CommonCode'
+,
+		 namespace : 			'clockImageBindingValues'
+	}
+,
+		 imageBindings : 	{
+		 imageStyleClass : 	{
+		 value : 			'screenIndicatorImage'
+	}
+,
+		 defaultImage : 	{
+		 style : 			''
+,
+		 src : 			''
+,
+		 styleClass : 			'noItemImage'
+	}
+,
+		 imageAlt : 	{
+		 path : 			'CodeShortDescription'
+	}
+,
+		 imageUrl : 	{
+		 path : 			'CodeLongDescription'
+,
+		 dynamicBindingPackage : 			'ias.utils'
+,
+		 dynamicBindingFunc : 			'getDueInImageLocation'
+,
+		 dynamicBindingClassName : 			'ScreenUtils'
+	}
+,
+		 imageIcon : 	{
+		 path : 			'CodeLongDescription'
+,
+		 dynamicBindingPackage : 			'ias.utils'
+,
+		 dynamicBindingFunc : 			'getDueInImageId'
+,
+		 dynamicBindingClassName : 			'ScreenUtils'
+	}
+	}
+	}
+			}
+		}
+"></div>
+        </div>
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		uId : 'orderShipmentPanel'  
+ ">
+            <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
+		'class' : 'primaryInformation linkLabelSpacing' , 
+		uId : 'lblOrderNo'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	title : 			this.getSimpleBundleString('Tooltip_OrderNoLinkAlt')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.DisplayOrderNo'
+,
+		 dynamicBindingFunc : 			'formatOrderNo'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+,	
+			 	'aria-label' : 			this.getSimpleBundleString('arialabel_OrderNoLinkAlt')
+,	
+			 	imageAlt : 			this.getSimpleBundleString('Tooltip_OrderNoLinkAlt')
+			}
+		}
+"></div>
+            <div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="		'class' : 'blockComponent comappsWrapWord groupLabelSpacing idxLabel batchKey' , 
+		uId : 'lbl_IncludedInBatch'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('Label_Included_In_Batch')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.IncludedInBatch'
+,
+		 dynamicBindingPackage : 			'wsc.components.shipment.common.utils'
+,
+		 dynamicBindingFunc : 			'showHideIncludedInBatch'
+,
+		 dynamicBindingClassName : 			'ShipmentUtils'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+			}
+		}
+"></div>
+            <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		spanLabel : true , 
+		'class' : 'a11yHiddenLabel duein blockComponent groupLabelSpacing' , 
+		uId : 'lbl_timeRemaining' , 
+		renderHidden : false  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Label_DueIn')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.TimeRemaining'
+,
+		 dynamicBindingPackage : 			'wsc.components.shipment.common.utils'
+,
+		 dynamicBindingFunc : 			'applyOverdueStyling'
+,
+		 dynamicBindingClassName : 			'ShipmentUtils'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+			}
+		}
+"></div>
+            <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		spanLabel : true , 
+		'class' : 'a11yHiddenLabel blockComponent groupLabelSpacing statusLabel' , 
+		uId : 'lblShipmentDesc'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Label_Status')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.Status.Description'
+,
+		 dynamicBindingPackage : 			'wsc.components.shipment.common.utils'
+,
+		 dynamicBindingFunc : 			'getShipmentStatusDescription'
+,
+		 dynamicBindingClassName : 			'ShipmentUtils'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+			}
+		}
+"></div>
+            <!-- <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'personInfoPanel' , 
+		uId : 'PersonInfoContainer'  
+ ">
+                <div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="		spanLabel : true , 
+		'class' : 'fieldLabel blockComponent groupLabelSpacing' , 
+		uId : 'lblName'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.BillToAddress.FirstName'
+,
+		 dynamicBindingFunc : 			'getFormattedNameDisplay'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+			}
+		}
+"></div>
+                 <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'blockComponent' , 
+		uId : 'pnlPhoneHolder'  
+ ">
+                    <div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="		imageSrc : 'wsc/resources/css/icons/images/phone.png' , 
+		'class' : 'defaultImageSize floatLeft' , 
+		appendToContextRoot : true , 
+		uId : 'imgPhoneNo'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	title : 			this.getSimpleBundleString('Tooltip_PhoneNo')
+,	
+			 	imageAlt : 			this.getSimpleBundleString('Tooltip_PhoneNo')
+			}
+		}
+"></div>
+                    <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'icon-image-label  a11yHiddenLabel' , 
+		uId : 'lblDayPhone'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Label_Phone_number')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.BillToAddress.DayPhone'
+,
+		 dynamicBindingFunc : 			'getDayPhone'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+			}
+		}
+"></div>
+                </div> 
+                <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'displayEmail' , 
+		uId : 'pnlEmailHolder'  
+ ">
+                    <div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="		imageSrc : 'wsc/resources/css/icons/images/email.png' , 
+		'class' : 'defaultImageSize floatLeft' , 
+		appendToContextRoot : true , 
+		uId : 'imgEmailLabel'  
+ "></div>
+                    <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		'class' : 'icon-image-label ellipsisText' , 
+		uId : 'lnkEmail'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.BillToAddress.EMailID'
+,
+		 dynamicBindingFunc : 			'getEmailID'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+			}
+		}
+"></div>
+                </div>
+            </div> -->
+            <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'shipmentInformationPanel' , 
+		uId : 'pnlright'  
+ ">
+                <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		spanLabel : true , 
+		'class' : 'blockComponent field groupLabelSpacing comappsWrapWord zeroWidthLabelValueDesktop' , 
+		uId : 'lblShipmentNo'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Label_ShipmentNumber')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.ShipmentNo'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'Shipment.ShipmentNo'
+,
+		 namespace : 			'getShipmentDetails_input'
+	}
+	]
+	}
+			}
+		}
+"></div>
+                <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		spanLabel : true , 
+		'class' : 'blockComponent field groupLabelSpacing' , 
+		uId : 'lblExpectedShipDate'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Label_ExpectedShipDate')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.ExpectedShipmentDate'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+			}
+		}
+"></div>
+                <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		spanLabel : true , 
+		'class' : 'blockComponent field groupLabelSpacing' , 
+		uId : 'lblAssignedToUsr'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Label_AssignedToUser')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.AssignedToUserId'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+			}
+		}
+"></div>
+                <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		spanLabel : true , 
+		'class' : 'blockComponent field groupLabelSpacing' , 
+		uId : 'lblHoldLocation'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Label_Hold_Location')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.HoldLocation'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+			}
+		}
+"></div>
+                <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		spanLabel : true , 
+		'class' : 'blockComponent field groupLabelSpacing' , 
+		uId : 'lblCarrier' , 
+		renderHidden : true  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Label_Carrier')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.ScacAndService'
+,
+		 namespace : 			'getShipmentList_output'
+	}
+	}
+			}
+		}
+"></div>
+            </div>
+        </div>
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'actionButtons' , 
+		uId : 'shipmentActionContainer'  
+ ">
+           
+            <div data-dojo-type="dijit/form/Button" data-dojo-props="		spanLabel : true , 
+		
+		showLabel : true , 
+		uId : 'lnkGiftWrap' , 
+		renderHidden : false  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Gift Wrap')
+			}
+		}
+"></div>
+        </div>
+    </div>
+</div>

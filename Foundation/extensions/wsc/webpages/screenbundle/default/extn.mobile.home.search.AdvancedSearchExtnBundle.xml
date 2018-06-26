@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.mobile.home.search.AdvancedSearchExtnBundle" screenId="extn.mobile.home.search.AdvancedSearchExtn">
+    <BundleEntries>
+        <BundleEntry
+            bundleEntryId="extn_checkboxlist_CheckBoxList_label"
+            bundleKey="Label_Status" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_checkboxlist"/>
+    </BundleEntries>
+</ScreenBundle>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="BatchPickupProductScanExtn"
+        extnPackage="extn.components.batch.batchpick.common"
+        originalScreen="wsc.components.batch.batchpick.common.BatchPickupProductScan"
+        originalScreenPackage="wsc.components.batch.batchpick.common" type="diffrential">
+        <Items>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="unpickedLineList" renderHidden="false"/>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="afterScreenLoad" isExtn="true" sequence="51">
+                    <Handler methodName="removeCloseButton"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension
+        extnClassName="ShipmentSummaryShipmentLineDetailsExtn"
+        extnPackage="extn.components.shipment.summary"
+        originalScreen="wsc.components.shipment.summary.ShipmentSummaryShipmentLineDetails"
+        originalScreenPackage="wsc.components.shipment.summary" type="diffrential">
+        <Items>
+            <DataLabel _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lbl_Quantity"
+                class="blockComponent zeroWidthLabelKey"
+                label="$(_scSimpleBundle:Label_ManufacturerName)"
+                renderHidden="true" uId="extn_datalabel">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="checkIfValExists"
+                        namespace="extn_itemDetails_extraDetails" path="Brand"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lbl_PickedQty" uId="extn_datalabel"/>
+            <DataLabel _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lbl_ShortedQty" uId="extn_datalabel"/>
+            <DataLabel _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lbl_PackedQty" uId="extn_datalabel"/>
+            <DataLabel _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_datalabel"
+                class="blockComponent zeroWidthLabelKey"
+                label="$(_scSimpleBundle:extn_Author)"
+                renderHidden="true" uId="extn_datalabel1">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="checkIfValExists"
+                        namespace="extn_itemDetails_extraDetails" path="Author"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="6"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lbl_PackedQty"
+                class="blockComponent zeroWidthLabelKey"
+                label="$(_scSimpleBundle:extn_Series)"
+                renderHidden="true" uId="extn_datalabel2">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="checkIfValExists"
+                        namespace="extn_itemDetails_extraDetails" path="Series"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="7"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lbl_PackedQty"
+                class="blockComponent zeroWidthLabelKey"
+                label="$(_scSimpleBundle:extn_Subject)"
+                renderHidden="true" uId="extn_datalabel3">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="checkIfValExists"
+                        namespace="extn_itemDetails_extraDetails" path="Subject"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="8"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_datalabel3"
+                class="blockComponent zeroWidthLabelKey"
+                label="$(_scSimpleBundle:extn_MCAT)" renderHidden="true" uId="extn_datalabel4">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="checkIfValExists"
+                        namespace="extn_itemDetails" path="PrimaryInformation.ProductLine"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="9"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lbl_PackedQty"
+                class="blockComponent zeroWidthLabelKey"
+                label="$(_scSimpleBundle:extn_LM)" renderHidden="true" uId="extn_datalabel5">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="checkIfValExists"
+                        namespace="extn_itemDetails" path="ClassificationCodes.CommodityCode"/>
+                </BindingData>
+            </DataLabel>
+        </Items>
+        <Namespaces>
+            <SourceNamespaces>
+                <Source description="for the extra details"
+                    isExtn="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_2" value="extn_itemDetails_extraDetails"/>
+                <Source description="for extra details" isExtn="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_3" value="extn_itemDetails"/>
+            </SourceNamespaces>
+        </Namespaces>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="afterScreenInit" isExtn="true" sequence="51">
+                    <Handler methodName="updateItemDetails"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+        <MashupRefs>
+            <Behavior>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_itemDetailsForPRoduct" mashupRefId="extn_itemDetails"/>
+            </Behavior>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

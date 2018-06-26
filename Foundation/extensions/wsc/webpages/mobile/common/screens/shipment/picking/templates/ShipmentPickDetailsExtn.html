@@ -1,0 +1,104 @@
+		<div>
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
+		 				data-ibmsc-uid="lnk_RecordCustomerPickupAction"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'lnk_RecordCustomerPickupAction' , 
+		renderHidden : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
+		 				data-ibmsc-uid="lnk_ShipAction"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'lnk_ShipAction' , 
+		renderHidden : false  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
+		 				data-ibmsc-uid="extn_screenbase_giftwrap"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '1' , 
+		_sc_extensibility_referenceUId : 'lbl_Carrier' , 
+		uId : 'extn_screenbase_giftwrap' , 
+		renderHidden : false , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('extn_Gift_Wrap')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+		 				data-ibmsc-uid="lbl_Products"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'lbl_Products' , 
+		renderHidden : false  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+		 				data-ibmsc-uid="extn_screenbase_datalabel2"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '6' , 
+		_sc_extensibility_referenceUId : 'lbl_Products' , 
+		uId : 'extn_screenbase_datalabel2' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+		 				data-ibmsc-uid="extn_screenbase_datalabel1"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'a11yHiddenLabel duein dueInLabel' , 
+		_sc_extensibility_moveOrder : '3' , 
+		_sc_extensibility_referenceUId : 'lnk_PickAction' , 
+		uId : 'extn_screenbase_datalabel1' , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.ExpectedShipmentDate'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+		 				data-ibmsc-uid="extn_screenbase_datalabel"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'blockComponent zeroWidthLabelKey' , 
+		_sc_extensibility_moveOrder : '2' , 
+		_sc_extensibility_referenceUId : 'lbl_HoldLocation' , 
+		uId : 'extn_screenbase_datalabel' , 
+		renderHidden : false , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.ExpectedShipmentDate'
+,
+		 dynamicBindingFunc : 			'formatExpectedshipDate'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+,	
+			 	label : 			this.getSimpleBundleString('Label_ExpectedShipDate')
+			}
+		}
+	 					}">
+		 	</div>  
+		</div>

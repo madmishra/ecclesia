@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenDisplayExtension extnClassName="ShipmentPickDetailsExtn"
+        identifierId="Ship"
+        originalScreen="wsc.mobile.common.screens.shipment.picking.ShipmentPickDetails" originalScreenPackage="wsc.mobile.common.screens.shipment.picking">
+        <Items>
+            <Link _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lnk_ShipAction" renderHidden="false"/>
+            <Link _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="Pnllinedetails"
+                class="blockComponent actionLinks" spanLabel="true" uId="extn_screenbase_giftwrap"/>
+        </Items>
+    </ScreenDisplayExtension>
+</ExtensionMetaData>

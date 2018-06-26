@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.components.shipment.search.ShipmentSearchResultExtnBehaviorController"
+    requestMethodSupported="POST" screenId="extn.components.shipment.search.ShipmentSearchResultExtn">
+    <MashupRefs>
+        <MashupRef extnType="ADD"
+            mashupId="extn_shipmentSearch_fetchShipmentList"
+            mashupRefId="extn_getListBehavior" permissionId=""/>
+    </MashupRefs>
+</Controller>

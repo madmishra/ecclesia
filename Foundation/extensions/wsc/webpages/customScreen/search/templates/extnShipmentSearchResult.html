@@ -1,0 +1,94 @@
+<div class="sc-platform-screen-default extnshipmentsearchresult">
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		uId : 'systemMessagePanelPopup' , 
+		renderHidden : true  
+ "></div>
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'screen listScreen listScreen' , 
+		uId : 'LST_ListScreenContent' , 
+		'aria-live' : 'assertive'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	'aria-label' : 			this.getSimpleBundleString('blank')
+			}
+		}
+" role='region'>
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'ShipmentList repeatingpanel' , 
+		uId : 'repeatingPanel'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 customNoRecordsFoundMessageBundleKey : 			'Message_NoOrdersFound'
+,
+		 isPaginated : 			true
+,
+		 mashupRefId : 			'extn_getListBehavior'
+,
+		 repeatingscreenID : 			'extn.customScreen.search.extnShipmentDetails'
+,
+		 repeatingScreen : 	{
+		 repeatingnamespace : 			'getShipmentList_output'
+,
+		 path : 			'Shipments.Shipment'
+,
+		 repeatingscreenpath : 			'Shipment'
+,
+		 sourcenamespace : 			'getList_output'
+	}
+,
+		 pagination : 	{
+		 pageSizesClassName : 			'UIUtils'
+,
+		 pageSizePackage : 			'ias.utils'
+,
+		 pageSizesFunc : 			'getPageSizesForRepeatingScreen'
+,
+		 strategy : 			'NEXTPAGE'
+,
+		 pageSizeFunc : 			'getPageSizeForRepeatingScreen'
+,
+		 pageSizeClassName : 			'UIUtils'
+,
+		 pageSizesPackage : 			'ias.utils'
+	}
+,
+		 uniqueIdGeneratorClassName : 			''
+,
+		 uniqueIdGeneratorFunc : 			''
+,
+		 uniqueIdGeneratorPackage : 			''
+,
+		 repeatingscreenGeneratorFunction : 			''
+	}
+			}
+		}
+"></div>
+    </div>
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'popupNavigation messageDialogFooter' , 
+		uId : 'Popup_navigationPanel'  
+ ">
+        <div data-dojo-type="dijit/form/Button" data-dojo-props="		spanLabel : true , 
+		'class' : 'idxSpecialButton' , 
+		showLabel : true , 
+		uId : 'Popup_btnNext'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Apply')
+			}
+		}
+"></div>
+        <div data-dojo-type="dijit/form/Button" data-dojo-props="		spanLabel : true , 
+		'class' : 'idxSecondaryButton' , 
+		showLabel : true , 
+		uId : 'Popup_btnCancel'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Cancel')
+			}
+		}
+"></div>
+    </div>
+</div>

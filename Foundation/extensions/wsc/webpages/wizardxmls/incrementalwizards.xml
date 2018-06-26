@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Licensed Materials - Property of IBM
+IBM Sterling Order Management Store (5725-D10)
+(C) Copyright IBM Corp. 2015 All Rights Reserved. , 2015 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<wizards>
+    <wizard
+        flowController="com.sterlingcommerce.ui.web.platform.wizard.SCUIDefaultWizardController"
+        id="extn.customScreen.batch.CustomWizard" independentPages="false">
+        <wizardEntities>
+            <wizardEntity category="Cat1" id="Page1"
+                impl="/platform/jsps/dojo/xapiajaxsuccesshandler.jsp"
+                last="true"
+                screenId="extn.customScreen.MyOrderScreen"
+                start="true" type="PAGE"/>
+        </wizardEntities>
+    </wizard>
+	<wizard
+        flowController="com.sterlingcommerce.ui.web.platform.wizard.SCUIDefaultWizardController"
+        id="extn.customScreen.search.extnShipmentSearchWizard" independentPages="false">
+        <wizardEntities>
+            <wizardEntity category="Cat1" id="Page1"
+                impl="/platform/jsps/dojo/xapiajaxsuccesshandler.jsp"
+                last="true"
+                screenId="extn.customScreen.search.extnShipmentSearch"
+                start="true" type="PAGE"/>
+        </wizardEntities>
+    </wizard>
+    <wizard
+        flowController="com.sterlingcommerce.ui.web.platform.wizard.SCUIDefaultWizardController"
+        id="extn.customScreen.batch.extnBatchSortWizard" independentPages="false">
+        <wizardEntities>
+            <wizardEntity category="Cat1" id="Page1"
+                impl="/platform/jsps/dojo/xapiajaxsuccesshandler.jsp"
+                last="true"
+                screenId="extn.customScreen.batch.extnBatchSort"
+                start="true" type="PAGE"/>
+        </wizardEntities>
+    </wizard>
+</wizards>

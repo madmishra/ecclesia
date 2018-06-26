@@ -1,0 +1,46 @@
+<div class="sc-platform-screen-default giftpopup">
+	<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		uId : 'systemMessagePanelPopup' , 
+		renderHidden : true  
+ "></div>
+	<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'isccsScreen' , 
+		uId : 'mainPanel' , 
+		layoutAlign : 'top'  
+ ">
+		<div data-dojo-type="idx/form/TextBox" data-dojo-props="		spanLabel : true , 
+ 'class' : 'a11yHiddenLabel' , 
+ uId : 'scanProductIdTxt' 
+  ,scParamDataFn :
+  function() { 
+	 return { 	
+		  hint : 			this.getSimpleBundleString('TextField_Label_EnterCustomer')
+,	
+		  bindingData : 	{
+
+  targetBinding : 	[
+	  {
+  path : 			'Name'
+,
+  namespace : 			'secondaryPersonObject'
+}
+]
+}
+	 }
+ }
+" style="padding-left: 39px"></div>
+
+
+		<div data-dojo-type="dijit/form/Button" data-dojo-props="		spanLabel : true , 
+		'class' : 'idxSecondaryButton' , 
+		showLabel : true , 
+		uId : 'Popup_btnOkay'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Okay')
+			}
+		}
+" style="margin-left : 97px ; margin-top: 12px ; margin-bottom: 12px"></div>
+	</div>
+</div>

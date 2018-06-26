@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.customScreen.summary.ShipmentSummaryBehaviorController"
+    requestMethodSupported="POST" screenId="extn.customScreen.summary.ShipmentSummary">
+    <MashupRefs>
+        <MashupRef mashupId="shipSummary_getShipmentLineList"
+            mashupRefId="getShipmentLineList" permissionId=""/>
+        <MashupRef mashupId="extn_changeShipmentStatus"
+            mashupRefId="extn_changeShipment_ref" permissionId=""/>
+        
+    </MashupRefs>
+</Controller>

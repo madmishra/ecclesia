@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mashups>
+    <mashup id="itemDetails_getCompleteItemDetails">
+        <API Name="getCompleteItemList">
+            <Input/>
+            <Template>
+                <ItemList>
+                    <Item>
+                        <AdditionalAttributeList Name="" Value="">
+                            <AdditionalAttribute/>
+                        </AdditionalAttributeList>
+                    </Item>
+                </ItemList>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="shipSummary_getShipmentLineList">
+        <API Name="getShipmentLineList">
+            <Input/>
+            <Template>
+                <ShipmentLines>
+                    <ShipmentLine>
+                        <OrderLine>
+                            <ItemDetails ItemKey=""/>
+                        </OrderLine>
+                    </ShipmentLine>
+                </ShipmentLines>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="shipSummary_getShipmentDetails">
+        <API Name="getShipmentDetails">
+            <Input/>
+            <Template>
+                <Shipment>
+                    <ShipmentLines>
+                        <ShipmentLine>
+                            <OrderLine GiftWrap=""/>
+                            <Order Division="" LevelOfService="" CustPONo="" />
+                        </ShipmentLine>
+                    </ShipmentLines>
+                    <BillToAddress/>
+                    <ShipNode>
+                        <ShipNodePersonInfo/>
+                    </ShipNode>
+                    <Status/>
+                    <ToAddress/>
+                </Shipment>
+            </Template>
+        </API>
+    </mashup>
+</mashups>

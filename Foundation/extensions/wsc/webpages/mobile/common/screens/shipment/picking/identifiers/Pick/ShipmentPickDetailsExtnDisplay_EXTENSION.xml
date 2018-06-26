@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenDisplayExtension extnClassName="ShipmentPickDetailsExtn"
+        identifierId="Pick"
+        originalScreen="wsc.mobile.common.screens.shipment.picking.ShipmentPickDetails" originalScreenPackage="wsc.mobile.common.screens.shipment.picking">
+        <Items>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="pnlIdentifierHolder" renderHidden="false"/>
+            <Link _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lnk_RecordCustomerPickupAction" renderHidden="true"/>
+            <Link _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lnk_RecordCustomerPickupAction"
+                class="blockComponent actionLinks" spanLabel="true" uId="extn_screenbase_giftwrap"/>
+            <DataLabel _sc_extensibility_moveOrder="7"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lbl_Status" uId="extn_screenbase_datalabel"/>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lbl_Products" renderHidden="false"/>
+        </Items>
+    </ScreenDisplayExtension>
+</ExtensionMetaData>

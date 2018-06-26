@@ -1,0 +1,105 @@
+<div class="sc-platform-screen-default GiftWrapEdiotr">
+
+	<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="spanLabel : true , 
+		'class' : 'screenTitleContainer', 
+		uId : 'titleMessagePanel'  
+		">
+		<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="	 spanLabel : true , 
+			'class' : 'screenTitlePanel' , 
+			uId : 'pnlTitleBar'  
+			">
+			<div data-dojo-type="sc/plat/dojo/layout/AdvancedTableLayout" data-dojo-props=" showLabels : false , 
+				cols : 2 , 
+				customClass : 'screenTitleTableContainer'  
+				">
+				<div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="	'class' : 'icon-screen-order screenTitleImage' , 
+					uId : 'lb_titleImage'  
+					"></div>
+				<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="	 spanLabel : true , 
+					uId : 'pnlTitleContainer'  
+					">
+					<div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="	spanLabel : true , 
+						'class' : 'screenTitle' , 
+						uId : 'lb_screenTitle'  
+						"></div>
+					<div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="	spanLabel : true , 
+						'class' : 'screenSubTitle' , 
+						uId : 'lb_screenSubTitle'  
+						,scParamDataFn :
+						function() { 
+						return { 
+						title : this.getSimpleBundleString('blank')
+						,	
+						value : this.getSimpleBundleString('blank')
+						}
+						}
+						"></div>
+				</div>
+			</div>
+		</div>
+
+		<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="	'class' : 'enterpriseHolder' , 
+			uId : 'pnlEnterpriseHolder' , 
+			'aria-label' : 'Current Enterprise'  
+			" role='region'>
+			<div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="	'class' : 'icon-enterprise' , 
+				uId : 'imgEnterprise'  
+				"></div>
+			<div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="	'class' : 'icon-image-label groupHeader' , 
+				uId : 'lblEnterprise'  
+				,scParamDataFn :
+				function() { 
+				return { 
+				bindingData : 	{
+				sourceBinding : 	{
+				path : 'Order.EnterpriseName'
+				,
+				namespace : 'enterpriseContext'
+				}
+				}
+				}
+				}
+				"></div>
+		</div>
+	</div>
+
+	<div data-dojo-type="idx/layout/ContentPane" data-dojo-props=" spanLabel : true , 
+		uId : 'systemMessagePanel' , 
+		renderHidden : true  
+		"></div>
+	<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="	 spanLabel : true , 
+		'class' : 'editorContent' , 
+		uId : 'editorContent'  
+		" role='main'>
+		<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="	 spanLabel : true , 
+			uId : 'scScreenHolder'  
+			" role='main'></div>
+
+	</div>
+	<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		aria_label_key : 'aria_systemMessagePanel' , 
+		uId : 'systemMessagePanel' , 
+		renderHidden : true  
+ " role='region'></div>
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'editorContent' , 
+		aria_label_key : 'aria_MainRole' , 
+		uId : 'editorContent'  
+ " role='main'>
+     
+	<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		resourceId : 'WSCFO0TER001' , 
+		'class' : 'footer' , 
+		uId : 'scFooterHolder'  
+		" role='main'>
+		<div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props=" uId : 'siteMapLink'  
+			,scParamDataFn :
+			function() { 
+			return { 
+			value : this.getSimpleBundleString('SiteMap')
+			}
+			}
+			"></div>
+	</div>
+	
+</div>

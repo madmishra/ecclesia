@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.mobile.home.search.SearchExtnBehaviorController"
+    requestMethodSupported="POST" screenId="extn.mobile.home.search.SearchExtn">
+    <MashupRefs>
+        <MashupRef extnType=""
+            mashupId="mobileHomeSearch_getShipmentList"
+            mashupRefId="getShipmentList" permissionId=""/>
+        <MashupRef extnType="ADD"
+            mashupId="extn_mobileHomeSearch_getShipmentList"
+            mashupRefId="getShipmentList" permissionId=""/>
+        <MashupRef extnType="ADD" mashupId="extn_mobile_getShipmentList"
+            mashupRefId="extn_mobile_getShipmentList_ref" permissionId=""/>
+    </MashupRefs>
+</Controller>

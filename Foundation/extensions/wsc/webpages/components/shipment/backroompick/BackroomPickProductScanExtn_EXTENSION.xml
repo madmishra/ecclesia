@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="BackroomPickProductScanExtn"
+        extnPackage="extn.components.shipment.backroompick"
+        originalScreen="wsc.components.shipment.backroompick.BackroomPickProductScan"
+        originalScreenPackage="wsc.components.shipment.backroompick" type="diffrential">
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="afterScreenInit" isExtn="true" sequence="51">
+                    <Handler methodName="startScannerInApp"/>
+                </Subscriber>
+                <Subscriber eventId="pickAll_onClick" isExtn="true" sequence="51">
+                    <Handler methodName="stopScannerInput"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

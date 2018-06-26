@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ShipmentRTExtn"
+        extnPackage="extn.components.shipment.summary"
+        originalScreen="wsc.components.shipment.summary.ShipmentRT"
+        originalScreenPackage="wsc.components.shipment.summary" type="diffrential">
+        <Items>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="ScreenContentHolder" renderHidden="false"/>
+            <Link _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lnk_RT_UnpackShipment"
+                class="relatedTaskLink" label="$(_scSimpleBundle:blank)"
+                uId="extn_link" value="$(_scSimpleBundle:extn_Assign_secondary_pickup_contact)"/>
+            <Link _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="m_lnk_RT_PrintPackSlip"
+                class="relatedTaskLink" uId="extn_link1" value="$(_scSimpleBundle:extn_Assign_secondary_pickup_contact)"/>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="hideOrShowRelatedTasks"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="hideRTScreen"/>
+                </Subscriber>
+                <Subscriber eventId="extn_link_onClick" isExtn="true" sequence="51">
+                    <Handler methodName="openAssignPickup"/>
+                </Subscriber>
+                <Subscriber eventId="extn_link1_onClick" isExtn="true" sequence="51">
+                    <Handler methodName="openAssignPickup"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

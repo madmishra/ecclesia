@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM Call Center for Commerce (5725-P82)
+  (C) Copyright IBM Corp. 2013 , 2015 All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<MetaData version="1.0" xmlns="http://ibm.com/sterling/afc/cuf/tns"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ibm.com/sterling/afc/cuf/tns http://ibm.com/sterling/afc/cuf/CUFScreens ">
+    <ScreenDisplay>
+        <Items>
+            <ContentPane spanLabel="true" uId="pnlIdentifierHolder">
+                <Items>
+                    <ContentPane class="storeMsgPanel"
+                        renderHidden="true" spanLabel="true" uId="storeMsgPnl">
+                        <Items>
+                            <Image
+                                class="icon-updateNeeded floatleft indicatorImage" uId="differentStoreAlertImg"/>
+                            <Label class="fieldLabel icon-image-label" uId="shipNodeMsg"/>
+                        </Items>
+                    </ContentPane>
+                    <ContentPane class="lineDetails" spanLabel="true" uId="Pnllinedetails">
+                        <Items>
+                            <ContentPane spanLabel="true" uId="pnlPickInfoCol1">
+                                <Items>
+                                    <Image uId="img_TimeRmnClock"/>
+                                </Items>
+                            </ContentPane>
+                            <ContentPane spanLabel="true" uId="pnlPickInfoCol2">
+                                <Items>
+                                    <DataLabel
+                                    class="blockComponent autoLabelZeroWidth comappsWrapWord orderNumber" uId="lbl_OrderNum"/>
+                                    <Label
+                                    class="blockComponent comappsWrapWord" uId="lbl_IncludedInBatch"/>
+                                    <DataLabel
+                                    class="a11yHiddenLabel duein dueInLabel groupLabelSpacing" uId="lbl_timeRemaining"/>
+                                    <DataLabel
+                                    class="blockComponent zeroWidthLabelKey a11yHiddenLabel groupLabelSpacing statusLabel" uId="lbl_Status"/>
+                                    <DataLabel
+                                    class="blockComponent a11yHiddenLabel autoLabelZeroWidth groupLabelSpacing groupHeaderSpacing" uId="lbl_Products"/>
+                                    <DataLabel
+                                    class="blockComponent autoLabelZeroWidth groupLabelSpacing" uId="lbl_Carrier"/>
+                                    <DataLabel
+                                    class="blockComponent autoLabelZeroWidth groupLabelSpacing" uId="lbl_HoldLocation"/>
+                                </Items>
+                            </ContentPane>
+                            <Link class="blockComponent actionLinks"
+                                spanLabel="true" uId="lnk_PackAction"/>
+                        </Items>
+                    </ContentPane>
+                </Items>
+            </ContentPane>
+        </Items>
+    </ScreenDisplay>
+</MetaData>

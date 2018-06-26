@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="MobileHomeExtn"
+        extnPackage="extn.mobile.home"
+        originalScreen="wsc.mobile.home.MobileHome"
+        originalScreenPackage="wsc.mobile.home" type="diffrential">
+        <Items>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="pnlTasksInProgress" renderHidden="false"/>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="pnlBatchPick" renderHidden="false"/>
+            <ContentPane _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="img_OrderCaptureArrow" uId="extn_contentpane_gift"/>
+            <ContentPane _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="pnlOrderCapture" uId="extn_contentpane_gift"/>
+            <ContentPane _sc_extensibility_moveOrder="6"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="mainContainer" uId="extn_contentpane_gift"/>
+            <Link
+                ImageAlt="$(_scSimpleBundle:extn_Click_to_view_gift_wrap_orders)"
+                _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_label_task"
+                appendToContextRoot="true" class="panelCollapse"
+                hasImage="true"
+                imageSrc="wsc/resources/css/icons/images/arrow-piano-key.png"
+                title="$(_scSimpleBundle:extn_Click_to_view_gift_wrap_orders)" uId="extn_link"/>
+            <Label _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblMyTasks" value="$(_scSimpleBundle:Label_TasksInProgress)"/>
+            <Label _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblPickup" value="$(_scSimpleBundle:ReadyForBackroomPick)"/>
+            <Label _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="first"
+                _sc_extensibility_referenceUId="extn_contentpane_gift"
+                class="orderCount" spanLabel="true" uId="extn_label">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getTheCount"
+                        namespace="extn_getShipmentListCount_gw" path="Shipments.TotalNumberOfRecords"/>
+                </BindingData>
+            </Label>
+            <Label _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="extn_contentpane_gift"
+                class="taskLabel" spanLabel="true" uId="extn_label_task" value="$(_scSimpleBundle:extn_Ready_for_gift_wrap)"/>
+        </Items>
+        <Namespaces>
+            <SourceNamespaces>
+                <Source description="Number of gift wrap orders"
+                    isExtn="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_7" value="extn_getShipmentListCount_gw"/>
+            </SourceNamespaces>
+        </Namespaces>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="afterScreenInit" isExtn="true" sequence="51">
+                    <Handler methodName="test"/>
+                </Subscriber>
+                <Subscriber eventId="extn_contentpane_gift_onClick"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="openReadyForGiftWrap"/>
+                </Subscriber>
+            </Local>
+            <Global>
+                <Subscriber eventId="refreshPageAfterGiftWrap"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="refreshPageAfterGiftWrap"/>
+                </Subscriber>
+            </Global>
+        </Subscribers>
+        <MashupRefs>
+            <Init>
+                <MashupRef extnType="ADD"
+                    mashupId="mobileHomeReadyForGiftWrap_getShipmentListCount"
+                    mashupRefId="extn_mobile_giftwrapcount" sourceNamespace="extn_getShipmentListCount_gw"/>
+            </Init>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

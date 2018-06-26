@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM Sterling Order Management Store (5725-D10)
+  (C) Copyright IBM Corp. 2014 , 2015 All Rights Reserved. , 2015 All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<MetaData version="1.0" xmlns="http://ibm.com/sterling/afc/cuf/tns"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ibm.com/sterling/afc/cuf/tns http://ibm.com/sterling/afc/cuf/CUFScreens ">
+    <Mashups>
+    	<Mashup
+			description="Print Backroom Pick Ticket"
+			endpoint="EP_CONFIG"
+			id="search_searchPickTicket"
+			mashupClassName="com.ibm.wsc.common.mashups.WSCBaseMashup"
+			mashuptype="XAPI" transactional="true">
+			<API FlowName="SearchPickTicket_94"/>
+			<APINamespace
+				inputNS="search_searchPickTicket_input" outputNS="search_searchPickTicket_output"/>
+			<Input>
+				<Shipments TotalNumberOfRecords="">
+					<Shipment EnterpriseCode="xml:CurrentStore:/Store/@EnterpriseCode" ShipmentKey="">
+						<ShipNode ShipNode="xml:CurrentStore:/Store/@ShipNode" />
+					</Shipment>
+				</Shipments> 
+			</Input>
+			<Template>
+				<Output out="" />
+			</Template>
+			<AlternateResourceIds/>
+		</Mashup>
+    	<Mashup cached="PAGE"
+            description="Used to load carrier drop down for search criteria"
+            endpoint="EP_CONFIG" id="shipmentSearch_fetchScacList"
+            mashupClassName="com.ibm.wsc.common.mashups.WSCBaseMashup"
+            mashuptype="XAPI" transactional="true">
+            <API Name="getScacList"/>
+            <APINamespace inputNS="getScacList_input" outputNS="getScacList_output"/>
+            <Input>
+                <Scac
+                    CallingOrganizationCode="xml:CurrentUser:/User/@OrganizationKey"
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" MaximumRecords="" IgnoreOrdering="N">
+                 <OrderBy>
+                        <Attribute Name="ScacDesc"/>
+                    </OrderBy>
+                </Scac>    
+            </Input>
+            <Template>
+                <ScacList>
+                    <Scac Scac="" ScacDesc="" ScacKey=""/>
+                </ScacList>
+            </Template>
+        </Mashup>
+        <Mashup description="Get Shipment list matching search criteria"
+            endpoint="EP_CONFIG" id="shipmentSearch_fetchShipmentList"
+            mashupClassName="com.ibm.wsc.shipment.search.WSCShipmentSearchCustomMashup"
+            mashuptype="XAPI" transactional="true">
+            <API Name="getShipmentList"/>
+            <APINamespace inputNS="getShipmentList_input" outputNS="getShipmentList_output"/>
+            <Input>
+                <Shipment ApplyQueryTimeout="" AssignedToUserId=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    MaximumRecords="" QueryTimeout="" SCAC=""
+                    ShipNode="" ShipmentNo="" ShipmentNoQryType="FLIKE" Status="">
+                    <OrderBy>
+                    	<Attribute Desc="" Name="" />
+                    </OrderBy>
+                    <BillToAddress DayPhone="" EMailID="" FirstName="" LastName=""/>
+                    <ShipmentLines>
+                        <ShipmentLine OrderNo="" OrderNoQryType="FLIKE">
+                            <OrderLine DeliveryMethod="" GiftFlag="" > <!-- ShipNode="" -->
+                                <PersonInfoMarkFor DayPhone=""
+                                    EMailID="" FirstName="" LastName=""/>
+                            </OrderLine>
+                        </ShipmentLine>
+                    </ShipmentLines>
+                </Shipment>
+            </Input>
+            <Template>
+                <Shipments TotalNumberOfRecords="">
+                    <Shipment AssignedToUserId="" DeliveryCode=""
+                        DeliveryMethod="" ExpectedShipmentDate=""
+                        DisplayOrderNo="" HoldLocation="" ScacAndService="" ShipNode=""
+                        ShipmentKey="" ShipmentNo="" IncludedInBatch="">
+                        <Status Description="" Status=""/>
+                        <BillToAddress DayPhone="" EMailID=""
+                            FirstName="" LastName="" PersonInfoKey=""/>
+						 <AllowedTransactions>
+	                        <Transaction ProcessTypeKey="" TranType="" Tranid=""/>
+	                    </AllowedTransactions>                            
+                    </Shipment>
+                </Shipments>
+            </Template>
+            <AlternateResourceIds>
+                <AlternateResourceId altResourceId="WSC000008"/>
+            </AlternateResourceIds>
+        </Mashup>
+		<Mashup cached="PAGE"
+            description="Get list of order by options for shipments"
+            endpoint="EP_CONFIG"
+            id="search_getAdvancedShipmentSearchOrderByList"
+            mashupClassName="com.ibm.wsc.common.mashups.WSCBaseMashup"
+            mashuptype="XAPI" transactional="true">
+            <API FlowName="getOrderByList"/>
+            <APINamespace inputNS="getOrderByList_input" outputNS="getOrderByList_output"/>
+            <Input>
+                <OrderBy
+                    CallingOrganizationCode="xml:CurrentStore:/Store/@EnterpriseCode"
+                    Entity="Shipment_Store" MaximumRecords=""/>
+            </Input>
+            <Template>
+                <OrderByList>
+                    <OrderBy Attribute="" Descending="" Description=""/>
+                </OrderByList>
+            </Template>
+            <AlternateResourceIds>
+                <AlternateResourceId altResourceId="WSC000008"/>
+            </AlternateResourceIds>
+        </Mashup>
+    </Mashups>
+</MetaData>

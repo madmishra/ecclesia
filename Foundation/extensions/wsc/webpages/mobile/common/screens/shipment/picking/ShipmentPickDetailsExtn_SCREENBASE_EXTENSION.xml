@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ShipmentPickDetailsExtn"
+        extnPackage="extn.mobile.common.screens.shipment.picking"
+        originalScreen="wsc.mobile.common.screens.shipment.picking.ShipmentPickDetails"
+        originalScreenPackage="wsc.mobile.common.screens.shipment.picking" type="diffrential">
+        <Items>
+            <Link _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lnk_RecordCustomerPickupAction" renderHidden="true"/>
+            <Link _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lnk_ShipAction" renderHidden="false"/>
+            <Link _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lbl_Carrier"
+                renderHidden="false" uId="extn_screenbase_giftwrap" value="$(_scSimpleBundle:extn_Gift_Wrap)"/>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lbl_Products" renderHidden="false"/>
+            <DataLabel _sc_extensibility_moveOrder="6"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lbl_Products" uId="extn_screenbase_datalabel2"/>
+            <DataLabel _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lnk_PickAction"
+                class="a11yHiddenLabel duein dueInLabel" uId="extn_screenbase_datalabel1">
+                <BindingData>
+                    <SourceBinding namespace="Shipment" path="Shipment.ExpectedShipmentDate"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lbl_HoldLocation"
+                class="blockComponent zeroWidthLabelKey"
+                label="$(_scSimpleBundle:Label_ExpectedShipDate)"
+                renderHidden="false" uId="extn_screenbase_datalabel">
+                <BindingData>
+                    <SourceBinding
+                        dynamicBindingFunc="formatExpectedshipDate"
+                        namespace="Shipment" path="Shipment.ExpectedShipmentDate"/>
+                </BindingData>
+            </DataLabel>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="afterScreenInit" isExtn="true" sequence="51">
+                    <Handler methodName="hideandshowbutton"/>
+                </Subscriber>
+                <Subscriber eventId="extn_screenbase_giftwrap_onClick"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="continueGiftWrap"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

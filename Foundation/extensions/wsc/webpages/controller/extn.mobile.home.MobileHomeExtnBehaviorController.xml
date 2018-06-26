@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.mobile.home.MobileHomeExtnBehaviorController"
+    requestMethodSupported="POST" screenId="extn.mobile.home.MobileHomeExtn">
+    <MashupRefs>
+        <MashupRef extnType="ADD" mashupId="extn_mobile_gw_shipment"
+            mashupRefId="extn_mobile_getShipmentList_ref" permissionId=""/>
+    </MashupRefs>
+</Controller>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="BatchPickListExtn"
+        extnPackage="extn.components.batch.batchlist"
+        originalScreen="wsc.components.batch.batchlist.BatchPickList"
+        originalScreenPackage="wsc.components.batch.batchlist" type="diffrential">
+        <Items>
+            <Link _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lnkConfigureBatchList" renderHidden="true"/>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

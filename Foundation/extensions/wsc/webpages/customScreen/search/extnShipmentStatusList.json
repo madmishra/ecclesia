@@ -1,0 +1,29 @@
+/*
+ * Licensed Materials - Property of IBM
+ * IBM Sterling Order Management Store (5725-D10)
+ * (C) Copyright IBM Corp. 2014 , 2015 All Rights Reserved. , 2015 All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+ {
+ 	"StatusList":{
+ 		"Status":[
+ 			{
+ 				"StatusCode" : "1100.70.06.10",
+ 				"StatusKey":"Option_ReadyForBackroomPickup"
+ 			},
+ 			{
+ 				"StatusCode" : "1100.70.06.20",
+ 				"StatusKey":"Option_PicksInProgress"
+ 			},
+ 			{
+ 				"StatusCode" : "1100.70.06.30",
+ 				"StatusKey":"Option_ReadyForCustomerPickup"
+ 			}, 			
+ 			{
+ 				"StatusCode" : "1400",
+ 				"StatusKey":"Option_ShipmentComplete"
+ 			}
+ 		]
+ 	}
+ }
+ 

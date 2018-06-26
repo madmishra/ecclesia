@@ -1,0 +1,94 @@
+<div class="sc-platform-screen-default searchresult" role="region" aria-label="region_screenHeader">
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		title : 'Top Content' , 
+		'class' : 'mobileCommonScreen screenHeader' , 
+		colspan : 1 , 
+		uId : 'TopContent' , 
+		layoutAlign : 'top'  
+ ">
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'screenTitle' , 
+		uId : 'pnlScreenDescription'  
+ ">
+            <div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="		spanLabel : true , 
+		uId : 'lbl_ScreenTitle'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('Label_SearchResults')
+			}
+		}
+"></div>
+        </div>
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'rightPanel'  
+ ">
+            <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		uId : 'pnlScreenTasks'  
+ ">
+                <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
+		uId : 'backToSearchLink'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	'aria-label' : 			this.getSimpleBundleString('arialabel_backToSearch')
+,	
+			 	value : 			this.getSimpleBundleString('Action_backToSearch')
+			}
+		}
+"></div>
+            </div>
+        </div>
+    </div>
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'searchResultsPanel' , 
+		uId : 'pnlResults'  
+ ">
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'repeatingpanel showCursorPointer homeSubScreens' , 
+		uId : 'repeatingIdentifierScreen'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 customNoRecordsFoundMessageBundleKey : 			'Message_NoOrdersFound'
+,
+		 isPaginated : 			true
+,
+		 mashupRefId : 			'getShipmentListOnNext'
+,
+		 identifierScreen : 			true
+,
+		 repeatingScreen : 	{
+		 repeatingnamespace : 			'Shipment'
+,
+		 path : 			'Shipments.Shipment'
+,
+		 repeatingscreenpath : 			'Shipment'
+,
+		 sourcenamespace : 			'getShipmentList_output'
+	}
+,
+		 pagination : 	{
+		 pageSizesClassName : 			'UIUtils'
+,
+		 pageSizePackage : 			'ias.utils'
+,
+		 pageSizesFunc : 			'getPageSizesForRepeatingScreen'
+,
+		 strategy : 			'NEXTPAGE'
+,
+		 pageSizeFunc : 			'getPageSizeForRepeatingScreen'
+,
+		 pageSizeClassName : 			'UIUtils'
+,
+		 pageSizesPackage : 			'ias.utils'
+	}
+,
+	
+		 repeatingscreenGeneratorFunction : 			'getIdentifierRepeatingScreenData'
+	}
+			}
+		}
+"></div>
+    </div>
+</div>

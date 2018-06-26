@@ -1,0 +1,63 @@
+<div class="sc-platform-screen-default giftwrapportlet">
+	<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="
+		spanLabel: true,
+		resourceId: '',
+		'class': 'screen portlet portlet',
+		colspan: 1,
+		uId: 'portletPanel',
+		layoutAlign: 'top',
+		scParamDataFn: function() {
+			return {
+				'aria-label': this.getSimpleBundleString('Order')
+			}
+		}
+	" role="region">
+		<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="
+			spanLabel: true ,
+			'class': 'contentSeparator portletHeader',
+			uId: 'portletHeaderPanel'  
+		">
+		  <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'PortletImgHolder' , 
+		uId : 'portletHeaderImagePanel'  
+ ">
+                <div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="		imageSrc : 'wsc/resources/css/icons/images/gift.png' , 
+		'class' : 'portletImage' , 
+		appendToContextRoot : true , 
+		uId : 'portletImage'  
+ "></div>
+            </div>
+			<div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="
+				'class': 'primaryInformation',
+				uId: 'portletName',
+				scParamDataFn: function() {
+					return {
+						value: this.getSimpleBundleString('Gift Wrap')
+					}
+				}
+			" role='heading'></div>
+		</div>
+		<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="
+			spanLabel: true,
+			'class': 'PortletContent singlecolumntable',
+			uId: 'findOrderPanel'
+		">
+			
+			<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="
+				'class': 'portletSearchBar',
+				uId: 'pnlSearchBar'
+			">
+				<div data-dojo-type="dijit/form/Button" data-dojo-props="
+					'class' : 'longButtons' , 
+					uId: 'bFindOrder',
+					scParamDataFn: function() {
+						return {
+							label: this.getSimpleBundleString('Find Ready for Gift Wrap orders')
+						}
+					}
+				"></div>
+			
+            </div>
+		</div>
+	</div>
+</div>

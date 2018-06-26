@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Extensions>
+    <Identifier id="">
+        <UIExtns>
+            <UIExtn
+                appScreen="wsc.components.product.details.ProductDetails"
+                extnScreen="extn.components.product.details.ProductDetailsExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.shipment.search.ShipmentSearch"
+                extnScreen="extn.components.shipment.search.ShipmentSearchExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.batch.batchlist.BatchPickList"
+                extnScreen="extn.components.batch.batchlist.BatchPickListExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.shipment.summary.ShipmentSummary"
+                extnScreen="extn.components.shipment.summary.ShipmentSummaryExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.shipment.summary.ShipmentSummaryShipmentLineDetails"
+                extnScreen="extn.components.shipment.summary.ShipmentSummaryShipmentLineDetailsExtn" type="diffrential"/>
+            <UIExtn appScreen="wsc.mobile.home.MobileHome"
+                extnScreen="extn.mobile.home.MobileHomeExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.mobile.common.screens.shipment.picking.ShipmentPickDetails"
+                extnScreen="extn.mobile.common.screens.shipment.picking.ShipmentPickDetailsExtn" type="diffrential">
+                <IdentifierList>
+                    <Identifier identifierId="Ship" type="change"/>
+                    <Identifier identifierId="Pick" type="change"/>
+                </IdentifierList>
+            </UIExtn>
+            <UIExtn
+                appScreen="wsc.desktop.home.portlets.PickOrdersPortlet"
+                extnScreen="extn.desktop.home.portlets.PickOrdersPortletExtn" type="diffrential"/>
+            <UIExtn appScreen="wsc.desktop.home.Home"
+                extnScreen="extn.desktop.home.HomeExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.shipment.backroompick.HoldLocation"
+                extnScreen="extn.components.shipment.backroompick.HoldLocationExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.shipment.backroompick.UpdateHoldLocation"
+                extnScreen="extn.components.shipment.backroompick.UpdateHoldLocationExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.batch.batchpick.common.BatchPickupProductScan"
+                extnScreen="extn.components.batch.batchpick.common.BatchPickupProductScanExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.shipment.summary.ShipmentRT"
+                extnScreen="extn.components.shipment.summary.ShipmentRTExtn" type="diffrential"/>
+            <UIExtn appScreen="wsc.mobile.home.search.Search"
+                extnScreen="extn.mobile.home.search.SearchExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.shipment.backroompick.BackroomPickProductScan"
+                extnScreen="extn.components.shipment.backroompick.BackroomPickProductScanExtn" type="diffrential"/>
+        </UIExtns>
+    </Identifier>
+</Extensions>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.customScreen.search.extnShipmentSearchInitController"
+    requestMethodSupported="POST" screenId="extn.customScreen.search.extnShipmentSearch">
+    <Group isAggregator="Y"/>
+    <MashupRefs>
+        <MashupRef
+            mashupId="search_getAdvancedShipmentSearchOrderByList"
+            mashupRefId="getOrderByList" permissionId=""/>
+        <MashupRef mashupId="shipmentSearch_fetchScacList"
+            mashupRefId="getScacList" permissionId=""/>
+    </MashupRefs>
+    <ChildControllers>
+        <ChildController
+            controllerId="extn.customScreen.search.extnShipmentSearchResultInitController" screenId="extn.customScreen.search.extnShipmentSearchResult"/>
+    </ChildControllers>
+</Controller>

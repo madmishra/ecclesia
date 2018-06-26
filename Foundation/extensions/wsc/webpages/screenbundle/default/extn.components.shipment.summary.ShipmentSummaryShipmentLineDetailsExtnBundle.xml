@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.components.shipment.summary.ShipmentSummaryShipmentLineDetailsExtnBundle" screenId="extn.components.shipment.summary.ShipmentSummaryShipmentLineDetailsExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="extn_datalabel_DataLabel_label"
+            bundleKey="Label_ManufacturerName"
+            bundleValueFn="_scSimpleBundle" property="label"
+            type="WIDGET" uId="extn_datalabel"/>
+        <BundleEntry bundleEntryId="extn_datalabel1_DataLabel_label"
+            bundleKey="extn_Author" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_datalabel1"/>
+        <BundleEntry bundleEntryId="extn_datalabel2_DataLabel_label"
+            bundleKey="extn_Series" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_datalabel2"/>
+        <BundleEntry bundleEntryId="extn_datalabel3_DataLabel_label"
+            bundleKey="extn_Subject" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_datalabel3"/>
+        <BundleEntry bundleEntryId="extn_datalabel4_DataLabel_label"
+            bundleKey="extn_MCAT" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_datalabel4"/>
+        <BundleEntry bundleEntryId="extn_datalabel5_DataLabel_label"
+            bundleKey="extn_LM" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_datalabel5"/>
+    </BundleEntries>
+</ScreenBundle>

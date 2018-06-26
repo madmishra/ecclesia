@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="HomeExtn"
+        extnPackage="extn.desktop.home"
+        originalScreen="wsc.desktop.home.Home"
+        originalScreenPackage="wsc.desktop.home" type="diffrential">
+        <Items>
+            <ScreenRef _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="customerPickPortlet"
+                className="CustomerPickPortlet" handleInit="false" packageName="wsc.desktop.home.portlets"/>
+            <ScreenRef _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="customerPickPortlet"
+                className="GiftWrapPortlet" handleInit="true"
+                packageName="extn.customScreen.GiftWrap" uId="extn_screenref"/>
+            <ScreenRef _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="packPortlet"
+                className="GiftWrapPortlet" handleInit="true"
+                packageName="extn.customScreen.GiftWrap" uId="extn_screenref"/>
+            <ScreenRef _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="orderCapturePortlet"
+                className="GiftWrapPortlet" handleInit="true"
+                packageName="extn.customScreen.GiftWrap" uId="extn_screenref"/>
+        </Items>
+        <MashupRefs>
+            <Behavior>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_getGWShipmentList" mashupRefId="extn_getListBehavior"/>
+            </Behavior>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.editors.CustomEditorBehaviorController"
+    requestMethodSupported="POST" screenId="extn.editors.CustomEditor">
+      <MashupRefs/>
+</Controller>

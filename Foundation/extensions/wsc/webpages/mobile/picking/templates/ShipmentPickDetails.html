@@ -1,0 +1,327 @@
+<div class="sc-platform-screen-default extnshipmentpickdetails">
+    <div data-dojo-type="sc/plat/dojo/widgets/Image" data-ibmsc-uid="differentStoreAlertImg"
+    data-dojo-props="		imageSrc : 'wsc/resources/css/icons/images/alert.png' , 
+		'class' : 'icon-updateNeeded floatleft indicatorImage' , 
+		appendToContextRoot : true , 
+		uId : 'differentStoreAlertImg'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	title : 			this.getSimpleBundleString('Tooltip_DifferentShipNodeMessage')
+,	
+			 	imageAlt : 			this.getSimpleBundleString('Tooltip_DifferentShipNodeMessage')
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/Label" data-ibmsc-uid="shipNodeMsg"
+    data-dojo-props="		spanLabel : true , 
+		'class' : 'fieldLabel icon-image-label' , 
+		uId : 'shipNodeMsg'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('Label_DifferentShipNodeMessage')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.ShipNode'
+,
+		 dynamicBindingFunc : 			'toggleShipNodeMsg'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-ibmsc-uid="lbl_CustName"
+    data-dojo-props="		'class' : 'customerName' , 
+		uId : 'lbl_CustName'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Label_CustomerName')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.BillToAddress'
+,
+		 dynamicBindingFunc : 			'getCustomerName'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-ibmsc-uid="lbl_OrderNum"
+    data-dojo-props="		spanLabel : true , 
+		uId : 'lbl_OrderNum'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Label_Order_number_mobile')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.DisplayOrderNo'
+,
+		 dynamicBindingPackage : 			'wsc.components.common.utils'
+,
+		 dynamicBindingFunc : 			'getDisplayOrderNumber'
+,
+		 dynamicBindingClassName : 			'CommonUtils'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-ibmsc-uid="lbl_Products"
+    data-dojo-props="		spanLabel : true , 
+		uId : 'lbl_Products'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Label_NumberOfProducts')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.TotalLines'
+,
+		 dynamicBindingFunc : 			'getNumberOfProductsLabel'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/Image" data-ibmsc-uid="img_User"
+    data-dojo-props="		imageSrc : 'wsc/resources/css/icons/images/userDetails.png' , 
+		appendToContextRoot : true , 
+		uId : 'img_User'  
+ "></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-ibmsc-uid="lbl_AssociateName"
+    data-dojo-props="		spanLabel : true , 
+		uId : 'lbl_AssociateName'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Label_AssociateName')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.AssignedToUserId'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/Image" data-ibmsc-uid="img_TimeRmnClock"
+    data-dojo-props="		uId : 'img_TimeRmnClock' , 
+		renderHidden : false  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'CommonCode'
+,
+		 namespace : 			'clockImageBindingValues'
+	}
+,
+		 imageBindings : 	{
+		 imageStyleClass : 	{
+		 value : 			'screenTitleImage'
+	}
+,
+		 defaultImage : 	{
+		 style : 			''
+,
+		 src : 			''
+,
+		 styleClass : 			'noItemImage'
+	}
+,
+		 imageUrl : 	{
+		 path : 			'CodeLongDescription'
+,
+		 dynamicBindingPackage : 			'wsc.mobile.home.utils'
+,
+		 dynamicBindingFunc : 			'getItemImageLocation'
+,
+		 dynamicBindingClassName : 			'MobileHomeUtils'
+	}
+,
+		 imageIcon : 	{
+		 path : 			'CodeLongDescription'
+,
+		 dynamicBindingPackage : 			'wsc.mobile.home.utils'
+,
+		 dynamicBindingFunc : 			'getItemImageId'
+,
+		 dynamicBindingClassName : 			'MobileHomeUtils'
+	}
+	}
+	}
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-ibmsc-uid="lbl_timeRemaining"
+    data-dojo-props="		spanLabel : true , 
+		'class' : 'a11yHiddenLabel duein dueInLabel' , 
+		uId : 'lbl_timeRemaining' , 
+		renderHidden : false  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Label_DueIn')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.ExpectedShipmentDat'
+,
+		 dynamicBindingPackage : 			'wsc.mobile.home.utils'
+,
+		 dynamicBindingFunc : 			'applyOverdueStyling'
+,
+		 dynamicBindingClassName : 			'MobileHomeUtils'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/Link" data-ibmsc-uid="lnk_PickAction"
+    data-dojo-props="		spanLabel : true , 
+		resourceId : 'WSC000012' , 
+		uId : 'lnk_PickAction' , 
+		renderHidden : true  
+ "></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/Link" data-ibmsc-uid="lnk_AssignToHoldAction"
+    data-dojo-props="		spanLabel : true , 
+		resourceId : 'WSC000025' , 
+		uId : 'lnk_AssignToHoldAction' , 
+		renderHidden : true  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('Action_Assign_Hold')
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/Link" data-ibmsc-uid="lnk_RecordCustomerPickupAction"
+    data-dojo-props="		spanLabel : true , 
+		resourceId : 'WSC000001' , 
+		uId : 'lnk_RecordCustomerPickupAction' , 
+		renderHidden : true  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('Action_StartCustomerPickup')
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/Link" data-ibmsc-uid="lnk_ShipAction"
+    data-dojo-props="		spanLabel : true , 
+		resourceId : 'WSC000015' , 
+		uId : 'lnk_ShipAction' , 
+		renderHidden : true  
+ "></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/Link" data-ibmsc-uid="lnk_PackAction"
+    data-dojo-props="		spanLabel : true , 
+		resourceId : 'WSC000019' , 
+		uId : 'lnk_PackAction' , 
+		renderHidden : true  
+ "></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-ibmsc-uid="lbl_Carrier"
+    data-dojo-props="		uId : 'lbl_Carrier'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Label_Carrier')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.ScacAndService'
+,
+		 dynamicBindingFunc : 			'hideCarrierIfEmpty'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-ibmsc-uid="lbl_Status"
+    data-dojo-props="		spanLabel : true , 
+		uId : 'lbl_Status'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Label_Status')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.Status.Description'
+,
+		 dynamicBindingPackage : 			'wsc.components.shipment.common.utils'
+,
+		 dynamicBindingFunc : 			'getShipmentStatusDescription'
+,
+		 dynamicBindingClassName : 			'ShipmentUtils'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-ibmsc-uid="lbl_HoldLocation"
+    data-dojo-props="		uId : 'lbl_HoldLocation'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Label_Hold_Location')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.HoldLocation'
+,
+		 dynamicBindingFunc : 			'showHideHoldLocation'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+			}
+		}
+"></div>
+    <div data-dojo-type="sc/plat/dojo/widgets/Label" data-ibmsc-uid="lbl_IncludedInBatch"
+    data-dojo-props="		uId : 'lbl_IncludedInBatch'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('Label_Included_In_Batch')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Shipment.IncludedInBatch'
+,
+		 dynamicBindingPackage : 			'wsc.components.shipment.common.utils'
+,
+		 dynamicBindingFunc : 			'showHideIncludedInBatch'
+,
+		 dynamicBindingClassName : 			'ShipmentUtils'
+,
+		 namespace : 			'Shipment'
+	}
+	}
+			}
+		}
+"></div>
+</div>

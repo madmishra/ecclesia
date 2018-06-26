@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle screenBundleId="extn.mobile.home.search.SearchExtnBundle" screenId="extn.mobile.home.search.SearchExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="extn_button_Button_label"
+            bundleKey="extn_giftWrap" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_button"/>
+    </BundleEntries>
+</ScreenBundle>

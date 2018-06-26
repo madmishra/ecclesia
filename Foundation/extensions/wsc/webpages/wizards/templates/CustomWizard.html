@@ -1,0 +1,59 @@
+<div class="">
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props=" spanLabel : true ,
+colspan : 1 ,
+uId : 'WizardScreenPanel' ,
+layoutAlign : 'top'
+">
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props=" 'class' :
+'wizardNavigationPanelTop wizardNavigationPanel' , uId : 'navigationPanel2' ,
+renderHidden : true">
+           </div>
+            <div data-dojo-type="dijit/form/Button" data-dojo-props="
+'class' : 'idxButtonIcon' , uId : 'closeBttn2' ,
+iconClass : 'dijitIcon idxCloseIcon'
+,scParamDataFn :
+function() {
+return {
+label : this.getSimpleBundleString('Cancel')
+}}
+"></div>
+        </div>
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="
+'class' : 'wizardMainContainer' ,
+dojoAttachPoint : 'stackContainerNode' ,
+uId : 'mainContent' "></div>
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="
+'class' : 'wizardNavigationPanel wizardNavigationPanelBottom' ,
+uId : 'navigationPanel' ,
+renderHidden : true
+">
+            <div data-dojo-type="dijit/form/Button" data-dojo-props="
+'class' : 'idxButtonIcon' , uId : 'prevBttn' ,
+iconClass : 'dijitIcon idxPreviousPageIcon'
+,scParamDataFn :
+function() {
+return {
+label : this.getSimpleBundleString('Previous')
+}}
+"></div>
+            <div data-dojo-type="dijit/form/Button" data-dojo-props="
+'class' : 'idxSpecialButton idxButtonIcon' ,
+uId : 'nextBttn' ,
+iconClass : 'dijitIcon idxNextPageIcon' ,scParamDataFn :
+function() {
+return {
+label : this.getSimpleBundleString('Next')
+}}
+"></div>
+            <div data-dojo-type="dijit/form/Button" data-dojo-props="
+'class' : 'idxButtonIcon' , uId : 'closeBttn' ,
+iconClass : 'dijitIcon idxCloseIcon'
+,scParamDataFn :
+function() {
+return {
+label : this.getSimpleBundleString('Cancel')
+}}
+"></div>
+        </div>
+    </div>
+</div>

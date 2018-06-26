@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.components.shipment.backroompick.UpdateHoldLocationExtnBundle" screenId="extn.components.shipment.backroompick.UpdateHoldLocationExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="addHoldLocationButton_Button_label"
+            bundleKey="Tooltip_addHoldLocation"
+            bundleValueFn="_scSimpleBundle" property="label"
+            type="WIDGET" uId="addHoldLocationButton"/>
+    </BundleEntries>
+</ScreenBundle>

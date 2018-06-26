@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="HoldLocationExtn"
+        extnPackage="extn.components.shipment.backroompick"
+        originalScreen="wsc.components.shipment.backroompick.HoldLocation"
+        originalScreenPackage="wsc.components.shipment.backroompick" type="diffrential"/>
+</ExtensionMetaData>

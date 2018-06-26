@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ProductDetailsExtn"
+        extnPackage="extn.components.product.details"
+        originalScreen="wsc.components.product.details.ProductDetails"
+        originalScreenPackage="wsc.components.product.details" type="diffrential">
+        <Items>
+            <DataLabel _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblBrandIdValue"
+                class="autoLabelZeroWidth"
+                label="$(_scSimpleBundle:extn_Author)" uId="extn_datalabel">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getAuthor"
+                        namespace="itemDetails" path="Item"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblBrandIdValue"
+                class="autoLabelZeroWidth"
+                label="$(_scSimpleBundle:extn_Series)" uId="extn_datalabel1">
+                <BindingData>
+                    <SourceBinding namespace="extn_detailsModel" path="Series"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="12"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblBrandIdValue"
+                class="autoLabelZeroWidth"
+                label="$(_scSimpleBundle:extn_Brand)" uId="extn_datalabel2">
+                <BindingData>
+                    <SourceBinding namespace="extn_detailsModel" path="Brand"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="14"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblBrandIdValue" uId="extn_datalabel2"/>
+            <DataLabel _sc_extensibility_moveOrder="13"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblExtendedDesc"
+                class="autoLabelZeroWidth"
+                label="$(_scSimpleBundle:extn_Subject)" uId="extn_datalabel3">
+                <BindingData>
+                    <SourceBinding namespace="extn_detailsModel" path="Subject"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="15"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblBrandIdValue" uId="extn_datalabel3"/>
+        </Items>
+        <Namespaces>
+            <SourceNamespaces>
+                <Source description="Brand" isExtn="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_0" value="extn_detailsModel"/>
+            </SourceNamespaces>
+        </Namespaces>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="tpComponents_onShow" isExtn="true" sequence="51">
+                    <Handler methodName="updateAuthor"/>
+                </Subscriber>
+                <Subscriber eventId="afterScreenLoad" isExtn="true" sequence="19">
+                    <Handler methodName="updateAuthor"/>
+                </Subscriber>
+            </Local>
+            <Global>
+                <Subscriber eventId="afterShowDialog" isExtn="true" sequence="19">
+                    <Handler methodName="updateAuthor"/>
+                </Subscriber>
+            </Global>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

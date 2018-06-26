@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.customScreen.search.extnShipmentDetailsBehaviorController"
+    requestMethodSupported="POST" screenId="extn.customScreen.search.extnShipmentDetails">
+    <MashupRefs>
+        <MashupRef mashupId="containerPack_unpackShipment"
+            mashupRefId="containerPack_unpackShipment" permissionId=""/>
+        <MashupRef mashupId="containerPack_changeShipment"
+            mashupRefId="containerPack_changeShipment" permissionId=""/>
+        <MashupRef mashupId="containerPack_changeShipmentStatus"
+            mashupRefId="containerPack_changeShipmentStatus" permissionId=""/>
+        <MashupRef mashupId="backroomPick_updateShipmentQuantity"
+            mashupRefId="changeShipmentToUpdateQty" permissionId=""/>
+        <MashupRef mashupId="backroomPick_changeShipmentStatus"
+            mashupRefId="backroomPick_changeShipmentStatus" permissionId=""/>
+        <MashupRef mashupId="search_searchPickTicket"
+            mashupRefId="searchPickTicket" permissionId=""/>
+        <MashupRef mashupId="common_getShipmentDetails"
+            mashupRefId="getShipmentDetailsForBackroomPick" permissionId=""/>
+        <MashupRef mashupId="common_getShipmentDetails"
+            mashupRefId="getShipmentDetailsForRecordCustomerPick" permissionId=""/>
+        <MashupRef mashupId="common_getShipmentDetails"
+            mashupRefId="getShipmentDetailsForPack" permissionId=""/>
+    </MashupRefs>
+</Controller>

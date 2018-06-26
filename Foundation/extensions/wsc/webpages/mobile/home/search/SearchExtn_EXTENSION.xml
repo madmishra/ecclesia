@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="SearchExtn"
+        extnPackage="extn.mobile.home.search"
+        originalScreen="wsc.mobile.home.search.Search"
+        originalScreenPackage="wsc.mobile.home.search" type="diffrential">
+        <Items>
+            <Button _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="btnSearchOrders"
+                class="idxSpecialButton longButtons"
+                label="$(_scSimpleBundle:extn_giftWrap)"
+                renderHidden="true" uId="extn_button"/>
+        </Items>
+        <Namespaces>
+            <SourceNamespaces>
+                <Source description="Unique" isExtn="true"
+                    isPaginated="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_2" value="extn_getShipment_unique"/>
+            </SourceNamespaces>
+        </Namespaces>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="extn_button_onClick" isExtn="true" sequence="51">
+                    <Handler methodName="orderSearch"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+        <MashupRefs>
+            <Behavior>
+                <MashupRef mashupId="mobileHomeSearch_getShipmentList" mashupRefId="getShipmentList"/>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_mobileHomeSearch_getShipmentList" mashupRefId="getShipmentList"/>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_mobile_getShipmentList" mashupRefId="extn_mobile_getShipmentList_ref"/>
+            </Behavior>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

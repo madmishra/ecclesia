@@ -270,6 +270,6 @@ public static final String ADDITIONAL_DATES = "AdditionalDates";
 public static final String ADDITIONAL_DATE = "AdditionalDate"; 
 public static final String DATE_TYPE_ID = "DateTypeId";
 public static final String EXPECTED_DATE = "ExpectedDate";
-
+public static final String NODE_LEVEL_INVENTORY_MONITOR_RULE = "NodeLevelInventoryMonitorRule";
 }
 

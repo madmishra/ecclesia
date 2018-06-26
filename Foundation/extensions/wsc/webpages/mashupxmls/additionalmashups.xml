@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mashups>
+    <mashup description="Does stuff bro" endpoint="EP_CONFIG"
+        id="extn_shipmentSearch_fetchShipmentList" mashuptype="XAPI"
+        resourceId="" transactional="true">
+        <API Name="getShipmentList">
+            <Input>
+                <Shipment ApplyQueryTimeout="" AssignedToUserId=""
+                    ExpectedShipmentDate="" MaximumRecords=""
+                    QueryTimeout="" SCAC="" ShipNode="" ShipmentNo="" Status="1100.70.200">
+                    <ShipmentLines>
+                        <ShipmentLine>
+                            <OrderLine GiftWrap="Y"/>
+                        </ShipmentLine>
+                    </ShipmentLines>
+                </Shipment>
+            </Input>
+            <Template>
+                <Shipments TotalNumberOfRecords="">
+                    <Shipment AssignedToUserId="" DeliveryCode=""
+                        DeliveryMethod="" DisplayOrderNo=""
+                        ExpectedShipmentDate="" HoldLocation=""
+                        IncludedInBatch="" ScacAndService="" ShipNode=""
+                        ShipmentKey="" ShipmentNo="">
+                        <BillToAddress DayPhone="" EMailID=""
+                            FirstName="" LastName="" PersonInfoKey=""/>
+                        <AllowedTransactions>
+                            <Transaction ProcessTypeKey="" TranType="" Tranid=""/>
+                        </AllowedTransactions>
+                        <Status Description="" Status=""/>
+                    </Shipment>
+                </Shipments>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.shipment.search.WSCShipmentSearchCustomMashup"/>
+        <APINamespace
+            inputNS="extn_shipmentSearch_fetchShipmentList_input" outputNS="extn_shipmentSearch_fetchShipmentList_output"/>
+        <AlternateResourceIds>
+            <AlternateResourceId altResourceId="WSC000008"/>
+        </AlternateResourceIds>
+    </mashup>
+    <mashup description="does stuff to things" endpoint="EP_CONFIG"
+        id="extn_getItemList_mashup" mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getShipmentLineList">
+            <Input>
+                <ShipmentLine ItemID=""/>
+            </Input>
+            <Template>
+                <ShipmentLines TotalNumberOfRecords="">
+                    <ShipmentLine>
+                        <Shipment ShipmentNo=""/>
+                    </ShipmentLine>
+                </ShipmentLines>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
+        <APINamespace inputNS="extn_getItemList_mashup_input" outputNS="extn_getItemList_mashup_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="Get Shipment list matching search criteria"
+        endpoint="EP_CONFIG" id="extn_mobileHomeSearch_getShipmentList"
+        mashuptype="XAPI" skipDataProvider="false" transactional="true">
+        <classInformation name="com.ibm.wsc.shipment.backroompick.mashups.WSCBackroomPickFetchPaginatedShipmentListMashup"/>
+        <API Name="getShipmentList">
+            <Input>
+                <Shipment ApplyQueryTimeout="" AssignedToUserId=""
+                    ExpectedShipmentDate="" MaximumRecords=""
+                    QueryTimeout="" SCAC="" ShipNode="" ShipmentNo="" Status="1100.70.200">
+                    <ShipmentLines>
+                        <ShipmentLine>
+                            <OrderLine GiftWrap="Y"/>
+                        </ShipmentLine>
+                    </ShipmentLines>
+                </Shipment>
+            </Input>
+            <Template>
+                <Shipments>
+                    <Shipment DeliveryMethod="" DisplayOrderNo=""
+                        ExpectedShipmentDate="" HoldLocation=""
+                        IncludedInBatch="" OrderNo="" SCAC=""
+                        ScacAndService="" ShipNode="" ShipmentKey=""
+                        ShipmentNo="" TotalNumOfSKUS="">
+                        <Status Description="" Status=""/>
+                        <BillToAddress AddressLine1="" AddressLine2=""
+                            City="" Country="" DayFaxNo="" DayPhone=""
+                            EMailID="" EveningFaxNo="" EveningPhone=""
+                            FirstName="" IsCommercialAddress=""
+                            LastName="" MiddleName="" MobilePhone=""
+                            PersonInfoKey="" PreferredShipAddress=""
+                            State="" ZipCode=""/>
+                        <ShipmentLines TotalNumberOfRecords="">
+                            <ShipmentLine OriginalQuantity=""/>
+                        </ShipmentLines>
+                    </Shipment>
+                </Shipments>
+            </Template>
+        </API>
+        <APINamespace inputNS="extn_getShipmentList_input" outputNS="extn_getShipmentList_output"/>
+    </mashup>
+    <mashup description="" endpoint="EP_CONFIG"
+        id="extn_mobile_getShipmentList" mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getShipmentList">
+            <Input>
+                <Shipment ApplyQueryTimeout="" AssignedToUserId=""
+                    ExpectedShipmentDate="" MaximumRecords=""
+                    QueryTimeout="" SCAC="" ShipNode="" ShipmentNo="" Status="1100.70.200">
+                    <ShipmentLines>
+                        <ShipmentLine>
+                            <OrderLine GiftWrap="Y"/>
+                        </ShipmentLine>
+                    </ShipmentLines>
+                </Shipment>
+            </Input>
+            <Template>
+                <Shipments>
+                    <Shipment DeliveryMethod="" DisplayOrderNo=""
+                        ExpectedShipmentDate="" HoldLocation=""
+                        IncludedInBatch="" OrderNo="" SCAC=""
+                        ScacAndService="" ShipNode="" ShipmentKey=""
+                        ShipmentNo="" TotalNumOfSKUS="">
+                        <Status Description="" Status=""/>
+                        <BillToAddress AddressLine1="" AddressLine2=""
+                            City="" Country="" DayFaxNo="" DayPhone=""
+                            EMailID="" EveningFaxNo="" EveningPhone=""
+                            FirstName="" IsCommercialAddress=""
+                            LastName="" MiddleName="" MobilePhone=""
+                            PersonInfoKey="" PreferredShipAddress=""
+                            State="" ZipCode=""/>
+                        <ShipmentLines TotalNumberOfRecords="">
+                            <ShipmentLine OriginalQuantity=""/>
+                        </ShipmentLines>
+                    </Shipment>
+                </Shipments>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.shipment.backroompick.mashups.WSCBackroomPickFetchPaginatedShipmentListMashup"/>
+        <APINamespace inputNS="extn_mobile_getShipmentList_input" outputNS="extn_mobile_getShipmentList_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="something" endpoint="EP_CONFIG"
+        id="extn_changeShipmentStatus" mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="changeShipmentStatus">
+            <Input>
+                <Shipment BaseDropStatus="" ShipmentKey="" TransactionId=""/>
+            </Input>
+            <Template/>
+        </API>
+        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
+        <APINamespace inputNS="extn_changeShipmentStatus_input" outputNS="extn_changeShipmentStatus_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="" endpoint="EP_CONFIG"
+        id="extn_itemDetailsForPRoduct" mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getItemList">
+            <Input>
+                <Item ItemKey=""/>
+            </Input>
+            <Template>
+                <ItemList>
+                    <Item>
+                        <AdditionalAttributeList>
+                            <AdditionalAttribute Name="" Value=""/>
+                        </AdditionalAttributeList>
+                        <PrimaryInformation ProductLine=""/>
+                        <ClassificationCodes CommodityCode=""/>
+                    </Item>
+                </ItemList>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
+        <APINamespace inputNS="extn_itemDetailsForPRoduct_input" outputNS="extn_itemDetailsForPRoduct_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="To get gift wrap shipment list"
+        endpoint="EP_CONFIG" id="extn_getGWShipmentList"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getShipmentList">
+            <Input>
+                <Shipment ApplyQueryTimeout="" AssignedToUserId=""
+                    ExpectedShipmentDate="" MaximumRecords=""
+                    QueryTimeout="" SCAC="" ShipNode="" ShipmentNo="" Status="1100.70.200">
+                    <ShipmentLines>
+                        <ShipmentLine>
+                            <OrderLine GiftWrap="Y"/>
+                        </ShipmentLine>
+                    </ShipmentLines>
+                </Shipment>
+            </Input>
+            <Template>
+                <Shipments TotalNumberOfRecords="">
+                    <Shipment AssignedToUserId="" DeliveryCode=""
+                        DeliveryMethod="" DisplayOrderNo=""
+                        ExpectedShipmentDate="" HoldLocation=""
+                        IncludedInBatch="" ScacAndService="" ShipNode=""
+                        ShipmentKey="" ShipmentNo="">
+                        <BillToAddress DayPhone="" EMailID=""
+                            FirstName="" LastName="" PersonInfoKey=""/>
+                        <AllowedTransactions>
+                            <Transaction ProcessTypeKey="" TranType="" Tranid=""/>
+                        </AllowedTransactions>
+                        <Status Description="" Status=""/>
+                    </Shipment>
+                </Shipments>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.shipment.search.WSCShipmentSearchCustomMashup"/>
+        <APINamespace inputNS="extn_getGWShipmentList_input" outputNS="extn_getGWShipmentList_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="For gift wrap" endpoint="EP_CONFIG"
+        id="extn_mobile_gw_shipment" mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getShipmentList">
+            <Input>
+                <Shipment ApplyQueryTimeout="" AssignedToUserId=""
+                    ExpectedShipmentDate="" MaximumRecords=""
+                    QueryTimeout="" SCAC="" ShipNode="" ShipmentNo="" Status="1100.70.200">
+                    <ShipmentLines>
+                        <ShipmentLine>
+                            <OrderLine GiftWrap="Y"/>
+                        </ShipmentLine>
+                    </ShipmentLines>
+                </Shipment>
+            </Input>
+            <Template>
+                <Shipments>
+                    <Shipment DeliveryMethod="" DisplayOrderNo=""
+                        ExpectedShipmentDate="" HoldLocation=""
+                        IncludedInBatch="" OrderNo="" SCAC=""
+                        ScacAndService="" ShipNode="" ShipmentKey=""
+                        ShipmentNo="" TotalNumOfSKUS="">
+                        <Status Description="" Status=""/>
+                        <BillToAddress AddressLine1="" AddressLine2=""
+                            City="" Country="" DayFaxNo="" DayPhone=""
+                            EMailID="" EveningFaxNo="" EveningPhone=""
+                            FirstName="" IsCommercialAddress=""
+                            LastName="" MiddleName="" MobilePhone=""
+                            PersonInfoKey="" PreferredShipAddress=""
+                            State="" ZipCode=""/>
+                        <ShipmentLines TotalNumberOfRecords="">
+                            <ShipmentLine OriginalQuantity=""/>
+                        </ShipmentLines>
+                    </Shipment>
+                </Shipments>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.shipment.backroompick.mashups.WSCBackroomPickFetchPaginatedShipmentListMashup"/>
+        <APINamespace inputNS="extn_mobile_gw_shipment_input" outputNS="extn_mobile_gw_shipment_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="" endpoint="EP_CONFIG"
+        id="mobileHomeReadyForGiftWrap_getShipmentListCount"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getShipmentList">
+            <Input>
+                <Shipment DeliveryMethod="PICK"
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    MaximumRecords="" ShipNode="xml:CurrentStore:/Store/@ShipNode">
+                    <ComplexQuery Operator="AND">
+                        <Or>
+                            <Exp Name="Status" Value="1100.70.200"/>
+                        </Or>
+                    </ComplexQuery>
+                </Shipment>
+            </Input>
+            <Template>
+                <Shipments TotalNumberOfRecords=""/>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
+        <APINamespace
+            inputNS="mobileHomeReadyForGiftWrap_getShipmentListCount_input" outputNS="mobileHomeReadyForGiftWrap_getShipmentListCount_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="" endpoint="XAPI" id="extn_getLinesForGiftWrap"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getShipmentLineList">
+            <Input>
+                <ShipmentLine ShipmentKey="xml:scControllerInput:/Shipment/@ShipmentKey">
+                    <OrderLine GiftWrap="Y"/>
+                </ShipmentLine>
+            </Input>
+            <Template>
+                <ShipmentLines TotalNumberOfRecords="">
+                    <ShipmentLine ActualQuantity=""
+                        BackroomPickComplete=""
+                        BackroomPickedQuantity="" BuyerMarkForNodeId=""
+                        CancelReason="" ChainedFromOrderHeaderKey=""
+                        ChainedFromOrderLineKey="" CountryOfOrigin=""
+                        CustomerPickedQuantity="" CustomerPoLineNo=""
+                        DocumentType="" ExternalReleaseIdentifier=""
+                        FifoNo="" GroupSequenceNumber=""
+                        HasWorkOrders="" IsCustomerPickComplete=""
+                        IsPackComplete="" IsPickable="" ItemDesc=""
+                        ItemID="" LevelOfService="" NetWeightUom=""
+                        OrderHeaderKey="" OrderLineKey="" OrderNo=""
+                        OrderReleaseKey="" OverShipQuantity=""
+                        PickLocation="" PickLocationSeq=""
+                        PlacedQuantity="" ProductClass="" Quantity=""
+                        RequestedSerialNo="" ReturnShippingLabelLevel=""
+                        Segment="" SegmentType="" ShipToCustomerId=""
+                        ShipmentConsolidationGroupId="" ShipmentKey=""
+                        ShipmentLineKey="" ShipmentLineNo=""
+                        ShortageResolutionReason="" SubLineNo=""
+                        UnitOfMeasure="" WaveNo="">
+                        <OrderLine Action="" AllocationDate=""
+                            AllocationLeadTime="" ApptStatus=""
+                            ApptWarning=""
+                            AvailableQtyForStopDelivery=""
+                            AwaitingDeliveryRequest=""
+                            BackorderNotificationQty=""
+                            BuyerMarkForNodeId=""
+                            BuyerReceivingNodeId=""
+                            CanAddServiceLines="" CarrierAccountNo=""
+                            CarrierServiceCode=""
+                            ChainedFromOrderHeaderKey=""
+                            ChainedFromOrderLineKey=""
+                            CommittedQuantity="" ConditionVariable1=""
+                            ConditionVariable2="" ConfigurationKey=""
+                            CustomerLinePONo="" CustomerPONo=""
+                            DeliveryCode="" DeliveryMethod=""
+                            DepartmentCode="" DependencyShippingRule=""
+                            DependentOnLineKey=""
+                            DerivedFromOrderHeaderKey=""
+                            DerivedFromOrderLineKey=""
+                            DerivedFromOrderReleaseKey=""
+                            DispositionCode="" DistributionRuleId=""
+                            FillQuantity="" FirstIterationSeqNo=""
+                            FreightTerms="" FulfillmentType=""
+                            FutureAvailabilityDate="" GiftFlag=""
+                            GiftWrap="" GroupSequenceNumber=""
+                            HasChainedLines="" HasDeliveryLines=""
+                            HasDerivedChild="" HasServiceLines=""
+                            HoldFlag="" HoldReasonCode=""
+                            ImportLicenseExpDate="" ImportLicenseNo=""
+                            InStorePaymentRequired=""
+                            IntentionalBackorder=""
+                            InvoicedExtendedPrice="" InvoicedQty=""
+                            InvoicedQuantity="" IsBlindLine="N"
+                            IsBundleParent="" IsFirmPredefinedNode=""
+                            IsPickUpNow="" IsPriceMatched=""
+                            ItemGroupCode="" ItemIsInHand=""
+                            ItemNotExist="" KitCode="" KitQty=""
+                            LastIterationSeqNo="" LevelOfService=""
+                            LineSeqNo="" LineType="" MaxLineStatus=""
+                            MaxLineStatusDesc="" MergeNode=""
+                            MinLineStatus="" MinLineStatusDesc=""
+                            MinShipByDate="" MultipleStatusesExist=""
+                            OpenQty="" OrderHeaderKey="" OrderLineKey=""
+                            OrderedQty="" OrigOrderLineKey=""
+                            OriginalOrderedQty="" OtherCharges=""
+                            OverallStatus="" PackListType=""
+                            ParentOfDependentGroup="" PersonalizeCode=""
+                            PersonalizeFlag="" PickableFlag=""
+                            PipelineKey="" PrimeLineNo=""
+                            ProcureFromNode="" PromisedApptEndDate=""
+                            PromisedApptStartDate="" Purpose=""
+                            ReceivingNode="" RemainingQty=""
+                            ReqCancelDate="" ReqDeliveryDate=""
+                            ReqShipDate="" ReservationID=""
+                            ReservationMandatory="" ReservationPool=""
+                            ReturnReason="" ReturnReasonLongDesc=""
+                            ReturnReasonShortDesc="" ReturnableQty=""
+                            SCAC="" ScacAndService=""
+                            ScacAndServiceKey=""
+                            SchedFailureReasonCode="" Segment=""
+                            SegmentType="" SerialNo="" ShipNode=""
+                            ShipToID="" ShipToKey="" ShipTogetherNo=""
+                            ShipmentConsolidationGroupId=""
+                            SourceFromOrganization="" SplitQty=""
+                            Status="" StatusQuantity="" SubLineNo=""
+                            SubstituteItemID="" SubstituteItemUOM=""
+                            Timezone="" TranDiscrepancyQty="" isHistory="">
+                            <ItemDetails CanUseAsServiceTool=""
+                                GlobalItemID="" IsItemSuperseded=""
+                                ItemGroupCode="" ItemID="" ItemKey=""
+                                OrganizationCode="Required"
+                                SubCatalogOrganizationCode="" UnitOfMeasure="">
+                                <PrimaryInformation
+                                    AgeVerificationCode=""
+                                    AllowGiftWrap=""
+                                    AssumeInfiniteInventory=""
+                                    BundleFulfillmentMode=""
+                                    BundlePricingStrategy="PARENT"
+                                    CapacityPerOrderedQty=""
+                                    CapacityQuantityStrategy=""
+                                    ColorCode="" ComputedUnitCost=""
+                                    ConfigurationKey=""
+                                    ConfigurationModelName=""
+                                    ConfiguredModelKey=""
+                                    CostCurrency="" CountryOfOrigin=""
+                                    CreditWOReceipt=""
+                                    DefaultProductClass=""
+                                    Description=""
+                                    DisplayItemDescription=""
+                                    EffectiveEndDate=""
+                                    EffectiveStartDate=""
+                                    ExtendedDescription=""
+                                    ExtendedDisplayDescription=""
+                                    FixedCapacityQtyPerLine=""
+                                    FixedPricingQtyPerLine="" ImageID=""
+                                    ImageLabel="" ImageLocation=""
+                                    InvoiceBasedOnActuals=""
+                                    InvolvesSegmentChange=""
+                                    IsAirShippingAllowed=""
+                                    IsConfigurable=""
+                                    IsDeliveryAllowed=""
+                                    IsEligibleForShippingDiscount=""
+                                    IsForwardingAllowed=""
+                                    IsFreezerRequired="" IsHazmat=""
+                                    IsModelItem=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsPreConfigured=""
+                                    IsProcurementAllowed=""
+                                    IsReturnService="" IsReturnable=""
+                                    IsShippingAllowed=""
+                                    IsSoldSeparately=""
+                                    IsStandaloneService=""
+                                    IsSubOnOrderAllowed="" IsValid=""
+                                    ItemType="" Keywords="" KitCode=""
+                                    ManufacturerItem=""
+                                    ManufacturerItemDesc=""
+                                    ManufacturerName=""
+                                    MasterCatalogID=""
+                                    MaxOrderQuantity=""
+                                    MaxReturnWindow=""
+                                    MinOrderQuantity=""
+                                    MinReturnWindow=""
+                                    MinimumCapacityQuantity=""
+                                    ModelItemUnitOfMeasure=""
+                                    NumSecondarySerials=""
+                                    OrderingQuantityStrategy=""
+                                    PricingQuantityConvFactor=""
+                                    PricingQuantityStrategy=""
+                                    PricingUOM="" PricingUOMStrategy=""
+                                    PrimaryEnterpriseCode=""
+                                    PrimarySupplier="" ProductLine=""
+                                    RequiresProdAssociation=""
+                                    ReturnWindow="" RunQuantity=""
+                                    SerializedFlag="" ServiceTypeID=""
+                                    ShipmentConsolidationWindow=""
+                                    ShortDescription="" SizeCode=""
+                                    Status="" TaxableFlag="" UnitCost=""
+                                    UnitHeight="" UnitHeightUOM=""
+                                    UnitLength="" UnitLengthUOM=""
+                                    UnitVolume="" UnitVolumeUOM=""
+                                    UnitWeight="" UnitWeightUOM=""
+                                    UnitWidth="" UnitWidthUOM=""/>
+                            </ItemDetails>
+                            <ComputedPrice AdditionalLinePriceTotal=""
+                                Charges="" Discount="" ExtendedPrice=""
+                                LineCost="" LineTotal=""
+                                LineTotalWithoutTax=""
+                                PercentProfitMargin="" Tax="" UnitPrice=""/>
+                            <BundleParentLine OrderLineKey=""
+                                PrimeLineNo="" SubLineNo=""/>
+                        </OrderLine>
+                    </ShipmentLine>
+                </ShipmentLines>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.shipment.common.mashups.ShipmentLineListPaginatedMashup"/>
+        <APINamespace inputNS="extn_getLinesForGiftWrap_input" outputNS="extn_getLinesForGiftWrap_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+</mashups>

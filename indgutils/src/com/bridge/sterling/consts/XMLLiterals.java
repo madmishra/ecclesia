@@ -271,5 +271,15 @@ public static final String ADDITIONAL_DATE = "AdditionalDate";
 public static final String DATE_TYPE_ID = "DateTypeId";
 public static final String EXPECTED_DATE = "ExpectedDate";
 public static final String NODE_LEVEL_INVENTORY_MONITOR_RULE = "NodeLevelInventoryMonitorRule";
+public static final String PROMISE  = "Promise";
+public static final String PROMISE_LINES  = "PromiseLines";
+public static final String PROMISE_LINE  = "PromiseLine";
+public static final String ALLOCATION_RULE_ID = "AllocationRuleID";
+public static final String CHECK_INVENTORY = "CheckInventory";
+public static final String IGNORE_RELEASE_DATE = "IgnoreReleaseDate";
+public static final String SCHEDULE_AND_RELEASE = "ScheduleAndRelease";
+public static final String DELIVERY_DATE = "DeliveryDate"; 
+public static final String ORDER_DATE = "OrderDate";
+public static final String SCHEDULE_ORDER_LINES = "scheduleOrderLines";
 }
 

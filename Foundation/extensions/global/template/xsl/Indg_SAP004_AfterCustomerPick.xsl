@@ -29,7 +29,7 @@
 						<xsl:for-each select="ShipmentLine/OrderLine">
 							<OrderLine>
 								<xsl:attribute name="Qty">
-									<xsl:value-of select="@OrderedQty"/>
+									<xsl:value-of select="../@Quantity"/>
 								</xsl:attribute>
 								<xsl:attribute name="OriginalQty">
 									<xsl:value-of select="@OriginalOrderedQty"/>

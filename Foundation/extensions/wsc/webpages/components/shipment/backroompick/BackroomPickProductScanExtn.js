@@ -16,31 +16,25 @@ scDefine(
 				startScannerInApp: function (event, bEvent, ctrl, args) {
 					console.log("starting mobile scanner");
 					var self = this;
+					window.populateInputField = function (scannedValue) {
+						console.log("Recieved the response -", scannedValue);
+						var scanInput = _scScreenUtils.getWidgetByUId(
+							self,
+							"scanProductIdTxt"
+						);
+						var scanInputRef = dijit.byId(scanInput.id);
+						scanInputRef.set("value", scannedValue);
+					}
 					if (window.webkit) {
-						window.webkit.messageHandlers.startScanner.postMessage({
-							Scanning: true,
-							screenInstance: self
-						});
+						window.webkit.messageHandlers.startScanner.postMessage({});
 					}
 				},
 				stopScannerInput: function (event, bEvent, ctrl, args) {
 					console.log("stopping mobile scanner");
 					var self = this;
 					if (window.webkit) {
-						window.webkit.messageHandlers.stopScanner.postMessage({
-							Scanning: false,
-							screenInstance: self
-						});
+						window.webkit.messageHandlers.stopScanner.postMessage({});
 					}
-				},
-				populateInputField: function (scannedValue) {
-					console.log("Recieved the response -", scannedValue);
-					var scanInput = _scScreenUtils.getWidgetByUId(
-						this,
-						"scanProductIdTxt"
-					);
-					var scanInputRef = dijit.byId(scanInput.id);
-					scanInputRef.set("value", scannedValue);
 				},
 				gotoNextScreen: function () {
 					console.log('going to the next screen');

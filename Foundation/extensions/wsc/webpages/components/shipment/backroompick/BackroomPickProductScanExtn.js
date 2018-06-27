@@ -24,6 +24,7 @@ scDefine(
 						);
 						var scanInputRef = dijit.byId(scanInput.id);
 						scanInputRef.set("value", scannedValue);
+						self.scanProduct();
 					}
 					if (window.webkit) {
 						window.webkit.messageHandlers.startScanner.postMessage({});

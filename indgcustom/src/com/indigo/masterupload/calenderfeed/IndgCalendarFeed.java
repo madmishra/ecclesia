@@ -73,7 +73,7 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 			/** Check for the closed store and skip the processing for the same */
 			if (EXCEPTION_DATE.equalsIgnoreCase(eleCal
 					.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE))) {
-				SCXmlUtil.removeNode((Node) eleCal);
+				calInEle.removeChild(eleCal);
 				continue;
 			}
 

@@ -32,8 +32,8 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     private static final String NO = "N";
     private static final String YES = "Y";
     private String isFullOrderCancelled = "";
-    private static final String CALL_SAP051_SERVICE = "CALL_SAP051_SERVICE"; 
-    private static final String CALL_LEGACYOMS051_SERVICE = "CALL_LEGACYOMS051_SERVICE";
+    private static final String CALL_SAP051_SERVICE = "Indg_SAP051_FullOdrCancelled"; 
+    private static final String CALL_LEGACYOMS051_SERVICE = "Indg_Leg052_FullOdrCancelled";
     private static final String CANCEL_STATUS = "CANCEL";
     private static final String DEFAULT = "DEFAULT";
     private static final String ONE = "1";

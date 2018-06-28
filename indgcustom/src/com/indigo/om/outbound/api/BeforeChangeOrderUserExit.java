@@ -22,7 +22,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 	private static final String CANCEL="Cancel";
 	private static final String ORDER_CANCEL_STATUS="CANCEL";
 	 /**
-	  * this method is the invoke point of the service.
+	  * This method is the invoke point of the service.
 	  * 
 	  */
 	 
@@ -33,7 +33,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 		YFCIterable<YFCElement> yfsItrator = eleInXml.getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine: yfsItrator) {
 			if(!XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.ACTION))&& (orderLine.getAttribute(XMLLiterals.ACTION).
-					equals(ORDER_CANCEL_STATUS))){
+				equals(ORDER_CANCEL_STATUS))){
 				if(XmlUtils.isVoid(orderLine.getAttribute(XMLLiterals.MODIFICATION_REFRENCE_1))) {
 				eleInXml.setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, MANUAL);		
 				}
@@ -48,7 +48,7 @@ public class BeforeChangeOrderUserExit extends AbstractCustomApi {
 
 }
 	/**
-	 * this method forms input document for getShipmentList API
+	 * This method forms input document for getShipmentList API
 	 * @param inXml
 	 * @return
 	 */

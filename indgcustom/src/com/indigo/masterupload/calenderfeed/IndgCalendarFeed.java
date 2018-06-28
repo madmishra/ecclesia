@@ -10,12 +10,14 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.json.utils.XML;
+import org.w3c.dom.Node;
 
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.ExceptionUtil;
 import com.bridge.sterling.utils.XPathUtil;
+import com.sterlingcommerce.baseutil.SCXmlUtil;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
@@ -62,11 +64,16 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 		YFCIterable<YFCElement> eleCalendar = calInEle
 				.getChildren(XMLLiterals.CALENDAR);
 		String organizationCode = "";
+		
+		if(!eleCalendar.hasNext()){
+			return null;
+		}
 		for (YFCElement eleCal : eleCalendar) {
 
 			/** Check for the closed store and skip the processing for the same */
 			if (EXCEPTION_DATE.equalsIgnoreCase(eleCal
 					.getAttribute(XMLLiterals.EFFECTIVE_FROM_DATE))) {
+				calInEle.removeChild(eleCal);
 				continue;
 			}
 
@@ -101,6 +108,9 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 				throw ExceptionUtil.getYFSException(
 						ExceptionLiterals.ERRORCODE_INVALID_DATE, e);
 			}
+		}
+		if(!calInEle.hasChildNodes()){
+			return null;
 		}
 		createCalendar(exceptionList);
 		createResourcePool(organizationCode);

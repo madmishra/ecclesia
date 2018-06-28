@@ -39,7 +39,6 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private static final String UN_PUBLISH_STATUS = "2000";
   private static final String NODE_LEVEL_INV_MONITOR_RULE = "DEFAULT_RTAM_RULE";
   
-  
   /**
    * This is the invoke method of the service
    * 
@@ -125,26 +124,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     return inXml;
   }
   
-  /**
-   * 
-   * This method validates and creates CategoryItem for the Category
-   * Mentioned in the input. Creates Dummy Category if  category is
-   * not available in the system
-   * @param inXml
-   */
-  private void manageCategory(YFCElement itemEle) {
-    inputCategoryID = getCategoryID(itemEle);
-    if(!XmlUtils.isVoid(inputCategoryID)){
-      YFCDocument categoryList = getCategoryList(inputCategoryID,
-          ORGANIZATION_CODE);
-      if(categoryList.getDocumentElement().hasChildNodes()) {
-        categoryPath = XPathUtil.getXpathAttribute(categoryList, "/CategoryList/Category/@CategoryPath");
-      }else{
-        categoryPath = getProperty(DEFAULT_CATEGORY_PATH);
-        createCategory(inputCategoryID,ORGANIZATION_CODE);
-      }
-    }
-  }
+  
 
   /**
    * 
@@ -184,16 +164,20 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     * @param categoryId
     */
    public void createCategory(String categoryId,String orgCode) {
-     String categoryDomain = getProperty(CATEGORY_DOMAIN);
-     categoryPath = categoryPath+"/"+categoryId;
-     invokeYantraApi(XMLLiterals.CREATE_CATEGORY, 
+     if(!XmlUtils.isVoid(categoryId)) {
+       String categoryDomain = getProperty(CATEGORY_DOMAIN);
+       inputCategoryID = categoryId;
+       categoryPath = categoryPath+"/"+categoryId;
+       invokeYantraApi(XMLLiterals.CREATE_CATEGORY, 
          IndgCategoryMasterUpload.getInputXmlForCreateCategory(categoryId,
              categoryDomain,categoryPath,orgCode));
+     }
    }
    
    
   /**
-   * 
+   * This method calls modify category to update the
+   * category Item based Action
    * 
    * @param action
    * @param itemEle
@@ -202,10 +186,16 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    public void modifyCategoryItem(YFCElement itemEle,String action){
      if(CREATE_ACTION.equals(action)) {
        manageCategory(itemEle);
+       if(!XmlUtils.isVoid(inputCategoryID)) {
+         invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
+             getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),action,
+                 categoryPath,ORGANIZATION_CODE));
+       }
+     } else {
+       invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
+           getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),action,
+               categoryPath,ORGANIZATION_CODE));
      }
-     invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
-         getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),action,
-             categoryPath,ORGANIZATION_CODE));
    }
    
    /**
@@ -346,6 +336,47 @@ public class IndgManageItemFeed extends AbstractCustomApi{
      if(difference < 0) {
        return true;
      }
+     return false;
+   }
+   
+   
+   /**
+    * 
+    * This method validates and creates CategoryItem for the Category
+    * Mentioned in the input. Creates Dummy Category if  category is
+    * not available in the system
+    * @param inXml
+    */
+   private void manageCategory(YFCElement itemEle) {
+     String categoryLevel3 = itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES)
+         .getAttribute(XMLLiterals.COMMODITY_CODE,EMPTY_STRING);
+     String categoryLevel2 = itemEle.getAttribute(XMLLiterals.PRODUCT_LINE,EMPTY_STRING);
+     if(!isCategoryAvailable(categoryLevel3)) {
+        if(!isCategoryAvailable(categoryLevel2)) {
+           categoryPath = getProperty(DEFAULT_CATEGORY_PATH);
+           createCategory(categoryLevel2,ORGANIZATION_CODE);
+           createCategory(categoryLevel3,ORGANIZATION_CODE);
+         } else {
+           createCategory(categoryLevel3,ORGANIZATION_CODE);
+         }
+     }
+   }
+   
+   /**
+    * 
+    * 
+    * @param categoryId
+    */
+   private boolean isCategoryAvailable(String categoryId) {
+       if(!XmlUtils.isVoid(categoryId)) {
+           YFCDocument categoryList = getCategoryList(categoryId,
+           ORGANIZATION_CODE);
+           if(categoryList.getDocumentElement().hasChildNodes()) {
+               categoryPath = XPathUtil.getXpathAttribute(categoryList,
+                   "/CategoryList/Category/@CategoryPath");
+               return true;
+           }
+       }
      return false;
    }
 }

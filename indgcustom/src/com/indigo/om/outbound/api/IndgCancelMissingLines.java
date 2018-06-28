@@ -89,6 +89,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
           eleOrder.setAttribute(XMLLiterals.ORDER_NO, sOrderNo);
           eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, sEnterpriseCode);
           eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, sDocumentType);
+          System.out.println(docGetOrderLineList1 + "sajhas");
           return docGetOrderLineList1;
     }
       
@@ -116,6 +117,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
           YFCElement eleOrderStatus = eleOrderLine.createChild(XMLLiterals.ORDER_STATUSES);
           YFCElement eleStatus = eleOrderStatus.createChild(XMLLiterals.ORDER_STATUS);
           eleStatus.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
+          System.out.println(docGetOrderListTemp + "sahsyha");
           return docGetOrderListTemp;
     }
       

@@ -56,20 +56,20 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	    YFCDocument docLegacy003NoOdrLinesInp = YFCDocument.getDocumentFor(inputDocString);
 	    System.out.println(docLegacy003NoOdrLinesInp + "ahhuidys");
 	    docLegacy003NoOrderLines(docLegacy003NoOdrLinesInp);
-    	docOrderLineCancelled(inXml, docGetOrderLineList1);
-    	System.out.println(inXml + "sahsuiwdd");
-    	YFCDocument docGetOrderLineList2 = getOrderLineListFunc(inXml);
+    	YFCDocument docGoodLinesSAP002 = docOrderLineCancelled(inXml, docGetOrderLineList1);
+    	System.out.println(docGoodLinesSAP002 + "sahsuiwdd");
+    	YFCDocument docGetOrderLineList2 = getOrderLineListFunc(docGoodLinesSAP002);
     	System.out.println(docGetOrderLineList2 + "jsaiuydg");
     	String modifyTs = docGetOrderLineList2.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
-		inXml.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
-		manageOrderCancellation(inXml, docGetOrderLineList2);
-		System.out.println(inXml + "ajhjusa");
-		callLegacy003opQueue(inXml);
-		docScheduleOrderLineInput(inXml);
-		YFCDocument docGetOrderLineList3 = getOrderLineListFunc(inXml);
-		docIsFullOrderCancelled(inXml, docGetOrderLineList3);
-		docLegacy003NoOrderLines(inXml);
+    	docGoodLinesSAP002.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
+		manageOrderCancellation(docGoodLinesSAP002, docGetOrderLineList2);
+		System.out.println(docGoodLinesSAP002 + "ajhjusa");
+		callLegacy003opQueue(docGoodLinesSAP002);
+		docScheduleOrderLineInput(docGoodLinesSAP002);
+		YFCDocument docGetOrderLineList3 = getOrderLineListFunc(docGoodLinesSAP002);
+		docIsFullOrderCancelled(docGoodLinesSAP002, docGetOrderLineList3);
+		docLegacy003NoOrderLines(docGoodLinesSAP002);
     	return null;	
     }
       
@@ -139,37 +139,33 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
   			inXml.getDocumentElement().setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, isFullOrderCancelled);
   	}
     
-    private void docOrderLineCancelled(YFCDocument inXml, YFCDocument docGetOrderLineList1) {
-    	System.out.println(inXml + "sjahhdjsh" + docGetOrderLineList1);
+    private YFCDocument docOrderLineCancelled(YFCDocument inXml, YFCDocument docGetOrderLineList1) {
     	String fullOdrCancel = inXml.getDocumentElement().getAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED);
     	YFCDocument docOrderHeaderAttr = YFCDocument.createDocument(XMLLiterals.ORDER);
     	docOrderHeaderAttr.getDocumentElement().setAttribute(XMLLiterals.IS_FULL_ORDER_CANCELLED, fullOdrCancel);
     	docOrderHeaderAttr.getDocumentElement().setAttribute(XMLLiterals.LEGACY_OMS_CANCELLATION_REQ_ID, cancellationReqId);
     	YFCElement odrLinesEle = docOrderHeaderAttr.getDocumentElement().createChild(XMLLiterals.ORDER_LINES);
-    	System.out.println(docOrderHeaderAttr + "ahqhwsuiq");
     	YFCIterable<YFCElement> yfsItrator = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
     			getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
  	    for(YFCElement orderLineEle : yfsItrator) {
- 	    	System.out.println(orderLineEle.toString() + "xsajhuj");
  	    	String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
- 	    	System.out.println(primeLineNo + "sajisioua");
 	    	YFCElement orderLine = XPathUtil.getXPathElement(docGetOrderLineList1, "/OrderLineList/OrderLine[@PrimeLineNo = \""+
 	    	primeLineNo+"\"]");
-	    	System.out.println(orderLine + "znxajkhs");
 	    	String status =  orderLine.getChildElement(XMLLiterals.ORDER_STATUSES).getChildElement(XMLLiterals.ORDER_STATUS).
 	    			getAttribute(XMLLiterals.STATUS);
-	    	System.out.println(status + "sjakjuio");
 	    	if(status.equals(CANCELLED)) {
 	    		odrLinesEle.importNode(orderLine);
 	    		YFCNode parent = orderLineEle.getParentNode();
 			    parent.removeChild(orderLineEle);
-	    	} System.out.println(inXml + "zjahsa");
+	    	} 
  	    }
  	    if(!XmlUtils.isVoid(odrLinesEle)) {
  	    	System.out.println(docOrderHeaderAttr + "xndsjkdhg");
  	    	callSAP051opQueue(docOrderHeaderAttr);
  	    	callLegacyOMS052opQueue(docOrderHeaderAttr);
  	    }
+ 	   System.out.println(inXml + "zjahsa");
+ 	   return inXml;
     }
     
     private void callSAP051opQueue(YFCDocument doc) {

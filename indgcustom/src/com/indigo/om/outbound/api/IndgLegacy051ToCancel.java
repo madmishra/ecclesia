@@ -35,6 +35,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 private static final String REASON_CODE = "03";
 	 private static final String CALL_LEGACYOMS051_SERVICE = "CALL_LEGACYOMS051_SERVICE";	 
 	 private static final String CUSTOMER_PONO = "CustomerPoNo";
+	 private static final String MODIFY = "Modify";
 	 
 	 /**
 	  * This method is the invoke point of the service.
@@ -166,10 +167,17 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 				if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO)) && 
 					(!XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
 					String isPickComplete = shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE);
+					String sellerOrganizationCode = shipmentEle.getAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE);
+					String node = shipmentEle.getAttribute(XMLLiterals.SHIPNODE);
+					String shipmentNo = shipmentEle.getAttribute(XMLLiterals.SHIPMENT_NO);
 					if(isPickComplete.equals(YES)) {
 						orderLines.importNode(orderLineEle);
 						YFCNode parent = orderLineEle.getParentNode();
 					    parent.removeChild(orderLineEle);
+					}
+					else
+					{
+						changeShipment(shipmentLineEle,sellerOrganizationCode,node,shipmentNo);
 					}
 				}				
 			}
@@ -251,5 +259,22 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	
 	private void callLegacyOMS052opQueue(YFCDocument doc) {
 	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
+	}
+	
+	/**
+	 * This method invokes changeOrder API 
+	 */
+	private void changeShipment(YFCElement shipmentLineEle, String sellerOrganizationCode, String node, String shipmentNo)
+	{
+		YFCDocument docShipment=YFCDocument.createDocument(XMLLiterals.SHIPMENT);
+		YFCElement eleShipment=docShipment.getDocumentElement();
+		eleShipment.setAttribute( XMLLiterals.SELLER_ORGANIZATION_CODE, sellerOrganizationCode);
+		eleShipment.setAttribute(XMLLiterals.SHIPNODE, node);
+		eleShipment.setAttribute(XMLLiterals.SHIPMENT_NO,shipmentNo);
+		YFCElement eleShipmentLine=eleShipment.createChild(XMLLiterals.SHIPMENT_LINES).createChild(XMLLiterals.SHIPMENT_LINE);
+		eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, shipmentLineEle.getAttribute(XMLLiterals.ORDER_NO));
+		eleShipmentLine.setAttribute(XMLLiterals.ACTION, MODIFY);
+		eleShipmentLine.setAttribute(XMLLiterals.SHIPMENT_LINE_NO, shipmentLineEle.getAttribute(XMLLiterals.SHIPMENT_LINE_NO));
+		invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docShipment);
 	}
 }

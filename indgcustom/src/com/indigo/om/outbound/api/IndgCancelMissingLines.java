@@ -169,11 +169,11 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     }
     
     private void callSAP051opQueue(YFCDocument doc) {
-	     invokeYantraService(getProperty(CALL_SAP051_SERVICE), doc);
+	     invokeYantraService(CALL_SAP051_SERVICE, doc);
 	}
 	
 	private void callLegacyOMS052opQueue(YFCDocument doc) {
-	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
+	     invokeYantraService(CALL_LEGACYOMS051_SERVICE, doc);
 	}
 	
 	private void docLegacy003NoOrderLines(YFCDocument docLegacy003NoOdrLinesInp) {

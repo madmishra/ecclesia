@@ -60,6 +60,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     	YFCElement orderLineEle = docGoodLinesSAP002.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
     			getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
     	System.out.println(orderLineEle + "jaiudddsd");
+    	System.out.println(orderLineEle.hasChildNodes() + "xnajhsyutd");
     	if(orderLineEle.hasChildNodes()) {
     		System.out.println(docGoodLinesSAP002 + "sahsuiwdd");
     		YFCDocument docGetOrderLineList2 = getOrderLineListFunc(docGoodLinesSAP002);

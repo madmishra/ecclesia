@@ -161,7 +161,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 			    parent.removeChild(orderLineEle);
 	    	} 
  	    }
- 	    if(!odrLinesEle.hasChildNodes()) {
+ 	    if(odrLinesEle.hasChildNodes()) {
  	    	System.out.println(docOrderHeaderAttr + "xndsjkdhg");
  	    	callSAP051opQueue(docOrderHeaderAttr);
  	    	callLegacyOMS052opQueue(docOrderHeaderAttr);

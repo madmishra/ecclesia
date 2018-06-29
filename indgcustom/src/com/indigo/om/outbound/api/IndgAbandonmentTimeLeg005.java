@@ -50,16 +50,22 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
+		System.out.println(inXml + "xsnjhja");
 		shipNode = inXml.getDocumentElement().getAttribute(XMLLiterals.SHIPNODE);
+		System.out.println(shipNode + "sajhsa");
 		try {
 			setAbandonmentTimeAttr(inXml);
 		} catch (ParseException e) {
 			throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, e);
 		}
 		YFCDocument shipNodeListApiOp = getShipNodeList();
+		System.out.println(shipNodeListApiOp + "sqoiiohjs");
 		localeCode = shipNodeListApiOp.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE).getAttribute(XMLLiterals.SHIPNODE);
+		System.out.println(localeCode + "klajkdshau");
 		YFCDocument localeListApiOp = getLocaleList();
+		System.out.println(localeListApiOp + "xankjsaa");
 		String sTimeZone = localeListApiOp.getDocumentElement().getChildElement(XMLLiterals.LOCALE).getAttribute(XMLLiterals.TIME_ZONE);
+		System.out.println(sTimeZone + "qqqqqqqqqqq");
 		getUTCTimeForTimeZone(sTimeZone);
 		YFCDocument docChangeShipmentOp = docChangeShipmentInp(inXml);
 		YFCDocument docGetOrderLineListOp = docGetOrderLineListInp(docChangeShipmentOp);
@@ -86,6 +92,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 			c.add(Calendar.DATE, ABANDONMENT_DAYS);
 			String output = sdf.format(c.getTime());
 			finalDate = output.concat(START_TIME).concat(AM);
+			System.out.println(finalDate + "sajsha");
 		}
 	}
 	

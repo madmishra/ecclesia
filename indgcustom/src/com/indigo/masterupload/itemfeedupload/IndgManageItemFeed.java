@@ -38,7 +38,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private static final String FLAG_YES = "Y";
   private static final String UN_PUBLISH_STATUS = "2000";
   private static final String NODE_LEVEL_INV_MONITOR_RULE = "DEFAULT_RTAM_RULE";
-  private static final String CATEGORY_ALERT_FLOW = null;
+  private static final String CATEGORY_ALERT_FLOW = "CATEGORY_ALERT_FLOW";
   
   /**
    * This is the invoke method of the service

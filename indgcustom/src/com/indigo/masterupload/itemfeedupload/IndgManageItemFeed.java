@@ -371,13 +371,14 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     * @param categoryId
     */
    private boolean isCategoryAvailable(String categoryId) {
+       
        if(!XmlUtils.isVoid(categoryId)) {
            YFCDocument categoryList = getCategoryList(categoryId,
            ORGANIZATION_CODE);
+           inputCategoryID = categoryId;
            if(categoryList.getDocumentElement().hasChildNodes()) {
                categoryPath = XPathUtil.getXpathAttribute(categoryList,
                    "/CategoryList/Category/@CategoryPath");
-               inputCategoryID = categoryId;
                System.out.println(categoryList+"categoryList");
                return true;
            }

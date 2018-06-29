@@ -2,6 +2,10 @@ package com.indigo.om.outbound.api;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,13 +32,16 @@ import com.yantra.yfc.dom.YFCElement;
 public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	
 	private static final String TIME = "T";
-	private static final String START_TIME = "00:00:00-00:00";
+	private static final String START_TIME = "00:00:00";
 	private static final String CREATE = "Create"; 
 	private static final String ABANDONMENT = "ABANDONMENT";
 	private String finalDate = "";
 	private static final String EMPTY_STRING = "";
 	private String shipNode = "";
 	private static final int ABANDONMENT_DAYS = 15;
+	private String localeCode = "";
+	private static final String DATE_FORMAT = "yyyy-MM-ddhh:mm:ssa";
+	private static final String AM = "AM";
 	
 	/**
 	 * This method is the invoke point of the service.
@@ -43,12 +50,23 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
+		System.out.println(inXml + "xsnjhja");
 		shipNode = inXml.getDocumentElement().getAttribute(XMLLiterals.SHIPNODE);
+		System.out.println(shipNode + "sajhsa");
 		try {
 			setAbandonmentTimeAttr(inXml);
 		} catch (ParseException e) {
 			throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, e);
 		}
+		YFCDocument shipNodeListApiOp = getShipNodeList();
+		System.out.println(shipNodeListApiOp + "sqoiiohjs");
+		localeCode = shipNodeListApiOp.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE).getAttribute(XMLLiterals.LOCALE_CODE);
+		System.out.println(localeCode + "klajkdshau");
+		YFCDocument localeListApiOp = getLocaleList();
+		System.out.println(localeListApiOp + "xankjsaa");
+		String sTimeZone = localeListApiOp.getDocumentElement().getChildElement(XMLLiterals.LOCALE).getAttribute(XMLLiterals.TIME_ZONE);
+		System.out.println(sTimeZone + "qqqqqqqqqqq");
+		getUTCTimeForTimeZone(sTimeZone);
 		YFCDocument docChangeShipmentOp = docChangeShipmentInp(inXml);
 		YFCDocument docGetOrderLineListOp = docGetOrderLineListInp(docChangeShipmentOp);
 		return setAttrToReturnDoc(docChangeShipmentOp, docGetOrderLineListOp);
@@ -73,8 +91,17 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 			c.setTime(d);
 			c.add(Calendar.DATE, ABANDONMENT_DAYS);
 			String output = sdf.format(c.getTime());
-			finalDate = output.concat(TIME).concat(START_TIME);
+			finalDate = output.concat(START_TIME).concat(AM);
+			System.out.println(finalDate + "sajsha");
 		}
+	}
+	
+	private void getUTCTimeForTimeZone(String sTimeZone) {
+		System.out.println(sTimeZone + "xdsnjkhd");
+		LocalDateTime ldt = LocalDateTime.parse(finalDate, DateTimeFormatter.ofPattern(DATE_FORMAT));
+		ZoneId singaporeZoneId = ZoneId.of(sTimeZone);
+		ZonedDateTime zonedDateTime = ldt.atZone(singaporeZoneId);
+		System.out.println(zonedDateTime + "xsajdhuja");
 	}
 	
 	/**
@@ -161,6 +188,78 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		order.setAttribute(XMLLiterals.ORDER_TYPE, EMPTY_STRING);
 		return docApiOutput;
 	}
+	
+	/**
+	 * This method forms the Input XML for getShipNodeListAPI
+	 * 
+	 * @return
+	 */
+	
+	public YFCDocument formInputXmlForGetStoreList() {
+	    YFCDocument getStoreListDoc = YFCDocument.createDocument(XMLLiterals.SHIPNODE);
+	    getStoreListDoc.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, shipNode);
+	    return getStoreListDoc;
+	 }
+	 
+	 /**
+	  * This method forms template for the getShipNodeList
+	  * 
+	  * @return
+	  */
+		
+	public YFCDocument formTemplateXmlForgetShipNodeList() {
+	    YFCDocument getShipNodeListTemp = YFCDocument.createDocument(XMLLiterals.SHIPNODE_LIST);
+	    YFCElement shipNodeEle = getShipNodeListTemp.getDocumentElement().createChild(XMLLiterals.SHIPNODE);
+	    shipNodeEle.setAttribute(XMLLiterals.SHIP_NODE_CODE, EMPTY_STRING);
+	    shipNodeEle.setAttribute(XMLLiterals.LOCALE_CODE, EMPTY_STRING);
+	    
+	    return getShipNodeListTemp;
+	 }
+	
+	/**
+	 * This method calls getShipNodeList API
+	 * 
+	 * @return
+	 */
+		
+	public YFCDocument getShipNodeList(){
+	    return  invokeYantraApi(XMLLiterals.GET_SHIP_NODE_LIST, formInputXmlForGetStoreList(),formTemplateXmlForgetShipNodeList());
+	 }
+	
+	/**
+	 * This method forms the input document for getLoacleList API.
+	 * 
+	 * @return
+	 */
+	
+	public YFCDocument formInputXmlForGetLocaleList() {
+	    YFCDocument getLocaleDoc = YFCDocument.createDocument(XMLLiterals.LOCALE);
+	    getLocaleDoc.getDocumentElement().setAttribute(XMLLiterals.LOCALE_CODE, localeCode);
+	    return getLocaleDoc;
+	 }
+	 
+	 /**
+	  * This method forms template for the getLocaleListTemp
+	  * 
+	  * @return
+	  */
+		
+	public YFCDocument formTemplateXmlForgetLocaleList() {
+	    YFCDocument getLocaleListTemp = YFCDocument.createDocument(XMLLiterals.LOCALE_LIST);
+	    YFCElement localeEle = getLocaleListTemp.getDocumentElement().createChild(XMLLiterals.LOCALE);
+	    localeEle.setAttribute(XMLLiterals.TIME_ZONE, EMPTY_STRING);
+	    return getLocaleListTemp;
+	 }
+	
+	/**
+	 * This method calls getLocaleList API
+	 * 
+	 * @return
+	 */
+		
+	public YFCDocument getLocaleList(){
+	    return  invokeYantraApi(XMLLiterals.GET_LOCALE_LIST, formInputXmlForGetLocaleList(),formTemplateXmlForgetLocaleList());
+	 }
 	
 	/**
 	 * This method appends the necessary attributes to the return doc.

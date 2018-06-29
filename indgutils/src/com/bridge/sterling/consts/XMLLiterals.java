@@ -281,5 +281,10 @@ public static final String SCHEDULE_AND_RELEASE = "ScheduleAndRelease";
 public static final String DELIVERY_DATE = "DeliveryDate"; 
 public static final String ORDER_DATE = "OrderDate";
 public static final String SCHEDULE_ORDER_LINES = "scheduleOrderLines";
+public static final String LOCALE_CODE = "Localecode";
+public static final String GET_LOCALE_LIST = "getLocaleList";
+public static final String LOCALE = "Locale";
+public static final String LOCALE_LIST = "LocaleList";
+public static final String TIME_ZONE = "Timezone";
 }
 

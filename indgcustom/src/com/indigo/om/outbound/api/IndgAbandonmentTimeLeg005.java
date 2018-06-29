@@ -60,7 +60,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		}
 		YFCDocument shipNodeListApiOp = getShipNodeList();
 		System.out.println(shipNodeListApiOp + "sqoiiohjs");
-		localeCode = shipNodeListApiOp.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE).getAttribute(XMLLiterals.SHIPNODE);
+		localeCode = shipNodeListApiOp.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE).getAttribute(XMLLiterals.LOCALE_CODE);
 		System.out.println(localeCode + "klajkdshau");
 		YFCDocument localeListApiOp = getLocaleList();
 		System.out.println(localeListApiOp + "xankjsaa");

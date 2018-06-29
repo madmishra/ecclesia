@@ -97,6 +97,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	}
 	
 	private void getUTCTimeForTimeZone(String sTimeZone) {
+		System.out.println(sTimeZone + "xdsnjkhd");
 		LocalDateTime ldt = LocalDateTime.parse(finalDate, DateTimeFormatter.ofPattern(DATE_FORMAT));
 		ZoneId singaporeZoneId = ZoneId.of(sTimeZone);
 		ZonedDateTime zonedDateTime = ldt.atZone(singaporeZoneId);

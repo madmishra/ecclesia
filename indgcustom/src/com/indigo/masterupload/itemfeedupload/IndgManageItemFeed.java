@@ -38,6 +38,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private static final String FLAG_YES = "Y";
   private static final String UN_PUBLISH_STATUS = "2000";
   private static final String NODE_LEVEL_INV_MONITOR_RULE = "DEFAULT_RTAM_RULE";
+  private static final String CATEGORY_ALERT_FLOW = null;
   
   /**
    * This is the invoke method of the service
@@ -355,6 +356,10 @@ public class IndgManageItemFeed extends AbstractCustomApi{
      System.out.println(categoryLevel3+"categoryLevel3");
      String categoryLevel2 = itemEle.getChildElement(XMLLiterals.PRIMARY_INFORMATION).getAttribute(XMLLiterals.PRODUCT_LINE,EMPTY_STRING);
      System.out.println(categoryLevel2+"categoryLevel2");
+     if(XmlUtils.isVoid(categoryLevel2) && XmlUtils.isVoid(categoryLevel3)) {
+       invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), 
+           YFCDocument.getDocumentFor(itemEle.toString()));
+     }
      if(!isCategoryAvailable(categoryLevel3)) {
         if(!isCategoryAvailable(categoryLevel2)) {
            categoryPath = getProperty(DEFAULT_CATEGORY_PATH);

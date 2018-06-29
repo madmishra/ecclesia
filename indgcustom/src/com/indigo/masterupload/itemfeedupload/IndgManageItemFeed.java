@@ -352,7 +352,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
      String categoryLevel3 = itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES)
          .getAttribute(XMLLiterals.COMMODITY_CODE,EMPTY_STRING);
      System.out.println(categoryLevel3+"categoryLevel3");
-     String categoryLevel2 = itemEle.getAttribute(XMLLiterals.PRODUCT_LINE,EMPTY_STRING);
+     String categoryLevel2 = itemEle.getChildElement(XMLLiterals.PRIMARY_INFORMATION).getAttribute(XMLLiterals.PRODUCT_LINE,EMPTY_STRING);
      System.out.println(categoryLevel2+"categoryLevel2");
      if(!isCategoryAvailable(categoryLevel3)) {
         if(!isCategoryAvailable(categoryLevel2)) {
@@ -377,6 +377,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
            if(categoryList.getDocumentElement().hasChildNodes()) {
                categoryPath = XPathUtil.getXpathAttribute(categoryList,
                    "/CategoryList/Category/@CategoryPath");
+               inputCategoryID = categoryId;
                System.out.println(categoryList+"categoryList");
                return true;
            }

@@ -187,6 +187,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
      if(CREATE_ACTION.equals(action)) {
        manageCategory(itemEle);
        if(!XmlUtils.isVoid(inputCategoryID)) {
+         System.out.println(inputCategoryID+"inputCategoryID");
          invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
              getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),action,
                  categoryPath,ORGANIZATION_CODE));
@@ -350,7 +351,9 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    private void manageCategory(YFCElement itemEle) {
      String categoryLevel3 = itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES)
          .getAttribute(XMLLiterals.COMMODITY_CODE,EMPTY_STRING);
+     System.out.println(categoryLevel3+"categoryLevel3");
      String categoryLevel2 = itemEle.getAttribute(XMLLiterals.PRODUCT_LINE,EMPTY_STRING);
+     System.out.println(categoryLevel2+"categoryLevel2");
      if(!isCategoryAvailable(categoryLevel3)) {
         if(!isCategoryAvailable(categoryLevel2)) {
            categoryPath = getProperty(DEFAULT_CATEGORY_PATH);
@@ -374,6 +377,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
            if(categoryList.getDocumentElement().hasChildNodes()) {
                categoryPath = XPathUtil.getXpathAttribute(categoryList,
                    "/CategoryList/Category/@CategoryPath");
+               System.out.println(categoryList+"categoryList");
                return true;
            }
        }

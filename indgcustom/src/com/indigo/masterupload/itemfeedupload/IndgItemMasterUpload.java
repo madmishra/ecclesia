@@ -64,6 +64,7 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
     } else {
       invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), inXml);
     }
+    setItemType(itemEle);
   }
   
   /**
@@ -76,5 +77,24 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
      return invokeYantraApi(XMLLiterals.GET_CATEGORY_LIST, 
          IndgCategoryMasterUpload.getInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
            IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());
+   }
+   
+   
+   /**
+    * 
+    * This method sets ItemType from commodity code attribute
+    * from the item element. 
+    * 
+    * @param itemEle
+    */
+   public static void setItemType(YFCElement itemEle) {
+     if(!XmlUtils.isVoid(itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES))) {
+       String categoryID = itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES)
+           .getAttribute(XMLLiterals.COMMODITY_CODE,EMPTY_STRING);
+       if(!XmlUtils.isVoid(categoryID)) {
+         itemEle.getChildElement(XMLLiterals.PRIMARY_INFORMATION)
+         .setAttribute(XMLLiterals.ITEM_TYPE,categoryID);
+       }
+     }
    }
 }

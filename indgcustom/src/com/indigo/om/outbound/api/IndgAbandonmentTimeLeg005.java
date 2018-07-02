@@ -2,6 +2,7 @@ package com.indigo.om.outbound.api;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,7 +29,7 @@ import com.yantra.yfc.dom.YFCElement;
 public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	
 	private static final String TIME = "T";
-	private static final String START_TIME = "00:00:00-00:00";
+	private static final String START_TIME = "00:00:00";
 	private static final String CREATE = "Create"; 
 	private static final String ABANDONMENT = "ABANDONMENT";
 	private String finalDate = "";
@@ -66,6 +67,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar c = Calendar.getInstance();
 		String reqDeliveryDate = inXml.getDocumentElement().getAttribute(XMLLiterals.REQUESTED_DELIVERY_DATE);
+		 
 		if(!XmlUtils.isVoid(reqDeliveryDate)) {
 			String[] segments = reqDeliveryDate.split(TIME);
 			String date = segments[0];
@@ -73,7 +75,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 			c.setTime(d);
 			c.add(Calendar.DATE, ABANDONMENT_DAYS);
 			String output = sdf.format(c.getTime());
-			finalDate = output.concat(TIME).concat(START_TIME);
+			finalDate = output.concat(START_TIME);
 		}
 	}
 	

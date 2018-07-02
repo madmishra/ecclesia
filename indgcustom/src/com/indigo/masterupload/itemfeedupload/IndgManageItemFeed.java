@@ -52,6 +52,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
       itemEle.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
       itemEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, ORGANIZATION_CODE);
       manageItem(itemEle,inXml);
+      IndgItemMasterUpload.setItemType(itemEle);
     }
     return inXml;
   }
@@ -169,7 +170,6 @@ public class IndgManageItemFeed extends AbstractCustomApi{
        String categoryDomain = getProperty(CATEGORY_DOMAIN);
        inputCategoryID = categoryId;
        categoryPath = categoryPath+"/"+categoryId;
-       System.out.println(categoryPath);
        invokeYantraApi(XMLLiterals.CREATE_CATEGORY, 
          IndgCategoryMasterUpload.getInputXmlForCreateCategory(categoryId,
              categoryDomain,categoryPath,orgCode));
@@ -189,7 +189,6 @@ public class IndgManageItemFeed extends AbstractCustomApi{
      if(CREATE_ACTION.equals(action)) {
        manageCategory(itemEle);
        if(!XmlUtils.isVoid(inputCategoryID)) {
-         System.out.println(inputCategoryID+"inputCategoryID");
          invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
              getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),action,
                  categoryPath,ORGANIZATION_CODE));
@@ -353,9 +352,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
    private void manageCategory(YFCElement itemEle) {
      String categoryLevel3 = itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES)
          .getAttribute(XMLLiterals.COMMODITY_CODE,EMPTY_STRING);
-     System.out.println(categoryLevel3+"categoryLevel3");
      String categoryLevel2 = itemEle.getChildElement(XMLLiterals.PRIMARY_INFORMATION).getAttribute(XMLLiterals.PRODUCT_LINE,EMPTY_STRING);
-     System.out.println(categoryLevel2+"categoryLevel2");
      if(XmlUtils.isVoid(categoryLevel2) && XmlUtils.isVoid(categoryLevel3)) {
        invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), 
            YFCDocument.getDocumentFor(itemEle.toString()));
@@ -377,7 +374,6 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     * @param categoryId
     */
    private boolean isCategoryAvailable(String categoryId) {
-       
        if(!XmlUtils.isVoid(categoryId)) {
            YFCDocument categoryList = getCategoryList(categoryId,
            ORGANIZATION_CODE);
@@ -385,7 +381,6 @@ public class IndgManageItemFeed extends AbstractCustomApi{
            if(categoryList.getDocumentElement().hasChildNodes()) {
                categoryPath = XPathUtil.getXpathAttribute(categoryList,
                    "/CategoryList/Category/@CategoryPath");
-               System.out.println(categoryList+"categoryList");
                return true;
            }
        }

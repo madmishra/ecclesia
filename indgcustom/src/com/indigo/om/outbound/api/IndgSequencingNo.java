@@ -46,6 +46,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {  
 		YFCDocument docMsg=updateMsgSeqNo(inXml);
+		System.out.println("shbfhjgh"+docMsg);
 		try {
 			addMsgSeqNo(docMsg,inXml);
 		}
@@ -65,8 +66,11 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	 */
 	
 	private void addMsgSeqNo(YFCDocument docMsg,YFCDocument inXml) {
+		System.out.println("gvfyhgtbdhy"+docMsg);
+		System.out.println("njdfnjdghidth"+inXml);
 		YFCElement eleOrderMessage=inXml.getDocumentElement();
 		YFCElement eleINDGMsgSeqNo=docMsg.getDocumentElement();
+		System.out.println("cbdhygkuzkdj"+eleINDGMsgSeqNo);
 		String sSAPMsgSeqNo=eleINDGMsgSeqNo.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO);
 		if(!XmlUtils.isVoid(sSAPMsgSeqNo) && eleINDGMsgSeqNo.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).contains(SAP) )
 		{

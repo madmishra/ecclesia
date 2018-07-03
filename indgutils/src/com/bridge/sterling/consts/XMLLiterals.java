@@ -287,5 +287,9 @@ public static final String LOCALE = "Locale";
 public static final String LOCALE_LIST = "LocaleList";
 public static final String TIME_ZONE = "Timezone";
 public static final String ITEM_TYPE = "ItemType";
+public static final String CUSTOMER_REQ_DELIVERY_DATE = "CustReqDeliveryDate";
+public static final String CUSTOMER_REQ_SHIP_DATE = "CustReqShipDate";
+public static final String  ABANDONMENT_TIME = "AbandonmentTime";
+public static final String ORDER_DATE = "OrderDate";
 }
 

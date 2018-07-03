@@ -286,5 +286,6 @@ public static final String GET_LOCALE_LIST = "getLocaleList";
 public static final String LOCALE = "Locale";
 public static final String LOCALE_LIST = "LocaleList";
 public static final String TIME_ZONE = "Timezone";
+public static final String ITEM_TYPE = "ItemType";
 }
 

@@ -113,13 +113,34 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	
 	private void upadteMilliSeconds(YFCDocument inXml)
 	{
+		
 		YFCElement eleOrderMessage = inXml.getDocumentElement();
+		YFCElement eleOrder = eleOrderMessage.getChildElement(XMLLiterals.ORDER);
+		
 		if(!XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.MODIFYTS)))
 		{
-			String smodifyts=addModifyts(eleOrderMessage);
-			eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, smodifyts);
+			YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS);
+			eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, addMilliseconds(ts));
 			System.out.println("gdfuhygsugoahotyu8" + inXml );
 		}
+		if(!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE)) &&
+				!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.CUSTOMER_REQ_SHIP_DATE))) {
+			invokeaddMilliseconds(eleOrder);
+		}
+		if(!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.ABANDONMENT_TIME))) {
+			YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.ABANDONMENT_TIME);
+			eleOrderMessage.setAttribute(XMLLiterals.ABANDONMENT_TIME, addMilliseconds(ts));
+			
+		}
+	}
+	
+	private void invokeaddMilliseconds(YFCElement eleOrder) {
+		YTimestamp ts = eleOrder.getYTimestampAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE);
+		String sCusReqDelDate=addMilliseconds(ts);
+		eleOrder.setAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE, sCusReqDelDate);
+		YTimestamp ts2 = eleOrder.getYTimestampAttribute(XMLLiterals.CUSTOMER_REQ_SHIP_DATE);
+		String sCusReqShipDate=addMilliseconds(ts2);
+		eleOrder.setAttribute(XMLLiterals.CUSTOMER_REQ_SHIP_DATE, sCusReqShipDate);
 		
 	}
 	/**
@@ -127,8 +148,8 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	 * @param eleOrderMessage
 	 */
 	  
-	private String  addModifyts(YFCElement eleOrderMessage) {
-		YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS);
+	private String  addMilliseconds(YTimestamp ts) {
+		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		String sModifyts= format.format(ts);
 		return sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";

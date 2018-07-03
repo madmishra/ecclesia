@@ -98,14 +98,9 @@ public class IndgSequencingNo extends AbstractCustomApi {
 				map.put(hashKey, hashKey);
 			}
 		}
-		for (String name: map.keySet()){
-
-            String key =name.toString();
-            String value = map.get(name).toString();  
-            System.out.println(key + "@#$%^&*((((*&^%$ " + value);  
-
-
-} 
+		for (String key : map.keySet()) {
+		    System.out.println(key + " ffffffffffffhhfauhu " + map.get(key));
+		}
 		System.out.println("hdubdhsdbhsfk");
 			
 	}

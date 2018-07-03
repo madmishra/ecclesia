@@ -115,7 +115,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	{
 		
 		YFCElement eleOrderMessage = inXml.getDocumentElement();
-		YFCElement eleOrder = eleOrderMessage.getChildElement(XMLLiterals.ORDER);
+		YFCElement eleOrder = eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		
 		if(!XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.MODIFYTS)))
 		{

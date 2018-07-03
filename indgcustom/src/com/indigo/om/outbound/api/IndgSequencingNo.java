@@ -128,9 +128,15 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			invokeaddMilliseconds(eleOrder);
 			System.out.println("cbjdbcjgnvifxbh"+inXml);
 		}
+		if(!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE)))
+		{
+			YTimestamp ts = eleOrder.getYTimestampAttribute(XMLLiterals.ORDER_DATE);
+			eleOrder.setAttribute(XMLLiterals.ORDER_DATE, addMilliseconds(ts));
+			System.out.println("cbhsdffrtbfKSGdhj"+inXml);
+		}
 		if(!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.ABANDONMENT_TIME))) {
-			YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.ABANDONMENT_TIME);
-			eleOrderMessage.setAttribute(XMLLiterals.ABANDONMENT_TIME, addMilliseconds(ts));
+			YTimestamp ts = eleOrder.getYTimestampAttribute(XMLLiterals.ABANDONMENT_TIME);
+			eleOrder.setAttribute(XMLLiterals.ABANDONMENT_TIME, addMilliseconds(ts));
 			System.out.println("cbhsbfKSGdhj"+inXml);
 		}
 	}

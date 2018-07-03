@@ -281,11 +281,14 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 						eleReservations.getAttribute("AvailableQty"));
 
 				if (!cartAttributesPopulated) {
-					eleCart.setAttribute("ReservationId",
-							eleReservation.getAttribute("ReservationID"));
-					eleCart.setAttribute("ReservationExpiryTime",
-							eleReservation.getAttribute("ExpirationDate"));
-					cartAttributesPopulated = true;
+					if(eleReservation != null) {
+						eleCart.setAttribute("ReservationId",
+								eleReservation.getAttribute("ReservationID"));
+						eleCart.setAttribute("ReservationExpiryTime",
+								eleReservation.getAttribute("ExpirationDate"));
+						cartAttributesPopulated = true;
+						
+					}
 				}
 
 			}

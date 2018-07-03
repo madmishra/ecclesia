@@ -126,22 +126,24 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		if(!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE)) &&
 				!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.CUSTOMER_REQ_SHIP_DATE))) {
 			invokeaddMilliseconds(eleOrder);
+			System.out.println("cbjdbcjgnvifxbh"+inXml);
 		}
 		if(!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.ABANDONMENT_TIME))) {
 			YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.ABANDONMENT_TIME);
 			eleOrderMessage.setAttribute(XMLLiterals.ABANDONMENT_TIME, addMilliseconds(ts));
-			
+			System.out.println("cbhsbfKSGdhj"+inXml);
 		}
 	}
 	
 	private void invokeaddMilliseconds(YFCElement eleOrder) {
+		System.out.println("bdhsKGIjhojzdhjhn"+eleOrder);
 		YTimestamp ts = eleOrder.getYTimestampAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE);
 		String sCusReqDelDate=addMilliseconds(ts);
 		eleOrder.setAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE, sCusReqDelDate);
 		YTimestamp ts2 = eleOrder.getYTimestampAttribute(XMLLiterals.CUSTOMER_REQ_SHIP_DATE);
 		String sCusReqShipDate=addMilliseconds(ts2);
 		eleOrder.setAttribute(XMLLiterals.CUSTOMER_REQ_SHIP_DATE, sCusReqShipDate);
-		
+		System.out.println("gfusihhhjuj"+eleOrder);
 	}
 	/**
 	 * 

@@ -93,6 +93,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		for (int jCounter = 1; jCounter <= getProperties().size(); jCounter++) {
 			String curXpathAtrCustom = getProperty(xpathPrefixCustom + jCounter);	
 			String hashKey=curXpathAtrCustom;
+			System.out.println("bcjcnbjKNSGikzshg"+hashKey);
 			if(!map.containsKey(hashKey))
 			{
 				map.put(hashKey, hashKey);

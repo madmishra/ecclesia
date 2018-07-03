@@ -114,23 +114,25 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	private void upadteMilliSeconds(YFCDocument inXml)
 	{
 		YFCElement eleOrderMessage = inXml.getDocumentElement();
-		if(XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.MODIFYTS)))
+		if(!XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.MODIFYTS)))
 		{
-			System.out.println("gdfuhygsugoahotyu8");
+			String smodifyts=addModifyts(eleOrderMessage);
+			eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, smodifyts);
+			System.out.println("gdfuhygsugoahotyu8" + inXml );
 		}
+		
 	}
 	/**
 	 * 
 	 * @param eleOrderMessage
 	 */
 	  
-	private void addModifyts(YFCElement eleOrderMessage) {
+	private String  addModifyts(YFCElement eleOrderMessage) {
 		YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS);
-		eleOrderMessage.removeAttribute(XMLLiterals.MODIFYTS);
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		String sModifyts= format.format(ts);
-		sModifyts = sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
-		eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
+		return sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
+		
 		
 	}
 
@@ -187,6 +189,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 				docChangeIndgSeqNo =docChangeIndgSeqNo(shipmentLine);
 			}
 		}
+		System.out.println("gfefguerjgtidjhyifouj"+docChangeIndgSeqNo);
 		return docChangeIndgSeqNo;
 	}
 	
@@ -212,7 +215,9 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.SAP_ORDER_NO,EMPTY_STRING);
 			eleIndgMsgSeqNo.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO,(Integer.parseInt(shipmentLine.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO)))+ONE);
 		}
-		return invokeYantraService(INDG_CHANGE_INDG_MSG_SEQ_NO, docChangeGetMsgSeq);
+		YFCDocument udghauf=invokeYantraService(INDG_CHANGE_INDG_MSG_SEQ_NO, docChangeGetMsgSeq);
+		System.out.println("udghauf");
+		return udghauf;
 	}
 		 
 	/**
@@ -223,7 +228,9 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	
 	private YFCDocument inputGetINDGMsgSeqNoList(YFCDocument inXml) {
 		YFCDocument docGetINDGMsgSeqNoList=formMessageForAPI(inXml);
+		System.out.println("vfhsvbgjrdbgkdh"+docGetINDGMsgSeqNoList);
 		YFCDocument docMsgSeqList=invokeYantraService(INDG_GET_INDG_MSG_SEQ_NO_LIST, docGetINDGMsgSeqNoList);
+		System.out.println("ksjfcksdfisjdfg"+docMsgSeqList);
 		if(docMsgSeqList.getDocumentElement().hasChildNodes()) {
 			return invokechangeINDGMsgSeqNo(docMsgSeqList,inXml);
 		}
@@ -252,10 +259,14 @@ public class IndgSequencingNo extends AbstractCustomApi {
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, ONE);
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,EMPTY_STRING);
 			}
-			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
+			YFCDocument kdjfks=invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
+			System.out.println("ckcfksfmlkmzlgxg"+kdjfks);
+			return kdjfks;
 		}
-		else
-			return inputGetINDGMsgSeqNoList(docOrderMessage);
+		else {
+			YFCDocument chbdsfjsdg= inputGetINDGMsgSeqNoList(docOrderMessage);
+			return chbdsfjsdg;
+		}
 	}
 		
 	/**

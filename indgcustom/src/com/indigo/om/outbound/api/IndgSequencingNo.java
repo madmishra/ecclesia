@@ -1,12 +1,14 @@
 package com.indigo.om.outbound.api;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.ExceptionUtil;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.date.YTimestamp;
@@ -27,6 +29,12 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	private static final String INDG_CHANGE_INDG_MSG_SEQ_NO="INDG_changeINDGMsgSeqNo";
 	private static final String INDG_CREATE_INDG_MSG_SEQ_NO="INDG_createINDGMsgSeqNo";
 	private static final String INDG_GET_INDG_MSG_SEQ_NO_LIST="INDG_getINDGMsgSeqNoList";
+	Map<String, String> map=new HashMap<>();
+	private static final String XPATH_DATE_TYPES= "xpath.date.types";
+	String CUSTOMER_REQ_DEL_DATE = "CustReqDeliveryDate";
+	String CUSTOMER_REQ_SHIP_DATE = "CustReqShipDate";
+	String ORDER_DATE = "OrderDate";
+	String ABANDONMENT_TIME = "AbandonmentTime";
 	
 	/**
 	   * @throws ParseException 
@@ -37,13 +45,18 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {  
+		System.out.println("hzfgbJHdgkzn"+inXml);
 		YFCDocument docMsg=updateMsgSeqNo(inXml);
+		System.out.println("shbfhjgh"+docMsg);
 		try {
 			addMsgSeqNo(docMsg,inXml);
 		}
 		catch(Exception e) {
 			throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_MISSING_VALUE, e);
 		}
+		addDateTypes();
+		upadteMilliSeconds(inXml);
+		
 		return inXml;
 	}
 	  
@@ -54,8 +67,11 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	 */
 	
 	private void addMsgSeqNo(YFCDocument docMsg,YFCDocument inXml) {
+		System.out.println("gvfyhgtbdhy"+docMsg);
+		System.out.println("njdfnjdghidth"+inXml);
 		YFCElement eleOrderMessage=inXml.getDocumentElement();
 		YFCElement eleINDGMsgSeqNo=docMsg.getDocumentElement();
+		System.out.println("cbdhygkuzkdj"+eleINDGMsgSeqNo);
 		String sSAPMsgSeqNo=eleINDGMsgSeqNo.getAttribute(XMLLiterals.SAP_MSG_SEQ_NO);
 		if(!XmlUtils.isVoid(sSAPMsgSeqNo) && eleINDGMsgSeqNo.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).contains(SAP) )
 		{
@@ -65,11 +81,44 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		{
 			eleOrderMessage.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, eleINDGMsgSeqNo.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO));
 		}
-		if(!XmlUtils.isVoid(eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS))) {
-			addModifyts(eleOrderMessage);
-		}
+	
+	
 	}
 	
+	
+	private void addDateTypes() {
+		System.out.println("bgufydbnhiyjmi");
+		String xpathPrefixCustom = getProperty(XPATH_DATE_TYPES);
+		System.out.println("xpathPrefixCustomhnudhy");
+		for (int jCounter = 1; jCounter <= getProperties().size(); jCounter++) {
+			String curXpathAtrCustom = getProperty(xpathPrefixCustom + jCounter);	
+			String hashKey=curXpathAtrCustom;
+			if(!map.containsKey(hashKey))
+			{
+				map.put(hashKey, hashKey);
+			}
+		}
+		for (String name: map.keySet()){
+
+            String key =name.toString();
+            String value = map.get(name).toString();  
+            System.out.println(key + "@#$%^&*((((*&^%$ " + value);  
+
+
+} 
+		System.out.println("hdubdhsdbhsfk");
+			
+	}
+	
+	
+	private void upadteMilliSeconds(YFCDocument inXml)
+	{
+		YFCElement eleOrderMessage = inXml.getDocumentElement();
+		if(XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.MODIFYTS)))
+		{
+			System.out.println("gdfuhygsugoahotyu8");
+		}
+	}
 	/**
 	 * 
 	 * @param eleOrderMessage
@@ -84,6 +133,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
 		
 	}
+
 	  
 	/**
 	  * this method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method

@@ -1,6 +1,5 @@
 package com.indigo.masterupload.userupload;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -53,21 +52,15 @@ public class IndgManageUser extends AbstractCustomApi {
 	@Override
 	public YFCDocument invoke(YFCDocument inXml){
 		 checkStoreIdForUsers(inXml);
-		 System.out.println(inXml + "sajhsjkhhhhhhh");
 		 YFCDocument getOrganizationListApiOp = getOrganizationList();
 		 localeCode = getOrganizationListApiOp.getDocumentElement().getChildElement(XMLLiterals.ORGANIZATION).
 				 getAttribute(XMLLiterals.LOCALE_CODE2);
-		 System.out.println(getOrganizationListApiOp + "qqqqqqqqqqqqqqq");
 		 YFCDocument userListApiOp = getUserList();
-		 System.out.println(userListApiOp + "kkkkkkkkkkkkk");
 		 YFCDocument commonCodeListApiOp = getCommonCodeList();
-		 System.out.println(commonCodeListApiOp + "jjjjjjjjjjjjjj");
 		 Collection<String> extraUserList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion(inXml, userListApiOp, 
 					XMLLiterals.LOGIN_ID,XMLLiterals.USER);
-		 System.out.println(extraUserList + "lllllllllllllll");
 		 Collection<String> inputUserList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion(userListApiOp, inXml, 
 					XMLLiterals.LOGIN_ID,XMLLiterals.USER);
-		 System.out.println(inputUserList + "aaaaaaaaaaaaaa");
 		 ifStoreExistForNewUser(inXml, inputUserList, getOrganizationListApiOp);
 		 changeStatusForExtraUser(extraUserList,userListApiOp);
 		 createNewUserFromInputXml(inputUserList,inXml,commonCodeListApiOp);
@@ -159,7 +152,6 @@ public class IndgManageUser extends AbstractCustomApi {
 	public YFCDocument formInputXmlForGetUserList() {
 	    YFCDocument getUserListDoc = YFCDocument.createDocument(XMLLiterals.USER);
 	    getUserListDoc.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, ORGANIZATION_CODE_VAL);
-	    System.out.println(getUserListDoc + "zhhhhhhhhhh");
 	    return getUserListDoc;
 	}
 	
@@ -177,7 +169,6 @@ public class IndgManageUser extends AbstractCustomApi {
 	    userEle.setAttribute(XMLLiterals.DISPLAY_USER_ID, EMPTY_STRING);
 	    userEle.setAttribute(XMLLiterals.ACTIVATE_FLAG, EMPTY_STRING);
 	    userEle.setAttribute(XMLLiterals.ORGANIZATION_KEY, EMPTY_STRING);
-	    System.out.println(getUserListTemp + "anjkjjjjjjjjj");
 	    return getUserListTemp;
 	}
 	
@@ -259,7 +250,6 @@ public class IndgManageUser extends AbstractCustomApi {
 				userEle.setAttribute(XMLLiterals.ORGANIZATION_KEY, ORGANIZATION_CODE_VAL);
 			}
 		}
-		System.out.println(inXml + "bxcxbbbbbbbbb");
 	}
 	
 	/**
@@ -303,7 +293,6 @@ public class IndgManageUser extends AbstractCustomApi {
 	    	  inputDoctoCreateUser.getDocumentElement().setAttribute(XMLLiterals.ACTION, CREATE);
 	    	  inputDoctoCreateUser.getDocumentElement().setAttribute(XMLLiterals.ACTIVATE_FLAG, FLAG);
 	    	  createUserGroupInputDoc(inputDoctoCreateUser, userEle, commonCodeListApiOp);
-	    	  System.out.println(inputDoctoCreateUser + "credddddddddddddd");
 	    	  callUserUpdateQueue(inputDoctoCreateUser);
 	    	  YFCNode parent = userEle.getParentNode();
 	    	  parent.removeChild(userEle);
@@ -375,10 +364,15 @@ public class IndgManageUser extends AbstractCustomApi {
 		if(!XmlUtils.isVoid(inXml)) {
 			YFCIterable<YFCElement> userEle = inXml.getDocumentElement().getChildren(XMLLiterals.USER);
 			for(YFCElement element : userEle) {
+				String sDepartment = element.getAttribute(XMLLiterals.DEPARTMENT);
+				if(XmlUtils.isVoid(sDepartment)) {
+					String deptVal = STORE.concat(HASH_VAL).concat(ORGANIZATION_CODE_VAL);
+					element.setAttribute(XMLLiterals.DEPARTMENT, deptVal);
+					element.setAttribute(XMLLiterals.ORGANIZATION_KEY, ORGANIZATION_CODE_VAL);
+				}
 				String inputString = element.toString();
 				YFCDocument existingUserforModify = YFCDocument.getDocumentFor(inputString);
 				existingUserforModify.getDocumentElement().setAttribute(XMLLiterals.ACTION, MODIFY);
-				System.out.println(existingUserforModify + "aaaaaaaaaakdddddd");
 				callUserUpdateQueue(existingUserforModify);
 			}
 		}

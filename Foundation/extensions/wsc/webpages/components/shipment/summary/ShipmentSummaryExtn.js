@@ -59,7 +59,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 			},
 			refreshPage: function () {
 				var wizInstance = _iasUIUtils.getWizardForScreen(this);
-				 _scWizardUtils.closeWizard(wizInstance);
+				_scWizardUtils.closeWizard(wizInstance);
 			},
 			continueGiftWrap: function () {
 				var giftWrap = "extn_button_gift_wrap";
@@ -87,6 +87,44 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 					this, "getShipmentDetails_output", null);
 				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
 				_iasUIUtils.openWizardInEditor("extn.wizards.BackroomPickupWizard", batchModel, "wsc.desktop.editors.ShipmentEditor", this, null);
+			},
+
+			updateSecondaryContact: function (event, bEvent, ctrl, args) {
+				console.log('event', event.SecondaryPerson);
+				var orderLineKeyArray = [];
+				var orderHeaderKey = "";
+				var changeOrderInput = {
+					Order: {
+						OrderLines: []
+					}
+				};
+				var rtModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
+				if (rtModel && rtModel.Shipment && rtModel.Shipment.ShipmentLines && rtModel.Shipment.ShipmentLines.ShipmentLine) {
+					for (var i = 0; i < rtModel.Shipment.ShipmentLines.ShipmentLine.length; i++) {
+						var shipmentLineArray = rtModel.Shipment.ShipmentLines.ShipmentLine[i];
+						var orderLineKey = shipmentLineArray.OrderLine.OrderLineKey;
+						orderLineKeyArray.push(orderLineKey);
+					}
+					orderHeaderKey = rtModel.Shipment.ShipmentLines.ShipmentLine[0].OrderHeaderKey;
+				}
+				changeOrderInput.Order.OrderHeaderKey = orderHeaderKey;
+				for (var i = 0; i < orderLineKeyArray.length; i++) {
+					var tempOrderLines = {
+						OrderLine: {
+							OrderLineKey: orderLineKeyArray[i],
+							AdditionalAddresses: [{
+								AdditionalAddress: {
+									AddressType: "AlternatePickupPerson",
+									PersonInfo: {
+										AddressID: event.SecondaryPerson
+									}
+								}
+							}]
+						}
+					};
+					changeOrderInput.Order.OrderLines.push(tempOrderLines);
+				}
+				console.log('changeOrderInput', changeOrderInput); 
 			}
 		});
 	});

@@ -15,9 +15,6 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-style", "s
 			},
 			openAssignPickup: function (event, bEvent, ctrl, args) {
 				_iasUIUtils.openSimplePopup("extn.customScreen.popup.SecondaryPickPerson", "Secondary pick up person", this, null, null);
-			},
-			updateSecondaryContact: function (event, bEvent, ctrl, args) {
-				console.log('event', event.SecondaryPerson);
 			}
 		});
 	});

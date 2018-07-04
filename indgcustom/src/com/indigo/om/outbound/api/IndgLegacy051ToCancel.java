@@ -258,6 +258,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 */
 	
 	private void callLegacyOMS052opQueue(YFCDocument doc) {
+		System.out.println("sjfhjshfjsaglgh"+doc);
 	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
 	}
 	

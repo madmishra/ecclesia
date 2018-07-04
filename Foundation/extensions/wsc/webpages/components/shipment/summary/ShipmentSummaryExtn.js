@@ -95,7 +95,9 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 				var orderHeaderKey = "";
 				var changeOrderInput = {
 					Order: {
-						OrderLines: []
+						OrderLines: {
+							OrderLine: []
+						}
 					}
 				};
 				var rtModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
@@ -107,24 +109,25 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 					}
 					orderHeaderKey = rtModel.Shipment.ShipmentLines.ShipmentLine[0].OrderHeaderKey;
 				}
+				console.log('orderLineKeyArray', orderLineKeyArray);
 				changeOrderInput.Order.OrderHeaderKey = orderHeaderKey;
 				for (var i = 0; i < orderLineKeyArray.length; i++) {
 					var tempOrderLines = {
-						OrderLine: {
-							OrderLineKey: orderLineKeyArray[i],
-							AdditionalAddresses: [{
-								AdditionalAddress: {
-									AddressType: "AlternatePickupPerson",
-									PersonInfo: {
-										AddressID: event.SecondaryPerson
-									}
+						OrderLineKey: orderLineKeyArray[i],
+						AdditionalAddresses: [{
+							AdditionalAddress: {
+								AddressType: "AlternatePickupPerson",
+								PersonInfo: {
+									AddressID: event.SecondaryPerson
 								}
-							}]
-						}
+							}
+						}]
 					};
-					changeOrderInput.Order.OrderLines.push(tempOrderLines);
+					changeOrderInput.Order.OrderLines.OrderLine.push(tempOrderLines);
 				}
+				console.log('changeOrderInput', changeOrderInput);
 				_iasUIUtils.callApi(this, changeOrderInput, "extn_addSecondaryContact", null);
+
 			}
 		});
 	});

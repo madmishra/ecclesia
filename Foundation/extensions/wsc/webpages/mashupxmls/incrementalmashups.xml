@@ -33,17 +33,17 @@
             <Input/>
             <Template>
                 <Shipment>
+                    <Status/>
                     <ShipmentLines>
                         <ShipmentLine>
-                            <OrderLine GiftWrap=""/>
-                            <Order Division="" LevelOfService="" CustPONo="" />
+                            <OrderLine GiftWrap="" OrderLineKey=""/>
+                            <Order CustPONo="" Division="" LevelOfService=""/>
                         </ShipmentLine>
                     </ShipmentLines>
                     <BillToAddress/>
                     <ShipNode>
                         <ShipNodePersonInfo/>
                     </ShipNode>
-                    <Status/>
                     <ToAddress/>
                 </Shipment>
             </Template>

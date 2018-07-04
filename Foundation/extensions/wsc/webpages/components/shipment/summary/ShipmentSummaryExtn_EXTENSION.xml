@@ -82,6 +82,7 @@
             <Behavior>
                 <MashupRef extnType="ADD"
                     mashupId="extn_changeShipmentStatus" mashupRefId="extn_printStatus"/>
+                <MashupRef extnType="ADD" mashupId="addSecondaryContact" mashupRefId="extn_addSecondaryContact"/>
             </Behavior>
         </MashupRefs>
     </ScreenExtension>

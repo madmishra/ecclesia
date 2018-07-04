@@ -463,4 +463,26 @@
         <APINamespace inputNS="extn_getLinesForGiftWrap_input" outputNS="extn_getLinesForGiftWrap_output"/>
         <AlternateResourceIds/>
     </mashup>
+    <mashup description="" endpoint="EP_CONFIG" id="addSecondaryContact"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="changeOrder">
+            <Input>
+                <Order OrderHeaderKey="">
+                    <OrderLines>
+                        <OrderLine OrderLineKey="">
+                            <AdditionalAddresses>
+                                <AdditionalAddress AddressType="Required">
+                                    <PersonInfo AddressID=""/>
+                                </AdditionalAddress>
+                            </AdditionalAddresses>
+                        </OrderLine>
+                    </OrderLines>
+                </Order>
+            </Input>
+            <Template/>
+        </API>
+        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
+        <APINamespace inputNS="addSecondaryContact_input" outputNS="addSecondaryContact_output"/>
+        <AlternateResourceIds/>
+    </mashup>
 </mashups>

@@ -124,7 +124,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 					};
 					changeOrderInput.Order.OrderLines.push(tempOrderLines);
 				}
-				console.log('changeOrderInput', changeOrderInput); 
+				_iasUIUtils.callApi(this, changeOrderInput, "extn_addSecondaryContact", null);
 			}
 		});
 	});

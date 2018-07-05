@@ -297,5 +297,6 @@ public static final String ENTERPRISE_ORGANIZATION_KEY = "EnterpriseOrganization
 public static final String SHIPMENT_LINE_KEY = "ShipmentLineKey";
 public static final String STORE_BATCH_LINES = "StoreBatchLines";
 public static final String STORE_BATCH_LINE = "StoreBatchLine";
+public static final String ITEM_DETAILS = "ItemDetails";
 }
 

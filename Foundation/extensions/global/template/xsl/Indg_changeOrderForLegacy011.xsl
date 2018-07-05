@@ -22,11 +22,6 @@
 							<xsl:value-of select="@PrimeLineNo"/>
 						</xsl:attribute>
 						<xsl:attribute name="SubLineNo">1</xsl:attribute>
-						<Item>
-							<xsl:attribute name="ItemID">
-								<xsl:value-of select="Item/@ItemID"/>
-							</xsl:attribute>
-						</Item>
 						<LinePriceInfo>
 							<xsl:attribute name="RetailPrice">
 								<xsl:value-of select="LinePriceInfo/@RetailPrice"/>

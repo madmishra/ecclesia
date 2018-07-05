@@ -55,7 +55,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    docLegacy051Input = YFCDocument.getDocumentFor(inputDocString);
 	    docInputXml = YFCDocument.getDocumentFor(inputDocString);
 	    YFCDocument shipmentListApiOp = getShipmentList();
-	    getOrderLinesGroupByReasonCode(shipmentListApiOp);
+	    getShipmentLinesStatus(shipmentListApiOp);
 	    docSetAttributesForCancel();
 		return inXml;
 	}
@@ -112,7 +112,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 * @param shipmentListApiOp
 	 */
 	
-	private void getOrderLinesGroupByReasonCode(YFCDocument shipmentListApiOp){
+	private void getShipmentLinesStatus(YFCDocument shipmentListApiOp){
 		if(!XmlUtils.isVoid(shipmentListApiOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT))) {
 			orderLineIsPickedStatus(shipmentListApiOp);
 			YFCElement orderLineEle = docLegacy051.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
@@ -166,11 +166,10 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			for(YFCElement shipmentLineEle : yfsItratorPrimeLine) {
 				if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO)) && 
 					(!XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
-					String isPickComplete = shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE);
 					String sellerOrganizationCode = shipmentEle.getAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE);
 					String node = shipmentEle.getAttribute(XMLLiterals.SHIPNODE);
 					String shipmentNo = shipmentEle.getAttribute(XMLLiterals.SHIPMENT_NO);
-					if(isPickComplete.equals(YES)) {
+					if(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES)) {
 						orderLines.importNode(orderLineEle);
 						YFCNode parent = orderLineEle.getParentNode();
 					    parent.removeChild(orderLineEle);
@@ -258,7 +257,6 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 */
 	
 	private void callLegacyOMS052opQueue(YFCDocument doc) {
-		System.out.println("sjfhjshfjsaglgh"+doc);
 	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
 	}
 	

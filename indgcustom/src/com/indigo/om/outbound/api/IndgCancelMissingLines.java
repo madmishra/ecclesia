@@ -65,6 +65,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     		docScheduleOrderLineInput(docGoodLinesSAP002);
     		YFCDocument docGetOrderLineList3 = getOrderLineListFunc(docGoodLinesSAP002);
     		docIsFullOrderCancelled(docGoodLinesSAP002, docGetOrderLineList3);
+    		docGoodLinesSAP002.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
     		docLegacy003NoOrderLines(docGoodLinesSAP002);
     	}
     	return docGoodLinesSAP002;

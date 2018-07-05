@@ -294,5 +294,7 @@ public static final String LOCALE_CODE2 = "LocaleCode";
 public static final String RELATED_ORG_LIST = "RelatedOrgList"; 
 public static final String ORG_ENTERPRISE = "OrgEnterprise"; 
 public static final String ENTERPRISE_ORGANIZATION_KEY = "EnterpriseOrganizationKey";
+public static final String SHIPMENT_LINE_KEY = "ShipmentLineKey";
+
 }
 

@@ -109,7 +109,7 @@ public class IndgCalendarFeed extends AbstractCustomApi {
 						ExceptionLiterals.ERRORCODE_INVALID_DATE, e);
 			}
 		}
-		if(!calInEle.hasChildNodes()){
+		if(calInEle.getElementsByTagName(XMLLiterals.CALENDAR).getLength()==0){
 			return null;
 		}
 		createCalendar(exceptionList);

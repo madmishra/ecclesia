@@ -174,19 +174,19 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			for(YFCElement shipmentLineEle : yfsItratorPrimeLine) {
 				if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO)) && 
 					(!XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
-					String sellerOrganizationCode = shipmentEle.getAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE);
-					String node = shipmentEle.getAttribute(XMLLiterals.SHIPNODE);
-					String shipmentNo = shipmentEle.getAttribute(XMLLiterals.SHIPMENT_NO);
 					if(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES)) {
 						orderLines.importNode(orderLineEle);
 						YFCNode parent = orderLineEle.getParentNode();
 					    parent.removeChild(orderLineEle);
 					}
-					else
-					{
-						changeShipment(shipmentLineEle,sellerOrganizationCode,node,shipmentNo);
-					}
-				}				
+				}
+				else if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO)) && 
+						(XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
+					String sellerOrganizationCode = shipmentEle.getAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE);
+					String node = shipmentEle.getAttribute(XMLLiterals.SHIPNODE);
+					String shipmentNo = shipmentEle.getAttribute(XMLLiterals.SHIPMENT_NO);
+					changeShipment(shipmentLineEle,sellerOrganizationCode,node,shipmentNo);
+				}
 			}
 		}
 	}

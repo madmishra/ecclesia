@@ -18,6 +18,9 @@ import com.yantra.yfc.dom.YFCElement;
 /**
  * 
  * @author BSG170
+ * 
+ * Custom code to update sequence no for the messages that are being sent by sterling
+ * It also updates the time field attributes with the milliseconds and timezone 
  *
  */
 
@@ -55,7 +58,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	}
 	  
 	/**
-	 *   
+	 * This method adds sequence no to the input file
 	 * @param docMsg
 	 * @param inXml
 	 */
@@ -75,7 +78,9 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	
 	
 	}
-	
+	 /**
+	  * This method stores the different types of date fields present in incoming messages
+	  */
 	
 	private void addDateTypes() {
 		String xpathPrefixCustom = getProperty(XPATH_DATE_TYPES);
@@ -90,6 +95,10 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			
 	}
 	
+	/**
+	 * This method invoke addMilliseconds method to update  the time field with milliseconds
+	 * @param inXml
+	 */
 	
 	private void upadteMilliSeconds(YFCDocument inXml)
 	{
@@ -116,7 +125,11 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			eleOrder.setAttribute(XMLLiterals.ABANDONMENT_TIME, addMilliseconds(ts));
 		}
 	}
-	
+	   
+	/**
+	 * This method invokes addMilliseconds method
+	 * @param eleOrder
+	 */
 	private void invokeaddMilliseconds(YFCElement eleOrder) {
 		YTimestamp ts = eleOrder.getYTimestampAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE);
 		String sCusReqDelDate=addMilliseconds(ts);
@@ -126,7 +139,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		eleOrder.setAttribute(XMLLiterals.CUSTOMER_REQ_SHIP_DATE, sCusReqShipDate);
 	}
 	/**
-	 * 
+	 * This method updates given time field with milliseconds
 	 * @param eleOrderMessage
 	 */
 	  

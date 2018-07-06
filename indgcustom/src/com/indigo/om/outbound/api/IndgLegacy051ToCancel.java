@@ -58,7 +58,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    YFCDocument shipmentListApiOp = getShipmentList();
 	    System.out.println(shipmentListApiOp + "ddddddddddddddd");
 	    getShipmentLinesStatus(shipmentListApiOp);
-	    docSetAttributesForCancel();
+	    docSetAttributesForCancel(inXml);
 		return inXml;
 	}
 	
@@ -213,15 +213,12 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 * @param docChangeOrderInputLines
 	 */
 	
-	private void docSetAttributesForCancel() {
-		System.out.println(docLegacy051Input + "sjakljkajskaj");
+	private void docSetAttributesForCancel(YFCDocument inXml) {
 		YFCDocument docChangeOrderApiInput = YFCDocument.createDocument(XMLLiterals.ORDER);
-		String reasonCode = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
-				getAttribute(XMLLiterals.CANCELLATION_REASON_CODE);
-		String reasonText = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
-				getAttribute(XMLLiterals.CANCELLATION_TEXT);
+		String reasonCode = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
+				getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.CANCELLATION_REASON_CODE);
+		String reasonText = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
+				getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.CANCELLATION_TEXT);
 		docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.MODIFICATION_REASON_CODE, reasonCode);
 		docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.MODIFICATION_REASON_TEXT, reasonText);
 		docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.ORDER_NO, orderNo);

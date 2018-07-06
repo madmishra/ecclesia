@@ -214,21 +214,22 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 */
 	
 	private void docSetAttributesForCancel() {
-		  YFCDocument docChangeOrderApiInput = YFCDocument.createDocument(XMLLiterals.ORDER);
-		  String reasonCode = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-				  getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
-	    		  getAttribute(XMLLiterals.CANCELLATION_REASON_CODE);
-	      String reasonText = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
-				  getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
-	    		  getAttribute(XMLLiterals.CANCELLATION_TEXT);
-		  docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.MODIFICATION_REASON_CODE, reasonCode);
-	      docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.MODIFICATION_REASON_TEXT, reasonText);
-	      docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.ORDER_NO, orderNo);
-	      docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
-	      docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, documentType);
-	      docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, CANCELLATION_TYPE);
-	      System.out.println(docChangeOrderApiInput + "iiiiiiiiiiiiiii");
-	      docInputChangeOrderApi(docChangeOrderApiInput);
+		System.out.println(docLegacy051Input + "sjakljkajskaj");
+		YFCDocument docChangeOrderApiInput = YFCDocument.createDocument(XMLLiterals.ORDER);
+		String reasonCode = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
+				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
+				getAttribute(XMLLiterals.CANCELLATION_REASON_CODE);
+		String reasonText = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
+				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).
+				getAttribute(XMLLiterals.CANCELLATION_TEXT);
+		docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.MODIFICATION_REASON_CODE, reasonCode);
+		docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.MODIFICATION_REASON_TEXT, reasonText);
+		docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.ORDER_NO, orderNo);
+		docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
+		docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, documentType);
+		docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, CANCELLATION_TYPE);
+		System.out.println(docChangeOrderApiInput + "iiiiiiiiiiiiiii");
+		docInputChangeOrderApi(docChangeOrderApiInput);
 	}
 	
 	/**

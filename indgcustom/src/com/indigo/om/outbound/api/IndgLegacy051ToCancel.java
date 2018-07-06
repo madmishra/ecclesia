@@ -35,7 +35,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 private static final String REASON_CODE = "03";
 	 private static final String CALL_LEGACYOMS051_SERVICE = "CALL_LEGACYOMS051_SERVICE";	 
 	 private static final String CUSTOMER_PONO = "CustomerPoNo";
-	 private static final String MODIFY = "Modify";
+	 private static final String CANCEL = "Cancel";
 	 
 	 /**
 	  * This method is the invoke point of the service.
@@ -146,7 +146,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
 		YFCIterable<YFCElement> yfsItratorShipNode = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLineEle : yfsItratorShipNode) {
-			System.out.println(orderLines.toString() + orderLineEle.toString() + shipmentListApiOp + "fffffffffffff");
+			System.out.println(orderLines.toString() + orderLineEle.toString() + "fffffffffffff");
 			docSetAttributes(orderLines, orderLineEle, shipmentListApiOp);
 		}
 		docSetAttributesToLeg051();
@@ -259,7 +259,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			orderLineEle.setAttribute(XMLLiterals.ORDERED_QTY, orderedQty);
 		}
 		 System.out.println(docChangeOrderApiInput + "jjjjjjjjjjjjjjj");
-		// invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    
+		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    
 	}
 	
 	/**
@@ -283,9 +283,9 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		eleShipment.setAttribute(XMLLiterals.SHIPMENT_NO,shipmentNo);
 		YFCElement eleShipmentLine=eleShipment.createChild(XMLLiterals.SHIPMENT_LINES).createChild(XMLLiterals.SHIPMENT_LINE);
 		eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, shipmentLineEle.getAttribute(XMLLiterals.ORDER_NO));
-		eleShipmentLine.setAttribute(XMLLiterals.ACTION, MODIFY);
+		eleShipmentLine.setAttribute(XMLLiterals.ACTION, CANCEL);
 		eleShipmentLine.setAttribute(XMLLiterals.SHIPMENT_LINE_NO, shipmentLineEle.getAttribute(XMLLiterals.SHIPMENT_LINE_NO));
 		System.out.println(docShipment + "kkkkkkkkkkkkk");
-		//invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docShipment);
+		invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docShipment);
 	}
 }

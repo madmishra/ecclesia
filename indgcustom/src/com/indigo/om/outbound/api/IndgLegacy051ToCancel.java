@@ -51,10 +51,12 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    		getAttribute(XMLLiterals.DOCUMENT_TYPE);
 	    orderType = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
 	    		getAttribute(XMLLiterals.ORDER_TYPE);
+	    System.out.println(inXml + orderNo + enterpriseCode + documentType + orderType + "aaaaaaaaaaaaaaaa");
 		String inputDocString = inXml.toString();
 	    docLegacy051Input = YFCDocument.getDocumentFor(inputDocString);
 	    docInputXml = YFCDocument.getDocumentFor(inputDocString);
 	    YFCDocument shipmentListApiOp = getShipmentList();
+	    System.out.println(shipmentListApiOp + "ddddddddddddddd");
 	    getShipmentLinesStatus(shipmentListApiOp);
 	    docSetAttributesForCancel();
 		return inXml;
@@ -71,6 +73,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    YFCElement shipmentLinesEle = getShipmentListDoc.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES);
 	    YFCElement shipmentLineEle = shipmentLinesEle.createChild(XMLLiterals.SHIPMENT_LINE);
 	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, orderNo);
+	    System.out.println(getShipmentListDoc + "bbbbbbbbbbbbbb");
 	    return getShipmentListDoc;
 	  }
 	
@@ -92,6 +95,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	    YFCElement orderLineEle = shipmentLineEle.createChild(XMLLiterals.ORDER_LINE);
 	    orderLineEle.setAttribute(XMLLiterals.DELIVERY_METHOD, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.DEPARTMENT_CODE, EMPTY_STRING);
+	    System.out.println(getShipmentListTemp + "ccccccccccccccc");
 	    return getShipmentListTemp;
 	  }
 	
@@ -117,6 +121,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			orderLineIsPickedStatus(shipmentListApiOp);
 			YFCElement orderLineEle = docLegacy051.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 			if(orderLineEle.hasChildNodes()) {
+				System.out.println(docLegacy051 + "hhhhhhhhhhhh");
 				callLegacyOMS052opQueue(docLegacy051);
 			}
 		}
@@ -135,10 +140,12 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 				getAttribute(CUSTOMER_PONO);
 		docLegacy051 = YFCDocument.createDocument(XMLLiterals.ORDER);
 		YFCElement orderLines = docLegacy051.getDocumentElement().createChild(XMLLiterals.ORDER_LINES);
+		System.out.println(docLegacy051 + "eeeeeeeeeeeee");
 		YFCElement orderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
 		YFCIterable<YFCElement> yfsItratorShipNode = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLineEle : yfsItratorShipNode) {
+			System.out.println(orderLines.toString() + orderLineEle.toString() + shipmentListApiOp + "fffffffffffff");
 			docSetAttributes(orderLines, orderLineEle, shipmentListApiOp);
 		}
 		docSetAttributesToLeg051();
@@ -157,6 +164,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		String shipNode = orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
 		String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
 		YFCElement shipmentEle = XPathUtil.getXPathElement(shipmentListApiOp, "/Shipments/Shipment[@ShipNode=\""+shipNode+"\"]");
+		System.out.println(shipNode + shipmentEle.toString() + "ggggggggggggg");
 		if(!XmlUtils.isVoid(shipmentEle)) {
 			orderLineEle.setAttribute(XMLLiterals.MODIFYTS, shipmentEle.getAttribute(XMLLiterals.MODIFYTS));
 			orderLineEle.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsOrderNo);
@@ -218,6 +226,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	      docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
 	      docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, documentType);
 	      docChangeOrderApiInput.getDocumentElement().setAttribute(XMLLiterals.MODIFICATION_REFRENCE_1, CANCELLATION_TYPE);
+	      System.out.println(docChangeOrderApiInput + "iiiiiiiiiiiiiii");
 	      docInputChangeOrderApi(docChangeOrderApiInput);
 	}
 	
@@ -248,7 +257,8 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, REASON_CODE);
 			orderLineEle.setAttribute(XMLLiterals.ORDERED_QTY, orderedQty);
 		}
-		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    
+		 System.out.println(docChangeOrderApiInput + "jjjjjjjjjjjjjjj");
+		// invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    
 	}
 	
 	/**
@@ -274,6 +284,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, shipmentLineEle.getAttribute(XMLLiterals.ORDER_NO));
 		eleShipmentLine.setAttribute(XMLLiterals.ACTION, MODIFY);
 		eleShipmentLine.setAttribute(XMLLiterals.SHIPMENT_LINE_NO, shipmentLineEle.getAttribute(XMLLiterals.SHIPMENT_LINE_NO));
-		invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docShipment);
+		System.out.println(docShipment + "kkkkkkkkkkkkk");
+		//invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docShipment);
 	}
 }

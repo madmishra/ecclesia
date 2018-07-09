@@ -9,6 +9,14 @@ import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 import com.yantra.yfc.dom.YFCNode;
 
+/**
+ * 
+ * @author Nikita Shukla	
+ * 
+ * Custom API to send SAP011 message based on LEGACYOMS011
+ *
+ */
+
 public class IndgSAP011 extends AbstractCustomApi {
 	
 	private static final String SUBLINE_VALUE = "1";
@@ -18,9 +26,14 @@ public class IndgSAP011 extends AbstractCustomApi {
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
     YFCDocument docOrderLineList = invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, orderLineListInput(inXml),orderLineListTemplate());
-    System.out.println("sbdhsdbjg"+docOrderLineList);
     return  commonPrimeLineNo(docOrderLineList, inXml);
 	}
+	
+	/**
+	 * This is the template
+	 * 
+	 * @return
+	 */
 	
 	private YFCDocument orderLineListTemplate(){
 		YFCDocument docOrderLineList = YFCDocument.createDocument(XMLLiterals.ORDER_LINE_LIST);
@@ -41,10 +54,14 @@ public class IndgSAP011 extends AbstractCustomApi {
 		eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
 		eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
 		eleOrder.setAttribute(XMLLiterals.ORDER_TYPE, EMPTY_STRING);
-		System.out.println("csjfhkjzkh"+docOrderLineList);
 		return docOrderLineList;
 		
 	}
+	/**
+	 * 
+	 * This is the Input Document
+	 * @return
+	 */
 	
 	private YFCDocument orderLineListInput(YFCDocument inXml) {
 		YFCDocument docOrderLineListInput = YFCDocument.createDocument(XMLLiterals.ORDER_LINE);
@@ -53,16 +70,23 @@ public class IndgSAP011 extends AbstractCustomApi {
 		eleOrder.setAttribute(XMLLiterals.ORDER_NO, eleMsgBody.getAttribute(XMLLiterals.PARENT_LEGACY_OMS_ORDER_NO));
 		eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleMsgBody.getAttribute(XMLLiterals.ENTERPRISE_CODE));
 		eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleMsgBody.getAttribute(XMLLiterals.DOCUMENT_TYPE));
-		System.out.println("nskfnkG"+docOrderLineListInput);
 		return docOrderLineListInput;
 	}
+	
+	/**
+	 * 
+	 * Here, the Lines being sent in LEGACYOMS011 input is compared 
+	 * with getOrderLineList Output, and if not present in LEGACYOMS011 input
+	 * we remove the entire element and print the rest
+	 * 
+	 * @return
+	 */
 	
 	private YFCDocument commonPrimeLineNo(YFCDocument docOrderLineList, YFCDocument inXml) {
 		YFCIterable< YFCElement>  yfsIterator =  docOrderLineList.getDocumentElement().getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine : yfsIterator)
 		{
 			String sPrimeLineNo = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO) ;
-			System.out.println("dkgkzs "+sPrimeLineNo);
 			YFCElement orderLineEle = XPathUtil.getXPathElement(inXml, "/OrderMessage/MessageBody/Order/OrderLines/OrderLine[@PrimeLineNo = \""+
 					sPrimeLineNo+"\"]");
 			if(XmlUtils.isVoid(orderLineEle)) {
@@ -70,7 +94,6 @@ public class IndgSAP011 extends AbstractCustomApi {
 				parent.removeChild(orderLine);
 			}
 		}
-		System.out.println("cbhjzfkn"+docOrderLineList);
 		
 		return docOrderLineList;
 	}

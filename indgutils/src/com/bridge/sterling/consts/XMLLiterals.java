@@ -300,5 +300,8 @@ public static final String STORE_BATCH_LINE = "StoreBatchLine";
 public static final String ITEM_DETAILS = "ItemDetails";
 public static final String ACTUAL_QUANTITY = "ActualQuantity";
 public static final String QTY = "Qty";
+public static final String LINE_PRICE_INFO = "LinePriceInfo";
+public static final String RETAIL_PRICE = "RetailPrice";
+public static final String PARENT_LEGACY_OMS_ORDER_NO = "ParentLegacyOMSOrderNo";
 }
 

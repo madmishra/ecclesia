@@ -47,7 +47,7 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	
 	public YFCDocument getShipmentList(YFCDocument inXml){
 		String orderNo = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
-				getAttribute(XMLLiterals.SAP_ORDER_NO);
+				getAttribute(XMLLiterals.STERLING_ORDER_NO);
 		System.out.println(orderNo + "xjsbdghs");
 	    return invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(orderNo), inputTemplateForGetShipmentList());
 	 }

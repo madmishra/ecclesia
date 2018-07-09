@@ -99,8 +99,8 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 			System.out.println(shipmentLineEle + "bjmbhbg");
 			String quantity2 = shipmentLineEle.getAttribute(XMLLiterals.ACTUAL_QUANTITY);
 			int apiQuantity = (int) Double.parseDouble(quantity2);
-			System.out.println(shipmentLineEle + quantity2 + apiQuantity + "eeeeeeeeeeee");
-			if(inpQuantity < apiQuantity) {
+			System.out.println(shipmentLineEle +" "+ quantity2 +" "+ apiQuantity + "eeeeeeeeeeee");
+			if(apiQuantity > inpQuantity) {
 				int quantityDiff = apiQuantity-inpQuantity;
 				System.out.println(quantityDiff + "ffffffffffff");
 				adjustQuantityofInventory(docGetShipmentDetails, shipmentLineEle, quantityDiff);
@@ -120,6 +120,6 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 		eleItem.setAttribute(XMLLiterals.SUPPLY_TYPE, SUPPLY_TYPE);
 		eleItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, UOM);
 		System.out.println(docAdjustInv + "zzzzzzzzzzzz");
-		//invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, docAdjustInv);    
+		//invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, docAdjustInv);
 	}
 }

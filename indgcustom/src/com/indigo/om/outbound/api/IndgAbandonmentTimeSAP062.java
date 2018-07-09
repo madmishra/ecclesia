@@ -98,7 +98,7 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 					+ "ShipmentLine[@PrimeLineNo=\""+primeLineNo+"\"]");
 			System.out.println(shipmentLineEle + "bjmbhbg");
 			String quantity2 = shipmentLineEle.getAttribute(XMLLiterals.ACTUAL_QUANTITY);
-			int apiQuantity = Integer.parseInt(quantity2);
+			int apiQuantity = (int) Double.parseDouble(quantity2);
 			System.out.println(shipmentLineEle + quantity2 + apiQuantity + "eeeeeeeeeeee");
 			if(inpQuantity < apiQuantity) {
 				int quantityDiff = apiQuantity-inpQuantity;

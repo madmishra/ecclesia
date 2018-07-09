@@ -11,7 +11,7 @@
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="SAPOrderNo">
-						<xsl:value-of select="OrderLine/@CustomerPOLineNo"/>
+						<xsl:value-of select="OrderLine/@CustomerLinePONo"/>
 					</xsl:attribute>
 					<xsl:attribute name="DocumentType">
 						<xsl:value-of select="OrderLine/Order/@DocumentType"/>

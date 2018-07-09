@@ -28,6 +28,8 @@ public class IndgSAP011 extends AbstractCustomApi {
 		eleOrderLine.setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, EMPTY_STRING );
 		eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
 		eleOrderLine.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
+		eleOrderLine.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
+		eleOrderLine.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
 		eleOrderLine.setAttribute(XMLLiterals.SUB_LINE_NO, SUBLINE_VALUE);
 		YFCElement eleItem = eleOrderLineList.createChild(XMLLiterals.ITEM);
 		eleItem.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);

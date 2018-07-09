@@ -18,6 +18,7 @@ public class IndgSAP011 extends AbstractCustomApi {
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
     YFCDocument docOrderLineList = invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, orderLineListInput(inXml),orderLineListTemplate());
+    System.out.println("sbdhsdbjg"+docOrderLineList);
     return  commonPrimeLineNo(docOrderLineList, inXml);
 	}
 	
@@ -40,7 +41,7 @@ public class IndgSAP011 extends AbstractCustomApi {
 		eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
 		eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
 		eleOrder.setAttribute(XMLLiterals.ORDER_TYPE, EMPTY_STRING);
-		
+		System.out.println("csjfhkjzkh"+docOrderLineList);
 		return docOrderLineList;
 		
 	}
@@ -52,7 +53,7 @@ public class IndgSAP011 extends AbstractCustomApi {
 		eleOrder.setAttribute(XMLLiterals.ORDER_NO, eleMsgBody.getAttribute(XMLLiterals.PARENT_LEGACY_OMS_ORDER_NO));
 		eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleMsgBody.getAttribute(XMLLiterals.ENTERPRISE_CODE));
 		eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleMsgBody.getAttribute(XMLLiterals.DOCUMENT_TYPE));
-		
+		System.out.println("nskfnkG"+docOrderLineListInput);
 		return docOrderLineListInput;
 	}
 	
@@ -61,6 +62,7 @@ public class IndgSAP011 extends AbstractCustomApi {
 		for(YFCElement orderLine : yfsIterator)
 		{
 			String sPrimeLineNo = orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO) ;
+			System.out.println("dkgkzs "+sPrimeLineNo);
 			YFCElement orderLineEle = XPathUtil.getXPathElement(inXml, "/OrderMessage/MessageBody/Order/OrderLines/OrderLine[@PrimeLineNo = \""+
 					sPrimeLineNo+"\"]");
 			if(XmlUtils.isVoid(orderLineEle)) {
@@ -68,7 +70,7 @@ public class IndgSAP011 extends AbstractCustomApi {
 				parent.removeChild(orderLine);
 			}
 		}
-		
+		System.out.println("cbhjzfkn"+docOrderLineList);
 		
 		return docOrderLineList;
 	}

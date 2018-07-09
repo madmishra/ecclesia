@@ -22,10 +22,10 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 		System.out.println(shipmentListApiOp + "bbbbbbbbbb");
 		YFCDocument docGetShipmentDetails = getShipmentDetailsAPI(shipmentListApiOp);
 		System.out.println(docGetShipmentDetails + "ccccccccccc");
-		String legacyOmsOrderNo = docGetShipmentDetails.getDocumentElement().getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
-		String modifyTs = docGetShipmentDetails.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS);
-		inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsOrderNo);
-		inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).setAttribute(XMLLiterals.MODIFYTS, modifyTs);
+		String legacyOmsOrderNo = docGetShipmentDetails.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
+		String modifyTs = docGetShipmentDetails.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.MODIFYTS);
+		inXml.getDocumentElement().setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsOrderNo);
+		inXml.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 		quantityDifferenceInInpApiOp(docGetShipmentDetails, inXml);
 		return inXml;
 	}

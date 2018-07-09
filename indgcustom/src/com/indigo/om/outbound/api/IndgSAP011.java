@@ -45,11 +45,11 @@ public class IndgSAP011 extends AbstractCustomApi {
 		eleOrderLine.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
 		eleOrderLine.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
 		eleOrderLine.setAttribute(XMLLiterals.SUB_LINE_NO, SUBLINE_VALUE);
-		YFCElement eleItem = eleOrderLineList.createChild(XMLLiterals.ITEM);
+		YFCElement eleItem = eleOrderLine.createChild(XMLLiterals.ITEM);
 		eleItem.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
-		YFCElement eleLinePrice = eleOrderLineList.createChild(XMLLiterals.LINE_PRICE_INFO);
+		YFCElement eleLinePrice = eleOrderLine.createChild(XMLLiterals.LINE_PRICE_INFO);
 		eleLinePrice.setAttribute(XMLLiterals.RETAIL_PRICE, EMPTY_STRING);
-		YFCElement eleOrder = eleOrderLineList.createChild(XMLLiterals.ORDER);
+		YFCElement eleOrder = eleOrderLine.createChild(XMLLiterals.ORDER);
 		eleOrder.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 		eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
 		eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);

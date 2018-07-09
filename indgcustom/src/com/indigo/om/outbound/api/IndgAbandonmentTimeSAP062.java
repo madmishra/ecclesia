@@ -30,6 +30,7 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	    YFCElement shipmentLinesEle = getShipmentListDoc.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES);
 	    YFCElement shipmentLineEle = shipmentLinesEle.createChild(XMLLiterals.SHIPMENT_LINE);
 	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, orderNo);
+	    System.out.println(getShipmentListDoc + "chsaghdg");
 	    return getShipmentListDoc;
 	  }
 	
@@ -40,12 +41,14 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	    shipmentEle.setAttribute(XMLLiterals.SHIPMENT_NO, EMPTY_STRING);
 	    shipmentEle.setAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE, EMPTY_STRING);
 	    shipmentEle.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
+	    System.out.println(getShipmentListTemp + "cnjdhhd");
 	    return getShipmentListTemp;
 	  }
 	
 	public YFCDocument getShipmentList(YFCDocument inXml){
 		String orderNo = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
 				getAttribute(XMLLiterals.SAP_ORDER_NO);
+		System.out.println(orderNo + "xjsbdghs");
 	    return invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(orderNo), inputTemplateForGetShipmentList());
 	 }
 	
@@ -59,6 +62,7 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	    		getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.SHIPMENT_KEY));
 		docShipmentInp.getDocumentElement().setAttribute(XMLLiterals.SHIPMENT_NO, shipmentListApiOp.getDocumentElement().
 	    		getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.SHIPMENT_NO));
+		System.out.println(docShipmentInp + "zajsidd");
 	    return docShipmentInp;
 	}
 	
@@ -73,6 +77,7 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 		eleShipmentLine.setAttribute(XMLLiterals.QUANTITY, EMPTY_STRING);
 		eleShipmentLine.setAttribute(XMLLiterals.SHIPMENT_KEY, EMPTY_STRING);
 		eleShipmentLine.setAttribute(XMLLiterals.SHIPMENT_LINE_NO, EMPTY_STRING);
+		System.out.println(docShipmentTemp + "cjhsjdg");
 		return docShipmentTemp;
 	}
 	

@@ -27,6 +27,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private static final String EMPTY_STRING = "";
   private static final String CATEGORY_DOMAIN = "CategoryDomain";
   private static final String DEFAULT_CATEGORY_PATH = "DefaultCategoryPath";
+  private static final String DEFAULT_CATEGORY = "DefaultCategory";
   private static final String CREATE_ACTION = "Create";
   private static final String DEFAULT_UNIT_OF_MEASURE = "EACH";
   private static final String DELETE_ACTION = "Delete";
@@ -38,7 +39,6 @@ public class IndgManageItemFeed extends AbstractCustomApi{
   private static final String FLAG_YES = "Y";
   private static final String UN_PUBLISH_STATUS = "2000";
   private static final String NODE_LEVEL_INV_MONITOR_RULE = "DEFAULT_RTAM_RULE";
-  private static final String CATEGORY_ALERT_FLOW = "CATEGORY_ALERT_FLOW";
   
   /**
    * This is the invoke method of the service
@@ -354,8 +354,8 @@ public class IndgManageItemFeed extends AbstractCustomApi{
          .getAttribute(XMLLiterals.COMMODITY_CODE,EMPTY_STRING);
      String categoryLevel2 = itemEle.getChildElement(XMLLiterals.PRIMARY_INFORMATION).getAttribute(XMLLiterals.PRODUCT_LINE,EMPTY_STRING);
      if(XmlUtils.isVoid(categoryLevel2) && XmlUtils.isVoid(categoryLevel3)) {
-       invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), 
-           YFCDocument.getDocumentFor(itemEle.toString()));
+       inputCategoryID = getProperty(DEFAULT_CATEGORY);
+       categoryPath = getProperty(DEFAULT_CATEGORY_PATH);
      }
      if(!isCategoryAvailable(categoryLevel3)) {
         if(!isCategoryAvailable(categoryLevel2)) {

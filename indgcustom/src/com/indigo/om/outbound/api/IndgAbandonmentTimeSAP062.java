@@ -13,6 +13,7 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	private static final String ADJUSTMENT_TYPE = "ADJUSTMENT";
 	private static final String SUPPLY_TYPE = "ONHAND";
 	private static final String UOM = "EACH";
+	private static final String ORGANIZATION_CODE_VAL = "Indigo_CA";
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
@@ -21,8 +22,12 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 		System.out.println(shipmentListApiOp + "bbbbbbbbbb");
 		YFCDocument docGetShipmentDetails = getShipmentDetailsAPI(shipmentListApiOp);
 		System.out.println(docGetShipmentDetails + "ccccccccccc");
+		String legacyOmsOrderNo = docGetShipmentDetails.getDocumentElement().getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
+		String modifyTs = docGetShipmentDetails.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS);
+		inXml.getDocumentElement().setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsOrderNo);
+		inXml.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 		quantityDifferenceInInpApiOp(docGetShipmentDetails, inXml);
-		return null;
+		return inXml;
 	}
 	
 	public YFCDocument inputXmlForGetShipmentList(String orderNo) {
@@ -94,6 +99,7 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 			int apiQuantity = (int) Double.parseDouble(quantity2);
 			if(apiQuantity > inpQuantity) {
 				int quantityDiff = apiQuantity-inpQuantity;
+				orderLineEle.setAttribute(XMLLiterals.QTY, quantityDiff);
 				adjustQuantityofInventory(docGetShipmentDetails, shipmentLineEle, quantityDiff);
 			}
 		}
@@ -104,8 +110,7 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 		YFCElement eleItem = docAdjustInv.getDocumentElement().createChild(XMLLiterals.ITEM);
 		eleItem.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, ADJUSTMENT_TYPE);
 		eleItem.setAttribute(XMLLiterals.ITEM_ID, shipmentLineEle.getAttribute(XMLLiterals.ITEM_ID));
-		eleItem.setAttribute(XMLLiterals.ORGANIZATION_CODE, docGetShipmentDetails.getDocumentElement().
-				getAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE));
+		eleItem.setAttribute(XMLLiterals.ORGANIZATION_CODE, ORGANIZATION_CODE_VAL);
 		eleItem.setAttribute(XMLLiterals.QUANTITY, quantityDiff);
 		eleItem.setAttribute(XMLLiterals.SHIPNODE, docGetShipmentDetails.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).
 				getAttribute(XMLLiterals.SHIPNODE));

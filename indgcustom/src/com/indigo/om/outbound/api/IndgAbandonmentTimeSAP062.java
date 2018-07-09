@@ -94,8 +94,8 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 			String quantity1 = orderLineEle.getAttribute(XMLLiterals.QTY);
 			int inpQuantity = Integer.parseInt(quantity1);
 			System.out.println(orderLineEle+" " + primeLineNo+" " + quantity1 +" "+ inpQuantity + "ddddddddddd");
-			YFCElement shipmentLineEle = XPathUtil.getXPathElement(docGetShipmentDetails, "/Shipment/ShipmentLines/ShipmentLine"
-					+ "[@PrimeLineNo=\""+primeLineNo+"\"]");
+			YFCElement shipmentLineEle = XPathUtil.getXPathElement(docGetShipmentDetails, "/Shipments/Shipment/ShipmentLines/"
+					+ "ShipmentLine[@PrimeLineNo=\""+primeLineNo+"\"]");
 			System.out.println(shipmentLineEle + "bjmbhbg");
 			String quantity2 = shipmentLineEle.getAttribute(XMLLiterals.ACTUAL_QUANTITY);
 			int apiQuantity = Integer.parseInt(quantity2);

@@ -331,6 +331,7 @@ public static final String DISPOSITION = "Disposition";
 public static final String RETURN_ORDER_NO = "ReturnOrderNumber";
 public static final String DERIVED_FROM_ORDER = "DerivedFromOrder";
 public static final String DERIVED_FROM_ORDER_LINE = "DerivedFromOrderLine";
+public static final String RETURN_ORDER = "ReturnOrder";
 public static final String RESEND_SAP071 = "ResendSAP071";
 public static final String RETURN_ORDER_ELSE = "ReturnOrderElse";
 }

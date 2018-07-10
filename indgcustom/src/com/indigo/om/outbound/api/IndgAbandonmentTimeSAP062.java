@@ -7,6 +7,12 @@ import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
+/**
+ * 
+ * @author BSG168
+ *
+ */
+
 public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 
 	private static final String EMPTY_STRING = "";
@@ -15,13 +21,14 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	private static final String UOM = "EACH";
 	private static final String ORGANIZATION_CODE_VAL = "Indigo_CA";
 	
+	/**
+	 * This is the invoke point of program
+	 */
+	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
-		System.out.println(inXml + "aaaaaaaaaa");
 		YFCDocument shipmentListApiOp = getShipmentList(inXml);
-		System.out.println(shipmentListApiOp + "bbbbbbbbbb");
 		YFCDocument docGetShipmentDetails = getShipmentDetailsAPI(shipmentListApiOp);
-		System.out.println(docGetShipmentDetails + "ccccccccccc");
 		String legacyOmsOrderNo = docGetShipmentDetails.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
 		String modifyTs = docGetShipmentDetails.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.MODIFYTS);
 		inXml.getDocumentElement().setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsOrderNo);
@@ -30,6 +37,12 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 		return inXml;
 	}
 	
+	/**
+	 * This method forms the input document for getShipmentList API
+	 * @param orderNo
+	 * @return
+	 */
+	
 	public YFCDocument inputXmlForGetShipmentList(String orderNo) {
 	    YFCDocument getShipmentListDoc = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
 	    YFCElement shipmentLinesEle = getShipmentListDoc.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES);
@@ -37,6 +50,11 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	    shipmentLineEle.setAttribute(XMLLiterals.ORDER_NO, orderNo);
 	    return getShipmentListDoc;
 	  }
+	
+	/**
+	 * This method forms the template for getShipmentList API
+	 * @return
+	 */
 	
 	public YFCDocument inputTemplateForGetShipmentList() {
 	    YFCDocument getShipmentListTemp = YFCDocument.createDocument(XMLLiterals.SHIPMENTS);
@@ -48,11 +66,23 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	    return getShipmentListTemp;
 	  }
 	
+	/**
+	 * This method invokes getShipmentList API
+	 * @param inXml
+	 * @return
+	 */
+	
 	public YFCDocument getShipmentList(YFCDocument inXml){
 		String orderNo = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).
 				getAttribute(XMLLiterals.STERLING_ORDER_NO);
 	    return invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentList(orderNo), inputTemplateForGetShipmentList());
 	 }
+	
+	/**
+	 * This method forms the input document for getShipmentDetails API
+	 * @param shipmentListApiOp
+	 * @return
+	 */
 	
 	public YFCDocument inputXmlForGetShipmentDetails(YFCDocument shipmentListApiOp) {
 		YFCDocument docShipmentInp = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
@@ -66,6 +96,11 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	    		getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.SHIPMENT_NO));
 	    return docShipmentInp;
 	}
+	
+	/**
+	 * This method forms the template for getShipmentDetails API
+	 * @return
+	 */
 	
 	public YFCDocument templateXmlForGetShipmentDetails() {
 		YFCDocument docShipmentTemp = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
@@ -81,11 +116,24 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 		return docShipmentTemp;
 	}
 	
+	/**
+	 * This method invokes getShipmentDetails API
+	 * @param shipmentListApiOp
+	 * @return
+	 */
+	
 	public YFCDocument getShipmentDetailsAPI(YFCDocument shipmentListApiOp){
 	    return invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, inputXmlForGetShipmentDetails(shipmentListApiOp), 
 	    		templateXmlForGetShipmentDetails());
 	 }
-
+	
+	 /**
+	  * This method fetches the quantity attribute from inXML and getShipmentDetails
+	  * output document and compares the quantity and finds the difference.
+	  * @param docGetShipmentDetails
+	  * @param inXml
+	  */
+	
 	private void quantityDifferenceInInpApiOp(YFCDocument docGetShipmentDetails, YFCDocument inXml) {
 		YFCIterable<YFCElement> yfsItrator = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
@@ -105,6 +153,14 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 		}
 	}
 	
+	/**
+	 * This method forms the adjustInventory API input and increases the inventory
+	 * by the difference of two quantities.
+	 * @param docGetShipmentDetails
+	 * @param shipmentLineEle
+	 * @param quantityDiff
+	 */
+	
 	private void adjustQuantityofInventory(YFCDocument docGetShipmentDetails, YFCElement shipmentLineEle, int quantityDiff) {
 		YFCDocument docAdjustInv = YFCDocument.createDocument(XMLLiterals.ITEMS);
 		YFCElement eleItem = docAdjustInv.getDocumentElement().createChild(XMLLiterals.ITEM);
@@ -116,7 +172,6 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 				getAttribute(XMLLiterals.SHIPNODE));
 		eleItem.setAttribute(XMLLiterals.SUPPLY_TYPE, SUPPLY_TYPE);
 		eleItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, UOM);
-		System.out.println(docAdjustInv + "zzzzzzzzzzzz");
 		invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, docAdjustInv);
 	}
 }

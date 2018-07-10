@@ -7,6 +7,13 @@
         <Items>
             <ContentPane _sc_extensibility_operation="change"
                 _sc_extensibility_referenceUId="storeAddressPnl" renderHidden="true"/>
+            <Button _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_button"
+                class="longButtons"
+                label="$(_scSimpleBundle:extn_Gift_Wrap)"
+                showLabel="true" uId="extn_button_gift_wrap"/>
             <Button _sc_extensibility_moveOrder="1"
                 _sc_extensibility_operation="insert"
                 _sc_extensibility_position="after"
@@ -59,12 +66,23 @@
                 <Subscriber eventId="extn_button1_onClick" isExtn="true" sequence="51">
                     <Handler methodName="getData"/>
                 </Subscriber>
+                <Subscriber eventId="extn_button_gift_wrap_onClick"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="openConfirmationPopup"/>
+                </Subscriber>
             </Local>
+            <Global>
+                <Subscriber eventId="updateSecondaryContact"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="updateSecondaryContact"/>
+                </Subscriber>
+            </Global>
         </Subscribers>
         <MashupRefs>
             <Behavior>
                 <MashupRef extnType="ADD"
                     mashupId="extn_changeShipmentStatus" mashupRefId="extn_printStatus"/>
+                <MashupRef extnType="ADD" mashupId="addSecondaryContact" mashupRefId="extn_addSecondaryContact"/>
             </Behavior>
         </MashupRefs>
     </ScreenExtension>

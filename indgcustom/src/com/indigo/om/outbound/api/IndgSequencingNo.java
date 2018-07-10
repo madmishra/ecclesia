@@ -1,6 +1,8 @@
 package com.indigo.om.outbound.api;
 
 import java.text.ParseException;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
@@ -16,6 +18,9 @@ import com.yantra.yfc.dom.YFCElement;
 /**
  * 
  * @author BSG170
+ * 
+ * Custom code to update sequence no for the messages that are being sent by sterling
+ * It also updates the time field attributes with the milliseconds and timezone 
  *
  */
 
@@ -27,6 +32,8 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	private static final String INDG_CHANGE_INDG_MSG_SEQ_NO="INDG_changeINDGMsgSeqNo";
 	private static final String INDG_CREATE_INDG_MSG_SEQ_NO="INDG_createINDGMsgSeqNo";
 	private static final String INDG_GET_INDG_MSG_SEQ_NO_LIST="INDG_getINDGMsgSeqNoList";
+	Map<String, String> map=new HashMap<>();
+	private static final String XPATH_DATE_TYPES= "xpath.date.types";
 	
 	/**
 	   * @throws ParseException 
@@ -44,11 +51,14 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		catch(Exception e) {
 			throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_MISSING_VALUE, e);
 		}
+		addDateTypes();
+		upadteMilliSeconds(inXml);
+		
 		return inXml;
 	}
 	  
 	/**
-	 *   
+	 * This method adds sequence no to the input file
 	 * @param docMsg
 	 * @param inXml
 	 */
@@ -65,25 +75,83 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		{
 			eleOrderMessage.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, eleINDGMsgSeqNo.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO));
 		}
-		if(!XmlUtils.isVoid(eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS))) {
-			addModifyts(eleOrderMessage);
+	
+	
+	}
+	 /**
+	  * This method stores the different types of date fields present in incoming messages
+	  */
+	
+	private void addDateTypes() {
+		String xpathPrefixCustom = getProperty(XPATH_DATE_TYPES);
+		for (int jCounter = 1; jCounter <= getProperties().size(); jCounter++) {
+			String curXpathAtrCustom = getProperty(xpathPrefixCustom + jCounter);
+			String hashKey=xpathPrefixCustom + jCounter;
+			if(!map.containsKey(hashKey))
+			{
+				map.put(hashKey, curXpathAtrCustom);
+			}
 		}
+			
 	}
 	
 	/**
-	 * 
+	 * This method invoke addMilliseconds method to update  the time field with milliseconds
+	 * @param inXml
+	 */
+	
+	private void upadteMilliSeconds(YFCDocument inXml)
+	{
+		
+		YFCElement eleOrderMessage = inXml.getDocumentElement();
+		YFCElement eleOrder = eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
+		
+		if(!XmlUtils.isVoid(eleOrderMessage.getAttribute(XMLLiterals.MODIFYTS)))
+		{
+			YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS);
+			eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, addMilliseconds(ts));
+		}
+		if(!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE)) &&
+				!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.CUSTOMER_REQ_SHIP_DATE))) {
+			invokeaddMilliseconds(eleOrder);
+		}
+		if(!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE)))
+		{
+			YTimestamp ts = eleOrder.getYTimestampAttribute(XMLLiterals.ORDER_DATE);
+			eleOrder.setAttribute(XMLLiterals.ORDER_DATE, addMilliseconds(ts));
+		}
+		if(!XmlUtils.isVoid(eleOrder.getAttribute(XMLLiterals.ABANDONMENT_TIME))) {
+			YTimestamp ts = eleOrder.getYTimestampAttribute(XMLLiterals.ABANDONMENT_TIME);
+			eleOrder.setAttribute(XMLLiterals.ABANDONMENT_TIME, addMilliseconds(ts));
+		}
+	}
+	   
+	/**
+	 * This method invokes addMilliseconds method
+	 * @param eleOrder
+	 */
+	private void invokeaddMilliseconds(YFCElement eleOrder) {
+		YTimestamp ts = eleOrder.getYTimestampAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE);
+		String sCusReqDelDate=addMilliseconds(ts);
+		eleOrder.setAttribute(XMLLiterals.CUSTOMER_REQ_DELIVERY_DATE, sCusReqDelDate);
+		YTimestamp ts2 = eleOrder.getYTimestampAttribute(XMLLiterals.CUSTOMER_REQ_SHIP_DATE);
+		String sCusReqShipDate=addMilliseconds(ts2);
+		eleOrder.setAttribute(XMLLiterals.CUSTOMER_REQ_SHIP_DATE, sCusReqShipDate);
+	}
+	/**
+	 * This method updates given time field with milliseconds
 	 * @param eleOrderMessage
 	 */
 	  
-	private void addModifyts(YFCElement eleOrderMessage) {
-		YTimestamp ts = eleOrderMessage.getYTimestampAttribute(XMLLiterals.MODIFYTS);
-		eleOrderMessage.removeAttribute(XMLLiterals.MODIFYTS);
+	private String  addMilliseconds(YTimestamp ts) {
+		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		String sModifyts= format.format(ts);
-		sModifyts = sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
-		eleOrderMessage.setAttribute(XMLLiterals.MODIFYTS, sModifyts);
+		return sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
+		
 		
 	}
+
 	  
 	/**
 	  * this method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method
@@ -203,9 +271,12 @@ public class IndgSequencingNo extends AbstractCustomApi {
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,EMPTY_STRING);
 			}
 			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
+			 
 		}
-		else
+		else {
 			return inputGetINDGMsgSeqNoList(docOrderMessage);
+			
+		}
 	}
 		
 	/**

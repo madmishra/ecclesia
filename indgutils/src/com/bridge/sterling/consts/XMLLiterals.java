@@ -287,5 +287,21 @@ public static final String LOCALE = "Locale";
 public static final String LOCALE_LIST = "LocaleList";
 public static final String TIME_ZONE = "Timezone";
 public static final String ITEM_TYPE = "ItemType";
+public static final String CUSTOMER_REQ_DELIVERY_DATE = "CustReqDeliveryDate";
+public static final String CUSTOMER_REQ_SHIP_DATE = "CustReqShipDate";
+public static final String  ABANDONMENT_TIME = "AbandonmentTime";
+public static final String LOCALE_CODE2 = "LocaleCode"; 
+public static final String RELATED_ORG_LIST = "RelatedOrgList"; 
+public static final String ORG_ENTERPRISE = "OrgEnterprise"; 
+public static final String ENTERPRISE_ORGANIZATION_KEY = "EnterpriseOrganizationKey";
+public static final String SHIPMENT_LINE_KEY = "ShipmentLineKey";
+public static final String STORE_BATCH_LINES = "StoreBatchLines";
+public static final String STORE_BATCH_LINE = "StoreBatchLine";
+public static final String ITEM_DETAILS = "ItemDetails";
+public static final String ACTUAL_QUANTITY = "ActualQuantity";
+public static final String QTY = "Qty";
+public static final String LINE_PRICE_INFO = "LinePriceInfo";
+public static final String RETAIL_PRICE = "RetailPrice";
+public static final String PARENT_LEGACY_OMS_ORDER_NO = "ParentLegacyOMSOrderNo";
 }
 

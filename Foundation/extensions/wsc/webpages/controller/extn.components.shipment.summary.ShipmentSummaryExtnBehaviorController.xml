@@ -6,5 +6,7 @@
     <MashupRefs>
         <MashupRef extnType="ADD" mashupId="extn_changeShipmentStatus"
             mashupRefId="extn_printStatus" permissionId=""/>
+        <MashupRef extnType="ADD" mashupId="addSecondaryContact"
+            mashupRefId="extn_addSecondaryContact" permissionId=""/>
     </MashupRefs>
 </Controller>

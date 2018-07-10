@@ -7,7 +7,8 @@ US Government Users Restricted Rights  Use, duplication or disclosure restricted
  -->
 
 <!-- getOrderLineList Output XML -->
-<OrderLine AllocationLeadTime="" CarrierAccountNo="" CarrierServiceCode=""
+<OrderLineList>
+	<OrderLine AllocationLeadTime="" CarrierAccountNo="" CarrierServiceCode=""
     CustomerLinePONo="" CustomerPONo="" DeliveryMethod="" DepartmentCode=""
     DocumentType="" EnterpriseCode="" FulfillmentType="" LineSeqNo=""
     LineType="" MinShipByDate="" OrderAuditKey="" OrderHeaderKey=""
@@ -19,8 +20,8 @@ US Government Users Restricted Rights  Use, duplication or disclosure restricted
     ReservationID="" ReservationPool="" ReturnReason="" 
     SerialNo="" ShipNode="" ShipToID="" ShipTogetherNo=""
     ShipmentCosolidationGroupId="" SplitQty="" Status="" SubLineNo="">
-	<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" />
-    <Item AlternateItemID="" BundleFulfillmentMode="" CostCurrency=""
+		<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" />
+		<Item AlternateItemID="" BundleFulfillmentMode="" CostCurrency=""
         CountryOfOrigin="" CreditWOReceipt="" CustomerItem=""
         CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""
         IsReturnable="" ItemDesc="" ItemID="" ItemShortDesc=""
@@ -29,11 +30,11 @@ US Government Users Restricted Rights  Use, duplication or disclosure restricted
         NMFCCode="" NMFCDescription="" ProductClass="" ProductLine=""
         ReturnWindow="" ScheduleBCode="" SupplierItem=""
         SupplierItemDesc="" TaxProductCode="" UPCCode="" UnitCost="" UnitOfMeasure="">
-    </Item>
-    <DerivedFrom DocumentType="" EnterpriseCode="" OrderHeaderKey="" OrderNo=""/>
-    <OrderDate ActualDate="" DateTypeId="" ExpectedDate=""
+		</Item>
+		<DerivedFrom DocumentType="" EnterpriseCode="" OrderHeaderKey="" OrderNo=""/>
+		<OrderDate ActualDate="" DateTypeId="" ExpectedDate=""
         OrderHeaderKey="" OrderLineKey="" OrderReleaseKey="" RequestedDate=""/>
-    <Order AllocationRuleID="" AuthorizationExpirationDate=""
+		<Order AllocationRuleID="" AuthorizationExpirationDate=""
         AuthorizedClient="" BillToID="" BuyerOrganizationCode=""
         BuyerUserId="" CarrierAccountNo="" CarrierServiceCode=""
         CustomerContactID="" CustomerEMailID="" CustomerPONo=""
@@ -56,5 +57,6 @@ US Government Users Restricted Rights  Use, duplication or disclosure restricted
         SourceKey="" SourceType="" TaxExemptFlag=""
         TaxExemptionCertificate="" TaxJurisdiction="" TaxPayerId=""
         TermsCode="" TotalAdjustmentAmount="">
-    </Order>
-</OrderLine>
+		</Order>
+	</OrderLine>
+</OrderLineList>

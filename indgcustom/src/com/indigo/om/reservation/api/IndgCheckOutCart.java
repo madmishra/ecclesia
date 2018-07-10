@@ -281,6 +281,7 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 						eleReservations.getAttribute("AvailableQty"));
 
 				if (!cartAttributesPopulated) {
+<<<<<<< HEAD
 					if(eleReservation != null) {
 						eleCart.setAttribute("ReservationId",
 								eleReservation.getAttribute("ReservationID"));
@@ -289,6 +290,15 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 						cartAttributesPopulated = true;
 						
 					}
+=======
+				    if(eleReservation != null) {
+    					eleCart.setAttribute("ReservationId",
+    							eleReservation.getAttribute("ReservationID"));
+    					eleCart.setAttribute("ReservationExpiryTime",
+    							eleReservation.getAttribute("ExpirationDate"));
+    					cartAttributesPopulated = true;
+				    }
+>>>>>>> fcc83d2ca5dea6e9f7afdaba639e854abe8ae929
 				}
 
 			}

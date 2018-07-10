@@ -38,6 +38,15 @@ return _dojodeclare("extn.components.shipment.summary.ShipmentSummaryExtnBehavio
 		 extnType : 			'ADD'
 
 	}
+,
+	 		{
+		 mashupRefId : 			'extn_addSecondaryContact'
+,
+		 mashupId : 			'addSecondaryContact'
+,
+		 extnType : 			'ADD'
+
+	}
 
 	]
 

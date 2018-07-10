@@ -24,15 +24,16 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		if(!YFCObject.isVoid(eleOrder)) {
 			sOrderHeaderKey = eleOrder.getAttribute(XMLLiterals.ORDER_HEADER_KEY);
 			docCreateOrderOutput =  invokeYantraApi(XMLLiterals.CREATE_ORDER, createOrderInput(inXml, sOrderHeaderKey),createOrderTemplate());
+			System.out.println("jhgjdhjkj"+docCreateOrderOutput);
 		}
 
 		return docCreateOrderOutput;
 	}
 
 	private YFCDocument getOrderList(YFCDocument inXml) {
-		return invokeYantraApi(XMLLiterals.GET_ORDER_LIST, getOrderListInput(inXml), getOrderListTemplate());
-		
-		
+		YFCDocument rgjhyut= invokeYantraApi(XMLLiterals.GET_ORDER_LIST, getOrderListInput(inXml), getOrderListTemplate());
+		System.out.println("asdfg" + rgjhyut);
+		return rgjhyut;
 	}
 
 	private YFCDocument createOrderInput(YFCDocument inXml, String sOrderHeaderKey) {
@@ -51,6 +52,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		for(YFCElement orderLine:eleOrderLine) {	
 			formOrderLineElement(eleOrderLines, orderLine,eleInXml, sOrderHeaderKey);
 		}
+		System.out.println("wertyggf" +doccreateOrderInput );
 		return doccreateOrderInput;
 	}
 	private  void formOrderLineElement(YFCElement eleOrderLines, YFCElement orderLine ,YFCElement eleInXml, String sOrderHeaderKey)
@@ -77,6 +79,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		YFCElement eleRerference2 = eleRerferences.createChild(XMLLiterals.REFERENCE);
 		eleRerference2.setAttribute(XMLLiterals.NAME, XMLLiterals.DISPOSITION);
 		eleRerference2.setAttribute(XMLLiterals.VALUE, orderLine.getAttribute(XMLLiterals.DISPOSITION));
+		
 	}
 
 	private YFCDocument createOrderTemplate() {
@@ -109,7 +112,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		eleDerivedFromOrderLine.setAttribute(XMLLiterals.SUB_LINE_NO, EMPTY_STRING);
 		YFCElement eleItem = eleDerivedFromOrderLine.createChild(XMLLiterals.ITEM);
 		eleItem.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
-		
+		System.out.println("sdfghjojhn" +docCreateOrder );
 		return docCreateOrder;
 	}
 
@@ -119,6 +122,8 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		YFCElement eleOrder = eleOrderList.createChild(XMLLiterals.ORDER);
 		eleOrder.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 		eleOrder.setAttribute(XMLLiterals.ORDER_HEADER_KEY, EMPTY_STRING);
+		
+		System.out.println("zxcvbn"+getorderList );
 		return getorderList;
 	}
 
@@ -130,6 +135,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		eleOrder.setAttribute(XMLLiterals.ORDER_NO, eleInXml.getAttribute(XMLLiterals.PARENT_LEGACY_OMS_ORDER_NO));
 		eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleInXml.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 		eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleInXml.getAttribute(XMLLiterals.ENTERPRISE_CODE));
+		System.out.println("thedh"+docgetOrderListInput);
 		return docgetOrderListInput;	
 	}
 

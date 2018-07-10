@@ -51,7 +51,7 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 				adjustQuantityofInventory(inpQuantity, primeLineNo, docAdjustInv, inXml);
 			}
 		}
-		System.out.println(docAdjustInv);
+		System.out.println(docAdjustInv + "aaaaaaaaa");
 		invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, docAdjustInv);
 	}
 	

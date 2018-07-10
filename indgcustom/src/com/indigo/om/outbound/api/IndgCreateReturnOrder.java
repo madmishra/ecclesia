@@ -84,7 +84,9 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 
 	private YFCDocument createOrderTemplate() {
 		YFCDocument docCreateOrder = YFCDocument.createDocument(XMLLiterals.ORDER);
+		System.out.println("hsjfhjsghjghkj"+docCreateOrder);
 		YFCElement eleCreateOrder = docCreateOrder.getDocumentElement();
+		System.out.println("hjdhfdg"+eleCreateOrder);
 		eleCreateOrder.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
 		eleCreateOrder.setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, EMPTY_STRING);
 		eleCreateOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);

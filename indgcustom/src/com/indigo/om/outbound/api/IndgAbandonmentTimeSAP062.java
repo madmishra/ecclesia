@@ -48,10 +48,10 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 			int inpQuantity = -(int) Double.parseDouble(quantity1);
 			String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
 			if(inpQuantity!=0) {
+				orderLineEle.setAttribute(XMLLiterals.QTY, quantity1);
 				adjustQuantityofInventory(inpQuantity, primeLineNo, docAdjustInv, inXml);
 			}
 		}
-		System.out.println(docAdjustInv + "aaaaaaaaaa");
 		invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, docAdjustInv);
 	}
 	

@@ -2,7 +2,6 @@ package com.indigo.om.outbound.api;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
-import com.bridge.sterling.utils.XPathUtil;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
@@ -21,6 +20,7 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	private static final String ADJUSTMENT_TYPE = "ADJUSTMENT";
 	private static final String SUPPLY_TYPE = "ONHAND";
 	private static final String UOM = "EACH";
+	private static final String EMPTY_STRING = "";
 	
 	/**
 	 * This is the invoke point of program
@@ -28,8 +28,42 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
+		YFCDocument docGetOrderLineListOp = getOrderLineListApi(inXml);
+		System.out.println(docGetOrderLineListOp + "aaaaaaaaaa");
 		quantityDifferenceInInpApiOp(inXml);
+		String legacyOmsOrderNo = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
+				getAttribute(XMLLiterals.CUSTOMER_PO_NO);
+		String modifyTs = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
+				getAttribute(XMLLiterals.MODIFYTS);
+		inXml.getDocumentElement().setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsOrderNo);
+		inXml.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
 		return inXml;
+	}
+	
+	public YFCDocument docForGetOrderLineListInp(YFCElement orderEle) {
+	    YFCDocument getOrderLineListDoc = YFCDocument.createDocument(XMLLiterals.ORDER_LINE);
+	    getOrderLineListDoc.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, orderEle.getChildElement(XMLLiterals.ORDER_LINES).
+	    		getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.SHIPNODE));
+	    YFCElement eleOrder = getOrderLineListDoc.getDocumentElement().createChild(XMLLiterals.ORDER);
+	    eleOrder.setAttribute(XMLLiterals.ORDER_NO, orderEle.getAttribute(XMLLiterals.STERLING_ORDER_NO));
+	    eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, orderEle.getAttribute(XMLLiterals.ENTERPRISE_CODE));
+	    eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, orderEle.getAttribute(XMLLiterals.DOCUMENT_TYPE));
+	    System.out.println(getOrderLineListDoc + "bbbbbbbbbbbb");
+	    return getOrderLineListDoc;
+	}
+	
+	public YFCDocument docForGetOrderLineListTemplate() {
+	    YFCDocument getOrderLineListTemp = YFCDocument.createDocument(XMLLiterals.ORDER_LINE_LIST);
+	    YFCElement orderLineEle = getOrderLineListTemp.getDocumentElement().createChild(XMLLiterals.ORDER_LINE);
+	    orderLineEle.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
+	    orderLineEle.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
+	    System.out.println(getOrderLineListTemp + "cccccccccc");
+	    return getOrderLineListTemp;
+	}
+	
+	public YFCDocument getOrderLineListApi(YFCDocument inXml){
+		YFCElement orderEle = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
+	    return  invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, docForGetOrderLineListInp(orderEle), docForGetOrderLineListTemplate());
 	}
 	
 	 /**
@@ -46,10 +80,8 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 		for(YFCElement orderLineEle : yfsItrator) {
 			String quantity1 = orderLineEle.getAttribute(XMLLiterals.QUANTITY_SHORT);
 			int inpQuantity = -(int) Double.parseDouble(quantity1);
-			String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
 			if(inpQuantity!=0) {
-				orderLineEle.setAttribute(XMLLiterals.QTY, quantity1);
-				adjustQuantityofInventory(inpQuantity, primeLineNo, docAdjustInv, inXml);
+				adjustQuantityofInventory(inpQuantity, orderLineEle, docAdjustInv, inXml);
 			}
 		}
 		invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, docAdjustInv);
@@ -63,16 +95,14 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	 * @param quantityDiff
 	 */
 	
-	private void adjustQuantityofInventory(int inpQuantity, String primeLineNo, YFCDocument docAdjustInv, YFCDocument inXml) {
+	private void adjustQuantityofInventory(int inpQuantity, YFCElement orderLineEle, YFCDocument docAdjustInv, YFCDocument inXml) {
 		YFCElement eleItem = docAdjustInv.getDocumentElement().createChild(XMLLiterals.ITEM);
-		YFCElement odrLineEle = XPathUtil.getXPathElement(inXml, "/OrderMessage/MessageBody/Order/OrderLines/OrderLine"
-				+ "[@PrimeLineNo=\""+primeLineNo+"\"]");
 		eleItem.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, ADJUSTMENT_TYPE);
-		eleItem.setAttribute(XMLLiterals.ITEM_ID, odrLineEle.getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID));
+		eleItem.setAttribute(XMLLiterals.ITEM_ID, orderLineEle.getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID));
 		eleItem.setAttribute(XMLLiterals.ORGANIZATION_CODE, inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
 				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ENTERPRISE_CODE));
 		eleItem.setAttribute(XMLLiterals.QUANTITY, inpQuantity);
-		eleItem.setAttribute(XMLLiterals.SHIPNODE, odrLineEle.getAttribute(XMLLiterals.SHIPNODE));
+		eleItem.setAttribute(XMLLiterals.SHIPNODE, orderLineEle.getAttribute(XMLLiterals.SHIPNODE));
 		eleItem.setAttribute(XMLLiterals.SUPPLY_TYPE, SUPPLY_TYPE);
 		eleItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, UOM);
 	}

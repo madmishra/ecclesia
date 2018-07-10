@@ -19,7 +19,7 @@ public class IndgReturnSAP071 extends AbstractCustomApi {
 			String sResendSAP071 = eleInXml.getAttribute(XMLLiterals.RESEND_SAP071);
 		if(YFCObject.isVoid(sResendSAP071))
 		{
-			sResendSAP071 = NO;
+			eleInXml.setAttribute(XMLLiterals.RESEND_SAP071, NO);
 			throwError();
 			invokeYantraService(XMLLiterals.RETURN_ORDER, inXml);
 		}

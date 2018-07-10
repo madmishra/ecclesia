@@ -8,7 +8,7 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
 <DBSchema>
 	<Entities>
 		<Entity TableName="INDG_MSG_SEQ_NO" ApiNeeded="Y" AuditRequired="N" Description="Tabel for controlling SterlingToSAPMessageSequenceNumber and SterlingToLegacyOMSMessageSequenceNumber" 
-      HasHistory="Y" Prefix="INDG_" EntityType="Configuration">
+      HasHistory="N" Prefix="INDG_" EntityType="TRANSACTION">
 		<Attributes>
 			<Attribute ColumnName="SEQUENCE_NO_KEY"
 		  DataType="Key" 

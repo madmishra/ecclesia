@@ -303,5 +303,6 @@ public static final String QTY = "Qty";
 public static final String LINE_PRICE_INFO = "LinePriceInfo";
 public static final String RETAIL_PRICE = "RetailPrice";
 public static final String PARENT_LEGACY_OMS_ORDER_NO = "ParentLegacyOMSOrderNo";
+public static final String QUANTITY_SHORT = "QuantityShort";
 }
 

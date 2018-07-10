@@ -10,6 +10,9 @@ import com.yantra.yfc.dom.YFCElement;
 /**
  * 
  * @author BSG168
+ * 
+ * Custom API to consume SAP062 message and adjust the inventory
+ * based on the quantity and for the Legacy062 message.
  *
  */
 

@@ -146,8 +146,8 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 			String quantity2 = shipmentLineEle.getAttribute(XMLLiterals.ACTUAL_QUANTITY);
 			int apiQuantity = (int) Double.parseDouble(quantity2);
 			if(apiQuantity > inpQuantity) {
-				int quantityDiff = apiQuantity-inpQuantity;
-				orderLineEle.setAttribute(XMLLiterals.QTY, quantityDiff);
+				int quantityDiff = inpQuantity-apiQuantity;
+				orderLineEle.setAttribute(XMLLiterals.QTY, apiQuantity);
 				adjustQuantityofInventory(docGetShipmentDetails, shipmentLineEle, quantityDiff);
 			}
 		}

@@ -7,6 +7,10 @@
             OrderedQty="" OrigOrderLineKey="" OriginalOrderedQty=""
             PrimeLineNo=""  ReceivingNode="" RemainingQty="" ReqShipDate="" ReqDeliveryDate="" ShipNode="" 
 			ShipToID="" SerialNo="" Status="" StatusQuantity="" SubLineNo="" >
+			<DerivedFromOrder DocumentType="" EnterpriseCode="" OrderNo=""/>
+			<DerivedFromOrderLine CustomerPONo="" CustomerLinePONo="" PrimeLineNo="" SubLineNo="" >
+				<Item ItemID="" UnitOfMeasure=""/>
+			</DerivedFromOrderLine>
 			<Order BillToID="" BuyerOrganizationCode="" CustomerEMailID="" CustomerPONo=""
 			CustomerRewardsNo="" DeliveryCode="" Division="" DocumentType="" DraftOrderFlag=""
 			EnterpriseCode="" HoldFlag="" MaxOrderStatus=""
@@ -15,14 +19,14 @@
 			OriginalTotalAmount="" OtherCharges="" PaymentStatus=""
 			Purpose="" ReceivingNode="" ReqShipDate="" SellerOrganizationCode=""
 			ShipToID="" >
-			<PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
+				<PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
 			AddressLine4="" AddressLine5="" AddressLine6=""
 			AlternateEmailID="" Beeper="" City="" Company="" Country=""
 			DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
 			EveningPhone="" FirstName="" JobTitle="" LastName=""
 			MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
 			PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
-			<PersonInfoBillTo AddressID="" AddressLine1="" AddressLine2="" AddressLine3=""
+				<PersonInfoBillTo AddressID="" AddressLine1="" AddressLine2="" AddressLine3=""
 			AddressLine4="" AddressLine5="" AddressLine6=""
 			AlternateEmailID="" Beeper="" City="" Company="" Country=""
 			DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
@@ -38,7 +42,6 @@
 			<Notes>									
 				<Note NoteText="" SequenceNo="" ReasonCode=""/>									
 			</Notes>
-			<Extn />
 		</OrderLine>
 	</OrderLines>
 </OrderLineList>

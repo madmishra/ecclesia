@@ -29,7 +29,6 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
 		YFCDocument docGetOrderLineListOp = getOrderLineListApi(inXml);
-		System.out.println(docGetOrderLineListOp + "aaaaaaaaaa");
 		quantityDifferenceInInpApiOp(inXml);
 		String legacyOmsOrderNo = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 				getAttribute(XMLLiterals.CUSTOMER_PO_NO);
@@ -40,6 +39,12 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 		return inXml;
 	}
 	
+	/**
+	 * This method forms the input document for getOrderLineList API.
+	 * @param orderEle
+	 * @return
+	 */
+	
 	public YFCDocument docForGetOrderLineListInp(YFCElement orderEle) {
 	    YFCDocument getOrderLineListDoc = YFCDocument.createDocument(XMLLiterals.ORDER_LINE);
 	    getOrderLineListDoc.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, orderEle.getChildElement(XMLLiterals.ORDER_LINES).
@@ -48,18 +53,27 @@ public class IndgAbandonmentTimeSAP062 extends AbstractCustomApi {
 	    eleOrder.setAttribute(XMLLiterals.ORDER_NO, orderEle.getAttribute(XMLLiterals.STERLING_ORDER_NO));
 	    eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, orderEle.getAttribute(XMLLiterals.ENTERPRISE_CODE));
 	    eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, orderEle.getAttribute(XMLLiterals.DOCUMENT_TYPE));
-	    System.out.println(getOrderLineListDoc + "bbbbbbbbbbbb");
 	    return getOrderLineListDoc;
 	}
+	
+	/**
+	 * This method forms the template for getOrderLineList API.
+	 * @return
+	 */
 	
 	public YFCDocument docForGetOrderLineListTemplate() {
 	    YFCDocument getOrderLineListTemp = YFCDocument.createDocument(XMLLiterals.ORDER_LINE_LIST);
 	    YFCElement orderLineEle = getOrderLineListTemp.getDocumentElement().createChild(XMLLiterals.ORDER_LINE);
 	    orderLineEle.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
 	    orderLineEle.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
-	    System.out.println(getOrderLineListTemp + "cccccccccc");
 	    return getOrderLineListTemp;
 	}
+	
+	/**
+	 * This method invokes the getOrderLineList API.
+	 * @param inXml
+	 * @return
+	 */
 	
 	public YFCDocument getOrderLineListApi(YFCDocument inXml){
 		YFCElement orderEle = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);

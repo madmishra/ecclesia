@@ -49,6 +49,9 @@
             <UIExtn
                 appScreen="wsc.components.shipment.backroompick.BackroomPickProductScan"
                 extnScreen="extn.components.shipment.backroompick.BackroomPickProductScanExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.shipment.common.screens.ShortageReasonPopup"
+                extnScreen="extn.components.shipment.common.screens.ShortageReasonPopupExtn" type="diffrential"/>
         </UIExtns>
     </Identifier>
 </Extensions>

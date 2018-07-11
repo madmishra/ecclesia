@@ -43,6 +43,10 @@ public class IndgManageUser extends AbstractCustomApi {
 	private static final String HASH_VAL = "#";
 	private static final String STORE = "Store ";
 	private String localeCode = "";
+	private static final String APPLICATION_VAL = "WSC";
+	private static final String COMPONENT_VAL = "BATCH_SORT_METHOD";
+	private static final String DEFINATION_VAL = "SORT_AFTER_PICK";
+	private static final String SCREEN_NAME_VAL = "ALL";
 	
 	/**	 
 	 * This method is the invoke point of the service.
@@ -64,6 +68,7 @@ public class IndgManageUser extends AbstractCustomApi {
 		 ifStoreExistForNewUser(inXml, inputUserList, getOrganizationListApiOp);
 		 changeStatusForExtraUser(extraUserList,userListApiOp);
 		 createNewUserFromInputXml(inputUserList,inXml,commonCodeListApiOp);
+		 manageUIStateforNewUsers(inputUserList);
 		 return inXml;
 	}
 	
@@ -386,5 +391,17 @@ public class IndgManageUser extends AbstractCustomApi {
 	
 	private void callUserUpdateQueue(YFCDocument doc) {
 	     invokeYantraService(USER_MANAGER_SERVER, doc);
+	}
+	
+	private void manageUIStateforNewUsers(Collection<String> inputUserList) {
+		for(String loginId : inputUserList) {
+			YFCDocument docUserUiState = YFCDocument.createDocument(XMLLiterals.USER_UI_STATE);
+			docUserUiState.getDocumentElement().setAttribute(XMLLiterals.APPLICATION_NAME, APPLICATION_VAL);
+			docUserUiState.getDocumentElement().setAttribute(XMLLiterals.COMPONENT_NAME, COMPONENT_VAL);
+			docUserUiState.getDocumentElement().setAttribute(XMLLiterals.DEFINITION, DEFINATION_VAL);
+			docUserUiState.getDocumentElement().setAttribute(XMLLiterals.LOGIN_ID, loginId);
+			docUserUiState.getDocumentElement().setAttribute(XMLLiterals.SCREEN_NAME, SCREEN_NAME_VAL);
+			invokeYantraApi(XMLLiterals.MANAGE_USER_UI_STATE, docUserUiState);
+		}
 	}
 }

@@ -50,17 +50,13 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	public YFCDocument invoke(YFCDocument inXml) {
 		organizationCode = inXml.getDocumentElement().getChildElement(XMLLiterals.ORGANIZATION).getAttribute(XMLLiterals.CAPACITYORGCODE);
 		YFCDocument shipNodeListApiOp = getShipNodeList();
-		System.out.println(shipNodeListApiOp + "cccccccccc");
 		Collection<String> uncommonShipNodeList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion(inXml, shipNodeListApiOp, 
 				XMLLiterals.ORGANIZATION_CODE,XMLLiterals.ORGANIZATION, XMLLiterals.SHIP_NODE_CODE,XMLLiterals.SHIPNODE);
-		System.out.println(uncommonShipNodeList + "aaaaaaaaaa");
 		Collection<String> organizationCodeList = IndgManageDeltaLoadUtil.manageDeltaLoadForDeletion(shipNodeListApiOp, inXml, 
 				XMLLiterals.SHIP_NODE_CODE,XMLLiterals.SHIPNODE,XMLLiterals.ORGANIZATION_CODE,XMLLiterals.ORGANIZATION);
-		System.out.println(organizationCodeList + "bbbbbbbbbb");
 		changeStatusOfExtraNodes(uncommonShipNodeList, shipNodeListApiOp);
 		createNewNodesInInputXml(organizationCodeList,inXml);
 		YFCDocument getDistributionRuleListApiOp = getDistributionRuleList();
-		System.out.println(getDistributionRuleListApiOp + "ggggggggggg");
 		docSetDistributionGroup(getDistributionRuleListApiOp, organizationCodeList);
 		return inXml;
 	}
@@ -123,7 +119,6 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	    			inputDocForManageOrgAPI.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, value);
 	    			YFCElement nodeEle = inputDocForManageOrgAPI.getDocumentElement().createChild((XMLLiterals.NODE));
 	    			nodeEle.setAttribute(XMLLiterals.ACTIVATEFLAG, INACTIVATE_FLAG);
-	    			System.out.println(inputDocForManageOrgAPI + "ffffffffffff");
 	    			invokeYantraApi(XMLLiterals.MANAGE_ORGANIZATION_HIERARCHY, inputDocForManageOrgAPI);
 	    		}
 	    	}
@@ -151,13 +146,11 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	    	  YFCElement orgRoleEle = organization.createChild(XMLLiterals.ORG_ROLE_LIST);
 	    	  YFCElement orgRole = orgRoleEle.createChild(XMLLiterals.ORG_ROLE);
 	    	  orgRole.setAttribute(XMLLiterals.ROLE_KEY, NODE);
-	    	  System.out.println(docCreateOrgInput + "dddddddddddd");
 	    	  invokeYantraApi(XMLLiterals.CREATE_ORGANIZATION_HIERARCHY, docCreateOrgInput);
 	    	  YFCNode parent = organizationEle.getParentNode();
 	    	  parent.removeChild(organizationEle);
 	      }
 	    }
-	    System.out.println(inXml + "eeeeeeeeeeee");
 	    modifyExistingNodes(inXml);
 	}
 	
@@ -218,7 +211,6 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 		docDistributionRule.getDocumentElement().setAttribute(XMLLiterals.PURPOSE, SOURCING);
 		YFCElement eleItemShipNodes = docDistributionRule.getDocumentElement().createChild(XMLLiterals.ITEM_SHIP_NODES);
 		setDistributionGroupEle(organizationCodeList, eleItemShipNodes);
-		System.out.println(docDistributionRule + "zzzzzzzzzz");
 		invokeYantraApi(XMLLiterals.MANAGGE_DISTRIBUTION_RULE, docDistributionRule);
 	}
 	

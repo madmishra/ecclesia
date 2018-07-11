@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-	<xsl:template match="Order">
+	<xsl:template match="OrderLineList">
 		<OrderMessage>
 			<xsl:attribute name="MessageTypeId">SAP071</xsl:attribute>
 			<xsl:attribute name="Modifyts">
-				<xsl:value-of select="@Modifyts"/>
+				<xsl:value-of select="OrderLine/@Modifyts"/>
 			</xsl:attribute>
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="SterlingOrderNo">
-						<xsl:value-of select="OrderLines/OrderLine/DerivedFromOrder/@OrderNo"/>
+						<xsl:value-of select="OrderLine/DerivedFromOrder/@OrderNo"/>
 					</xsl:attribute>
 					<xsl:attribute name="ReturnOrderNumber">
-						<xsl:value-of select="@OrderNo"/>
+						<xsl:value-of select="OrderLine/Order/@OrderNo"/>
 					</xsl:attribute>
 					<xsl:attribute name="DocumentType">
-						<xsl:value-of select="@DocumentType"/>
+						<xsl:value-of select="OrderLine/Order/@DocumentType"/>
 					</xsl:attribute>
 					<xsl:attribute name="OrderType">
-						<xsl:value-of select="@OrderType"/>
+						<xsl:value-of select="OrderLine/Order/@OrderType"/>
 					</xsl:attribute>
 					<xsl:attribute name="EnterpriseCode">
-						<xsl:value-of select="@EnterpriseCode"/>
+						<xsl:value-of select="OrderLine/Order/@EnterpriseCode"/>
 					</xsl:attribute>
-					<xsl:if test="OrderLines/OrderLine/References/Reference/@Name = 'HUValue'">
+					<xsl:if test="OrderLine/References/Reference/@Name = 'HUValue'">
 						<xsl:attribute name="HUValue">
-							<xsl:value-of select="OrderLines/OrderLine/References/Reference/@Value"/>
+							<xsl:value-of select="OrderLine/References/Reference/@Value"/>
 						</xsl:attribute>
 					</xsl:if>
 					<OrderLines>
-						<xsl:for-each select="OrderLines/OrderLine">
+						<xsl:for-each select="OrderLine">
 							<OrderLine>
 								<xsl:attribute name="Qty">
 									<xsl:value-of select="@OrderedQty"/>
@@ -52,7 +52,7 @@
 								</xsl:for-each>
 								<Item>
 									<xsl:attribute name="ItemID">
-										<xsl:value-of select="DerivedFromOrderLine/Item/@ItemID"/>
+										<xsl:value-of select="Item/@ItemID"/>
 									</xsl:attribute>
 								</Item>
 							</OrderLine>

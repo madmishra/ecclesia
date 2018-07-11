@@ -352,5 +352,6 @@ public static final String APPLICATION_NAME = "ApplicationName";
 public static final String COMPONENT_NAME = "ComponentName";
 public static final String DEFINITION = "Definition";
 public static final String SCREEN_NAME = "ScreenName";
+public static final String MANAGE_USER_UI_STATE = "manageUserUiState";
 }
 

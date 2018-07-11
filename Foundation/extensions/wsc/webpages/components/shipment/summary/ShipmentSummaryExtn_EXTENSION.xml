@@ -83,6 +83,7 @@
                 <MashupRef extnType="ADD"
                     mashupId="extn_changeShipmentStatus" mashupRefId="extn_printStatus"/>
                 <MashupRef extnType="ADD" mashupId="addSecondaryContact" mashupRefId="extn_addSecondaryContact"/>
+                <MashupRef extnType="ADD" mashupId="callLegacyMessage" mashupRefId="extn_callLegacyMessage"/>
             </Behavior>
         </MashupRefs>
     </ScreenExtension>

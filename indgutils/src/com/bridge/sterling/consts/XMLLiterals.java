@@ -334,5 +334,23 @@ public static final String DERIVED_FROM_ORDER_LINE = "DerivedFromOrderLine";
 public static final String RETURN_ORDER = "ReturnOrder";
 public static final String RESEND_SAP071 = "ResendSAP071";
 public static final String RETURN_ORDER_ELSE = "ReturnOrderElse";
+public static final String DISTRIBUTION_RULE = "DistributionRule";
+public static final String GET_DISTRIBUTION_RULE_LIST = "getDistributionRuleList";
+public static final String DISTRIBUTION_RULE_LIST = "DistributionRuleList";
+public static final String OPERATION = "Operation";
+public static final String ITEM_SHIP_NODES = "ItemShipNodes";
+public static final String ITEM_SHIP_NODE = "ItemShipNode";
+public static final String EFFECTIVE_END_DATE = "EffectiveEndDate";
+public static final String EFFECTIVE_START_DATE = "EffectiveStartDate";
+public static final String ITEM_SHIPNODE_KEY = "ItemshipnodeKey";
+public static final String PRIORITY = "Priority";
+public static final String MANAGGE_DISTRIBUTION_RULE = "manageDistributionRule";
+public static final String ACTIVE_FLAG = "ActiveFlag";
+public static final String ITEMID= "ItemId";
+public static final String USER_UI_STATE = "UserUiState";
+public static final String APPLICATION_NAME = "ApplicationName";
+public static final String COMPONENT_NAME = "ComponentName";
+public static final String DEFINITION = "Definition";
+public static final String SCREEN_NAME = "ScreenName";
 }
 

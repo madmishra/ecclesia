@@ -11,7 +11,7 @@ US Government Users Restricted Rights  Use, duplication or disclosure restricted
 	<OrderLine AllocationLeadTime="" CarrierAccountNo="" CarrierServiceCode=""
     CustomerLinePONo="" CustomerPONo="" DeliveryMethod="" DepartmentCode=""
     DocumentType="" EnterpriseCode="" FulfillmentType="" LineSeqNo=""
-    LineType="" MinShipByDate="" OrderAuditKey="" OrderHeaderKey=""
+    LineType="" MinShipByDate="" Modifyts="" OrderAuditKey="" OrderHeaderKey=""
     OrderLineKey="" OrderedQty="" OrderingUOM="" OrigOrderLineKey=""
     OriginalOrderedQty="" PackListType="" ParentOfDependentGroup=""
     ParentOrderLineKey="" PersonalizeCode="" PersonalizeFlag=""
@@ -20,6 +20,9 @@ US Government Users Restricted Rights  Use, duplication or disclosure restricted
     ReservationID="" ReservationPool="" ReturnReason="" 
     SerialNo="" ShipNode="" ShipToID="" ShipTogetherNo=""
     ShipmentCosolidationGroupId="" SplitQty="" Status="" SubLineNo="">
+		<References>
+			<Reference Name="" Value=""/>
+		</References>
 		<Extn ExtnLegacyOMSChildOrderNo="" ExtnSAPOrderNo="" />
 		<Item AlternateItemID="" BundleFulfillmentMode="" CostCurrency=""
         CountryOfOrigin="" CreditWOReceipt="" CustomerItem=""
@@ -31,7 +34,10 @@ US Government Users Restricted Rights  Use, duplication or disclosure restricted
         ReturnWindow="" ScheduleBCode="" SupplierItem=""
         SupplierItemDesc="" TaxProductCode="" UPCCode="" UnitCost="" UnitOfMeasure="">
 		</Item>
-		<DerivedFrom DocumentType="" EnterpriseCode="" OrderHeaderKey="" OrderNo=""/>
+		<DerivedFromOrder  DocumentType="" EnterpriseCode="" OrderHeaderKey="" OrderNo=""/>
+		<DerivedFromOrderLine CustomerLinePONo="" CustomerPONo="" PrimeLineNo="" SubLineNo="">
+			<Item ItemID="" UnitOfMeasure=""/>
+		</DerivedFromOrderLine>
 		<OrderDate ActualDate="" DateTypeId="" ExpectedDate=""
         OrderHeaderKey="" OrderLineKey="" OrderReleaseKey="" RequestedDate=""/>
 		<Order AllocationRuleID="" AuthorizationExpirationDate=""
@@ -57,6 +63,9 @@ US Government Users Restricted Rights  Use, duplication or disclosure restricted
         SourceKey="" SourceType="" TaxExemptFlag=""
         TaxExemptionCertificate="" TaxJurisdiction="" TaxPayerId=""
         TermsCode="" TotalAdjustmentAmount="">
+			<References>
+				<Reference Name="" Value=""/>
+			</References>
 		</Order>
 	</OrderLine>
 </OrderLineList>

@@ -15,18 +15,20 @@ public class IndgReturnSAP071 extends AbstractCustomApi {
 	public YFCDocument invoke(YFCDocument inXml)  {
 		String NO = "N";
 		String YES = "Y";
+		String INDG_LEGACY072 = "INDG_LEGACY072";
+		
 		YFCElement eleInXml = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 			String sResendSAP071 = eleInXml.getAttribute(XMLLiterals.RESEND_SAP071);
-		if(YFCObject.isVoid(sResendSAP071))
+		if(YFCObject.isVoid(sResendSAP071) ||  sResendSAP071.equals(NO))
 		{
 			eleInXml.setAttribute(XMLLiterals.RESEND_SAP071, NO);
 			throwError();
-			invokeYantraService(XMLLiterals.RETURN_ORDER, inXml);
+			
 		}
 		else
 		{
 			if(sResendSAP071.equals(YES)) {
-				invokeYantraService(XMLLiterals.RETURN_ORDER_ELSE, inXml);
+				invokeYantraService(getProperty(INDG_LEGACY072), inXml);
 			}
 		}
 		return inXml;
@@ -37,9 +39,9 @@ public class IndgReturnSAP071 extends AbstractCustomApi {
 		YFCDocument errorDoc = YFCDocument.createDocument("Errors");
 		YFCElement eleErrors = errorDoc.getDocumentElement();
 		YFCElement eleError = eleErrors.createChild("Error");
-		eleError.setAttribute("ErrorCode", "ERRORCODE_NEW_TEST");
-		eleError.setAttribute("ErrorDescription", "New Error test");
-		throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_NEW_TEST, errorDoc.toString());  
+		eleError.setAttribute("ErrorCode", "ERRORCODE_RESEND_SAP071");
+		eleError.setAttribute("ErrorDescription", "Resend SAP071 Message");
+		throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_RESEND_SAP071, errorDoc.toString());  
 			 
 	}
 

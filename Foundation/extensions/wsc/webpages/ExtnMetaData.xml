@@ -52,6 +52,9 @@
             <UIExtn
                 appScreen="wsc.components.shipment.common.screens.ShortageReasonPopup"
                 extnScreen="extn.components.shipment.common.screens.ShortageReasonPopupExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.shipment.common.screens.ShipmentLineDetails"
+                extnScreen="extn.components.shipment.common.screens.ShipmentLineDetailsExtn" type="diffrential"/>
         </UIExtns>
     </Identifier>
 </Extensions>

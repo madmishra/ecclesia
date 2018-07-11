@@ -18,12 +18,14 @@ public class IndgReturnSAP071 extends AbstractCustomApi {
 		String INDG_LEGACY072 = "INDG_LEGACY072";
 		String  INDG_RESEND_SAP071= "Indg_ResendSAP071";
 		String INDG_SAP071="Indg_SAP071";
+		String ALWAYS_PUBLISH_TO_LEGACY = "ALWAYS_PUBLISH_TO_LEGACY";
 
 		
 		YFCElement eleInXml = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 			String sResendSAP071 = eleInXml.getAttribute(XMLLiterals.RESEND_SAP071);
 		if(YFCObject.isVoid(sResendSAP071))
 		{
+			if(getProperty(ALWAYS_PUBLISH_TO_LEGACY).equals(YES))
 			invokeYantraService(getProperty(INDG_LEGACY072), inXml);
 			eleInXml.setAttribute(XMLLiterals.RESEND_SAP071, NO);
 			invokeYantraService(INDG_RESEND_SAP071, inXml);

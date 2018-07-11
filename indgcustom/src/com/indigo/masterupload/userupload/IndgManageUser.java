@@ -394,7 +394,6 @@ public class IndgManageUser extends AbstractCustomApi {
 	}
 	
 	private void manageUIStateforNewUsers(Collection<String> inputUserList) {
-		System.out.println(inputUserList + "zzzzzzzzzz");
 		for(String loginId : inputUserList) {
 			YFCDocument docUserUiState = YFCDocument.createDocument(XMLLiterals.USER_UI_STATE);
 			docUserUiState.getDocumentElement().setAttribute(XMLLiterals.APPLICATION_NAME, APPLICATION_VAL);
@@ -402,7 +401,6 @@ public class IndgManageUser extends AbstractCustomApi {
 			docUserUiState.getDocumentElement().setAttribute(XMLLiterals.DEFINITION, DEFINATION_VAL);
 			docUserUiState.getDocumentElement().setAttribute(XMLLiterals.LOGIN_ID, loginId);
 			docUserUiState.getDocumentElement().setAttribute(XMLLiterals.SCREEN_NAME, SCREEN_NAME_VAL);
-			System.out.println(docUserUiState + "aaaaaaaaa");
 			invokeYantraApi(XMLLiterals.MANAGE_USER_UI_STATE, docUserUiState);
 		}
 	}

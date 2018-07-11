@@ -297,11 +297,19 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID, XMLLiterals.SAP_OUTBOUND);
 		}
 		else {
-			eleINDGMsgSeqNo.setAttribute(XMLLiterals.ORDER_NO, eleOrderMessage.getAttribute(XMLLiterals.ORDER_NO));	
+			eleINDGMsgSeqNo.setAttribute(XMLLiterals.ORDER_NO, getOrderNo(eleOrderMessage));	
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID,XMLLiterals.LEGACY_OUTBOUND);
 		}
 		eleINDGMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleOrder.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 		eleINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
 		return docINDGMsgSeqNoList;
+	}
+	
+	private String getOrderNo(YFCElement eleOrderMessage) {
+	  String orderNo = eleOrderMessage.getAttribute(XMLLiterals.ORDER_NO,EMPTY_STRING);
+	  if(XmlUtils.isVoid(orderNo)) {
+	    orderNo = eleOrderMessage.getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO,EMPTY_STRING);
+	  }
+	  return orderNo;
 	}
 }

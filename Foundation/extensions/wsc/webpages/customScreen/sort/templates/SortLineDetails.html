@@ -1,0 +1,338 @@
+<div class="sc-platform-screen-default sortlinedetails">
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'screen a11yHiddenLabel' , 
+		uId : 'errorMsgPnl' , 
+		renderHidden : true , 
+		layoutAlign : 'top'  
+ "></div>
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'leftPanel' , 
+		colspan : 1 , 
+		uId : 'leftPanel'  
+ ">
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'itemImageSmallDiv showCursorPointer' , 
+		colspan : 1 , 
+		uId : 'imagePanel'  
+ ">
+            <div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="		uId : 'itemImage'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'ShipmentLine.OrderLine.ItemDetails.PrimaryInformation'
+,
+		 namespace : 			'ShipmentLine'
+	}
+,
+		 imageBindings : 	{
+		 defaultImage : 	{
+		 style : 			''
+,
+		 src : 			''
+,
+		 styleClass : 			'noItemImage'
+	}
+,
+		 imageUrl : 	{
+		 path : 			'ImageLocation'
+,
+		 dynamicBindingPackage : 			'ias.utils'
+,
+		 dynamicBindingFunc : 			'getItemImageLocation'
+,
+		 dynamicBindingClassName : 			'ScreenUtils'
+	}
+,
+		 imageIcon : 	{
+		 path : 			'ImageID'
+,
+		 dynamicBindingPackage : 			'ias.utils'
+,
+		 dynamicBindingFunc : 			'getItemImageId'
+,
+		 dynamicBindingClassName : 			'ScreenUtils'
+	}
+	}
+	}
+			}
+		}
+"></div>
+        </div>
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'detailsPanel' , 
+		colspan : 1 , 
+		uId : 'productDetailsPanel'  
+ ">
+            <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
+		'class' : 'groupHeader blockComponent productdesclink' , 
+		colspan : 2 , 
+		uId : 'itemdescriptionLink'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	'aria-label' : 			this.getSimpleBundleString('arialabel_product_title')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'ShipmentLine.OrderLine.ItemDetails.PrimaryInformation.ExtendedDisplayDescription'
+,
+		 namespace : 			'ShipmentLine'
+	}
+	}
+			}
+		}
+"></div>
+            <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'itemVariation' , 
+		uId : 'itemVariationPanelHolder'  
+ "></div>
+            <div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="		imageSrc : 'wsc/resources/css/icons/images/completelyScanned.png' , 
+		'class' : 'blockComponent scanComplete' , 
+		appendToContextRoot : true , 
+		uId : 'productScanImagePanel' , 
+		renderHidden : true  
+ "></div>
+            <div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="		'class' : 'inline idxLabel zeroWidthLabelKey scanCompleteLabel' , 
+		uId : 'completelyPickedLabel'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('Label_emptyLabel')
+			}
+		}
+"></div>
+            <div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="		imageSrc : 'wsc/resources/css/icons/images/completeyShorted.png' , 
+		'class' : 'blockComponent scanComplete' , 
+		appendToContextRoot : true , 
+		uId : 'productShortedImagePanel' , 
+		renderHidden : true  
+ "></div>
+        </div>
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'productDetails' , 
+		colspan : 1 , 
+		uId : 'productQtyDetailsPanel'  
+ ">
+            <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'location autoLabelZeroWidth' , 
+		uId : 'Locationlbl'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Label_Location')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'ShipmentLine.PickLocation'
+,
+		 namespace : 			'ShipmentLine'
+	}
+	}
+			}
+		}
+"></div>
+            <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'quantitySpinnerLabelAlign blockComponent' , 
+		uId : 'remainingQty'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Label_RemainingQty')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'ShipmentLine.Quantity'
+,
+		 dynamicBindingFunc : 			'getFormattedRemainingQuantity'
+,
+		 namespace : 			'ShipmentLine'
+	}
+	}
+			}
+		}
+"></div>
+            <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'numberChangeWidget blockComponent' , 
+		uId : 'divQuantity'  
+ ">
+                <div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="		'class' : 'inline idxLabel quantitySpinnerLabelAlign' , 
+		uId : 'pickedLabel'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('Label_PickedQuantity')
+			}
+		}
+"></div>
+                <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		'class' : 'quantitySpinnerPanel' , 
+		colspan : 1 , 
+		uId : 'quantityPanel'  
+ ">
+                    <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
+		hasImage : true , 
+		imageSrc : 'wsc/resources/css/icons/images/minus.png' , 
+		appendToContextRoot : true , 
+		uId : 'removeQtyLink'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	'aria-label' : 			this.getSimpleBundleString('arialabel_remove_quantity')
+			}
+		}
+"></div>
+                    <div data-dojo-type="idx/form/NumberTextBox" data-dojo-props="		resourceId : 'WSC000029' , 
+		uId : 'txtScannedQuantity'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Quantity'
+,
+		 namespace : 			'QuantityTextBoxModel_Input'
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'Quantity'
+,
+		 namespace : 			'QuantityTextBoxModel_Output'
+	}
+	]
+	}
+			}
+		}
+"></div>
+                    <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'inline idxLabel zeroWidthLabelKey' , 
+		uId : 'bpickedQtyLbl' , 
+		renderHidden : true  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Quantity'
+,
+		 dynamicBindingFunc : 			'getFormattedDisplayQuantity'
+,
+		 namespace : 			'QuantityReadOnlyModel_Input'
+	}
+	}
+			}
+		}
+"></div>
+                    <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
+		hasImage : true , 
+		resourceId : 'WSC000029' , 
+		imageSrc : 'wsc/resources/css/icons/images/plus.png' , 
+		appendToContextRoot : true , 
+		uId : 'addQtyLink'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	'aria-label' : 			this.getSimpleBundleString('arialabel_add_quantity')
+			}
+		}
+"></div>
+                    <div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="		spanLabel : true , 
+		'class' : 'inline idxLabel zeroWidthLabelKey' , 
+		uId : 'uom_lbl'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'ShipmentLine.OrderLine.ItemDetails.DisplayUnitOfMeasure'
+,
+		 namespace : 			'ShipmentLine'
+	}
+	}
+			}
+		}
+"></div>
+                    <div data-dojo-type="dijit/form/Button" data-dojo-props="		spanLabel : true , 
+		resourceId : 'WSC000029' , 
+		'class' : 'inline idxSpecialButton' , 
+		showLabel : true , 
+		uId : 'updateQtyButton' , 
+		renderHidden : true  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	'aria-label' : 			this.getSimpleBundleString('arialabel_Update')
+,	
+			 	label : 			this.getSimpleBundleString('Action_Update')
+			}
+		}
+"></div>
+                    <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
+		'class' : 'linkAll inline' , 
+		uId : 'pickAllLink' , 
+		renderHidden : true  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	'aria-label' : 			this.getSimpleBundleString('arialabel_PickAll')
+,	
+			 	value : 			this.getSimpleBundleString('Action_PickAll')
+			}
+		}
+"></div>
+                </div>
+            </div>
+            <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'quantitySpinnerLabelAlign shortageQty' , 
+		uId : 'shortagelbl' , 
+		renderHidden : true  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Label_ShortageQuantity')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'ShipmentLine.ShortageQuantity'
+,
+		 dynamicBindingPackage : 			'wsc.components.shipment.common.utils'
+,
+		 dynamicBindingFunc : 			'getFormattedShortageQuantity'
+,
+		 dynamicBindingClassName : 			'ShipmentUtils'
+,
+		 namespace : 			'ShortedShipmentLine'
+	}
+	}
+			}
+		}
+"></div>
+            <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'quantitySpinnerLabelAlign' , 
+		uId : 'pickedQtylbl' , 
+		renderHidden : true  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Label_PickedQuantity')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'ShipmentLine.Quantity'
+,
+		 namespace : 			'ShipmentLine'
+	}
+	}
+			}
+		}
+"></div>
+            <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
+		'class' : 'shortageResolution lineLinks' , 
+		uId : 'shortageResolutionLink'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	'aria-label' : 			this.getSimpleBundleString('arialabel_Shortage_Resolution')
+,	
+			 	value : 			this.getSimpleBundleString('Action_Shortage_Resolution')
+			}
+		}
+"></div>
+        </div>
+    </div>
+</div>

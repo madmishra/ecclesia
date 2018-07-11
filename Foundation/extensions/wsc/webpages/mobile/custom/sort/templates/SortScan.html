@@ -1,0 +1,58 @@
+<div class="sc-platform-screen-default sortscan">
+    
+ 
+            <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'scanPanelData' , 
+		uId : 'productScanForm' , 
+		layoutAlign : 'top'  
+ ">
+                <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'barcodeScanPanel' , 
+		uId : 'barcodeScanPanelForm' , 
+		layoutAlign : 'top'  
+ ">
+                    <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
+		hasImage : true , 
+		imageSrc : 'wsc/resources/css/icons/images/barcode_blue.png' , 
+		'class' : 'buttonConnect' , 
+		appendToContextRoot : true , 
+		uId : 'addProductButton'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	'aria-label' : 			this.getSimpleBundleString('arialabel_scanProduct')
+,	
+			 	imageAlt : 			this.getSimpleBundleString('Tooltip_arialabel_scanProduct')
+,	
+			 	title : 			this.getSimpleBundleString('Tooltip_arialabel_scanProduct')
+			}
+		}
+" role='button'></div>
+                    <div data-dojo-type="idx/form/TextBox" data-dojo-props="		spanLabel : true , 
+		scExcludeForDirtyCheck : true , 
+		uId : 'scanProductIdTxt' , 
+		showTitle : false  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	hint : 			this.getSimpleBundleString('TextField_Label_ProductScanHint')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'BarCodeData'
+,
+		 namespace : 			'translateBarCode_output'
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'BarCode.BarCodeData'
+,
+		 namespace : 			'translateBarCode_input'
+	}
+	]
+	}
+			}
+		}
+"></div>
+                </div>
+            </div>
+			</div>

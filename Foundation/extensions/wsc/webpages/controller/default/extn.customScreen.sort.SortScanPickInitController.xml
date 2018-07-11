@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.customScreen.sort.SortScanPickInitController"
+    requestMethodSupported="POST" screenId="extn.customScreen.sort.SortScanPick">
+    <Group isAggregator="Y"/>
+    <MashupRefs>
+        <MashupRef
+            mashupId="backroomPick_getShipmentDetailsByShipmentKey"
+            mashupRefId="getShipmentDetailsByShipmentKey" permissionId=""/>
+        <MashupRef mashupId="backroomPick_getNotPickedShipmentLineList"
+            mashupRefId="getNotPickedShipmentLineListInit" pageSize="5"
+            pageSizeType="ShipmentLine" paginationStrategy="NEXTPAGE" permissionId=""/>
+    </MashupRefs>
+</Controller>

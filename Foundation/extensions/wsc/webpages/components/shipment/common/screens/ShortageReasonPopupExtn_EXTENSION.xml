@@ -7,6 +7,8 @@
         <Items>
             <ContentPane _sc_extensibility_operation="change"
                 _sc_extensibility_referenceUId="productPanel" renderHidden="false"/>
+            <RadioButtonSet _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="radSelectShortRea" renderHidden="false"/>
         </Items>
     </ScreenExtension>
 </ExtensionMetaData>

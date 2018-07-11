@@ -21,6 +21,14 @@
                 _sc_extensibility_operation="move"
                 _sc_extensibility_position="last"
                 _sc_extensibility_referenceUId="mainContainer" uId="extn_contentpane_gift"/>
+            <ContentPane _sc_extensibility_moveOrder="7"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="mainContainer" uId="extn_sortpane"/>
+            <ContentPane _sc_extensibility_moveOrder="8"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="mainContainer" uId="extn_sortpane"/>
             <Link
                 ImageAlt="$(_scSimpleBundle:extn_Click_to_view_gift_wrap_orders)"
                 _sc_extensibility_moveOrder="5"
@@ -31,6 +39,16 @@
                 hasImage="true"
                 imageSrc="wsc/resources/css/icons/images/arrow-piano-key.png"
                 title="$(_scSimpleBundle:extn_Click_to_view_gift_wrap_orders)" uId="extn_link"/>
+            <Link
+                ImageAlt="$(_scSimpleBundle:extn_Click_to_view_orders_to_sort)"
+                _sc_extensibility_moveOrder="12"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="extn_sortpane"
+                appendToContextRoot="true" class="panelCollapse"
+                hasImage="true"
+                imageSrc="wsc/resources/css/icons/images/arrow-piano-key.png"
+                title="$(_scSimpleBundle:extn_Click_to_view_orders_to_sort)" uId="extn_sort_link"/>
             <Label _sc_extensibility_operation="change"
                 _sc_extensibility_referenceUId="lblMyTasks" value="$(_scSimpleBundle:Label_TasksInProgress)"/>
             <Label _sc_extensibility_operation="change"
@@ -50,6 +68,20 @@
                 _sc_extensibility_position="last"
                 _sc_extensibility_referenceUId="extn_contentpane_gift"
                 class="taskLabel" spanLabel="true" uId="extn_label_task" value="$(_scSimpleBundle:extn_Ready_for_gift_wrap)"/>
+            <Label _sc_extensibility_moveOrder="10"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="extn_sortpane"
+                class="orderCount" uId="extn_sortnumberlabel"/>
+            <Label _sc_extensibility_moveOrder="11"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_sortlabel" uId="extn_sortnumberlabel"/>
+            <Label _sc_extensibility_moveOrder="9"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="first"
+                _sc_extensibility_referenceUId="extn_sortpane"
+                class="taskLabel" spanLabel="true" uId="extn_sortlabel" value="$(_scSimpleBundle:extn_Ready_for_sorting)"/>
         </Items>
         <Namespaces>
             <SourceNamespaces>
@@ -67,13 +99,11 @@
                     isExtn="true" sequence="51">
                     <Handler methodName="openReadyForGiftWrap"/>
                 </Subscriber>
-            </Local>
-            <Global>
-                <Subscriber eventId="refreshPageAfterGiftWrap"
+                <Subscriber eventId="extn_sort_link_onClick"
                     isExtn="true" sequence="51">
-                    <Handler methodName="refreshPageAfterGiftWrap"/>
+                    <Handler methodName="movetoSort"/>
                 </Subscriber>
-            </Global>
+            </Local>
         </Subscribers>
         <MashupRefs>
             <Init>
@@ -81,6 +111,10 @@
                     mashupId="mobileHomeReadyForGiftWrap_getShipmentListCount"
                     mashupRefId="extn_mobile_giftwrapcount" sourceNamespace="extn_getShipmentListCount_gw"/>
             </Init>
+            <Behavior>
+                <MashupRef extnType="ADD"
+                    mashupId="sortScan_getShipmentLineList" mashupRefId="extn_getDetails"/>
+            </Behavior>
         </MashupRefs>
     </ScreenExtension>
 </ExtensionMetaData>

@@ -23,6 +23,24 @@ return _dojodeclare("extn.mobile.home.MobileHomeExtnBehaviorController",
 			
 			
 			
+			
+			
+						,
+
+			
+			
+			 mashupRefs : 	[
+	 		{
+		 extnType : 			'ADD'
+,
+		 mashupId : 			'sortScan_getShipmentLineList'
+,
+		 mashupRefId : 			'extn_getDetails'
+
+	}
+
+	]
+
 }
 );
 });

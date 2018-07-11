@@ -30,7 +30,10 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!sc/plat/dojo/utils/
 				var editorInstance = _scEditorUtils.getCurrentEditor();
 				console.log('Whos there'); 
 				_scEditorUtils.refresh(editorInstance);
-			}
+			},
+			movetoSort: function () {
+				_wscMobileHomeUtils.openScreen("extn.mobile.custom.sort.SortScan", "wsc.mobile.editors.MobileEditor");
+			},
 		});
 	});
 

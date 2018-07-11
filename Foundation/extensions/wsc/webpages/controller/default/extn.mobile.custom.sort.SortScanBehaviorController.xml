@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.mobile.custom.sort.SortScanBehaviorController"
+    requestMethodSupported="POST" screenId="extn.mobile.custom.sort.SortScan">
+    <MashupRefs>
+        <MashupRef mashupId="backroomPickUp_registerBarcodeForBackroomPick"
+            mashupRefId="translateBarCode" permissionId=""/>
+		<MashupRef mashupId="sortScan_getShipmentLineList"
+            mashupRefId="extn_getDetails" permissionId=""/>
+    </MashupRefs>
+</Controller>

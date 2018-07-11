@@ -41,7 +41,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!extn/components/shi
 					shortedShipmentLineModel.StoreBatchLine.ShortageResolutionReason = "AllInventoryShortage";
 				else
 					shortedShipmentLineModel.ShipmentLine.ShortageReasonCode = "AllInventoryShortage";
-			//	shortedShipmentLineModel.ShipmentLine.ShortageReasonCodeActual = _scModelUtils.getStringValueFromPath("ShortageReason", shortageReasonModel);
+				//	shortedShipmentLineModel.ShipmentLine.ShortageReasonCodeActual = _scModelUtils.getStringValueFromPath("ShortageReason", shortageReasonModel);
 
 				return shortedShipmentLineModel;
 			},

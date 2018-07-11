@@ -61,4 +61,27 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
                 start="true" type="PAGE"/>
         </wizardEntities>
     </wizard>
+    <wizard
+        flowController="com.sterlingcommerce.ui.web.platform.wizard.SCUIDefaultWizardController"
+        id="extn.wizards.SortScanPickWizard" independentPages="false">
+		<wizardEntities>
+            <wizardEntity category="Cat1" id="Page1"
+                impl="/platform/jsps/dojo/xapiajaxsuccesshandler.jsp"
+                last="true"
+                screenId="extn.customScreen.sort.SortScanPick"
+                start="true" type="PAGE"/>
+        </wizardEntities>
+   
+	</wizard>
+	<wizard id="extn.wizards.sort.HoldWizard"
+			 flowController="com.sterlingcommerce.ui.web.platform.wizard.SCUIDefaultWizardController"
+      independentPages="false">
+		<wizardEntities>
+            <wizardEntity category="Cat1" id="Page1"
+                impl="/platform/jsps/dojo/xapiajaxsuccesshandler.jsp"
+                last="true"
+                screenId="wsc.components.shipment.backroompick.UpdateHoldLocation"
+                start="true" type="PAGE"/>
+        </wizardEntities>
+	</wizard>
 </wizards>

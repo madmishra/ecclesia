@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.customScreen.sort.SortScanPickBehaviorController"
+    requestMethodSupported="POST" screenId="extn.customScreen.sort.SortScanPick">
+	 <MashupRefs>
+        <MashupRef mashupId="backroomPick_getShipmentLineList"
+            mashupRefId="getAllShipmentLineList" permissionId=""/>
+        <MashupRef mashupId="backroomPick_getNotPickedShipmentLineList"
+            mashupRefId="getNotPickedShipmentLineList" permissionId=""/>
+        <MashupRef mashupId="backroomPick_getNotPickedShipmentLineList"
+            mashupRefId="getNotPickedShipmentLineListOnNext" permissionId=""/>
+        <MashupRef mashupId="backroomPick_updateShipmentQuantity"
+            mashupRefId="updateShipmentQuantityForPickAll" permissionId=""/>
+        <MashupRef mashupId="backroomPick_updateShipmentQuantity"
+            mashupRefId="updateShipmentQuantityForPickAllLine" permissionId=""/>
+        <MashupRef callSequence="10"
+            mashupId="backroomPickUp_registerBarcodeForBackroomPick"
+            mashupRefId="translateBarCode" permissionId=""/>
+        <MashupRef callSequence="10"
+            mashupId="backroomPickUp_changeShipmentStatusToReadyForCustomerPick"
+            mashupRefId="saveShipmentStatusForPickUpOrder" permissionId=""/>
+        <MashupRef callSequence="10"
+            mashupId="backroomPickUp_changeShipmentStatusToReadyForPack"
+            mashupRefId="saveShipmentStatusForShipOrder" permissionId=""/>
+        <MashupRef callSequence="10"
+            mashupId="backroomPickUp_changeShipmentStatusOnNext"
+            mashupRefId="validateChangeShipmentStatusOnNext" permissionId=""/>
+        <MashupRef callSequence="10"
+            mashupId="backroomPickUp_getNotPickedShipmentLineListCount"
+            mashupRefId="getNotPickedShipmentLineListCount" permissionId=""/>
+    </MashupRefs>
+</Controller>

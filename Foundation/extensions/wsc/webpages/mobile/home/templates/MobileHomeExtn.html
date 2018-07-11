@@ -40,6 +40,24 @@
 		_sc_extensibility_position : 'last'  
 	 					}">
 		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '7' , 
+		_sc_extensibility_referenceUId : 'mainContainer' , 
+		uId : 'extn_sortpane' , 
+		_sc_extensibility_position : 'before'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '8' , 
+		_sc_extensibility_referenceUId : 'mainContainer' , 
+		uId : 'extn_sortpane' , 
+		_sc_extensibility_position : 'last'  
+	 					}">
+		 	</div>  
 		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
 	 					data-dojo-props="data_dojo_props_diff: {
 	 								_sc_extensibility_operation : 'insert' , 
@@ -57,6 +75,27 @@
 			 	title : 			this.getSimpleBundleString('extn_Click_to_view_gift_wrap_orders')
 ,	
 			 	imageAlt : 			this.getSimpleBundleString('extn_Click_to_view_gift_wrap_orders')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		hasImage : true , 
+		imageSrc : 'wsc/resources/css/icons/images/arrow-piano-key.png' , 
+		'class' : 'panelCollapse' , 
+		_sc_extensibility_moveOrder : '12' , 
+		_sc_extensibility_referenceUId : 'extn_sortpane' , 
+		appendToContextRoot : true , 
+		uId : 'extn_sort_link' , 
+		_sc_extensibility_position : 'last'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	title : 			this.getSimpleBundleString('extn_Click_to_view_orders_to_sort')
+,	
+			 	imageAlt : 			this.getSimpleBundleString('extn_Click_to_view_orders_to_sort')
 			}
 		}
 	 					}">
@@ -123,6 +162,42 @@
 		 function() { 
 			return { 
 			 	value : 			this.getSimpleBundleString('extn_Ready_for_gift_wrap')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'orderCount' , 
+		_sc_extensibility_moveOrder : '10' , 
+		_sc_extensibility_referenceUId : 'extn_sortpane' , 
+		uId : 'extn_sortnumberlabel' , 
+		_sc_extensibility_position : 'last'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '11' , 
+		_sc_extensibility_referenceUId : 'extn_sortlabel' , 
+		uId : 'extn_sortnumberlabel' , 
+		_sc_extensibility_position : 'before'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		spanLabel : true , 
+		'class' : 'taskLabel' , 
+		_sc_extensibility_moveOrder : '9' , 
+		_sc_extensibility_referenceUId : 'extn_sortpane' , 
+		uId : 'extn_sortlabel' , 
+		_sc_extensibility_position : 'first'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('extn_Ready_for_sorting')
 			}
 		}
 	 					}">

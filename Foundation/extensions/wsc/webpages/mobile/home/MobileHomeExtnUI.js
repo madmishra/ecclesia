@@ -93,13 +93,9 @@ methodName : "openReadyForGiftWrap"
  
 }
 }
-
-]
 ,
-global : [
-
 {
-	  eventId: 'refreshPageAfterGiftWrap'
+	  eventId: 'extn_sortpane_onClick'
 
 ,	  sequence: '51'
 
@@ -107,7 +103,7 @@ global : [
 
 
 ,handler : {
-methodName : "refreshPageAfterGiftWrap"
+methodName : "movetoSort"
 
  
 }

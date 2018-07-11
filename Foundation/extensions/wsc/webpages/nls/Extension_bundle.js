@@ -58,6 +58,10 @@ define({ root:
 	"Label_GiftWrapQuantity" : "Gift Wrap quantity",
 	"Title_GiftWrap" : "Gift Wrap",
 	"Action_GiftWrap_Complete" : "Gift Wrap Complete",
-	"TextField_Label_EnterCustomer" : "Enter Person's Name"
+	"TextField_Label_EnterCustomer" : "Enter Person's Name",
+	"Label_Finish_Sort":"Finish Sort",
+	"Action_View_Sort_Items":"To be sorted",
+	"Label_SortedQuantity":"Sorted quantity",
+	"extn_Ready_for_sorting":"Start sorting"
 },
 });

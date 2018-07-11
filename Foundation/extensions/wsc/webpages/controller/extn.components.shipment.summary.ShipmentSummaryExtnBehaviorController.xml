@@ -8,5 +8,7 @@
             mashupRefId="extn_printStatus" permissionId=""/>
         <MashupRef extnType="ADD" mashupId="addSecondaryContact"
             mashupRefId="extn_addSecondaryContact" permissionId=""/>
+        <MashupRef extnType="ADD" mashupId="callLegacyMessage"
+            mashupRefId="extn_callLegacyMessage" permissionId=""/>
     </MashupRefs>
 </Controller>

@@ -88,7 +88,10 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
 				_iasUIUtils.openWizardInEditor("extn.wizards.BackroomPickupWizard", batchModel, "wsc.desktop.editors.ShipmentEditor", this, null);
 			},
-
+			callLegacyMessage : function(modelOutput){
+				// console.log('modelOutput' , modelOutput); 
+				_iasUIUtils.callApi(this, modelOutput, "extn_callLegacyMessage", null);
+			},
 			updateSecondaryContact: function (event, bEvent, ctrl, args) {
 				console.log('event', event.SecondaryPerson);
 				var orderLineKeyArray = [];

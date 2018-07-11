@@ -485,7 +485,7 @@
         <APINamespace inputNS="addSecondaryContact_input" outputNS="addSecondaryContact_output"/>
         <AlternateResourceIds/>
     </mashup>
-       <mashup description="Get Shipment Line List" endpoint="EP_CONFIG"
+    <mashup description="Get Shipment Line List" endpoint="EP_CONFIG"
         id="sortScan_getShipmentLineList" mashuptype="XAPI"
         resourceId="" transactional="true">
         <API Name="getShipmentLineList">
@@ -523,18 +523,32 @@
             <Input>
                 <Shipment
                     DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" ShipmentKey="xml:scControllerInput:/Shipment/@ShipmentKey"/>
-           
             </Input>
             <Template>
-                  <Shipment DeliveryMethod="" EnterpriseCode=""
-                    ExpectedShipmentDate="" ImageUrl="" ImageAltText="" IsOverdue=""
-                    DisplayOrderNo="" ScacAndService=""
-                    SellerOrganizationCode="" ShipNode="" ShipmentKey=""
-                    ShipmentNo="" Status="" TimeRemaining=""/>
+                <Shipment DeliveryMethod="" DisplayOrderNo=""
+                    EnterpriseCode="" ExpectedShipmentDate=""
+                    ImageAltText="" ImageUrl="" IsOverdue=""
+                    ScacAndService="" SellerOrganizationCode=""
+                    ShipNode="" ShipmentKey="" ShipmentNo="" Status="" TimeRemaining=""/>
             </Template>
         </API>
         <classInformation name="com.ibm.wsc.shipment.backroompick.mashups.ShipmentDetailsMashup"/>
         <APINamespace inputNS="sortShipmentDetails_input" outputNS="sortShipmentDetails_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="To update the legacy OMS 012"
+        endpoint="EP_CONFIG" id="callLegacyMessage" mashuptype="XAPI"
+        resourceId="" transactional="true">
+        <API FlowName="Indg_Legacy012Msg">
+            <Input>
+                <Order DocumentType="0001"
+                    EnterpriseCode="xml:CurrentStore:/Store/@EnterpriseCode"
+                    OrderHeaderKey="" OrderNo=""/>
+            </Input>
+            <Template/>
+        </API>
+        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
+        <APINamespace inputNS="callLegacyMessage_input" outputNS="callLegacyMessage_output"/>
         <AlternateResourceIds/>
     </mashup>
 </mashups>

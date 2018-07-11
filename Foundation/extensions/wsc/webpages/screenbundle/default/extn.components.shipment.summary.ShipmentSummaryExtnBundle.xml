@@ -2,6 +2,9 @@
 <ScreenBundle
     screenBundleId="extn.components.shipment.summary.ShipmentSummaryExtnBundle" screenId="extn.components.shipment.summary.ShipmentSummaryExtn">
     <BundleEntries>
+        <BundleEntry bundleEntryId="extn_button_gift_wrap_Button_label"
+            bundleKey="extn_Gift_Wrap" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_button_gift_wrap"/>
         <BundleEntry bundleEntryId="extn_button_Button_label"
             bundleKey="Print_Order_Summary"
             bundleValueFn="_scSimpleBundle" property="label"

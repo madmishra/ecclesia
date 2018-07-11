@@ -47,6 +47,15 @@ return _dojodeclare("extn.components.shipment.summary.ShipmentSummaryExtnBehavio
 		 extnType : 			'ADD'
 
 	}
+,
+	 		{
+		 mashupRefId : 			'extn_callLegacyMessage'
+,
+		 mashupId : 			'callLegacyMessage'
+,
+		 extnType : 			'ADD'
+
+	}
 
 	]
 

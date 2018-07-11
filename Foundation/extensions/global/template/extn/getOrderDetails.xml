@@ -1,0 +1,12 @@
+<Order OrderNo="" OrderType="" DocumentType="" EnterpriseCode="" >
+	<OrderLines>
+		<OrderLine PrimeLineNo="" Status="" >
+			<Item ItemID="" />
+			<AdditionalAddresses >
+				<AdditionalAddress AddressType="" Modifyts="" >
+					<PersonInfo AddressID=""/>
+				</AdditionalAddress>
+			</AdditionalAddresses>
+		</OrderLine>
+	</OrderLines>
+</Order>

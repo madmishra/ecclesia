@@ -33,12 +33,10 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		YFCDocument docCreateOrderOutput = null;
 		YFCDocument outDocgetOrderList = getOrderList(inXml);
 		String sOrderHeaderKey = null;
-		String sShipNode = null;
 		YFCElement eleOrder = outDocgetOrderList.getDocumentElement().getChildElement(XMLLiterals.ORDER);
 		if(!YFCObject.isVoid(eleOrder)) {
 			sOrderHeaderKey = eleOrder.getAttribute(XMLLiterals.ORDER_HEADER_KEY);
-			sShipNode = eleOrder.getAttribute(XMLLiterals.SHIPNODE);
-			docCreateOrderOutput =  invokeYantraApi(XMLLiterals.CREATE_ORDER, createOrderInput(inXml, sOrderHeaderKey,sShipNode),createOrderTemplate());
+			docCreateOrderOutput =  invokeYantraApi(XMLLiterals.CREATE_ORDER, createOrderInput(inXml, sOrderHeaderKey),createOrderTemplate());
 		}
 
 		return docCreateOrderOutput;
@@ -63,7 +61,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 	 * @return
 	 */
 
-	private YFCDocument createOrderInput(YFCDocument inXml, String sOrderHeaderKey , String sShipNode) 
+	private YFCDocument createOrderInput(YFCDocument inXml, String sOrderHeaderKey) 
 	{
 		YFCElement eleInXml = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		YFCElement  elePersonInfo = eleInXml.getChildElement(XMLLiterals.PERSON_INFO_BILL_TO);
@@ -78,7 +76,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		YFCIterable<YFCElement> eleOrderLine = eleInXml.getChildElement(XMLLiterals.ORDER_LINES)
 				.getChildren(XMLLiterals.ORDER_LINE);
 		for(YFCElement orderLine:eleOrderLine) {	
-			formOrderLineElement(eleOrderLines, orderLine,eleInXml, sOrderHeaderKey, sShipNode);
+			formOrderLineElement(eleOrderLines, orderLine,eleInXml, sOrderHeaderKey);
 		}
 		return doccreateOrderInput;
 	}
@@ -91,13 +89,13 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 	 * @param sOrderHeaderKey
 	 */
 	
-	private  void formOrderLineElement(YFCElement eleOrderLines, YFCElement orderLine ,YFCElement eleInXml, String sOrderHeaderKey, String sShipNode)
+	private  void formOrderLineElement(YFCElement eleOrderLines, YFCElement orderLine ,YFCElement eleInXml, String sOrderHeaderKey)
 	{
 		YFCElement eleOLine = eleOrderLines.createChild(XMLLiterals.ORDER_LINE);
 		eleOLine.setAttribute(XMLLiterals.ORDERED_QTY, orderLine.getAttribute(XMLLiterals.QTY));
 		eleOLine.setAttribute(XMLLiterals.PRIME_LINE_NO, orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO));
 		eleOLine.setAttribute(XMLLiterals.SUB_LINE_NO, SUBLINE_VALUE);
-		eleOLine.setAttribute(XMLLiterals.SHIPNODE, sShipNode);
+		eleOLine.setAttribute(XMLLiterals.SHIPNODE, eleMsgOrderLine.getAttribute(XMLLiterals.SHIPNODE));
 		eleOLine.setAttribute(XMLLiterals.RETURN_REASON, orderLine.getAttribute(XMLLiterals.RETURN_REASON_CODE));
 		YFCElement eleDerivedFrom = eleOLine.createChild(XMLLiterals.DERIVED_FROM);
 		eleDerivedFrom.setAttribute(XMLLiterals.ORDER_NO, eleInXml.getAttribute(XMLLiterals.PARENT_LEGACY_OMS_ORDER_NO));

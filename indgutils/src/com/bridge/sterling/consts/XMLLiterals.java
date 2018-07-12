@@ -353,5 +353,7 @@ public static final String COMPONENT_NAME = "ComponentName";
 public static final String DEFINITION = "Definition";
 public static final String SCREEN_NAME = "ScreenName";
 public static final String MANAGE_USER_UI_STATE = "manageUserUiState";
+public static final String SERVICE_SLOT_DESC = "ServiceSlotDesc";
+public static final String CALENDERS = "Calenders";
 }
 

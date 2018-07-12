@@ -27,8 +27,9 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 			printButtonCheck: function () {
 				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
 				if (batchModel.Shipment.Status.Status === "1100.70.06.30.1")
-					_scWidgetUtils.showWidget(
-						this, "extn_button", true, null);
+					// _scWidgetUtils.showWidget(
+					// 	this, "extn_button", true, null);
+					this.changePrintStatus();
 			},
 			imGettingCalled: function () {
 				//console.log('im here');

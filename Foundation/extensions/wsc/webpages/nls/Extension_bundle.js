@@ -62,6 +62,9 @@ define({ root:
 	"Label_Finish_Sort":"Finish Sort",
 	"Action_View_Sort_Items":"To be sorted",
 	"Label_SortedQuantity":"Sorted quantity",
+	"extn_MCAT":"Merchant Category",
+	"extn_LM":"LM",
+	"extn_Print":"Print",
 	"extn_Ready_for_sorting":"Start sorting"
 },
 });

@@ -82,7 +82,7 @@ methodName : "openAssignPickup"
 
 
 ,handler : {
-methodName : "openAssignPickup"
+methodName : "invokePrint"
 
  
 }

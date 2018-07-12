@@ -8,6 +8,13 @@
 		 	</div>  
 		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
 	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'lnk_RT_AssignToHold' , 
+		renderHidden : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
+	 					data-dojo-props="data_dojo_props_diff: {
 	 								_sc_extensibility_operation : 'insert' , 
 		'class' : 'relatedTaskLink' , 
 		_sc_extensibility_moveOrder : '1' , 
@@ -26,6 +33,15 @@
 		 	</div>  
 		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
 	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '5' , 
+		_sc_extensibility_referenceUId : 'extn_link1' , 
+		uId : 'extn_link' , 
+		_sc_extensibility_position : 'before'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
+	 					data-dojo-props="data_dojo_props_diff: {
 	 								_sc_extensibility_operation : 'insert' , 
 		'class' : 'relatedTaskLink' , 
 		_sc_extensibility_moveOrder : '2' , 
@@ -35,9 +51,27 @@
  		,scExtensionDataFn :
 		 function() { 
 			return { 
-			 	value : 			this.getSimpleBundleString('extn_Assign_secondary_pickup_contact')
+			 	value : 			this.getSimpleBundleString('extn_Print')
 			}
 		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '3' , 
+		_sc_extensibility_referenceUId : 'extn_link' , 
+		uId : 'extn_link1' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '4' , 
+		_sc_extensibility_referenceUId : 'm_lnk_RT_UnpackShipment' , 
+		uId : 'extn_link1' , 
+		_sc_extensibility_position : 'after'  
 	 					}">
 		 	</div>  
 		</div>

@@ -37,8 +37,17 @@ scDefine(
 						window.webkit.messageHandlers.stopScanner.postMessage({});
 					}
 				},
+				invokePrint: function () {
+					console.log("Invoking print");
+					var batchModel = _scScreenUtils.getModel(this, "backroomPickShipmentDetails_output");
+					console.log('Print input -', batchModel);
+					if (window.webkit) {
+						window.webkit.messageHandlers.invokePrint.postMessage(batchModel);
+					}
+				},
 				gotoNextScreen: function () {
 					console.log('going to the next screen');
+					this.invokePrint();
 					this.stopScannerInput();
 					_scScreenUtils.clearScreen(
 						this, "translateBarCode_input");

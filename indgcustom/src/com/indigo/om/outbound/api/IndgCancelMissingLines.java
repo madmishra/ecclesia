@@ -252,6 +252,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	
 	private void callLegacy003opQueue(YFCDocument doc) {
 		doc.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
+		System.out.println(doc + "djskjdsk" + modifyTs);
 		invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
 	}
 	

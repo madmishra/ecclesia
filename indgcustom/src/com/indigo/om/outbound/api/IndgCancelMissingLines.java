@@ -49,21 +49,16 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     @Override
     public YFCDocument invoke(YFCDocument inXml) {
     	YFCDocument docGetOrderLineList1 = getOrderLineListFunc(inXml);
-    	System.out.println(docGetOrderLineList1 + "aaaaaaaaaa");
     	docIsFullOrderCancelled(inXml, docGetOrderLineList1);
-    	System.out.println(inXml + "bbbbbbbbbb");
     	String inputDocString = inXml.toString();
 	    YFCDocument docLegacy003NoOdrLinesInp = YFCDocument.getDocumentFor(inputDocString);
 	    modifyTs = docGetOrderLineList1.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.MODIFYTS);
 	    docLegacy003NoOrderLines(docLegacy003NoOdrLinesInp);
     	YFCDocument docGoodLinesSAP002 = docOrderLineCancelled(inXml, docGetOrderLineList1);
-    	System.out.println(docGoodLinesSAP002 + "eeeeeeeeeee");
     	YFCElement orderLineEle = docGoodLinesSAP002.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).
     			getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES);
     	if(!XmlUtils.isVoid(orderLineEle.getChildElement(XMLLiterals.ORDER_LINE))) {
     		YFCDocument docGetOrderLineList2 = getOrderLineListFunc(docGoodLinesSAP002);
-    		System.out.println(docGetOrderLineList2 + "fffffffffff");
-    		System.out.println(modifyTs + "sjxahjkh");
     		manageOrderCancellation(docGoodLinesSAP002, docGetOrderLineList2);
     		callLegacy003opQueue(docGoodLinesSAP002);
     		docScheduleOrderLineInput(docGoodLinesSAP002);
@@ -200,11 +195,9 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	    	} 
  	    }
  	    if(odrLinesEle.hasChildNodes()) {
- 	    	System.out.println(docOrderHeaderAttr + "eeeeeeeeeee");
  	    	callSAP051opQueue(docOrderHeaderAttr);
  	    	callLegacyOMS052opQueue(docOrderHeaderAttr);
  	    }
- 	   System.out.println(inXml + "ddddddddddd");
  	   return inXml;
     }
     
@@ -246,7 +239,6 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 				YFCNode parent = orderLineEle.getParentNode();
 			    parent.removeChild(orderLineEle);
 			}
-			System.out.println(docLegacy003NoOdrLinesInp + "ccccccccccc");
 			callLegacy003opQueue(docLegacy003NoOdrLinesInp);
 		}
 	}
@@ -260,7 +252,6 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	
 	private void callLegacy003opQueue(YFCDocument doc) {
 		doc.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
-		System.out.println(doc + "djskjdsk" + modifyTs);
 		invokeYantraService(getProperty(CALL_LEGACYOMS003_SERVICE), doc);
 	}
 	
@@ -289,12 +280,11 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
                 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, ZERO_QTY);
                 eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_1, cancellationReqId);
                 eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, REASON_CODE);
-             //   deleteChildNodes(eleOrderLine);
                 orderLines.importNode(eleOrderLine);
                 addOrderInfomrationForSAP(docGoodLinesSAP002, cancelLineDoc);
             } else if(CANCELLED.equals(eleOrderLine.getChildElement(XMLLiterals.ORDER_STATUSES).
             		getChildElement(XMLLiterals.ORDER_STATUS).getAttribute(XMLLiterals.STATUS))){
-              msgOrderLines.importNode(eleOrderLine);
+            	msgOrderLines.importNode(eleOrderLine);
             }
         }
         if(orderLines.hasChildNodes()) {
@@ -348,22 +338,6 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     }
 	
 	/**
-	 * this method deletes unwanted child nodes from the ChangeOrder Input.
-	 * 
-	 * @param eleOrderLine
-	 */
-	
-	/*private void deleteChildNodes(YFCElement eleOrderLine) {
-	      YFCElement orderEle = eleOrderLine.getChildElement(XMLLiterals.ORDER);
-	      YFCNode parent = orderEle.getParentNode();
-	      parent.removeChild(orderEle);
-	      YFCElement statusEle = eleOrderLine.getChildElement(XMLLiterals.ORDER_STATUSES);
-	      parent = statusEle.getParentNode();
-	      parent.removeChild(statusEle);
-	      orderEle.removeAttribute(XMLLiterals.STATUS);
-	}*/
-	
-	/**
 	 * This method forms the input for scheduleOrderLines API and is 
 	 * called for the good lines.
 	 * 
@@ -391,7 +365,6 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
 	    	elePromiseLine.setAttribute(XMLLiterals.SHIPNODE, eleOrderLine.getAttribute(XMLLiterals.SHIPNODE));
 	    	elePromiseLine.setAttribute(XMLLiterals.SUB_LINE_NO, ONE);
 	    }
-	    System.out.println(docScheduleOrderLine + "ggggggggggg");
 	    invokeYantraApi(XMLLiterals.SCHEDULE_ORDER_LINES, docScheduleOrderLine);  
 	}
 }

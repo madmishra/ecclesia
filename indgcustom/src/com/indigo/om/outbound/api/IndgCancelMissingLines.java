@@ -54,6 +54,7 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     	System.out.println(inXml + "bbbbbbbbbb");
     	String inputDocString = inXml.toString();
 	    YFCDocument docLegacy003NoOdrLinesInp = YFCDocument.getDocumentFor(inputDocString);
+	    modifyTs = docGetOrderLineList1.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.MODIFYTS);
 	    docLegacy003NoOrderLines(docLegacy003NoOdrLinesInp);
     	YFCDocument docGoodLinesSAP002 = docOrderLineCancelled(inXml, docGetOrderLineList1);
     	System.out.println(docGoodLinesSAP002 + "eeeeeeeeeee");
@@ -62,7 +63,6 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
     	if(!XmlUtils.isVoid(orderLineEle.getChildElement(XMLLiterals.ORDER_LINE))) {
     		YFCDocument docGetOrderLineList2 = getOrderLineListFunc(docGoodLinesSAP002);
     		System.out.println(docGetOrderLineList2 + "fffffffffff");
-    		modifyTs = docGetOrderLineList2.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.MODIFYTS);
     		System.out.println(modifyTs + "sjxahjkh");
     		manageOrderCancellation(docGoodLinesSAP002, docGetOrderLineList2);
     		callLegacy003opQueue(docGoodLinesSAP002);

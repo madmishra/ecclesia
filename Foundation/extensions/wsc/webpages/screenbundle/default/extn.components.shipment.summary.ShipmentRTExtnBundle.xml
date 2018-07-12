@@ -10,8 +10,7 @@
             bundleValueFn="_scSimpleBundle" property="value"
             type="WIDGET" uId="extn_link"/>
         <BundleEntry bundleEntryId="extn_link1_Link_value"
-            bundleKey="extn_Assign_secondary_pickup_contact"
-            bundleValueFn="_scSimpleBundle" property="value"
-            type="WIDGET" uId="extn_link1"/>
+            bundleKey="extn_Print" bundleValueFn="_scSimpleBundle"
+            property="value" type="WIDGET" uId="extn_link1"/>
     </BundleEntries>
 </ScreenBundle>

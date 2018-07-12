@@ -7,17 +7,31 @@
         <Items>
             <ContentPane _sc_extensibility_operation="change"
                 _sc_extensibility_referenceUId="ScreenContentHolder" renderHidden="false"/>
+            <Link _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lnk_RT_AssignToHold" renderHidden="true"/>
             <Link _sc_extensibility_moveOrder="1"
                 _sc_extensibility_operation="insert"
                 _sc_extensibility_position="after"
                 _sc_extensibility_referenceUId="lnk_RT_UnpackShipment"
                 class="relatedTaskLink" label="$(_scSimpleBundle:blank)"
                 uId="extn_link" value="$(_scSimpleBundle:extn_Assign_secondary_pickup_contact)"/>
+            <Link _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_link1" uId="extn_link"/>
             <Link _sc_extensibility_moveOrder="2"
                 _sc_extensibility_operation="insert"
                 _sc_extensibility_position="after"
                 _sc_extensibility_referenceUId="m_lnk_RT_PrintPackSlip"
-                class="relatedTaskLink" uId="extn_link1" value="$(_scSimpleBundle:extn_Assign_secondary_pickup_contact)"/>
+                class="relatedTaskLink" uId="extn_link1" value="$(_scSimpleBundle:extn_Print)"/>
+            <Link _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_link" uId="extn_link1"/>
+            <Link _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="m_lnk_RT_UnpackShipment" uId="extn_link1"/>
         </Items>
         <Subscribers>
             <Local>
@@ -29,7 +43,7 @@
                     <Handler methodName="openAssignPickup"/>
                 </Subscriber>
                 <Subscriber eventId="extn_link1_onClick" isExtn="true" sequence="51">
-                    <Handler methodName="openAssignPickup"/>
+                    <Handler methodName="invokePrint"/>
                 </Subscriber>
             </Local>
         </Subscribers>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Controller
     className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
-    controllerId="extn.mobile.customScreen.search.SearchResultBehaviorController"
+    controllerId="extn.mobile.custom.search.SearchResultBehaviorController"
     requestMethodSupported="POST" screenId="extn.mobile.custom.search.SearchResult">
     <MashupRefs>
         <MashupRef mashupId="extn_mobileHomeSearch_getShipmentList"

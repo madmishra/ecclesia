@@ -117,11 +117,11 @@ public class IndgCancelMissingLines extends AbstractCustomApi{
           eleOrderLine.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, EMPTY_STRING);
           eleOrderLine.setAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO, EMPTY_STRING);
   	      eleOrderLine.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
+  	      eleOrderLine.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
           YFCElement eleItemEle = eleOrderLine.createChild(XMLLiterals.ITEM);
           eleItemEle.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
           YFCElement eleOrder = eleOrderLine.createChild(XMLLiterals.ORDER);
           eleOrder.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
-          eleOrderLine.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
           eleOrder.setAttribute(XMLLiterals.ORDER_TYPE, EMPTY_STRING);
           eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
           eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);

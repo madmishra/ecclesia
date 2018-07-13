@@ -6,7 +6,7 @@
 			<xsl:attribute name="Modifyts">
 				<xsl:value-of select="ShipmentLine/@Modifyts"/>
 			</xsl:attribute>
-			<xsl:attribute name="SterlingToLegacyOMSSequenceNumber">
+			<xsl:attribute name="SterlingToLegacyOMSMessageSequenceNumber">
 			</xsl:attribute>
 			<xsl:attribute name="OrderNo">
 				<xsl:value-of select="ShipmentLine/@OrderNo"/>

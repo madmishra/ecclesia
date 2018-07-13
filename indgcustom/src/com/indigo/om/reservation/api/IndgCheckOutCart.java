@@ -314,6 +314,7 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 				.getAttribute("RequestedPickupTime"));
 		elePromise.setAttribute("ShipDate", inXml.getDocumentElement()
 				.getAttribute("RequestedPickupTime"));
+		//ReqEndDate should include the LookForward Window
 		elePromise.setAttribute("ReqEndDate", inXml.getDocumentElement()
 				.getAttribute("TargetReservationExpiryTime"));
 
@@ -329,8 +330,14 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 				inXml.getDocumentElement().getAttribute(
 						"TargetReservationExpiryTime"));
 
-		eleReservationParameters.setAttribute("ReservationID", UUID
-				.randomUUID().toString());
+		if(!SCUtil.isVoid(inXml.getDocumentElement().getAttribute("ReservationID"))) {
+			eleReservationParameters.setAttribute("ReservationID", inXml.getDocumentElement().getAttribute("ReservationID"));
+			
+		} else {
+			eleReservationParameters.setAttribute("ReservationID", UUID
+					.randomUUID().toString());
+			
+		}
 
 		YFCElement elePromiseLines = elePromise.createChild("PromiseLines");
 
@@ -360,8 +367,8 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 
 				elePromiseLine.setAttribute("UnitOfMeasure",
 						getProperty("UOM", "EACH"));
-				elePromiseLine.setAttribute("ProductClass",
-						getProperty("ProductClass", "GOOD"));
+				/*elePromiseLine.setAttribute("ProductClass",
+						getProperty("ProductClass", "GOOD"));*/
 				// elePromiseLine.setAttribute("UnitOfMeasure","EACH");
 				// elePromiseLine.setAttribute("ProductClass", "GOOD");
 			}

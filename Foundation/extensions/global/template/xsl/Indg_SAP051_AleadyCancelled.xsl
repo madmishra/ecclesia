@@ -14,7 +14,7 @@
 					<xsl:attribute name="SAPOrderNo">
 						<xsl:value-of select="OrderLines/OrderLine/@CustomerLinePONo"/>
 					</xsl:attribute>
-					<xsl:attribute name="OrderNo">
+					<xsl:attribute name="SterlingOrderNo">
 						<xsl:value-of select="OrderLines/OrderLine/Order/@OrderNo"/>
 					</xsl:attribute>
 					<xsl:attribute name="EnterpriseCode">

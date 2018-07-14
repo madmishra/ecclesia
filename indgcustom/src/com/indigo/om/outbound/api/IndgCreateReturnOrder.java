@@ -37,7 +37,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		YFCElement eleOrder = outDocgetOrderList.getDocumentElement().getChildElement(XMLLiterals.ORDER);
 		if(!YFCObject.isVoid(eleOrder)) {
 			sOrderHeaderKey = eleOrder.getAttribute(XMLLiterals.ORDER_HEADER_KEY);
-			sShipNode = eleOrder.getAttribute(XMLLiterals.SHIPNODE)
+			sShipNode = eleOrder.getAttribute(XMLLiterals.SHIPNODE);
 			docCreateOrderOutput =  invokeYantraApi(XMLLiterals.CREATE_ORDER, createOrderInput(inXml, sOrderHeaderKey, sShipNode),createOrderTemplate());
 		}
 
@@ -63,7 +63,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 	 * @return
 	 */
 
-	private YFCDocument createOrderInput(YFCDocument inXml, String sOrderHeaderKey) 
+	private YFCDocument createOrderInput(YFCDocument inXml, String sOrderHeaderKey, String sShipNode) 
 	{
 		YFCElement eleInXml = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		YFCElement  elePersonInfo = eleInXml.getChildElement(XMLLiterals.PERSON_INFO_BILL_TO);

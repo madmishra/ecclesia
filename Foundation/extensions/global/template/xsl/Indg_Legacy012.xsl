@@ -39,12 +39,14 @@
 									</Item>	
 									<AdditionalAddresses>
 										<AdditionalAddress>
-											<xsl:attribute name="AddressType">
-												<xsl:value-of select="AdditionalAddresses/AdditionalAddress/@AddressType"/>	
-											</xsl:attribute>
+											<xsl:attribute name="AddressType">AlternatePickupPerson</xsl:attribute>
 											<PersonInfo>
-												<xsl:attribute name="AddressID">
-													<xsl:value-of select="AdditionalAddresses/AdditionalAddress/PersonInfo/@AddressID"/>	
+												<xsl:attribute name="AddressID">AlternatePickupPerson</xsl:attribute>
+												<xsl:attribute name="FirstName">
+													<xsl:value-of select="AdditionalAddresses/AdditionalAddress/PersonInfo/@FirstName"/>	
+												</xsl:attribute>
+												<xsl:attribute name="LastName">
+													<xsl:value-of select="AdditionalAddresses/AdditionalAddress/PersonInfo/@LastName"/>	
 												</xsl:attribute>
 											</PersonInfo>
 										</AdditionalAddress>

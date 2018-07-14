@@ -8,7 +8,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 			changePrintStatus: function () {
 				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
 				var baseDropStatus = "1100.70.300";
-				debugger
+				
 				var shipmentLineArray = batchModel.Shipment.ShipmentLines.ShipmentLine
 				for (var i = 0; i < shipmentLineArray.length; i++)
 					if (shipmentLineArray[i].OrderLine.GiftWrap === "Y") {
@@ -132,6 +132,68 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 				console.log('changeOrderInput', changeOrderInput);
 				_iasUIUtils.callApi(this, changeOrderInput, "extn_addSecondaryContact", null);
 
+			},
+			handleMashupOutput: function (
+				mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel) {
+				if (
+					_scBaseUtils.equals(
+						mashupRefId, "unpack_getNumReasonCodes_refid")) {
+					this.handle_unpack_getNumReasonCodes_refid(
+						mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel);
+				}
+				if (
+					_scBaseUtils.equals(
+						mashupRefId, "unpack_deleteContainer_refid")) {
+					this.handle_unpack_deleteContainer_refid(
+						mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel);
+				}
+				if (
+					_scBaseUtils.equals(
+						mashupRefId, "getShipmentLineList")) {
+					if (!(
+							_scBaseUtils.equals(
+								false, applySetModel))) {
+						_scScreenUtils.setModel(
+							this, "getShipmentLineList_output", modelOutput, null);
+					}
+				}
+				if (
+					_scBaseUtils.equals(
+						mashupRefId, "getShipmentContainerList")) {
+					if (!(
+							_scBaseUtils.equals(
+								false, applySetModel))) {
+						_scScreenUtils.setModel(
+							this, "getShipmentContainerList_output", modelOutput, null);
+					}
+				}
+				if (
+					_scBaseUtils.equals(
+						mashupRefId, "getShipmentMoreDetails")) {
+					this.handleAdditionalInformation(
+						modelOutput);
+				}
+				if (
+					_scBaseUtils.equals(
+						mashupRefId, "containerPack_StorePackSlip_94")) {
+					this.handle_containerPack_StorePackSlip_94(
+						mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel);
+				}
+				if (
+					_scBaseUtils.equals(
+						mashupRefId, "containerPack_StoreLabelReprint_94")) {
+					this.handle_containerPack_StoreLabelReprint_94(
+						mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel);
+				}
+				if (
+					_scBaseUtils.equals(
+						mashupRefId, "getShipmentDetailsForRecordCustomerPick")) {
+					this.handle_getShipmentDetailsForRecordCustomerPick(
+						mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel);
+				}
+				if(mashupRefId === "extn_addSecondaryContact"){
+					this.callLegacyMessage(modelOutput);
+				}
 			}
 		});
 	});

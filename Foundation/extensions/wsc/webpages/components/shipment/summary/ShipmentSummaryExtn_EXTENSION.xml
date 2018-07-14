@@ -48,6 +48,8 @@
                 _sc_extensibility_operation="remove"
                 _sc_extensibility_position="first"
                 _sc_extensibility_referenceUId="_extensibilityHiddenWidgetsHolder" uId="lblExpectedShipDate"/>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblShipmentNo" renderHidden="false"/>
         </Items>
         <Subscribers>
             <Local>

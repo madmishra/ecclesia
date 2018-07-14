@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.mobile.home.subscreens.TasksInProgressExtnBehaviorController"
+    requestMethodSupported="POST" screenId="extn.mobile.home.subscreens.TasksInProgressExtn">
+    <MashupRefs>
+        <MashupRef extnType="MODIFY" mashupId="extn_tasksInProgress"
+            mashupRefId="getShipmentListBehavior" permissionId=""/>
+    </MashupRefs>
+</Controller>

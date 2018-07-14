@@ -45,7 +45,7 @@ _dojodeclare, _iasUIUtils, _iasWizardUtils, _scBaseUtils, _scModelUtils, _scReso
         		 event, bEvent, ctrl, args) {
             if(_scWizardUtils.isCurrentPageLastEntity(this)) {
                  _iasWizardUtils.setLabelOnNavigationalWidget(
-                 this, "confirmBttn", _scScreenUtils.getString(this, "Label_Finish_Sort"));
+                 this, "confirmBttn", _scScreenUtils.getString(this, "Title_UpdateHoldLocation"));
             }
         },
         afterWizardConfirm: function(

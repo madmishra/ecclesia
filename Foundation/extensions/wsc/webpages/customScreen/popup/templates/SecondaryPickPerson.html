@@ -14,13 +14,34 @@
   ,scParamDataFn :
   function() { 
 	 return { 	
-		  hint : 			this.getSimpleBundleString('TextField_Label_EnterCustomer')
+		  hint : 			this.getSimpleBundleString('TextField_Label_EnterFirstName')
 ,	
 		  bindingData : 	{
 
   targetBinding : 	[
 	  {
   path : 			'Name'
+,
+  namespace : 			'secondaryPersonObject'
+}
+]
+}
+	 }
+ }
+" style="padding-left: 39px"></div>
+		<div data-dojo-type="idx/form/TextBox" data-dojo-props="		spanLabel : true , 
+ 'class' : 'a11yHiddenLabel' , 
+ uId : 'scanProductIdTxt' 
+  ,scParamDataFn :
+  function() { 
+	 return { 	
+		  hint : 			this.getSimpleBundleString('TextField_Label_EnterSecondName')
+,	
+		  bindingData : 	{
+
+  targetBinding : 	[
+	  {
+  path : 			'SecondName'
 ,
   namespace : 			'secondaryPersonObject'
 }

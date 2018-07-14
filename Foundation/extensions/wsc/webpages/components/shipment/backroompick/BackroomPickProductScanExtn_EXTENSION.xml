@@ -4,13 +4,14 @@
         extnPackage="extn.components.shipment.backroompick"
         originalScreen="wsc.components.shipment.backroompick.BackroomPickProductScan"
         originalScreenPackage="wsc.components.shipment.backroompick" type="diffrential">
+        <Items>
+            <Link _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="shortItems" renderHidden="false"/>
+        </Items>
         <Subscribers>
             <Local>
-                <Subscriber eventId="afterScreenInit" isExtn="true" sequence="51">
+                <Subscriber eventId="afterScreenLoad" isExtn="true" sequence="51">
                     <Handler methodName="startScannerInApp"/>
-                </Subscriber>
-                <Subscriber eventId="pickAll_onClick" isExtn="true" sequence="51">
-                    <Handler methodName="stopScannerInput"/>
                 </Subscriber>
             </Local>
         </Subscribers>

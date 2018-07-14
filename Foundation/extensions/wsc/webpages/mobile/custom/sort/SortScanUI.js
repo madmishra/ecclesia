@@ -81,7 +81,10 @@ templateText, _dojodeclare, _dojokernel, _dojolang, _dojotext, _iasRepeatingScre
                 }
 				if (
 				mashupRefId === "extn_getDetails") {
-                   var shipmentKey = modelOutput.ShipmentLines.ShipmentLine[modelOutput.ShipmentLines.ShipmentLine.length-1].ShipmentKey ; 
+                    var shipmentKey="" ;
+                    if( modelOutput.ShipmentLines && modelOutput.ShipmentLines.ShipmentLine )
+                     shipmentKey = modelOutput.ShipmentLines.ShipmentLine[modelOutput.ShipmentLines.ShipmentLine.length-1].ShipmentKey ;
+
 					console.log('shipmentKey' , shipmentKey); 
 					 _iasUIUtils.openWizardInEditor("extn.wizards.SortScanPickWizard", {Shipment : {ShipmentKey : shipmentKey}}, "wsc.mobile.editors.MobileEditor", this, null);
                 }

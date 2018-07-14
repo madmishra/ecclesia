@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mashups>
-    <mashup id="itemDetails_getCompleteItemDetails">
-        <API Name="getCompleteItemList">
-            <Input/>
-            <Template>
-                <ItemList>
-                    <Item>
-                        <AdditionalAttributeList Name="" Value="">
-                            <AdditionalAttribute/>
-                        </AdditionalAttributeList>
-                    </Item>
-                </ItemList>
-            </Template>
-        </API>
-    </mashup>
     <mashup id="shipSummary_getShipmentLineList">
         <API Name="getShipmentLineList">
             <Input/>
@@ -28,24 +14,67 @@
             </Template>
         </API>
     </mashup>
-    <mashup id="shipSummary_getShipmentDetails">
-        <API Name="getShipmentDetails">
+    <mashup id="itemDetails_getCompleteItemDetails">
+        <API Name="getCompleteItemList">
             <Input/>
             <Template>
-                <Shipment>
-                    <Status/>
-                    <ShipmentLines>
-                        <ShipmentLine>
-                            <OrderLine GiftWrap="" OrderLineKey=""/>
-                            <Order CustPONo="" Division="" LevelOfService=""/>
-                        </ShipmentLine>
-                    </ShipmentLines>
-                    <BillToAddress/>
-                    <ShipNode>
-                        <ShipNodePersonInfo/>
-                    </ShipNode>
-                    <ToAddress/>
-                </Shipment>
+                <ItemList>
+                    <Item>
+                        <AdditionalAttributeList Name="" Value="">
+                            <AdditionalAttribute/>
+                        </AdditionalAttributeList>
+                    </Item>
+                </ItemList>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="backroomPick_getShipmentLineList">
+        <API Name="getShipmentLineList">
+            <Input/>
+            <Template>
+                <ShipmentLines>
+                    <ShipmentLine>
+                        <OrderLine>
+                            <ItemDetails>
+                                <ClassificationCodes CommodityCode=""/>
+                                <PrimaryInformation ProductLine=""/>
+                            </ItemDetails>
+                        </OrderLine>
+                    </ShipmentLine>
+                </ShipmentLines>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="backroomPick_getNotPickedShipmentLineList">
+        <API Name="getShipmentLineList">
+            <Input/>
+            <Template>
+                <ShipmentLines>
+                    <ShipmentLine>
+                        <OrderLine>
+                            <ItemDetails>
+                                <ClassificationCodes CommodityCode=""/>
+                                <PrimaryInformation ProductLine=""/>
+                            </ItemDetails>
+                        </OrderLine>
+                    </ShipmentLine>
+                    <ShipmentLine BackroomPickComplete=""
+                        BackroomPickedQuantity="" ItemID=""
+                        OrderHeaderKey="" OrderLineKey="" OrderNo=""
+                        OriginalQuantity="" PickLocation="" Quantity=""
+                        ShipmentKey="" ShipmentLineKey=""
+                        ShipmentLineNo="" ShipmentSubLineNo=""
+                        ShortageQty="" UnitOfMeasure="">
+                        <OrderLine IsBundleParent="" ItemGroupCode="">
+                            <ItemDetails ItemGroupCode="" ItemID="" UnitOfMeasure="">
+                                <ClassificationCodes Model=""/>
+                                <PrimaryInformation
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLabel="" ImageLocation=""/>
+                            </ItemDetails>
+                        </OrderLine>
+                    </ShipmentLine>
+                </ShipmentLines>
             </Template>
         </API>
     </mashup>

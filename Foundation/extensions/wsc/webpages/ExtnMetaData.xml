@@ -55,6 +55,9 @@
             <UIExtn
                 appScreen="wsc.components.shipment.common.screens.ShipmentLineDetails"
                 extnScreen="extn.components.shipment.common.screens.ShipmentLineDetailsExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.mobile.home.subscreens.TasksInProgress"
+                extnScreen="extn.mobile.home.subscreens.TasksInProgressExtn" type="diffrential"/>
         </UIExtns>
     </Identifier>
 </Extensions>

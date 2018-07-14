@@ -9,6 +9,14 @@
             bundleKey="extn_Click_to_view_gift_wrap_orders"
             bundleValueFn="_scSimpleBundle" property="title"
             type="WIDGET" uId="extn_link"/>
+        <BundleEntry bundleEntryId="extn_sort_link_Link_ImageAlt"
+            bundleKey="extn_Click_to_view_orders_to_sort"
+            bundleValueFn="_scSimpleBundle" property="ImageAlt"
+            type="WIDGET" uId="extn_sort_link"/>
+        <BundleEntry bundleEntryId="extn_sort_link_Link_title"
+            bundleKey="extn_Click_to_view_orders_to_sort"
+            bundleValueFn="_scSimpleBundle" property="title"
+            type="WIDGET" uId="extn_sort_link"/>
         <BundleEntry bundleEntryId="lblMyTasks_Label_value"
             bundleKey="Label_TasksInProgress"
             bundleValueFn="_scSimpleBundle" property="value"
@@ -21,5 +29,9 @@
             bundleKey="extn_Ready_for_gift_wrap"
             bundleValueFn="_scSimpleBundle" property="value"
             type="WIDGET" uId="extn_label_task"/>
+        <BundleEntry bundleEntryId="extn_sortlabel_Label_value"
+            bundleKey="extn_Ready_for_sorting"
+            bundleValueFn="_scSimpleBundle" property="value"
+            type="WIDGET" uId="extn_sortlabel"/>
     </BundleEntries>
 </ScreenBundle>

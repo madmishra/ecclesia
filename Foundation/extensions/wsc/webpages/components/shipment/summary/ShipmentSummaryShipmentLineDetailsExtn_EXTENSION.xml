@@ -11,7 +11,7 @@
                 _sc_extensibility_position="after"
                 _sc_extensibility_referenceUId="lbl_Quantity"
                 class="blockComponent zeroWidthLabelKey"
-                label="$(_scSimpleBundle:Label_ManufacturerName)"
+                label="$(_scBundle:Label_ManufacturerName)"
                 renderHidden="true" uId="extn_datalabel">
                 <BindingData>
                     <SourceBinding dynamicBindingFunc="checkIfValExists"
@@ -35,8 +35,7 @@
                 _sc_extensibility_position="after"
                 _sc_extensibility_referenceUId="extn_datalabel"
                 class="blockComponent zeroWidthLabelKey"
-                label="$(_scSimpleBundle:extn_Author)"
-                renderHidden="true" uId="extn_datalabel1">
+                label="$(_scBundle:extn_Author)" renderHidden="true" uId="extn_datalabel1">
                 <BindingData>
                     <SourceBinding dynamicBindingFunc="checkIfValExists"
                         namespace="extn_itemDetails_extraDetails" path="Author"/>
@@ -47,8 +46,7 @@
                 _sc_extensibility_position="before"
                 _sc_extensibility_referenceUId="lbl_PackedQty"
                 class="blockComponent zeroWidthLabelKey"
-                label="$(_scSimpleBundle:extn_Series)"
-                renderHidden="true" uId="extn_datalabel2">
+                label="$(_scBundle:extn_Series)" renderHidden="true" uId="extn_datalabel2">
                 <BindingData>
                     <SourceBinding dynamicBindingFunc="checkIfValExists"
                         namespace="extn_itemDetails_extraDetails" path="Series"/>
@@ -59,8 +57,7 @@
                 _sc_extensibility_position="before"
                 _sc_extensibility_referenceUId="lbl_PackedQty"
                 class="blockComponent zeroWidthLabelKey"
-                label="$(_scSimpleBundle:extn_Subject)"
-                renderHidden="true" uId="extn_datalabel3">
+                label="$(_scBundle:extn_Subject)" renderHidden="true" uId="extn_datalabel3">
                 <BindingData>
                     <SourceBinding dynamicBindingFunc="checkIfValExists"
                         namespace="extn_itemDetails_extraDetails" path="Subject"/>
@@ -71,7 +68,7 @@
                 _sc_extensibility_position="after"
                 _sc_extensibility_referenceUId="extn_datalabel3"
                 class="blockComponent zeroWidthLabelKey"
-                label="$(_scSimpleBundle:extn_MCAT)" renderHidden="true" uId="extn_datalabel4">
+                label="$(_scBundle:extn_MCAT)" renderHidden="true" uId="extn_datalabel4">
                 <BindingData>
                     <SourceBinding dynamicBindingFunc="checkIfValExists"
                         namespace="extn_itemDetails" path="PrimaryInformation.ProductLine"/>
@@ -82,7 +79,7 @@
                 _sc_extensibility_position="before"
                 _sc_extensibility_referenceUId="lbl_PackedQty"
                 class="blockComponent zeroWidthLabelKey"
-                label="$(_scSimpleBundle:extn_LM)" renderHidden="true" uId="extn_datalabel5">
+                label="$(_scBundle:extn_LM)" renderHidden="true" uId="extn_datalabel5">
                 <BindingData>
                     <SourceBinding dynamicBindingFunc="checkIfValExists"
                         namespace="extn_itemDetails" path="ClassificationCodes.CommodityCode"/>

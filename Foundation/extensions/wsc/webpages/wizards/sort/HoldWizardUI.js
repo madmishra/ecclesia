@@ -274,8 +274,7 @@ templateText, _dijitButton, _dojodeclare, _dojokernel, _dojolang, _dojotext, _ia
                 handler: {
                     methodName: "changeConfirmButtonLiteralIfLastPage"
                 }
-            }],
-            global: []
+            }]
         }
     });
 });

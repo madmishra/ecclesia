@@ -14,6 +14,12 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!sc/plat/dojo/utils/
 				var Author = "";
 				var Series = "";
 				var Brand = "";
+				var LM = "";
+				var MCAT = ""
+
+				LM = batchModel.Item.ClassificationCodes.CommodityCode;
+				MCAT = batchModel.Item.PrimaryInformation.ProductLine;
+
 				var additionalAtrributeArray = batchModel.Item.AdditionalAttributeList.AdditionalAttribute
 				for (var i = 0; i < additionalAtrributeArray.length; i++) {
 					if (additionalAtrributeArray[i].Name === "Subject") {
@@ -33,7 +39,9 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!sc/plat/dojo/utils/
 					Brand: Brand,
 					Subject: Subject,
 					Author: Author,
-					Series: Series
+					Series: Series,
+					LM: LM,
+					MCAT: MCAT
 				}, null)
 			}
 		});

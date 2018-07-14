@@ -7,6 +7,10 @@
         <Items>
             <Link _sc_extensibility_operation="change"
                 _sc_extensibility_referenceUId="lnkConfigureBatchList" renderHidden="true"/>
+            <Link _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="remove"
+                _sc_extensibility_position="first"
+                _sc_extensibility_referenceUId="_extensibilityHiddenWidgetsHolder" uId="lnkConfigureBatchList"/>
         </Items>
     </ScreenExtension>
 </ExtensionMetaData>

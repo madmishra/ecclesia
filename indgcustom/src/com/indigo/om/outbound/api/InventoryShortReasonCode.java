@@ -69,6 +69,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	
 	 private void invokeGetInventoryNodeControlList(YFCDocument docGetShipmentLineList)
 	 {
+		 System.out.println("dhsuhdasfkfh"+docGetShipmentLineList);
 		YFCDocument docGetInvControlList  = invokeYantraApi(XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST,
 				inputGetInvControlList(docGetShipmentLineList));
 		System.out.println("bhdhbfjahlrjGSAHGDa"+docGetInvControlList);

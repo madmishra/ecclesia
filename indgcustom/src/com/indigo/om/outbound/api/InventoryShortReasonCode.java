@@ -87,6 +87,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 
 	 private void invokeManageInventoryNodeControlAPI(YFCDocument docOutputgetShipmentList)
 		{
+		 System.out.println("dsjdsjff"+docOutputgetShipmentList);
 		 YFCElement eleShipementLine = docOutputgetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE);
 			YFCDocument docManageInventoryNodeControl = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
 			YFCElement eleInventoryNodeControl = docManageInventoryNodeControl.getDocumentElement();
@@ -116,6 +117,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		}
 	 
 	 private YFCDocument inputGetInvControlList(YFCDocument inputGetInvControlList) {
+		 System.out.println("hajsajs"+inputGetInvControlList);
 		 	YFCElement eleShipementLine = inputGetInvControlList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE);
 			YFCDocument docgetInvNodeContrlList = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
 			YFCElement eleInventoryNodeControl = docgetInvNodeContrlList.getDocumentElement();

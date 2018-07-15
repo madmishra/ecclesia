@@ -355,5 +355,8 @@ public static final String SCREEN_NAME = "ScreenName";
 public static final String MANAGE_USER_UI_STATE = "manageUserUiState";
 public static final String SERVICE_SLOT_DESC = "ServiceSlotDesc";
 public static final String CALENDERS = "Calenders";
+public static final String INBOX = "Inbox";
+public static final String INVENTORY_DIRTY = "INVENTORY_DIRTY";
+public static final String CREATE_EXCEPTION = "createException";
 }
 

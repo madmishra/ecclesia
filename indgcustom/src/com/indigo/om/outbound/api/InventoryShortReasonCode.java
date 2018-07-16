@@ -12,6 +12,7 @@ import com.yantra.yfc.dom.YFCElement;
 public class InventoryShortReasonCode extends AbstractCustomApi
 {
 	 private static final String EMPTY_STRING = " ";
+	 private static final String YES = "Y";
 	 YFCDocument docOutputgetShipmentList = null;
 	 private static final String FOUR = "04";
 	 private static final String TWO = "02";
@@ -70,8 +71,9 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 private void invokeGetInventoryNodeControlList(YFCDocument docGetShipmentLineList)
 	 {
 		 System.out.println("dhsuhdasfkfh"+docGetShipmentLineList);
+		 YFCDocument docInputGetInvControlList = inputGetInvControlList(docGetShipmentLineList);
 		YFCDocument docGetInvControlList  = invokeYantraApi(XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST,
-				inputGetInvControlList(docGetShipmentLineList));
+				docInputGetInvControlList);
 		System.out.println("bhdhbfjahlrjGSAHGDa"+docGetInvControlList);
 		if(docGetInvControlList.getDocumentElement().hasChildNodes())
 			
@@ -123,6 +125,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 	YFCElement eleShipementLine = inputGetInvControlList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE);
 			YFCDocument docgetInvNodeContrlList = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
 			YFCElement eleInventoryNodeControl = docgetInvNodeContrlList.getDocumentElement();
+			eleInventoryNodeControl.setAttribute(XMLLiterals.INVENTORY_PICTURE_CORRECT, YES);
 			eleInventoryNodeControl.setAttribute(XMLLiterals.ITEM_ID, eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
 			eleInventoryNodeControl.setAttribute(XMLLiterals.NODE, eleShipementLine.getChildElement(XMLLiterals.ORDER_LINE)
 					.getAttribute(XMLLiterals.SHIPNODE));

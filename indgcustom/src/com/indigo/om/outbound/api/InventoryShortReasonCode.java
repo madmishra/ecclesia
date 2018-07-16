@@ -13,7 +13,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 {
 	 private static final String EMPTY_STRING = " ";
 	 private static final String YES = "Y";
-	 YFCDocument docOutputgetShipmentList = null;
+	
 	 private static final String FOUR = "04";
 	 private static final String TWO = "02";
 	 private static final String NO ="N";
@@ -90,8 +90,8 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 
 	 private void invokeManageInventoryNodeControlAPI(YFCDocument docGetShipmentLineList)
 		{
-		 System.out.println("dsjdsjff"+docOutputgetShipmentList);
-		 YFCElement eleShipementLine = docOutputgetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE);
+		 System.out.println("dsjdsjff"+docGetShipmentLineList);
+		 YFCElement eleShipementLine = docGetShipmentLineList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE);
 		 System.out.println("-------------------------------"+eleShipementLine);
 			YFCDocument docManageInventoryNodeControl = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
 			YFCElement eleInventoryNodeControl = docManageInventoryNodeControl.getDocumentElement();

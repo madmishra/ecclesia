@@ -16,8 +16,8 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	
 	 private static final String FOUR = "04";
 	 private static final String TWO = "02";
-	 private static final String NO ="N";
-	 private static final String NO_OF_DAYS = "No_Of_Days";
+	 private static final String NO = "N";
+	 private static final String NO_OF_DAYS = "NO_OF_DAYS";
 	 private static final String CANCEL = "CANCEL";
 	private static final String ON_HOLD = "ON_HOLD";
 	 String sCancellationReasonCode = "01";
@@ -118,7 +118,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		{
 			 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 				Calendar cal = Calendar.getInstance();
-				String  sNoOfDays =getProperty(NO_OF_DAYS);
+				String  sNoOfDays = getProperty(NO_OF_DAYS);
 				int noOfDays = Integer.parseInt(sNoOfDays);
 				cal.add(Calendar.DAY_OF_MONTH, noOfDays);  
 				String date =  sdf.format(cal.getTime()); 

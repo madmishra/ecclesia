@@ -44,7 +44,8 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		eleShipment.setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
 		eleShipment.setAttribute(XMLLiterals.ORDER_TYPE, EMPTY_STRING);
 		eleShipment.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
-		YFCElement eleShipmentLine = eleShipment.getChildElement(XMLLiterals.SHIPMENT_LINES).createChild(XMLLiterals.SHIPMENT_LINE);
+		YFCElement eleShipmentLines = eleShipment.createChild(XMLLiterals.SHIPMENT_LINES);
+		YFCElement eleShipmentLine = eleShipmentLines.createChild(XMLLiterals.SHIPMENT_LINE);
 		eleShipmentLine.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
 		eleShipmentLine.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
 		eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);

@@ -32,7 +32,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	{
 		System.out.println("hfjdhgkjdj"+inXml);
 		invokeGetShipmentLineList(inXml);
-		invokeChangeOrder(inXml);
 		
 		return inXml;
 	}

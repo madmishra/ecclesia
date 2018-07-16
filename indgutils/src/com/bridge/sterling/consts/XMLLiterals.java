@@ -359,5 +359,6 @@ public static final String INBOX = "Inbox";
 public static final String INVENTORY_DIRTY = "INVENTORY_DIRTY";
 public static final String CREATE_EXCEPTION = "createException";
 public static final String EXPIRATION_DAYS = "ExpirationDays";
+public static final String NEW_ABANDONMENT_TIME = "NewAbandonmentTime";
 }
 

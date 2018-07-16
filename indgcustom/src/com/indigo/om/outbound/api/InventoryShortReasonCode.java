@@ -90,6 +90,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		{
 		 System.out.println("dsjdsjff"+docOutputgetShipmentList);
 		 YFCElement eleShipementLine = docOutputgetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE);
+		 System.out.println("-------------------------------"+eleShipementLine);
 			YFCDocument docManageInventoryNodeControl = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
 			YFCElement eleInventoryNodeControl = docManageInventoryNodeControl.getDocumentElement();
 			String sInventoryPictureTillDate = getInventoryPictureTillDate();
@@ -153,6 +154,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 
 	 private void invokeCreateException(YFCElement eleShipementLine)
 	 {
+		 System.out.println("hdjghjkfhkjokpk"+eleShipementLine);
 		 
 		 YFCDocument docCreateException = YFCDocument.createDocument(XMLLiterals.INBOX);
 		 YFCElement eleInbox = docCreateException.getDocumentElement();

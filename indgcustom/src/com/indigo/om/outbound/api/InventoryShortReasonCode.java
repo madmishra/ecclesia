@@ -20,7 +20,8 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 private static final String CANCEL = "CANCEL";
 	private static final String ON_HOLD = "ON_HOLD";
 	 String sCancellationReasonCode = "01";
-	 String INDG_ALERT_RAISE = "Indg_RaiseALert";
+	 private static final String INDG_ALERT_RAISE = "Indg_RaiseALert";
+	 String sExpirationDays = "30";
 	 /**
 	  * This method is the invoke point of the service.
 	  * 
@@ -159,6 +160,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 eleInbox.setAttribute(XMLLiterals.ITEM_ID, eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
 		 eleInbox.setAttribute(XMLLiterals.SHIPNODE, eleShipementLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.SHIPNODE));
 		 eleInbox.setAttribute(XMLLiterals.EXCEPTION_TYPE, XMLLiterals.INVENTORY_DIRTY);
+		 eleInbox.setAttribute(XMLLiterals.EXPIRATION_DAYS, sExpirationDays);
 		 YFCDocument docAlert = invokeYantraApi(XMLLiterals.CREATE_EXCEPTION, docCreateException);
 		 System.out.println("dbchsbgdjtn"+docAlert);
 		 invokeYantraService(INDG_ALERT_RAISE, docAlert);

@@ -60,19 +60,20 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 	private void checkStatusOfShipmentDeatils(YFCDocument docGetShipmentListOp, YFCDocument inXml) {
 		String status = docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.STATUS);
 		if(status.equals(STATUS1) || status.equals(STATUS2)) {
-			invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docChangeShipmentInp(inXml, docGetShipmentListOp), docChangeShipmentOpTemplate());
+			YFCDocument changeShipmentOutput = invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docChangeShipmentInp(inXml, docGetShipmentListOp), docChangeShipmentOpTemplate());
+		System.out.println("ertyui"+ changeShipmentOutput);
 		}
 	}
 	
 	private YFCDocument docChangeShipmentInp(YFCDocument inXml, YFCDocument docGetShipmentListOp) {
 		YFCDocument docChangeShipmentIn = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
-		docChangeShipmentIn.getDocumentElement().getAttribute(XMLLiterals.ENTERPRISE_CODE,
+		docChangeShipmentIn.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE,
 				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.ENTERPRISE_CODE));
-		docChangeShipmentIn.getDocumentElement().getAttribute(XMLLiterals.SHIPMENT_NO,
+		docChangeShipmentIn.getDocumentElement().setAttribute(XMLLiterals.SHIPMENT_NO,
 				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.SHIPMENT_NO));
-		docChangeShipmentIn.getDocumentElement().getAttribute(XMLLiterals.CUSTOMER_PO_NO,
+		docChangeShipmentIn.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO,
 				inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO));
-		docChangeShipmentIn.getDocumentElement().getAttribute(XMLLiterals.SHIPNODE,
+		docChangeShipmentIn.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE,
 				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.SHIPNODE));
 		YFCElement eleAdditionalDates = docChangeShipmentIn.getDocumentElement().createChild(XMLLiterals.ADDITIONAL_DATES);
 		YFCElement eleAdditionalDate = eleAdditionalDates.createChild(XMLLiterals.ADDITIONAL_DATE);

@@ -20,6 +20,9 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 private static final String NO_OF_DAYS = "NO_OF_DAYS";
 	 private static final String CANCEL = "CANCEL";
 	private static final String ON_HOLD = "ON_HOLD";
+	private static final String ORDER_TYPE = "ZOCC";
+	private static final String SUB_LINE_NO = "1";
+	
 	 String sCancellationReasonCode = "01";
 	 private static final String INDG_ALERT_RAISE = "Indg_RaiseALert";
 	 String sExpirationDays = "30";
@@ -151,12 +154,18 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, shipmentLine.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 		 eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, shipmentLine.getAttribute(XMLLiterals.INDIGO_CA));
 		 eleOrder.setAttribute(XMLLiterals.ORDER_NO, shipmentLine.getAttribute(XMLLiterals.ORDER_NO));
+		 eleOrder.setAttribute(XMLLiterals.ORDER_TYPE, ORDER_TYPE);
 		 YFCElement eleOrderLine = eleOrder.createChild(XMLLiterals.ORDER_LINES).createChild(XMLLiterals.ORDER_LINE);
 		 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL);
-		 eleOrderLine.setAttribute(XMLLiterals.ORDER_LINE_KEY, shipmentLine.getChildElement(XMLLiterals.ORDER_LINE)
-				 .getAttribute(XMLLiterals.ORDER_LINE_KEY));
+		 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, shipmentLine.getChildElement(XMLLiterals.ORDER_LINE)
+				 .getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY));
+		 eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO));
+		 eleOrderLine.setAttribute(XMLLiterals.SHIPNODE, shipmentLine.getChildElement(XMLLiterals.ORDER_LINE)
+				 .getAttribute(XMLLiterals.SHIPNODE));
+		 eleOrderLine.setAttribute(XMLLiterals.SUB_LINE_NO,SUB_LINE_NO);
+		 YFCElement eleItem = eleOrderLine.createChild(XMLLiterals.ITEM);
+		 eleItem.setAttribute(XMLLiterals.ITEM_ID, shipmentLine.getAttribute(XMLLiterals.ITEM_ID));
 		 System.out.println("fjhfjhgtk"+docOrder);
-		 formSAP051(invokeYantraService(XMLLiterals.CHANGE_ORDER_API, docOrder));
 		 }
 
 	 }
@@ -176,11 +185,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 invokeYantraService(INDG_ALERT_RAISE, docAlert);
 		 
 	 }
-	 private void formSAP051(YFCDocument docChangeOrder) {
-		 
-		System.out.println("jdkjkdjk"+docChangeOrder);
-		 
-	 }
-	 
+
 	 
 }

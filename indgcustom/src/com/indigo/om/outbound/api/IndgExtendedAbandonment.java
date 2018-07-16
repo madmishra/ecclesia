@@ -19,7 +19,9 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		YFCDocument docGetShipmentListOp = getShipmentListAPI(inXml);
 		System.out.println("asdfg"+ docGetShipmentListOp);
 		checkStatusOfShipmentDeatils(docGetShipmentListOp, inXml);
-		return inXml;
+		YFCDocument docGetShipmentDetails = getShipmentDetailsAPI(docGetShipmentListOp);
+		System.out.println("wsdxcftyh"+docGetShipmentDetails);
+		return docGetShipmentDetails;
 	}
 	
 	public YFCDocument docgetShipmentListInp(YFCDocument inXml) {
@@ -69,6 +71,8 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		YFCDocument docChangeShipmentIn = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
 		docChangeShipmentIn.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE,
 				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.ENTERPRISE_CODE));
+		docChangeShipmentIn.getDocumentElement().setAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE,
+				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.ENTERPRISE_CODE));
 		docChangeShipmentIn.getDocumentElement().setAttribute(XMLLiterals.SHIPMENT_NO,
 				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.SHIPMENT_NO));
 		docChangeShipmentIn.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO,
@@ -106,5 +110,40 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		return docShipment;
 	}
 	
+	private YFCDocument docgetShipmentDetailsInp(YFCDocument docGetShipmentListOp){
+		YFCDocument docgetShipmentDetailsInp = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
+		docgetShipmentDetailsInp.getDocumentElement().setAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE, 
+				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.ENTERPRISE_CODE));
+		docgetShipmentDetailsInp.getDocumentElement().setAttribute(XMLLiterals.SHIPMENT_KEY, 
+				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.SHIPMENT_KEY));
+		docgetShipmentDetailsInp.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, 
+				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.SHIPNODE));
+		System.out.println("rfvgyhj"+docgetShipmentDetailsInp );
+		return docgetShipmentDetailsInp;
+	}
+	
+	private YFCDocument docgetShipmentDetailsTemplate() {
+		YFCDocument docShipment = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
+		docShipment.getDocumentElement().setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
+		docShipment.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
+		docShipment.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
+		docShipment.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, EMPTY_STRING);
+		docShipment.getDocumentElement().setAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE, EMPTY_STRING);
+		docShipment.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
+		docShipment.getDocumentElement().setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
+		YFCElement eleShipmentLines = docShipment.createElement(XMLLiterals.SHIPMENT_LINES);
+		YFCElement eleShipmentLine = eleShipmentLines.createChild(XMLLiterals.SHIPMENT_LINE);
+		eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
+		eleShipmentLine.setAttribute(XMLLiterals.QUANTITY, EMPTY_STRING);
+		YFCElement eleAdditionalDates = docShipment.createElement(XMLLiterals.ADDITIONAL_DATES);
+		YFCElement eleAdditionalDate = eleAdditionalDates.createChild(XMLLiterals.ADDITIONAL_DATE);
+		eleAdditionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, EMPTY_STRING);
+		System.out.println("ujnhhyhgb"+docShipment);
+		return docShipment;
+	}
+	
+	private YFCDocument getShipmentDetailsAPI(YFCDocument docGetShipmentListOp) {
+		return invokeYantraApi(XMLLiterals.GET_SHIPMENT_DETAILS, docgetShipmentDetailsInp(docGetShipmentListOp), docgetShipmentDetailsTemplate());
+	}
 	
 }

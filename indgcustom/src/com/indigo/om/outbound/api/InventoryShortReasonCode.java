@@ -152,9 +152,10 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 YFCDocument docOrder = YFCDocument.createDocument(XMLLiterals.ORDER);
 		 YFCElement eleOrder = docOrder.getDocumentElement();
 		 eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, shipmentLine.getAttribute(XMLLiterals.DOCUMENT_TYPE));
-		 eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, shipmentLine.getAttribute(XMLLiterals.INDIGO_CA));
+		 eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, XMLLiterals.INDIGO_CA);
 		 eleOrder.setAttribute(XMLLiterals.ORDER_NO, shipmentLine.getAttribute(XMLLiterals.ORDER_NO));
 		 eleOrder.setAttribute(XMLLiterals.ORDER_TYPE, ORDER_TYPE);
+		 eleOrder.setAttribute(XMLLiterals.MODIFICATION_REASON_CODE, sCancellationReasonCode);
 		 YFCElement eleOrderLine = eleOrder.createChild(XMLLiterals.ORDER_LINES).createChild(XMLLiterals.ORDER_LINE);
 		 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL);
 		 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, shipmentLine.getChildElement(XMLLiterals.ORDER_LINE)

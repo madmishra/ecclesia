@@ -80,13 +80,13 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		else
 		{
 			sCancellationReasonCode = FOUR;
-			invokeManageInventoryNodeControlAPI(docOutputgetShipmentList);	
+			invokeManageInventoryNodeControlAPI(docGetShipmentLineList);	
 		
 		}
 		invokeChangeOrder(docGetShipmentLineList); 
 	 }
 	 
-	 private void invokeManageInventoryNodeControlAPI(YFCDocument docOutputgetShipmentList)
+	 private void invokeManageInventoryNodeControlAPI(YFCDocument docGetShipmentLineList)
 		{
 		 System.out.println("dsjdsjff"+docOutputgetShipmentList);
 		 YFCElement eleShipementLine = docOutputgetShipmentList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE);

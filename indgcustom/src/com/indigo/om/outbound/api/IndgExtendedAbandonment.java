@@ -9,20 +9,25 @@ import com.yantra.yfc.dom.YFCElement;
 public class IndgExtendedAbandonment extends AbstractCustomApi {
 	
 	private static final String EMPTY_STRING = "";
-	private static final String STATUS1 = "1100.70.200";
-	private static final String STATUS2 = "1100.70.300";
+	private static final String YES = "Y"; 
+	private static final String NO = "N"; 
+	private static final String STATUS1 = "STATUS1";
+	private static final String STATUS2 = "STATUS2";
 	private static final String MODIFY = "MODIFY";
 	private static final String ABANDONMENT = "ABANDONMENT";
+	private String setIsProcessed = "";
+	
 
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
 		YFCDocument docGetShipmentListOp = getShipmentListAPI(inXml);
 		System.out.println("asdfg"+ docGetShipmentListOp);
-		checkStatusOfShipmentDeatils(docGetShipmentListOp, inXml);
+		checkStatusOfShipmentDetails(docGetShipmentListOp, inXml);
 		YFCDocument docGetShipmentDetails = getShipmentDetailsAPI(docGetShipmentListOp);
 		System.out.println("wsdxcftyh"+docGetShipmentDetails);
 		String CustomerPONo = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO);
 		docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, CustomerPONo);
+		docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.IS_PROCESSED, setIsProcessed);
 		return docGetShipmentDetails;
 	}
 	
@@ -61,12 +66,14 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		return invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, docgetShipmentListInp(inXml), docgetShipmentListTemp());
 	}
 	
-	private void checkStatusOfShipmentDeatils(YFCDocument docGetShipmentListOp, YFCDocument inXml) {
+	private void checkStatusOfShipmentDetails(YFCDocument docGetShipmentListOp, YFCDocument inXml) {
+		
 		String status = docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.STATUS);
-		if(status.equals(STATUS1) || status.equals(STATUS2)) {
-			YFCDocument changeShipmentOutput = invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docChangeShipmentInp(inXml, docGetShipmentListOp), docChangeShipmentOpTemplate());
-		System.out.println("ertyui"+ changeShipmentOutput);
+		if(status.equals(getProperty(STATUS1)) || status.equals(getProperty(STATUS2))) {
+			invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docChangeShipmentInp(inXml, docGetShipmentListOp), docChangeShipmentOpTemplate());
+			setIsProcessed = YES;
 		}
+		setIsProcessed = NO;
 	}
 	
 	private YFCDocument docChangeShipmentInp(YFCDocument inXml, YFCDocument docGetShipmentListOp) {

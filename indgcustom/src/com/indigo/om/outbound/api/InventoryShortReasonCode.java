@@ -102,6 +102,11 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 			eleInventoryNodeControl.setAttribute(XMLLiterals.NODE_CONTROL_TYPE, ON_HOLD);
 			eleInventoryNodeControl.setAttribute(XMLLiterals.NODE, eleShipementLine.getChildElement(XMLLiterals.ORDER_LINE)
 					.getAttribute(XMLLiterals.SHIPNODE));
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+			Calendar cal = Calendar.getInstance();
+			String date =  sdf.format(cal.getTime()); 
+			String sStartDate =  date.substring(0,10)+"T"+date.substring(11,23)+"Z";
+			eleInventoryNodeControl.setAttribute(XMLLiterals.START_DATE, sStartDate);
 			eleInventoryNodeControl.setAttribute(XMLLiterals.ORGANIZATION_CODE, XMLLiterals.INDIGO_CA);
 			eleInventoryNodeControl.setAttribute(XMLLiterals.UNIT_OF_MEASURE, eleShipementLine.getAttribute(XMLLiterals.UNIT_OF_MEASURE));
 			System.out.println("hcjdgkjhk"+docManageInventoryNodeControl);
@@ -111,12 +116,13 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		}
 	 private String getInventoryPictureTillDate()
 		{
-			 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 				Calendar cal = Calendar.getInstance();
 				String  sNoOfDays =getProperty(NO_OF_DAYS);
 				int noOfDays = Integer.parseInt(sNoOfDays);
 				cal.add(Calendar.DAY_OF_MONTH, noOfDays);  
-				return sdf.format(cal.getTime()); 
+				String date =  sdf.format(cal.getTime()); 
+				return date.substring(0,10)+"T"+date.substring(11,23)+"Z";
 				
 		}
 	 

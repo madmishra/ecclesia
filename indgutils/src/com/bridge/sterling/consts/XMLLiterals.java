@@ -361,5 +361,6 @@ public static final String CREATE_EXCEPTION = "createException";
 public static final String EXPIRATION_DAYS = "ExpirationDays";
 public static final String NEW_ABANDONMENT_TIME = "NewAbandonmentTime";
 public static final String GET_SHIPMENT_DETAILS = "getShipmentDetails";
+public static final String START_DATE = "StartDate";
 }
 

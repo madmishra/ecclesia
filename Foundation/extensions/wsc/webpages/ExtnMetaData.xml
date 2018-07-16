@@ -58,6 +58,15 @@
             <UIExtn
                 appScreen="wsc.mobile.home.subscreens.TasksInProgress"
                 extnScreen="extn.mobile.home.subscreens.TasksInProgressExtn" type="diffrential"/>
+            <UIExtn
+                appScreen="wsc.components.batch.batchpick.scanlist.BatchLineDetails"
+                extnScreen="extn.components.batch.batchpick.scanlist.BatchLineDetailsExtn" type="diffrential">
+                <IdentifierList>
+                    <Identifier identifierId="SORT_AFTER_PICK" type="change"/>
+                </IdentifierList>
+            </UIExtn>
+            <UIExtn appScreen="wsc.mobile.home.search.AdvancedSearch"
+                extnScreen="extn.mobile.home.search.AdvancedSearchExtn" type="diffrential"/>
         </UIExtns>
     </Identifier>
 </Extensions>

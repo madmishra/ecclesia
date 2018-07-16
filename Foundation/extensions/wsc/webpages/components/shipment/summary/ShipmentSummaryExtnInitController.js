@@ -23,6 +23,32 @@ return _dojodeclare("extn.components.shipment.summary.ShipmentSummaryExtnInitCon
 			
 			
 			
+			
+			
+						,
+
+			
+			
+			 mashupRefs : 	[
+	 		{
+		 sourceNamespace : 			''
+,
+		 mashupRefId : 			'getShipmentDetails'
+,
+		 sequence : 			''
+,
+		 mashupId : 			'shipSummary_getShipmentDetails'
+,
+		 callSequence : 			''
+,
+		 extnType : 			'MODIFY'
+,
+		 sourceBindingOptions : 			''
+
+	}
+
+	]
+
 }
 );
 });

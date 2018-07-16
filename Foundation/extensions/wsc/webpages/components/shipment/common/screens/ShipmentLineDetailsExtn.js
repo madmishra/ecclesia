@@ -56,36 +56,43 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!extn/components/shi
                 console.log('shipmentLine', shipmentLine);
             },
             getBrand: function (dataValue, screen, widget, namespace, modelObj, options) {
-                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute
-
-                for (var i = 0; i < attributeArray.length; i++) {
-                    if (attributeArray[i].Name === "Brand")
-                        return attributeArray[i].Value
+                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
+                if (attributeArray) {
+                    for (var i = 0; i < attributeArray.length; i++) {
+                        if (attributeArray[i].Name === "Brand")
+                            return attributeArray[i].Value
+                    }
                 }
                 return "";
             },
             getSeries: function (dataValue, screen, widget, namespace, modelObj, options) {
-                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute
+                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
+                if (attributeArray) {
                 for (var i = 0; i < attributeArray.length; i++) {
                     if (attributeArray[i].Name === "Series")
                         return attributeArray[i].Value
                 }
+            }
                 return "";
             },
             getSubject: function (dataValue, screen, widget, namespace, modelObj, options) {
-                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute
+                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
+                if (attributeArray) {
                 for (var i = 0; i < attributeArray.length; i++) {
                     if (attributeArray[i].Name === "Subject")
                         return attributeArray[i].Value
                 }
+            }
                 return "";
             },
             getAuthor: function (dataValue, screen, widget, namespace, modelObj, options) {
-                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute
+                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
+                if (attributeArray) {
                 for (var i = 0; i < attributeArray.length; i++) {
                     if (attributeArray[i].Name === "Author")
                         return attributeArray[i].Value
                 }
+            }
                 return "";
             }
         });

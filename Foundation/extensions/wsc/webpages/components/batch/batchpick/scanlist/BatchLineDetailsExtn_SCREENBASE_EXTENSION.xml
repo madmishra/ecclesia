@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="BatchLineDetailsExtn"
+        extnPackage="extn.components.batch.batchpick.scanlist"
+        originalScreen="wsc.components.batch.batchpick.scanlist.BatchLineDetails"
+        originalScreenPackage="wsc.components.batch.batchpick.scanlist" type="diffrential">
+        <Items>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="departmentLbl" renderHidden="true"/>
+            <DataLabel _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="locationLbl"
+                class="autoLabelZeroWidth department blockComponent"
+                label="$(_scBundle:extn_Author)" uId="extn_screenbase_datalabel">
+                <BindingData>
+                    <SourceBinding
+                        namespace="extn_additionalAttributeArray" path="Author"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="locationLbl"
+                class="autoLabelZeroWidth department blockComponent"
+                label="$(_scBundle:extn_Brand)" uId="extn_screenbase_datalabel1">
+                <BindingData>
+                    <SourceBinding
+                        namespace="extn_additionalAttributeArray" path="Brand"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="locationLbl"
+                class="autoLabelZeroWidth department blockComponent"
+                label="$(_scBundle:extn_Subject)" uId="extn_screenbase_datalabel2">
+                <BindingData>
+                    <SourceBinding
+                        namespace="extn_additionalAttributeArray" path="Subject"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="7"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_screenbase_datalabel2"
+                class="autoLabelZeroWidth department blockComponent"
+                label="$(_scBundle:extn_Series)" uId="extn_screenbase_datalabel3">
+                <BindingData>
+                    <SourceBinding
+                        namespace="extn_additionalAttributeArray" path="Series"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="9"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="locationLbl"
+                class="autoLabelZeroWidth department blockComponent"
+                label="$(_scBundle:extn_MCAT)" uId="extn_screenbase_datalabel4">
+                <BindingData>
+                    <SourceBinding
+                        namespace="extn_additionalAttributeArray" path="MCAT"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="11"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_screenbase_datalabel4"
+                class="autoLabelZeroWidth department blockComponent"
+                label="$(_scBundle:extn_LM)" uId="extn_screenbase_datalabel5">
+                <BindingData>
+                    <SourceBinding
+                        namespace="extn_additionalAttributeArray" path="LM"/>
+                </BindingData>
+            </DataLabel>
+        </Items>
+        <Namespaces>
+            <SourceNamespaces>
+                <Source isExtn="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_1" value="extn_additionalAttributeArray"/>
+            </SourceNamespaces>
+        </Namespaces>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="afterScreenInit" isExtn="true" sequence="51">
+                    <Handler methodName="updateItemDetails"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+        <MashupRefs>
+            <Behavior>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_getItemDetailsForPick" mashupRefId="extn_getItemDetails"/>
+            </Behavior>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

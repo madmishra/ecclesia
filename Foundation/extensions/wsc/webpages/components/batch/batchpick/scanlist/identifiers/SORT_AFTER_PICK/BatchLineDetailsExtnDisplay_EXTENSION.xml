@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenDisplayExtension extnClassName="BatchLineDetailsExtn"
+        identifierId="SORT_AFTER_PICK"
+        originalScreen="wsc.components.batch.batchpick.scanlist.BatchLineDetails" originalScreenPackage="wsc.components.batch.batchpick.scanlist">
+        <Items>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="departmentLbl" renderHidden="true"/>
+            <DataLabel _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="locationLbl" uId="extn_screenbase_datalabel"/>
+            <DataLabel _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="locationLbl" uId="extn_screenbase_datalabel1"/>
+            <DataLabel _sc_extensibility_moveOrder="6"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="locationLbl" uId="extn_screenbase_datalabel2"/>
+            <DataLabel _sc_extensibility_moveOrder="8"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_screenbase_datalabel2" uId="extn_screenbase_datalabel3"/>
+            <DataLabel _sc_extensibility_moveOrder="10"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_screenbase_datalabel3" uId="extn_screenbase_datalabel4"/>
+            <DataLabel _sc_extensibility_moveOrder="12"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_screenbase_datalabel4" uId="extn_screenbase_datalabel5"/>
+        </Items>
+    </ScreenDisplayExtension>
+</ExtensionMetaData>

@@ -44,7 +44,7 @@ define({ root:
 	"TextField_Label_EnterSecondName":"Enter the second name",
 	"Action_RecordPickShipment":"Record Pick",
 	"extn_giftWrap":"Search for gift wrap",
-	"extn_MCAT":"Merchant Category",
+	"extn_MCAT":"MCAT",
 	"PickInProgress":"Pick in progress",
 	"extn_Print":"Print",
 	"Print_Order_Summary":"Print",

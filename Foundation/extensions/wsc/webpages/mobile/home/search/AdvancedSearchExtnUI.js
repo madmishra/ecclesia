@@ -1,5 +1,5 @@
 
-scDefine(["dojo/text!./templates/AdvancedSearchExtn.html","scbase/loader!dojo/_base/declare","scbase/loader!dojo/_base/kernel","scbase/loader!dojo/_base/lang","scbase/loader!dojo/text","scbase/loader!idx/form/CheckBoxList","scbase/loader!sc/plat","scbase/loader!sc/plat/dojo/binding/CheckBoxListDataBinder","scbase/loader!sc/plat/dojo/utils/BaseUtils"]
+scDefine(["dojo/text!./templates/AdvancedSearchExtn.html","scbase/loader!dojo/_base/declare","scbase/loader!dojo/_base/kernel","scbase/loader!dojo/_base/lang","scbase/loader!dojo/text","scbase/loader!idx/form/FilteringSelect","scbase/loader!sc/plat","scbase/loader!sc/plat/dojo/binding/ComboDataBinder","scbase/loader!sc/plat/dojo/utils/BaseUtils"]
  , function(			 
 			    templateText
 			 ,
@@ -11,11 +11,11 @@ scDefine(["dojo/text!./templates/AdvancedSearchExtn.html","scbase/loader!dojo/_b
 			 ,
 			    _dojotext
 			 ,
-			    _idxCheckBoxList
+			    _idxFilteringSelect
 			 ,
 			    _scplat
 			 ,
-			    _scCheckBoxListDataBinder
+			    _scComboDataBinder
 			 ,
 			    _scBaseUtils
 ){
@@ -29,23 +29,6 @@ return _dojodeclare("extn.mobile.home.search.AdvancedSearchExtnUI",
 	
 	
 	
-					,	
-	namespaces : {
-		targetBindingNamespaces :
-		[
-		],
-		sourceBindingNamespaces :
-		[
-			{
-	  scExtensibilityArrayItemId: 'extn_SourceNamespaces_3'
-						,
-	  value: 'extn_getStatusList_mashup_output'
-						
-			}
-			
-		]
-	}
-
 	
 	,
 	hotKeys: [ 

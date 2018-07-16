@@ -29,6 +29,8 @@
                 _sc_extensibility_operation="move"
                 _sc_extensibility_position="before"
                 _sc_extensibility_referenceUId="lnkBRP" uId="extn_button"/>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblShipmentNo" renderHidden="false"/>
             <DataLabel _sc_extensibility_moveOrder="5"
                 _sc_extensibility_operation="insert"
                 _sc_extensibility_position="before"
@@ -48,8 +50,6 @@
                 _sc_extensibility_operation="remove"
                 _sc_extensibility_position="first"
                 _sc_extensibility_referenceUId="_extensibilityHiddenWidgetsHolder" uId="lblExpectedShipDate"/>
-            <DataLabel _sc_extensibility_operation="change"
-                _sc_extensibility_referenceUId="lblShipmentNo" renderHidden="false"/>
         </Items>
         <Subscribers>
             <Local>
@@ -81,6 +81,10 @@
             </Global>
         </Subscribers>
         <MashupRefs>
+            <Init>
+                <MashupRef extnType="MODIFY"
+                    mashupId="shipSummary_getShipmentDetails" mashupRefId="getShipmentDetails"/>
+            </Init>
             <Behavior>
                 <MashupRef extnType="ADD"
                     mashupId="extn_changeShipmentStatus" mashupRefId="extn_printStatus"/>

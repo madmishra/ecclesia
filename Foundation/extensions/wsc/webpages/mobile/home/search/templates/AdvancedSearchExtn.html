@@ -1,47 +1,9 @@
 		<div>
-		 	<div data-dojo-type="idx/form/CheckBoxList" 
+		 	<div data-dojo-type="idx/form/FilteringSelect" 
 	 					data-dojo-props="data_dojo_props_diff: {
-	 								_sc_extensibility_operation : 'insert' , 
-		_sc_extensibility_moveOrder : '1' , 
+	 								_sc_extensibility_operation : 'change' , 
 		_sc_extensibility_referenceUId : 'filteringSelectOrderStatus' , 
-		uId : 'extn_checkboxlist' , 
-		_sc_extensibility_position : 'before'  
- 		,scExtensionDataFn :
-		 function() { 
-			return { 
-			 	bindingData : 	{
-		 targetBinding : 	[
-	 		{
-		 scExtensibilityArrayItemId : 			'extn_TargetBindings_0'
-,
-		 path : 			'Shipment.StatusList.Status'
-,
-		 namespace : 			'getAdvancedShipmentList_input'
-	}
-	]
-,
-		 sourceBinding : 	{
-		 path : 			'Shipment.Status'
-,
-		 namespace : 			'SavedAdvancedSearchCriteria'
-	}
-,
-		 optionsBinding : 	{
-		 descriptionField : 			'Description'
-,
-		 valueField : 			'Status'
-,
-		 path : 			'StatusList.Status'
-,
-		 shouldEncodeDescriptionFieldValue : 			false
-,
-		 namespace : 			'extn_getStatusList_mashup_output'
-	}
-	}
-,	
-			 	label : 			this.getSimpleBundleString('Label_Status')
-			}
-		}
+		renderHidden : false  
 	 					}">
 		 	</div>  
 		</div>

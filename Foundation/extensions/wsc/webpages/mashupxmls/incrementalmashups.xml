@@ -78,4 +78,18 @@
             </Template>
         </API>
     </mashup>
+    <mashup id="shipSummary_getShipmentDetails">
+        <API Name="getShipmentDetails">
+            <Input/>
+            <Template>
+                <Shipment>
+                    <ShipmentLines>
+                        <ShipmentLine>
+                            <OrderLine GiftWrap="" OrderLineKey=""/>
+                        </ShipmentLine>
+                    </ShipmentLines>
+                </Shipment>
+            </Template>
+        </API>
+    </mashup>
 </mashups>

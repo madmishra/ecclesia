@@ -146,7 +146,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 eleOrderLine.setAttribute(XMLLiterals.ORDER_LINE_KEY, shipmentLine.getChildElement(XMLLiterals.ORDER_LINE)
 				 .getAttribute(XMLLiterals.ORDER_LINE_KEY));
 		 System.out.println("fjhfjhgtk"+docOrder);
-		 invokeYantraService(XMLLiterals.CHANGE_ORDER_API, docOrder);
+		 formSAP051(invokeYantraService(XMLLiterals.CHANGE_ORDER_API, docOrder));
 		 }
 
 	 }
@@ -163,6 +163,11 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 YFCDocument docAlert = invokeYantraApi(XMLLiterals.CREATE_EXCEPTION, docCreateException);
 		 System.out.println("dbchsbgdjtn"+docAlert);
 		 invokeYantraService(INDG_ALERT_RAISE, docAlert);
+		 
+	 }
+	 private void formSAP051(YFCDocument docChangeOrder) {
+		 
+		System.out.println("jdkjkdjk"+docChangeOrder);
 		 
 	 }
 	 

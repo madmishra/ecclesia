@@ -73,7 +73,9 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 			invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docChangeShipmentInp(inXml, docGetShipmentListOp), docChangeShipmentOpTemplate());
 			setIsProcessed = YES;
 		}
-		setIsProcessed = NO;
+		else {
+			setIsProcessed = NO;
+		}
 	}
 	
 	private YFCDocument docChangeShipmentInp(YFCDocument inXml, YFCDocument docGetShipmentListOp) {

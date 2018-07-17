@@ -35,7 +35,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	private String finalDate = "";
 	private static final String EMPTY_STRING = "";
 	private String shipNode = "";
-	private String ABANDONMENT_DAYS = "ABANDONMENT_DAYS";
+	private String abandonmentDays = "ABANDONMENT_DAYS";
 	
 	/**
 	 * This method is the invoke point of the service.
@@ -73,7 +73,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 			String date = segments[0];
 			Date d = sdf.parse(date);
 			c.setTime(d);
-			int days = Integer.parseInt(getProperty(ABANDONMENT_DAYS));
+			int days = Integer.parseInt(getProperty(abandonmentDays));
 			c.add(Calendar.DATE, days);
 			String output = sdf.format(c.getTime());
 			finalDate = output.concat(START_TIME);

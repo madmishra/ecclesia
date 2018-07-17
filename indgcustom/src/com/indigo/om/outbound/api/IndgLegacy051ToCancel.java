@@ -247,7 +247,20 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 			orderLineEle.setAttribute(XMLLiterals.CONDITION_VARIABLE_2, REASON_CODE);
 			orderLineEle.setAttribute(XMLLiterals.ORDERED_QTY, orderedQty);
 		}
-		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);    
+		 callChangeOrderApi(docChangeOrderApiInput);
+	}
+	
+	private void callChangeOrderApi(YFCDocument docChangeOrderApiInput) {
+		String errorCode = "Order cannot be modified in current status";
+		try {
+			invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docChangeOrderApiInput);  
+		}
+		catch (Exception e){
+			System.out.println(e + "dsajhsjkah");
+			if(errorCode.equals(e)) {
+				System.out.println("SUC3EWDSS");
+			}
+		}
 	}
 	
 	/**

@@ -257,9 +257,6 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		}
 		catch (Exception e){
 			System.out.println(e + "dsajhsjkah");
-			if(errorCode.equals(e)) {
-				System.out.println("SUC3EWDSS");
-			}
 		}
 	}
 	

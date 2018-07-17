@@ -195,7 +195,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 eleInbox.setAttribute(XMLLiterals.QUEUE_ID, INVENTORY_DIRTY_QUEUE);
 		 YFCDocument docAlert = invokeYantraApi(XMLLiterals.CREATE_EXCEPTION, docCreateException);
 		 System.out.println("dbchsbgdjtn"+docAlert);
-		 invokeYantraService(INDG_ALERT_RAISE, docAlert);
+		 
 		 
 	 }
 

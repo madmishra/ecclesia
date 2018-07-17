@@ -21,12 +21,10 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
 		YFCDocument docGetShipmentListOp = getShipmentListAPI(inXml);
-		System.out.println("asdfg"+ docGetShipmentListOp);
 		checkStatusOfShipmentDetails(docGetShipmentListOp, inXml);
 		YFCDocument docGetShipmentDetails = getShipmentDetailsAPI(docGetShipmentListOp);
-		System.out.println("wsdxcftyh"+docGetShipmentDetails);
-		String CustomerPONo = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO);
-		docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, CustomerPONo);
+		String customerPONo = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO);
+		docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, customerPONo);
 		docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.IS_PROCESSED, setIsProcessed);
 		return docGetShipmentDetails;
 	}
@@ -40,7 +38,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		YFCElement eleShipmentLines = eleShipment.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES);
 		YFCElement eleShipmentLine = eleShipmentLines.createChild(XMLLiterals.SHIPMENT_LINE);
 		eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, orderEle.getAttribute(XMLLiterals.PARENT_LEGACY_OMS_ORDER_NO));
-		System.out.println("qwert"+ eleShipment);
 		return 	eleShipment;
 	}
 	
@@ -58,7 +55,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		eleShipmentLine.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
 		eleShipmentLine.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
 		eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
-		System.out.println("zxcvbn"+ docgetShipmentListTemp);
 		return docgetShipmentListTemp;
 	}
 	
@@ -96,7 +92,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		eleAdditionalDate.setAttribute(XMLLiterals.DATE_TYPE_ID, ABANDONMENT);
 		eleAdditionalDate.setAttribute(XMLLiterals.EXPECTED_DATE,
 				inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.NEW_ABANDONMENT_TIME));
-		System.out.println("pokjnhbyg"+ docChangeShipmentIn);
 		return docChangeShipmentIn;
 	}
 	
@@ -117,7 +112,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		YFCElement additionalDate = additionalDates.createChild(XMLLiterals.ADDITIONAL_DATE);
 		additionalDate.setAttribute(XMLLiterals.DATE_TYPE_ID, EMPTY_STRING);
 		additionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, EMPTY_STRING);
-		System.out.println("tredcvbn"+docShipment);
 		return docShipment;
 	}
 	
@@ -129,7 +123,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.SHIPMENT_KEY));
 		docgetShipmentDetailsInp.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, 
 				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.SHIPNODE));
-		System.out.println("rfvgyhj"+docgetShipmentDetailsInp );
 		return docgetShipmentDetailsInp;
 	}
 	
@@ -149,7 +142,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		YFCElement eleAdditionalDates = docShipment.getDocumentElement().createChild(XMLLiterals.ADDITIONAL_DATES);
 		YFCElement eleAdditionalDate = eleAdditionalDates.createChild(XMLLiterals.ADDITIONAL_DATE);
 		eleAdditionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, EMPTY_STRING);
-		System.out.println("ujnhhyhgb"+docShipment);
 		return docShipment;
 	}
 	

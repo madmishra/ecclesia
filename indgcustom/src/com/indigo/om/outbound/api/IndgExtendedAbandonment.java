@@ -16,7 +16,7 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 	private static final String MODIFY = "MODIFY";
 	private static final String ABANDONMENT = "ABANDONMENT";
 	private String setIsProcessed = "";
-	private static final String INVALID_STATUS = "1400";
+	private static final String SHIPPED_STATUS = "1400";
 	YFCDocument docGetShipmentDetails = null;
 	
 
@@ -25,7 +25,7 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		YFCDocument docGetShipmentListOp = getShipmentListAPI(inXml);
 		String status = docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.STATUS);
 		System.out.println("sdfghwerty"+status);
-		if(!status.equals(INVALID_STATUS)) {
+		if(!status.equals(SHIPPED_STATUS)) {
 			checkStatusOfShipmentDetails(docGetShipmentListOp, inXml);
 			docGetShipmentDetails = getShipmentDetailsAPI(docGetShipmentListOp);
 			System.out.println("plkijhb"+docGetShipmentDetails);
@@ -34,7 +34,8 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 			docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.IS_PROCESSED, setIsProcessed);
 		return docGetShipmentDetails;
 		}
-			return docGetShipmentDetails;
+		inXml.getDocumentElement().setAttribute(XMLLiterals.STATUS, SHIPPED_STATUS);
+		return inXml;
 		
 	}
 	

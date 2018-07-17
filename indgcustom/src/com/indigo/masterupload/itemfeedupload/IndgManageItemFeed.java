@@ -246,13 +246,12 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     * @param opListItemEle
     */
    private void validateCategoryItempath(YFCElement inItemEle, YFCDocument opListItemDoc) {
-    
      String ipItemCategoryId = getCategoryID(inItemEle);
      YFCElement opListItemEle = opListItemDoc.getDocumentElement()
          .getChildElement(XMLLiterals.ITEM);
      String opListCategoryId =  XPathUtil.getXpathAttribute(opListItemDoc, "//Category/@CategoryID");
      categoryPath =  XPathUtil.getXpathAttribute(opListItemDoc, "//Category/@CategoryPath");
-     if(!XmlUtils.isVoid(ipItemCategoryId) && !ipItemCategoryId.equals(opListCategoryId)) {
+     if(XmlUtils.isVoid(ipItemCategoryId) || !ipItemCategoryId.equals(opListCategoryId)) {
        modifyCategoryItem(opListItemEle,DELETE_ACTION);
        modifyCategoryItem(inItemEle,CREATE_ACTION);
      }
@@ -355,6 +354,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
      String categoryLevel2 = itemEle.getChildElement(XMLLiterals.PRIMARY_INFORMATION).getAttribute(XMLLiterals.PRODUCT_LINE,EMPTY_STRING);
      if(XmlUtils.isVoid(categoryLevel2) && XmlUtils.isVoid(categoryLevel3)) {
        inputCategoryID = getProperty(DEFAULT_CATEGORY);
+       if(XmlUtils.isVoid(inputCategoryID))
        categoryPath = getProperty(DEFAULT_CATEGORY_PATH);
      }
      if(!isCategoryAvailable(categoryLevel3)) {

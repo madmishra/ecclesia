@@ -4,9 +4,9 @@
     ConditionName="Is Exchange" ConditionType="PROCESS_MODELLING"
     ConditionValue="LineType = 'Exchange'" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
-    GroupId=" " Lockid="0" Modifyprogid="XMLMigrator"
+    GroupId="" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="RETURN_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="RETURN_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_DROP_SHIP_CONDITION"
     ConditionKey="200211110928278001" ConditionName="Is Chained Line"
@@ -15,16 +15,16 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Default" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="PO_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="PO_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_WMS" ConditionKey="200211110939408076"
     ConditionName="Is Shipment confirmed through WMS"
     ConditionType="PROCESS_MODELLING"
     ConditionValue="ShipNodeInterfaceType = 'WMS_YANTRA'"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
-    Createuserid="SYSTEM" GroupId=" " Lockid="0"
+    Createuserid="SYSTEM" GroupId="" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="hasNoVariance" ConditionKey="20030920164026501"
     ConditionName="has No Variance" ConditionType="PROCESS_MODELLING"
@@ -32,7 +32,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:36:04-04:00"
     Createuserid="SYSTEM" GroupId="Variance" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:04-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="COUNT_EXECUTION" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsNotResolvable"
     ConditionKey="20030920164300502" ConditionName="Is Not Resolvable"
@@ -41,7 +41,7 @@
     Createts="2018-03-28T12:36:04-04:00" Createuserid="SYSTEM"
     GroupId="Variance" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:36:04-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="COUNT_EXECUTION"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="COUNT_EXECUTION"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="VarianceValue" ConditionKey="20030920164430503"
     ConditionName="variance Value" ConditionType="PROCESS_MODELLING"
@@ -49,7 +49,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:36:04-04:00"
     Createuserid="SYSTEM" GroupId="Variance" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:04-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="COUNT_EXECUTION" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="ESP Check Required"
     ConditionKey="2003110313373962502"
@@ -58,7 +58,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Default" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_DELIVERY"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_DELIVERY"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsMasterBOL" ConditionKey="200311212041493509"
     ConditionName="Is Master BOL Required"
@@ -67,7 +67,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Prints" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="LOAD_DELIVERY"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="LOAD_DELIVERY"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsUPSN" ConditionKey="200312202135457028"
     ConditionName="Is UPSN" ConditionType="PROCESS_MODELLING"
@@ -75,7 +75,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Prints" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="MANIFESTING" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_APP_CONSOLE"
     ConditionKey="200401151419335001"
@@ -85,7 +85,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Default" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="PO_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsCountBatch" ConditionKey="200402181408425501"
     ConditionName="Is Count Batch" ConditionType="PROCESS_MODELLING"
@@ -93,7 +93,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:36:04-04:00"
     Createuserid="SYSTEM" GroupId="Default" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:04-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="TASK_EXECUTION" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="RoutingRequired"
     ConditionKey="200402200957083228" ConditionName="Routing Required"
@@ -102,7 +102,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Default" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_DELIVERY" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="HasRequestedSerial"
     ConditionKey="200403291158543503"
@@ -112,7 +112,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Default" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_DELIVERY"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_DELIVERY"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsPhysicalCount"
     ConditionKey="200404301108123712" ConditionName="Is Physical Count"
@@ -121,7 +121,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:36:04-04:00"
     Createuserid="SYSTEM" GroupId="Variance" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:04-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="COUNT_EXECUTION" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="PRE_CALL_NOT_DONE"
     ConditionKey="200405241629262232" ConditionName="Pre-Call Not Done"
@@ -130,7 +130,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="PreCall" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="VAS" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="SERVICE_NOT_COMPLETE"
     ConditionKey="200405241650192235" ConditionName="Service Not Ended"
@@ -139,7 +139,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Service Status" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="VAS" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="VAS" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IS-NODE-DCS-INTEGRATED"
     ConditionKey="200407081810093359"
     ConditionName="Is Node DCS Integrated"
@@ -148,7 +148,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Default" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="PO_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IS_SERVICE_OR_DELIVERY"
     ConditionKey="200502231737417438"
@@ -156,9 +156,9 @@
     ConditionType="PROCESS_MODELLING"
     ConditionValue="ItemGroupCode = 'PS'  OR ItemGroupCode = 'DS'"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
-    Createuserid="SYSTEM" GroupId=" " Lockid="0"
+    Createuserid="SYSTEM" GroupId="" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsParcel" ConditionKey="200503041242206390"
     ConditionName="Is Parcel" ConditionType="PROCESS_MODELLING"
@@ -166,7 +166,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Prints" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="MANIFESTING"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="MANIFESTING"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsCntTaskGenerated"
     ConditionKey="200504181315244397"
@@ -176,7 +176,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:36:04-04:00"
     Createuserid="SYSTEM" GroupId="Task" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:04-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="COUNT_EXECUTION" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_IS_ADDRESS_VERIFIED"
     ConditionKey="2005050517334587228"
@@ -186,7 +186,7 @@
     Createts="2018-03-28T12:31:15-04:00" Createuserid="SYSTEM"
     GroupId="IBM Sterling Call Center and Store" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:15-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_MULTIPLE_ADDRESS_RETURNED"
     ConditionKey="2005050616430098575"
@@ -197,7 +197,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_IS_AVS_DOWN"
     ConditionKey="2005050617501899562" ConditionName="Is AVS Down?"
@@ -207,7 +207,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_VALIDATE_CUSTOMER_EMAIL_ID"
     ConditionKey="20050512130818150649"
@@ -218,7 +218,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_VALIDATE_CUSTOMER_EMAIL_ID_MONITOR"
     ConditionKey="2005052516031857001"
@@ -229,7 +229,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_ADDRESS_MODIFIED"
     ConditionKey="2005061408080521543"
@@ -240,7 +240,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_ALL_ADDRESS_VERIFIED"
     ConditionKey="2005061418495443657"
@@ -251,7 +251,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_HAS_ENTIRE_ORDER_BEEN_CANCELLED"
     ConditionKey="20050617155131183285"
@@ -262,7 +262,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_SRVC_UNAVAIL_FAILURE"
     ConditionKey="2005062110460311163"
@@ -273,7 +273,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_HARD_DECLINE_FAILURE"
     ConditionKey="2005062110481311164"
@@ -284,7 +284,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_SOFT_DECLINE_FAILURE"
     ConditionKey="2005062110495511165"
@@ -295,7 +295,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_AUTH_RETRY_LIMIT_FAILURE"
     ConditionKey="2005062110540711171"
@@ -306,7 +306,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_DUP_ORDER_HOLD"
     ConditionKey="200506231000364514"
@@ -317,7 +317,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_FRAUD_ORDER_HOLD"
     ConditionKey="200506231016004577"
@@ -328,7 +328,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_LINE_ADDRESS_MODIFIED"
     ConditionKey="2005070517550618890"
@@ -339,7 +339,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_HOLD_TYPE_LOG_NOTE"
     ConditionKey="2006030720375211657"
@@ -350,7 +350,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Container Group Is SHIPMENT"
     ConditionKey="200603230723115551"
@@ -360,16 +360,16 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Default" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="PACK" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_RETURN_REQUIRED"
     ConditionKey="2006041010402613128" ConditionName="Return Required?"
     ConditionType="PROCESS_MODELLING"
     ConditionValue="LineType = 'Credit'" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:15-04:00" Createuserid="SYSTEM"
-    GroupId=" " Lockid="0" Modifyprogid="XMLMigrator"
+    GroupId="" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="RETURN_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="RETURN_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="ITEM_GROUP_CODE_EQUALTO_PROD_OR_PS"
     ConditionKey="2006053020150247649"
@@ -380,25 +380,25 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="is Bundle Parent"
     ConditionKey="20060606091158112062" ConditionName="Is Bundle Parent"
     ConditionType="PROCESS_MODELLING"
     ConditionValue="IsBundleParent = 'Y'" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
-    GroupId=" " Lockid="0" Modifyprogid="XMLMigrator"
+    GroupId="" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Is Bundle Parent"
     ConditionKey="2006061918005628535" ConditionName="Is Bundle Parent"
     ConditionType="PROCESS_MODELLING"
     ConditionValue="IsBundleParent = 'Y'" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
-    GroupId=" " Lockid="0" Modifyprogid="XMLMigrator"
+    GroupId="" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="RETURN_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="RETURN_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Is Bundle Parent"
     ConditionKey="2006062009353430189" ConditionName="Is Bundle Parent"
@@ -407,7 +407,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Default" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="PO_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="PO_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Is Drop Ship and Bundle Parent"
     ConditionKey="2006062009413030190"
@@ -417,7 +417,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Default" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="PO_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsShipment" ConditionKey="200606221213259608"
     ConditionName="Is Shipment" ConditionType="PROCESS_MODELLING"
@@ -425,7 +425,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Default" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="RESOURCE_PLANNING" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Shipment Is Not Going To BBN"
     ConditionKey="200606221213259609"
@@ -435,7 +435,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Prints" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="MANIFESTING" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsMyNode" ConditionKey="200607061331364843"
     ConditionName="Is My Node" ConditionType="PROCESS_MODELLING"
@@ -443,7 +443,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Default" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="TASK_EXECUTION" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsAgentCriteriaDefined"
     ConditionKey="200607061420204861"
@@ -452,7 +452,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Default" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="TASK_EXECUTION" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsBatch" ConditionKey="200607150058198038"
     ConditionName="Is Batch" ConditionType="PROCESS_MODELLING"
@@ -460,7 +460,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Default" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="TASK_EXECUTION"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="TASK_EXECUTION"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Is Drop Ship" ConditionKey="200609131139564901"
     ConditionName="Is Drop Ship" ConditionType="PROCESS_MODELLING"
@@ -468,7 +468,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Default" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="PO_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="PO_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="HasValidRouting"
     ConditionKey="20060920164026501" ConditionName="Has Valid Routing"
@@ -476,7 +476,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Pick Filters" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_DELIVERY" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Is Provided Service or Pickup Service"
     ConditionKey="2006101612060411084"
@@ -484,9 +484,9 @@
     ConditionType="PROCESS_MODELLING"
     ConditionValue="ItemGroupCode = 'DS'  OR ItemGroupCode = 'PS'"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
-    Createuserid="SYSTEM" GroupId=" " Lockid="0"
+    Createuserid="SYSTEM" GroupId="" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="RETURN_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsSingleUnitShipment"
     ConditionKey="20061020164026501"
@@ -496,7 +496,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Pick Filters" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_DELIVERY"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_DELIVERY"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Shipment Is Not Packed"
     ConditionKey="2006111715045282696"
@@ -506,7 +506,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Default" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_DELIVERY" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="HasPickupDockAppointment"
     ConditionKey="20061120164026501"
@@ -516,7 +516,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Pick Filters" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_DELIVERY" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_FTC_FIRST_NOTIFICATION_NEEDED"
     ConditionKey="20070802084301341068"
@@ -527,7 +527,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_FTC_NEXT_NOTIFICATION_NEEDED"
     ConditionKey="20070802084847341073"
@@ -538,7 +538,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="IsFirstFTCDelay"
     ConditionKey="2007090510253930059"
@@ -548,7 +548,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsNextFTCDelay"
     ConditionKey="2007090510284530075" ConditionName="Is Next FTC Delay"
@@ -558,7 +558,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsIndefiniteFTCDelay"
     ConditionKey="2007090510295530076"
@@ -569,7 +569,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_FTC_INDEFINITE_NOTIFICATION_NEEDED"
     ConditionKey="2007090717240881050"
@@ -580,7 +580,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="CUST_SYNCABLE"
     ConditionKey="20070914145759106001"
@@ -590,7 +590,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Sync Conditions" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Item_Valid_For_Synch"
     ConditionKey="20070920155131221078"
@@ -600,7 +600,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Sync Conditions" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="OPERATION_DELETE"
     ConditionKey="20070921075056225594"
@@ -610,14 +610,14 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Sync Conditions" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="ACTION_DELETE"
     ConditionKey="2007092716055553001" ConditionName="Is Action Delete"
     ConditionType="PROCESS_MODELLING" ConditionValue="Action = 'Delete'"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Sync Conditions" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IS_SYNC_REQUIRED"
     ConditionKey="2007092817553461021" ConditionName="Is Sync Required"
@@ -626,7 +626,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Sync Conditions" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_STORE"
     ConditionKey="2007121344463945790" ConditionName="Is Store?"
     ConditionType="PROCESS_MODELLING"
@@ -634,7 +634,7 @@
     Createts="2018-03-28T12:31:32-04:00" Createuserid="SYSTEM"
     GroupId="Store" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:32-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_DELIVERY"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_DELIVERY"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCDIsInDraftStatus"
     ConditionKey="2008031511120478507"
@@ -643,7 +643,7 @@
     Createts="2018-03-28T12:31:15-04:00" Createuserid="SYSTEM"
     GroupId="IBM Sterling Call Center and Store" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:15-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCDIsBlindReturn"
     ConditionKey="20080401101351270535" ConditionName="Is Blind Return"
@@ -652,7 +652,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:31:32-04:00"
     Createuserid="SYSTEM" GroupId="SyncConditions" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:32-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_IsPickupAtStore"
     ConditionKey="2008120144463945791"
@@ -662,7 +662,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:31:32-04:00"
     Createuserid="SYSTEM" GroupId="Store" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:32-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_DELIVERY" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_APPROVER_EMAILS"
     ConditionKey="2009010515582020955"
@@ -673,7 +673,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_IS_ORDER_APPROVAL_HOLD"
     ConditionKey="2009010516142121195"
@@ -684,7 +684,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_VALIDATE_EMAIL_IDS"
     ConditionKey="2009011515230874065"
@@ -695,7 +695,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="IsOpenHold" ConditionKey="2009012414043672331"
     ConditionName="Is Active Hold" ConditionType="PROCESS_MODELLING"
@@ -703,7 +703,7 @@
     Createts="2018-03-28T12:31:15-04:00" Createuserid="SYSTEM"
     GroupId="IBM Sterling Call Center and Store" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:15-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsHoldRevoked"
     ConditionKey="2009012414063672334" ConditionName="Is Hold Revoked"
@@ -712,7 +712,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_User_Email_Exists"
     ConditionKey="2009031714444930988" ConditionName="User Email Exists"
@@ -721,7 +721,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:31:15-04:00"
     Createuserid="SYSTEM" GroupId="UserConditions" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:15-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="GENERAL" ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_EXTERNAL_USER"
     ConditionKey="2009031810545832337" ConditionName="Is External User"
@@ -730,7 +730,7 @@
     Createts="2018-03-28T12:31:15-04:00" Createuserid="SYSTEM"
     GroupId="UserConditions" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="YCD_RESET_TYPE"
     ConditionKey="2009031810554332340"
     ConditionName="Is Reset Type Email?"
@@ -739,7 +739,7 @@
     Createts="2018-03-28T12:31:15-04:00" Createuserid="SYSTEM"
     GroupId="UserConditions" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsSpecialRequest"
     ConditionKey="2009103012373729491"
     ConditionName="Is Special Request" ConditionType="PROCESS_MODELLING"
@@ -747,7 +747,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Default" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="QUOTE_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="QUOTE_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsCustomerRatingValue"
     ConditionKey="2010052715364173489"
@@ -757,7 +757,7 @@
     Createts="2018-03-28T12:31:15-04:00" Createuserid="SYSTEM"
     GroupId="Is Customer Rating Value" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:15-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" ReturnType="boolean" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsActionCreated"
     ConditionKey="20100826134125235060"
@@ -766,7 +766,7 @@
     Createts="2018-03-28T12:31:15-04:00" Createuserid="SYSTEM"
     GroupId="IBM Sterling Call Center and Store" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:15-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="SCWC_IsATPMonitorAgent"
     ConditionKey="20110829145504316355"
@@ -776,7 +776,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="SCWC_Integration" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="SCWC_Awards_Changed"
     ConditionKey="20110912145337118166"
     ConditionName="Are Awards Changed?"
@@ -785,7 +785,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="SCWC_Integration" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="SCWC_OrderCancelled"
     ConditionKey="20110912162017118218"
@@ -795,7 +795,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="SCWC_Integration" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="SCWC_OrderDraft"
     ConditionKey="20110920122007121200" ConditionName="Is a draft order"
@@ -804,7 +804,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="SCWC_Integration" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Default_StoreChangeStatus"
     ConditionKey="2012010306564054001"
@@ -815,7 +815,7 @@
     Createuserid="SYSTEM" GroupId="Store" Lockid="2"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-07T11:21:14-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_DELIVERY"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_DELIVERY"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsCountBatch" ConditionKey="201202281408425501"
     ConditionName="Is Count Batch" ConditionType="PROCESS_MODELLING"
@@ -823,7 +823,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:36:04-04:00"
     Createuserid="SYSTEM" GroupId="Task" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:36:04-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="COUNT_EXECUTION" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IS_UPDATE_REQUIRED"
     ConditionKey="2012050716155321658"
@@ -832,7 +832,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="Promising Server Integration" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Prevent File Output"
     ConditionKey="201301081739153407130"
@@ -842,7 +842,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="DataSync Conditions" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="GENERAL" ReturnType="boolean" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IS_DMD_ONLY_MODE"
     ConditionKey="2013081913312621501"
@@ -852,7 +852,7 @@
     Createuserid="SYSTEM" GroupId="Promising Server Integration"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsEdgeDeploymentInstance"
     ConditionKey="2013121713160817501"
     ConditionName="Is Edge Deployment Instance"
@@ -861,7 +861,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Edge Deployment" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="IsEdgeDeploymentInstance"
     ConditionKey="2013121713160817502"
@@ -871,7 +871,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Edge Deployment" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="GENERAL" ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="YCD_IS_NOTES_PRESENT"
     ConditionKey="2013122012094555590"
@@ -882,7 +882,7 @@
     Createuserid="SYSTEM" GroupId="IBM Sterling Call Center and Store"
     Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="IsEntryTypeWCS"
     ConditionKey="2014012714232416042" ConditionName="Is Entry Type WCS"
@@ -890,7 +890,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="SCWC SDF Integration" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsFullSync" ConditionKey="2014031112405991374"
     ConditionName="Is Full Sync" ConditionType="PROCESS_MODELLING"
@@ -898,7 +898,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="SCWC SDF Integration" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsPriceCalculated"
     ConditionKey="20140421161613110118"
     ConditionName="Is Price Calculated"
@@ -907,7 +907,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="SCWC SDF Integration" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="IsEdgeDeploymentInstance"
     ConditionKey="2014042913160817502"
@@ -917,7 +917,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
     Createuserid="SYSTEM" GroupId="Edge Deployment" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="RETURN_FULFILLMENT" ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="ChangeOrder Not Required"
     ConditionKey="20150129120842126533"
@@ -927,7 +927,7 @@
     Createts="2018-03-28T12:31:15-04:00" Createuserid="SYSTEM"
     GroupId="Default" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:15-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="QUOTE_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="QUOTE_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IS_ORDER_CANCELLED"
     ConditionKey="201507211014454001" ConditionName="Is Order Cancelled"
@@ -936,7 +936,7 @@
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"
     GroupId="SCWC SDF Integration" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:29:54-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IBMJDA_HOSTTO_ADD"
     ConditionKey="20150814135545132120"
@@ -947,7 +947,7 @@
     GroupId="IBMJDA_Integration" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2015-08-14T22:25:28-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="20030708142438541"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="20030708142438541"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IBMJDA_HOSTTO_CHANGE"
     ConditionKey="20150814135731132123"
@@ -959,7 +959,7 @@
     GroupId="IBMJDA_Integration" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2015-08-14T22:25:47-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="20030708142438541"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="20030708142438541"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IBMJDA_TI_CHANGE"
     ConditionKey="20150818150755141374" ConditionName="IBMJDA_TI_CHANGE"
@@ -970,16 +970,16 @@
     GroupId="IBMJDA_Integration" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2015-08-18T19:07:55-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="20030708142438541"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="20030708142438541"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Is Carry Line?"
-    ConditionKey="20150902183112175822" ConditionName=" "
+    ConditionKey="20150902183112175822" ConditionName=""
     ConditionType="PROCESS_MODELLING"
     ConditionValue="DeliveryMethod = 'CARRY'" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:31:32-04:00" Createuserid="SYSTEM"
     GroupId="IBM Sterling Call Center and Store" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:32-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Is_Web_Store_Order"
     ConditionKey="20150903105557181974"
@@ -989,7 +989,7 @@
     Createts="2018-03-28T12:31:32-04:00" Createuserid="SYSTEM"
     GroupId="IBM Sterling Call Center and Store" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:32-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Validate Order Status for Sync"
     ConditionKey="2015112413114432772"
@@ -999,7 +999,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:42-04:00"
     Createuserid="SYSTEM" GroupId="IBMJDA_Integration" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:42-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="Validate Order Status for Sync"
     ConditionKey="2015112413175532780"
@@ -1009,7 +1009,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:42-04:00"
     Createuserid="SYSTEM" GroupId="IBMJDA_Integration" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:42-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="RETURN_FULFILLMENT" ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="Validate Order Status for Sync"
     ConditionKey="2015112413202232792"
@@ -1019,7 +1019,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:30:42-04:00"
     Createuserid="SYSTEM" GroupId="IBMJDA_Integration" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:30:42-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="20030708142438541" ReturnType="boolean" SeqNo="0" Type="DYNAMIC"/>
 <Condition ConditionID="IsOrderHeaderKeyPresent"
     ConditionKey="20160309120428212808"
@@ -1029,7 +1029,7 @@
     Createprogid="XMLMigrator" Createts="2018-03-28T12:31:15-04:00"
     Createuserid="SYSTEM" GroupId="SCWC SDF Integration" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:31:15-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Indigo" ConditionKey="201804161222555873"
     ConditionName="CreateUser" ConditionType="PROCESS_MODELLING"
@@ -1038,7 +1038,7 @@
     Createts="2018-04-16T12:22:55-04:00" Createuserid="admin"
     GroupId="Indigo" Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-04-16T12:22:55-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Indigo1" ConditionKey="201804161223375877"
     ConditionName="ModifyUser" ConditionType="PROCESS_MODELLING"
     ConditionValue="Action = 'Modify'"
@@ -1046,7 +1046,7 @@
     Createts="2018-04-16T12:23:37-04:00" Createuserid="admin"
     GroupId="Indigo" Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-04-16T12:23:37-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Indigo2" ConditionKey="201804161224285880"
     ConditionName="IsActive" ConditionType="PROCESS_MODELLING"
     ConditionValue="Action = 'InActive'"
@@ -1054,7 +1054,7 @@
     Createts="2018-04-16T12:24:28-04:00" Createuserid="admin"
     GroupId="Indigo" Lockid="0" Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-04-16T12:24:28-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Indigo3" ConditionKey="201804161225095883"
     ConditionName="IsAdmin" ConditionType="PROCESS_MODELLING"
     ConditionValue="Loginid = 'admin'"
@@ -1062,14 +1062,14 @@
     Createts="2018-04-16T12:25:09-04:00" Createuserid="admin"
     GroupId="Indigo" Lockid="1" Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-04-16T12:25:43-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="Indigp" ConditionKey="201804300723318100"
     ConditionName="StateVal" ConditionType="PROCESS_MODELLING"
     ConditionValue="State = 'QC'" Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-04-30T07:23:31-04:00" Createuserid="admin"
     GroupId="Indigo" Lockid="1" Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-10T11:58:22-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="GENERAL" SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="HeaderErrorCodeExists"
     ConditionKey="2018050210263311039"
     ConditionName="HeaderErrorCodeExists"
@@ -1080,7 +1080,7 @@
     GroupId="IndgOrderCond" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-02T10:26:33-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="OrderLineExists"
     ConditionKey="2018050911064511957" ConditionName="OrderLineExists"
@@ -1090,7 +1090,7 @@
     GroupId="IndgOrderCond" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-09T11:06:45-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="IsFullOrderCancelled"
     ConditionKey="2018051507030712479"
@@ -1102,7 +1102,7 @@
     GroupId="IndgOrderCond" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-15T07:03:07-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="SAP051MsgReq" ConditionKey="2018052503383816933"
     ConditionName="SAP051MsgReq" ConditionType="PROCESS_MODELLING"
@@ -1112,7 +1112,7 @@
     GroupId="IndgOrderCond" Lockid="0"
     Modifyprogid=".YCPWFRepositoryAPI"
     Modifyts="2018-05-25T03:38:38-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_FULFILLMENT"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_FULFILLMENT"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="INDG" ConditionKey="2018061510041024009"
     ConditionName="IsReadyForCustomerPick"
@@ -1120,19 +1120,19 @@
     ConditionValue="Status = '1100.70.300'"
     Createprogid=".YCPWFRepositoryAPI"
     Createts="2018-06-15T10:04:10-04:00" Createuserid="admin"
-    GroupId="IsReadyForCustomerPick" Lockid="1"
+    GroupId="IsReadyForCustomerPick" Lockid="2"
     Modifyprogid=".YCPWFRepositoryAPI"
-    Modifyts="2018-06-15T10:04:56-04:00" Modifyuserid="admin"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_DELIVERY"
+    Modifyts="2018-06-21T13:31:42-04:00" Modifyuserid="admin"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_DELIVERY"
     SeqNo="0" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_PORTAL" ConditionKey="DEFAULT_PORTAL"
     ConditionName="Is Shipment confirmed through Console?"
     ConditionType="PROCESS_MODELLING"
     ConditionValue="ShipNodeInterfaceType = 'YFX' OR ShipNodeInterfaceType = 'INTEGRATED_WMS'"
     Createprogid="XMLMigrator" Createts="2018-03-28T12:29:54-04:00"
-    Createuserid="SYSTEM" GroupId=" " Lockid="0"
+    Createuserid="SYSTEM" GroupId="" Lockid="0"
     Modifyprogid="XMLMigrator" Modifyts="2018-03-28T12:29:54-04:00"
-    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=" "
+    Modifyuserid="SYSTEM" OwnerKey="DEFAULT" OwnerType=""
     ProcessTypeKey="ORDER_FULFILLMENT" SeqNo="1" Type="STATIC"/>
 <Condition ConditionID="DEFAULT_IsStorePick" ConditionKey="DEFAULT_YCD3"
     ConditionName="Is Store Pickup" ConditionType="PROCESS_MODELLING"
@@ -1140,6 +1140,6 @@
     Createts="2018-03-28T12:31:32-04:00" Createuserid="SYSTEM"
     GroupId="Store" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:31:32-04:00" Modifyuserid="SYSTEM"
-    OwnerKey="DEFAULT" OwnerType=" " ProcessTypeKey="ORDER_DELIVERY"
+    OwnerKey="DEFAULT" OwnerType="" ProcessTypeKey="ORDER_DELIVERY"
     SeqNo="0" Type="STATIC"/>
 </YFS_CONDITIONList>

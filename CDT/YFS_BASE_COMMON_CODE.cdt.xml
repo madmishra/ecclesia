@@ -7,6 +7,14 @@
     Createts="2018-03-28T12:30:23-04:00" Createuserid="SYSTEM"
     GroupName="DocSpecific" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:23-04:00" Modifyuserid="SYSTEM" SystemDefinedCode="Y"/>
+<BaseCommonCode BaseCommonCodeKey="2018071708485655603"
+    CodeLength="2000" CodeLongDescription=""
+    CodeShortDescription="USER_GROUP_MAPPING"
+    CodeType="USER_GROUP_MAPPING" Createprogid=".YEntityServlet"
+    Createts="2018-07-17T08:48:56-04:00" Createuserid="admin"
+    GroupName="CustomCommonCode" Lockid="1"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-07-17T08:49:09-04:00"
+    Modifyuserid="admin" SystemDefinedCode="N"/>
 <BaseCommonCode BaseCommonCodeKey="ACROSS_ITEM_XML_ATTR" CodeLength="24"
     CodeLongDescription="Across_Item_Xml_Attr"
     CodeShortDescription="Across_Item_Xml_Attr"

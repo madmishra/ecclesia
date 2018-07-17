@@ -393,6 +393,13 @@ public class IndgManageUser extends AbstractCustomApi {
 	     invokeYantraService(USER_MANAGER_SERVER, doc);
 	}
 	
+	/**
+	 * This method forms the input for all users to send through
+	 * manageUserUIState API.
+	 * 
+	 * @param inputUserList
+	 */
+	
 	private void manageUIStateforNewUsers(Collection<String> inputUserList) {
 		for(String loginId : inputUserList) {
 			YFCDocument docUserUiState = YFCDocument.createDocument(XMLLiterals.USER_UI_STATE);

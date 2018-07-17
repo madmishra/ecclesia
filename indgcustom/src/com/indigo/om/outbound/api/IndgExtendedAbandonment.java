@@ -17,6 +17,7 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 	private static final String ABANDONMENT = "ABANDONMENT";
 	private String setIsProcessed = "";
 	private static final String INVALID_STATUS = "1400";
+	YFCDocument docGetShipmentDetails = null;
 	
 
 	@Override
@@ -24,18 +25,17 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		YFCDocument docGetShipmentListOp = getShipmentListAPI(inXml);
 		String status = docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.STATUS);
 		System.out.println("sdfghwerty"+status);
-		if(status.equals(INVALID_STATUS)) {
-			return null;
-		}
-		else {
+		if(!status.equals(INVALID_STATUS)) {
 			checkStatusOfShipmentDetails(docGetShipmentListOp, inXml);
-			YFCDocument docGetShipmentDetails = getShipmentDetailsAPI(docGetShipmentListOp);
+			docGetShipmentDetails = getShipmentDetailsAPI(docGetShipmentListOp);
 			System.out.println("plkijhb"+docGetShipmentDetails);
 			String customerPONo = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO);
 			docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, customerPONo);
 			docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.IS_PROCESSED, setIsProcessed);
-			return docGetShipmentDetails;
+		return docGetShipmentDetails;
 		}
+			return docGetShipmentDetails;
+		
 	}
 	
 	public YFCDocument docgetShipmentListInp(YFCDocument inXml) {

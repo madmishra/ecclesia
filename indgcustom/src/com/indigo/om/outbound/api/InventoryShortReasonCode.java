@@ -35,11 +35,11 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	@Override
 	public YFCDocument invoke(YFCDocument inXml)
 	{
-		//YFCDocument outXml = invokeYantraService(INDG_CHANGESHIPMENT, inXml);
+		YFCDocument outXml = invokeYantraService(INDG_CHANGESHIPMENT, inXml);
 		System.out.println("hfjdhgkjdj"+inXml);
 		invokeGetShipmentLineList(inXml);
 		
-		return inXml;
+		return outXml;
 	}
 	private void invokeGetShipmentLineList(YFCDocument inXml)
 	{

@@ -18,13 +18,13 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 private static final String TWO = "02";
 	 private static final String NO = "N";
 	 private static final String NO_OF_DAYS = "NO_OF_DAYS";
-	 private static final String CANCEL = "CANCEL";
 	private static final String ON_HOLD = "ON_HOLD";
 	private static final String ORDER_TYPE = "ZOCC";
 	private static final String SUB_LINE_NO = "1";
 	
 	 String sCancellationReasonCode = "01";
 	 private static final String INDG_ALERT_RAISE = "Indg_RaiseALert";
+	private static final String MODIFY = "MODIFY";
 	 String sExpirationDays = "30";
 	 /**
 	  * This method is the invoke point of the service.
@@ -157,9 +157,8 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 eleOrder.setAttribute(XMLLiterals.ORDER_TYPE, ORDER_TYPE);
 		 eleOrder.setAttribute(XMLLiterals.MODIFICATION_REASON_CODE, sCancellationReasonCode);
 		 YFCElement eleOrderLine = eleOrder.createChild(XMLLiterals.ORDER_LINES).createChild(XMLLiterals.ORDER_LINE);
-		 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL);
-		 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, shipmentLine.getChildElement(XMLLiterals.ORDER_LINE)
-				 .getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY));
+		 eleOrderLine.setAttribute(XMLLiterals.ACTION, MODIFY);
+		 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, shipmentLine.getAttribute(XMLLiterals.SHORTAGE_QTY));
 		 eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO));
 		 eleOrderLine.setAttribute(XMLLiterals.SHIPNODE, shipmentLine.getChildElement(XMLLiterals.ORDER_LINE)
 				 .getAttribute(XMLLiterals.SHIPNODE));

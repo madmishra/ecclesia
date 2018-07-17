@@ -362,5 +362,6 @@ public static final String EXPIRATION_DAYS = "ExpirationDays";
 public static final String NEW_ABANDONMENT_TIME = "NewAbandonmentTime";
 public static final String GET_SHIPMENT_DETAILS = "getShipmentDetails";
 public static final String START_DATE = "StartDate";
+public static final String SHORTAGE_QTY = "ShortageQty";
 }
 

@@ -165,7 +165,8 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 eleOrder.setAttribute(XMLLiterals.MODIFICATION_REASON_CODE, sCancellationReasonCode);
 		 YFCElement eleOrderLine = eleOrder.createChild(XMLLiterals.ORDER_LINES).createChild(XMLLiterals.ORDER_LINE);
 		 eleOrderLine.setAttribute(XMLLiterals.ACTION, MODIFY);
-		 int sOrderedQty= Integer.parseInt(shipmentLine.getAttribute(XMLLiterals.QUANTITY)) - Integer.parseInt(shipmentLine.getAttribute(XMLLiterals.SHORTAGE_QTY));
+		 int sOrderedQty= Integer.parseInt(shipmentLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY))
+				 - Integer.parseInt(shipmentLine.getAttribute(XMLLiterals.SHORTAGE_QTY));
 		 String sQty = String.valueOf(sOrderedQty);
 		 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY,sQty);
 		 eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO));

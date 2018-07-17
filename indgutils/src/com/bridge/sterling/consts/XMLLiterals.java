@@ -363,5 +363,9 @@ public static final String NEW_ABANDONMENT_TIME = "NewAbandonmentTime";
 public static final String GET_SHIPMENT_DETAILS = "getShipmentDetails";
 public static final String START_DATE = "StartDate";
 public static final String SHORTAGE_QTY = "ShortageQty";
+public static final String DETAIL_DESCRIPTION = "DetailDescription";
+public static final String ENTERPRISE_KEY = "EnterpriseKey";
+public static final String QUEUE_ID = "QueueId";
+public static final String SHIPNODE_KEY = "ShipnodeKey";
 }
 

@@ -25,6 +25,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 String sCancellationReasonCode = "01";
 	 private static final String INDG_ALERT_RAISE = "Indg_RaiseALert";
 	private static final String MODIFY = "MODIFY";
+	private static final String INDG_CHANGESHIPMENT = "Indg_ChangeShipment";
 	 String sExpirationDays = "30";
 	 /**
 	  * This method is the invoke point of the service.
@@ -34,6 +35,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	@Override
 	public YFCDocument invoke(YFCDocument inXml)
 	{
+		invokeYantraService(INDG_CHANGESHIPMENT, inXml);
 		System.out.println("hfjdhgkjdj"+inXml);
 		invokeGetShipmentLineList(inXml);
 		

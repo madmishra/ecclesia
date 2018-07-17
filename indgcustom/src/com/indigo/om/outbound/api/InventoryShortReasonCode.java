@@ -62,6 +62,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 			eleShipmentLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
 			eleShipmentLine.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
 			eleShipmentLine.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
+			eleShipmentLine.setAttribute(XMLLiterals.SHORTAGE_QTY, EMPTY_STRING);
 			YFCElement eleOrderLine = eleShipmentLine.createChild(XMLLiterals.ORDER_LINE);
 			eleOrderLine.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, EMPTY_STRING);
 			eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, EMPTY_STRING);

@@ -24,9 +24,12 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	
 	 String sCancellationReasonCode = "01";
 	 private static final String INDG_ALERT_RAISE = "Indg_RaiseALert";
-	private static final String MODIFY = "MODIFY";
+	private static final String INVENTORY_DIRTY_QUEUE = "INVENTORY_DIRTY_QUEUE";
 	private static final String INDG_CHANGESHIPMENT = "Indg_ChangeShipment";
+	private static final String CANCEL = "CANCEL";
+	private static final String MODIFY = "MODIFY";
 	 String sExpirationDays = "30";
+	 
 	 /**
 	  * This method is the invoke point of the service.
 	  * 
@@ -36,6 +39,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	public YFCDocument invoke(YFCDocument inXml)
 	{
 		YFCDocument outXml = invokeYantraService(INDG_CHANGESHIPMENT, inXml);
+		
 		System.out.println("hfjdhgkjdj"+inXml);
 		invokeGetShipmentLineList(inXml);
 		
@@ -161,7 +165,10 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 eleOrder.setAttribute(XMLLiterals.MODIFICATION_REASON_CODE, sCancellationReasonCode);
 		 YFCElement eleOrderLine = eleOrder.createChild(XMLLiterals.ORDER_LINES).createChild(XMLLiterals.ORDER_LINE);
 		 eleOrderLine.setAttribute(XMLLiterals.ACTION, MODIFY);
-		 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, shipmentLine.getAttribute(XMLLiterals.SHORTAGE_QTY));
+		 int sOrderedQty= Integer.parseInt(shipmentLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY))
+				 - Integer.parseInt(shipmentLine.getAttribute(XMLLiterals.SHORTAGE_QTY));
+		 String sQty = String.valueOf(sOrderedQty);
+		 eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY,sQty);
 		 eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, shipmentLine.getAttribute(XMLLiterals.PRIME_LINE_NO));
 		 eleOrderLine.setAttribute(XMLLiterals.SHIPNODE, shipmentLine.getChildElement(XMLLiterals.ORDER_LINE)
 				 .getAttribute(XMLLiterals.SHIPNODE));
@@ -180,13 +187,16 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 
 		 YFCDocument docCreateException = YFCDocument.createDocument(XMLLiterals.INBOX);
 		 YFCElement eleInbox = docCreateException.getDocumentElement();
+		 eleInbox.setAttribute(XMLLiterals.DETAIL_DESCRIPTION, eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
+		 eleInbox.setAttribute(XMLLiterals.ENTERPRISE_KEY, eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
 		 eleInbox.setAttribute(XMLLiterals.ITEM_ID, eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
-		 eleInbox.setAttribute(XMLLiterals.SHIPNODE, eleShipementLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.SHIPNODE));
+		 eleInbox.setAttribute(XMLLiterals.SHIPNODE_KEY, eleShipementLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.SHIPNODE));
 		 eleInbox.setAttribute(XMLLiterals.EXCEPTION_TYPE, XMLLiterals.INVENTORY_DIRTY);
 		 eleInbox.setAttribute(XMLLiterals.EXPIRATION_DAYS, sExpirationDays);
+		 eleInbox.setAttribute(XMLLiterals.QUEUE_ID, INVENTORY_DIRTY_QUEUE);
 		 YFCDocument docAlert = invokeYantraApi(XMLLiterals.CREATE_EXCEPTION, docCreateException);
 		 System.out.println("dbchsbgdjtn"+docAlert);
-		 invokeYantraService(INDG_ALERT_RAISE, docAlert);
+		 
 		 
 	 }
 

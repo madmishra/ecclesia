@@ -10,6 +10,13 @@ _dojodeclare, _dojokernel, _dojotext, _scServerDataController, _extnShipmentLine
 ,
 		 mashupRefId : 			'extn_printStatus'
 
+	},
+		{
+		
+		 mashupId : 			'extn_getItemDetailsForPick'
+,
+		 mashupRefId : 			'extn_getItemDetails'
+
 	}
 
 	]

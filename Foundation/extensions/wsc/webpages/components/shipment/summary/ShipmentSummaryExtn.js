@@ -8,7 +8,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 			changePrintStatus: function () {
 				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
 				var baseDropStatus = "1100.70.300";
-				
+
 				var shipmentLineArray = batchModel.Shipment.ShipmentLines.ShipmentLine;
 				for (var i = 0; i < shipmentLineArray.length; i++)
 					if (shipmentLineArray[i].OrderLine.GiftWrap === "Y") {
@@ -26,7 +26,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 			},
 			printButtonCheck: function () {
 				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
-				debugger
+
 				if (batchModel.Shipment.Status.Status === "1100.70.06.30.1")
 					// _scWidgetUtils.showWidget(
 					// 	this, "extn_button", true, null);
@@ -90,7 +90,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
 				_iasUIUtils.openWizardInEditor("extn.wizards.BackroomPickupWizard", batchModel, "wsc.desktop.editors.ShipmentEditor", this, null);
 			},
-			callLegacyMessage : function(modelOutput){
+			callLegacyMessage: function (modelOutput) {
 				// console.log('modelOutput' , modelOutput); 
 				_iasUIUtils.callApi(this, modelOutput, "extn_callLegacyMessage", null);
 			},
@@ -123,7 +123,9 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 							AdditionalAddress: {
 								AddressType: "AlternatePickupPerson",
 								PersonInfo: {
-									AddressID: event.SecondaryPerson
+									AddressID: "AlternatePickupPerson",
+									FirstName: event.SecondaryPerson,
+									LastName: event.LastName
 								}
 							}
 						}]

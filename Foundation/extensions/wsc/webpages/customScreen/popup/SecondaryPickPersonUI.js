@@ -46,7 +46,8 @@ scDefine(["dojo/text!./templates/SecondaryPickPerson.html", "scbase/loader!dojo/
             batchModel = _scScreenUtils.getTargetModel(this, "secondaryPersonObject");
             _scEventUtils.fireEventGlobally(
                 this, "updateSecondaryContact", null, {
-                    SecondaryPerson: batchModel.Name
+                    SecondaryPerson: batchModel.Name,
+                    LastName: batchModel.SecondName
                 });
             _scWidgetUtils.closePopup(
                 this, "CLOSE", false);

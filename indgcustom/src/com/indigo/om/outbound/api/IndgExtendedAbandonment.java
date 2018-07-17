@@ -23,12 +23,14 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 	public YFCDocument invoke(YFCDocument inXml) {
 		YFCDocument docGetShipmentListOp = getShipmentListAPI(inXml);
 		String status = docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.STATUS);
+		System.out.println("sdfghwerty"+status);
 		if(status.equals(INVALID_STATUS)) {
 			return null;
 		}
 		else {
 			checkStatusOfShipmentDetails(docGetShipmentListOp, inXml);
 			YFCDocument docGetShipmentDetails = getShipmentDetailsAPI(docGetShipmentListOp);
+			System.out.println("plkijhb"+docGetShipmentDetails);
 			String customerPONo = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO);
 			docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, customerPONo);
 			docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.IS_PROCESSED, setIsProcessed);

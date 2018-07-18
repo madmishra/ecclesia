@@ -54,7 +54,7 @@
 									<xsl:value-of select="@ShipNode"/>
 								</xsl:attribute>
 								<xsl:choose>
-									<xsl:when test="@CancellationReasonCode = ''">
+									<xsl:when test="@CancellationReasonCode = ' '">
 										<xsl:attribute name="CancellationReasonCode">03</xsl:attribute>
 									</xsl:when>
 									<xsl:otherwise>

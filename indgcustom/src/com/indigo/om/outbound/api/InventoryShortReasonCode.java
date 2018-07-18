@@ -81,6 +81,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 private void invokeGetInventoryNodeControlList(YFCDocument docGetShipmentLineList, YFCDocument inXml)
 	 {
 		 YFCElement eleShipment = inXml.getDocumentElement();
+		 System.out.println("hbfjhjh"+eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(DAMAGED));
 		 if(!eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(DAMAGED)) {
 		 System.out.println("dhsuhdasfkfh"+docGetShipmentLineList);
 		 YFCDocument docInputGetInvControlList = inputGetInvControlList(docGetShipmentLineList);

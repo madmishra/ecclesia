@@ -5,22 +5,10 @@ import java.util.Calendar;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
+import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
-
-/**
-* 
-* 
-* @author BSG170
-*
-* Custom Code consumes the data that is is being sent from UI. If the ShortageReasonCodeActual is damaged the  
-* sCancellationReasonCode is set to "01" else getInventoryNodeControlList APP is invoked to check
-* whether that particular combination of item and node is marked dirty if it is marked dirty sCancellationReasonCode 
-* is to "02" else manageInventoryNodeControlList API is invoked and sCancellationReasonCode is set to "04"
-* and cancel the order based on shortage quantity.
-* 
-*/
 
 public class InventoryShortReasonCode extends AbstractCustomApi {
 	
@@ -52,11 +40,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		return outXml;
 	}
 	
-	/**
-	 * This method forms the input to getShipmentLineList API
-	 * @param inXml
-	 */
-	
 	private void invokeGetShipmentLineList(YFCDocument inXml) {
 		YFCIterable<YFCElement> eleShipmentLines  = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES)
 				.getChildren(XMLLiterals.SHIPMENT_LINE);
@@ -67,11 +50,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 			invokeGetInventoryNodeControlList(invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList()), inXml);
 		}
 	}
-	
-	/**
-	 * This method forms the template for getShipmentLineList API
-	 * @return
-	 */
 	
 	private YFCDocument tempgetShipmentLineList() {
 		YFCDocument tempgetShipmentLineList = YFCDocument.createDocument(XMLLiterals.SHIPMENT_LINES);
@@ -91,19 +69,9 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		return tempgetShipmentLineList;
 	}
 	
-	/**
-	 * This method invokes getInventoryNodeControlList and based on the output of the API 
-	 * the sCancellationReasonCode is set and invokeManageInventoryNodeControlAPI is invoked
-	 * if the dirty flag is not set.
-	 * It invokes changeOrder API irrespective of getInventoryNodeControlList API
-	 * 
-	 * @param docGetShipmentLineList 
-	 * @param inXml
-	 */
-	
 	private void invokeGetInventoryNodeControlList(YFCDocument docGetShipmentLineList, YFCDocument inXml) {
 		YFCElement eleShipment = inXml.getDocumentElement();
-		if(eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(SHORTAGE)) {
+		if(!XmlUtils.isVoid(eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE)) && eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(SHORTAGE)) {
 			YFCDocument docInputGetInvControlList = inputGetInvControlList(docGetShipmentLineList);
 			YFCDocument docGetInvControlList  = invokeYantraApi(XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST, docInputGetInvControlList);
 			if(docGetInvControlList.getDocumentElement().hasChildNodes())
@@ -116,11 +84,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		}
 		invokeChangeOrder(docGetShipmentLineList); 
 	}
-	
-	/**
-	 * This method invokes invokeManageInventoryNodeControl API
-	 * @param docGetShipmentLineList
-	 */
 	 
 	 private void invokeManageInventoryNodeControlAPI(YFCDocument docGetShipmentLineList) {
 		 YFCElement eleShipementLine = docGetShipmentLineList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE);
@@ -144,12 +107,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		 invokeCreateException(eleShipementLine);
 	}
 	 
-	 /**
-	  * This method calculates the getInventoryPictureTillDate by adding  no of days fetched from service argument
-	  * 
-	  * @return
-	  */
-	 
 	 private String getInventoryPictureTillDate() {
 		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		 Calendar cal = Calendar.getInstance();
@@ -159,13 +116,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		 String date =  sdf.format(cal.getTime()); 
 		 return date.substring(0,10)+"T"+date.substring(11,23)+"Z";
 	 }
-	 
-	 /**
-	  * 
-	  *this method forms input document for getInventoryNodeControlList API
-	  * @param inputGetInvControlList
-	  * @return
-	  */
 	 
 	 private YFCDocument inputGetInvControlList(YFCDocument inputGetInvControlList) {
 		 YFCElement eleShipementLine = inputGetInvControlList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE);
@@ -179,11 +129,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		 eleInventoryNodeControl.setAttribute(XMLLiterals.UNIT_OF_MEASURE, eleShipementLine.getAttribute(XMLLiterals.UNIT_OF_MEASURE));
 		 return docgetInvNodeContrlList;	 
 	 }
-	 
-	 /**
-	  * This method forms the input and invokes changeOrder API
-	  * @param docGetShipmentLineList
-	  */
 	 
 	 private void invokeChangeOrder(YFCDocument docGetShipmentLineList) {
 		 YFCIterable<YFCElement> eleShipmentLine = docGetShipmentLineList.getDocumentElement().getChildren(XMLLiterals.SHIPMENT_LINE);
@@ -210,11 +155,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docOrder);
 		 }
 	 }
-	 
-	 /**
-	  * This method forms input for createException API
-	  * @param eleShipementLine
-	  */
 	 
 	 private void invokeCreateException(YFCElement eleShipementLine) {
 		 YFCDocument docCreateException = YFCDocument.createDocument(XMLLiterals.INBOX);

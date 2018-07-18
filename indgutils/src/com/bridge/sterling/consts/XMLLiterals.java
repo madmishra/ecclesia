@@ -369,5 +369,9 @@ public static final String QUEUE_ID = "QueueId";
 public static final String SHIPNODE_KEY = "ShipnodeKey";
 public static final String ORDER_AUDIT = "OrderAudit";
 public static final String SHORTAGE_REASON_CODE = "ShortageReasonCodeActual";
+public static final String CREATE_ASYNC_REQUEST = "CreateAsyncRequest";
+public static final String IS_SERVICE = "IsService";
+public static final String API = "API";
+public static final String INPUT = "Input";
 }
 

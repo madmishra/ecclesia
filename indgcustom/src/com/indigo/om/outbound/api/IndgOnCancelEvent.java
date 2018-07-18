@@ -296,7 +296,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void callLegacyOMS052opQueue(YFCDocument doc) {
-		 if((!XmlUtils.isVoid(customerLinePoNo)) && ((reasonCode!=(REASON_CODE1)) || (reasonCode!=(REASON_CODE2)) || (reasonCode!=(REASON_CODE3))))
+		 if((!XmlUtils.isVoid(customerLinePoNo)) && ((reasonCode!=(REASON_CODE1)) && (reasonCode!=(REASON_CODE2)) && (reasonCode!=(REASON_CODE3))))
 			 System.out.println(doc + "rrrrrrrrrrr");
 	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
 	}

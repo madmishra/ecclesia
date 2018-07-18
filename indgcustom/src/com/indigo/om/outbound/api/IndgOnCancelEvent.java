@@ -25,6 +25,7 @@ import com.yantra.yfc.dom.YFCNode;
  * 
  */
 public class IndgOnCancelEvent extends AbstractCustomApi{
+	
 	 Map<String,List<YFCElement>> orderLineMapGroupByShipNode = new HashMap<>();
 	 private static final String EMPTY_STRING = "";
 	 private static final String CALL_SAP051_SERVICE = "CALL_SAP051_SERVICE";
@@ -70,14 +71,14 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 * @param shipmentListApiOp
 	 */
 	
-	private void getOrderLinesGroupByReasonCode(){
+	private void getOrderLinesGroupByReasonCode() {
 	    YFCElement orderLinesEle = docLegacy051Input.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 	    YFCIterable<YFCElement> yfsItrator = orderLinesEle.getChildren(XMLLiterals.ORDER_LINE);
 	    for(YFCElement orderLine: yfsItrator) {
 	      String shipNodeValue = orderLine.getAttribute(XMLLiterals.SHIPNODE);
 	      docGroupByCodeAndNode(shipNodeValue, orderLine);
 	    }
-	 }
+	}
 	
 	/**
 	 * This method is used to create groups based on shipNode and 
@@ -302,7 +303,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	    orderEle.setAttribute(XMLLiterals.ENTERPRISE_CODE, enterpriseCode);
 	    orderEle.setAttribute(XMLLiterals.DOCUMENT_TYPE, documentType);
 	    return getOrderDoc;
-	  }
+	}
 	
 	/**
 	 * This method forms the template for getOrderLineList API
@@ -334,7 +335,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	    YFCElement statusEle = orderStatusEle.createChild(XMLLiterals.ORDER_STATUS);
 	    statusEle.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
 	    return getOrderListTemp;
-	  }
+	}
 	
 	/**
 	 * This method call the getOrderLineList API
@@ -346,5 +347,5 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	public YFCDocument getOrderLineListFunc(YFCDocument groupByShipNodeDoc){
 	    return  invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, getOrderLineListInDoc(groupByShipNodeDoc), 
 	    		getOrderLineListTemplateDoc());
-	 }
+	}
 }

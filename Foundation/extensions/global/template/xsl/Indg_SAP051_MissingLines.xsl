@@ -58,7 +58,9 @@
 										<xsl:attribute name="CancellationReasonCode">03</xsl:attribute>
 									</xsl:when>
 									<xsl:otherwise>
-										<xsl:attribute name="CancellationReasonCode">05</xsl:attribute>
+										<xsl:attribute name="CancellationReasonCode">
+											<xsl:value-of select="@CancellationReasonCode"/>
+										</xsl:attribute>
 									</xsl:otherwise>
 								</xsl:choose>
 								<Item>

@@ -40,9 +40,9 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 private String customerLinePoNo="";
 	 private String reasonCode="";
 	 YFCDocument docLegacy051Input = null;
-	 private static final String REASON_CODE1 = "1";
-	 private static final String REASON_CODE2 = "2";
-	 private static final String REASON_CODE3 = "4";
+	 private static final String REASON_CODE1 = "01";
+	 private static final String REASON_CODE2 = "02";
+	 private static final String REASON_CODE3 = "04";
 	 
 	 /**
 	  * This method is the invoke point of the service.

@@ -38,6 +38,9 @@
 										</xsl:attribute>
 									</Item>	
 									<LinePriceInfo>
+										<xsl:attribute name="ListPrice">
+											<xsl:value-of select="LinePriceInfo/@ListPrice"/>	
+										</xsl:attribute>
 										<xsl:attribute name="RetailPrice">
 											<xsl:value-of select="LinePriceInfo/@RetailPrice"/>	
 										</xsl:attribute>

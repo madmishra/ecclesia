@@ -25,7 +25,9 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 private static final String INDG_CHANGESHIPMENT = "Indg_ChangeShipment";
 	 private static final String CANCEL = "CANCEL";
 	 private static final String MODIFY = "MODIFY";
-	private static final Object DAMAGED = "Damaged";
+	private static final String SHORTAGE = "shortage";
+	private static final String DAMAGED = "damaged";
+	
 	 String sExpirationDays = "30";
 	 String sCancellationReasonCode = "01";
 	 
@@ -81,8 +83,8 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 private void invokeGetInventoryNodeControlList(YFCDocument docGetShipmentLineList, YFCDocument inXml)
 	 {
 		 YFCElement eleShipment = inXml.getDocumentElement();
-		 System.out.println("hbfjhjh"+eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(DAMAGED));
-		 if(!eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(DAMAGED)) {
+		 System.out.println("hbfjhjh"+eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(SHORTAGE));
+		 if(eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(SHORTAGE)) {
 		 System.out.println("dhsuhdasfkfh"+docGetShipmentLineList);
 		 YFCDocument docInputGetInvControlList = inputGetInvControlList(docGetShipmentLineList);
 		 YFCDocument docGetInvControlList  = invokeYantraApi(XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST,

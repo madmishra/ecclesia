@@ -1,7 +1,7 @@
-scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-style", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!extn/components/shipment/summary/ShipmentRTExtnUI", "scbase/loader!ias/utils/UIUtils", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!ias/utils/RelatedTaskUtils", "scbase/loader!sc/plat/dojo/utils/ModelUtils"],
+scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-style", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!extn/components/shipment/summary/ShipmentRTExtnUI", "scbase/loader!ias/utils/UIUtils", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!ias/utils/RelatedTaskUtils", "scbase/loader!sc/plat/dojo/utils/ModelUtils", "scbase/loader!sc/plat/dojo/utils/EventUtils"],
 	function (
 		_dojodeclare, domStyle, _scScreenUtils,
-		_extnShipmentRTExtnUI, _iasUIUtils, _scBaseUtils, _iasRelatedTaskUtils, _scModelUtils
+		_extnShipmentRTExtnUI, _iasUIUtils, _scBaseUtils, _iasRelatedTaskUtils, _scModelUtils, _scEventUtils
 	) {
 		return _dojodeclare("extn.components.shipment.summary.ShipmentRTExtn", [_extnShipmentRTExtnUI], {
 			// custom code here
@@ -84,7 +84,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-style", "s
 							this, "lnk_RT_UnpackShipment", false);
 					} else if (
 						_scBaseUtils.contains(
-							status, "1400")) { }
+							status, "1400")) {}
 				} else if (
 					_scBaseUtils.equals(
 						deliveryMethod, "PICK")) {
@@ -139,14 +139,14 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-style", "s
 					}
 				}
 				if (!(
-					this.hasPermissionForPrintPickTicket(
-						shipmentDetailsModel))) {
+						this.hasPermissionForPrintPickTicket(
+							shipmentDetailsModel))) {
 					_iasRelatedTaskUtils.hideTaskInWebAndMobile(
 						this, "lnk_RT_PrintPickTicket", false);
 				}
 				if (!(
-					this.hasPermissionForBackroomPick(
-						shipmentDetailsModel))) {
+						this.hasPermissionForBackroomPick(
+							shipmentDetailsModel))) {
 					_iasRelatedTaskUtils.hideTaskInWebAndMobile(
 						this, "lnk_RT_RecordPickShipment", false);
 				}
@@ -155,11 +155,8 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-style", "s
 				_iasUIUtils.openSimplePopup("extn.customScreen.popup.SecondaryPickPerson", "Secondary pick up person", this, null, null);
 			},
 			invokePrint: function (event, bEvent, ctrl, args) {
-				var Batchmodel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
-				console.log('Invoking print with the input', Batchmodel);
-				if (window.webkit) {
-					window.webkit.messageHandlers.invokePrint.postMessage(batchModel);
-				}
+				_scEventUtils.fireEventGlobally(
+					this, "printInvokeEvent", null, {});
 			}
 		});
 	});

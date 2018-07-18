@@ -31,7 +31,7 @@ return _dojodeclare("extn.components.shipment.summary.ShipmentSummaryExtnInitCon
 			
 			 mashupRefs : 	[
 	 		{
-		 sourceNamespace : 			''
+		 sourceNamespace : 			'getShipmentDetails_output'
 ,
 		 mashupRefId : 			'getShipmentDetails'
 ,
@@ -41,7 +41,7 @@ return _dojodeclare("extn.components.shipment.summary.ShipmentSummaryExtnInitCon
 ,
 		 callSequence : 			''
 ,
-		 extnType : 			'MODIFY'
+		 extnType : 			'ADD'
 ,
 		 sourceBindingOptions : 			''
 

@@ -72,7 +72,8 @@ define({ root:
 	"extn_Author":"Author",
 	"extn_LM":"LM",
 	"Action_Assign_Hold":"Assign Bin Location",
-	"Title_BackroomPickup":"Pick"
+	"Title_BackroomPickup":"Pick",
+	"Label_Quantity_to_be_sorted":"Quantity to be sorted"
 },
 	});
 	

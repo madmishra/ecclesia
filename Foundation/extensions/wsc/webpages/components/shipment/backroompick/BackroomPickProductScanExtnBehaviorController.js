@@ -23,6 +23,24 @@ return _dojodeclare("extn.components.shipment.backroompick.BackroomPickProductSc
 			
 			
 			
+			
+			
+						,
+
+			
+			
+			 mashupRefs : 	[
+	 		{
+		 mashupRefId : 			'extn_getPrintDetails'
+,
+		 mashupId : 			'extn_getPrintDetails'
+,
+		 extnType : 			'ADD'
+
+	}
+
+	]
+
 }
 );
 });

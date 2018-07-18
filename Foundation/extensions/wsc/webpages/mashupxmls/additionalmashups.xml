@@ -530,14 +530,11 @@
                             <Exp Name="Status" QryType="FLIKE" Value="1100.70.06.20"/>
                             <Exp Name="Status" QryType="FLIKE" Value="1100.70.06.70"/>
                             <And>
-                                <Exp Name="Status" QryType="FLIKE" Value="1100.70"/>
-                                <Exp Name="Status" QryType="NE" Value="1100.70.300"/>
-                                <Exp Name="Status" QryType="NE" Value="1100.70.400"/>
-                            </And>
-                            <And>
                                 <Or>
                                     <Exp Name="Status" QryType="FLIKE" Value="1100.70.06.50"/>
                                     <Exp Name="Status" QryType="FLIKE" Value="1100.70.06.30"/>
+                                    <Exp Name="Status" QryType="FLIKE" Value="1100.70.300"/>
+                                    <Exp Name="Status" QryType="FLIKE" Value="1100.70.400"/>
                                 </Or>
                                 <Or>
                                     <Exp Name="HoldLocation" QryType="ISNULL"/>
@@ -569,14 +566,11 @@
                             <Exp Name="Status" QryType="FLIKE" Value="1100.70.06.20"/>
                             <Exp Name="Status" QryType="FLIKE" Value="1100.70.06.70"/>
                             <And>
-                                <Exp Name="Status" QryType="FLIKE" Value="1100.70"/>
-                                <Exp Name="Status" QryType="NE" Value="1100.70.300"/>
-                                <Exp Name="Status" QryType="NE" Value="1100.70.400"/>
-                            </And>
-                            <And>
                                 <Or>
                                     <Exp Name="Status" QryType="FLIKE" Value="1100.70.06.50"/>
                                     <Exp Name="Status" QryType="FLIKE" Value="1100.70.06.30"/>
+                                    <Exp Name="Status" QryType="FLIKE" Value="1100.70.300"/>
+                                    <Exp Name="Status" QryType="FLIKE" Value="1100.70.400"/>
                                 </Or>
                                 <Or>
                                     <Exp Name="HoldLocation" QryType="ISNULL"/>
@@ -614,38 +608,6 @@
         </API>
         <classInformation name="com.ibm.wsc.shipment.backroompick.mashups.WSCBackroomPickFetchPaginatedShipmentListMashup"/>
         <APINamespace inputNS="extn_tasksInProgress_input" outputNS="extn_tasksInProgress_output"/>
-        <AlternateResourceIds/>
-    </mashup>
-    <mashup description="Get Shipment Line List" endpoint="EP_CONFIG"
-        id="sortScan_getShipmentLineList" mashuptype="XAPI"
-        resourceId="" transactional="true">
-        <API Name="getShipmentLineList">
-            <Input>
-                <ShipmentLine ItemID="">
-                    <Shipment Status="1100.70.06.30.1"/>
-                </ShipmentLine>
-            </Input>
-            <Template>
-                <ShipmentLines>
-                    <ShipmentLine BackroomPickComplete=""
-                        BackroomPickedQuantity="" ItemID=""
-                        OrderHeaderKey="" OrderLineKey=""
-                        OriginalQuantity="" ProductClass="" Quantity=""
-                        ShipmentKey="" ShipmentLineKey="" ShortageQty="" UnitOfMeasure="">
-                        <OrderLine IsBundleParent="" ItemGroupCode="">
-                            <ItemDetails ItemGroupCode="" ItemID="" UnitOfMeasure="">
-                                <ClassificationCodes Model=""/>
-                                <PrimaryInformation
-                                    ExtendedDisplayDescription=""
-                                    ImageID="" ImageLabel="" ImageLocation=""/>
-                            </ItemDetails>
-                        </OrderLine>
-                    </ShipmentLine>
-                </ShipmentLines>
-            </Template>
-        </API>
-        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
-        <APINamespace inputNS="sortScan_getShipmentLineList_input" outputNS="sortScan_getShipmentLineList_output"/>
         <AlternateResourceIds/>
     </mashup>
     <mashup description="" endpoint="EP_CONFIG"
@@ -692,6 +654,74 @@
         </API>
         <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
         <APINamespace inputNS="addSecondaryContact_input" outputNS="addSecondaryContact_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="" endpoint="EP_CONFIG" id="changeFlagForSort"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="changeShipment">
+            <Input>
+                <Shipment PackListType="Sort" ShipmentKey=""/>
+            </Input>
+            <Template/>
+        </API>
+        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
+        <APINamespace inputNS="changeFlagForSort_input" outputNS="changeFlagForSort_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="Get Shipment Line List" endpoint="EP_CONFIG"
+        id="sortScan_getShipmentLineList" mashuptype="XAPI"
+        resourceId="" transactional="true">
+        <API Name="getShipmentLineList">
+            <Input>
+                <ShipmentLine ItemID="">
+                    <Shipment Status="1100.70.06.30.1"/>
+                </ShipmentLine>
+            </Input>
+            <Template>
+                <ShipmentLines>
+                    <ShipmentLine BackroomPickComplete=""
+                        BackroomPickedQuantity="" ItemID=""
+                        OrderHeaderKey="" OrderLineKey=""
+                        OriginalQuantity="" ProductClass="" Quantity=""
+                        ShipmentKey="" ShipmentLineKey="" ShortageQty="" UnitOfMeasure="">
+                        <OrderLine IsBundleParent="" ItemGroupCode="">
+                            <ItemDetails ItemGroupCode="" ItemID="" UnitOfMeasure="">
+                                <PrimaryInformation
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLabel="" ImageLocation=""/>
+                            </ItemDetails>
+                        </OrderLine>
+                        <Shipment PackListType=""/>
+                    </ShipmentLine>
+                </ShipmentLines>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
+        <APINamespace inputNS="sortScan_getShipmentLineList_input" outputNS="sortScan_getShipmentLineList_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="" endpoint="EP_CONFIG"
+        id="extn_getPrintDetails" mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getOrderDetails">
+            <Input/>
+            <Template>
+                <Order>
+                    <OrderLines>
+                        <OrderLine>
+                            <AdditionalAddresses>
+                                <AdditionalAddress AddressType="">
+                                    <PersonInfo AddressID=""
+                                    FirstName="" LastName=""/>
+                                </AdditionalAddress>
+                            </AdditionalAddresses>
+                        </OrderLine>
+                    </OrderLines>
+                    <PersonInfoBillTo FirstName="" LastName=""/>
+                </Order>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
+        <APINamespace inputNS="extn_getPrintDetails_input" outputNS="extn_getPrintDetails_output"/>
         <AlternateResourceIds/>
     </mashup>
 </mashups>

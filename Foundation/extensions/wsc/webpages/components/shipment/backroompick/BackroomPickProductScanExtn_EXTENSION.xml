@@ -15,5 +15,11 @@
                 </Subscriber>
             </Local>
         </Subscribers>
+        <MashupRefs>
+            <Behavior>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_getPrintDetails" mashupRefId="extn_getPrintDetails"/>
+            </Behavior>
+        </MashupRefs>
     </ScreenExtension>
 </ExtensionMetaData>

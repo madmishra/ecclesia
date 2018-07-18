@@ -116,6 +116,9 @@ scDefine(["dojo/text!./templates/BackroomPickProductScanExtn.html", "scbase/load
 				this.updateProductQuantity(
 					modelOutput);
 			}
+			if (mashupRefId === "extn_getPrintDetails") {
+				this.printDetails(modelOutput);
+			}
 		}
 
 	});

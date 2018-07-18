@@ -37,13 +37,41 @@ scDefine(
 						window.webkit.messageHandlers.stopScanner.postMessage({});
 					}
 				},
+				printDetails: function (secondaryDetails) {
+					var batchModel = _scScreenUtils.getModel(this, "backroomPickShipmentDetails_output");
+					var expectedShipmentDate = Date(batchModel.Shipment.ExpectedShipmentDate);
+					var printModel = {};
+					printModel.PickupDate = Date(expectedShipmentDate);
+					printModel.OrderNo = batchModel.Shipment.DisplayOrderNo;
+					if (secondaryDetails.Order) {
+						if (secondaryDetails.Order.PersonInfoBillTo) {
+							printModel.PrimaryFirstName = secondaryDetails.Order.PersonInfoBillTo.FirstName;
+							printModel.PrimarySecondName = secondaryDetails.Order.PersonInfoBillTo.LastName;
+						}
+					}
+					if (secondaryDetails.Order.OrderLines && secondaryDetails.Order.OrderLines.OrderLine) {
+						var tempArray = secondaryDetails.Order.OrderLines.OrderLine;
+						if (tempArray && tempArray[0].AdditionalAddresses && tempArray[0].AdditionalAddresses.AdditionalAddress[0] && tempArray[0].AdditionalAddresses.AdditionalAddress[0].PersonInfo) {
+							var firstName = tempArray[0].AdditionalAddresses.AdditionalAddress[0].PersonInfo.FirstName;
+							var secondName = tempArray[0].AdditionalAddresses.AdditionalAddress[0].PersonInfo.LastName;
+							printModel.SecondaryFirstName = firstName;
+							printModel.SecondaryLastName = secondName;
+						}
+					}
+					console.log('Invoking print with the following data - ', printModel);
+					if (window.webkit) {
+						window.webkit.messageHandlers.invokePrint.postMessage(printModel);
+					}
+				},
 				invokePrint: function () {
 					console.log("Invoking print");
 					var batchModel = _scScreenUtils.getModel(this, "backroomPickShipmentDetails_output");
-					console.log('Print input -', batchModel);
-					if (window.webkit) {
-						window.webkit.messageHandlers.invokePrint.postMessage(batchModel);
-					}
+					var orderNo = batchModel.Shipment.DisplayOrderNo;
+					_iasUIUtils.callApi(this, {
+						Order: {
+							OrderNo: orderNo
+						}
+					}, "extn_getPrintDetails", null);
 				},
 				gotoNextScreen: function () {
 					console.log('going to the next screen');

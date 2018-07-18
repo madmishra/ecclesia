@@ -5,7 +5,7 @@
     requestMethodSupported="POST" screenId="extn.components.shipment.summary.ShipmentSummaryExtn">
     <Group isAggregator="Y"/>
     <MashupRefs>
-        <MashupRef extnType="MODIFY"
+        <MashupRef extnType="ADD"
             mashupId="shipSummary_getShipmentDetails"
             mashupRefId="getShipmentDetails" permissionId=""/>
     </MashupRefs>

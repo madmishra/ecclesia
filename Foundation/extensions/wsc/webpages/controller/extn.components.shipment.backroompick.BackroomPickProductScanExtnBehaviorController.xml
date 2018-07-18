@@ -2,4 +2,9 @@
 <Controller
     className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
     controllerId="extn.components.shipment.backroompick.BackroomPickProductScanExtnBehaviorController"
-    requestMethodSupported="POST" screenId="extn.components.shipment.backroompick.BackroomPickProductScanExtn"/>
+    requestMethodSupported="POST" screenId="extn.components.shipment.backroompick.BackroomPickProductScanExtn">
+    <MashupRefs>
+        <MashupRef extnType="ADD" mashupId="extn_getPrintDetails"
+            mashupRefId="extn_getPrintDetails" permissionId=""/>
+    </MashupRefs>
+</Controller>

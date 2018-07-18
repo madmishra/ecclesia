@@ -1,6 +1,6 @@
-scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/UIUtils", "scbase/loader!ias/utils/WizardUtils", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/utils/ModelUtils", "scbase/loader!sc/plat/dojo/utils/ResourcePermissionUtils", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!sc/plat/dojo/utils/WidgetUtils", "scbase/loader!sc/plat/dojo/utils/WizardUtils", "scbase/loader!wsc/components/common/utils/CommonUtils", "scbase/loader!extn/wizards/sort/HoldWizardUI","scbase/loader!wsc/mobile/home/utils/MobileHomeUtils"], 
+scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/UIUtils", "scbase/loader!ias/utils/WizardUtils", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/utils/ModelUtils", "scbase/loader!sc/plat/dojo/utils/ResourcePermissionUtils", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!sc/plat/dojo/utils/WidgetUtils", "scbase/loader!sc/plat/dojo/utils/WizardUtils", "scbase/loader!wsc/components/common/utils/CommonUtils", "scbase/loader!extn/wizards/sort/HoldWizardUI","scbase/loader!wsc/mobile/home/utils/MobileHomeUtils","scbase/loader!sc/plat/dojo/utils/EventUtils"], 
 function(
-_dojodeclare, _iasUIUtils, _iasWizardUtils, _scBaseUtils, _scModelUtils, _scResourcePermissionUtils, _scScreenUtils, _scWidgetUtils, _scWizardUtils, _wscCommonUtils, _extnHoldWizardUI,_wscMobileHomeUtils) {
+_dojodeclare, _iasUIUtils, _iasWizardUtils, _scBaseUtils, _scModelUtils, _scResourcePermissionUtils, _scScreenUtils, _scWidgetUtils, _scWizardUtils, _wscCommonUtils, _extnHoldWizardUI,_wscMobileHomeUtils,_scEventUtils) {
     return _dojodeclare("extn.wizards.sort.HoldWizard", [_extnHoldWizardUI], {
         // custom code here
         setWizardTitle: function(
@@ -99,9 +99,11 @@ _dojodeclare, _iasUIUtils, _iasWizardUtils, _scBaseUtils, _scModelUtils, _scReso
                 return formattedOrderNo;
             }
         },
-		 handleConfirm : function(
+        handleConfirm : function(
             event, bEvent, ctrl, args){
-                _wscMobileHomeUtils.openScreen("extn.mobile.custom.sort.SortScan", "wsc.mobile.editors.MobileEditor");
+                console.log('firing'); 
+                _scEventUtils.fireEventToChild(this , "BackroomPickUp_UpdateHoldLocation" ,"actionConfirm" , null ) ;
+                
         }
     });
 });

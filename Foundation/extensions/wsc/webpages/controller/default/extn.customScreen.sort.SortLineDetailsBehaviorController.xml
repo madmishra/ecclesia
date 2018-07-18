@@ -3,5 +3,8 @@
     className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
     controllerId="extn.customScreen.sort.SortLineDetailsBehaviorController"
     requestMethodSupported="POST" screenId="extn.customScreen.sort.SortLineDetails">
-	<MashupRefs/>
+	<MashupRefs>
+    <MashupRef mashupId="extn_getItemDetailsForPick"
+            mashupRefId="extn_getItemDetails" permissionId=""/>
+    </MashupRefs> 
 </Controller>

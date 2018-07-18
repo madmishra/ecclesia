@@ -92,4 +92,18 @@
             </Template>
         </API>
     </mashup>
+    <mashup id="backroomPickUp_getHoldLocationForShipment">
+        <API Name="getShipmentDetails">
+            <Input/>
+            <Template>
+                <Shipment>
+                    <ShipmentLines>
+                        <ShipmentLine>
+                            <OrderLine GiftWrap=""/>
+                        </ShipmentLine>
+                    </ShipmentLines>
+                </Shipment>
+            </Template>
+        </API>
+    </mashup>
 </mashups>

@@ -94,6 +94,39 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 				// console.log('modelOutput' , modelOutput); 
 				_iasUIUtils.callApi(this, modelOutput, "extn_callLegacyMessage", null);
 			},
+			printDetails: function (secondaryDetails) {
+				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
+				var printModel = {};
+				if (batchModel.Shipment) {
+					if (batchModel.Shipment.BillToAddress) {
+						printModel.PrimaryFirstName = batchModel.Shipment.BillToAddress.FirstName;
+						printModel.PrimarySecondName = batchModel.Shipment.BillToAddress.LastName;
+					}
+					printModel.OrderNo = batchModel.Shipment.DisplayOrderNo;
+					printModel.PickupDate = new Date(batchModel.Shipment.ExpectedShipmentDate);
+				}
+				if (secondaryDetails.Order.OrderLines && secondaryDetails.Order.OrderLines.OrderLine) {
+					var tempArray = secondaryDetails.Order.OrderLines.OrderLine;
+					if (tempArray && tempArray[0].AdditionalAddresses && tempArray[0].AdditionalAddresses.AdditionalAddress[0] && tempArray[0].AdditionalAddresses.AdditionalAddress[0].PersonInfo) {
+						var firstName = tempArray[0].AdditionalAddresses.AdditionalAddress[0].PersonInfo.FirstName;
+						var secondName = tempArray[0].AdditionalAddresses.AdditionalAddress[0].PersonInfo.LastName;
+						printModel.SecondaryFirstName = firstName;
+						printModel.SecondaryLastName = secondName;
+					}
+				}
+				console.log('Invoking print with the following data - ', printModel);
+				if (window.webkit) {
+					window.webkit.messageHandlers.invokePrint.postMessage(printModel);
+				}
+			},
+			printInvokeEvent: function () {
+				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
+				_iasUIUtils.callApi(this, {
+					Order: {
+						OrderNo: batchModel.Shipment.DisplayOrderNo
+					}
+				}, "extn_getPrintDetails", null);
+			},
 			updateSecondaryContact: function (event, bEvent, ctrl, args) {
 				console.log('event', event.SecondaryPerson);
 				var orderLineKeyArray = [];

@@ -10,5 +10,7 @@
             mashupRefId="extn_addSecondaryContact" permissionId=""/>
         <MashupRef extnType="ADD" mashupId="callLegacyMessage"
             mashupRefId="extn_callLegacyMessage" permissionId=""/>
+        <MashupRef extnType="ADD" mashupId="extn_getPrintDetails"
+            mashupRefId="extn_getPrintDetails" permissionId=""/>
     </MashupRefs>
 </Controller>

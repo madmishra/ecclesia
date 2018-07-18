@@ -87,14 +87,10 @@
 		'class' : 'itemVariation' , 
 		uId : 'itemVariationPanelHolder'  
  "></div>
-            <div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="		imageSrc : 'wsc/resources/css/icons/images/completelyScanned.png' , 
-		'class' : 'blockComponent scanComplete' , 
-		appendToContextRoot : true , 
-		uId : 'productScanImagePanel' , 
-		renderHidden : true  
- "></div>
+           
             <div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="		'class' : 'inline idxLabel zeroWidthLabelKey scanCompleteLabel' , 
-		uId : 'completelyPickedLabel'  
+		uId : 'completelyPickedLabel' ,
+		renderHidden : true
  		,scParamDataFn :
 		 function() { 
 			return { 
@@ -104,6 +100,7 @@
 "></div>
             <div data-dojo-type="sc/plat/dojo/widgets/Image" data-dojo-props="		imageSrc : 'wsc/resources/css/icons/images/completeyShorted.png' , 
 		'class' : 'blockComponent scanComplete' , 
+		renderHidden : true ,
 		appendToContextRoot : true , 
 		uId : 'productShortedImagePanel' , 
 		renderHidden : true  
@@ -115,7 +112,8 @@
 		uId : 'productQtyDetailsPanel'  
  ">
             <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'location autoLabelZeroWidth' , 
-		uId : 'Locationlbl'  
+		uId : 'Locationlbl' ,
+		renderHidden : true
  		,scParamDataFn :
 		 function() { 
 			return { 
@@ -132,11 +130,12 @@
 		}
 "></div>
             <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'quantitySpinnerLabelAlign blockComponent' , 
-		uId : 'remainingQty'  
+		uId : 'remainingQty'	
+		
  		,scParamDataFn :
 		 function() { 
 			return { 
-			 	label : 			this.getSimpleBundleString('Label_RemainingQty')
+			 	label : 			this.getSimpleBundleString('Label_Quantity_to_be_sorted')
 ,	
 			 	bindingData : 	{
 		 sourceBinding : 	{
@@ -151,14 +150,17 @@
 		}
 "></div>
             <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'numberChangeWidget blockComponent' , 
-		uId : 'divQuantity'  
+		uId : 'divQuantity' ,
+		renderHidden : true 
  ">
                 <div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="		'class' : 'inline idxLabel quantitySpinnerLabelAlign' , 
-		uId : 'pickedLabel'  
+		uId : 'pickedLabel'  ,
+		renderHidden : true	
  		,scParamDataFn :
 		 function() { 
 			return { 
-			 	value : 			this.getSimpleBundleString('Label_PickedQuantity')
+				
+			 	value : 			this.getSimpleBundleString('Label_Quantity_to_be_sorted')
 			}
 		}
 "></div>
@@ -169,6 +171,8 @@
  ">
                     <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
 		hasImage : true , 
+		renderHidden : true,
+
 		imageSrc : 'wsc/resources/css/icons/images/minus.png' , 
 		appendToContextRoot : true , 
 		uId : 'removeQtyLink'  
@@ -179,7 +183,7 @@
 			}
 		}
 "></div>
-                    <div data-dojo-type="idx/form/NumberTextBox" data-dojo-props="		resourceId : 'WSC000029' , 
+                    <div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="	'class' : 'location autoLabelZeroWidth' ,	resourceId : 'WSC000029' , 
 		uId : 'txtScannedQuantity'  
  		,scParamDataFn :
 		 function() { 
@@ -190,14 +194,6 @@
 ,
 		 namespace : 			'QuantityTextBoxModel_Input'
 	}
-,
-		 targetBinding : 	[
-	 		{
-		 path : 			'Quantity'
-,
-		 namespace : 			'QuantityTextBoxModel_Output'
-	}
-	]
 	}
 			}
 		}
@@ -222,6 +218,7 @@
 "></div>
                     <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
 		hasImage : true , 
+		renderHidden : true,
 		resourceId : 'WSC000029' , 
 		imageSrc : 'wsc/resources/css/icons/images/plus.png' , 
 		appendToContextRoot : true , 
@@ -332,6 +329,78 @@
 			 	value : 			this.getSimpleBundleString('Action_Shortage_Resolution')
 			}
 		}
+"></div>
+<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'autoLabelZeroWidth department blockComponent' , 
+uId : 'label1' , 
+renderHidden : false  
+ ,scParamDataFn :
+ function() { 
+	return { 
+		 label : 			this.getSimpleBundleString('extn_Author')
+,	
+		 bindingData : 	{
+ sourceBinding : 	{
+ path : 			'Author'
+,
+ namespace : 			'extn_additionalAttributeArray'
+}
+}
+	}
+}
+"></div>
+<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'autoLabelZeroWidth department blockComponent' , 
+uId : 'label2' , 
+renderHidden : false  
+ ,scParamDataFn :
+ function() { 
+	return { 
+		 label : 			this.getSimpleBundleString('extn_Brand')
+,	
+		 bindingData : 	{
+ sourceBinding : 	{
+ path : 			'Brand'
+,
+ namespace : 			'extn_additionalAttributeArray'
+}
+}
+	}
+}
+"></div>
+<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'autoLabelZeroWidth department blockComponent' , 
+uId : 'label3' , 
+renderHidden : false  
+ ,scParamDataFn :
+ function() { 
+	return { 
+		 label : 			this.getSimpleBundleString('extn_Subject')
+,	
+		 bindingData : 	{
+ sourceBinding : 	{
+ path : 			'Subject'
+,
+ namespace : 			'extn_additionalAttributeArray'
+}
+}
+	}
+}
+"></div>
+<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		'class' : 'autoLabelZeroWidth department blockComponent' , 
+uId : 'label4' , 
+renderHidden : false  
+ ,scParamDataFn :
+ function() { 
+	return { 
+		 label : 			this.getSimpleBundleString('extn_Series')
+,	
+		 bindingData : 	{
+ sourceBinding : 	{
+ path : 			'Series'
+,
+ namespace : 			'extn_additionalAttributeArray'
+}
+}
+	}
+}
 "></div>
         </div>
     </div>

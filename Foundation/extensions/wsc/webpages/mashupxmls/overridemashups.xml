@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mashups>
-    <mashup description="Update the backroom picked qty for the Shipment" endpoint="EP_CONFIG" id="backroomPick_updateShipmentQuantity" mashuptype="XAPI" resourceId="" transactional="true">
+    <mashup
+        description="Update the backroom picked qty for the Shipment"
+        endpoint="EP_CONFIG" id="backroomPick_updateShipmentQuantity"
+        mashuptype="XAPI" resourceId="" transactional="true">
         <API FlowName="InventoryShortReasonCode">
             <Input>
-                <Shipment Action="xml:scControllerInput:/Shipment/@Action" AssignedToUserId="xml:CurrentUser:/User/@Loginid" BackOrderRemovedQuantity="" DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" HoldLocation="" IncludedInBatch="" ShipmentKey="xml:scControllerInput:/Shipment/@ShipmentKey" ShortageReasonCode="" ShortageReasonCodeActual="">
+                <Shipment
+                    Action="xml:scControllerInput:/Shipment/@Action"
+                    AssignedToUserId="xml:CurrentUser:/User/@Loginid"
+                    BackOrderRemovedQuantity=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    HoldLocation="" IncludedInBatch=""
+                    ShipmentKey="xml:scControllerInput:/Shipment/@ShipmentKey"
+                    ShortageReasonCode="" ShortageReasonCodeActual="">
                     <ShipmentLines>
-                        <ShipmentLine BackroomPickComplete="" BackroomPickedQuantity="" BatchPickPriority="" Quantity="" ShipmentLineKey="" ShortageQty="" StagedQuantity="" StoreBatchKey=""/>
+                        <ShipmentLine BackroomPickComplete=""
+                            BackroomPickedQuantity=""
+                            BatchPickPriority="" Quantity=""
+                            ShipmentLineKey="" ShortageQty=""
+                            StagedQuantity="" StoreBatchKey=""/>
                     </ShipmentLines>
                     <StoreBatchList>
-                        <StoreBatch StoreBatchKey=""/>
+                        <StoreBatch ShortageReasonCodeActual="" StoreBatchKey=""/>
                     </StoreBatchList>
                 </Shipment>
             </Input>
@@ -17,16 +31,21 @@
             </Template>
         </API>
         <classInformation name="com.ibm.wsc.shipment.backroompick.mashups.UpdateShipmentPickQuantity"/>
-        <APINamespace inputNS="backroomPick_updateShipmentQuantity_input" outputNS="backroomPick_updateShipmentQuantity_output"/>
+        <APINamespace
+            inputNS="backroomPick_updateShipmentQuantity_input" outputNS="backroomPick_updateShipmentQuantity_output"/>
         <AlternateResourceIds>
             <AlternateResourceId altResourceId="WSCSYS00001"/>
             <AlternateResourceId altResourceId="WSC000006"/>
         </AlternateResourceIds>
     </mashup>
-    <mashup description="Gets Shipment Details for ShipmentKey" endpoint="EP_CONFIG" id="home_getShipmentList" mashuptype="XAPI" resourceId="" transactional="true">
+    <mashup description="Gets Shipment Details for ShipmentKey"
+        endpoint="EP_CONFIG" id="home_getShipmentList" mashuptype="XAPI"
+        resourceId="" transactional="true">
         <API Name="getShipmentList">
             <Input>
-                <Shipment DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" MaximumRecords="" ShipmentKey="">
+                <Shipment
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    MaximumRecords="" ShipmentKey="">
                     <ShipmentLines>
                         <ShipmentLine OrderHeaderKey=""/>
                     </ShipmentLines>
@@ -41,5 +60,29 @@
         <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
         <APINamespace inputNS="home_getShipmentList_input" outputNS="home_getShipmentList_output"/>
         <AlternateResourceIds/>
+    </mashup>
+    <mashup description="" endpoint="EP_CONFIG"
+        id="batchPickup_recordShortageForBatchPick" mashuptype="XAPI"
+        resourceId="" transactional="true">
+        <API FlowName="Indg_RecordShortageForBatchPick">
+            <Input>
+                <StoreBatch
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    ShortageReasonCodeActual="" StoreBatchKey="xml:scControllerInput:/StoreBatch/@StoreBatchKey">
+                    <Item ItemID=""
+                        OrganizationCode="xml:CurrentStore:/Store/@ShipNode"
+                        ShortageReason="" ShortageReasonActual="" UnitOfMeasure=""/>
+                </StoreBatch>
+            </Input>
+            <Template>
+                <StoreBatch Status="" StoreBatchKey=""/>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.shipment.batchpick.mashups.WSCRecordShortageForBatchLine"/>
+        <APINamespace
+            inputNS="batchPickup_recordShortageForBatchPick_input" outputNS="batchPickup_recordShortageForBatchPick_output"/>
+        <AlternateResourceIds>
+            <AlternateResourceId altResourceId="WSC000028"/>
+        </AlternateResourceIds>
     </mashup>
 </mashups>

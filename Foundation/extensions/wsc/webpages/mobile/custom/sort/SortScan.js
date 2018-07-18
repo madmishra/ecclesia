@@ -16,7 +16,7 @@ _dojodeclare, _iasContextUtils, _iasRepeatingScreenUtils, _iasScreenUtils, _scBa
             var barCodeData = null;
                 barCodeModel = _scScreenUtils.getTargetModel(
                     this, "translateBarCode_input", null);
-				//console.log('barCodeModel',barCodeModel); 	
+				console.log('barCodeModel',barCodeModel); 	
                 barCodeData = _scModelUtils.getStringValueFromPath("BarCode.BarCodeData", barCodeModel);
                 if (
                     _scBaseUtils.isVoid(

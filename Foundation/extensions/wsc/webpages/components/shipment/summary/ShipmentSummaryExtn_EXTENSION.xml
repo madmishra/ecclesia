@@ -78,18 +78,24 @@
                     isExtn="true" sequence="51">
                     <Handler methodName="updateSecondaryContact"/>
                 </Subscriber>
+                <Subscriber eventId="printInvokeEvent" isExtn="true" sequence="51">
+                    <Handler methodName="printInvokeEvent"/>
+                </Subscriber>
             </Global>
         </Subscribers>
         <MashupRefs>
             <Init>
-                <MashupRef extnType="MODIFY"
-                    mashupId="shipSummary_getShipmentDetails" mashupRefId="getShipmentDetails"/>
+                <MashupRef extnType="ADD"
+                    mashupId="shipSummary_getShipmentDetails"
+                    mashupRefId="getShipmentDetails" sourceNamespace="getShipmentDetails_output"/>
             </Init>
             <Behavior>
                 <MashupRef extnType="ADD"
                     mashupId="extn_changeShipmentStatus" mashupRefId="extn_printStatus"/>
                 <MashupRef extnType="ADD" mashupId="addSecondaryContact" mashupRefId="extn_addSecondaryContact"/>
                 <MashupRef extnType="ADD" mashupId="callLegacyMessage" mashupRefId="extn_callLegacyMessage"/>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_getPrintDetails" mashupRefId="extn_getPrintDetails"/>
             </Behavior>
         </MashupRefs>
     </ScreenExtension>

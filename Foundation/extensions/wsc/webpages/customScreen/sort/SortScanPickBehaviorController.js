@@ -1,5 +1,5 @@
-scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/_base/kernel", "scbase/loader!dojo/text", "scbase/loader!sc/plat/dojo/controller/ServerDataController", "scbase/loader!extn/customScreen/sort/SortScanPick"], function(
-_dojodeclare, _dojokernel, _dojotext, _scServerDataController, _extnSortScanPick) {
+scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/_base/kernel", "scbase/loader!dojo/text", "scbase/loader!sc/plat/dojo/controller/ServerDataController", "scbase/loader!extn/customScreen/sort/SortScanPick"], function (
+    _dojodeclare, _dojokernel, _dojotext, _scServerDataController, _extnSortScanPick) {
     return _dojodeclare("extn.customScreen.sort.SortScanPickBehaviorController", [_scServerDataController], {
         screenId: 'extn.customScreen.sort.SortScanPick',
         mashupRefs: [{
@@ -32,6 +32,15 @@ _dojodeclare, _dojokernel, _dojotext, _scServerDataController, _extnSortScanPick
         }, {
             mashupId: 'backroomPickUp_getNotPickedShipmentLineListCount',
             mashupRefId: 'getNotPickedShipmentLineListCount'
+        },
+        {
+            mashupId: 'changeFlagForSort',
+            mashupRefId: 'changeFlagForSort_ref'
+
+        },
+        {
+            mashupId: 'extn_getPrintDetails',
+            mashupRefId: 'extn_getPrintDetails' 
         }]
     });
 });

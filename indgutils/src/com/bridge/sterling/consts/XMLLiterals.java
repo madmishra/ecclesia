@@ -368,5 +368,6 @@ public static final String ENTERPRISE_KEY = "EnterpriseKey";
 public static final String QUEUE_ID = "QueueId";
 public static final String SHIPNODE_KEY = "ShipnodeKey";
 public static final String ORDER_AUDIT = "OrderAudit";
+public static final String SHORTAGE_REASON_CODE = "ShortageReasonCodeActual";
 }
 

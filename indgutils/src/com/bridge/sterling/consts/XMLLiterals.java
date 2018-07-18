@@ -356,7 +356,7 @@ public static final String MANAGE_USER_UI_STATE = "manageUserUiState";
 public static final String SERVICE_SLOT_DESC = "ServiceSlotDesc";
 public static final String CALENDERS = "Calenders";
 public static final String INBOX = "Inbox";
-public static final String INVENTORY_DIRTY = "INVENTORY_DIRTY";
+public static final String INVENTORY_DIRTY = "INVENTORY_DIR	TY";
 public static final String CREATE_EXCEPTION = "createException";
 public static final String EXPIRATION_DAYS = "ExpirationDays";
 public static final String NEW_ABANDONMENT_TIME = "NewAbandonmentTime";
@@ -367,5 +367,6 @@ public static final String DETAIL_DESCRIPTION = "DetailDescription";
 public static final String ENTERPRISE_KEY = "EnterpriseKey";
 public static final String QUEUE_ID = "QueueId";
 public static final String SHIPNODE_KEY = "ShipnodeKey";
+public static final String ORDER_AUDIT = "OrderAudit";
 }
 

@@ -38,7 +38,11 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 private String enterpriseCode = "";
 	 private String orderType = "";
 	 private String customerLinePoNo="";
+	 private String reasonCode="";
 	 YFCDocument docLegacy051Input = null;
+	 private static final String REASON_CODE1 = "1";
+	 private static final String REASON_CODE2 = "2";
+	 private static final String REASON_CODE3 = "4";
 	 
 	 /**
 	  * This method is the invoke point of the service.
@@ -52,7 +56,8 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 		orderType = inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_TYPE);
 		enterpriseCode = inXml.getDocumentElement().getAttribute(XMLLiterals.ENTERPRISE_CODE);
 	    documentType = inXml.getDocumentElement().getAttribute(XMLLiterals.DOCUMENT_TYPE);
-	    System.out.println(orderNo + orderType + enterpriseCode + documentType + "bbbbbbbbb");
+	    reasonCode = inXml.getDocumentElement().getChildElement(XMLLiterals.ORDER_AUDIT).getAttribute(XMLLiterals.REASON_CODE);
+	    System.out.println(orderNo + orderType + enterpriseCode + documentType + reasonCode + "bbbbbbbbb");
 		String inputDocString = inXml.toString();
 	    docLegacy051Input = YFCDocument.getDocumentFor(inputDocString);
 	    getOrderLinesGroupByReasonCode();
@@ -168,7 +173,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	    	primeLineNo+"\"]");
 			orderLine.setAttribute(XMLLiterals.ORDERED_QTY, orderLineEle.getAttribute(XMLLiterals.ORDERED_QTY));
 			orderLine.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, orderLineEle.getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY));
-			orderLine.setAttribute(XMLLiterals.CANCELLATION_REASON_CODE, orderLineEle.getAttribute(XMLLiterals.CONDITION_VARIABLE_2));
+			orderLine.setAttribute(XMLLiterals.CANCELLATION_REASON_CODE, reasonCode);
 	    }
 	    System.out.println(groupByShipNodeDoc + "hhhhhhhhhh");
 	    String sapOrderNo = getOrderLineListDoc.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.CUSTOMER_LINE_PO_NO);
@@ -291,7 +296,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void callLegacyOMS052opQueue(YFCDocument doc) {
-		 if(!XmlUtils.isVoid(customerLinePoNo))
+		 if((!XmlUtils.isVoid(customerLinePoNo)) && ((reasonCode!=(REASON_CODE1)) || (reasonCode!=(REASON_CODE2)) || (reasonCode!=(REASON_CODE3))))
 			 System.out.println(doc + "rrrrrrrrrrr");
 	     invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
 	}

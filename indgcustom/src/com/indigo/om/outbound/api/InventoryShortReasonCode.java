@@ -25,6 +25,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 private static final String INDG_CHANGESHIPMENT = "Indg_ChangeShipment";
 	 private static final String CANCEL = "CANCEL";
 	 private static final String MODIFY = "MODIFY";
+	private static final Object DAMAGED = "damaged";
 	 String sExpirationDays = "30";
 	 String sCancellationReasonCode = "01";
 	 
@@ -38,7 +39,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	{
 		YFCDocument outXml = invokeYantraService(INDG_CHANGESHIPMENT, inXml);
 		
-		System.out.println("hfjdhgkjdj"+inXml);
+	
 		invokeGetShipmentLineList(inXml);
 		
 		return outXml;
@@ -54,7 +55,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
 		eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
 		System.out.println("kcjgkjfhkjlkj"+docgetShipmentLineList);
-		invokeGetInventoryNodeControlList(invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList()));
+		invokeGetInventoryNodeControlList(invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList()), inXml);
 		}
 	}
 	private YFCDocument tempgetShipmentLineList()
@@ -77,8 +78,10 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		return tempgetShipmentLineList;
 		}
 	
-	 private void invokeGetInventoryNodeControlList(YFCDocument docGetShipmentLineList)
+	 private void invokeGetInventoryNodeControlList(YFCDocument docGetShipmentLineList, YFCDocument inXml)
 	 {
+		 YFCElement eleShipment = inXml.getDocumentElement();
+		 if(!eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(DAMAGED)) {
 		 System.out.println("dhsuhdasfkfh"+docGetShipmentLineList);
 		 YFCDocument docInputGetInvControlList = inputGetInvControlList(docGetShipmentLineList);
 		 YFCDocument docGetInvControlList  = invokeYantraApi(XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST,
@@ -91,6 +94,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 			sCancellationReasonCode = FOUR;
 			invokeManageInventoryNodeControlAPI(docGetShipmentLineList);	
 		}
+		 }
 		invokeChangeOrder(docGetShipmentLineList); 
 	 }
 	 

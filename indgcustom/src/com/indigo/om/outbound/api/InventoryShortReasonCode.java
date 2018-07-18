@@ -13,22 +13,20 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 {
 	 private static final String EMPTY_STRING = " ";
 	 private static final String YES = "Y";
-	
 	 private static final String FOUR = "04";
 	 private static final String TWO = "02";
 	 private static final String NO = "N";
 	 private static final String NO_OF_DAYS = "NO_OF_DAYS";
-	private static final String ON_HOLD = "ON_HOLD";
-	private static final String ORDER_TYPE = "ZOCC";
-	private static final String SUB_LINE_NO = "1";
-	
-	 String sCancellationReasonCode = "01";
+	 private static final String ON_HOLD = "ON_HOLD";
+	 private static final String ORDER_TYPE = "ZOCC";
+	 private static final String SUB_LINE_NO = "1";
 	 private static final String INDG_ALERT_RAISE = "Indg_RaiseALert";
-	private static final String INVENTORY_DIRTY_QUEUE = "INVENTORY_DIRTY_QUEUE";
-	private static final String INDG_CHANGESHIPMENT = "Indg_ChangeShipment";
-	private static final String CANCEL = "CANCEL";
-	private static final String MODIFY = "MODIFY";
+	 private static final String INVENTORY_DIRTY_QUEUE = "INVENTORY_DIRTY_QUEUE";
+	 private static final String INDG_CHANGESHIPMENT = "Indg_ChangeShipment";
+	 private static final String CANCEL = "CANCEL";
+	 private static final String MODIFY = "MODIFY";
 	 String sExpirationDays = "30";
+	 String sCancellationReasonCode = "01";
 	 
 	 /**
 	  * This method is the invoke point of the service.
@@ -45,6 +43,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		
 		return outXml;
 	}
+	
 	private void invokeGetShipmentLineList(YFCDocument inXml)
 	{
 		YFCIterable<YFCElement> eleShipmentLines  = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES)
@@ -58,42 +57,39 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		invokeGetInventoryNodeControlList(invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList()));
 		}
 	}
-		private YFCDocument tempgetShipmentLineList()
-		{
-			YFCDocument tempgetShipmentLineList = YFCDocument.createDocument(XMLLiterals.SHIPMENT_LINES);
-			YFCElement eleShipmentLine = tempgetShipmentLineList.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINE);
-			eleShipmentLine.setAttribute(XMLLiterals.UNIT_OF_MEASURE, EMPTY_STRING);
-			eleShipmentLine.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
-			eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
-			eleShipmentLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
-			eleShipmentLine.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
-			eleShipmentLine.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
-			eleShipmentLine.setAttribute(XMLLiterals.SHORTAGE_QTY, EMPTY_STRING);
-			YFCElement eleOrderLine = eleShipmentLine.createChild(XMLLiterals.ORDER_LINE);
-			eleOrderLine.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, EMPTY_STRING);
-			eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, EMPTY_STRING);
-			eleOrderLine.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
-			eleOrderLine.setAttribute(XMLLiterals.ORDER_LINE_KEY, EMPTY_STRING);
-			System.out.println("fghdgjghjh"+tempgetShipmentLineList);
-			return tempgetShipmentLineList;
+	private YFCDocument tempgetShipmentLineList()
+	{
+		YFCDocument tempgetShipmentLineList = YFCDocument.createDocument(XMLLiterals.SHIPMENT_LINES);
+		YFCElement eleShipmentLine = tempgetShipmentLineList.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINE);
+		eleShipmentLine.setAttribute(XMLLiterals.UNIT_OF_MEASURE, EMPTY_STRING);
+		eleShipmentLine.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
+		eleShipmentLine.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
+		eleShipmentLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
+		eleShipmentLine.setAttribute(XMLLiterals.DOCUMENT_TYPE, EMPTY_STRING);
+		eleShipmentLine.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
+		eleShipmentLine.setAttribute(XMLLiterals.SHORTAGE_QTY, EMPTY_STRING);
+		YFCElement eleOrderLine = eleShipmentLine.createChild(XMLLiterals.ORDER_LINE);
+		eleOrderLine.setAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY, EMPTY_STRING);
+		eleOrderLine.setAttribute(XMLLiterals.ORDERED_QTY, EMPTY_STRING);
+		eleOrderLine.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
+		eleOrderLine.setAttribute(XMLLiterals.ORDER_LINE_KEY, EMPTY_STRING);
+		System.out.println("fghdgjghjh"+tempgetShipmentLineList);
+		return tempgetShipmentLineList;
 		}
 	
 	 private void invokeGetInventoryNodeControlList(YFCDocument docGetShipmentLineList)
 	 {
 		 System.out.println("dhsuhdasfkfh"+docGetShipmentLineList);
 		 YFCDocument docInputGetInvControlList = inputGetInvControlList(docGetShipmentLineList);
-		YFCDocument docGetInvControlList  = invokeYantraApi(XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST,
+		 YFCDocument docGetInvControlList  = invokeYantraApi(XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST,
 				docInputGetInvControlList);
-		System.out.println("bhdhbfjahlrjGSAHGDa"+docGetInvControlList);
-		if(docGetInvControlList.getDocumentElement().hasChildNodes())
-			
+		 System.out.println("bhdhbfjahlrjGSAHGDa"+docGetInvControlList);
+		 if(docGetInvControlList.getDocumentElement().hasChildNodes())
 			sCancellationReasonCode = TWO;
-		
-		else
+		 else
 		{
 			sCancellationReasonCode = FOUR;
 			invokeManageInventoryNodeControlAPI(docGetShipmentLineList);	
-		
 		}
 		invokeChangeOrder(docGetShipmentLineList); 
 	 }
@@ -103,10 +99,10 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 System.out.println("dsjdsjff"+docGetShipmentLineList);
 		 YFCElement eleShipementLine = docGetShipmentLineList.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE);
 		 System.out.println("-------------------------------"+eleShipementLine);
-			YFCDocument docManageInventoryNodeControl = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
-			YFCElement eleInventoryNodeControl = docManageInventoryNodeControl.getDocumentElement();
-			String sInventoryPictureTillDate = getInventoryPictureTillDate();
-			eleInventoryNodeControl.setAttribute(XMLLiterals.INVENTORY_PICTURE_IN_CORRECT_TILL_DATE, sInventoryPictureTillDate);
+		YFCDocument docManageInventoryNodeControl = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
+		YFCElement eleInventoryNodeControl = docManageInventoryNodeControl.getDocumentElement();
+		String sInventoryPictureTillDate = getInventoryPictureTillDate();
+		eleInventoryNodeControl.setAttribute(XMLLiterals.INVENTORY_PICTURE_IN_CORRECT_TILL_DATE, sInventoryPictureTillDate);
 			eleInventoryNodeControl.setAttribute(XMLLiterals.INVENTORY_PICTURE_CORRECT, NO);
 			eleInventoryNodeControl.setAttribute(XMLLiterals.ITEM_ID, eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
 			eleInventoryNodeControl.setAttribute(XMLLiterals.NODE_CONTROL_TYPE, ON_HOLD);
@@ -164,7 +160,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 		 eleOrder.setAttribute(XMLLiterals.ORDER_TYPE, ORDER_TYPE);
 		 eleOrder.setAttribute(XMLLiterals.MODIFICATION_REASON_CODE, sCancellationReasonCode);
 		 YFCElement eleOrderLine = eleOrder.createChild(XMLLiterals.ORDER_LINES).createChild(XMLLiterals.ORDER_LINE);
-		 eleOrderLine.setAttribute(XMLLiterals.ACTION, MODIFY);
+		 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL);
 		 double sOrderedQty= Double.parseDouble(shipmentLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY))
 				 - Double.parseDouble(shipmentLine.getAttribute(XMLLiterals.SHORTAGE_QTY));
 		 String sQty = String.valueOf(sOrderedQty);

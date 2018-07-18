@@ -43,6 +43,7 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 private static final String REASON_CODE1 = "03";
 	 private static final String REASON_CODE2 = "05";
 	 private static final String REASON_CODE3 = "06";
+	 private static final String REASON_CODE4 = "";
 	 
 	 /**
 	  * This method is the invoke point of the service.
@@ -296,7 +297,8 @@ public class IndgOnCancelEvent extends AbstractCustomApi{
 	 */
 	
 	private void callLegacyOMS052opQueue(YFCDocument doc) {
-		 if((!XmlUtils.isVoid(customerLinePoNo)) && ((reasonCode.equals(REASON_CODE1)) || (reasonCode.equals(REASON_CODE2)) || (reasonCode.equals(REASON_CODE3)))) {
+		 if((!XmlUtils.isVoid(customerLinePoNo)) && ((reasonCode.equals(REASON_CODE1)) || (reasonCode.equals(REASON_CODE2)) || 
+				 (reasonCode.equals(REASON_CODE3) || (reasonCode.equals(REASON_CODE4))))) {
 			 System.out.println(doc + "rrrrrrrrrrr");
 			 invokeYantraService(getProperty(CALL_LEGACYOMS051_SERVICE), doc);
 		 }

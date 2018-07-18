@@ -25,7 +25,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi
 	 private static final String INDG_CHANGESHIPMENT = "Indg_ChangeShipment";
 	 private static final String CANCEL = "CANCEL";
 	 private static final String MODIFY = "MODIFY";
-	private static final Object DAMAGED = "damaged";
+	private static final Object DAMAGED = "Damaged";
 	 String sExpirationDays = "30";
 	 String sCancellationReasonCode = "01";
 	 

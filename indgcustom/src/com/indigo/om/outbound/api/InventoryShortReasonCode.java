@@ -5,7 +5,6 @@ import java.util.Calendar;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
-import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
@@ -24,7 +23,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	 private static final String INVENTORY_DIRTY_QUEUE = "INVENTORY_DIRTY_QUEUE";
 	 private static final String INDG_CHANGESHIPMENT = "Indg_ChangeShipment";
 	 private static final String CANCEL = "CANCEL";
-	 private static final String SHORTAGE = "shortage";
 	 String sExpirationDays = "30";
 	 String sCancellationReasonCode = "01";
 	 
@@ -47,7 +45,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 			YFCDocument docgetShipmentLineList = YFCDocument.createDocument(XMLLiterals.SHIPMENT_LINE);
 			YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
 			eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
-			invokeGetInventoryNodeControlList(invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList()), inXml);
+			invokeGetInventoryNodeControlList(invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList()));
 		}
 	}
 	
@@ -69,9 +67,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		return tempgetShipmentLineList;
 	}
 	
-	private void invokeGetInventoryNodeControlList(YFCDocument docGetShipmentLineList, YFCDocument inXml) {
-		YFCElement eleShipment = inXml.getDocumentElement();
-		if(!XmlUtils.isVoid(eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE)) && eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(SHORTAGE)) {
+	private void invokeGetInventoryNodeControlList(YFCDocument docGetShipmentLineList) {
 			YFCDocument docInputGetInvControlList = inputGetInvControlList(docGetShipmentLineList);
 			YFCDocument docGetInvControlList  = invokeYantraApi(XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST, docInputGetInvControlList);
 			if(docGetInvControlList.getDocumentElement().hasChildNodes())
@@ -81,7 +77,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 				sCancellationReasonCode = FOUR;
 				invokeManageInventoryNodeControlAPI(docGetShipmentLineList);	
 			}
-		}
 		invokeChangeOrder(docGetShipmentLineList); 
 	}
 	 

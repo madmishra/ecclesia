@@ -29,21 +29,27 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 	 
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
-		YFCDocument docGetOrderList = invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, invokegetOrderLineList(inXml), getOrderLineListTemplate());
+		YFCIterable<YFCElement> eleOrder = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
+				.getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
+		for(YFCElement orderLine : eleOrder) {
+		YFCDocument docGetOrderList = invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, invokegetOrderLineList(orderLine, inXml), getOrderLineListTemplate());
 		if(docGetOrderList.hasChildNodes())
 		{
 			checkOrderstatus(docGetOrderList,inXml);
+		}
 		}
 		return inXml;
 	}
 	
 	
-	private YFCDocument invokegetOrderLineList(YFCDocument inXml)
+	private YFCDocument invokegetOrderLineList(YFCElement orderLine, YFCDocument inXml)
 	{
 		YFCElement eleOrder = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		
 		YFCDocument docOrderLine = YFCDocument.createDocument(XMLLiterals.ORDER_LINE);
-		YFCElement eleOrderInput = docOrderLine.getDocumentElement().createChild(XMLLiterals.ORDER);
+		YFCElement eleOrderLine = docOrderLine.getDocumentElement();
+		eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO) );
+		YFCElement eleOrderInput = eleOrderLine.createChild(XMLLiterals.ORDER);
 		eleOrderInput.setAttribute(XMLLiterals.ORDER_NO, eleOrder.getAttribute(XMLLiterals.PARENT_LEGACY_OMS_ORDER_NO));
 		eleOrderInput.setAttribute(XMLLiterals.DOCUMENT_TYPE, DOCUMENT_TYPE);
 		eleOrderInput.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));

@@ -373,5 +373,16 @@ public static final String CREATE_ASYNC_REQUEST = "createAsyncRequest";
 public static final String IS_SERVICE = "IsService";
 public static final String API = "API";
 public static final String INPUT = "Input";
+public static final String SUPPLY = "Supply";
+public static final String INVENTORY_ALERTS = "InventoryAlerts";
+public static final String INVENTORY_ITEMS = "InventoryItems";
+public static final String INVENTORY_ITEM = "InventoryItem";
+public static final String INVENTORY_ORGANIZATION_CODE = "InventoryOrganizationCode";
+public static final String GET_INVENTORY_ALERTS_LIST = "getInventoryAlertsList";
+public static final String INVENTORY_ALERTS_LIST = "InventoryAlertsList";
+public static final String ALERT_TYPE = "AlertType";
+public static final String MONITOR_ITEM_AVAILABILITY = "MonitorItemAvailability";
+public static final String MONITOR_ITEM_AVAILABILITY_API = "monitorItemAvailability";
+public static final String ALERT_LEVEL = "AlertLevel";
 }
 

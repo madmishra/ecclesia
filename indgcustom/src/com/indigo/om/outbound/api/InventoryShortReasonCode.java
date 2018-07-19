@@ -223,6 +223,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		 eleOrderLine.setAttribute(XMLLiterals.SUB_LINE_NO,SUB_LINE_NO);
 		 YFCElement eleItem = eleOrderLine.createChild(XMLLiterals.ITEM);
 		 eleItem.setAttribute(XMLLiterals.ITEM_ID, shipmentLine.getAttribute(XMLLiterals.ITEM_ID));
+		 System.out.println("bhfbdjjngkh"+docOrder);
 		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docOrder);
 		 }
 	 }

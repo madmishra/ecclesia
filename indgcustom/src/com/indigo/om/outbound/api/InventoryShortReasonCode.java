@@ -67,8 +67,11 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	private void handleOrderPickShortages(YFCDocument inXml) {
 		
 		YFCElement eleShipment =  inXml.getDocumentElement();
-		if(!YFCObject.isVoid(eleShipment.getAttribute(XMLLiterals.ACTION)) && eleShipment.getAttribute(XMLLiterals.ACTION).equals(MARK_LINE_AS_SHORTAGE))
-		{
+		if(eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE)!=null) 
+		 {
+			 if ( eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(DAMAGED) ||
+					eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(SHORTAGE))
+			 {
 		YFCIterable<YFCElement> eleShipmentLines  = eleShipment.getChildElement(XMLLiterals.SHIPMENT_LINES)
 				.getChildren(XMLLiterals.SHIPMENT_LINE);
 		for(YFCElement shipmentLine : eleShipmentLines) {
@@ -79,7 +82,9 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 			invokeGetInventoryNodeControlList(docGetShptLineListOutput, inXml);
 			}
 		}
+	 }
 	}
+	
 	/**
 	 * This method forms the template for getShipmentLineList API
 	 * @return

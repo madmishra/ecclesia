@@ -24,8 +24,10 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	  public Document handleShortageForBatchLine(YFSEnvironment env, Document inXML)
 	    throws YFSUserExitException
 	  {
+		System.out.println("hbdsbfjsjgnknhk"+inXML);
 	    YFCElement inputElem = YFCDocument.getDocumentFor(inXML).getDocumentElement();
 	    String shortageReason = inputElem.getChildElement("Item").getAttribute("ShortageReason");
+	    System.out.println("bcsjbjg"+shortageReason);
 	    String batch_key = inputElem.getAttribute("StoreBatchKey");
 	    
 	    YFCElement shipmentLines = inputElem.getChildElement("ShipmentLines");
@@ -102,6 +104,7 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	        else
 	        {
 	          changeShipmentWithBackorderInput = prepareChangeShipmentInput(env, shipmentKey);
+	          System.out.println("jngfnhkjmkdm"+changeShipmentWithBackorderInput);
 	          setChangeShipmentWithBackorderInput(changeShipmentWithBackorderInput, shipmentLineKey, newQuantity, shipmentLineShortQty);
 	          changeShipmentInputMap.put(shipmentKey, changeShipmentWithBackorderInput);
 	        }
@@ -133,6 +136,7 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	  private void callChangeShipmentStatus(YFSEnvironment env, String shipmentKey, YFCElement shipmentDetails, String batch_key, String userId)
 	  {
 	    String status = shipmentDetails.getAttribute("Status");
+	    System.out.println("hdbjsbjhnkj"+status);
 	    if (status.contains("1100.70.06.10"))
 	    {
 	      YFCDocument changeShipmentStatusInputDoc = YFCDocument.createDocument("Shipment");
@@ -146,6 +150,7 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	      changeShipmentStatusTempateElem.setAttribute("ShipmentKey", "");
 	      if (cat.isDebugEnabled()) {
 	        cat.debug("Input to changeShipmentStatus:" + changeShipmentStatusInputDoc);
+	        System.out.println("fdjgsnjhnj"+changeShipmentStatusInputDoc);
 	      }
 	      YFCElement apiElem = YFCDocument.createDocument("API").getDocumentElement();
 	      apiElem.setAttribute("Name", "changeShipmentStatus");
@@ -155,10 +160,11 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	      YFCElement changeShipmentInput = changeShipmentInputDoc.getDocumentElement();
 	      changeShipmentInput.setAttribute("ShipmentKey", shipmentKey);
 	      changeShipmentInput.setAttribute("AssignedToUserId", userId);
-	      
+	      System.out.println("vhdbfhzbngxnkfdg"+changeShipmentInputDoc);
 	      YFCDocument changeShipmentTemplateDoc = YFCDocument.createDocument("Shipment");
 	      YFCElement changeShipmentTemplateElem = changeShipmentTemplateDoc.getDocumentElement();
 	      changeShipmentStatusTempateElem.setAttribute("ShipmentKey", "");
+	      System.out.println("bjdbgjnhk"+changeShipmentTemplateDoc);
 	      if (cat.isDebugEnabled()) {
 	        cat.debug("Input to changeShipment:" + changeShipmentInputDoc);
 	      }
@@ -199,11 +205,11 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	      YFCElement changeShipmentInput = YFCDocument.createDocument("Shipment").getDocumentElement();
 	      changeShipmentInput.setAttribute("Action", "Cancel");
 	      changeShipmentInput.setAttribute("ShipmentKey", shipmentKey);
-	      
+	      System.out.println("fjhjgh"+changeShipmentInput);
 	      YFCDocument changeShipmentOutputDoc = YFCDocument.createDocument("Shipment");
 	      YFCElement changeShipmentOutputElem = changeShipmentOutputDoc.getDocumentElement();
 	      changeShipmentOutputElem.setAttribute("Status", "");
-	      
+	      System.out.println("fjdngnhk"+changeShipmentOutputDoc);
 	      YFCElement apiElement = YFCDocument.createDocument("API").getDocumentElement();
 	      apiElement.setAttribute("Name", "changeShipment");
 	      YFCElement changeShipmentForCancelOutElem = APIManager.getInstance().invokeAPI(env, apiElement, changeShipmentInput, changeShipmentOutputElem);
@@ -241,6 +247,7 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	    Iterator it = changeShipmentInputMap.keySet().iterator();
 	    while (it.hasNext())
 	    {
+	    	System.out.println("huejhyiji"+it);
 	      YFCElement changeShipmentInput = (YFCElement)changeShipmentInputMap.get(it.next());
 	      YFCElement apiElem = YFCDocument.createDocument("API").getDocumentElement();
 	      apiElem.setAttribute("Name", "changeShipment");
@@ -254,6 +261,8 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	    changeShipmentInput.setAttribute("Action", "Modify");
 	    changeShipmentInput.setAttribute("ShipmentKey", shipmentKey);
 	    changeShipmentInput.setAttribute("HoldLocation", "");
+	    System.out.println("hgfrnjrh"+changeShipmentInput);
+	    
 	    return changeShipmentInput;
 	  }
 	  
@@ -265,6 +274,7 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	    csShipmentLine.setDoubleAttribute("StagedQuantity", 0.0D);
 	    csShipmentLine.setDoubleAttribute("BackroomPickedQuantity", 0.0D);
 	    csShipmentLine.setAttribute("BatchPickPriority", "");
+	    System.out.println("hfdjkhgkh"+csShipmentLine);
 	  }
 }
 

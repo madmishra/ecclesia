@@ -24,6 +24,7 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
   private static final String CREATE_ACTION = "Create";
   private static final String DEFAULT_ATP_RULE = "DEFAULT";
   private static final String NODE_LEVEL_INV_MONITOR_RULE = "DEFAULT_RTAM_RULE";
+  private static final String DEFAULT_CATEGORY_PATH = "DefaultCategoryPath";
   private static final String EMPTY_STRING = "";
   private static final String CATEGORY_ALERT_FLOW="CATEGORY_ALERT_FLOW";
   
@@ -62,7 +63,9 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
         invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), inXml);
       }
     } else {
-      invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), inXml);
+      invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
+          IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID)
+              ,CREATE_ACTION,getProperty(DEFAULT_CATEGORY_PATH),organizationCode));
     }
     setItemType(itemEle);
   }

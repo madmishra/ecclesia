@@ -459,6 +459,13 @@ templateText, _dijitButton, _dojodeclare, _dojokernel, _dojolang, _dojotext, _ia
                     methodName: "increaseQuantity"
                 }
             }]
-        }
+        },
+        handleMashupOutput: function (
+			mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel) {
+			if (mashupRefId === "extn_getItemDetails") {
+				console.log('modelOutput',modelOutput); 
+				this.updateAllValues(modelOutput);
+			}
+		}
     });
 });

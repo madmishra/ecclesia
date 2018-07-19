@@ -691,7 +691,7 @@
                                     ImageID="" ImageLabel="" ImageLocation=""/>
                             </ItemDetails>
                         </OrderLine>
-                        <Shipment PackListType=""/>
+                        <Shipment AssignedToUserId="" PackListType=""/>
                     </ShipmentLine>
                 </ShipmentLines>
             </Template>
@@ -703,7 +703,10 @@
     <mashup description="" endpoint="EP_CONFIG"
         id="extn_getPrintDetails" mashuptype="XAPI" resourceId="" transactional="true">
         <API Name="getOrderDetails">
-            <Input/>
+            <Input>
+                <Order DocumentType=""
+                    EnterpriseCode="xml:CurrentStore:/Store/@EnterpriseCode" OrderNo=""/>
+            </Input>
             <Template>
                 <Order>
                     <OrderLines>

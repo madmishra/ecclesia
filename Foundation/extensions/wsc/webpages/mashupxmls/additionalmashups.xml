@@ -691,7 +691,7 @@
                                     ImageID="" ImageLabel="" ImageLocation=""/>
                             </ItemDetails>
                         </OrderLine>
-                        <Shipment PackListType=""/>
+                        <Shipment AssignedToUserId="" PackListType=""/>
                     </ShipmentLine>
                 </ShipmentLines>
             </Template>

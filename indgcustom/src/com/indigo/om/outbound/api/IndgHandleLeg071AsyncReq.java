@@ -30,16 +30,18 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
 		System.out.println("jfdngjkhnm"+inXml);
-		YFCIterable<YFCElement> eleOrder = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
-				.getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
-		for(YFCElement orderLine : eleOrder) {
-			System.out.println("nvjfhkn"+orderLine);
-		YFCDocument docGetOrderList = invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, invokegetOrderLineList(orderLine, inXml), getOrderLineListTemplate());
+		YFCElement eleOrder = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
+				.getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE);
+		YFCDocument docGetOrderList = invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, invokegetOrderLineList(eleOrder, inXml), getOrderLineListTemplate());
 		if(docGetOrderList.hasChildNodes())
 		{
 			checkOrderstatus(docGetOrderList,inXml);
 		}
+		else
+		{
+			invokeCreateAsynRequestAPI(inXml);
 		}
+		
 		return inXml;
 	}
 	

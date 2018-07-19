@@ -40,6 +40,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	 private static final String CANCEL = "CANCEL";
 	 private static final String SHORTAGE = "shortage";
 	 private static final String DAMAGED = "damaged";
+	 private static final String MARK_LINE_AS_SHORTAGE="MarkLineAsShortage";
 	 String sExpirationDays = "30";
 	 String sCancellationReasonCode;
 	 
@@ -66,7 +67,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	private void handleOrderPickShortages(YFCDocument inXml) {
 		
 		YFCElement eleShipment =  inXml.getDocumentElement();
-		if(!YFCObject.isVoid(eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE)))
+		if(!YFCObject.isVoid(eleShipment.getAttribute(XMLLiterals.ACTION)) && eleShipment.getAttribute(XMLLiterals.ACTION).equals(MARK_LINE_AS_SHORTAGE))
 		{
 		YFCIterable<YFCElement> eleShipmentLines  = eleShipment.getChildElement(XMLLiterals.SHIPMENT_LINES)
 				.getChildren(XMLLiterals.SHIPMENT_LINE);

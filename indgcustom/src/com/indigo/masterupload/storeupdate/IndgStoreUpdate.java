@@ -6,8 +6,8 @@ import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.XPathUtil;
 import com.indigo.utils.IndgManageDeltaLoadUtil;
-import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
+import com.yantra.yfc.core.YFCObject;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 import com.yantra.yfc.dom.YFCNode;
@@ -39,6 +39,7 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	private static final String START_DATE = "2500-01-01 00:00:00.0";
 	private static final String ALL = "ALL";
 	private static final String PRIORITY = "1.00";
+	private static final String GROUP_DESCRIPTION = "GROUP_DESCRIPTION";
 	
 	
 	/**	 
@@ -112,7 +113,7 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	private void changeStatusOfExtraNodes(Collection<String> uncommonShipNodeList, YFCDocument shipNodeListApiOp) {
 	    for(String value:uncommonShipNodeList) {
 	    	YFCElement shipNodeEle = XPathUtil.getXPathElement(shipNodeListApiOp, "/ShipNodeList/ShipNode[@ShipNode = \""+value+"\"]");
-	    	if(!XmlUtils.isVoid(shipNodeEle)) {
+	    	if(!YFCObject.isVoid(shipNodeEle)) {
 	    		String flag = shipNodeEle.getAttribute(XMLLiterals.ACTIVATEFLAG);
 	    		if(!flag.equals(INACTIVATE_FLAG)) {
 	    			YFCDocument inputDocForManageOrgAPI = YFCDocument.createDocument(XMLLiterals.ORGANIZATION);
@@ -139,7 +140,7 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	private void createNewNodesInInputXml(Collection<String> organizationList2, YFCDocument inXml) {
 	    for(String organizationId:organizationList2) {
 	      YFCElement organizationEle = XPathUtil.getXPathElement(inXml, "/StoreList/Organization[@OrganizationCode = \""+organizationId+"\"]");
-	      if(!XmlUtils.isVoid(organizationEle)) {
+	      if(!YFCObject.isVoid(organizationEle)) {
 	    	  String sInpOrgCodeEle = organizationEle.toString();
 	    	  YFCDocument docCreateOrgInput = YFCDocument.getDocumentFor(sInpOrgCodeEle);
 	    	  YFCElement organization = docCreateOrgInput.getDocumentElement();
@@ -161,7 +162,7 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	 */
 	
 	private void modifyExistingNodes(YFCDocument inXml){
-		if(!XmlUtils.isVoid(inXml)) {
+		if(!YFCObject.isVoid(inXml)) {
 			YFCElement inEle = inXml.getDocumentElement();
 			YFCIterable<YFCElement> organizationEle = inEle.getChildren(XMLLiterals.ORGANIZATION);
 			for(YFCElement element : organizationEle) {
@@ -181,7 +182,7 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 	private YFCDocument inpXmlForDistributionRuleList() {
 	    YFCDocument getDistributionRuleListDoc = YFCDocument.createDocument(XMLLiterals.DISTRIBUTION_RULE);
 	    getDistributionRuleListDoc.getDocumentElement().setAttribute(XMLLiterals.CALLING_ORGANIZATION_CODE, organizationCode);
-	    getDistributionRuleListDoc.getDocumentElement().setAttribute(XMLLiterals.DESCRIPTION, EMPTY_STRING);
+	    getDistributionRuleListDoc.getDocumentElement().setAttribute(XMLLiterals.DESCRIPTION, getProperty(GROUP_DESCRIPTION));
 	    return getDistributionRuleListDoc;
 	}
 	

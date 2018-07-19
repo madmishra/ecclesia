@@ -12,8 +12,8 @@ import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.ExceptionUtil;
 import com.bridge.sterling.utils.XPathUtil;
-import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
+import com.yantra.yfc.core.YFCObject;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
@@ -76,7 +76,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		Calendar c = Calendar.getInstance();
 		String reqDeliveryDate = inXml.getDocumentElement().getAttribute(XMLLiterals.REQUESTED_DELIVERY_DATE);
 		 
-		if(!XmlUtils.isVoid(reqDeliveryDate)) {
+		if(!YFCObject.isVoid(reqDeliveryDate)) {
 			String[] segments = reqDeliveryDate.split(TIME);
 			String date = segments[0];
 			Date d = sdf.parse(date);

@@ -8,8 +8,8 @@ import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.XPathUtil;
 import com.indigo.utils.IndgManageDeltaLoadUtil;
-import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
+import com.yantra.yfc.core.YFCObject;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 import com.yantra.yfc.dom.YFCNode;
@@ -84,7 +84,7 @@ public class IndgManageUser extends AbstractCustomApi {
 		YFCIterable<YFCElement> yfsItrator = inXml.getDocumentElement().getChildren(XMLLiterals.USER);
  	    for(YFCElement userEle : yfsItrator) {
  	    	String sDepartment = userEle.getAttribute(XMLLiterals.DEPARTMENT);
- 	    	if(!XmlUtils.isVoid(sDepartment)) {
+ 	    	if(!YFCObject.isVoid(sDepartment)) {
  	    		String[] segments = sDepartment.split(HASH_VAL);
  	    		String sStoreNo = segments[1];
  	    		String sStorename = segments[0];
@@ -240,12 +240,12 @@ public class IndgManageUser extends AbstractCustomApi {
 			YFCElement userEle = XPathUtil.getXPathElement(inXml, XPATH_USERLIST_API+loginId+"\"]");
 			userEle.setAttribute(XMLLiterals.LOCALE_CODE, localeCode);
 			String sDepartment = userEle.getAttribute(XMLLiterals.DEPARTMENT);
-			if(!XmlUtils.isVoid(sDepartment)) {
+			if(!YFCObject.isVoid(sDepartment)) {
 				String[] segments = sDepartment.split(HASH_VAL);
 				String sStoreNo = segments[1];
 				YFCElement orgEnterpriseEle = XPathUtil.getXPathElement(getOrganizationListApiOp, "/OrganizationList/Organization/"
  					+ "RelatedOrgList/OrgEnterprise[@OrganizationKey = \""+sStoreNo+"\"]");
-				if(XmlUtils.isVoid(orgEnterpriseEle)) {
+				if(YFCObject.isVoid(orgEnterpriseEle)) {
 					YFCNode parent = userEle.getParentNode();
 					parent.removeChild(userEle);
 				}
@@ -267,7 +267,7 @@ public class IndgManageUser extends AbstractCustomApi {
 	private void changeStatusForExtraUser(Collection<String> extraUserList, YFCDocument userListApiOp) {
 	    for(String loginId : extraUserList) {
 	    	YFCElement userEle = XPathUtil.getXPathElement(userListApiOp, XPATH_USERLIST_API+loginId+"\"]");
-	    	if(!XmlUtils.isVoid(userEle)) {
+	    	if(!YFCObject.isVoid(userEle)) {
 	    		String flag = userEle.getAttribute(XMLLiterals.ACTIVATE_FLAG);
 	    		if(!INACTIVATE_FLAG.equals(flag)) {
 	    			YFCDocument inputDocForManageUserAPI = YFCDocument.createDocument(XMLLiterals.USER);
@@ -292,7 +292,7 @@ public class IndgManageUser extends AbstractCustomApi {
 	private void createNewUserFromInputXml(Collection<String> inputUserList, YFCDocument inXml, YFCDocument commonCodeListApiOp) {
 	    for(String loginId : inputUserList) {
 	      YFCElement userEle = XPathUtil.getXPathElement(inXml, XPATH_USERLIST_API+loginId+"\"]");
-	      if(!XmlUtils.isVoid(userEle)) {
+	      if(!YFCObject.isVoid(userEle)) {
 	    	  String inpEleString = userEle.toString();
 	    	  YFCDocument inputDoctoCreateUser = YFCDocument.getDocumentFor(inpEleString);
 	    	  inputDoctoCreateUser.getDocumentElement().setAttribute(XMLLiterals.ACTION, CREATE);
@@ -319,7 +319,7 @@ public class IndgManageUser extends AbstractCustomApi {
 	
 	private void createUserGroupInputDoc(YFCDocument inputDoctoCreateUser, YFCElement userEle, YFCDocument commonCodeListApiOp) {
 		String memberOfValue = userEle.getAttribute(XMLLiterals.MEMBER_OF);
-	    if(!XmlUtils.isVoid(memberOfValue)) {		
+	    if(!YFCObject.isVoid(memberOfValue)) {		
 	    	List<String> memberList = Arrays.asList(memberOfValue.split(","));
 	    	for(String sterlingValue : memberList) {
 	    		if(sterlingValue.contains(XMLLiterals.STERLING)) {
@@ -366,11 +366,11 @@ public class IndgManageUser extends AbstractCustomApi {
 	 */
 	
 	private void modifyExistingUsers(YFCDocument inXml){
-		if(!XmlUtils.isVoid(inXml)) {
+		if(!YFCObject.isVoid(inXml)) {
 			YFCIterable<YFCElement> userEle = inXml.getDocumentElement().getChildren(XMLLiterals.USER);
 			for(YFCElement element : userEle) {
 				String sDepartment = element.getAttribute(XMLLiterals.DEPARTMENT);
-				if(XmlUtils.isVoid(sDepartment)) {
+				if(YFCObject.isVoid(sDepartment)) {
 					String deptVal = STORE.concat(HASH_VAL).concat(ORGANIZATION_CODE_VAL);
 					element.setAttribute(XMLLiterals.DEPARTMENT, deptVal);
 					element.setAttribute(XMLLiterals.ORGANIZATION_KEY, ORGANIZATION_CODE_VAL);

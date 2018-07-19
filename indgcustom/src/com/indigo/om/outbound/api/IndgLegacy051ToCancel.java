@@ -3,8 +3,8 @@ package com.indigo.om.outbound.api;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.XPathUtil;
-import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
+import com.yantra.yfc.core.YFCObject;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 import com.yantra.yfc.dom.YFCNode;
@@ -114,7 +114,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 	 */
 	
 	private void getShipmentLinesStatus(YFCDocument shipmentListApiOp){
-		if(!XmlUtils.isVoid(shipmentListApiOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT))) {
+		if(!YFCObject.isVoid(shipmentListApiOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT))) {
 			orderLineIsPickedStatus(shipmentListApiOp);
 			YFCElement orderLineEle = docLegacy051.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES);
 			if(orderLineEle.hasChildNodes()) {
@@ -158,7 +158,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 		String shipNode = orderLineEle.getAttribute(XMLLiterals.SHIPNODE);
 		String primeLineNo = orderLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
 		YFCElement shipmentEle = XPathUtil.getXPathElement(shipmentListApiOp, "/Shipments/Shipment[@ShipNode=\""+shipNode+"\"]");
-		if(!XmlUtils.isVoid(shipmentEle)) {
+		if(!YFCObject.isVoid(shipmentEle)) {
 			orderLineEle.setAttribute(XMLLiterals.MODIFYTS, shipmentEle.getAttribute(XMLLiterals.MODIFYTS));
 			orderLineEle.setAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO, legacyOmsOrderNo);
 			orderLineEle.setAttribute(XMLLiterals.IS_PROCESSED, NO);
@@ -166,7 +166,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 					.getChildren(XMLLiterals.SHIPMENT_LINE);
 			for(YFCElement shipmentLineEle : yfsItratorPrimeLine) {
 				if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO)) && 
-					(!XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
+					(!YFCObject.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
 					if(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE).equals(YES)) {
 						orderLines.importNode(orderLineEle);
 						YFCNode parent = orderLineEle.getParentNode();
@@ -174,7 +174,7 @@ public class IndgLegacy051ToCancel extends AbstractCustomApi{
 					}
 				}
 				else if(primeLineNo.equals(shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO)) && 
-						(XmlUtils.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
+						(YFCObject.isVoid(shipmentLineEle.getAttribute(XMLLiterals.BACKROOM_PICK_COMPLETE)))) {
 					String sellerOrganizationCode = shipmentEle.getAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE);
 					String node = shipmentEle.getAttribute(XMLLiterals.SHIPNODE);
 					String shipmentNo = shipmentEle.getAttribute(XMLLiterals.SHIPMENT_NO);

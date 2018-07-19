@@ -88,7 +88,7 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 		YFCDocument docCreateAsyncRequest = YFCDocument.createDocument(XMLLiterals.CREATE_ASYNC_REQUEST);
 		YFCElement eleAPI = docCreateAsyncRequest.getDocumentElement().createChild(XMLLiterals.API);
 		eleAPI.setAttribute(XMLLiterals.IS_SERVICE, YES);
-		eleAPI.setAttribute(XMLLiterals.NAME, INDG_LEG071_ASYNC_REQ);
+		eleAPI.setAttribute(XMLLiterals.NAME, INDG_CREATE_RETURN_SYNC);
 		YFCElement ele = eleAPI.createChild(XMLLiterals.INPUT);
 		YFCElement eleRoot = inXml.getDocumentElement();
 		YFCElement eleImport = docCreateAsyncRequest.importNode(eleRoot, true);

@@ -55,9 +55,9 @@
             <UIExtn
                 appScreen="wsc.components.shipment.common.screens.ShipmentLineDetails"
                 extnScreen="extn.components.shipment.common.screens.ShipmentLineDetailsExtn" type="diffrential"/>
-            <UIExtn
+            <!-- <UIExtn
                 appScreen="wsc.mobile.home.subscreens.TasksInProgress"
-                extnScreen="extn.mobile.home.subscreens.TasksInProgressExtn" type="diffrential"/>
+                extnScreen="extn.mobile.home.subscreens.TasksInProgressExtn" type="diffrential"/> -->
             <UIExtn
                 appScreen="wsc.components.batch.batchpick.scanlist.BatchLineDetails"
                 extnScreen="extn.components.batch.batchpick.scanlist.BatchLineDetailsExtn" type="diffrential">

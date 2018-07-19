@@ -102,6 +102,7 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 		YFCElement eleRoot = inXml.getDocumentElement();
 		YFCElement eleImport = docCreateAsyncRequest.importNode(eleRoot, true);
 		ele.appendChild(eleImport);
+		System.out.println("jdhjh"+docCreateAsyncRequest);
 		invokeYantraApi(XMLLiterals.CREATE_ASYNC_REQUEST, docCreateAsyncRequest);
 	}
 }

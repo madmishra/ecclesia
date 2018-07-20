@@ -251,10 +251,7 @@ public class IndgGetOrderDetails extends AbstractCustomApi{
 	 
 	 
 	 private  YFCDocument invokeGetShipmentDetails(String sShipmentKey) {
-		 YFCDocument docGetShipmentDetailsOutput= invokeYantraApi(XMLLiterals.GET_SHIPMENT_DETAILS,inputGetShipmentDetails(sShipmentKey),getShipmentDetailsTemplate());
-		 
-		  return docGetShipmentDetailsOutput;
-		 
+		 return invokeYantraApi(XMLLiterals.GET_SHIPMENT_DETAILS,inputGetShipmentDetails(sShipmentKey),getShipmentDetailsTemplate());
 	 }
 }
 

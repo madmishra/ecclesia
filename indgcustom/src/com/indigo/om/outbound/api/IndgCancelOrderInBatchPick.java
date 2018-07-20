@@ -169,7 +169,7 @@ public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
 	  public String getInventoryPictureTillDate() {
 			 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 			 Calendar cal = Calendar.getInstance();
-			 String  sNoOfDays = getProperty(NO_OF_DAYS);
+			 String  sNoOfDays = "15";
 			 int noOfDays = Integer.parseInt(sNoOfDays);
 			 cal.add(Calendar.DAY_OF_MONTH, noOfDays);  
 			 String date =  sdf.format(cal.getTime()); 

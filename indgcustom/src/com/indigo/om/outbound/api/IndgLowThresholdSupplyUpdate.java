@@ -18,7 +18,6 @@ public class IndgLowThresholdSupplyUpdate extends AbstractCustomApi {
 		String supplyType = eleSupply.getAttribute(XMLLiterals.SUPPLY_TYPE);
 		String quantity = eleSupply.getAttribute(XMLLiterals.QUANTITY);
 		if((supplyType.equals(XMLLiterals.ON_HAND)) && (quantity.contains(NEGATIVE))) {
-			System.out.println(supplyType + "bbbbbbbbbb" + quantity);
 			checkInventoryAlertList(eleSupply);
 		}
 		return inXml;
@@ -26,7 +25,6 @@ public class IndgLowThresholdSupplyUpdate extends AbstractCustomApi {
 	
 	private void checkInventoryAlertList(YFCElement eleSupply) {
 		YFCDocument docGetInventoryAlertsListApiOp = getInventoryAlertListApi(eleSupply);
-		System.out.println(docGetInventoryAlertsListApiOp + "aaaaaaaaaa");
 		if(!YFCObject.isVoid(docGetInventoryAlertsListApiOp)) {
 				callMonitorItemAvailability(eleSupply);
 		}
@@ -42,7 +40,6 @@ public class IndgLowThresholdSupplyUpdate extends AbstractCustomApi {
 		YFCElement inventoryItem = inventoryItems.createChild(XMLLiterals.INVENTORY_ITEM);
 		inventoryItem.setAttribute(XMLLiterals.ITEM_ID, eleSupply.getAttribute(XMLLiterals.ITEM_ID));
 		inventoryItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, eleSupply.getAttribute(XMLLiterals.UNIT_OF_MEASURE));
-		System.out.println(docInputApi + "cccccccccc");
 	    return docInputApi;
 	}
 	
@@ -55,7 +52,6 @@ public class IndgLowThresholdSupplyUpdate extends AbstractCustomApi {
 		docMonitorItemAvailability.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, eleSupply.getAttribute(XMLLiterals.ITEM_ID));
 		docMonitorItemAvailability.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, eleSupply.getAttribute(XMLLiterals.INVENTORY_ORGANIZATION_CODE));
 		docMonitorItemAvailability.getDocumentElement().setAttribute(XMLLiterals.UNIT_OF_MEASURE, eleSupply.getAttribute(XMLLiterals.UNIT_OF_MEASURE));
-		System.out.println(docMonitorItemAvailability + "dddddddddd");
 		invokeYantraApi(XMLLiterals.MONITOR_ITEM_AVAILABILITY_API, docMonitorItemAvailability);
 	}
 }

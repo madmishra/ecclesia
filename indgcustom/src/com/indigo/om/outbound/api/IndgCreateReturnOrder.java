@@ -31,16 +31,17 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 	public YFCDocument invoke(YFCDocument inXml)
 	{
 		YFCDocument docCreateOrderOutput = null;
-		YFCDocument outDocgetOrderList = getOrderList(inXml);
+		YFCDocument outDocgetOrderLineList = getOrderLineList(inXml);
 		String sOrderHeaderKey = null;
-		String sShipNode = null;
-		YFCElement eleOrder = outDocgetOrderList.getDocumentElement().getChildElement(XMLLiterals.ORDER);
+		YFCElement eleOrder = outDocgetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).getChildElement(XMLLiterals.ORDER);
+		YFCElement eleOrderLine = outDocgetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE);
 		if(!YFCObject.isVoid(eleOrder)) {
 			sOrderHeaderKey = eleOrder.getAttribute(XMLLiterals.ORDER_HEADER_KEY);
-			sShipNode = eleOrder.getAttribute(XMLLiterals.SHIPNODE);
-			docCreateOrderOutput =  invokeYantraApi(XMLLiterals.CREATE_ORDER, createOrderInput(inXml, sOrderHeaderKey, sShipNode),createOrderTemplate());
+				String sShipNode = eleOrderLine.getAttribute(XMLLiterals.SHIPNODE);
+				docCreateOrderOutput =  invokeYantraApi(XMLLiterals.CREATE_ORDER, createOrderInput(inXml, sOrderHeaderKey, sShipNode),createOrderTemplate());
+			
 		}
-
+		System.out.println("polkjmnjuh"+ docCreateOrderOutput);
 		return docCreateOrderOutput;
 	}
 
@@ -50,9 +51,9 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 	 * @return
 	 */
 	
-	private YFCDocument getOrderList(YFCDocument inXml) 
+	private YFCDocument getOrderLineList(YFCDocument inXml) 
 	{
-		return invokeYantraApi(XMLLiterals.GET_ORDER_LIST, getOrderListInput(inXml), getOrderListTemplate());
+		return invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, getOrderLineListInput(inXml), getOrderLineListTemplate());
 		
 	}
 	
@@ -154,39 +155,49 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		eleDerivedFromOrderLine.setAttribute(XMLLiterals.SUB_LINE_NO, EMPTY_STRING);
 		YFCElement eleItem = eleDerivedFromOrderLine.createChild(XMLLiterals.ITEM);
 		eleItem.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
+		System.out.println("wsdrftgbhj"+docCreateOrder );
 		return docCreateOrder;
 	}
 	
 	/**
-	 * This method forms template getOrderList API
+	 * This method forms template getOrderLineList API
 	 * @return
 	 */
 
-	private YFCDocument getOrderListTemplate() 
+	private YFCDocument getOrderLineListTemplate() 
 	{
-		YFCDocument getorderList  =YFCDocument.createDocument(XMLLiterals.ORDER_LIST);
-		YFCElement eleOrderList = getorderList.getDocumentElement();
-		YFCElement eleOrder = eleOrderList.createChild(XMLLiterals.ORDER);
+		YFCDocument getOrderLineList  =YFCDocument.createDocument(XMLLiterals.ORDER_LINE_LIST);
+		YFCElement eleOrderLineList = getOrderLineList.getDocumentElement();
+		YFCElement eleOrderLine = eleOrderLineList.createChild(XMLLiterals.ORDER_LINE);
+		eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
+		eleOrderLine.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
+		YFCElement eleOrder = eleOrderLine.createChild(XMLLiterals.ORDER);
 		eleOrder.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 		eleOrder.setAttribute(XMLLiterals.ORDER_HEADER_KEY, EMPTY_STRING);
-		return getorderList;
+		System.out.println("ygdhsjddx"+getOrderLineList);
+		return getOrderLineList;
 	}
 	
 	/**
-	 * This method forms getOrderList input
+	 * This method forms getOrderLineList input
 	 * @param inXml
 	 * @return
 	 */
 
-	private YFCDocument getOrderListInput(YFCDocument inXml) 
+	private YFCDocument getOrderLineListInput(YFCDocument inXml) 
 	{
-		YFCDocument docgetOrderListInput = YFCDocument.createDocument(XMLLiterals.ORDER);
-		YFCElement eleOrder = docgetOrderListInput.getDocumentElement();
+		YFCDocument docgetOrderListInput = YFCDocument.createDocument(XMLLiterals.ORDER_LINE); 
+		YFCElement eleOrderLine = docgetOrderListInput.getDocumentElement();
 		YFCElement eleInXml = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY)
 				.getChildElement(XMLLiterals.ORDER);
+		YFCElement eleMsgBody = eleInXml.getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE);
+		eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, eleMsgBody.getAttribute(XMLLiterals.PRIME_LINE_NO));
+		eleOrderLine.setAttribute(XMLLiterals.CUSTOMER_PO_NO, eleMsgBody.getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO));
+		YFCElement eleOrder = eleOrderLine.createChild(XMLLiterals.ORDER);
 		eleOrder.setAttribute(XMLLiterals.ORDER_NO, eleInXml.getAttribute(XMLLiterals.PARENT_LEGACY_OMS_ORDER_NO));
 		eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, SALES_ORDER_VALUE);
 		eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleInXml.getAttribute(XMLLiterals.ENTERPRISE_CODE));
+		System.out.println("edftygbhj"+docgetOrderListInput);
 		return docgetOrderListInput;	
 	}
 

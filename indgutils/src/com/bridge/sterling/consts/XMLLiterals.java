@@ -386,5 +386,11 @@ public static final String MONITOR_ITEM_AVAILABILITY_API = "monitorItemAvailabil
 public static final String ALERT_LEVEL = "AlertLevel";
 public static final String STATUS_DATE = "StatusDate";
 public static final String STATUS_QTY = "StatusQty";
+public static final String DISTRIBUTION_RULE_ID = "DistributionRuleId";
+public static final String DEFAULT_FLAG = "DefaultFlag";
+public static final String DELETE_DISTRIBUTION = "deleteDistribution";
+public static final String DEMAND = "Demand";
+public static final String DEMAND_TYPE = "DemandType";
+public static final String OPEN_ORDER = "OPEN_ORDER";
 }
 

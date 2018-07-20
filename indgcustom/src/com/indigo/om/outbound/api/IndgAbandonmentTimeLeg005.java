@@ -47,25 +47,19 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
-		System.out.println("aaaaaaaa" + inXml);
 		shipNode = inXml.getDocumentElement().getAttribute(XMLLiterals.SHIPNODE);
-		System.out.println(shipNode + "bbbbbbbbb");
 		try {
 			setAbandonmentTimeAttr(inXml);
 		} catch (ParseException e) {
 			throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, e);
 		}
 		YFCDocument shipNodeListApiOp = getShipNodeList();
-		System.out.println(shipNodeListApiOp + "dddddddd");
 		localeCode = shipNodeListApiOp.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE).getAttribute(XMLLiterals.LOCALE_CODE);
 		YFCDocument localeListApiOp = getLocaleList();
-		System.out.println(localeCode + localeListApiOp + "eeeeeeeee");
 		String sTimeZone = localeListApiOp.getDocumentElement().getChildElement(XMLLiterals.LOCALE).getAttribute(XMLLiterals.TIME_ZONE);
 		getUTCTimeForTimeZone(sTimeZone);
 		YFCDocument docChangeShipmentOp = docChangeShipmentInp(inXml);
-		System.out.println(docChangeShipmentOp + "gggggggggg");
 		YFCDocument docGetOrderLineListOp = docGetOrderLineListInp(docChangeShipmentOp);
-		System.out.println(docGetOrderLineListOp + "hhhhhhhh");
 		return setAttrToReturnDoc(docChangeShipmentOp, docGetOrderLineListOp);
 	}
 	
@@ -91,7 +85,6 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 			c.add(Calendar.DATE, days);
 			String output = sdf.format(c.getTime());
 			finalDate = output.concat(TIME).concat(START_TIME);
-			System.out.println(finalDate + "cccccccc");
 		}
 	}
 	
@@ -108,7 +101,6 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		String date = timeStamp.toString();
 		String substr = date.substring(date.length() - 6);
 		finalDateUTC = finalDate.concat(substr);
-		System.out.println(finalDateUTC + "fffffffff");
 	}
 	
 	/**

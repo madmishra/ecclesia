@@ -212,7 +212,7 @@ public class IndgStoreUpdate extends AbstractCustomApi{
 		docDistributionRule.getDocumentElement().setAttribute(XMLLiterals.PURPOSE, SOURCING);
 		YFCElement eleItemShipNodes = docDistributionRule.getDocumentElement().createChild(XMLLiterals.ITEM_SHIP_NODES);
 		setDistributionGroupEle(organizationCodeList, eleItemShipNodes);
-		invokeYantraApi(XMLLiterals.MANAGGE_DISTRIBUTION_RULE, docDistributionRule);
+		invokeYantraApi(XMLLiterals.MANAGE_DISTRIBUTION_RULE, docDistributionRule);
 	}
 	
 	/**

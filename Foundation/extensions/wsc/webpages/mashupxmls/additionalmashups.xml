@@ -732,7 +732,7 @@
         <API Name="getShipmentLineList">
             <Input>
                 <ShipmentLine ItemID="">
-                    <Shipment PackListType="Sort" Status="1100.70.06.30.1"/>
+                    <Shipment Status="1100.70.06.30.1"/>
                 </ShipmentLine>
             </Input>
             <Template>

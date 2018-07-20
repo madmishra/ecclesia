@@ -80,9 +80,10 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 	
 	private void checkOrderstatus(YFCDocument docGetOrderList, YFCDocument inXml)
 	{
-		YFCElement  eleOrderLine = docGetOrderList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE);
+		YFCElement  eleOrderLine = docGetOrderList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
+				getChildElement(XMLLiterals.ORDER_STATUSES).getChildElement(XMLLiterals.ORDER_STATUS);
 		System.out.println("dklskflsklf"+eleOrderLine);
-		if(eleOrderLine.getAttribute(XMLLiterals.STATUS).equals(ORDER_STATUS)){
+		if(eleOrderLine.getAttribute(XMLLiterals.STATUS).contains(ORDER_STATUS)){
 				invokeYantraService(INDG_CREATE_RETURN_SYNC, inXml);
 				
 			}

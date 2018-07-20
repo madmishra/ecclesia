@@ -97,11 +97,17 @@ public class IndgLowThresholdSupplyUpdate extends AbstractCustomApi {
 	}
 	
 	private void deleteDistributionForNode(YFCElement eleRoot) {
+		System.out.println(eleRoot + "hhhhhhhh");
 		YFCDocument docDeleteDistribution = YFCDocument.getDocumentFor(XMLLiterals.ITEM_SHIP_NODE);
 		docDeleteDistribution.getDocumentElement().setAttribute(XMLLiterals.DISTRIBUTION_RULE_ID, getProperty(GROUP_DESCRIPTION));
 		docDeleteDistribution.getDocumentElement().setAttribute(XMLLiterals.ITEMID, ALL);
 		docDeleteDistribution.getDocumentElement().setAttribute(XMLLiterals.ITEM_SHIPNODE_KEY, eleRoot.getAttribute(XMLLiterals.SHIPNODE));
-		docDeleteDistribution.getDocumentElement().setAttribute(XMLLiterals.OWNERKEY, eleRoot.getAttribute(XMLLiterals.INVENTORY_ORGANIZATION_CODE));
+		if(eleRoot.hasAttribute(XMLLiterals.DEMAND_TYPE)) {
+			docDeleteDistribution.getDocumentElement().setAttribute(XMLLiterals.OWNERKEY, eleRoot.getAttribute(XMLLiterals.OWNERKEY));
+		}
+		else {
+			docDeleteDistribution.getDocumentElement().setAttribute(XMLLiterals.OWNERKEY, eleRoot.getAttribute(XMLLiterals.INVENTORY_ORGANIZATION_CODE));
+		}
 		docDeleteDistribution.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE_KEY, eleRoot.getAttribute(XMLLiterals.SHIPNODE));
 		System.out.println(docDeleteDistribution + "gggggggggg");
 		invokeYantraApi(XMLLiterals.DELETE_DISTRIBUTION, docDeleteDistribution);

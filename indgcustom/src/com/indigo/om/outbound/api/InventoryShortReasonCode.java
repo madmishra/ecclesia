@@ -255,7 +255,7 @@ public void invokegetShipmentLineList(YFCElement shipmentLine, YFCDocument inXml
 		 YFCDocument docCreateException = YFCDocument.createDocument(XMLLiterals.INBOX);
 		 YFCElement eleInbox = docCreateException.getDocumentElement();
 		 String sShipNode = eleShipementLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.SHIPNODE);
-		 eleInbox.setAttribute(XMLLiterals.DETAIL_DESCRIPTION, sShipNode+"-"+eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
+		 eleInbox.setAttribute(XMLLiterals.DETAIL_DESCRIPTION,eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
 		 eleInbox.setAttribute(XMLLiterals.ENTERPRISE_KEY, XMLLiterals.INDIGO_CA);
 		 eleInbox.setAttribute(ITEM_ID, eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
 		 eleInbox.setAttribute(XMLLiterals.SHIPNODE_KEY, sShipNode);

@@ -25,7 +25,8 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	  public Document handleShortageForBatchLine(YFSEnvironment env, Document inXML)
 	    throws YFSUserExitException
 	  {
-		System.out.println("hbdsbfjsjgnknhk"+inXML);
+		YFCDocument doc = YFCDocument.getDocumentFor(inXML);
+		System.out.println("hbdsbfjsjgnknhk"+doc);
 	    YFCElement inputElem = YFCDocument.getDocumentFor(inXML).getDocumentElement();
 	    String shortageReason = inputElem.getChildElement("Item").getAttribute("ShortageReason");
 	    System.out.println("bcsjbjg"+shortageReason);

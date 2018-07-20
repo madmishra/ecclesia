@@ -40,6 +40,21 @@ return _dojodeclare("extn.components.batch.batchpick.common.BatchPickupProductSc
 local : [
 
 {
+	  eventId: 'afterScreenInit'
+
+,	  sequence: '51'
+
+
+
+
+,handler : {
+methodName : "startScan"
+
+ 
+}
+}
+,
+{
 	  eventId: 'afterScreenLoad'
 
 ,	  sequence: '51'

@@ -55,5 +55,56 @@ _dojodeclare, _iasContextUtils, _iasRepeatingScreenUtils, _iasScreenUtils, _scBa
                 _scWidgetUtils.setFocusOnWidgetUsingUid(
                 this, "scanProductIdTxt");
             },
+        handleSort: function(modelOutput){
+            var shipmentKey = ""; 
+                var size = 0;
+                var i = 0;
+                var counter = 0;
+                debugger
+                if (modelOutput.ShipmentLines.ShipmentLine) {
+                    size = modelOutput.ShipmentLines.ShipmentLine.length;
+                }
+                while (i < size) {
+
+                        
+                    if (modelOutput.ShipmentLines.ShipmentLine[i].Shipment[0].PackListType === "Sort") {
+
+                           if(modelOutput.ShipmentLines.ShipmentLine[i].Shipment[0].AssignedToUserId === _scUserprefs.getUserId())
+                           {
+                               counter = i;
+                               break;
+                           }
+
+                            i++;
+                        if (i === size) { break; }
+
+                    }
+                    else {
+                        counter = i;
+                        break;
+                    }
+                }
+                if (counter === 0) {
+                   
+                    _wscMobileHomeUtils.openScreen("wsc.mobile.home.MobileHome", "wsc.mobile.editors.MobileEditor");
+                    _iasScreenUtils.showErrorMessageBoxWithOk(
+                        this, "No shipments found");
+                    
+                }
+                if (modelOutput.ShipmentLines && modelOutput.ShipmentLines.ShipmentLine[counter].ShipmentKey) {
+                    //  var size = modelOutput.ShipmentLines.ShipmentLine.Shipment.length;
+
+                    // for (var i = 0; i <= size; i++) {
+
+                    shipmentKey = modelOutput.ShipmentLines.ShipmentLine[counter].ShipmentKey;
+                }
+                //shipmentKey = modelOutput.ShipmentLines.ShipmentLine[0].ShipmentKey
+                // shipmentKey = this.checkForSort(modelOutput);
+                // console.log('shipmentKey', shipmentKey);
+                if (shipmentKey && counter !== 0)
+                    _iasUIUtils.openWizardInEditor("extn.wizards.SortScanPickWizard", { Shipment: { ShipmentKey: shipmentKey } }, "wsc.mobile.editors.MobileEditor", this, null);
+                //  }
+            
+        }    
     });
 });

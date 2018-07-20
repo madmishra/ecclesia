@@ -92,7 +92,4 @@ return _dojodeclare("extn.components.shipment.summary.ShipmentSummaryShipmentLin
 		_scScreenUtils.setModel(this, "extn_itemDetails_extraDetails", extraDetailsModel, null);
 	}
 });
-
-
-});
 });

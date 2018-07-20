@@ -41,6 +41,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	 private static final String SHORTAGE = "shortage";
 	 private static final String DAMAGED = "damaged";
 	 private static final String MARK_LINE_AS_SHORTAGE="MarkLineAsShortage";
+	 private static final String ITEM_ID = "ItemId";
 	 String sExpirationDays = "30";
 	 String sCancellationReasonCode;
 	 
@@ -75,22 +76,26 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 					YFCIterable<YFCElement> eleShipmentLines  = eleShipment.getChildElement(XMLLiterals.SHIPMENT_LINES)
 							.getChildren(XMLLiterals.SHIPMENT_LINE);
 					for(YFCElement shipmentLine : eleShipmentLines) {
-						
+						System.out.println("******************************");
 						invokegetShipmentLineList(shipmentLine, inXml);
+						System.out.println("*****************************");
 			}
 		}
 	 }
 	}
 
-public void invokegetShipmentLineList(YFCElement shipmentLine , YFCDocument inXml)
+	
+public void invokegetShipmentLineList(YFCElement shipmentLine, YFCDocument inXml )
 {
-
+	System.out.println("*****************************");
 		YFCDocument docgetShipmentLineList = YFCDocument.createDocument(XMLLiterals.SHIPMENT_LINE);
 		YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
 		eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
 		YFCDocument docGetShptLineListOutput = invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList());
 		invokeGetInventoryNodeControlList(docGetShptLineListOutput, inXml);
+		System.out.println("*****************************");
 	}
+
 	
 	/**
 	 * This method forms the template for getShipmentLineList API
@@ -249,10 +254,11 @@ public void invokegetShipmentLineList(YFCElement shipmentLine , YFCDocument inXm
 	 private void invokeCreateException(YFCElement eleShipementLine) {
 		 YFCDocument docCreateException = YFCDocument.createDocument(XMLLiterals.INBOX);
 		 YFCElement eleInbox = docCreateException.getDocumentElement();
-		 eleInbox.setAttribute(XMLLiterals.DETAIL_DESCRIPTION, eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
-		 eleInbox.setAttribute(XMLLiterals.ENTERPRISE_KEY, eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
-		 eleInbox.setAttribute(XMLLiterals.ITEM_ID, eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
-		 eleInbox.setAttribute(XMLLiterals.SHIPNODE_KEY, eleShipementLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.SHIPNODE));
+		 String sShipNode = eleShipementLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.SHIPNODE);
+		 eleInbox.setAttribute(XMLLiterals.DETAIL_DESCRIPTION, sShipNode+"-"+eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
+		 eleInbox.setAttribute(XMLLiterals.ENTERPRISE_KEY, XMLLiterals.INDIGO_CA);
+		 eleInbox.setAttribute(ITEM_ID, eleShipementLine.getAttribute(XMLLiterals.ITEM_ID));
+		 eleInbox.setAttribute(XMLLiterals.SHIPNODE_KEY, sShipNode);
 		 eleInbox.setAttribute(XMLLiterals.EXCEPTION_TYPE, XMLLiterals.INVENTORY_DIRTY);
 		 eleInbox.setAttribute(XMLLiterals.EXPIRATION_DAYS, sExpirationDays);
 		 eleInbox.setAttribute(XMLLiterals.QUEUE_ID, INVENTORY_DIRTY_QUEUE);

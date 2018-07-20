@@ -71,8 +71,9 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 		YFCDocument docOrder = YFCDocument.createDocument(XMLLiterals.ORDER_LINE_LIST);
 		YFCElement eleOrderList = docOrder.getDocumentElement();
 		YFCElement eleOrder =  eleOrderList.createChild(XMLLiterals.ORDER_LINE);
-		eleOrder.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
-		eleOrder.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
+		YFCElement eleOrderStatus = eleOrder.createChild(XMLLiterals.ORDER_STATUSES).createChild(XMLLiterals.ORDER_STATUS);
+		eleOrderStatus.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
+		eleOrderStatus.setAttribute(XMLLiterals.STATUS_QTY, EMPTY_STRING);
 		System.out.println("nhfkdfkg"+docOrder);
 		return docOrder;
 	}

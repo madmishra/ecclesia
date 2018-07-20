@@ -356,7 +356,7 @@ public static final String MANAGE_USER_UI_STATE = "manageUserUiState";
 public static final String SERVICE_SLOT_DESC = "ServiceSlotDesc";
 public static final String CALENDERS = "Calenders";
 public static final String INBOX = "Inbox";
-public static final String INVENTORY_DIRTY = "INVENTORY_DIR	TY";
+public static final String INVENTORY_DIRTY = "INVENTORY_DIRTY";
 public static final String CREATE_EXCEPTION = "createException";
 public static final String EXPIRATION_DAYS = "ExpirationDays";
 public static final String NEW_ABANDONMENT_TIME = "NewAbandonmentTime";
@@ -385,5 +385,6 @@ public static final String MONITOR_ITEM_AVAILABILITY = "MonitorItemAvailability"
 public static final String MONITOR_ITEM_AVAILABILITY_API = "monitorItemAvailability";
 public static final String ALERT_LEVEL = "AlertLevel";
 public static final String STATUS_DATE = "StatusDate";
+public static final String STATUS_QTY = "StatusQty";
 }
 

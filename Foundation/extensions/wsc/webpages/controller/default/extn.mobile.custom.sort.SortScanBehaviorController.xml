@@ -6,7 +6,7 @@
     <MashupRefs>
         <MashupRef mashupId="backroomPickUp_registerBarcodeForBackroomPick"
             mashupRefId="translateBarCode" permissionId=""/>
-		<MashupRef mashupId="sortScan_getShipmentLineList"
+		<MashupRef mashupId="extn_getShipmentForSort"
             mashupRefId="extn_getDetails" permissionId=""/>
     </MashupRefs>
 </Controller>

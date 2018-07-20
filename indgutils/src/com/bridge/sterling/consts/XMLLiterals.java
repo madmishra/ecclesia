@@ -384,5 +384,6 @@ public static final String ALERT_TYPE = "AlertType";
 public static final String MONITOR_ITEM_AVAILABILITY = "MonitorItemAvailability";
 public static final String MONITOR_ITEM_AVAILABILITY_API = "monitorItemAvailability";
 public static final String ALERT_LEVEL = "AlertLevel";
+public static final String STATUS_DATE = "StatusDate";
 }
 

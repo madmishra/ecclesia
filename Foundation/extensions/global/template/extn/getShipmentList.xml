@@ -1,0 +1,10 @@
+<Shipments>
+	<Shipment EnterpriseCode="" Modifyts="" ShipmentKey="" OrderType="" ShipNode="">
+		<ShipmentLines>
+			<ShipmentLine Quantity="" ItemID="" DocumentType="" OrderNo="" PrimeLineNo="">
+				<OrderLine CustomerLinePONo="" CustomerPONo="" Quantity="" PrimeLineNo="" Status="" ShipNode="">
+				</OrderLine>
+			</ShipmentLine>
+		</ShipmentLines>
+	</Shipment>
+</Shipments>

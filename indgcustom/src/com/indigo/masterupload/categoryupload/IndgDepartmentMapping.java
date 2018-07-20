@@ -3,9 +3,9 @@ package com.indigo.masterupload.categoryupload;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.yantra.yfc.core.YFCIterable;
+import com.yantra.yfc.core.YFCObject;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
-import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 
 /**
  * 
@@ -145,7 +145,7 @@ public class IndgDepartmentMapping extends AbstractCustomApi {
 	    YFCIterable<YFCElement> yfsItrator = shipNodeListEle.getChildren(XMLLiterals.SHIPNODE);
 	    for(YFCElement shipNodeEle : yfsItrator) {
 	    	String shipNode = shipNodeEle.getAttribute(XMLLiterals.SHIP_NODE_CODE);
-			if(XmlUtils.isVoid(shipNodeEle.getAttribute("Activateflag")) || 
+			if(YFCObject.isVoid(shipNodeEle.getAttribute("Activateflag")) || 
 				VALUE.equals(shipNodeEle.getAttribute("Activateflag"))) {
 				commonCode.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, shipNode);
 				invokeYantraApi(XMLLiterals.MANAGE_COMMON_CODE_API, commonCode);

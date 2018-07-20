@@ -1,5 +1,5 @@
-scDefine(["dojo/text!./templates/SortScan.html", "scbase/loader!dojo/_base/declare", "scbase/loader!dojo/_base/kernel", "scbase/loader!dojo/_base/lang", "scbase/loader!dojo/text", "scbase/loader!ias/utils/RepeatingScreenUtils", "scbase/loader!ias/widgets/IASBaseScreen", "scbase/loader!idx/layout/ContentPane", "scbase/loader!sc/plat", "scbase/loader!sc/plat/dojo/binding/CurrencyDataBinder", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/widgets/Label", "scbase/loader!sc/plat/dojo/widgets/Link" , "scbase/loader!ias/utils/UIUtils"], function(
-templateText, _dojodeclare, _dojokernel, _dojolang, _dojotext, _iasRepeatingScreenUtils, _iasIASBaseScreen, _idxContentPane, _scplat, _scCurrencyDataBinder, _scBaseUtils, _scLabel, _scLink , _iasUIUtils) {
+scDefine(["dojo/text!./templates/SortScan.html", "scbase/loader!dojo/_base/declare", "scbase/loader!dojo/_base/kernel", "scbase/loader!dojo/_base/lang", "scbase/loader!dojo/text", "scbase/loader!ias/utils/RepeatingScreenUtils", "scbase/loader!ias/widgets/IASBaseScreen", "scbase/loader!idx/layout/ContentPane", "scbase/loader!sc/plat", "scbase/loader!sc/plat/dojo/binding/CurrencyDataBinder", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/widgets/Label", "scbase/loader!sc/plat/dojo/widgets/Link", "scbase/loader!ias/utils/UIUtils", "scbase/loader!ias/utils/ScreenUtils", "scbase/loader!wsc/mobile/home/utils/MobileHomeUtils","scbase/loader!sc/plat/dojo/Userprefs"], function (
+    templateText, _dojodeclare, _dojokernel, _dojolang, _dojotext, _iasRepeatingScreenUtils, _iasIASBaseScreen, _idxContentPane, _scplat, _scCurrencyDataBinder, _scBaseUtils, _scLabel, _scLink, _iasUIUtils, _iasScreenUtils, _wscMobileHomeUtils,_scUserprefs) {
     return _dojodeclare("extn.mobile.custom.sort.SortScanUI", [_iasIASBaseScreen], {
         templateString: templateText,
         uId: "SortScan",
@@ -22,7 +22,7 @@ templateText, _dojodeclare, _dojokernel, _dojolang, _dojotext, _iasRepeatingScre
                 value: 'getShipmentList_output',
                 description: "The list of organizations the user has access to find orders for."
             },
-			{
+            {
                 value: 'extn_mobile_getShipmentList_output',
                 description: "The list of organizations the user has access to find orders for."
             }]
@@ -36,7 +36,7 @@ templateText, _dojodeclare, _dojokernel, _dojolang, _dojotext, _iasRepeatingScre
                 handler: {
                     methodName: "scanProductOnEnter"
                 }
-            },{
+            }, {
                 eventId: 'addProductButton_onClick',
                 sequence: '30',
                 description: 'Subscriber for Scan/Add button',
@@ -45,7 +45,7 @@ templateText, _dojodeclare, _dojokernel, _dojolang, _dojotext, _iasRepeatingScre
                     methodName: "scanProduct",
                     description: "Handled for Scan product"
                 }
-            },  {
+            }, {
                 eventId: 'scanButton_onClick',
                 sequence: '30',
                 description: 'This method is used to scan a product on click of scan button',
@@ -55,7 +55,7 @@ templateText, _dojodeclare, _dojokernel, _dojolang, _dojotext, _iasRepeatingScre
                     description: ""
                 }
             },
-			 {
+            {
                 eventId: 'scanProductIdTxt_onBlur',
                 sequence: '31',
                 description: 'This method is used to scan a product on click of scan button',
@@ -66,25 +66,33 @@ templateText, _dojodeclare, _dojokernel, _dojolang, _dojotext, _iasRepeatingScre
                 }
             }]
         },
-        handleMashupOutput: function(
+        handleMashupOutput: function (
             mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel) {
-               
-                if (
+            console.log('modelOutput', modelOutput);
+            if (
                 _scBaseUtils.equals(
-                mashupRefId, "translateBarCode")) {
-                    if (!(
+                    mashupRefId, "translateBarCode")) {
+                if (!(
                     _scBaseUtils.equals(
-                    false, applySetModel))) {
-                        _scScreenUtils.setModel(
+                        false, applySetModel))) {
+                    _scScreenUtils.setModel(
                         this, "translateBarCode_output", modelOutput, null);
-                    }
-                }
-				if (
-				mashupRefId === "extn_getDetails") {
-                   var shipmentKey = modelOutput.ShipmentLines.ShipmentLine[modelOutput.ShipmentLines.ShipmentLine.length-1].ShipmentKey ; 
-					console.log('shipmentKey' , shipmentKey); 
-					 _iasUIUtils.openWizardInEditor("extn.wizards.SortScanPickWizard", {Shipment : {ShipmentKey : shipmentKey}}, "wsc.mobile.editors.MobileEditor", this, null);
                 }
             }
-		});
+            if (
+                mashupRefId === "extn_getDetails"){}
+           this.handleSort(modelOutput);
+            }
+        // checkForSort: function (modelOutput) {
+        //     var size = modelOutput.ShipmentLines.ShipmentLine.Shipment.length;
+
+        //     for (var i = 0; i <= size; i++) {
+        //         if(modelOutput.ShipmentLines.ShipmentLine[0].Shipment[i].PackListType !== "Sort"){
+        //             return modelOutput.ShipmentLines.ShipmentLine[0].ShipmentKey;
+        //         }
+        //         else 
+        //             return "";
+        //     }
+        // }
+    });
 });

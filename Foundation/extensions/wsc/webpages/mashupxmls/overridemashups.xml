@@ -22,7 +22,7 @@
                             StagedQuantity="" StoreBatchKey=""/>
                     </ShipmentLines>
                     <StoreBatchList>
-                        <StoreBatch StoreBatchKey=""/>
+                        <StoreBatch ShortageReasonCodeActual="" StoreBatchKey=""/>
                     </StoreBatchList>
                 </Shipment>
             </Input>
@@ -38,5 +38,51 @@
             <AlternateResourceId altResourceId="WSC000006"/>
         </AlternateResourceIds>
     </mashup>
-    
+    <mashup description="Gets Shipment Details for ShipmentKey"
+        endpoint="EP_CONFIG" id="home_getShipmentList" mashuptype="XAPI"
+        resourceId="" transactional="true">
+        <API Name="getShipmentList">
+            <Input>
+                <Shipment
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    MaximumRecords="" ShipmentKey="">
+                    <ShipmentLines>
+                        <ShipmentLine OrderHeaderKey=""/>
+                    </ShipmentLines>
+                </Shipment>
+            </Input>
+            <Template>
+                <Shipments TotalNumberOfRecords="">
+                    <Shipment ShipmentKey="" ShipmentNo=""/>
+                </Shipments>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
+        <APINamespace inputNS="home_getShipmentList_input" outputNS="home_getShipmentList_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup description="" endpoint="EP_CONFIG"
+        id="batchPickup_recordShortageForBatchPick" mashuptype="XAPI"
+        resourceId="" transactional="true">
+        <API FlowName="Indg_RecordShortageForBatchPick">
+            <Input>
+                <StoreBatch
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    ShortageReasonCodeActual="" StoreBatchKey="xml:scControllerInput:/StoreBatch/@StoreBatchKey">
+                    <Item ItemID=""
+                        OrganizationCode="xml:CurrentStore:/Store/@ShipNode"
+                        ShortageReason="" ShortageReasonActual="" UnitOfMeasure=""/>
+                </StoreBatch>
+            </Input>
+            <Template>
+                <StoreBatch Status="" StoreBatchKey=""/>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.shipment.batchpick.mashups.WSCRecordShortageForBatchLine"/>
+        <APINamespace
+            inputNS="batchPickup_recordShortageForBatchPick_input" outputNS="batchPickup_recordShortageForBatchPick_output"/>
+        <AlternateResourceIds>
+            <AlternateResourceId altResourceId="WSC000028"/>
+        </AlternateResourceIds>
+    </mashup>
 </mashups>

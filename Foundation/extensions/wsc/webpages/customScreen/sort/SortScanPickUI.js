@@ -403,6 +403,9 @@ templateText, _dijitButton, _dojodeclare, _dojokernel, _dojolang, _dojotext, _ia
                 this.updateProductQuantity(
                 modelOutput);
             }
+            if (mashupRefId === "extn_getPrintDetails") {
+				this.printDetails(modelOutput);
+			}
         }
     });
 });

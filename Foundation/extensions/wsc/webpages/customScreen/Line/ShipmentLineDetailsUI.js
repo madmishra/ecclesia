@@ -479,6 +479,13 @@ scDefine(["dojo/text!./templates/ShipmentLineDetails.html", "scbase/loader!dijit
                 //     }
                 // }
             ]
-        }
+        },
+			handleMashupOutput: function (
+			mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel) {
+			if (mashupRefId === "extn_getItemDetails") {
+				console.log('modelOutput',modelOutput); 
+				this.updateAllValues(modelOutput);
+			}
+		}
     });
 });

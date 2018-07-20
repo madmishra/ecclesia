@@ -1,4 +1,4 @@
-scDefine(["dojo/text!./templates/ShipmentSummaryExtn.html", "scbase/loader!dijit/form/Button", "scbase/loader!dojo/_base/declare", "scbase/loader!dojo/_base/kernel", "scbase/loader!dojo/_base/lang", "scbase/loader!dojo/text", "scbase/loader!idx/layout/ContentPane", "scbase/loader!sc/plat", "scbase/loader!sc/plat/dojo/binding/ButtonDataBinder", "scbase/loader!sc/plat/dojo/binding/CurrencyDataBinder", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/widgets/DataLabel" , "scbase/loader!sc/plat/dojo/utils/ScreenUtils"], function (
+scDefine(["dojo/text!./templates/ShipmentSummaryExtn.html", "scbase/loader!dijit/form/Button", "scbase/loader!dojo/_base/declare", "scbase/loader!dojo/_base/kernel", "scbase/loader!dojo/_base/lang", "scbase/loader!dojo/text", "scbase/loader!idx/layout/ContentPane", "scbase/loader!sc/plat", "scbase/loader!sc/plat/dojo/binding/ButtonDataBinder", "scbase/loader!sc/plat/dojo/binding/CurrencyDataBinder", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/widgets/DataLabel", "scbase/loader!ias/utils/UIUtils"], function (
 	templateText,
 	_dijitButton,
 	_dojodeclare,
@@ -11,7 +11,7 @@ scDefine(["dojo/text!./templates/ShipmentSummaryExtn.html", "scbase/loader!dijit
 	_scCurrencyDataBinder,
 	_scBaseUtils,
 	_scDataLabel,
-	_scScreenUtils
+	_iasUIUtils
 ) {
 	return _dojodeclare("extn.components.shipment.summary.ShipmentSummaryExtnUI", [], {
 		templateString: templateText
@@ -149,6 +149,22 @@ scDefine(["dojo/text!./templates/ShipmentSummaryExtn.html", "scbase/loader!dijit
 
 
 					}
+				},
+				{
+					eventId: 'printInvokeEvent'
+
+						,
+					sequence: '51'
+
+
+
+
+						,
+					handler: {
+						methodName: "printInvokeEvent"
+
+
+					}
 				}
 
 			]
@@ -211,8 +227,15 @@ scDefine(["dojo/text!./templates/ShipmentSummaryExtn.html", "scbase/loader!dijit
 				this.handle_getShipmentDetailsForRecordCustomerPick(
 					mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel);
 			}
-			if(mashupRefId === "extn_addSecondaryContact"){
+			if (mashupRefId === "extn_addSecondaryContact") {
 				this.callLegacyMessage(modelOutput);
+			}
+			if (mashupRefId === "extn_printStatus") {
+
+				_iasUIUtils.openWizardInEditor("wsc.components.shipment.summary.ShipmentSummaryWizard", modelOutput, "wsc.desktop.editors.ShipmentEditor", this, null);
+			}
+			if (mashupRefId === "extn_getPrintDetails") {
+				this.printDetails(modelOutput);
 			}
 		}
 

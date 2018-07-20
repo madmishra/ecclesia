@@ -123,6 +123,7 @@
         </div>
         <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'scanPanel' , 
 		uId : 'scanPanel' , 
+		renderHidden : true ,
 		layoutAlign : 'top'  
  		,scParamDataFn :
 		 function() { 
@@ -251,6 +252,19 @@
 		'class' : 'tabButtonPanel tabLink' , 
 		uId : 'tabPnl'  
  " role='tablist'>
+ <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
+		'class' : 'tabButton' ,
+			renderHidden : true,
+		uId : 'allItems'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	'aria-label' : 			this.getSimpleBundleString('arialabel_View_All_Items')
+,	
+			 	value : 			this.getSimpleBundleString('Action_View_All_Items')
+			}
+		}
+"></div>
             <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
 		'class' : 'tabButton' , 
 		uId : 'shortItems'  
@@ -263,18 +277,7 @@
 			}
 		}
 "></div>
-            <div data-dojo-type="sc/plat/dojo/widgets/Link" data-dojo-props="		spanLabel : true , 
-		'class' : 'tabButton' , 
-		uId : 'allItems'  
- 		,scParamDataFn :
-		 function() { 
-			return { 
-			 	'aria-label' : 			this.getSimpleBundleString('arialabel_View_All_Items')
-,	
-			 	value : 			this.getSimpleBundleString('Action_View_All_Items')
-			}
-		}
-"></div>
+            
         </div>
         <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		uId : 'allItems_ContentPane' , 
 		renderHidden : true  
@@ -286,7 +289,7 @@
 		}
 " role='tabpanel'>
             <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'primaryProductDetailPanel repeatingpanel' , 
-		uId : 'readyForPickupLineList'  
+		uId : 'unpickedLineList' 
  		,scParamDataFn :
 		 function() { 
 			return { 
@@ -355,7 +358,9 @@
 		}
 " role='tabpanel'>
             <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'primaryProductDetailPanel repeatingpanel' , 
-		uId : 'unpickedLineList'  
+		 
+		uId : 'readyForPickupLineList'  
+		
  		,scParamDataFn :
 		 function() { 
 			return { 

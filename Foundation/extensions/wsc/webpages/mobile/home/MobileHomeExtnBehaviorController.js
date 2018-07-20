@@ -31,11 +31,20 @@ return _dojodeclare("extn.mobile.home.MobileHomeExtnBehaviorController",
 			
 			 mashupRefs : 	[
 	 		{
-		 extnType : 			'ADD'
+		 mashupRefId : 			'tasks_getShipmentListCount'
+,
+		 mashupId : 			'extn_getCountForHome'
+,
+		 extnType : 			'MODIFY'
+
+	}
+,
+	 		{
+		 mashupRefId : 			'extn_getDetails'
 ,
 		 mashupId : 			'sortScan_getShipmentLineList'
 ,
-		 mashupRefId : 			'extn_getDetails'
+		 extnType : 			'ADD'
 
 	}
 

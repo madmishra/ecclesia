@@ -26,7 +26,23 @@
 							<xsl:attribute name="RetailPrice">
 								<xsl:value-of select="LinePriceInfo/@RetailPrice"/>
 							</xsl:attribute>
-						</LinePriceInfo>						
+							<xsl:attribute name="ListPrice">
+								<xsl:value-of select="LinePriceInfo/@ListPrice"/>
+							</xsl:attribute>
+						</LinePriceInfo>
+						<AdditionalAddresses>
+							<AdditionalAddress>
+								<xsl:attribute name="AddressType">AlternatePickupPerson</xsl:attribute>
+								<PersonInfo>
+									<xsl:attribute name="FirstName">
+										<xsl:value-of select="AdditionalAddresses/AdditionalAddress/PersonInfo/@FirstName"/>	
+									</xsl:attribute>
+									<xsl:attribute name="LastName">
+										<xsl:value-of select="AdditionalAddresses/AdditionalAddress/PersonInfo/@LastName"/>	
+									</xsl:attribute>
+								</PersonInfo>
+							</AdditionalAddress>
+						</AdditionalAddresses>								
 					</OrderLine>
 				</xsl:for-each>				
 			</OrderLines>

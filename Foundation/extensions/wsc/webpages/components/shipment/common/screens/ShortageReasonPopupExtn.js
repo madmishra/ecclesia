@@ -37,11 +37,11 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!extn/components/shi
 					_scModelUtils.setStringValueAtModelPath(
 						this.cancelReasonPath, _scModelUtils.getStringValueFromPath("CancelReasonCode", cancelReasonModel), shortedShipmentLineModel);
 				}
-				if (shortedShipmentLineModel.StoreBatchLine)
-					shortedShipmentLineModel.StoreBatchLine.ShortageResolutionReason = "AllInventoryShortage";
-				else
+
+				if (shortedShipmentLineModel.ShipmentLine) {
 					shortedShipmentLineModel.ShipmentLine.ShortageReasonCode = "AllInventoryShortage";
-				//	shortedShipmentLineModel.ShipmentLine.ShortageReasonCodeActual = _scModelUtils.getStringValueFromPath("ShortageReason", shortageReasonModel);
+					shortedShipmentLineModel.ShipmentLine.ShortageReasonCodeActual = _scModelUtils.getStringValueFromPath("ShortageReason", shortageReasonModel);
+				}
 
 				return shortedShipmentLineModel;
 			},

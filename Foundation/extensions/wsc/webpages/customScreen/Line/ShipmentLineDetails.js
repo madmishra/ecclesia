@@ -12,6 +12,8 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/EventUtil
             var quantityTextBoxModel = null;
             quantityTextBoxModel = {};
             shipmentLinePickedQuantity = _scModelUtils.getStringValueFromPath("ShipmentLine.BackroomPickedQuantity", shipmentLineModel);
+			
+			this.updateItemDetails();
 
             // if (_iasUIUtils.isValueNumber(shipmentLinePickedQuantity)) {
             //     this.pickedQuantity = shipmentLinePickedQuantity;
@@ -63,6 +65,36 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/EventUtil
             //     this, shipmentLineModel, "productScanImagePanel", "completelyPickedLabel", "productScanShortageImagePanel", "updateShortageResolutionImage", "shortageResolutionLink");
             // }
         },
+			updateAllValues: function (modelObject) {
+				var arrayListObject = modelObject.ItemList.Item[0];
+				var MCAT = "";
+				var LM = ""
+				var arrayList = arrayListObject.AdditionalAttributeList.AdditionalAttribute;
+				if (arrayListObject.ClassificationCodes && arrayListObject.ClassificationCodes.CommodityCode)
+					MCAT = arrayListObject.ClassificationCodes.CommodityCode;
+				if (arrayListObject.PrimaryInformation && arrayListObject.PrimaryInformation.ProductLine)
+					LM = arrayListObject.ClassificationCodes.CommodityCode;
+				var additionalDetailsObject = {
+					MCAT: MCAT,
+					LM: LM
+				};
+				for (var i = 0; i < arrayList.length; i++) {
+					if (arrayList[i].Name === "Brand") {
+						additionalDetailsObject.Brand = arrayList[i].Value;
+					}
+					if (arrayList[i].Name === "Series") {
+						additionalDetailsObject.Series = arrayList[i].Value;
+					}
+					if (arrayList[i].Name === "Subject") {
+						additionalDetailsObject.Subject = arrayList[i].Value;
+					}
+					if (arrayList[i].Name === "Author") {
+						additionalDetailsObject.Author = arrayList[i].Value;
+					}
+				}
+				_scScreenUtils.setModel(this, "extn_additionalAttributeArray", additionalDetailsObject, null);
+				console.log('additionalDetailsObject', additionalDetailsObject);
+			},
         // handleShipmentLineShortage: function(
         // shipmentLineModel) {
         //     if (
@@ -84,6 +116,21 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/EventUtil
                 this, "ItemDetails", null);
             _wscProductUtils.openItemDetails(
                 this, itemDetailsModel);
+        },
+		updateItemDetails:  function (
+            event, bEvent, ctrl, args) {
+              var shipmentLineModel = null;
+            shipmentLineModel = _scScreenUtils.getModel(
+                this, "ShipmentLine");
+			var itemId = shipmentLineModel.ShipmentLine.ItemID ; 
+			
+				_iasUIUtils.callApi(this, {
+					Item: {
+						ItemID: itemId
+					}
+				}, "extn_getItemDetails", null);
+			
+           
         },
         // pickAllQuantity: function(
         // event, bEvent, ctrl, args) {

@@ -26,23 +26,25 @@
 						<xsl:value-of select="ShipmentLine/@OrderNo"/>
 					</xsl:attribute>
 					<OrderLines>
-						<xsl:for-each select="ShipmentLine/OrderLine">
-							<OrderLine>
-								<xsl:attribute name="Qty">
-									<xsl:value-of select="../@Quantity"/>
-								</xsl:attribute>
-								<xsl:attribute name="PrimeLineNo">
-									<xsl:value-of select="@PrimeLineNo"/>
-								</xsl:attribute>
-								<xsl:attribute name="ShipNode">
-									<xsl:value-of select="@ShipNode"/>
-								</xsl:attribute>
-								<Item>
-									<xsl:attribute name="ItemID">
-										<xsl:value-of select="ItemDetails/@ItemID"/>
+						<xsl:for-each select="ShipmentLine">
+							<xsl:if test="@Quantity != '0.00'">
+								<OrderLine>
+									<xsl:attribute name="Qty">
+										<xsl:value-of select="@Quantity"/>
 									</xsl:attribute>
-								</Item>
-							</OrderLine>
+									<xsl:attribute name="PrimeLineNo">
+										<xsl:value-of select="OrderLine/@PrimeLineNo"/>
+									</xsl:attribute>
+									<xsl:attribute name="ShipNode">
+										<xsl:value-of select="OrderLine/@ShipNode"/>
+									</xsl:attribute>
+									<Item>
+										<xsl:attribute name="ItemID">
+											<xsl:value-of select="OrderLine/ItemDetails/@ItemID"/>
+										</xsl:attribute>
+									</Item>
+								</OrderLine>
+							</xsl:if>
 						</xsl:for-each>
 					</OrderLines>
 				</Order>

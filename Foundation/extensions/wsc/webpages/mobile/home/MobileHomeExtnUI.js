@@ -41,11 +41,11 @@ return _dojodeclare("extn.mobile.home.MobileHomeExtnUI",
 		sourceBindingNamespaces :
 		[
 			{
-	  value: 'extn_getShipmentListCount_gw'
-						,
 	  scExtensibilityArrayItemId: 'extn_SourceNamespaces_7'
 						,
 	  description: "Number of gift wrap orders"
+						,
+	  value: 'extn_getShipmentListCount_gw'
 						
 			}
 			

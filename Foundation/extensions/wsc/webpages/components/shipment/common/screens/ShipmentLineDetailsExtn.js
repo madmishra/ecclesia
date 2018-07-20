@@ -45,6 +45,55 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!extn/components/shi
                 _scBaseUtils.setAttributeValue("argumentList", eventArgs, eventDefn);
                 _scEventUtils.fireEventToParent(
                     this, "updateShipmentLineDetails", eventDefn);
+            },
+            updateItemDetails: function () {
+                var shipmentLine = _scScreenUtils.getModel(this, "ShipmentLine");
+                _iasUIUtils.callApi(this, {
+                    Item: {
+                        ItemID: shipmentLine.ShipmentLine.ItemID
+                    }
+                }, "extn_getItemDetails", null);
+                console.log('shipmentLine', shipmentLine);
+            },
+            getBrand: function (dataValue, screen, widget, namespace, modelObj, options) {
+                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
+                if (attributeArray) {
+                    for (var i = 0; i < attributeArray.length; i++) {
+                        if (attributeArray[i].Name === "Brand")
+                            return attributeArray[i].Value
+                    }
+                }
+                return "";
+            },
+            getSeries: function (dataValue, screen, widget, namespace, modelObj, options) {
+                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
+                if (attributeArray) {
+                for (var i = 0; i < attributeArray.length; i++) {
+                    if (attributeArray[i].Name === "Series")
+                        return attributeArray[i].Value
+                }
+            }
+                return "";
+            },
+            getSubject: function (dataValue, screen, widget, namespace, modelObj, options) {
+                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
+                if (attributeArray) {
+                for (var i = 0; i < attributeArray.length; i++) {
+                    if (attributeArray[i].Name === "Subject")
+                        return attributeArray[i].Value
+                }
+            }
+                return "";
+            },
+            getAuthor: function (dataValue, screen, widget, namespace, modelObj, options) {
+                var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
+                if (attributeArray) {
+                for (var i = 0; i < attributeArray.length; i++) {
+                    if (attributeArray[i].Name === "Author")
+                        return attributeArray[i].Value
+                }
+            }
+                return "";
             }
         });
     });

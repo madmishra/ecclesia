@@ -376,6 +376,13 @@
     Modifyuserid="admin" MonitorStartTime="1"
     ServerKey="2018061411242723315" ServerName="IndgProcessCalendarFeed"
     ServerType="00" Terminate="N" TransportTypeKey="JMS" WaitTime="1"/>
+<Server Createprogid=".YEntityServlet"
+    Createts="2018-06-25T07:50:34-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid=".YEntityServlet" Modifyts="2018-06-25T07:50:34-04:00"
+    Modifyuserid="admin" MonitorStartTime="1"
+    ServerKey="2018062507503425850"
+    ServerName="MasterUploadQueueServer2" ServerType="00" Terminate="N"
+    TransportTypeKey="JMS" WaitTime="1"/>
 <Server Createprogid="XMLMigrator" Createts="2018-03-28T12:30:08-04:00"
     Createuserid="SYSTEM" Lockid="0" Modifyprogid="XMLMigrator"
     Modifyts="2018-03-28T12:30:08-04:00" Modifyuserid="SYSTEM"

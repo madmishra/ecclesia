@@ -16,6 +16,7 @@ _dojodeclare, _dojokernel, _dojotext, _scScreenController, _extnSortScanPick) {
             sequence: '',
             sourceBindingOptions: '',
             mashupId: 'backroomPick_getNotPickedShipmentLineList'
-        }]
+        }
+    ]
     });
 });

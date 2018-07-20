@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <YFS_COMMON_CODE_ATTRIBUTEList TableName="YFS_COMMON_CODE_ATTRIBUTE">
+<CommonCodeAttribute CommonCodeAttributeKey="2018071708590155652"
+    CommonCodeKey="Indg001" Createprogid="SterlingHttpTester"
+    Createts="2018-07-17T08:59:01-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid="SterlingHttpTester"
+    Modifyts="2018-07-17T08:59:01-04:00" Modifyuserid="admin" Name="" Value=""/>
+<CommonCodeAttribute CommonCodeAttributeKey="2018071709000355662"
+    CommonCodeKey="Indg001" Createprogid="SterlingHttpTester"
+    Createts="2018-07-17T09:00:03-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid="SterlingHttpTester"
+    Modifyts="2018-07-17T09:00:03-04:00" Modifyuserid="admin" Name="" Value=""/>
+<CommonCodeAttribute CommonCodeAttributeKey="2018071709005855672"
+    CommonCodeKey="Indg003" Createprogid="SterlingHttpTester"
+    Createts="2018-07-17T09:00:58-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid="SterlingHttpTester"
+    Modifyts="2018-07-17T09:00:58-04:00" Modifyuserid="admin" Name="" Value=""/>
+<CommonCodeAttribute CommonCodeAttributeKey="2018071709012255679"
+    CommonCodeKey="Indg002" Createprogid="SterlingHttpTester"
+    Createts="2018-07-17T09:01:22-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid="SterlingHttpTester"
+    Modifyts="2018-07-17T09:01:22-04:00" Modifyuserid="admin" Name="" Value=""/>
+<CommonCodeAttribute CommonCodeAttributeKey="2018071709014455686"
+    CommonCodeKey="Indg004" Createprogid="SterlingHttpTester"
+    Createts="2018-07-17T09:01:44-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid="SterlingHttpTester"
+    Modifyts="2018-07-17T09:01:44-04:00" Modifyuserid="admin" Name="" Value=""/>
+<CommonCodeAttribute CommonCodeAttributeKey="2018071709020555693"
+    CommonCodeKey="Indg005" Createprogid="SterlingHttpTester"
+    Createts="2018-07-17T09:02:05-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid="SterlingHttpTester"
+    Modifyts="2018-07-17T09:02:05-04:00" Modifyuserid="admin" Name="" Value=""/>
+<CommonCodeAttribute CommonCodeAttributeKey="2018071709023155700"
+    CommonCodeKey="Indg006" Createprogid="SterlingHttpTester"
+    Createts="2018-07-17T09:02:31-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid="SterlingHttpTester"
+    Modifyts="2018-07-17T09:02:31-04:00" Modifyuserid="admin" Name="" Value=""/>
+<CommonCodeAttribute CommonCodeAttributeKey="2018071709030055707"
+    CommonCodeKey="Indg007" Createprogid="SterlingHttpTester"
+    Createts="2018-07-17T09:03:00-04:00" Createuserid="admin" Lockid="0"
+    Modifyprogid="SterlingHttpTester"
+    Modifyts="2018-07-17T09:03:00-04:00" Modifyuserid="admin" Name="" Value=""/>
 <CommonCodeAttribute CommonCodeAttributeKey="CODE_ATTR_80_01"
     CommonCodeKey="INSTRUCTION_TYPE_80_01" Createprogid="XMLMigrator"
     Createts="2018-03-28T12:29:54-04:00" Createuserid="SYSTEM"

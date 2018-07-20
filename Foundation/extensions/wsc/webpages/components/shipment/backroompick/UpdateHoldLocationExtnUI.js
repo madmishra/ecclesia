@@ -95,6 +95,18 @@ scDefine(["dojo/text!./templates/UpdateHoldLocationExtn.html", "scbase/loader!di
 
 
 					}
+				},
+				{
+					eventId: 'actionConfirm'
+				
+				
+				
+				
+				,handler : {
+				methodName : "actionConfirm"
+				
+				
+				}
 				}
 
 			]

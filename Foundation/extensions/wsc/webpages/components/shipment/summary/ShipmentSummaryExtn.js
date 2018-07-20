@@ -8,8 +8,8 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 			changePrintStatus: function () {
 				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
 				var baseDropStatus = "1100.70.300";
-				debugger
-				var shipmentLineArray = batchModel.Shipment.ShipmentLines.ShipmentLine
+
+				var shipmentLineArray = batchModel.Shipment.ShipmentLines.ShipmentLine;
 				for (var i = 0; i < shipmentLineArray.length; i++)
 					if (shipmentLineArray[i].OrderLine.GiftWrap === "Y") {
 						baseDropStatus = "1100.70.200";
@@ -26,6 +26,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 			},
 			printButtonCheck: function () {
 				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
+
 				if (batchModel.Shipment.Status.Status === "1100.70.06.30.1")
 					// _scWidgetUtils.showWidget(
 					// 	this, "extn_button", true, null);
@@ -89,9 +90,42 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
 				_iasUIUtils.openWizardInEditor("extn.wizards.BackroomPickupWizard", batchModel, "wsc.desktop.editors.ShipmentEditor", this, null);
 			},
-			callLegacyMessage : function(modelOutput){
+			callLegacyMessage: function (modelOutput) {
 				// console.log('modelOutput' , modelOutput); 
 				_iasUIUtils.callApi(this, modelOutput, "extn_callLegacyMessage", null);
+			},
+			printDetails: function (secondaryDetails) {
+				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
+				var printModel = {};
+				if (batchModel.Shipment) {
+					if (batchModel.Shipment.BillToAddress) {
+						printModel.PrimaryFirstName = batchModel.Shipment.BillToAddress.FirstName;
+						printModel.PrimarySecondName = batchModel.Shipment.BillToAddress.LastName;
+					}
+					printModel.OrderNo = batchModel.Shipment.DisplayOrderNo;
+					printModel.PickupDate = new Date(batchModel.Shipment.ExpectedShipmentDate);
+				}
+				if (secondaryDetails.Order.OrderLines && secondaryDetails.Order.OrderLines.OrderLine) {
+					var tempArray = secondaryDetails.Order.OrderLines.OrderLine;
+					if (tempArray && tempArray[0].AdditionalAddresses && tempArray[0].AdditionalAddresses.AdditionalAddress[0] && tempArray[0].AdditionalAddresses.AdditionalAddress[0].PersonInfo) {
+						var firstName = tempArray[0].AdditionalAddresses.AdditionalAddress[0].PersonInfo.FirstName;
+						var secondName = tempArray[0].AdditionalAddresses.AdditionalAddress[0].PersonInfo.LastName;
+						printModel.SecondaryFirstName = firstName;
+						printModel.SecondaryLastName = secondName;
+					}
+				}
+				console.log('Invoking print with the following data - ', printModel);
+				if (window.webkit) {
+					window.webkit.messageHandlers.invokePrint.postMessage(printModel);
+				}
+			},
+			printInvokeEvent: function () {
+				var batchModel = _scScreenUtils.getModel(this, "getShipmentDetails_output");
+				_iasUIUtils.callApi(this, {
+					Order: {
+						OrderNo: batchModel.Shipment.DisplayOrderNo
+					}
+				}, "extn_getPrintDetails", null);
 			},
 			updateSecondaryContact: function (event, bEvent, ctrl, args) {
 				console.log('event', event.SecondaryPerson);
@@ -122,7 +156,9 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom", "scbase/
 							AdditionalAddress: {
 								AddressType: "AlternatePickupPerson",
 								PersonInfo: {
-									AddressID: event.SecondaryPerson
+									AddressID: "AlternatePickupPerson",
+									FirstName: event.SecondaryPerson,
+									LastName: event.LastName
 								}
 							}
 						}]

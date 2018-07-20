@@ -1,49 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-    <xsl:template match="OrderMessage">
+	<xsl:template match="Shipments">
 		<OrderMessage>
 			<xsl:attribute name="MessageTypeId">LEGACYOMS062</xsl:attribute>
-            <xsl:attribute name="Modifyts">
-                <xsl:value-of select="@Modifyts" />
-            </xsl:attribute>
+			<xsl:attribute name="Modifyts">
+				<xsl:value-of select="Shipment/@Modifyts"/>
+			</xsl:attribute>
 			<xsl:attribute name="SterlingToLegacyOMSMessageSequenceNumber">
-            </xsl:attribute>
+			</xsl:attribute>
 			<xsl:attribute name="OrderNo">
-                <xsl:value-of select="MessageBody/Order/@SterlingOrderNo" />
-            </xsl:attribute>
+				<xsl:value-of select="Shipment/ShipmentLines/ShipmentLine/@OrderNo"/>
+			</xsl:attribute>
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="LegacyOMSOrderNo">
-						<xsl:value-of select="@LegacyOMSOrderNo" />
-					</xsl:attribute>
-					<xsl:attribute name="EnterpriseCode">
-						<xsl:value-of select="MessageBody/Order/@EnterpriseCode" />
+						<xsl:value-of select="Shipment/ShipmentLines/ShipmentLine/OrderLine/@CustomerPONo"/>
 					</xsl:attribute>
 					<xsl:attribute name="DocumentType">
-						<xsl:value-of select="MessageBody/Order/@DocumentType" />
+						<xsl:value-of select="Shipment/ShipmentLines/ShipmentLine/@DocumentType"/>
 					</xsl:attribute>
 					<xsl:attribute name="OrderType">
-						<xsl:value-of select="MessageBody/Order/@OrderType" />
+						<xsl:value-of select="Shipment/@OrderType"/>
+					</xsl:attribute>
+					<xsl:attribute name="EnterpriseCode">
+						<xsl:value-of select="Shipment/@EnterpriseCode"/>
 					</xsl:attribute>
 					<OrderLines>
-						<xsl:for-each select="MessageBody/Order/OrderLines/OrderLine">
-							<OrderLine>
-								<xsl:attribute name="Qty">
-									<xsl:value-of select="@Qty" />
-								</xsl:attribute>
-								<xsl:attribute name="PrimeLineNo">
-									<xsl:value-of select="@PrimeLineNo" />
-								</xsl:attribute>
-								<xsl:attribute name="ShipNode">
-									<xsl:value-of select="@ShipNode" />
-								</xsl:attribute>
-								<Item>
-									<xsl:attribute name="ItemID">
-										<xsl:value-of select="Item/@ItemID" />
+						<xsl:if test="Shipment/ShipmentLines/ShipmentLine/OrderLine/@Status != 'Cancelled'">
+							<xsl:for-each select="Shipment/ShipmentLines/ShipmentLine">
+								<OrderLine>
+									<xsl:attribute name="Qty">
+										<xsl:value-of select="@Quantity"/>
 									</xsl:attribute>
-								</Item>
-							</OrderLine>
-						</xsl:for-each>
+									<xsl:attribute name="PrimeLineNo">
+										<xsl:value-of select="OrderLine/@PrimeLineNo"/>
+									</xsl:attribute>
+									<xsl:attribute name="ShipNode">
+										<xsl:value-of select="OrderLine/@ShipNode"/>
+									</xsl:attribute>
+									<Item>
+										<xsl:attribute name="ItemID">
+											<xsl:value-of select="@ItemID"/>
+										</xsl:attribute>
+									</Item>
+								</OrderLine>
+							</xsl:for-each>	
+						</xsl:if>
 					</OrderLines>
 				</Order>
 			</MessageBody>

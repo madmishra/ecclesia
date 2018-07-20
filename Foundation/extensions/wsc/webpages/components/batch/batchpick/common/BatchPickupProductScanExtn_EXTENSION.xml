@@ -10,6 +10,9 @@
         </Items>
         <Subscribers>
             <Local>
+                <Subscriber eventId="afterScreenInit" isExtn="true" sequence="51">
+                    <Handler methodName="startScan"/>
+                </Subscriber>
                 <Subscriber eventId="afterScreenLoad" isExtn="true" sequence="51">
                     <Handler methodName="removeCloseButton"/>
                 </Subscriber>

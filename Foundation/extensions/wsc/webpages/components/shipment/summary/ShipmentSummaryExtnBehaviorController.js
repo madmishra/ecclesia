@@ -56,6 +56,15 @@ return _dojodeclare("extn.components.shipment.summary.ShipmentSummaryExtnBehavio
 		 extnType : 			'ADD'
 
 	}
+,
+	 		{
+		 mashupRefId : 			'extn_getPrintDetails'
+,
+		 mashupId : 			'extn_getPrintDetails'
+,
+		 extnType : 			'ADD'
+
+	}
 
 	]
 

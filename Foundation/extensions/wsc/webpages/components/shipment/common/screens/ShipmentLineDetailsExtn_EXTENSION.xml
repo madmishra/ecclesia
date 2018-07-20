@@ -6,7 +6,92 @@
         originalScreenPackage="wsc.components.shipment.common.screens" type="diffrential">
         <Items>
             <ContentPane _sc_extensibility_operation="change"
-                _sc_extensibility_referenceUId="productDetailsPanel" renderHidden="false"/>
+                _sc_extensibility_referenceUId="errorMsgPnl" renderHidden="true"/>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="Locationlbl" renderHidden="true"/>
+            <DataLabel _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="Locationlbl"
+                class="location autoLabelZeroWidth"
+                label="$(_scSimpleBundle:extn_LM)" uId="extn_datalabel">
+                <BindingData>
+                    <SourceBinding namespace="ShipmentLine" path="ShipmentLine.OrderLine.ItemDetails.PrimaryInformation.ProductLine"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="remainingQty"
+                class="location autoLabelZeroWidth"
+                label="$(_scSimpleBundle:extn_MCAT)" uId="extn_datalabel1">
+                <BindingData>
+                    <SourceBinding namespace="ShipmentLine" path="ShipmentLine.OrderLine.ItemDetails.ClassificationCodes.CommodityCode"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="remainingQty"
+                class="location autoLabelZeroWidth"
+                label="$(_scSimpleBundle:extn_Brand)" uId="extn_datalabel2">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getBrand"
+                        namespace="extn_additionalAttributeArray" path="ShipmentLine.ItemID"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="remainingQty"
+                class="location autoLabelZeroWidth"
+                label="$(_scSimpleBundle:extn_Author)" uId="extn_datalabel3">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getAuthor"
+                        namespace="extn_additionalAttributeArray" path="ShipmentLine.ItemID"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="remainingQty"
+                class="location autoLabelZeroWidth"
+                label="$(_scSimpleBundle:extn_Subject)" uId="extn_datalabel4">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getSubject"
+                        namespace="extn_additionalAttributeArray" path="ShipmentLine.ItemID"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="remainingQty"
+                class="location autoLabelZeroWidth"
+                label="$(_scSimpleBundle:extn_Series)" uId="extn_datalabel5">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getSeries"
+                        namespace="extn_additionalAttributeArray" path="ShipmentLine.ItemID"/>
+                </BindingData>
+            </DataLabel>
         </Items>
+        <Namespaces>
+            <SourceNamespaces>
+                <Source isExtn="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_9" value="extn_additionalAttributeArray"/>
+            </SourceNamespaces>
+        </Namespaces>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="afterScreenInit" isExtn="true" sequence="51">
+                    <Handler methodName="updateItemDetails"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+        <MashupRefs>
+            <Behavior>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_getItemDetailsForPick" mashupRefId="extn_getItemDetails"/>
+            </Behavior>
+        </MashupRefs>
     </ScreenExtension>
 </ExtensionMetaData>

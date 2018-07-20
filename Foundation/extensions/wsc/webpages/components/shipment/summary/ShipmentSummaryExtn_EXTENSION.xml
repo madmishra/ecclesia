@@ -29,6 +29,8 @@
                 _sc_extensibility_operation="move"
                 _sc_extensibility_position="before"
                 _sc_extensibility_referenceUId="lnkBRP" uId="extn_button"/>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblShipmentNo" renderHidden="false"/>
             <DataLabel _sc_extensibility_moveOrder="5"
                 _sc_extensibility_operation="insert"
                 _sc_extensibility_position="before"
@@ -76,14 +78,24 @@
                     isExtn="true" sequence="51">
                     <Handler methodName="updateSecondaryContact"/>
                 </Subscriber>
+                <Subscriber eventId="printInvokeEvent" isExtn="true" sequence="51">
+                    <Handler methodName="printInvokeEvent"/>
+                </Subscriber>
             </Global>
         </Subscribers>
         <MashupRefs>
+            <Init>
+                <MashupRef extnType="ADD"
+                    mashupId="shipSummary_getShipmentDetails"
+                    mashupRefId="getShipmentDetails" sourceNamespace="getShipmentDetails_output"/>
+            </Init>
             <Behavior>
                 <MashupRef extnType="ADD"
                     mashupId="extn_changeShipmentStatus" mashupRefId="extn_printStatus"/>
                 <MashupRef extnType="ADD" mashupId="addSecondaryContact" mashupRefId="extn_addSecondaryContact"/>
                 <MashupRef extnType="ADD" mashupId="callLegacyMessage" mashupRefId="extn_callLegacyMessage"/>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_getPrintDetails" mashupRefId="extn_getPrintDetails"/>
             </Behavior>
         </MashupRefs>
     </ScreenExtension>

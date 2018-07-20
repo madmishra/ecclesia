@@ -29,5 +29,10 @@
         <MashupRef callSequence="10"
             mashupId="backroomPickUp_getNotPickedShipmentLineListCount"
             mashupRefId="getNotPickedShipmentLineListCount" permissionId=""/>
+         <MashupRef 
+            mashupId="changeFlagForSort"
+            mashupRefId="changeFlagForSort_ref" permissionId=""/>
+         <MashupRef mashupId="extn_getPrintDetails"
+            mashupRefId="extn_getPrintDetails" permissionId=""/>
     </MashupRefs>
 </Controller>

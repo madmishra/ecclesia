@@ -5,31 +5,8 @@
         originalScreen="wsc.mobile.home.search.AdvancedSearch"
         originalScreenPackage="wsc.mobile.home.search" type="diffrential">
         <Items>
-            <CheckBoxList _sc_extensibility_moveOrder="1"
-                _sc_extensibility_operation="insert"
-                _sc_extensibility_position="before"
-                _sc_extensibility_referenceUId="filteringSelectOrderStatus"
-                label="$(_scSimpleBundle:Label_Status)" uId="extn_checkboxlist">
-                <BindingData>
-                    <SourceBinding
-                        namespace="SavedAdvancedSearchCriteria" path="Shipment.Status"/>
-                    <TargetBindings>
-                        <TargetBinding
-                            namespace="getAdvancedShipmentList_input"
-                            path="Shipment.StatusList.Status" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
-                    </TargetBindings>
-                    <OptionsBinding descriptionField="Description"
-                        namespace="extn_getStatusList_mashup_output"
-                        path="StatusList.Status"
-                        shouldEncodeDescriptionFieldValue="false" valueField="Status"/>
-                </BindingData>
-            </CheckBoxList>
+            <FilteringSelect _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="filteringSelectOrderStatus" renderHidden="false"/>
         </Items>
-        <Namespaces>
-            <SourceNamespaces>
-                <Source isExtn="true"
-                    scExtensibilityArrayItemId="extn_SourceNamespaces_3" value="extn_getStatusList_mashup_output"/>
-            </SourceNamespaces>
-        </Namespaces>
     </ScreenExtension>
 </ExtensionMetaData>

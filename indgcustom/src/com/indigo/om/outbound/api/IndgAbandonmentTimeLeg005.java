@@ -12,8 +12,8 @@ import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.ExceptionUtil;
 import com.bridge.sterling.utils.XPathUtil;
-import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.yfc.core.YFCIterable;
+import com.yantra.yfc.core.YFCObject;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
@@ -36,7 +36,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	private String finalDate = "";
 	private static final String EMPTY_STRING = "";
 	private String shipNode = "";
-	private static final int ABANDONMENT_DAYS = 15;
+	private String abandonmentDays = "ABANDONMENT_DAYS";
 	private String localeCode = "";
 	private String finalDateUTC = "";
 	
@@ -74,18 +74,26 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	private void setAbandonmentTimeAttr(YFCDocument inXml) throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar c = Calendar.getInstance();
-		String reqDeliveryDate = inXml.getDocumentElement().getAttribute(XMLLiterals.REQUESTED_DELIVERY_DATE);
+		String reqDeliveryDate = inXml.getDocumentElement().getAttribute(XMLLiterals.STATUS_DATE);
 		 
-		if(!XmlUtils.isVoid(reqDeliveryDate)) {
+		if(!YFCObject.isVoid(reqDeliveryDate)) {
 			String[] segments = reqDeliveryDate.split(TIME);
 			String date = segments[0];
 			Date d = sdf.parse(date);
 			c.setTime(d);
-			c.add(Calendar.DATE, ABANDONMENT_DAYS);
+			int days = Integer.parseInt(getProperty(abandonmentDays));
+			c.add(Calendar.DATE, days);
 			String output = sdf.format(c.getTime());
 			finalDate = output.concat(TIME).concat(START_TIME);
 		}
 	}
+	
+	
+	/**
+	 * This method forms the UTC time zone based on localeCode.
+	 * 
+	 * @param sTimeZone
+	 */
 	
 	private void getUTCTimeForTimeZone(String sTimeZone) {
 		DateTime dt = new DateTime();
@@ -134,6 +142,8 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		shipmentLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
 		shipmentLine.setAttribute(XMLLiterals.QUANTITY, EMPTY_STRING);
 		shipmentLine.setAttribute(XMLLiterals.SHIPMENT_KEY, EMPTY_STRING);
+		YFCElement eleItem = shipmentLine.createChild(XMLLiterals.ITEM);
+		eleItem.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
 		YFCElement additionalDates = docShipment.getDocumentElement().createChild(XMLLiterals.ADDITIONAL_DATES);
 		YFCElement additionalDate = additionalDates.createChild(XMLLiterals.ADDITIONAL_DATE);
 		additionalDate.setAttribute(XMLLiterals.DATE_TYPE_ID, EMPTY_STRING);

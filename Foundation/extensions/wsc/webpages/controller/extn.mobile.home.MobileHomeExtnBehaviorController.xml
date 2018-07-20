@@ -4,7 +4,10 @@
     controllerId="extn.mobile.home.MobileHomeExtnBehaviorController"
     requestMethodSupported="POST" screenId="extn.mobile.home.MobileHomeExtn">
     <MashupRefs>
-        <MashupRef extnType="ADD" mashupId="extn_mobile_gw_shipment"
-            mashupRefId="extn_mobile_getShipmentList_ref" permissionId=""/>
+        <MashupRef extnType="MODIFY" mashupId="extn_getCountForHome"
+            mashupRefId="tasks_getShipmentListCount" permissionId=""/>
+        <MashupRef extnType="ADD"
+            mashupId="sortScan_getShipmentLineList"
+            mashupRefId="extn_getDetails" permissionId=""/>
     </MashupRefs>
 </Controller>

@@ -103,7 +103,7 @@ public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
 					invokeManageInventoryNodeControlAPI(eleItem);	
 				}
 			}
-			else if(eleItem.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(DAMAGED))
+			else if(eleItem.getAttribute(SHORTAGE_REASON).equals(DAMAGED))
 			{
 				sCancellationReasonCode = ONE;
 			}

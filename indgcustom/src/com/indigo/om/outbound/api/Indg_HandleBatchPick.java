@@ -1,5 +1,6 @@
 package com.indigo.om.outbound.api;
 
+import com.bridge.sterling.consts.XMLLiterals;
 import com.yantra.pca.ycd.japi.ue.YCDhandleShortageForBatchLineUE;
 import com.yantra.pca.ycd.utils.YCDUtils;
 import com.yantra.yfc.core.YFCIterable;
@@ -32,14 +33,14 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	    
 	    YFCElement shipmentLines = inputElem.getChildElement("ShipmentLines");
 	    if (YFCObject.equals(shortageReason, "damaged") || (YFCObject.equals(shortageReason, "shortage "))) {
-	      handleDamagedItems(env, inputElem, batch_key, shipmentLines);
+	      handleDamagedItems(env, inputElem, batch_key, shipmentLines,shortageReason);
 	    } else if (YFCObject.equals(shortageReason, "picklater")) {
-	      handlePickLater(env, inputElem, batch_key, shipmentLines);
+	      handlePickLater(env, inputElem, batch_key, shipmentLines,  shortageReason);
 	    }
 	    return YFCDocument.createDocument("Success").getDocument();
 	  }
 	  
-	  private void handlePickLater(YFSEnvironment env, YFCElement inputElem, String batch_key, YFCElement shipmentLines)
+	  private void handlePickLater(YFSEnvironment env, YFCElement inputElem, String batch_key, YFCElement shipmentLines , String shortageReason)
 	  {
 	    YFCIterable<YFCElement> itr = shipmentLines.getChildren("ShipmentLine");
 	    Map<String, YFCElement> changeShipmentInputMap = new HashMap();
@@ -62,11 +63,11 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	      }
 	    }
 	    if (changeShipmentInputMap.size() > 0) {
-	      callChangeShipmentForAllShipments(env, changeShipmentInputMap);
+	      callChangeShipmentForAllShipments(env, changeShipmentInputMap,shortageReason);
 	    }
 	  }
 	  
-	  private void handleDamagedItems(YFSEnvironment env, YFCElement inputElem, String batch_key, YFCElement shipmentLines)
+	  private void handleDamagedItems(YFSEnvironment env, YFCElement inputElem, String batch_key, YFCElement shipmentLines, String shortageReason)
 	  {
 	    ArrayList<String> cancellableShipments = new ArrayList();
 	    Map<String, YFCElement> changeShipmentInputMap = new HashMap();
@@ -111,7 +112,7 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	      }
 	    }
 	    if (changeShipmentInputMap.size() > 0) {
-	      callChangeShipmentForAllShipments(env, changeShipmentInputMap);
+	      callChangeShipmentForAllShipments(env, changeShipmentInputMap ,shortageReason);
 	    }
 	    Iterator<String> it;
 	    if (cancellableShipments.size() > 0) {
@@ -235,10 +236,10 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	    YFCElement csShipmentLines = changeShipmentWithBackorderInput.getChildElement("ShipmentLines", true);
 	    YFCElement csShipmentLine = YCDUtils.getLineInXml(csShipmentLines, "ShipmentLine", "ShipmentLineKey", shipmentLineKey, true);
 	    csShipmentLine.setDoubleAttribute("Quantity", quantity);
-	    csShipmentLine.setDoubleAttribute("ShortageQty", shortageQuantity);
+	    csShipmentLine.setDoubleAttribute("ShortageQty", shortageQuantity);  
 	  }
 	  
-	  private void callChangeShipmentForAllShipments(YFSEnvironment env, Map changeShipmentInputMap)
+	  private void callChangeShipmentForAllShipments(YFSEnvironment env, Map changeShipmentInputMap, String shortageReason)
 	  {
 	    YFCDocument changeShipmentTemplateDoc = YFCDocument.createDocument("Shipment");
 	    YFCElement changeShipmentTemplate = changeShipmentTemplateDoc.getDocumentElement();
@@ -251,7 +252,17 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	      YFCElement changeShipmentInput = (YFCElement)changeShipmentInputMap.get(it.next());
 	      YFCElement apiElem = YFCDocument.createDocument("API").getDocumentElement();
 	      apiElem.setAttribute("Name", "changeShipment");
-	      APIManager.getInstance().invokeAPI(env, apiElem, changeShipmentInput, changeShipmentTemplate);
+	      YFCElement docChangeShipmentOut = APIManager.getInstance().invokeAPI(env, apiElem, changeShipmentInput, changeShipmentTemplate);
+	      System.out.println("*****************************");
+	      System.out.println("jdnjnvjnvjnjnvn"+changeShipmentInput);
+	      changeShipmentInput.setAttribute("ShortageReasonCodeActual" , shortageReason);
+	      YFCElement eleShipmentLine = changeShipmentInput.getChildElement(XMLLiterals.SHIPMENT_LINE);
+	      if(eleShipmentLine!= null) {
+	    	  YFCDocument docChangeShipment = YFCDocument.getDocumentFor((Document) changeShipmentInput);
+	      InventoryShortReasonCode oInvShortRsnCode = new InventoryShortReasonCode();
+	      oInvShortRsnCode.invokegetShipmentLineList(changeShipmentInput, docChangeShipment);
+	      System.out.println("*****************************");
+	    }
 	    }
 	  }
 	  

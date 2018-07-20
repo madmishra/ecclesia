@@ -64,7 +64,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	 * @param inXml
 	 */
 	
-	private void handleOrderPickShortages(YFCDocument inXml) {
+	public void handleOrderPickShortages(YFCDocument inXml) {
 		
 		YFCElement eleShipment =  inXml.getDocumentElement();
 		if(eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE)!=null) 
@@ -72,17 +72,24 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 			 if ( eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(DAMAGED) ||
 					eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(SHORTAGE))
 			 {
-		YFCIterable<YFCElement> eleShipmentLines  = eleShipment.getChildElement(XMLLiterals.SHIPMENT_LINES)
-				.getChildren(XMLLiterals.SHIPMENT_LINE);
-		for(YFCElement shipmentLine : eleShipmentLines) {
-			YFCDocument docgetShipmentLineList = YFCDocument.createDocument(XMLLiterals.SHIPMENT_LINE);
-			YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
-			eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
-			YFCDocument docGetShptLineListOutput = invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList());
-			invokeGetInventoryNodeControlList(docGetShptLineListOutput, inXml);
+					YFCIterable<YFCElement> eleShipmentLines  = eleShipment.getChildElement(XMLLiterals.SHIPMENT_LINES)
+							.getChildren(XMLLiterals.SHIPMENT_LINE);
+					for(YFCElement shipmentLine : eleShipmentLines) {
+						
+						invokegetShipmentLineList(shipmentLine, inXml);
 			}
 		}
 	 }
+	}
+
+public void invokegetShipmentLineList(YFCElement shipmentLine , YFCDocument inXml)
+{
+
+		YFCDocument docgetShipmentLineList = YFCDocument.createDocument(XMLLiterals.SHIPMENT_LINE);
+		YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
+		eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
+		YFCDocument docGetShptLineListOutput = invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList());
+		invokeGetInventoryNodeControlList(docGetShptLineListOutput, inXml);
 	}
 	
 	/**

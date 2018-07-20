@@ -1,5 +1,5 @@
-scDefine(["dojo/text!./templates/SortScan.html", "scbase/loader!dojo/_base/declare", "scbase/loader!dojo/_base/kernel", "scbase/loader!dojo/_base/lang", "scbase/loader!dojo/text", "scbase/loader!ias/utils/RepeatingScreenUtils", "scbase/loader!ias/widgets/IASBaseScreen", "scbase/loader!idx/layout/ContentPane", "scbase/loader!sc/plat", "scbase/loader!sc/plat/dojo/binding/CurrencyDataBinder", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/widgets/Label", "scbase/loader!sc/plat/dojo/widgets/Link", "scbase/loader!ias/utils/UIUtils", "scbase/loader!ias/utils/ScreenUtils", "scbase/loader!wsc/mobile/home/utils/MobileHomeUtils"], function (
-    templateText, _dojodeclare, _dojokernel, _dojolang, _dojotext, _iasRepeatingScreenUtils, _iasIASBaseScreen, _idxContentPane, _scplat, _scCurrencyDataBinder, _scBaseUtils, _scLabel, _scLink, _iasUIUtils, _iasScreenUtils, _wscMobileHomeUtils) {
+scDefine(["dojo/text!./templates/SortScan.html", "scbase/loader!dojo/_base/declare", "scbase/loader!dojo/_base/kernel", "scbase/loader!dojo/_base/lang", "scbase/loader!dojo/text", "scbase/loader!ias/utils/RepeatingScreenUtils", "scbase/loader!ias/widgets/IASBaseScreen", "scbase/loader!idx/layout/ContentPane", "scbase/loader!sc/plat", "scbase/loader!sc/plat/dojo/binding/CurrencyDataBinder", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/widgets/Label", "scbase/loader!sc/plat/dojo/widgets/Link", "scbase/loader!ias/utils/UIUtils", "scbase/loader!ias/utils/ScreenUtils", "scbase/loader!wsc/mobile/home/utils/MobileHomeUtils","scbase/loader!sc/plat/dojo/Userprefs"], function (
+    templateText, _dojodeclare, _dojokernel, _dojolang, _dojotext, _iasRepeatingScreenUtils, _iasIASBaseScreen, _idxContentPane, _scplat, _scCurrencyDataBinder, _scBaseUtils, _scLabel, _scLink, _iasUIUtils, _iasScreenUtils, _wscMobileHomeUtils,_scUserprefs) {
     return _dojodeclare("extn.mobile.custom.sort.SortScanUI", [_iasIASBaseScreen], {
         templateString: templateText,
         uId: "SortScan",
@@ -79,51 +79,10 @@ scDefine(["dojo/text!./templates/SortScan.html", "scbase/loader!dojo/_base/decla
                         this, "translateBarCode_output", modelOutput, null);
                 }
             }
-            var shipmentKey = "";
             if (
-                mashupRefId === "extn_getDetails") {
-                var size = 0;
-                var i = 0;
-                var counter = 0;
-                debugger
-                if (modelOutput.ShipmentLines.ShipmentLine) {
-                    size = modelOutput.ShipmentLines.ShipmentLine.length;
-                }
-                while (i < size) {
-
-
-                    if (modelOutput.ShipmentLines.ShipmentLine[i].Shipment[0].PackListType === "Sort") {
-                        i++;
-                        if (i === size) { break; }
-
-                    }
-                    else {
-                        counter = i;
-                        break;
-                    }
-                }
-                if (counter === 0) {
-                   
-                    _wscMobileHomeUtils.openScreen("wsc.mobile.home.MobileHome", "wsc.mobile.editors.MobileEditor");
-                    _iasScreenUtils.showErrorMessageBoxWithOk(
-                        this, "No shipments found");
-                    
-                }
-                if (modelOutput.ShipmentLines && modelOutput.ShipmentLines.ShipmentLine[counter].ShipmentKey) {
-                    //  var size = modelOutput.ShipmentLines.ShipmentLine.Shipment.length;
-
-                    // for (var i = 0; i <= size; i++) {
-
-                    shipmentKey = modelOutput.ShipmentLines.ShipmentLine[counter].ShipmentKey;
-                }
-                //shipmentKey = modelOutput.ShipmentLines.ShipmentLine[0].ShipmentKey
-                // shipmentKey = this.checkForSort(modelOutput);
-                // console.log('shipmentKey', shipmentKey);
-                if (shipmentKey && counter !== 0)
-                    _iasUIUtils.openWizardInEditor("extn.wizards.SortScanPickWizard", { Shipment: { ShipmentKey: shipmentKey } }, "wsc.mobile.editors.MobileEditor", this, null);
-                //  }
+                mashupRefId === "extn_getDetails"){}
+           this.handleSort(modelOutput);
             }
-        },
         // checkForSort: function (modelOutput) {
         //     var size = modelOutput.ShipmentLines.ShipmentLine.Shipment.length;
 

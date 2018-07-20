@@ -7,7 +7,7 @@ _dojodeclare, _dojokernel, _dojotext, _scServerDataController, _extnSearchResult
             mashupRefId: 'translateBarCode'
 	},
 	{
-            mashupId: 'extn_getShipmentForSort',
+            mashupId: 'extn_getShipmentLineListForSort',
             mashupRefId: 'extn_getDetails'
 	}]
         

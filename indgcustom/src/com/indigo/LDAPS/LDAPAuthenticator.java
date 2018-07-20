@@ -8,7 +8,7 @@ import javax.naming.CommunicationException;
 import javax.naming.Context;
 import javax.naming.directory.DirContext;
 import javax.naming.ldap.InitialLdapContext;
-import com.bridge.sterling.utils.LoggerUtil;
+//import com.bridge.sterling.utils.LoggerUtil;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 import com.yantra.yfs.core.YFSSystem;
@@ -52,7 +52,7 @@ public class LDAPAuthenticator implements YFSAuthenticator{
     	
     	
     	if(sLoginID.equalsIgnoreCase("admin")) {
-    		LoggerUtil.verboseLog("Go for Sterling authentication", logger,"");
+    	//	LoggerUtil.verboseLog("Go for Sterling authentication", logger,"");
 			throw new YFSUseInternalAuthException();
     	}
     	

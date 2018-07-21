@@ -34,6 +34,7 @@
 							<AdditionalAddress>
 								<xsl:attribute name="AddressType">AlternatePickupPerson</xsl:attribute>
 								<PersonInfo>
+									<xsl:attribute name="AddressID">AlternatePickupPerson</xsl:attribute>
 									<xsl:attribute name="FirstName">
 										<xsl:value-of select="AdditionalAddresses/AdditionalAddress/PersonInfo/@FirstName"/>	
 									</xsl:attribute>

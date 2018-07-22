@@ -16,16 +16,13 @@ public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
 	 private static final String ONE = "01";
 	 private static final String TWO = "02";
 	 private static final String NO = "N";
-	 private static final String NO_OF_DAYS = "NO_OF_DAYS";
 	 private static final String ON_HOLD = "ON_HOLD";
 	 private static final String ORDER_TYPE = "ZOCC";
 	 private static final String SUB_LINE_NO = "1";
 	 private static final String INVENTORY_DIRTY_QUEUE = "INVENTORY_DIRTY_QUEUE";
-	 private static final String INDG_CHANGESHIPMENT = "Indg_ChangeShipment";
 	 private static final String CANCEL = "CANCEL";
 	 private static final String SHORTAGE = "shortage";
 	 private static final String DAMAGED = "damaged";
-	 private static final String MARK_LINE_AS_SHORTAGE="MarkLineAsShortage";
 	 private static final String ITEM_ID = "ItemId";
 	 private static final String SHORTAGE_REASON = "ShortageReason";
 	 String sExpirationDays = "30";
@@ -41,8 +38,8 @@ public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
 	public void invokeChangeOrder(YFCDocument docInput)
 	{
 		System.out.println("hcdjhgjh"+docInput);
-		YFCIterable<YFCElement> eleShipmentLine = docInput.getDocumentElement().getChildElement(XMLLiterals.ITEM)
-				.getChildElement(XMLLiterals.SHIPMENT_LINES).getChildren(XMLLiterals.SHIPMENT_LINE);
+		YFCIterable<YFCElement> eleShipmentLine = docInput.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES)
+				.getChildren(XMLLiterals.SHIPMENT_LINE);
 		for(YFCElement shipmentLine : eleShipmentLine)
 		{
 			System.out.println("jdbgjnhkmhn"+shipmentLine);
@@ -91,7 +88,7 @@ public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
 	public void handleNodeInventory(YFCDocument docInput)
 	  {
 		System.out.println("hfcbjdkhgkjhn"+docInput);
-		  String sCancellationReasonCode;
+		 
 		  YFCElement eleItem = docInput.getDocumentElement().getChildElement(XMLLiterals.ITEM);
 		  if(eleItem.getAttribute(SHORTAGE_REASON).equals(SHORTAGE)) {
 			  YFCDocument docGetInvControlList = invokeGetInventoryNodeControlList(eleItem);

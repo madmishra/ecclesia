@@ -5,6 +5,7 @@ import java.util.Map;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.yantra.yfc.core.YFCIterable;
+import com.yantra.yfc.core.YFCObject;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 import com.yantra.yfc.dom.YFCNode;
@@ -221,9 +222,15 @@ public class IndgGetOrderDetails extends AbstractCustomApi{
 				 	 eleShipmentTemp.setAttribute(XMLLiterals.PICKUP_BIN_NUMBER,mapOrderLineKey.get(sOrderLineKey));
 				 	 if(mapShipmentKey.containsKey(sOrderLineKey)) {
 				 		YFCDocument docShipmentDetails= invokeGetShipmentDetails(mapShipmentKey.get(sOrderLineKey));
+				 		
 						 YFCElement eleShipmentFromShipmentDetails=docShipmentDetails.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getChildElement(XMLLiterals.ADDITIONAL_DATES);
-						 YFCNode nAdditionalDates=eleShipmentTemp.importNode(eleShipmentFromShipmentDetails);
-						 eleOrderLinetemp.appendChild(nAdditionalDates);
+						 if (YFCObject.isVoid(eleShipmentFromShipmentDetails) ) {
+							 eleShipmentTemp.createChild(XMLLiterals.ADDITIONAL_DATES);
+						 }
+						 else { 
+							 YFCNode nAdditionalDates=eleShipmentTemp.importNode(eleShipmentFromShipmentDetails);
+							 eleOrderLinetemp.appendChild(nAdditionalDates);
+						 }
 				 	 }
 				 }
 			 else {

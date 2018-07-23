@@ -228,8 +228,8 @@ public class IndgGetOrderDetails extends AbstractCustomApi{
 							 eleShipmentTemp.createChild(XMLLiterals.ADDITIONAL_DATES);
 						 }
 						 else { 
-							 YFCNode nAdditionalDates=eleShipmentTemp.getChildElement(XMLLiterals.SHIPMENT).importNode(eleShipmentFromShipmentDetails);
-							 eleOrderLinetemp.appendChild(nAdditionalDates);
+							 YFCNode nAdditionalDates=eleShipmentTemp.importNode(eleShipmentFromShipmentDetails);
+							 eleOrderLinetemp.getChildElement(XMLLiterals.SHIPMENT).appendChild(nAdditionalDates);
 						 }
 				 	 }
 				 }

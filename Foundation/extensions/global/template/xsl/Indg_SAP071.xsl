@@ -23,9 +23,9 @@
 					<xsl:attribute name="EnterpriseCode">
 						<xsl:value-of select="OrderLine/Order/@EnterpriseCode"/>
 					</xsl:attribute>
-					<xsl:if test="OrderLine/References/Reference/@Name = 'HUValue'">
+					<xsl:if test="OrderLine/Order/References/Reference/@Name = 'HUValue'">
 						<xsl:attribute name="HUValue">
-							<xsl:value-of select="OrderLine/References/Reference/@Value"/>
+							<xsl:value-of select="OrderLine/Order/References/Reference/@Value"/>
 						</xsl:attribute>
 					</xsl:if>
 					<OrderLines>

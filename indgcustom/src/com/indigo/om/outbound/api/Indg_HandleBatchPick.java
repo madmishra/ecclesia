@@ -245,7 +245,7 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	  
 	  private void callChangeShipmentForAllShipments(YFSEnvironment env, Map changeShipmentInputMap, String shortageReason, YFCDocument docInput)
 	  {
-		  IndgCancelOrderInBatchPick oBatchPick = new IndgCancelOrderInBatchPick();
+		  IndgCancelOrderInBatchPick oBatchPick = new IndgCancelOrderInBatchPick(env);
 		  oBatchPick.handleNodeInventory(docInput);
 	    YFCDocument changeShipmentTemplateDoc = YFCDocument.createDocument("Shipment");
 	    YFCElement changeShipmentTemplate = changeShipmentTemplateDoc.getDocumentElement();

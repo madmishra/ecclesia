@@ -7,6 +7,9 @@
             OrderedQty="" OrigOrderLineKey="" OriginalOrderedQty=""
             PrimeLineNo=""  ReceivingNode="" RemainingQty="" ReqShipDate="" ReqDeliveryDate="" ShipNode="" 
 			ShipToID="" SerialNo="" Status="" StatusQuantity="" SubLineNo="" >
+			<References>
+				<Reference Name="" Value=""/>
+			</References>
 			<DerivedFromOrder DocumentType="" EnterpriseCode="" OrderNo=""/>
 			<DerivedFromOrderLine CustomerPONo="" CustomerLinePONo="" PrimeLineNo="" SubLineNo="" >
 				<Item ItemID="" UnitOfMeasure=""/>
@@ -19,6 +22,9 @@
 			OriginalTotalAmount="" OtherCharges="" PaymentStatus=""
 			Purpose="" ReceivingNode="" ReqShipDate="" SellerOrganizationCode=""
 			ShipToID="" >
+				<References>
+					<Reference Name="" Value=""/>
+				</References>
 				<PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
 			AddressLine4="" AddressLine5="" AddressLine6=""
 			AlternateEmailID="" Beeper="" City="" Company="" Country=""

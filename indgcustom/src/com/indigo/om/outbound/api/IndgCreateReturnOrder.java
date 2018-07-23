@@ -161,7 +161,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 	{
 		YFCDocument getOrderLineList  =YFCDocument.createDocument(XMLLiterals.ORDER_LINE_LIST);
 		YFCElement eleOrderLineList = getOrderLineList.getDocumentElement();
-		YFCElement eleOrderLine = eleOrderLineList.createChild(XMLLiterals.ORDER_LINES);
+		YFCElement eleOrderLine = eleOrderLineList.createChild(XMLLiterals.ORDER_LINE);
 		eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
 		eleOrderLine.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
 		YFCElement eleOrder = eleOrderLine.createChild(XMLLiterals.ORDER);

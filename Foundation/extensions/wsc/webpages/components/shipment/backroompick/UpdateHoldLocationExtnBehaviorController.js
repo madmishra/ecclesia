@@ -23,6 +23,24 @@ return _dojodeclare("extn.components.shipment.backroompick.UpdateHoldLocationExt
 			
 			
 			
+			
+			
+						,
+
+			
+			
+			 mashupRefs : 	[
+	 		{
+		 mashupRefId : 			'extn_printStatus'
+,
+		 mashupId : 			'extn_changeShipmentStatus'
+,
+		 extnType : 			'ADD'
+
+	}
+
+	]
+
 }
 );
 });

@@ -1,7 +1,7 @@
-scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-attr", "scbase/loader!dojo/dom", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!extn/components/shipment/backroompick/UpdateHoldLocationExtnUI", "scbase/loader!sc/plat/dojo/utils/EventUtils","scbase/loader!ias/utils/UIUtils"],
+scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-attr", "scbase/loader!dojo/dom", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!extn/components/shipment/backroompick/UpdateHoldLocationExtnUI", "scbase/loader!sc/plat/dojo/utils/EventUtils", "scbase/loader!ias/utils/UIUtils"],
 	function (
 		_dojodeclare, _domattr, _dojodom, _scScreenUtils,
-		_extnUpdateHoldLocationExtnUI, _EventUtils,_iasUIUtils
+		_extnUpdateHoldLocationExtnUI, _EventUtils, _iasUIUtils
 	) {
 		return _dojodeclare("extn.components.shipment.backroompick.UpdateHoldLocationExtn", [_extnUpdateHoldLocationExtnUI], {
 			// custom code here
@@ -36,26 +36,26 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-attr", "sc
 				var inputBox = dijit.byId(inputBoxRef.id);
 				inputBox.set("disabled", true);
 			},
-			stopEnterEvent: function (event , bEvent , ctrl , args) {
+			stopEnterEvent: function (event, bEvent, ctrl, args) {
 				_EventUtils.stopEvent(bEvent);
 			},
-			actionConfirm : function () {
-				var shipmentModel =_scScreenUtils.getModel(this,"ShipmentModel");
+			actionConfirm: function () {
+				var shipmentModel = _scScreenUtils.getModel(this, "ShipmentModel");
 				debugger
-				
-				console.log('shipmentModel',shipmentModel); 
+
+				console.log('shipmentModel', shipmentModel);
 
 				var summaryPageInput = {
-                    Shipment: {
-                        ShipmentKey: shipmentModel.Shipment.ShipmentKey
-                    }
+					Shipment: {
+						ShipmentKey: shipmentModel.Shipment.ShipmentKey
+					}
 				};
 				var baseDropStatus = "1100.70.300";
 
 				var shipmentLineArray = shipmentModel.Shipment.ShipmentLines.ShipmentLine;
 				for (var i = 0; i < shipmentLineArray.length; i++)
 					if (shipmentLineArray[i].OrderLine.GiftWrap === "Y") {
-						baseDropStatus = "1100.70.400";
+						baseDropStatus = "1100.70.200";
 						break;
 					}
 				var changeShipmentInput = {
@@ -66,9 +66,9 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-attr", "sc
 					}
 				};
 				_iasUIUtils.callApi(this, changeShipmentInput, "extn_printStatus", null);
-				_iasUIUtils.openWizardInEditor("wsc.components.shipment.summary.ShipmentSummaryWizard", summaryPageInput, "wsc.desktop.editors.ShipmentEditor", this, null);
-			
-				
+				//_iasUIUtils.openWizardInEditor("wsc.components.shipment.summary.ShipmentSummaryWizard", summaryPageInput, "wsc.desktop.editors.ShipmentEditor", this, null);
+
+
 			}
 		});
 	});

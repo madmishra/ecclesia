@@ -34,6 +34,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	private static final String INDG_GET_INDG_MSG_SEQ_NO_LIST="INDG_getINDGMsgSeqNoList";
 	Map<String, String> map=new HashMap<>();
 	private static final String XPATH_DATE_TYPES= "xpath.date.types";
+	private static final long TWO = 2;
 	
 	/**
 	   * @throws ParseException 
@@ -263,7 +264,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			YFCDocument docINDGMsgSeqNoList=formMessageForAPI(docOrderMessage);
 			YFCElement eleINDGMsgSeqNoList=docINDGMsgSeqNoList.getDocumentElement();
 			if(!XmlUtils.isVoid(eleINDGMsgSeqNoList.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID)) && eleINDGMsgSeqNoList.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).contains(SAP)) {
-				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, ONE);
+				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, TWO);
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, EMPTY_STRING);
 			}
 			else {

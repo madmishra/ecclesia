@@ -43,7 +43,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		for(YFCElement orderLine : eleOrderLine) {
 			formOrderLineElement(doccreateOrderInput, orderLine, sOrderHeaderKey);
 		}
-		invokeYantraApi(XMLLiterals.CREATE_ORDER, doccreateOrderInput, createOrderTemplate());
+		docCreateOrderOutput = invokeYantraApi(XMLLiterals.CREATE_ORDER, doccreateOrderInput, createOrderTemplate());
 		}
 		return docCreateOrderOutput;
 	}

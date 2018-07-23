@@ -3,13 +3,17 @@ package com.indigo.om.outbound.api;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
+import com.bridge.sterling.utils.ExceptionUtil;
+import com.yantra.pca.ynw.common.YNWAPIUtil;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
+import com.yantra.yfs.japi.YFSEnvironment;
 
-public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
+public class IndgCancelOrderInBatchPick {
 	 private static final String EMPTY_STRING = " ";
 	 private static final String YES = "Y";
 	 private static final String FOUR = "04";
@@ -25,15 +29,18 @@ public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
 	 private static final String DAMAGED = "damaged";
 	 private static final String ITEM_ID = "ItemId";
 	 private static final String SHORTAGE_REASON = "ShortageReason";
+	 private YFSEnvironment env;
 	 String sExpirationDays = "30";
 	 String sCancellationReasonCode;
 
 	
-	public YFCDocument invoke(YFCDocument inXml) {
+
+	 
+	public IndgCancelOrderInBatchPick (YFSEnvironment env) {
 		
+		this.env = env;
 		
-		return inXml;
-	}
+	} 
 	
 	public void invokeChangeOrder(YFCDocument docInput)
 	{
@@ -44,7 +51,7 @@ public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
 		{
 			System.out.println("jdbgjnhkmhn"+shipmentLine);
 			handleCancellation(shipmentLine);
-		}
+		  }
 	}
 	
 	public void handleCancellation(YFCElement shipmentLine)
@@ -53,7 +60,9 @@ public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
 		YFCDocument docgetShipmentLineList = YFCDocument.createDocument(XMLLiterals.SHIPMENT_LINE);
 		YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
 		eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
-		YFCDocument docGetShipmentLineListOutput = invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList, tempgetShipmentLineList());
+	    env.setApiTemplate(XMLLiterals.GET_SHIPMENT_LINE_LIST, tempgetShipmentLineList().getDocument());
+		YFCDocument docGetShipmentLineListOutput = YNWAPIUtil.invokeAPI(env, XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList);
+		env.clearApiTemplates();
 		System.out.println("jdnjnbknbk"+docGetShipmentLineListOutput);
 		invokeChangeOrderAPI(docGetShipmentLineListOutput);
 	}
@@ -81,7 +90,9 @@ public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
 		 YFCElement eleItem = eleOrderLine.createChild(XMLLiterals.ITEM);
 		 eleItem.setAttribute(XMLLiterals.ITEM_ID, shipmentLine.getAttribute(XMLLiterals.ITEM_ID));
 		 System.out.println("bhfbdjjngkh"+docOrder);
-		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docOrder);
+		 YNWAPIUtil.invokeAPI(env, XMLLiterals.CHANGE_ORDER_API, docOrder);
+		 
+	
 		 }
 	 }
 	
@@ -158,7 +169,7 @@ public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.ORGANIZATION_CODE, XMLLiterals.INDIGO_CA);
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.UNIT_OF_MEASURE, eleItem.getAttribute(XMLLiterals.UNIT_OF_MEASURE));
 			 System.out.println("fjskdgakhj"+docManageInventoryNodeControl);
-			 invokeYantraApi(XMLLiterals.MANGE_INVENTORY_NODE_CONTROL, docManageInventoryNodeControl);
+			 YNWAPIUtil.invokeAPI(env, XMLLiterals.MANGE_INVENTORY_NODE_CONTROL, docManageInventoryNodeControl);
 			 invokeCreateException(eleItem);
 		  
 	  }
@@ -185,7 +196,7 @@ public class IndgCancelOrderInBatchPick extends AbstractCustomApi {
 			 eleInbox.setAttribute(XMLLiterals.EXPIRATION_DAYS, sExpirationDays);
 			 eleInbox.setAttribute(XMLLiterals.QUEUE_ID, INVENTORY_DIRTY_QUEUE);
 			 System.out.println("jdigkjg"+docCreateException);
-			 invokeYantraApi(XMLLiterals.CREATE_EXCEPTION, docCreateException);
+			 YNWAPIUtil.invokeAPI(env, XMLLiterals.CREATE_EXCEPTION, docCreateException);
 		 }
 }
 

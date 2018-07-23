@@ -11,7 +11,7 @@ import com.yantra.yfc.dom.YFCElement;
  * @author Training02
  * 
  * Custom code consumes inXml and invokes getOrderLineList API if the output of API does not has ChildNodes then it will
- * invoke createAsyncReq API. If it has ChildNodesthen it will check for the status of the order line and if status is 3700 then the message will be consumed 
+ * invoke createAsyncReq API. If it has ChildNodesthen it will check for the status of the order line and if status is shipped then the message will be consumed 
  *  createAsyncReq API
  *
  */
@@ -37,8 +37,8 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 				.getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE);
 		YFCDocument docGetOrderList = invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, invokegetOrderLineList(eleOrder, inXml), getOrderLineListTemplate());
 		System.out.println("bsjbjnhvj"+docGetOrderList);
-		if(docGetOrderList.hasChildNodes())
-		{
+		YFCElement eleOrderLine = docGetOrderList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE);
+		if(eleOrderLine != null) {
 			checkOrderstatus(docGetOrderList,inXml);
 		}
 		else

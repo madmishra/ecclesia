@@ -30,13 +30,11 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 	 
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
-		System.out.println("jfdngjkhnm"+inXml);
 		YFCElement eleroot = inXml.getDocumentElement();
 		if(!YFCObject.isVoid(eleroot.getAttribute(XMLLiterals.MESSAGE_TYPE_ID))) {
 		YFCElement eleOrder = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER)
 				.getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE);
 		YFCDocument docGetOrderList = invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, invokegetOrderLineList(eleOrder, inXml), getOrderLineListTemplate());
-		System.out.println("bsjbjnhvj"+docGetOrderList);
 		YFCElement eleOrderLine = docGetOrderList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE);
 		if(eleOrderLine != null) {
 			checkOrderstatus(docGetOrderList,inXml);
@@ -54,7 +52,6 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 	private YFCDocument invokegetOrderLineList(YFCElement orderLine, YFCDocument inXml)
 	{
 		YFCElement eleOrder = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
-		System.out.println("dnksfnkfm"+eleOrder);
 		YFCDocument docOrderLine = YFCDocument.createDocument(XMLLiterals.ORDER_LINE);
 		YFCElement eleOrderLine = docOrderLine.getDocumentElement();
 		eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, orderLine.getAttribute(XMLLiterals.PRIME_LINE_NO) );
@@ -62,7 +59,6 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 		eleOrderInput.setAttribute(XMLLiterals.ORDER_NO, eleOrder.getAttribute(XMLLiterals.PARENT_LEGACY_OMS_ORDER_NO));
 		eleOrderInput.setAttribute(XMLLiterals.DOCUMENT_TYPE, DOCUMENT_TYPE);
 		eleOrderInput.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
-		System.out.println("dhnjhfdgkjkj"+docOrderLine);
 		return docOrderLine;
 	}
 	
@@ -74,7 +70,6 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 		YFCElement eleOrderStatus = eleOrder.createChild(XMLLiterals.ORDER_STATUSES).createChild(XMLLiterals.ORDER_STATUS);
 		eleOrderStatus.setAttribute(XMLLiterals.STATUS, EMPTY_STRING);
 		eleOrderStatus.setAttribute(XMLLiterals.STATUS_QTY, EMPTY_STRING);
-		System.out.println("nhfkdfkg"+docOrder);
 		return docOrder;
 	}
 	
@@ -82,7 +77,6 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 	{
 		YFCElement  eleOrderLine = docGetOrderList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
 				getChildElement(XMLLiterals.ORDER_STATUSES).getChildElement(XMLLiterals.ORDER_STATUS);
-		System.out.println("dklskflsklf"+eleOrderLine);
 		if(eleOrderLine.getAttribute(XMLLiterals.STATUS).contains(ORDER_STATUS)){
 				invokeYantraService(INDG_CREATE_RETURN_SYNC, inXml);
 				
@@ -104,7 +98,6 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 		YFCElement eleRoot = inXml.getDocumentElement();
 		YFCElement eleImport = docCreateAsyncRequest.importNode(eleRoot, true);
 		ele.appendChild(eleImport);
-		System.out.println("jdhjh"+docCreateAsyncRequest);
 		invokeYantraApi(XMLLiterals.CREATE_ASYNC_REQUEST, docCreateAsyncRequest);
 	}
 }

@@ -40,7 +40,6 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	 private static final String CANCEL = "CANCEL";
 	 private static final String SHORTAGE = "shortage";
 	 private static final String DAMAGED = "damaged";
-	 private static final String MARK_LINE_AS_SHORTAGE="MarkLineAsShortage";
 	 private static final String ITEM_ID = "ItemId";
 	 String sExpirationDays = "30";
 	 String sCancellationReasonCode;
@@ -68,32 +67,25 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	public void handleOrderPickShortages(YFCDocument inXml) {
 		
 		YFCElement eleShipment =  inXml.getDocumentElement();
-		if(eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE)!=null) 
-		 {
-			 if ( eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(DAMAGED) ||
-					eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(SHORTAGE))
+		if((eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE)!=null) && ( eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(DAMAGED) ||
+					eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(SHORTAGE)))
 			 {
 					YFCIterable<YFCElement> eleShipmentLines  = eleShipment.getChildElement(XMLLiterals.SHIPMENT_LINES)
 							.getChildren(XMLLiterals.SHIPMENT_LINE);
 					for(YFCElement shipmentLine : eleShipmentLines) {
-						System.out.println("******************************");
 						invokegetShipmentLineList(shipmentLine, inXml);
-						System.out.println("*****************************");
 			}
 		}
 	 }
-	}
 
 	
 public void invokegetShipmentLineList(YFCElement shipmentLine, YFCDocument inXml )
 {
-	System.out.println("*****************************");
 		YFCDocument docgetShipmentLineList = YFCDocument.createDocument(XMLLiterals.SHIPMENT_LINE);
 		YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
 		eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
 		YFCDocument docGetShptLineListOutput = invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList());
 		invokeGetInventoryNodeControlList(docGetShptLineListOutput, inXml);
-		System.out.println("*****************************");
 	}
 
 	
@@ -241,7 +233,6 @@ public void invokegetShipmentLineList(YFCElement shipmentLine, YFCDocument inXml
 		 eleOrderLine.setAttribute(XMLLiterals.SUB_LINE_NO,SUB_LINE_NO);
 		 YFCElement eleItem = eleOrderLine.createChild(XMLLiterals.ITEM);
 		 eleItem.setAttribute(XMLLiterals.ITEM_ID, shipmentLine.getAttribute(XMLLiterals.ITEM_ID));
-		 System.out.println("bhfbdjjngkh"+docOrder);
 		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docOrder);
 		 }
 	 }

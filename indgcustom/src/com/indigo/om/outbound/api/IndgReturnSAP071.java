@@ -22,32 +22,25 @@ public class IndgReturnSAP071 extends AbstractCustomApi {
 	
 		YFCElement eleInXml = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 			String sResendSAP071 = eleInXml.getAttribute(XMLLiterals.RESEND_SAP071);
-			System.out.println("bshfbjnh"+sResendSAP071);
 		if(YFCObject.isVoid(sResendSAP071))
 		{
-			System.out.println("bsjfbkdnhk====================================");
 			if(getProperty(ALWAYS_PUBLISH_TO_LEGACY).equals(YES)) {
-				System.out.println("hxbbjkbxjxbnjsjcncj");
 			invokeYantraService(getProperty(INDG_LEGACY072), inXml);
 			}
 			eleInXml.setAttribute(XMLLiterals.RESEND_SAP071, NO);
-			System.out.println("sbhcbxjbv"+inXml);
 			invokeYantraService(INDG_RESEND_SAP071, inXml);
 			
 		}
 		else if(sResendSAP071.equals(NO) )
 		{
-			System.out.println("xbhcbjc");
 			throwError();
 			}
 		
 		else {
 			if(sResendSAP071.equals(YES)) {
-				System.out.println("xjcjcbv"+inXml);
 				invokeYantraService(getProperty(INDG_SAP071),inXml);
 			}
 		}
-		System.out.println("xjzcjhjcv"+inXml);
 		return inXml;
 	}
 	

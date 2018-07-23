@@ -37,7 +37,7 @@ public class IndgGetOrderDetails extends AbstractCustomApi{
 		  
 	  }
 	  
-	 /** This method forms input for getCompleteOrderDetails api
+	 /** This method forms input for getCompleteOrderDetails API
 	  * 
 	  * @param shipNode
 	  * @param orderNo
@@ -54,7 +54,7 @@ public class IndgGetOrderDetails extends AbstractCustomApi{
 		 return docInputGetOrderDetails;
 	 }
 	 
-	 /** This method forms input for getShipmentDetails api
+	 /** This method forms input for getShipmentDetails API
 	  * 
 	  * @param shipmentKey
 	  * @return
@@ -223,7 +223,7 @@ public class IndgGetOrderDetails extends AbstractCustomApi{
 				 	 if(mapShipmentKey.containsKey(sOrderLineKey)) {
 				 		YFCDocument docShipmentDetails= invokeGetShipmentDetails(mapShipmentKey.get(sOrderLineKey));
 				 		
-						 YFCElement eleShipmentFromShipmentDetails=docShipmentDetails.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getChildElement(XMLLiterals.ADDITIONAL_DATES);
+						 YFCElement eleShipmentFromShipmentDetails=docShipmentDetails.getDocumentElement().getChildElement(XMLLiterals.ADDITIONAL_DATES);
 						 if (YFCObject.isVoid(eleShipmentFromShipmentDetails) ) {
 							 eleShipmentTemp.createChild(XMLLiterals.ADDITIONAL_DATES);
 						 }
@@ -261,10 +261,7 @@ public class IndgGetOrderDetails extends AbstractCustomApi{
 	 
 	 
 	 private  YFCDocument invokeGetShipmentDetails(String sShipmentKey) {
-		 YFCDocument docGetShipmentDetailsOutput= invokeYantraApi(XMLLiterals.GET_SHIPMENT_DETAILS,inputGetShipmentDetails(sShipmentKey),getShipmentDetailsTemplate());
-		 
-		  return docGetShipmentDetailsOutput;
-		 
+		 return invokeYantraApi(XMLLiterals.GET_SHIPMENT_DETAILS,inputGetShipmentDetails(sShipmentKey),getShipmentDetailsTemplate());
 	 }
 }
 

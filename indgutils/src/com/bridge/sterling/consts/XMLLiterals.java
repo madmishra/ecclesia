@@ -437,6 +437,10 @@ public static final String SHIPMENTS_LINES = "ShipmentLines";
 public static final String SHIPMENTS_LINE = "ShipmentLine";
 public static final String GET_COMPLETE_ORDER_DETAILS = "getCompleteOrderDetails";
 public static final String HOLD_LOCATION = "HoldLocation";
+public static final String ALERT_RAISED_ON = "AlertRaisedOn";
+public static final String AVAILABILITY_INFORMATION = "AvailabilityInformation";
+public static final String AVAILABLE_INVENTORY = "AvailableInventory";
+public static final String AVAILABLE_QUANTITY = "AvailableQuantity";
 
 }
 

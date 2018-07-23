@@ -1,5 +1,7 @@
 package com.indigo.om.outbound.api;
 
+import java.util.Iterator;
+
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.yantra.yfc.core.YFCObject;
@@ -21,6 +23,7 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 	private static final String PRIORITY = "1.00";
 	private static final String SOURCING = "SOURCING";
 	private static final String ORGANIZATION_CODE = "Indigo_CA";
+	private static final String LOW_QUANTITY = "LOW_QUANTITY";
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
@@ -42,7 +45,19 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		YFCDocument docGetInventoryAlertsListApiOp = getInventoryAlertListApi(eleRoot);
 		System.out.println(docGetInventoryAlertsListApiOp + "eeeeeeeee");
 		if(!YFCObject.isVoid(docGetInventoryAlertsListApiOp)) {
-				callMonitorItemAvailability(eleRoot);
+			sortAlertsByDescOrder(docGetInventoryAlertsListApiOp);
+			String availableQty = docGetInventoryAlertsListApiOp.getDocumentElement().getChildElement(XMLLiterals.INVENTORY_ITEM).
+					getChildElement(XMLLiterals.INVENTORY_ALERTS_LIST).getChildElement(XMLLiterals.INVENTORY_ALERTS).getChildElement(XMLLiterals.AVAILABILITY_INFORMATION).
+					getChildElement(XMLLiterals.AVAILABLE_INVENTORY).getAttribute(XMLLiterals.AVAILABLE_QUANTITY);
+			if(availableQty != null) {
+				int qty = (int) Double.parseDouble(availableQty);
+				String lowQuantity = getProperty(LOW_QUANTITY);
+				int lowQty = (int) Double.parseDouble(lowQuantity);
+				System.out.println(availableQty + qty + lowQuantity + lowQty + "wwwwwwwww");
+				if(qty < lowQty) {
+					callMonitorItemAvailability(eleRoot);
+				}
+			}
 		}
 		deleteDistributionForNode(eleRoot);
 	}
@@ -85,6 +100,21 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 	
 	public YFCDocument getInventoryAlertListApi(YFCElement eleRoot){
 		return  invokeYantraApi(XMLLiterals.GET_INVENTORY_ALERTS_LIST, getInventoryAlertListApiInp(eleRoot));
+	}
+	
+	private void sortAlertsByDescOrder(YFCDocument docGetInventoryAlertsListApiOp) {
+		YFCElement inventoryItemList = docGetInventoryAlertsListApiOp.getDocumentElement();
+		for(Iterator<YFCElement> itr = inventoryItemList.getChildren().iterator();itr.hasNext();) {
+			YFCElement inventoryItem = itr.next();
+			YFCElement inventoryAlertLists = inventoryItem.getChildElement(XMLLiterals.INVENTORY_ALERTS_LIST,true);
+			YFCElement inventoryAlert = inventoryAlertLists.getChildElement(XMLLiterals.INVENTORY_ALERTS);
+			if(inventoryAlert.hasAttribute(XMLLiterals.ALERT_RAISED_ON)) {
+				inventoryItem.setAttribute(XMLLiterals.ALERT_RAISED_ON, inventoryAlert.getAttribute(XMLLiterals.ALERT_RAISED_ON));
+			}
+		}
+		String [] attrNames = new String[]{XMLLiterals.ALERT_RAISED_ON};
+		inventoryItemList.sortChildren(attrNames, false);
+		System.out.println(docGetInventoryAlertsListApiOp + "zzzzzzzzz");
 	}
 	
 	private void callMonitorItemAvailability(YFCElement eleRoot) {

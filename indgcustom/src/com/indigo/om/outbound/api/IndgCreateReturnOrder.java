@@ -2,7 +2,6 @@ package com.indigo.om.outbound.api;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
-import com.bridge.sterling.utils.XPathUtil;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.core.YFCObject;
 import com.yantra.yfc.dom.YFCDocument;
@@ -36,7 +35,6 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		YFCDocument outDocgetOrderLineList = getOrderLineList(inXml);
 		String sOrderHeaderKey = null;
 		YFCElement eleOrder = outDocgetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).getChildElement(XMLLiterals.ORDER);
-		System.out.println("gasjdfjzshgjkhgk"+eleOrder);
 		if(!YFCObject.isVoid(eleOrder)) {
 		YFCIterable<YFCElement> eleOrderLine = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY)
 				.getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
@@ -47,7 +45,6 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		}
 		invokeYantraApi(XMLLiterals.CREATE_ORDER, doccreateOrderInput, createOrderTemplate());
 		}
-		System.out.println("polkjmnjuh"+ docCreateOrderOutput);
 		return docCreateOrderOutput;
 	}
 
@@ -148,7 +145,6 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		eleDerivedFromOrderLine.setAttribute(XMLLiterals.SUB_LINE_NO, EMPTY_STRING);
 		YFCElement eleItem = eleDerivedFromOrderLine.createChild(XMLLiterals.ITEM);
 		eleItem.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
-		System.out.println("wsdrftgbhj"+docCreateOrder );
 		return docCreateOrder;
 	}
 	
@@ -167,7 +163,6 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		YFCElement eleOrder = eleOrderLine.createChild(XMLLiterals.ORDER);
 		eleOrder.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 		eleOrder.setAttribute(XMLLiterals.ORDER_HEADER_KEY, EMPTY_STRING);
-		System.out.println("ygdhsjddx"+getOrderLineList);
 		return getOrderLineList;
 	}
 	
@@ -190,7 +185,6 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		eleOrder.setAttribute(XMLLiterals.ORDER_NO, eleInXml.getAttribute(XMLLiterals.PARENT_LEGACY_OMS_ORDER_NO));
 		eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, SALES_ORDER_VALUE);
 		eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleInXml.getAttribute(XMLLiterals.ENTERPRISE_CODE));
-		System.out.println("edftygbhj"+docgetOrderListInput);
 		return docgetOrderListInput;	
 	}
 

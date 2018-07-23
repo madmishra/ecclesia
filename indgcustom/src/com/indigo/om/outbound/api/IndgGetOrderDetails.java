@@ -182,28 +182,32 @@ public class IndgGetOrderDetails extends AbstractCustomApi{
 		 YFCDocument docTempGetOrderDetailsOutput=docGetOrderDetailsOutput;
 		 YFCElement eleOrder=docTempGetOrderDetailsOutput.getDocumentElement();
 		 YFCElement eleOrderLines=eleOrder.getChildElement(XMLLiterals.ORDER_LINES);
-		 YFCElement eleShipment = eleOrder.getChildElement(XMLLiterals.SHIPMENTS).getChildElement(XMLLiterals.SHIPMENT);
-		 String sShipmentKey = eleShipment.getAttribute(XMLLiterals.SHIPMENT_KEY);
-		 
-		 
+		 		 
 		 //map to store OrderLineKey(from shipment line level),HoldLocation
-		 Map<String, String> map=new HashMap<>();
+		 Map<String, String> mapOrderLineKey=new HashMap<>();
+		 
+		 //map to store OrderLineKey(from shipment line level),shipmentKey
+		 Map<String, String> mapShipmentKey=new HashMap<>();
+		 
 		 YFCIterable<YFCElement> eleShipmentIterable=eleOrder.getChildElement(XMLLiterals.SHIPMENTS).getChildren(XMLLiterals.SHIPMENT);
 		 //to get the OrderLineKey and HoldLocation values
 		 for(YFCElement eleShipmentTemp : eleShipmentIterable) {
 			 
 			 String sHoldLocation=eleShipmentTemp.getAttribute(XMLLiterals.HOLD_LOCATION);
-			
+			String shipmentKey=eleShipmentTemp.getAttribute(XMLLiterals.SHIPMENT_KEY);
 			 YFCIterable<YFCElement> eleShipmentLine=eleShipmentTemp.getChildElement(XMLLiterals.SHIPMENT_LINES).getChildren(XMLLiterals.SHIPMENT_LINE);
 			 for(YFCElement eleShipmentLine1 : eleShipmentLine) {
 				 				 String shiplineOrderLineKey=eleShipmentLine1.getAttribute(XMLLiterals.ORDER_LINE_KEY);
+				 				mapShipmentKey.put(shiplineOrderLineKey, shipmentKey);
 				 				 if ((sHoldLocation!=null)) {
-				 				 map.put(shiplineOrderLineKey, sHoldLocation);
+				 					mapOrderLineKey.put(shiplineOrderLineKey, sHoldLocation);
 				 				 }
+				 				 else mapOrderLineKey.put(shiplineOrderLineKey, EMPTY_STRING);
 				 			}
 		 }
 		 
-
+		//remove the shipments element and orderLineKey from the output (i.e, docTempGetOrderDetailsOutput)
+		 
 		 
 		 //setting the PickupArea and PickupBinNumber values at Shipment level 	 
 		 YFCIterable<YFCElement> eleOrderLine=eleOrderLines.getChildren(XMLLiterals.ORDER_LINE);
@@ -212,26 +216,25 @@ public class IndgGetOrderDetails extends AbstractCustomApi{
 			 String sOrderLineKey=eleOrderLinetemp.getAttribute(XMLLiterals.ORDER_LINE_KEY);
 			 YFCElement eleShipmentTemp=eleOrderLinetemp.createChild(XMLLiterals.SHIPMENT);
 			 
-			 if(map.containsKey(sOrderLineKey))
+			 if(mapOrderLineKey.containsKey(sOrderLineKey))
 				{
-				 	 eleShipmentTemp.setAttribute(XMLLiterals.PICKUP_BIN_NUMBER,map.get(sOrderLineKey));
+				 	 eleShipmentTemp.setAttribute(XMLLiterals.PICKUP_BIN_NUMBER,mapOrderLineKey.get(sOrderLineKey));
+				 	 if(mapShipmentKey.containsKey(sOrderLineKey)) {
+				 		YFCDocument docShipmentDetails= invokeGetShipmentDetails(mapShipmentKey.get(sOrderLineKey));
+						 YFCElement eleShipmentFromShipmentDetails=docShipmentDetails.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getChildElement(XMLLiterals.ADDITIONAL_DATES);
+						 YFCNode nAdditionalDates=eleShipmentTemp.importNode(eleShipmentFromShipmentDetails);
+						 eleOrderLinetemp.appendChild(nAdditionalDates);
+				 	 }
 				 }
 			 else {
 				 eleShipmentTemp.setAttribute(XMLLiterals.PICKUP_BIN_NUMBER,EMPTY_STRING);
 			 }
 			 eleShipmentTemp.setAttribute(XMLLiterals.PICKUP_AREA,getProperty(STAGING));
-			 YFCDocument docShipmentDetails= invokeGetShipmentDetails(sShipmentKey);
-			 YFCElement eleShipmentFromShipmentDetails=docShipmentDetails.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getChildElement(XMLLiterals.ADDITIONAL_DATES);
-			 YFCNode nAdditionalDates=eleShipmentTemp.importNode(eleShipmentFromShipmentDetails);
-			 eleOrderLinetemp.appendChild(nAdditionalDates);
 			 
-		 }
-		 
-			//remove the shipments element and orderLineKey from the output (i.e, docTempGetOrderDetailsOutput)
-		 	
+		}
+
 		 	return docGetOrderDetailsOutput;
-		 
-		 
+	 
 	 }
 	 
 	  /**
@@ -251,7 +254,10 @@ public class IndgGetOrderDetails extends AbstractCustomApi{
 	 
 	 
 	 private  YFCDocument invokeGetShipmentDetails(String sShipmentKey) {
-		 return invokeYantraApi(XMLLiterals.GET_SHIPMENT_DETAILS,inputGetShipmentDetails(sShipmentKey),getShipmentDetailsTemplate());
+		 YFCDocument docGetShipmentDetailsOutput= invokeYantraApi(XMLLiterals.GET_SHIPMENT_DETAILS,inputGetShipmentDetails(sShipmentKey),getShipmentDetailsTemplate());
+		 
+		  return docGetShipmentDetailsOutput;
+		 
 	 }
 }
 

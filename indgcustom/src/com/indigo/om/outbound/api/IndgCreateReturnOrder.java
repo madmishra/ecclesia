@@ -35,7 +35,8 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		YFCDocument docCreateOrderOutput = null;
 		YFCDocument outDocgetOrderLineList = getOrderLineList(inXml);
 		String sOrderHeaderKey = null;
-		YFCElement eleOrder = outDocgetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINES).getChildElement(XMLLiterals.ORDER_LINE).getChildElement(XMLLiterals.ORDER);
+		YFCElement eleOrder = outDocgetOrderLineList.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).getChildElement(XMLLiterals.ORDER);
+		System.out.println("gasjdfjzshgjkhgk"+eleOrder);
 		if(!YFCObject.isVoid(eleOrder)) {
 		YFCIterable<YFCElement> eleOrderLine = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY)
 				.getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
@@ -160,7 +161,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 	{
 		YFCDocument getOrderLineList  =YFCDocument.createDocument(XMLLiterals.ORDER_LINE_LIST);
 		YFCElement eleOrderLineList = getOrderLineList.getDocumentElement();
-		YFCElement eleOrderLine = eleOrderLineList.createChild(XMLLiterals.ORDER_LINE);
+		YFCElement eleOrderLine = eleOrderLineList.createChild(XMLLiterals.ORDER_LINES);
 		eleOrderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
 		eleOrderLine.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
 		YFCElement eleOrder = eleOrderLine.createChild(XMLLiterals.ORDER);

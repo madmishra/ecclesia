@@ -49,7 +49,7 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 			String availableQty = docGetInventoryAlertsListApiOp.getDocumentElement().getChildElement(XMLLiterals.INVENTORY_ITEM).
 					getChildElement(XMLLiterals.INVENTORY_ALERTS_LIST).getChildElement(XMLLiterals.INVENTORY_ALERTS).getChildElement(XMLLiterals.AVAILABILITY_INFORMATION).
 					getChildElement(XMLLiterals.AVAILABLE_INVENTORY).getAttribute(XMLLiterals.AVAILABLE_QUANTITY);
-			if(availableQty != null) {
+			if(!YFCObject.isVoid(availableQty)) {
 				int qty = (int) Double.parseDouble(availableQty);
 				String lowQuantity = getProperty(LOW_QUANTITY);
 				int lowQty = (int) Double.parseDouble(lowQuantity);

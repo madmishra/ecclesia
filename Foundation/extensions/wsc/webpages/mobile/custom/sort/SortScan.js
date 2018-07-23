@@ -1,6 +1,6 @@
-scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/ContextUtils", "scbase/loader!ias/utils/RepeatingScreenUtils", "scbase/loader!ias/utils/ScreenUtils", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/utils/ModelUtils", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!extn/mobile/custom/sort/SortScanUI", "scbase/loader!wsc/mobile/home/utils/MobileHomeUtils","scbase/loader!ias/utils/EventUtils","scbase/loader!sc/plat/dojo/utils/WidgetUtils","scbase/loader!ias/utils/UIUtils"], 
+scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/ContextUtils", "scbase/loader!ias/utils/RepeatingScreenUtils", "scbase/loader!ias/utils/ScreenUtils", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/utils/ModelUtils", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!extn/mobile/custom/sort/SortScanUI", "scbase/loader!wsc/mobile/home/utils/MobileHomeUtils","scbase/loader!ias/utils/EventUtils","scbase/loader!sc/plat/dojo/utils/WidgetUtils","scbase/loader!ias/utils/UIUtils",	"scbase/loader!sc/plat/dojo/Userprefs"], 
 function(
-_dojodeclare, _iasContextUtils, _iasRepeatingScreenUtils, _iasScreenUtils, _scBaseUtils, _scModelUtils, _scScreenUtils, _extnSortScanUI, _wscMobileHomeUtils,_iasEventUtils,_scWidgetUtils,_iasUIUtils) {
+_dojodeclare, _iasContextUtils, _iasRepeatingScreenUtils, _iasScreenUtils, _scBaseUtils, _scModelUtils, _scScreenUtils, _extnSortScanUI, _wscMobileHomeUtils,_iasEventUtils,_scWidgetUtils,_iasUIUtils,_scUserprefs) {
     return _dojodeclare("extn.mobile.custom.sort.SortScan", [_extnSortScanUI], {
         // custom code here
         scanProductOnEnter: function (
@@ -59,7 +59,7 @@ _dojodeclare, _iasContextUtils, _iasRepeatingScreenUtils, _iasScreenUtils, _scBa
             var shipmentKey = ""; 
                 var size = 0;
                 var i = 0;
-                var counter = 0;
+                var counter = -1;
                 debugger
                 if (modelOutput.ShipmentLines.ShipmentLine) {
                     size = modelOutput.ShipmentLines.ShipmentLine.length;
@@ -84,7 +84,7 @@ _dojodeclare, _iasContextUtils, _iasRepeatingScreenUtils, _iasScreenUtils, _scBa
                         break;
                     }
                 }
-                if (counter === 0) {
+                if (counter === -1) {
                    
                     _wscMobileHomeUtils.openScreen("wsc.mobile.home.MobileHome", "wsc.mobile.editors.MobileEditor");
                     _iasScreenUtils.showErrorMessageBoxWithOk(
@@ -101,7 +101,7 @@ _dojodeclare, _iasContextUtils, _iasRepeatingScreenUtils, _iasScreenUtils, _scBa
                 //shipmentKey = modelOutput.ShipmentLines.ShipmentLine[0].ShipmentKey
                 // shipmentKey = this.checkForSort(modelOutput);
                 // console.log('shipmentKey', shipmentKey);
-                if (shipmentKey && counter !== 0)
+                if (shipmentKey && counter !== -1)
                     _iasUIUtils.openWizardInEditor("extn.wizards.SortScanPickWizard", { Shipment: { ShipmentKey: shipmentKey } }, "wsc.mobile.editors.MobileEditor", this, null);
                 //  }
             

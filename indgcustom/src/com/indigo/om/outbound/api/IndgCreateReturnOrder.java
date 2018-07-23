@@ -40,7 +40,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		if(!YFCObject.isVoid(eleOrder)) {
 		YFCIterable<YFCElement> eleOrderLine = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY)
 				.getChildElement(XMLLiterals.ORDER).getChildElement(XMLLiterals.ORDER_LINES).getChildren(XMLLiterals.ORDER_LINE);
-		sOrderHeaderKey = eleOrder.getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_HEADER_KEY);
+		sOrderHeaderKey = eleOrder.getAttribute(XMLLiterals.ORDER_HEADER_KEY);
 		createOrderHeaderInput(inXml);
 		for(YFCElement orderLine : eleOrderLine) {
 			formOrderLineElement(doccreateOrderInput, orderLine, sOrderHeaderKey);

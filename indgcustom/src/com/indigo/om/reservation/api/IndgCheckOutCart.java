@@ -10,6 +10,7 @@ import org.w3c.dom.NodeList;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.sterlingcommerce.baseutil.SCUtil;
 import com.sterlingcommerce.baseutil.SCXmlUtil;
 import com.yantra.yfc.dom.YFCDocument;
@@ -27,6 +28,13 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 	private String reserveInventory = "";
 	private String allowPartialReservations = "";
 	private String skipCapacityChecks = "";
+	private String SafetyFactorOverride = "";
+	private String LookForwardWindow = "";
+	private String ReservationExpiryWindow = "";
+	private String LegacyOMSProcessingTime = "";
+	private String SAPAcknowledgementTime = "";
+	private String StoreProcessingTime = "";
+	private String StorePreClosingBufferTime = "";
 
 	List<String> storeList = new ArrayList<>();
 
@@ -50,6 +58,8 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) throws YFSException {
 		populateRequiredData(inXml);
+		
+		
 		if (Boolean.parseBoolean(reserveInventory)
 				|| "1".equalsIgnoreCase(reserveInventory)) {
 			/** Input for reserveItemInventory API is prepared */
@@ -260,6 +270,7 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 						+ SCXmlUtil.getString(elePromiseLine));
 				Element eleReservations = (Element) elePromiseLine
 						.getElementsByTagName("Reservations").item(0);
+				
 				Element eleReservation = (Element) eleReservations
 						.getElementsByTagName("Reservation").item(0);
 
@@ -275,12 +286,17 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 				eleLineItem.setAttribute("ReservedQuantity", strReservedQty);
 				eleLineItem.setAttribute("AvailableQuantity",
 						eleReservations.getAttribute("AvailableQty"));
-
+				
 				if (!cartAttributesPopulated) {
-					eleCart.setAttribute("ReservationId",
-							eleReservation.getAttribute("ReservationID"));
-					eleCart.setAttribute("ReservationExpiryTime",
-							eleReservation.getAttribute("ExpirationDate"));
+					if(SCUtil.isVoid(eleReservation)){
+						eleCart.setAttribute("ReservationId","");
+						eleCart.setAttribute("ReservationExpiryTime","");
+					} else {
+						eleCart.setAttribute("ReservationId",
+								eleReservation.getAttribute("ReservationID"));
+						eleCart.setAttribute("ReservationExpiryTime",
+								eleReservation.getAttribute("ExpirationDate"));
+					}
 					cartAttributesPopulated = true;
 				}
 
@@ -368,7 +384,44 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 				"AllowPartialReservations", "");
 		skipCapacityChecks = inXml.getDocumentElement().getAttribute(
 				"SkipCapacityChecks", "");
-
+		
+		YFCElement eleConfigOverride = inXml.getDocumentElement().getElementsByTagName("ConfigurationOverrides").item(0);
+		SafetyFactorOverride = eleConfigOverride.getAttribute("SafetyFactorOverride");
+		if (SCUtil.isVoid(SafetyFactorOverride)) {
+			reserveInventory = getProperty("SafetyFactorOverride", true);
+		}
+		
+		YFCElement eleCapacity =  eleConfigOverride.getChildElement("Capacity");
+		LookForwardWindow = eleCapacity.getAttribute("LookForwardWindow");
+		if (SCUtil.isVoid(LookForwardWindow)) {
+			LookForwardWindow = getProperty("LookForwardWindow", true);
+		}
+		
+		ReservationExpiryWindow = eleCapacity.getAttribute("ReservationExpiryWindow");
+		if (SCUtil.isVoid(ReservationExpiryWindow)) {
+			ReservationExpiryWindow = getProperty("ReservationExpiryWindow", true);
+		}
+		
+		LegacyOMSProcessingTime = eleCapacity.getAttribute("LegacyOMSProcessingTime");
+		if (SCUtil.isVoid(LegacyOMSProcessingTime)) {
+			LegacyOMSProcessingTime = getProperty("LegacyOMSProcessingTime", true);
+		}
+		
+		SAPAcknowledgementTime = eleCapacity.getAttribute("SAPAcknowledgementTime");
+		if (SCUtil.isVoid(SAPAcknowledgementTime)) {
+			SAPAcknowledgementTime = getProperty("SAPAcknowledgementTime", true);
+		}
+		
+		StoreProcessingTime = eleCapacity.getAttribute("StoreProcessingTime");
+		if (SCUtil.isVoid(StoreProcessingTime)) {
+			StoreProcessingTime = getProperty("StoreProcessingTime", true);
+		}
+		
+		StorePreClosingBufferTime = eleCapacity.getAttribute("StorePreClosingBufferTime");
+		if (SCUtil.isVoid(StorePreClosingBufferTime)) {
+			StorePreClosingBufferTime = getProperty("StorePreClosingBufferTime", true);
+		}
+		
 		if (SCUtil.isVoid(reserveInventory)) {
 			inXml.getDocumentElement().setAttribute("ReserveInventory",
 					getProperty("ReserveInventory", true));
@@ -385,6 +438,8 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 					getProperty("SkipCapacityChecks", true));
 			skipCapacityChecks = getProperty("SkipCapacityChecks", true);
 		}
+		
+		String RequestedPickupTime = inXml.getDocumentElement().getAttribute("RequestedPickupTime");
 
 	}
 

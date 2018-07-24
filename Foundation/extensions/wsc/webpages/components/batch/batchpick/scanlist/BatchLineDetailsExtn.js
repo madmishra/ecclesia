@@ -24,6 +24,11 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!extn/components/bat
 				}, "extn_getItemDetails", null);
 				console.log('shipmentLine', shipmentLine);
 			},
+			showHideLabel: function (dataValue, screen, widget,
+				namespace, modelObj, options) {
+				_scWidgetUtils.hideWidget(this, widget, true);
+				return dataValue;
+			},
 			updateAllValues: function (modelObject) {
 				var arrayListObject = modelObject.ItemList.Item[0];
 				var MCAT = "";

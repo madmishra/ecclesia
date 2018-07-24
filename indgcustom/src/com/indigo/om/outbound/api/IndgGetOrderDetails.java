@@ -4,8 +4,6 @@ import java.util.HashMap;
 
 import java.util.Map;
 
-import javax.validation.Path.Node;
-
 import com.bridge.sterling.consts.XMLLiterals;
 
 import com.bridge.sterling.framework.api.AbstractCustomApi;
@@ -408,7 +406,7 @@ public class IndgGetOrderDetails extends AbstractCustomApi {
 
 						YFCNode nAdditionalDates = eleShipmentTemp.importNode(eleShipmentFromShipmentDetails);
 
-						eleOrderLinetemp.appendChild(nAdditionalDates);
+						eleShipmentTemp.appendChild(nAdditionalDates);
 
 					}
 

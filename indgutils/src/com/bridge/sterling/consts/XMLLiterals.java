@@ -444,6 +444,8 @@ public static final String AVAILABLE_QUANTITY = "AvailableQuantity";
 public static final String INVENTORY_ITEM_LIST = "InventoryItemList";
 public static final String ALERT_QUANTITY = "AlertQuantity";
 public static final String IS_ONHAND = "IsOnhand";
+public static final String REFERENCE_KEY = "ReferenceKey";
+public static final String REFERENCE_TYPE = "ReferenceType";
 
 }
 

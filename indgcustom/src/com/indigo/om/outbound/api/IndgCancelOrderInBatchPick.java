@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import org.w3c.dom.Document;
+
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.utils.ExceptionUtil;
@@ -62,9 +64,9 @@ public class IndgCancelOrderInBatchPick {
 		YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
 		eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
 	    env.setApiTemplate(XMLLiterals.GET_SHIPMENT_LINE_LIST, tempgetShipmentLineList().getDocument());
-	    YFCDocument docGetShipmentLineListOutput;
+	    Document docGetShipmentLineListOutput;
 	    try {
-	    	docGetShipmentLineListOutput = (YFCDocument) YIFClientFactory.getInstance().getApi().invoke(env,  XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList.getDocument());
+	    	docGetShipmentLineListOutput =  YIFClientFactory.getInstance().getApi().invoke(env,  XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList.getDocument());
 		} catch (YIFClientCreationException yifCCEx) {
 			throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_CC_EXP, yifCCEx);
 		}catch (RemoteException remexp) {
@@ -72,7 +74,7 @@ public class IndgCancelOrderInBatchPick {
 		}
 		env.clearApiTemplates();
 		System.out.println("jdnjnbknbk"+docGetShipmentLineListOutput);
-		invokeChangeOrderAPI(docGetShipmentLineListOutput);
+		invokeChangeOrderAPI((YFCDocument) docGetShipmentLineListOutput);
 	}
 	 private void invokeChangeOrderAPI(YFCDocument docGetShipmentLineList) {
 		 System.out.println("fhbjsdhgjahnkjhn"+docGetShipmentLineList);

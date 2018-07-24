@@ -425,7 +425,7 @@ public class IndgGetOrderDetails extends AbstractCustomApi {
 			eleShipmentTemp.setAttribute(XMLLiterals.PICKUP_AREA, getProperty(STAGING));
 
 		}
-		// remove the shipments element and orderLineKey from the output (i.e,docTempGetOrderDetailsOutput)
+		// remove the shipments element and (i.e,docTempGetOrderDetailsOutput)
 		YFCNode nodeOrder =  eleOrder.getChildElement(XMLLiterals.SHIPMENTS).getParentNode();
 		nodeOrder.removeChild(eleOrder.getChildElement(XMLLiterals.SHIPMENTS));
 
@@ -442,8 +442,6 @@ public class IndgGetOrderDetails extends AbstractCustomApi {
 	 * @param enterpriseCode
 	 * 
 	 * @param documentType
-	 * 
-	 * @param inXml
 	 * 
 	 * @return
 	 * 

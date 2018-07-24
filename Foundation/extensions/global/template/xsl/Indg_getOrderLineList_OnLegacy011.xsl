@@ -8,11 +8,11 @@
 			</xsl:attribute>
 			<xsl:attribute name="SterlingToSAPMessageSequenceNumber">
 			</xsl:attribute>
-			<xsl:attribute name="SterlingOrderNo">
-				<xsl:value-of select="OrderLine/Order/@OrderNo"/>
-			</xsl:attribute>
 			<MessageBody>
 				<Order>
+					<xsl:attribute name="SterlingOrderNo">
+						<xsl:value-of select="OrderLine/Order/@OrderNo"/>
+					</xsl:attribute>
 					<xsl:attribute name="SAPOrderNo">
 						<xsl:value-of select="OrderLine/@CustomerLinePONo"/>
 					</xsl:attribute>

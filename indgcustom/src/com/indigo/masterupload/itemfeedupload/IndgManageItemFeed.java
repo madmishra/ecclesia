@@ -52,7 +52,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
       itemEle.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
       itemEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, ORGANIZATION_CODE);
       manageItem(itemEle,inXml);
-      IndgItemMasterUpload.setItemType(itemEle);
+      IndgCreateCategoryItem.setItemType(itemEle);
     }
     return inXml;
   }

@@ -34,13 +34,13 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		if((!YFCObject.isVoid(supplyType)) && (supplyType.equals(XMLLiterals.ON_HAND)) && (quantity.contains(NEGATIVE)) || 
 				((!YFCObject.isVoid(demandType)) && (demandType.equals(XMLLiterals.OPEN_ORDER)))) {
 			System.out.println(eleRoot + "bbbbbbbbb");
+			manageDistributionRuleForNode(eleRoot);
 			checkInventoryAlertList(eleRoot);
 		}
 		return inXml;
 	}
 	
 	private void checkInventoryAlertList(YFCElement eleRoot) {
-		manageDistributionRuleForNode(eleRoot);
 		YFCDocument docGetInvAlertsListApiOp = getInventoryAlertListApi(eleRoot);
 		System.out.println(docGetInvAlertsListApiOp + "eeeeeeeee");
 		if(!YFCObject.isVoid(docGetInvAlertsListApiOp) && (docGetInvAlertsListApiOp.getDocumentElement().hasChildNodes())) {

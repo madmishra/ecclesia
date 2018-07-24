@@ -441,6 +441,9 @@ public static final String ALERT_RAISED_ON = "AlertRaisedOn";
 public static final String AVAILABILITY_INFORMATION = "AvailabilityInformation";
 public static final String AVAILABLE_INVENTORY = "AvailableInventory";
 public static final String AVAILABLE_QUANTITY = "AvailableQuantity";
+public static final String INVENTORY_ITEM_LIST = "InventoryItemList";
+public static final String ALERT_QUANTITY = "AlertQuantity";
+public static final String IS_ONHAND = "IsOnhand";
 
 }
 

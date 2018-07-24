@@ -31,7 +31,7 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 	List<String> storeList = new ArrayList<>();
 
 	static {
-		log = YFCLogCategory.instance(IndgLookupRsrvInventoryCall.class);
+		log = YFCLogCategory.instance(IndgCheckOutCart.class);
 	}
 
 	/**
@@ -209,10 +209,6 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 
 				elePromiseLine.setAttribute("UnitOfMeasure",
 						getProperty("UOM", "EACH"));
-				elePromiseLine.setAttribute("ProductClass",
-						getProperty("ProductClass", "GOOD"));
-				// elePromiseLine.setAttribute("UnitOfMeasure","EACH");
-				// elePromiseLine.setAttribute("ProductClass", "GOOD");
 			}
 			// System.out.println("The reserveAvailableInventory Input:" +
 			// docRsrvInvInXml);
@@ -281,15 +277,11 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 						eleReservations.getAttribute("AvailableQty"));
 
 				if (!cartAttributesPopulated) {
-					if(eleReservation != null) {
-						eleCart.setAttribute("ReservationId",
-								eleReservation.getAttribute("ReservationID"));
-						eleCart.setAttribute("ReservationExpiryTime",
-								eleReservation.getAttribute("ExpirationDate"));
-						cartAttributesPopulated = true;
-						
-					}
-
+					eleCart.setAttribute("ReservationId",
+							eleReservation.getAttribute("ReservationID"));
+					eleCart.setAttribute("ReservationExpiryTime",
+							eleReservation.getAttribute("ExpirationDate"));
+					cartAttributesPopulated = true;
 				}
 
 			}
@@ -360,10 +352,6 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 
 				elePromiseLine.setAttribute("UnitOfMeasure",
 						getProperty("UOM", "EACH"));
-				elePromiseLine.setAttribute("ProductClass",
-						getProperty("ProductClass", "GOOD"));
-				// elePromiseLine.setAttribute("UnitOfMeasure","EACH");
-				// elePromiseLine.setAttribute("ProductClass", "GOOD");
 			}
 			// System.out.println("The reserveAvailableInventory Input:" +
 			// docRsrvInvInXml);

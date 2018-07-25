@@ -52,7 +52,7 @@ public class IndgManageItemFeed extends AbstractCustomApi{
       itemEle.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
       itemEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, ORGANIZATION_CODE);
       manageItem(itemEle,inXml);
-      IndgCreateCategoryItem.setItemType(itemEle);
+      setItemType(itemEle);
     }
     return inXml;
   }
@@ -104,6 +104,24 @@ public class IndgManageItemFeed extends AbstractCustomApi{
     inputXml.getDocumentElement().setAttribute(GET_UNPUBLISHED_ITMES,FLAG_YES);
     return invokeYantraApi(XMLLiterals.GET_ITEM_LIST_API, 
         inputXml, getTemplateForGetItemList());
+  }
+  
+  /**
+   * 
+   * This method sets ItemType from commodity code attribute
+   * from the item element. 
+   * 
+   * @param itemEle
+   */
+  public static void setItemType(YFCElement itemEle) {
+    if(!XmlUtils.isVoid(itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES))) {
+      String categoryID = itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES)
+          .getAttribute(XMLLiterals.COMMODITY_CODE,EMPTY_STRING);
+      if(!XmlUtils.isVoid(categoryID)) {
+        itemEle.getChildElement(XMLLiterals.PRIMARY_INFORMATION)
+        .setAttribute(XMLLiterals.ITEM_TYPE,categoryID);
+      }
+    }
   }
   
   /**

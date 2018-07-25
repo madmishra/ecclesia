@@ -89,8 +89,15 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		eleItemShipNode.setAttribute(XMLLiterals.PRIORITY, PRIORITY);
 		eleItemShipNode.setAttribute(XMLLiterals.SHIPNODE_KEY, eleRoot.getAttribute(XMLLiterals.SHIPNODE));
 		System.out.println(docManageDistributionRule + "ccccccccc");
-		YFCDocument docDistriRule = invokeYantraApi(XMLLiterals.MANAGE_DISTRIBUTION_RULE, docManageDistributionRule);
-		System.out.println(docDistriRule + "kkkkkkkkk");
+		invokeYantraApi(XMLLiterals.MANAGE_DISTRIBUTION_RULE, docManageDistributionRule);
+		getDistributionList();
+	}
+	
+	private void getDistributionList() {
+		YFCDocument docRuleList = YFCDocument.createDocument(XMLLiterals.ITEM_SHIP_NODE);
+		docRuleList.getDocumentElement().setAttribute(XMLLiterals.DISTRIBUTION_RULE_ID, getProperty(GROUP_DESCRIPTION));
+		YFCDocument outDoc = invokeYantraApi(XMLLiterals.GET_DISTRIBUTION_LIST, docRuleList);
+		System.out.println(outDoc + "kkkkkkkkkkk");
 	}
 	
 	public YFCDocument getInventoryAlertListApiInp(YFCElement eleRoot) {
@@ -165,5 +172,6 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		docDeleteDistribution.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE_KEY, eleRoot.getAttribute(XMLLiterals.SHIPNODE));
 		System.out.println(docDeleteDistribution + "gggggggggg");
 		invokeYantraApi(XMLLiterals.DELETE_DISTRIBUTION, docDeleteDistribution);
+		getDistributionList();
 	}
 }

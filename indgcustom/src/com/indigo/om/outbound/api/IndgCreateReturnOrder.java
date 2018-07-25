@@ -21,6 +21,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 	private static final String EMPTY_STRING = "";
 	private static final String SUBLINE_VALUE = "1";
 	private static final String SALES_ORDER_VALUE = "0001";
+	private static final String CAD = "CAD";
 	YFCDocument doccreateOrderInput = YFCDocument.createDocument(XMLLiterals.ORDER);
 
 	 /**
@@ -43,7 +44,7 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		for(YFCElement orderLine : eleOrderLine) {
 			formOrderLineElement(doccreateOrderInput, orderLine, sOrderHeaderKey);
 		}
-		docCreateOrderOutput = invokeYantraApi(XMLLiterals.CREATE_ORDER, doccreateOrderInput, createOrderTemplate());
+		invokeYantraApi(XMLLiterals.CREATE_ORDER, doccreateOrderInput, createOrderTemplate());
 		}
 		return docCreateOrderOutput;
 	}
@@ -70,6 +71,9 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleInXml.getAttribute(XMLLiterals.ENTERPRISE_CODE));
 		eleOrder.setAttribute(XMLLiterals.ORDER_TYPE, eleInXml.getAttribute(XMLLiterals.ORDER_TYPE));
 		eleOrder.importNode(elePersonInfo);
+		YFCElement elePriceInfo = eleOrder.createChild(XMLLiterals.PRICE_INFO);
+		elePriceInfo.setAttribute(XMLLiterals.CURRENCY, CAD);
+		elePriceInfo.setAttribute(XMLLiterals.ENTERPRISE_CURRENCY, CAD);
 		YFCElement eleRerferences = eleOrder.createChild(XMLLiterals.REFERENCES);
 		YFCElement eleRerference1 = eleRerferences.createChild(XMLLiterals.REFERENCE);
 		eleRerference1.setAttribute(XMLLiterals.NAME, XMLLiterals.HUVALUE);

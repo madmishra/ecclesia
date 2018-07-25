@@ -15,8 +15,8 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 	private static final String YES = "Y";
 	private static final String GROUP_DESCRIPTION = "GROUP_DESCRIPTION";
 	private static final String GROUP_CODE ="PROD";
-	private static final String END_DATE = "1900-01-01 00:00:00.0";
-	private static final String START_DATE = "2500-01-01 00:00:00.0";
+	private static final String END_DATE = "2500-01-01 00:00:00.0";
+	private static final String START_DATE = "1900-01-01 00:00:00.0";
 	private static final String ALL = "ALL";
 	private static final String PRIORITY = "1.00";
 	private static final String SOURCING = "SOURCING";
@@ -38,6 +38,7 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 			manageDistributionRuleForNode(eleRoot);
 			checkInventoryAlertList(eleRoot);
 			deleteDistributionForNode(eleRoot);
+			
 		}
 		return inXml;
 	}
@@ -85,7 +86,6 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		eleItemShipNode.setAttribute(XMLLiterals.EFFECTIVE_START_DATE, START_DATE);
 		eleItemShipNode.setAttribute(XMLLiterals.ITEMID, ALL);
 		eleItemShipNode.setAttribute(XMLLiterals.ITEM_TYPE, ALL);
-		eleItemShipNode.setAttribute(XMLLiterals.ITEM_SHIPNODE_KEY, eleRoot.getAttribute(XMLLiterals.SHIPNODE));
 		eleItemShipNode.setAttribute(XMLLiterals.PRIORITY, PRIORITY);
 		eleItemShipNode.setAttribute(XMLLiterals.SHIPNODE_KEY, eleRoot.getAttribute(XMLLiterals.SHIPNODE));
 		System.out.println(docManageDistributionRule + "ccccccccc");

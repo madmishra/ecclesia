@@ -215,7 +215,12 @@ public class IndgGetOrderDetails extends AbstractCustomApi {
 			YFCElement eleShipmentTemp = eleOrderLinetemp.createChild(XMLLiterals.SHIPMENT);
 			if (mapOrderLineKey.containsKey(sOrderLineKey))
 			{
+				//stamp PickUpBin number at shipment level
 				eleShipmentTemp.setAttribute(XMLLiterals.PICKUP_BIN_NUMBER, mapOrderLineKey.get(sOrderLineKey));
+				//stamp PickUpArea if PickUpBin number is not void
+				if(!mapOrderLineKey.get(sOrderLineKey).equals(EMPTY_STRING)) {
+					eleShipmentTemp.setAttribute(XMLLiterals.PICKUP_AREA, getProperty(STAGING));
+				}
 				if (mapShipmentKey.containsKey(sOrderLineKey)) {
 					YFCDocument docShipmentDetails = invokeGetShipmentDetails(mapShipmentKey.get(sOrderLineKey));
 					YFCElement eleShipmentFromShipmentDetails = docShipmentDetails.getDocumentElement()
@@ -231,8 +236,9 @@ public class IndgGetOrderDetails extends AbstractCustomApi {
 			}
 			else {
 				eleShipmentTemp.setAttribute(XMLLiterals.PICKUP_BIN_NUMBER, EMPTY_STRING);
+				eleShipmentTemp.setAttribute(XMLLiterals.PICKUP_AREA, EMPTY_STRING);
 			}
-			eleShipmentTemp.setAttribute(XMLLiterals.PICKUP_AREA, getProperty(STAGING));
+			
 		}
 		// remove the shipments element and (i.e,docTempGetOrderDetailsOutput)
 		YFCNode nodeOrder =  eleOrder.getChildElement(XMLLiterals.SHIPMENTS).getParentNode();

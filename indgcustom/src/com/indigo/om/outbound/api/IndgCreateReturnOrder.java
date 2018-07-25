@@ -70,7 +70,8 @@ public class IndgCreateReturnOrder extends AbstractCustomApi {
 		eleOrder.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleInXml.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 		eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleInXml.getAttribute(XMLLiterals.ENTERPRISE_CODE));
 		eleOrder.setAttribute(XMLLiterals.ORDER_TYPE, eleInXml.getAttribute(XMLLiterals.ORDER_TYPE));
-		eleOrder.importNode(elePersonInfo);YFCElement elePriceInfo = eleOrder.createChild(XMLLiterals.PRICE_INFO);
+		eleOrder.importNode(elePersonInfo);
+		YFCElement elePriceInfo = eleOrder.createChild(XMLLiterals.PRICE_INFO);
 		elePriceInfo.setAttribute(XMLLiterals.CURRENCY, CAD);
 		elePriceInfo.setAttribute(XMLLiterals.ENTERPRISE_CURRENCY, CAD);
 		YFCElement eleRerferences = eleOrder.createChild(XMLLiterals.REFERENCES);

@@ -37,6 +37,7 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 			System.out.println(eleRoot + "bbbbbbbbb");
 			manageDistributionRuleForNode(eleRoot);
 			checkInventoryAlertList(eleRoot);
+			deleteDistributionForNode(eleRoot);
 		}
 		return inXml;
 	}
@@ -67,7 +68,6 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 				callMonitorItemAvailability(eleRoot);
 			}
 		}
-		deleteDistributionForNode(eleRoot);
 	}
 	
 	private void manageDistributionRuleForNode(YFCElement eleRoot) {
@@ -89,7 +89,8 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		eleItemShipNode.setAttribute(XMLLiterals.PRIORITY, PRIORITY);
 		eleItemShipNode.setAttribute(XMLLiterals.SHIPNODE_KEY, eleRoot.getAttribute(XMLLiterals.SHIPNODE));
 		System.out.println(docManageDistributionRule + "ccccccccc");
-		invokeYantraApi(XMLLiterals.MANAGE_DISTRIBUTION_RULE, docManageDistributionRule);
+		YFCDocument docDistriRule = invokeYantraApi(XMLLiterals.MANAGE_DISTRIBUTION_RULE, docManageDistributionRule);
+		System.out.println(docDistriRule + "kkkkkkkkk");
 	}
 	
 	public YFCDocument getInventoryAlertListApiInp(YFCElement eleRoot) {
@@ -150,7 +151,8 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		docMonitorItemAvailability.getDocumentElement().setAttribute(XMLLiterals.ORGANIZATION_CODE, ORGANIZATION_CODE);
 		docMonitorItemAvailability.getDocumentElement().setAttribute(XMLLiterals.UNIT_OF_MEASURE, eleRoot.getAttribute(XMLLiterals.UNIT_OF_MEASURE));
 		System.out.println(docMonitorItemAvailability + "fffffffffff");
-		invokeYantraApi(XMLLiterals.MONITOR_ITEM_AVAILABILITY_API, docMonitorItemAvailability);
+		YFCDocument docMontior = invokeYantraApi(XMLLiterals.MONITOR_ITEM_AVAILABILITY_API, docMonitorItemAvailability);
+		System.out.println(docMontior + "lllllllll");
 	}
 	
 	private void deleteDistributionForNode(YFCElement eleRoot) {

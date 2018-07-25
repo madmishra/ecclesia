@@ -10,7 +10,7 @@ import com.yantra.yfc.dom.YFCElement;
 
 /**
  * 
- * @author BSG109
+ * @author  @author BSG109
  *
  */
 
@@ -48,6 +48,7 @@ public class IndgCreateCategoryItem extends AbstractCustomApi {
 	      if(categoryList.getDocumentElement().hasChildNodes()) {
 	        String categoryPath = XPathUtil.getXpathAttribute(categoryList, 
 	          "/CategoryList/Category/@CategoryPath");
+	        System.out.println("INVOKE MODIFY_CATEGORY_ITEM");
 	        invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
 	          IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID)
 	              ,CREATE_ACTION,categoryPath,organizationCode));
@@ -55,6 +56,7 @@ public class IndgCreateCategoryItem extends AbstractCustomApi {
 	        invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), inXml);
 	      }
 	    } else {
+	    	System.out.println("INVOKE ELSE MODIFY_CATEGORY_ITEM ");
 	      invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
 	          IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID)
 	              ,CREATE_ACTION,getProperty(DEFAULT_CATEGORY_PATH),organizationCode));

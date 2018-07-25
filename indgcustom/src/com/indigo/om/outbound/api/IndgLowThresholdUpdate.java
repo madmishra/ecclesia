@@ -36,14 +36,14 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 				((!YFCObject.isVoid(demandType)) && (demandType.equals(XMLLiterals.OPEN_ORDER)))) {
 			System.out.println(eleRoot + "bbbbbbbbb");
 			manageDistributionRuleForNode(eleRoot);
-			checkInventoryAlertList(eleRoot);
+			checkInventoryAlertList(eleRoot, quantity);
 			deleteDistributionForNode(eleRoot);
 			
 		}
 		return inXml;
 	}
 	
-	private void checkInventoryAlertList(YFCElement eleRoot) {
+	private void checkInventoryAlertList(YFCElement eleRoot, String inpQuantity) {
 		YFCDocument docGetInvAlertsListApiOp = getInventoryAlertListApi(eleRoot);
 		System.out.println(docGetInvAlertsListApiOp + "eeeeeeeee");
 		if(!YFCObject.isVoid(docGetInvAlertsListApiOp) && (docGetInvAlertsListApiOp.getDocumentElement().hasChildNodes())) {
@@ -53,11 +53,13 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 					getChildElement(XMLLiterals.AVAILABLE_INVENTORY).getAttribute(XMLLiterals.AVAILABLE_QUANTITY);
 			System.out.println(availableQty + "nnnnnnnnn");
 			if(!YFCObject.isVoid(availableQty)) {
+				int eventQty = (int) Double.parseDouble(inpQuantity);
 				int apiQty = (int) Double.parseDouble(availableQty);
+				int diff = eventQty - apiQty;
 				String lowQuantity = getProperty(LOW_QUANTITY);
 				int lowQtyInp = (int) Double.parseDouble(lowQuantity);
-				System.out.println(availableQty + apiQty + lowQuantity + lowQtyInp + "wwwwwwwww");
-				if(apiQty < lowQtyInp) {
+				System.out.println(eventQty + diff + availableQty + apiQty + lowQuantity + lowQtyInp + "wwwwwwwww");
+				if(diff < lowQtyInp) {
 					callMonitorItemAvailability(eleRoot);
 				}
 			}
@@ -90,14 +92,6 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		eleItemShipNode.setAttribute(XMLLiterals.SHIPNODE_KEY, eleRoot.getAttribute(XMLLiterals.SHIPNODE));
 		System.out.println(docManageDistributionRule + "ccccccccc");
 		invokeYantraApi(XMLLiterals.MANAGE_DISTRIBUTION_RULE, docManageDistributionRule);
-		getDistributionList();
-	}
-	
-	private void getDistributionList() {
-		YFCDocument docRuleList = YFCDocument.createDocument(XMLLiterals.ITEM_SHIP_NODE);
-		docRuleList.getDocumentElement().setAttribute(XMLLiterals.DISTRIBUTION_RULE_ID, getProperty(GROUP_DESCRIPTION));
-		YFCDocument outDoc = invokeYantraApi(XMLLiterals.GET_DISTRIBUTION_LIST, docRuleList);
-		System.out.println(outDoc + "kkkkkkkkkkk");
 	}
 	
 	public YFCDocument getInventoryAlertListApiInp(YFCElement eleRoot) {
@@ -172,6 +166,5 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		docDeleteDistribution.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE_KEY, eleRoot.getAttribute(XMLLiterals.SHIPNODE));
 		System.out.println(docDeleteDistribution + "gggggggggg");
 		invokeYantraApi(XMLLiterals.DELETE_DISTRIBUTION, docDeleteDistribution);
-		getDistributionList();
 	}
 }

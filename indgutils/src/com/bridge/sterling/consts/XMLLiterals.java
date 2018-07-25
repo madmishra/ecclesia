@@ -447,6 +447,5 @@ public static final String IS_ONHAND = "IsOnhand";
 public static final String REFERENCE_KEY = "ReferenceKey";
 public static final String REFERENCE_TYPE = "ReferenceType";
 public static final String ENTERPRISE_CURRENCY = "EnterpriseCurrency";
-public static final String GET_DISTRIBUTION_LIST = "getDistributionList";
 }
 

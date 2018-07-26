@@ -5,17 +5,6 @@ import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
-/**
- * 
- * This code is used to Extend the Abandonment Time 
- * when LegacyOMS063 message reaches Sterling and
- * also frames the Input for LegaccyOMS064 message
- * 
- * @author Nikita Shukla
- *
- */
-
-
 public class IndgExtendedAbandonment extends AbstractCustomApi {
 	
 	private static final String EMPTY_STRING = "";
@@ -28,16 +17,7 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 	private String setIsProcessed = "";
 	private static final String SHIPPED_STATUS = "1400";
 	YFCDocument docGetShipmentDetails = null;
-
-/**
- * This is the main Invoke Method
- * 
- * Here, we also check the Status, if the Status is
- * Shipped, we stamp the status in the Input Doc and End the process.
- * Else, if it any other status, it continues to other methods.
- * 	
- */
-
+	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
 		YFCDocument docGetShipmentListOp = getShipmentListAPI(inXml);
@@ -52,19 +32,7 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		}
 		inXml.getDocumentElement().setAttribute(XMLLiterals.STATUS, SHIPPED_STATUS);
 		return inXml;
-		
 	}
-	
-	/**
-	 * This is getShipmentList Input method,
-	 * Here we are trying to get the Status of the Order, 
-	 * if the status is Ready For Customer Pickup, only then 
-	 * we call changeShipment.
-	 * 
-	 * 
-	 * @param inXml
-	 * @return
-	 */
 	
 	public YFCDocument docgetShipmentListInp(YFCDocument inXml) {
 		YFCElement orderEle = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
@@ -78,11 +46,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		return 	eleShipment;
 	}
 	
-	/**
-	 * This is the getShipmentList Template
-	 * 
-	 * @return
-	 */
 	public YFCDocument docgetShipmentListTemp() {
 		YFCDocument docgetShipmentListTemp = YFCDocument.createDocument(XMLLiterals.SHIPMENTS);
 		YFCElement eleShipment = docgetShipmentListTemp.getDocumentElement().createChild(XMLLiterals.SHIPMENT);
@@ -100,26 +63,9 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		return docgetShipmentListTemp;
 	}
 	
-	/**
-	 * Method to invoke the API - getShipmentList
-	 * 
-	 * @param inXml
-	 * @return
-	 */
-	
 	private YFCDocument getShipmentListAPI(YFCDocument inXml) {
 		return invokeYantraApi(XMLLiterals.GET_SHIPMENT_LIST, docgetShipmentListInp(inXml), docgetShipmentListTemp());
 	}
-	
-	/**
-	 * 
-	 * This method checks for the status, if the status
-	 * is beyond Ready For Customer Pickup, changeShipment is not invoked.
-	 * Else, changeShipment API is invoked and the NewAbandonmentDate is stamped.
-	 * 
-	 * @param docGetShipmentListOp
-	 * @param inXml
-	 */
 	
 	private void checkStatusOfShipmentDetails(YFCDocument docGetShipmentListOp, YFCDocument inXml) {
 		
@@ -132,14 +78,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 			setIsProcessed = NO;
 		}
 	}
-	
-	/**
-	 * changeShipment API Input
-	 * 
-	 * @param inXml
-	 * @param docGetShipmentListOp
-	 * @return
-	 */
 	
 	private YFCDocument docChangeShipmentInp(YFCDocument inXml, YFCDocument docGetShipmentListOp) {
 		YFCDocument docChangeShipmentIn = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
@@ -162,12 +100,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		return docChangeShipmentIn;
 	}
 	
-	/**
-	 * changeShipment API Template
-	 * 
-	 * @return
-	 */
-	
 	private YFCDocument docChangeShipmentOpTemplate() {
 		YFCDocument docShipment = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
 		docShipment.getDocumentElement().setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);
@@ -188,15 +120,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		return docShipment;
 	}
 	
-	/**
-	 * Irrespective of changeShipment API being invoked or not,
-	 * We call getShipmentDetails to stamp the Abandonment Time and 
-	 * frame the input for LegacyOMS064 message
-	 * 
-	 * @param docGetShipmentListOp
-	 * @return
-	 */
-	
 	private YFCDocument docgetShipmentDetailsInp(YFCDocument docGetShipmentListOp){
 		YFCDocument docgetShipmentDetailsInp = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
 		docgetShipmentDetailsInp.getDocumentElement().setAttribute(XMLLiterals.SELLER_ORGANIZATION_CODE, 
@@ -207,12 +130,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 				docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.SHIPNODE));
 		return docgetShipmentDetailsInp;
 	}
-	
-	/**
-	 * getShipmentDetails Template
-	 * 
-	 * @return
-	 */
 	
 	private YFCDocument docgetShipmentDetailsTemplate() {
 		YFCDocument docShipment = YFCDocument.createDocument(XMLLiterals.SHIPMENT);
@@ -232,13 +149,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		eleAdditionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, EMPTY_STRING);
 		return docShipment;
 	}
-	
-	/**
-	 * Method to invoke the API - getShipmentDetails 
-	 * 
-	 * @param docGetShipmentListOp
-	 * @return
-	 */
 	
 	private YFCDocument getShipmentDetailsAPI(YFCDocument docGetShipmentListOp) {
 		return invokeYantraApi(XMLLiterals.GET_SHIPMENT_DETAILS, docgetShipmentDetailsInp(docGetShipmentListOp), docgetShipmentDetailsTemplate());

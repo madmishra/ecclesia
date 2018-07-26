@@ -7,6 +7,16 @@ import com.yantra.yfc.core.YFCObject;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
+/**
+ * @author BSG168
+ *
+ * Custom API to manage low threshold of items for both Supply and
+ * Delay scenarios. When the low threshold is hit, getInventoryAlertList API
+ * is called to check if any alerts has been raised or not, then
+ * monitorItemAvailability API is called which raises the availableChangeList 
+ * event and message is dropped in the queue.
+ */
+
 public class IndgLowThresholdUpdate extends AbstractCustomApi {
 
 	private static final String NEGATIVE = "-";
@@ -24,6 +34,11 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 	private static final String ASSUME_LOW_INVENTORY = "ASSUME_LOW_INVENTORY";
 	private static final String EMPTY_STRING = "";
 	
+	/**
+	 * This method is the invoke point of the service.
+	 * 
+	 */
+	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
 		YFCElement eleRoot = inXml.getDocumentElement();
@@ -39,6 +54,14 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		}
 		return inXml;
 	}
+	
+	/**
+	 * This method calls getInventoryAlertList API and sorts the event in
+	 * descending order (if alerts exists) or it calls getMonitorAvailability API
+	 * if assumeLowQuantity property is enabled.
+	 * @param eleRoot
+	 * @param inpQuantity
+	 */
 	
 	private void checkInventoryAlertList(YFCElement eleRoot, String inpQuantity) {
 		YFCDocument docGetInvAlertsListApiOp = getInventoryAlertListApi(eleRoot);
@@ -66,6 +89,12 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		}
 	}
 	
+	/**
+	 * This method forms the input for manageDistributionRule API and
+	 * calls the API.
+	 * @param eleRoot
+	 */
+	
 	private void manageDistributionRuleForNode(YFCElement eleRoot) {
 		YFCDocument docManageDistributionRule = YFCDocument.createDocument(XMLLiterals.DISTRIBUTION_RULE);
 		docManageDistributionRule.getDocumentElement().setAttribute(XMLLiterals.DEFAULT_FLAG, NO);
@@ -86,6 +115,12 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		invokeYantraApi(XMLLiterals.MANAGE_DISTRIBUTION_RULE, docManageDistributionRule);
 	}
 	
+	/**
+	 * This method forms the input document for getInventoryAlertList API
+	 * @param eleRoot
+	 * @return
+	 */
+	
 	public YFCDocument getInventoryAlertListApiInp(YFCElement eleRoot) {
 		YFCDocument docInputApi = YFCDocument.createDocument(XMLLiterals.INVENTORY_ALERTS);
 		docInputApi.getDocumentElement().setAttribute(XMLLiterals.NODE, eleRoot.getAttribute(XMLLiterals.SHIPNODE));
@@ -96,6 +131,11 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		inventoryItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, eleRoot.getAttribute(XMLLiterals.UNIT_OF_MEASURE));
 	    return docInputApi;
 	}
+	
+	/**
+	 * This method forms the output template for getInventoryAlertList API.
+	 * @return
+	 */
 	
 	public YFCDocument getInventoryAlertListApiTemplate() {
 		YFCDocument docTemplateApi = YFCDocument.createDocument(XMLLiterals.INVENTORY_ITEM_LIST);
@@ -116,9 +156,21 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 	    return docTemplateApi;
 	}
 	
+	/**
+	 * This method invokes the getInventoryAlertList API.
+	 * @param eleRoot
+	 * @return
+	 */
+	
 	public YFCDocument getInventoryAlertListApi(YFCElement eleRoot){
 		return  invokeYantraApi(XMLLiterals.GET_INVENTORY_ALERTS_LIST, getInventoryAlertListApiInp(eleRoot), getInventoryAlertListApiTemplate());
 	}
+	
+	/**
+	 * This method sorts the alerts in descending order by AlertRaisedOn attribute
+	 * value.
+	 * @param docGetInventoryAlertsListApiOp
+	 */
 	
 	private void sortAlertsByDescOrder(YFCDocument docGetInventoryAlertsListApiOp) {
 		YFCElement inventoryItemList = docGetInventoryAlertsListApiOp.getDocumentElement();
@@ -134,6 +186,11 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		inventoryItemList.sortChildren(attrNames, false);
 	}
 	
+	/**
+	 * This method invokes the monitorItemAvailability API.
+	 * @param eleRoot
+	 */
+	
 	private void callMonitorItemAvailability(YFCElement eleRoot) {
 		YFCDocument docMonitorItemAvailability = YFCDocument.createDocument(XMLLiterals.MONITOR_ITEM_AVAILABILITY);
 		docMonitorItemAvailability.getDocumentElement().setAttribute(XMLLiterals.ITEM_ID, eleRoot.getAttribute(XMLLiterals.ITEM_ID));
@@ -142,6 +199,12 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		docMonitorItemAvailability.getDocumentElement().setAttribute(XMLLiterals.UNIT_OF_MEASURE, eleRoot.getAttribute(XMLLiterals.UNIT_OF_MEASURE));
 		invokeYantraApi(XMLLiterals.MONITOR_ITEM_AVAILABILITY_API, docMonitorItemAvailability);
 	}
+	
+	/**
+	 * This method invokes the deleteDistribution API for the shipNode
+	 * to remove from the distribution group.
+	 * @param eleRoot
+	 */
 	
 	private void deleteDistributionForNode(YFCElement eleRoot) {
 		YFCDocument docDeleteDistribution = YFCDocument.createDocument(XMLLiterals.ITEM_SHIP_NODE);

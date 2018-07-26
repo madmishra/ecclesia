@@ -77,7 +77,7 @@ public class LDAPAuthenticator implements YFSAuthenticator{
         //	userDetailStruct.setLdapCN(YFSSystem.getProperty("ldap.cn.netti"));
         //	userDetailStruct.setGroupDN(YFSSystem.getProperty("ldap.group.dn.netti"));
 
-       		String strCredentials =  sLoginID+"@"+userDetailStruct.getLdapDN();
+       		String strCredentials =  "CN="+sLoginID+","+userDetailStruct.getLdapDN();
         	System.out.println("LDAP URL " + userDetailStruct.getLdapURL1());
         	System.out.println("LDAP Credentials " + strCredentials);
         	System.out.println("LDAP factory " + userDetailStruct.getLdapFactory());

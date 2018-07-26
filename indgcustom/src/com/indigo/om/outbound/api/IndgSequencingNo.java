@@ -203,7 +203,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		for(YFCElement shipmentLine: yfsItrator) {
 			if(shipmentLine.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).equals(sSequeneceType) && 
 					shipmentLine.getAttribute(XMLLiterals.ORDER_NO).equals(sOrderNo)) {
-				docChangeIndgSeqNo =docChangeIndgSeqNo(shipmentLine);
+				docChangeIndgSeqNo = docChangeIndgSeqNo(shipmentLine);
 			}
 		}
 		return docChangeIndgSeqNo;
@@ -301,15 +301,14 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.ORDER_NO, getOrderNo(eleOrderMessage));	
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID,XMLLiterals.LEGACY_OUTBOUND);
 		}
-		eleINDGMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleOrder.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 		eleINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
 		return docINDGMsgSeqNoList;
 	}
 	
 	private String getOrderNo(YFCElement eleOrderMessage) {
-	  String orderNo = eleOrderMessage.getAttribute(XMLLiterals.ORDER_NO,EMPTY_STRING);
+	  String orderNo = eleOrderMessage.getAttribute(XMLLiterals.ORDER_NO);
 	  if(XmlUtils.isVoid(orderNo)) {
-	    orderNo = eleOrderMessage.getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO,EMPTY_STRING);
+	    orderNo = eleOrderMessage.getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO);
 	  }
 	  return orderNo;
 	}

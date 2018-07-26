@@ -73,8 +73,10 @@ public class IndgCancelOrderInBatchPick {
 			throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_REMOTE_EXP, remexp);
 		}
 		env.clearApiTemplates();
+		String docGetShipmentLineListString = docGetShipmentLineListOutput.toString();
+		YFCDocument docShipmentLineList = YFCDocument.getDocumentFor(docGetShipmentLineListString);
 		System.out.println("jdnjnbknbk"+docGetShipmentLineListOutput);
-		invokeChangeOrderAPI((YFCDocument) docGetShipmentLineListOutput);
+		invokeChangeOrderAPI(docShipmentLineList);
 	}
 	 private void invokeChangeOrderAPI(YFCDocument docGetShipmentLineList) {
 		 System.out.println("fhbjsdhgjahnkjhn"+docGetShipmentLineList);
@@ -162,7 +164,17 @@ public class IndgCancelOrderInBatchPick {
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.ORGANIZATION_CODE, XMLLiterals.INDIGO_CA);
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.UNIT_OF_MEASURE, eleItem.getAttribute(XMLLiterals.UNIT_OF_MEASURE));
 			 System.out.println("sjnfkjak"+docgetInvNodeContrlList);
-			 return docgetInvNodeContrlList;	 
+			 Document docgetInvNodeContrlListOutput;
+			 try {
+				 docgetInvNodeContrlListOutput = YIFClientFactory.getInstance().getApi().invoke(env,  XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST, docgetInvNodeContrlList.getDocument());
+				} catch (YIFClientCreationException yifCCEx) {
+					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_CC_EXP, yifCCEx);
+				}catch (RemoteException remexp) {
+					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_REMOTE_EXP, remexp);
+				}
+			 String getInvNodeControlList = docgetInvNodeContrlListOutput.toString();
+			 return YFCDocument.getDocumentFor(getInvNodeControlList);
+			  
 	  }
 	  
 	  public void invokeManageInventoryNodeControlAPI(YFCElement eleItem) {

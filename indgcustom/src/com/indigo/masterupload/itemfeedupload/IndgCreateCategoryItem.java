@@ -16,53 +16,55 @@ import com.yantra.yfc.dom.YFCElement;
 
 public class IndgCreateCategoryItem extends AbstractCustomApi {
 	
-	  String organizationCode="Indigo_CA"; 
-	  private static final String CREATE_ACTION = "Create";
-	  private static final String DEFAULT_CATEGORY_PATH = "DefaultCategoryPath";
-	  private static final String EMPTY_STRING = "";
-	  private static final String CATEGORY_ALERT_FLOW="CATEGORY_ALERT_FLOW";
+	String organizationCode="Indigo_CA"; 
+	private static final String CREATE_ACTION = "Create";
+	private static final String DEFAULT_CATEGORY_PATH = "DefaultCategoryPath";
+	private static final String EMPTY_STRING = "";
+	private static final String CATEGORY_ALERT_FLOW="CATEGORY_ALERT_FLOW";
 	
-
-	  /**
-	   * This is the starting point of the class
-	   * 
-	   */
+	/**
+	 * This is the starting point of the class
+	 * 
+	 */
 	  
-	  @Override
-	  public YFCDocument invoke(YFCDocument inXml) {
-		  createCategoryItem(inXml);
-		  return inXml;
-	  }
+	@Override
+	public YFCDocument invoke(YFCDocument inXml) {
+		createCategoryItem(inXml);
+		return inXml;
+	}
 	  
-	  /**
-	   * This method calls modifyCategoryItem for creating categoryFeed
-	   * 
-	   * @param inXml
-	   */
+	/**
+	 * This method calls modifyCategoryItem for creating categoryFeed
+	 * 
+	 * @param inXml
+	 */
 	  
-	  private void createCategoryItem(YFCDocument inXml) {
-	    YFCElement itemEle = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM);
+	private void createCategoryItem(YFCDocument inXml) {
+		System.out.println("----INDG_CREATECATEGORY INPUT----"+inXml);
+		YFCElement itemEle = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM);
 	    String categoryId = IndgManageItemFeed.getCategoryID(itemEle);
+	    System.out.println("----INDG_CREATECATEGORY categoryId----"+categoryId);
 	    if(!XmlUtils.isVoid(categoryId)) {
-	      YFCDocument categoryList = getCategoryList(categoryId, organizationCode);
-	      if(categoryList.getDocumentElement().hasChildNodes()) {
-	        String categoryPath = XPathUtil.getXpathAttribute(categoryList, 
-	          "/CategoryList/Category/@CategoryPath");
-	        System.out.println("INVOKE MODIFY_CATEGORY_ITEM");
-	        invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
-	          IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID)
-	              ,CREATE_ACTION,categoryPath,organizationCode));
-	        } else {
-	        invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), inXml);
-	      }
-	    } else {
-	    	System.out.println("INVOKE ELSE MODIFY_CATEGORY_ITEM ");
-	      invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
-	          IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID)
-	              ,CREATE_ACTION,getProperty(DEFAULT_CATEGORY_PATH),organizationCode));
-	    }
+	    	YFCDocument categoryList = getCategoryList(categoryId, organizationCode);
+	    	System.out.println("----INDG_CREATECATEGORY categoryList----"+categoryList);
+	    	if(categoryList.getDocumentElement().hasChildNodes()) {
+	    		String categoryPath = XPathUtil.getXpathAttribute(categoryList, "/CategoryList/Category/@CategoryPath");
+	    		System.out.println("INVOKE MODIFY_CATEGORY_ITEM");
+	    		invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
+	    				IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),
+	    						CREATE_ACTION,categoryPath,organizationCode));
+	        	} else {
+	        		System.out.println("----CATEGORY_ALERT_FLOW------");
+	        		invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), inXml);
+	        	}
+	    	} else {
+	    		System.out.println("INVOKE ELSE MODIFY_CATEGORY_ITEM ");
+	    		invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
+	    				IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),
+	    						CREATE_ACTION,getProperty(DEFAULT_CATEGORY_PATH),organizationCode));
+	    	}
 	    setItemType(itemEle);
-	  }
+	}
 	  
 	  /**
 	   * This method calls getCategoryList API
@@ -94,6 +96,7 @@ public class IndgCreateCategoryItem extends AbstractCustomApi {
 	         .setAttribute(XMLLiterals.ITEM_TYPE,categoryID);
 	       }
 	     }
+	     System.out.println("------itemEle---"+itemEle);
 	   }
 	  
 	  

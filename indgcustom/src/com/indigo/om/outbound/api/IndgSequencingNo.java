@@ -76,8 +76,6 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		{
 			eleOrderMessage.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, eleINDGMsgSeqNo.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO));
 		}
-	
-	
 	}
 	 /**
 	  * This method stores the different types of date fields present in incoming messages
@@ -93,7 +91,6 @@ public class IndgSequencingNo extends AbstractCustomApi {
 				map.put(hashKey, curXpathAtrCustom);
 			}
 		}
-			
 	}
 	
 	/**
@@ -101,9 +98,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	 * @param inXml
 	 */
 	
-	private void upadteMilliSeconds(YFCDocument inXml)
-	{
-		
+	private void upadteMilliSeconds(YFCDocument inXml) {
 		YFCElement eleOrderMessage = inXml.getDocumentElement();
 		YFCElement eleOrder = eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		
@@ -145,15 +140,11 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	 */
 	  
 	private String  addMilliseconds(YTimestamp ts) {
-		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		String sModifyts= format.format(ts);
 		return sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
-		
-		
 	}
 
-	  
 	/**
 	  * this method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method
 	  * 
@@ -272,11 +263,9 @@ public class IndgSequencingNo extends AbstractCustomApi {
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,EMPTY_STRING);
 			}
 			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
-			 
 		}
 		else {
 			return inputGetINDGMsgSeqNoList(docOrderMessage);
-			
 		}
 	}
 		
@@ -304,6 +293,12 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		eleINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
 		return docINDGMsgSeqNoList;
 	}
+	
+	/**
+	 * 
+	 * @param eleOrderMessage
+	 * @return
+	 */
 	
 	private String getOrderNo(YFCElement eleOrderMessage) {
 	  String orderNo = eleOrderMessage.getAttribute(XMLLiterals.ORDER_NO);

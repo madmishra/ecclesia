@@ -55,14 +55,6 @@ US Government Users Restricted Rights - Use, duplication or disclosure restricte
           Size="20"
           Type="NVARCHAR"
           XMLName="SAPOrderNo" />
-		  <Attribute ColumnName="DOCUMENT_TYPE"
-          DataType="Text-20"
-          DefaultValue="''"
-          Description="DocumentType"
-          Nullable="false"
-          Size="20"
-          Type="NVARCHAR"
-          XMLName="DocumentType" />
 		   <Attribute ColumnName="ENTERPRISE_CODE"
           DataType="Text-20"
           DefaultValue="''"

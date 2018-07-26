@@ -64,21 +64,12 @@ public class IndgCancelOrderInBatchPick {
 		YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
 		eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
 	    env.setApiTemplate(XMLLiterals.GET_SHIPMENT_LINE_LIST, tempgetShipmentLineList().getDocument());
-	    Document docGetShipmentLineListOutput;
-	    try {
-	    	docGetShipmentLineListOutput =  YIFClientFactory.getInstance().getApi().invoke(env,  XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList.getDocument());
-		} catch (YIFClientCreationException yifCCEx) {
-			throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_CC_EXP, yifCCEx);
-		}catch (RemoteException remexp) {
-			throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_REMOTE_EXP, remexp);
-		}
+	    YFCDocument docGetShipmentLineListOutput = invokeAPI(docgetShipmentLineList, XMLLiterals.GET_SHIPMENT_LINE_LIST);
 		env.clearApiTemplates();
-		String docGetShipmentLineListString = docGetShipmentLineListOutput.toString();
-		YFCDocument docShipmentLineList = YFCDocument.getDocumentFor(docGetShipmentLineListString);
 		System.out.println("jdnjnbknbk"+docGetShipmentLineListOutput);
-		invokeChangeOrderAPI(docShipmentLineList);
+		invokeChangeOrderAPI(docGetShipmentLineListOutput);
 	}
-	 private void invokeChangeOrderAPI(YFCDocument docGetShipmentLineList) {
+	 public void invokeChangeOrderAPI(YFCDocument docGetShipmentLineList) {
 		 System.out.println("fhbjsdhgjahnkjhn"+docGetShipmentLineList);
 		 YFCIterable<YFCElement> eleShipmentLine = docGetShipmentLineList.getDocumentElement().getChildren(XMLLiterals.SHIPMENT_LINE);
 		 for(YFCElement shipmentLine : eleShipmentLine) {
@@ -102,13 +93,7 @@ public class IndgCancelOrderInBatchPick {
 		 YFCElement eleItem = eleOrderLine.createChild(XMLLiterals.ITEM);
 		 eleItem.setAttribute(XMLLiterals.ITEM_ID, shipmentLine.getAttribute(XMLLiterals.ITEM_ID));
 		 System.out.println("bhfbdjjngkh"+docOrder);
-		 try {
-				YIFClientFactory.getInstance().getApi().invoke(env,  XMLLiterals.CHANGE_ORDER_API, docOrder.getDocument());
-			} catch (YIFClientCreationException yifCCEx) {
-				throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_CC_EXP, yifCCEx);
-			}catch (RemoteException remexp) {
-				throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_REMOTE_EXP, remexp);
-			}
+		 invokeAPI(docOrder, XMLLiterals.CHANGE_ORDER_API);
 		 }
 	 }
 	
@@ -133,7 +118,7 @@ public class IndgCancelOrderInBatchPick {
 			}
 		  }
 	
-	private YFCDocument tempgetShipmentLineList() {
+	public YFCDocument tempgetShipmentLineList() {
 		YFCDocument tempgetShipmentLineList = YFCDocument.createDocument(XMLLiterals.SHIPMENT_LINES);
 		YFCElement eleShipmentLine = tempgetShipmentLineList.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINE);
 		eleShipmentLine.setAttribute(XMLLiterals.UNIT_OF_MEASURE, EMPTY_STRING);
@@ -164,17 +149,7 @@ public class IndgCancelOrderInBatchPick {
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.ORGANIZATION_CODE, XMLLiterals.INDIGO_CA);
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.UNIT_OF_MEASURE, eleItem.getAttribute(XMLLiterals.UNIT_OF_MEASURE));
 			 System.out.println("sjnfkjak"+docgetInvNodeContrlList);
-			 Document docgetInvNodeContrlListOutput;
-			 try {
-				 docgetInvNodeContrlListOutput = YIFClientFactory.getInstance().getApi().invoke(env,  XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST, docgetInvNodeContrlList.getDocument());
-				} catch (YIFClientCreationException yifCCEx) {
-					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_CC_EXP, yifCCEx);
-				}catch (RemoteException remexp) {
-					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_REMOTE_EXP, remexp);
-				}
-			 String getInvNodeControlList = docgetInvNodeContrlListOutput.toString();
-			 return YFCDocument.getDocumentFor(getInvNodeControlList);
-			  
+			 return invokeAPI(docgetInvNodeContrlList, XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST);	    
 	  }
 	  
 	  public void invokeManageInventoryNodeControlAPI(YFCElement eleItem) {
@@ -195,14 +170,7 @@ public class IndgCancelOrderInBatchPick {
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.ORGANIZATION_CODE, XMLLiterals.INDIGO_CA);
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.UNIT_OF_MEASURE, eleItem.getAttribute(XMLLiterals.UNIT_OF_MEASURE));
 			 System.out.println("fjskdgakhj"+docManageInventoryNodeControl);
-			 
-			 try {
-					YIFClientFactory.getInstance().getApi().invoke(env,  XMLLiterals.MANGE_INVENTORY_NODE_CONTROL, docManageInventoryNodeControl.getDocument());
-				} catch (YIFClientCreationException yifCCEx) {
-					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_CC_EXP, yifCCEx);
-				}catch (RemoteException remexp) {
-					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_REMOTE_EXP, remexp);
-				}
+			 invokeAPI(docManageInventoryNodeControl, XMLLiterals.MANGE_INVENTORY_NODE_CONTROL);
 			 invokeCreateException(eleItem);
 		  
 	  }
@@ -229,14 +197,22 @@ public class IndgCancelOrderInBatchPick {
 			 eleInbox.setAttribute(XMLLiterals.EXPIRATION_DAYS, sExpirationDays);
 			 eleInbox.setAttribute(XMLLiterals.QUEUE_ID, INVENTORY_DIRTY_QUEUE);
 			 System.out.println("jdigkjg"+docCreateException);
+			 invokeAPI(docCreateException,XMLLiterals.CREATE_EXCEPTION);
+		 }
+	  
+	  public YFCDocument invokeAPI(YFCDocument inputDoc, String sAPIName)
+	  {
+		  Document docOutput;
 			 try {
-					YIFClientFactory.getInstance().getApi().invoke(env,  XMLLiterals.CREATE_EXCEPTION, docCreateException.getDocument());
+				 docOutput = YIFClientFactory.getInstance().getApi().invoke(env,  XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST, inputDoc.getDocument());
 				} catch (YIFClientCreationException yifCCEx) {
 					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_CC_EXP, yifCCEx);
 				}catch (RemoteException remexp) {
 					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_REMOTE_EXP, remexp);
 				}
-		 }
+			 String sOutputDoc = docOutput.toString();
+			 return YFCDocument.getDocumentFor(sOutputDoc);
+	  }
 }
 
 

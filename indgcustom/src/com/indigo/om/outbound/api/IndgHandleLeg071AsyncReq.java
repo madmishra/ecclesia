@@ -17,8 +17,9 @@ import com.yantra.yfc.dom.YFCElement;
  */
 public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 	
-	private static final String DOCUMENT_TYPE = "0001";
-	private static final String ORDER_STATUS = "3700";
+	 private static final String DOCUMENT_TYPE = "0001";
+	 private static final String ORDER_STATUS = "3700";
+	 private static final String ABANDONMENT_STATUS = "9000.100";
 	 private static final String EMPTY_STRING = " ";
 	 private static final String YES = "Y";
 	 private static final String INDG_CREATE_RETURN_SYNC="Indg_CreateReturn_SYNC";
@@ -80,7 +81,8 @@ public class IndgHandleLeg071AsyncReq extends AbstractCustomApi{
 				getChildElement(XMLLiterals.ORDER_STATUSES).getChildren(XMLLiterals.ORDER_STATUS);
 				for(YFCElement orderStatus : eleOrderStatus)
 				{	
-					if(orderStatus.getAttribute(XMLLiterals.STATUS).contains(ORDER_STATUS)){
+					if(orderStatus.getAttribute(XMLLiterals.STATUS).contains(ORDER_STATUS) || 
+							orderStatus.getAttribute(XMLLiterals.STATUS).equals(ABANDONMENT_STATUS)  ){
 						IS_SHIPPED = YES;
 						break;
 					}

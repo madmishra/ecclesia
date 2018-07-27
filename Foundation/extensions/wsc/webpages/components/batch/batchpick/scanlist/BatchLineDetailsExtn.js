@@ -35,9 +35,9 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!extn/components/bat
 				var LM = ""
 				var arrayList = arrayListObject.AdditionalAttributeList.AdditionalAttribute;
 				if (arrayListObject.ClassificationCodes && arrayListObject.ClassificationCodes.CommodityCode)
-					MCAT = arrayListObject.ClassificationCodes.CommodityCode;
-				if (arrayListObject.PrimaryInformation && arrayListObject.PrimaryInformation.ProductLine)
 					LM = arrayListObject.ClassificationCodes.CommodityCode;
+				if (arrayListObject.PrimaryInformation && arrayListObject.PrimaryInformation.ProductLine)
+					MCAT = arrayListObject.PrimaryInformation.ProductLine;
 				var additionalDetailsObject = {
 					MCAT: MCAT,
 					LM: LM

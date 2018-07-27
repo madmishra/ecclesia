@@ -12,6 +12,10 @@
                 class="idxSpecialButton longButtons"
                 label="$(_scSimpleBundle:extn_giftWrap)"
                 renderHidden="true" uId="extn_button"/>
+            <FilteringSelect _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="filteringSelectCarrier" renderHidden="true"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txt_SearchShipNo" renderHidden="true"/>
         </Items>
         <Namespaces>
             <SourceNamespaces>

@@ -40,30 +40,23 @@ public class IndgCreateCategoryItem extends AbstractCustomApi {
 	 */
 	  
 	private void createCategoryItem(YFCDocument inXml) {
-		System.out.println("----INDG_CREATECATEGORY INPUT----"+inXml);
 		YFCElement itemEle = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM);
 	    String categoryId = IndgManageItemFeed.getCategoryID(itemEle);
-	    System.out.println("----INDG_CREATECATEGORY categoryId----"+categoryId);
 	    if(!XmlUtils.isVoid(categoryId)) {
 	    	YFCDocument categoryList = getCategoryList(categoryId, organizationCode);
-	    	System.out.println("----INDG_CREATECATEGORY categoryList----"+categoryList);
 	    	if(categoryList.getDocumentElement().hasChildNodes()) {
 	    		String categoryPath = XPathUtil.getXpathAttribute(categoryList, "/CategoryList/Category/@CategoryPath");
-	    		System.out.println("INVOKE MODIFY_CATEGORY_ITEM");
 	    		invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
 	    				IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),
 	    						CREATE_ACTION,categoryPath,organizationCode));
 	        	} else {
-	        		System.out.println("----CATEGORY_ALERT_FLOW------");
 	        		invokeYantraService(getProperty(CATEGORY_ALERT_FLOW), inXml);
 	        	}
 	    	} else {
-	    		System.out.println("INVOKE ELSE MODIFY_CATEGORY_ITEM ");
 	    		invokeYantraApi(XMLLiterals.MODIFY_CATEGORY_ITEM, 
 	    				IndgManageItemFeed.getInputDocForModifyCategoryItem(itemEle.getAttribute(XMLLiterals.ITEM_ID),
 	    						CREATE_ACTION,getProperty(DEFAULT_CATEGORY_PATH),organizationCode));
 	    	}
-	    setItemType(itemEle);
 	}
 	  
 	  /**
@@ -78,26 +71,4 @@ public class IndgCreateCategoryItem extends AbstractCustomApi {
 	         IndgCategoryMasterUpload.getInputXmlForGetCategoryList(categoryId,org,EMPTY_STRING),
 	           IndgCategoryMasterUpload.formTemplateXmlForgetCategoryList());
 	   }
-	   
-	   /**
-	    * 
-	    * This method sets ItemType from commodity code attribute
-	    * from the item element. 
-	    * 
-	    * @param itemEle
-	    */
-	   
-	   public static void setItemType(YFCElement itemEle) {
-	     if(!XmlUtils.isVoid(itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES))) {
-	       String categoryID = itemEle.getChildElement(XMLLiterals.CLASSIFICATION_CODES)
-	           .getAttribute(XMLLiterals.COMMODITY_CODE,EMPTY_STRING);
-	       if(!XmlUtils.isVoid(categoryID)) {
-	         itemEle.getChildElement(XMLLiterals.PRIMARY_INFORMATION)
-	         .setAttribute(XMLLiterals.ITEM_TYPE,categoryID);
-	       }
-	     }
-	     System.out.println("------itemEle---"+itemEle);
-	   }
-	  
-	  
 }

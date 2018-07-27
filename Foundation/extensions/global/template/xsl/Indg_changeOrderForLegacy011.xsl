@@ -23,9 +23,11 @@
 						</xsl:attribute>
 						<xsl:attribute name="SubLineNo">1</xsl:attribute>
 						<LinePriceInfo>
-							<xsl:attribute name="RetailPrice">
-								<xsl:value-of select="LinePriceInfo/@RetailPrice"/>
-							</xsl:attribute>
+							<xsl:if test="LinePriceInfo/@RetailPrice !=''">
+								<xsl:attribute name="RetailPrice">
+									<xsl:value-of select="LinePriceInfo/@RetailPrice"/>
+								</xsl:attribute>
+							</xsl:if>
 							<xsl:attribute name="ListPrice">
 								<xsl:value-of select="LinePriceInfo/@ListPrice"/>
 							</xsl:attribute>

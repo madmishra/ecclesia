@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.w3c.dom.Document; 
 
-public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
+public class IndgDummyBattchPick implements YCDhandleShortageForBatchLineUE{
 	private static YFCLogCategory cat = YFCLogCategory.instance(Indg_HandleBatchPick.class);
 	  
 	  public Document handleShortageForBatchLine(YFSEnvironment env, Document inXML)
@@ -240,8 +240,8 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	  
 	  private void callChangeShipmentForAllShipments(YFSEnvironment env, Map changeShipmentInputMap, String shortageReason, YFCDocument docInput)
 	  {
-	   // IndgCancelOrderInBatchPick oBatchPick = new IndgCancelOrderInBatchPick(env);
-		//oBatchPick.handleNodeInventory(docInput);
+	    IndgCancelOrderInBatchPick oBatchPick = new IndgCancelOrderInBatchPick(env);
+		oBatchPick.handleNodeInventory(docInput);
 	    YFCDocument changeShipmentTemplateDoc = YFCDocument.createDocument("Shipment");
 	    YFCElement changeShipmentTemplate = changeShipmentTemplateDoc.getDocumentElement();
 	    changeShipmentTemplate.setAttribute("ShipmentKey", "");
@@ -254,7 +254,7 @@ public class Indg_HandleBatchPick implements YCDhandleShortageForBatchLineUE{
 	      YFCElement apiElem = YFCDocument.createDocument("API").getDocumentElement();
 	      apiElem.setAttribute("Name", "changeShipment");
 	       APIManager.getInstance().invokeAPI(env, apiElem, changeShipmentInput, changeShipmentTemplate);
-	      //oBatchPick.invokeChangeOrder(docInput);
+	      oBatchPick.invokeChangeOrder(docInput);
 	      
 	      System.out.println("*****************************");
 	    }

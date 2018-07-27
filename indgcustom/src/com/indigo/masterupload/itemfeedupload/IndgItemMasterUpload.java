@@ -27,18 +27,19 @@ public class IndgItemMasterUpload extends AbstractCustomApi {
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
+	  System.out.println(inXml + "aaaaaaaaaaa");
     YFCElement invEle = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM)
       .createChild(XMLLiterals.INVENTORY_PARAMETERS);
     invEle.setAttribute(XMLLiterals.ATP_RULE, DEFAULT_ATP_RULE);
     invEle.setAttribute(XMLLiterals.NODE_LEVEL_INVENTORY_MONITOR_RULE, NODE_LEVEL_INV_MONITOR_RULE);
+    System.out.println(invEle + "bbbbbbbbbb");
     YFCDocument docapiout = invokeYantraApi(XMLLiterals.MANAGE_ITEM, inXml);
     System.out.println("---------docapiout---"+docapiout);
    if(getProperty(CATEGORY_ITEM_CREATION_REQ).equals(YES))
    {
+	   System.out.println(getProperty(CATEGORY_ITEM_CREATION_REQ) + "cccccccc");
 	   invokeYantraService(INDG_CATEGORY_ITEM_Q, inXml);
    }
     return inXml;
   }
-  
- 
 }

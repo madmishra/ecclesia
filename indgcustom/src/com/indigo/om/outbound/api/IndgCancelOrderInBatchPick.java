@@ -64,6 +64,7 @@ public class IndgCancelOrderInBatchPick {
 		YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
 		eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
 	    env.setApiTemplate(XMLLiterals.GET_SHIPMENT_LINE_LIST, tempgetShipmentLineList().getDocument());
+	    System.out.println(docgetShipmentLineList + "aaaaaaaa");
 	    YFCDocument docGetShipmentLineListOutput = invokeAPI(docgetShipmentLineList, XMLLiterals.GET_SHIPMENT_LINE_LIST);
 		env.clearApiTemplates();
 		System.out.println("jdnjnbknbk"+docGetShipmentLineListOutput);
@@ -80,6 +81,7 @@ public class IndgCancelOrderInBatchPick {
 		 eleOrder.setAttribute(XMLLiterals.ORDER_NO, shipmentLine.getAttribute(XMLLiterals.ORDER_NO));
 		 eleOrder.setAttribute(XMLLiterals.ORDER_TYPE, ORDER_TYPE);
 		 eleOrder.setAttribute(XMLLiterals.MODIFICATION_REASON_CODE, sCancellationReasonCode);
+		 System.out.println(docOrder + "bbbbbbbbb");
 		 YFCElement eleOrderLine = eleOrder.createChild(XMLLiterals.ORDER_LINES).createChild(XMLLiterals.ORDER_LINE);
 		 eleOrderLine.setAttribute(XMLLiterals.ACTION, CANCEL);
 		 double sOrderedQty= Double.parseDouble(shipmentLine.getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.ORIGINAL_ORDERED_QTY))
@@ -104,6 +106,7 @@ public class IndgCancelOrderInBatchPick {
 		  YFCElement eleItem = docInput.getDocumentElement().getChildElement(XMLLiterals.ITEM);
 		  if(eleItem.getAttribute(SHORTAGE_REASON).equals(SHORTAGE)) {
 			  YFCDocument docGetInvControlList = invokeGetInventoryNodeControlList(eleItem);
+			  System.out.println(docGetInvControlList + "cccccccccc");
 			  if(docGetInvControlList.getDocumentElement().hasChildNodes())
 					sCancellationReasonCode = TWO;
 				else
@@ -111,11 +114,12 @@ public class IndgCancelOrderInBatchPick {
 					sCancellationReasonCode = FOUR;
 					invokeManageInventoryNodeControlAPI(eleItem);	
 				}
-			}
+			} 
 			else if(eleItem.getAttribute(SHORTAGE_REASON).equals(DAMAGED))
 			{
 				sCancellationReasonCode = ONE;
 			}
+		  System.out.println(sCancellationReasonCode + "dddddddddd");
 		  }
 	
 	public YFCDocument tempgetShipmentLineList() {
@@ -156,6 +160,7 @@ public class IndgCancelOrderInBatchPick {
 			 YFCDocument docManageInventoryNodeControl = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
 			 YFCElement eleInventoryNodeControl = docManageInventoryNodeControl.getDocumentElement();
 			 String sInventoryPictureTillDate = getInventoryPictureTillDate();
+			 System.out.println(sInventoryPictureTillDate + "eeeeeeeeee");
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.INVENTORY_PICTURE_IN_CORRECT_TILL_DATE, sInventoryPictureTillDate);
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.INVENTORY_PICTURE_CORRECT, NO);
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.ITEM_ID, eleItem.getAttribute(XMLLiterals.ITEM_ID));
@@ -181,7 +186,8 @@ public class IndgCancelOrderInBatchPick {
 			 String  sNoOfDays = "15";
 			 int noOfDays = Integer.parseInt(sNoOfDays);
 			 cal.add(Calendar.DAY_OF_MONTH, noOfDays);  
-			 String date =  sdf.format(cal.getTime()); 
+			 String date =  sdf.format(cal.getTime());
+			 System.out.println(date.substring(0,10)+"T"+date.substring(11,23)+"Z" + "ffffffffff");
 			 return date.substring(0,10)+"T"+date.substring(11,23)+"Z";
 		 }
 	  
@@ -211,6 +217,7 @@ public class IndgCancelOrderInBatchPick {
 					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_REMOTE_EXP, remexp);
 				}
 			 String sOutputDoc = docOutput.toString();
+			 System.out.println(YFCDocument.getDocumentFor(sOutputDoc) + "fffffffff");
 			 return YFCDocument.getDocumentFor(sOutputDoc);
 	  }
 }

@@ -51,9 +51,10 @@ public class IndgCancelReservation extends AbstractCustomApi{
 
 	private void prepareInputForCancelReservation(YFCDocument inXml) {
 		YFCDocument docInvReserv = YFCDocument.createDocument("InventoryReservation");
-		reservationId = inXml.getDocumentElement().getAttribute("ReservationId");
+		YFCElement eleCart = inXml.getDocumentElement().getChildElement("Cart");
+		reservationId = eleCart.getAttribute("ReservationId");
 		docInvReserv.getDocumentElement().setAttribute("ReservationID", reservationId);
-		docInvReserv.getDocumentElement().setAttribute("OrganizationCode", inXml.getDocumentElement().getAttribute("EnterpriseCode"));
+		docInvReserv.getDocumentElement().setAttribute("OrganizationCode", eleCart.getAttribute("EnterpriseCode"));
 		
 		YFCDocument docInvReservOut = invokeYantraApi("getInventoryReservationList", docInvReserv);
 		
@@ -76,13 +77,4 @@ public class IndgCancelReservation extends AbstractCustomApi{
 		}
 	}
 	
-//	 public static void main(String[] args) {
-//		
-//		 IndgCancelReservation obj = new IndgCancelReservation();
-//		 File f = new File("C:/Input/CRInput.xml");
-//		 YFCDocument doc = YFCDocument.getDocumentFor(f);
-//		
-//		 obj.invoke(doc);
-//		 }
-
 }

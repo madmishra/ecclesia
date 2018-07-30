@@ -147,6 +147,7 @@ public class IndgCancelOrderInBatchPick {
 	  {
 			 YFCDocument docgetInvNodeContrlList = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
 			 YFCElement eleInventoryNodeControl = docgetInvNodeContrlList.getDocumentElement();
+			 System.out.println("plwqqqjfiret"+eleInventoryNodeControl);
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.INVENTORY_PICTURE_CORRECT, YES);
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.ITEM_ID, eleItem.getAttribute(XMLLiterals.ITEM_ID));
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.NODE, eleItem.getAttribute(XMLLiterals.ORGANIZATION_CODE));

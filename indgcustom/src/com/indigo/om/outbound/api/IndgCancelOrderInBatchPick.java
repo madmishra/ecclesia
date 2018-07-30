@@ -218,7 +218,7 @@ public class IndgCancelOrderInBatchPick {
 					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_REMOTE_EXP, remexp);
 				}
 			 String sOutputDoc = docOutput.toString();
-			 System.out.println(YFCDocument.getDocumentFor(sOutputDoc) + "fffffffff");
+			 System.out.println(sOutputDoc + "fffffffff");
 			 return YFCDocument.getDocumentFor(sOutputDoc);
 	  }
 }

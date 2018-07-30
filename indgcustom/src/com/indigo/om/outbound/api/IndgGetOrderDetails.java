@@ -148,6 +148,7 @@ public class IndgGetOrderDetails extends AbstractCustomApi {
 		eleReference.setAttribute(XMLLiterals.VALUE, EMPTY_STRING);
 		YFCElement eleAdditionalAddresses = eleOrderLine.createChild(XMLLiterals.ADDITIONAL_ADDRESSES);
 		YFCElement eleAdditionalAddress = eleAdditionalAddresses.createChild(XMLLiterals.ADDITIONAL_ADDRESS);
+		eleAdditionalAddress.setAttribute(XMLLiterals.ADDRESS_TYPE, EMPTY_STRING);
 		YFCElement elePersonInfo = eleAdditionalAddress.createChild(XMLLiterals.PERSON_INFO);
 		elePersonInfo.setAttribute(XMLLiterals.ADDRESS_ID, EMPTY_STRING);
 		elePersonInfo.setAttribute(XMLLiterals.FIRST_NAME, EMPTY_STRING);

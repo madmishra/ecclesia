@@ -211,7 +211,7 @@ public class IndgCancelOrderInBatchPick {
 	  {
 		  Document docOutput;
 			 try {
-				 docOutput = YIFClientFactory.getInstance().getApi().invoke(env,  XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST, inputDoc.getDocument());
+				 docOutput = YIFClientFactory.getInstance().getApi().invoke(env,  sAPIName, inputDoc.getDocument());
 				} catch (YIFClientCreationException yifCCEx) {
 					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_CC_EXP, yifCCEx);
 				}catch (RemoteException remexp) {
@@ -220,6 +220,7 @@ public class IndgCancelOrderInBatchPick {
 			 String sOutputDoc = docOutput.toString();
 			 System.out.println(sOutputDoc + "fffffffff");
 			 return YFCDocument.getDocumentFor(sOutputDoc);
+			
 	  }
 }
 

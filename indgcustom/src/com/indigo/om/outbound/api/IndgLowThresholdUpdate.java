@@ -67,17 +67,20 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		YFCDocument docGetInvAlertsListApiOp = getInventoryAlertListApi(eleRoot);
 		if(!YFCObject.isVoid(docGetInvAlertsListApiOp) && (docGetInvAlertsListApiOp.getDocumentElement().hasChildNodes())) {
 			sortAlertsByDescOrder(docGetInvAlertsListApiOp);
-			String availableQty = docGetInvAlertsListApiOp.getDocumentElement().getChildElement(XMLLiterals.INVENTORY_ITEM).
-					getChildElement(XMLLiterals.INVENTORY_ALERTS_LIST).getChildElement(XMLLiterals.INVENTORY_ALERTS).getChildElement(XMLLiterals.AVAILABILITY_INFORMATION).
-					getChildElement(XMLLiterals.AVAILABLE_INVENTORY).getAttribute(XMLLiterals.AVAILABLE_QUANTITY);
-			if(!YFCObject.isVoid(availableQty)) {
-				int eventQty = (int) Double.parseDouble(inpQuantity);
-				int apiQty = (int) Double.parseDouble(availableQty);
-				int diff = eventQty - apiQty;
-				String lowQuantity = getProperty(LOW_QUANTITY);
-				int lowQtyInp = (int) Double.parseDouble(lowQuantity);
-				if(diff < lowQtyInp) {
-					callMonitorItemAvailability(eleRoot);
+			YFCElement eleInventoryAlerts = docGetInvAlertsListApiOp.getDocumentElement().getChildElement(XMLLiterals.INVENTORY_ITEM).
+					getChildElement(XMLLiterals.INVENTORY_ALERTS_LIST).getChildElement(XMLLiterals.INVENTORY_ALERTS);
+			if((eleInventoryAlerts.hasChildNodes()) && (eleInventoryAlerts.getChildElement(XMLLiterals.AVAILABILITY_INFORMATION).hasChildNodes())) {
+				String availableQty = eleInventoryAlerts.getChildElement(XMLLiterals.AVAILABILITY_INFORMATION).
+						getChildElement(XMLLiterals.AVAILABLE_INVENTORY).getAttribute(XMLLiterals.AVAILABLE_QUANTITY);
+				if(!YFCObject.isVoid(availableQty)) {
+					int eventQty = (int) Double.parseDouble(inpQuantity);
+					int apiQty = (int) Double.parseDouble(availableQty);
+					int diff = eventQty - apiQty;
+					String lowQuantity = getProperty(LOW_QUANTITY);
+					int lowQtyInp = (int) Double.parseDouble(lowQuantity);
+					if(diff < lowQtyInp) {
+						callMonitorItemAvailability(eleRoot);
+					}
 				}
 			}
 		}

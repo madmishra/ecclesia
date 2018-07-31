@@ -16,6 +16,24 @@ import com.yantra.yfc.log.YFCLogCategory;
 import com.yantra.yfc.util.YFCException;
 import com.yantra.yfs.japi.YFSException;
 
+
+/*
+ * 
+ * This class will be invoked as part of the service INDG_ModifyReservation.
+ * This service will be invoked as the REST webservice for modifying the existing reservations.
+ * 
+ * <Cart ReservationId="RES2705" EnterpriseCode="TV" AllowPartialReservations="true" TargetReservationExpiryTime="2018-07-28T11:15:00Z" IgnoreSafetyFactor="true">
+   <LineItems>
+      <LineItem Id="502957" Quantity="0" DeliveryMethod="PICK" NodeId="TE" />
+   </LineItems>
+
+   <ConfigurationOverrides SafetyFactorOverride="2">
+      <Capacity LookForwardWindow="2" ReservationExpiryWindow="15" LegacyOMSProcessingTime="60" SAPAcknowledgementTime="5" StoreProcessingTime="120"
+       StorePreClosingBufferTime="60" />
+   </ConfigurationOverrides>
+</Cart>
+ * 
+ * */
 public class IndgModifyExtReservation extends AbstractCustomApi {
 
 	private static YFCLogCategory log;
@@ -51,11 +69,13 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 			log.verbose("Input to the class ::"+inXml.toString());
 			
 			YFCElement inELe = inXml.getDocumentElement();
-			reservationID = inELe.getAttribute("ReserveInventory", "");
+			reservationID = inELe.getAttribute(XMLLiterals.RESERVATION_ID, "");
 			
-			basicValidation();
+			//Check ReservationID, EnterpriseCode and TargetReservationExpiryTime
+			basicValidation(inELe);
 
 			YFCDocument reservationOutDoc = callGetInventoryReservationList();
+			
 			//Prepare input reserveAvailableInventory
 			prepareTempReserveInvDoc(inXml, reservationOutDoc);
 			
@@ -79,6 +99,15 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 			if ("INDG10002".equalsIgnoreCase(e.getErrorCode()))
 			{
 				throw new YFSException("Reservation is invalid or doesn't exist"+e, "INDG10002", "Reservation is invalid or doesn't exist");
+			}else if("YFS10513".equalsIgnoreCase(e.getErrorCode()))
+			{
+				throw new YFSException("Organization code is mandatory for this operation"+e, "YFS10513", "Organization code is mandatory for this operation");
+			}else if("YFS10395".equalsIgnoreCase(e.getErrorCode()))
+			{
+				throw new YFSException("Invalid Organization"+e, "YFS10395", "Invalid Organization");
+			}else if("YFC004".equalsIgnoreCase(e.getErrorCode()))
+			{
+				throw new YFSException("Invalid Date Format"+e, "YFC004", "Invalid Date Format");
 			}
 			else
 			{
@@ -96,34 +125,36 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 		
 	}
 
-	private void basicValidation() 
+	private void basicValidation(YFCElement inELe) 
 	{
-		try{
+		
+			String orgCodeStr = inELe.getAttribute("EnterpriseCode");
+			String expDateStr = inELe.getAttribute("TargetReservationExpiryTime");
+			String dateFormat = "([0-9]{4})-([0-9]{2})-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})";
 			
+			//EnterpriseCode Check
+			if(SCUtil.isVoid(orgCodeStr))
+			{
+				throw new YFSException("Organization code is mandatory for this operation", "YFS10513", "");
+				
+			}else if(orgCodeStr.equalsIgnoreCase(getProperty("EnterpriseCode", false)))
+			{
+				throw new YFSException("Invalid Organization", "YFS10395", "");
+			}
+			
+			//ReservationID check
 			if(SCUtil.isVoid(reservationID))
 			{
 				throw new YFSException("Reservation is invalid or doesn't exist", "INDG10002", "");
 			}
 			
-		}catch (YFSException e) 
-		{
-			if ("INDG10002".equalsIgnoreCase(e.getErrorCode()))
+			//ExpiryDate Check
+			if(!SCUtil.isVoid(expDateStr) 
+					&& !((expDateStr.matches(dateFormat+"Z")) || (expDateStr.matches(dateFormat))))
 			{
-				throw new YFSException("Reservation is invalid or doesn't exist"+e, "INDG10002", "Reservation is invalid or doesn't exist");
+				throw new YFSException("Invalid Date Format", "YFC004", "");
 			}
-			else
-			{
-				log.verbose("Error in basicValidation::" + e);
-				throw new YFCException(XMLLiterals.ERROR, "Exception occured in basicValidation()" + e);
-			}
-		}
-		catch (Exception e) {
-
-			log.verbose("Error in basicValidation::" + e);
-			throw new YFCException(XMLLiterals.ERROR, "Exception occured in basicValidation()" + e);
-
-		}
-		
+			
 	}
 
 	private YFCDocument callGetInventoryReservationList() {
@@ -132,10 +163,12 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 			YFCDocument docGetResInvInXml = YFCDocument.createDocument(XMLLiterals.INV_RES);
 			YFCElement eleGetRes = docGetResInvInXml.getDocumentElement();
 			eleGetRes.setAttribute(XMLLiterals.RESERVATION_ID, reservationID);
-			YFCDocument docGetResInvOutXml = invokeYantraApi("getInventoryReservationList", docGetResInvInXml);
+			
+			YFCDocument docGetResInvOutXml = invokeYantraApi("getInventoryReservationList", docGetResInvInXml, getInventoryReservationsTemplate());
 			
 			String totalRecordsStr = docGetResInvOutXml.getDocumentElement().getAttribute("TotalNumberOfRecords", "0");
 			Double totalRecordsDou = Double.parseDouble(totalRecordsStr);
+			//Reservation doesn't exist in system
 			if(0 == Double.compare(0.0, totalRecordsDou))
 			{
 				throw new YFSException("Reservation is invalid or doesn't exist", "INDG10002", "");
@@ -157,7 +190,7 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 			}
 		}
 	}
-
+	//Create existResrMap and mapForOutput and populate basic attributes
 	private void prepareMapOfExisitngReservation(YFCDocument docGetResInvOutXml) {
 		try {
 			existResrMap = new HashMap<>();
@@ -181,6 +214,7 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 
 					String mapKeyStr = itemIDStr + ":" + deliveryMethodStr + ":" + shipNodeStr;
 
+					//Map will just have QUANITY populated for the respective key
 					if (!existResrMap.containsKey(mapKeyStr)) {
 						Map<String, String> quantityMap =  createQuantityMap(quantity);
 						existResrMap.put(mapKeyStr, quantityMap);
@@ -200,7 +234,7 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 
 				}
 
-				log.verbose("Map size ::" + existResrMap.size());
+				log.verbose("Map  ::" + existResrMap.toString());
 
 			}
 
@@ -211,6 +245,7 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 
 	}
 
+	//Populate existResrMap
 	private Map<String, String> createQuantityMap(String quantity) {
 
 		Map<String, String> quantityMap = new HashMap<>();
@@ -223,6 +258,7 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 		return quantityMap;
 	}
 
+	//Create template input doc for reserveAvailableInventory. Lines will be appended in appendItemInReserveDoc().
 	private void prepareTempReserveInvDoc(YFCDocument inXml, YFCDocument reservationOutDoc) {
 		String shipDate = null;
 		YFCElement resEle = reservationOutDoc.getDocumentElement();
@@ -262,6 +298,14 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 
 	}
 
+	/*Check the requested modification input. Possible modifications are
+	 * 
+	 * CASE 1 - Increase in the reserved quantity: This line will be appended in reserveAvailableInventory doc with delta quantity
+	 * CASE 2 - Decrease in the reserved quantity: cancelReservation will be invoked with the delta quantity.
+	 * CASE 3 - Adding new line: This line will be appended in reserveAvailableInventory doc with requested quantity
+	 * CASE 4 - Deleting existing line: cancelReservation will be invoked with the reserved quantity.
+	 * 
+	 * */
 	private void checkModificationInp(YFCDocument inXml) {
 		try {
 
@@ -288,15 +332,16 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 						// Populate Requested Quantity in the Original Map
 						quantityMap.put(XMLLiterals.REQ_QUANTITY, quantityStr);
 
+						//Executing CASE 4
 						if (0 == Double.compare(0.0, modQuantityDou)) {
 							quantityMap.put(XMLLiterals.REQ_QUANTITY, "0");
 							// Cancel all quantity in existing reservation for
 							// this set
 							callCancelReservation(eleLineItem, orgQuantityStr);
 
-						} else if (0 < Double.compare(orgQuantityDou, modQuantityDou)) {
-							// Cancel only delta quantity in existing
-							// reservation for this set
+						//Executing CASE 2
+						} else if (0 < Double.compare(orgQuantityDou, modQuantityDou))
+						{
 							Double d = orgQuantityDou - modQuantityDou;
 							String cancelledQtyStr = callCancelReservation(eleLineItem, d.toString());
 
@@ -304,16 +349,18 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 							quantityMap.put(XMLLiterals.AVAL_QUANTITY, avalQtyDoc.toString());
 							quantityMap.put(XMLLiterals.RES_QUANTITY, avalQtyDoc.toString());
 
-						} else if (0 > Double.compare(orgQuantityDou, modQuantityDou)) {
-							// Add only delta quantity in existing reservation
-							// for this set
+						//Executing CASE 1
+						} else if (0 > Double.compare(orgQuantityDou, modQuantityDou))
+						{
 							Double d = modQuantityDou - orgQuantityDou;
 							counter++;
 							appendItemInReserveDoc(eleLineItem, d.toString(), counter);
 						}
 
 						existResrMap.put(mapKeyStr, quantityMap);
-					} else {
+					} 
+					//Executing CASE 3
+					else {
 						// This is the new line which was not added in Original
 						// Map
 						Map<String, String> quantityMap = createQuantityMap(null);
@@ -346,6 +393,7 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 
 	}
 
+	//Invoked for adding lines in template input of reserveAvailableInventory.
 	private void appendItemInReserveDoc(YFCElement eleLineItem, String addQuantity, int counter) {
 		try {
 
@@ -369,6 +417,7 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 
 	}
 
+	//Invoked for canceling lines/ reducing quantities.
 	private String callCancelReservation(YFCElement eleLineItem, String cancelQuantity) {
 		try {
 			String cancelledQty = "0.0";
@@ -425,6 +474,7 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 
 	}
 
+	//Update AVAL_QUANTITY and RES_QUANTITY in existResrMap after reserveAvailableInventory call.
 	private void populateExistMapAfterResv(YFCNodeList<YFCElement> promiseLineListOut) {
 		try {
 
@@ -465,6 +515,7 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 		}
 	}
 
+	//Prepare output of the service.
 	private YFCDocument frameCartOutDoc() {
 		try {
 			YFCDocument outDoc = YFCDocument.createDocument("Cart");
@@ -502,14 +553,18 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 					String strReqQty = qtyMap.get(XMLLiterals.REQ_QUANTITY);
 					String strAvalQty = "";
 					String strResQty = "";
-
+					
+					//REQ_QUANTITY will be blank for the lines not included in modification calls.
 					if (SCUtil.isVoid(strReqQty)) {
 						strReqQty = qtyMap.get(XMLLiterals.QUANTITY);
 						strAvalQty = qtyMap.get(XMLLiterals.QUANTITY);
 						strResQty = qtyMap.get(XMLLiterals.QUANTITY);
-					} else if (strReqQty.equalsIgnoreCase("0")) {
+					} 
+					//Completely cancelled line will not be appended in the final output
+					else if (strReqQty.equalsIgnoreCase("0")) {
 						continue;
-					} else {
+					} 
+					else {
 						strAvalQty = qtyMap.get(XMLLiterals.AVAL_QUANTITY);
 						strResQty = qtyMap.get(XMLLiterals.RES_QUANTITY);
 					}
@@ -522,6 +577,8 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 				}
 
 			}
+			
+			//Scenario where all the lines are cancelled
 			YFCNodeList<YFCElement> addedLineItemList = outDoc.getDocumentElement().getElementsByTagName("LineItem");
 			if (addedLineItemList.getLength() <= 0)
 			{
@@ -539,6 +596,17 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 			log.verbose("Error in frameCartOutDoc::" + e);
 			throw new YFCException("Error", "Exception occured in frameCartOutDoc()" + e);
 		}
+
+	}
+	
+	private YFCDocument getInventoryReservationsTemplate() {
+		return YFCDocument.getDocumentFor(
+				"<InventoryReservations TotalNumberOfRecords=''>"
+						+ "<InventoryReservation DeliveryMethod='' DemandType='' ExpirationDate='' InventoryItemKey='' InventoryReservationKey=''  MinShipByDate='' "
+						+ "OrganizationCode='' ProductAvailabilityDate='' Quantity='' ReservationID='' ShipDate='' ShipNode=''>"
+							+ "<Item InventoryOrganizationCode='' ItemID='' ProductClass=''  UnitOfMeasure='' />"
+						+ "</InventoryReservation>"
+				+ "</InventoryReservations>");
 
 	}
 

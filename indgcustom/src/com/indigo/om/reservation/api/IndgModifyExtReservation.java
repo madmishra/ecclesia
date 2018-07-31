@@ -69,7 +69,7 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 			log.verbose("Input to the class ::"+inXml.toString());
 			
 			YFCElement inELe = inXml.getDocumentElement();
-			reservationID = inELe.getAttribute(XMLLiterals.RESERVATION_ID, "");
+			reservationID = inELe.getAttribute("ReservationId", "");
 			
 			//Check ReservationID, EnterpriseCode and TargetReservationExpiryTime
 			basicValidation(inELe);
@@ -137,7 +137,7 @@ public class IndgModifyExtReservation extends AbstractCustomApi {
 			{
 				throw new YFSException("Organization code is mandatory for this operation", "YFS10513", "");
 				
-			}else if(orgCodeStr.equalsIgnoreCase(getProperty("EnterpriseCode", false)))
+			}else if(!orgCodeStr.equalsIgnoreCase(getProperty("EnterpriseCode", false)))
 			{
 				throw new YFSException("Invalid Organization", "YFS10395", "");
 			}

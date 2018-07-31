@@ -39,7 +39,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	 private static final String DAMAGED = "damaged";
 	 String sExpirationDays = "30";
 	 String sCancellationReasonCode;
-	 YFCDocument docGetShptLineListOutput = null;
+	 //YFCDocument docGetShptLineListOutput = null;
 	 private static final String ADJUSTMENT_VAL = "ADJUSTMENT";
 	 private static final String ORGANIZATION_CODE_VAL = "Indigo_CA";
 	 private static final String SUPPLY_TYPE = "ONHAND";
@@ -56,7 +56,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		YFCDocument outXml = invokeYantraService(INDG_CHANGESHIPMENT, inXml);
 		System.out.println(outXml + "bbbbbbbbb");
 		handleOrderPickShortages(inXml);
-		adjustInvForShortageQty(inXml);
+		
 		return outXml;
 	}
 	
@@ -87,9 +87,9 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		YFCDocument docgetShipmentLineList = YFCDocument.createDocument(XMLLiterals.SHIPMENT_LINE);
 		YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
 		eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
-		docGetShptLineListOutput = invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList());
+		YFCDocument docGetShptLineListOutput = invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList());
 		System.out.println(docGetShptLineListOutput + "ccccccccc");
-		invokeGetInventoryNodeControlList(inXml);
+		invokeGetInventoryNodeControlList(inXml, docGetShptLineListOutput);
 	}
 	
 	/**
@@ -124,7 +124,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	 * @param inXml
 	 */
 	
-	private void invokeGetInventoryNodeControlList(YFCDocument inXml) {
+	private void invokeGetInventoryNodeControlList(YFCDocument inXml, YFCDocument docGetShptLineListOutput) {
 		YFCElement eleShipment = inXml.getDocumentElement();
 		if(eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(SHORTAGE)) {
 			YFCDocument docInputGetInvControlList = inputGetInvControlList(docGetShptLineListOutput);
@@ -134,14 +134,15 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 			else
 			{
 				sCancellationReasonCode = FOUR;
-				invokeManageInventoryNodeControlAPI();	
+				invokeManageInventoryNodeControlAPI(docGetShptLineListOutput);	
 			}
 		}
 		else if(eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(DAMAGED))
 		{
 			sCancellationReasonCode = ONE;
 		}
-		invokeChangeOrder(); 
+		invokeChangeOrder(docGetShptLineListOutput); 
+		adjustInvForShortageQty(inXml, docGetShptLineListOutput);
 	}
 	
 	/**
@@ -149,7 +150,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	 * @param docGetShipmentLineList
 	 */
 	 
-	 private void invokeManageInventoryNodeControlAPI() {
+	 private void invokeManageInventoryNodeControlAPI(YFCDocument docGetShptLineListOutput) {
 		 YFCElement eleShipementLine = docGetShptLineListOutput.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE);
 		 YFCDocument docManageInventoryNodeControl = YFCDocument.createDocument(XMLLiterals.INVENTORY_NODE_CONTROL);
 		 YFCElement eleInventoryNodeControl = docManageInventoryNodeControl.getDocumentElement();
@@ -209,7 +210,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	  * @param docGetShipmentLineList
 	  */
 	 
-	 private void invokeChangeOrder() {
+	 private void invokeChangeOrder(YFCDocument docGetShptLineListOutput) {
 		 YFCIterable<YFCElement> eleShipmentLine = docGetShptLineListOutput.getDocumentElement().getChildren(XMLLiterals.SHIPMENT_LINE);
 		 for(YFCElement shipmentLine : eleShipmentLine) {
 		 YFCDocument docOrder = YFCDocument.createDocument(XMLLiterals.ORDER);
@@ -260,7 +261,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	  * @param inXml
 	  */
 	 
-	 private void adjustInvForShortageQty(YFCDocument inXml) {
+	 private void adjustInvForShortageQty(YFCDocument inXml, YFCDocument docGetShptLineListOutput) {
 		 System.out.println(inXml + "xdskjdk" + docGetShptLineListOutput);
 		 YFCDocument docAdjustInv = YFCDocument.createDocument(XMLLiterals.ITEMS);
 		 YFCElement eleItem = docAdjustInv.getDocumentElement().createChild(XMLLiterals.ITEM);

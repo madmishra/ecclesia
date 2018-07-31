@@ -7,32 +7,34 @@ import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
 /**
- * 
+ * This service gets Item Feed from the file and drops
+ * it into queue. 
  * 
  * @author BSG109
  *
  */
 public class IndgManageMasterItemFeedInput extends AbstractCustomApi {
 
-  private static final String DEFAULT_UNIT_OF_MEASURE = "EACH";
-  private static final String ORGANIZATION_CODE = "Indigo_CA";
-  private static final String ITEM_UPLOAD_Q="ITEM_UPLOAD_Q";
-
+  private static final String ITEM_LOAD_Q = "Indg_ItemFeedQ";
+  private static final String INDIGO_CA = "Indigo_CA";
+  private static final String EACH = "EACH";
+  
   /**
-   * This is the invoke point of the Server. This Method splits
-   * each Item Element into separate Document
+   * This is the starting point of the class
    * 
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
-    YFCElement inputEle = inXml.getDocumentElement();
-    YFCIterable<YFCElement> yfcItrator= inputEle.getChildren(XMLLiterals.ITEM);
-    for(YFCElement itemEle: yfcItrator){
-      itemEle.setAttribute(XMLLiterals.UNIT_OF_MEASURE, DEFAULT_UNIT_OF_MEASURE);
-      itemEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, ORGANIZATION_CODE);
-      YFCDocument itemFeedXml = YFCDocument.createDocument(XMLLiterals.ITEM_LIST);
-      itemFeedXml.getDocumentElement().importNode(itemEle);
-      invokeYantraService(getProperty(ITEM_UPLOAD_Q),itemFeedXml);
+    
+    YFCElement inEle = inXml.getDocumentElement();
+    YFCIterable<YFCElement> yfsItrator = inEle.getChildren(XMLLiterals.ITEM);
+    for(YFCElement itemEle : yfsItrator) {
+      YFCDocument itemListDoc = YFCDocument.createDocument(XMLLiterals.ITEM_LIST);
+      YFCElement itemListEle = itemListDoc.getDocumentElement();
+      itemEle.setAttribute(XMLLiterals.ORGANIZATION_CODE, INDIGO_CA);
+      itemEle.setAttribute(XMLLiterals.UNIT_OF_MEASURE, EACH);
+      itemListEle.importNode(itemEle);
+      invokeYantraService(ITEM_LOAD_Q, itemListDoc);
     }
     return inXml;
   }

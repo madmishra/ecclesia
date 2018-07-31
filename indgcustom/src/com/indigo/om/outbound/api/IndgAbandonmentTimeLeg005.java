@@ -44,27 +44,18 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
-		System.out.println(inXml + "aaaaaaaa");
 		shipNode = inXml.getDocumentElement().getAttribute(XMLLiterals.SHIPNODE);
-		System.out.println(shipNode + "bbbbbbbb");
 		try {
 			setAbandonmentTimeAttr(inXml);
-			System.out.println(finalDate + "ddddddd");
 		} catch (ParseException e) {
 			throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, e);
 		}
 		YFCDocument shipNodeListApiOp = getShipNodeList();
-		System.out.println(shipNodeListApiOp + "eeeeeeeee");
 		localeCode = shipNodeListApiOp.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE).getAttribute(XMLLiterals.LOCALE_CODE);
-		System.out.println(localeCode + "fffffffff");
 		YFCDocument localeListApiOp = getLocaleList();
-		System.out.println(localeListApiOp + "ggggggggggg");
 		String sTimeZone = localeListApiOp.getDocumentElement().getChildElement(XMLLiterals.LOCALE).getAttribute(XMLLiterals.TIME_ZONE);
-		System.out.println(sTimeZone + "hhhhhhhh");
 		getUTCTimeForTimeZone(sTimeZone);
-		System.out.println(finalDateUTC + "iiiiiiii");
 		YFCDocument docChangeShipmentOp = docChangeShipmentInp(inXml);
-		System.out.println(docChangeShipmentOp + "jjjjjjjjj");
 		return setAttrToReturnDoc(docChangeShipmentOp, inXml);
 	}
 	
@@ -80,7 +71,6 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar c = Calendar.getInstance();
 		String reqDeliveryDate = inXml.getDocumentElement().getAttribute(XMLLiterals.STATUS_DATE);
-		System.out.println(reqDeliveryDate + "cccccccc");
 		if(!YFCObject.isVoid(reqDeliveryDate)) {
 			String[] segments = reqDeliveryDate.split(TIME);
 			String date = segments[0];
@@ -126,7 +116,6 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		additionalDate.setAttribute(XMLLiterals.ACTION, CREATE);
 		additionalDate.setAttribute(XMLLiterals.DATE_TYPE_ID, ABANDONMENT);
 		additionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, finalDateUTC);
-		System.out.println(docChangeShipment + "zzzzzzzzz");
 		return invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docChangeShipment, docChangeShipmentOpTemplate());
 	}
 	
@@ -143,7 +132,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		docShipment.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
 		YFCElement shipmentLines = docShipment.getDocumentElement().createChild(XMLLiterals.SHIPMENT_LINES);
 		YFCElement shipmentLine = shipmentLines.createChild(XMLLiterals.SHIPMENT_LINE);
-		shipmentLine.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
+		shipmentLine.setAttribute(XMLLiterals.CUSTOMER_PONO, EMPTY_STRING);
 		shipmentLine.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 		shipmentLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
 		shipmentLine.setAttribute(XMLLiterals.QUANTITY, EMPTY_STRING);
@@ -154,7 +143,6 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		YFCElement additionalDate = additionalDates.createChild(XMLLiterals.ADDITIONAL_DATE);
 		additionalDate.setAttribute(XMLLiterals.DATE_TYPE_ID, EMPTY_STRING);
 		additionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, EMPTY_STRING);
-		System.out.println(docShipment + "yyyyyyyy");
 		return docShipment;
 	}
 	
@@ -241,12 +229,11 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	private YFCDocument setAttrToReturnDoc(YFCDocument docChangeShipmentOp, YFCDocument inXml) {
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, inXml.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS));
 		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_TYPE));
-		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, docChangeShipmentOp.getDocumentElement().
-				getChildElement(XMLLiterals.SHIPMENT_LINES).getChildElement(XMLLiterals.SHIPMENT_LINE).getAttribute(XMLLiterals.CUSTOMER_PO_NO));
+		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PONO, docChangeShipmentOp.getDocumentElement().
+				getChildElement(XMLLiterals.SHIPMENT_LINES).getChildElement(XMLLiterals.SHIPMENT_LINE).getAttribute(XMLLiterals.CUSTOMER_PONO));
 		YFCElement shipmentLineEle = docChangeShipmentOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES).getChildElement(XMLLiterals.SHIPMENT_LINE);
 		shipmentLineEle.createChild(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, docChangeShipmentOp.getDocumentElement().
 				getChildElement(XMLLiterals.SHIPMENT_LINES).getChildElement(XMLLiterals.SHIPMENT_LINE).getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID));
-		System.out.println(docChangeShipmentOp + "llllllllll");
 		return docChangeShipmentOp;
 	}
 }

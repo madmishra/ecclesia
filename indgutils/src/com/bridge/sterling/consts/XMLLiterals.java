@@ -449,7 +449,6 @@ public static final String REFERENCE_TYPE = "ReferenceType";
 public static final String ENTERPRISE_CURRENCY = "EnterpriseCurrency";
 public static final String ADDRESS_TYPE = "AddressType";
 public static final String RAISE_EVENT_ON_ALL_AVAILABILITY_CHANGES= "RaiseEventOnAllAvailabilityChanges";
-
 public static final String REQ_QUANTITY = "RequestedQuantity";
 public static final String AVAL_QUANTITY = "AvailableQuantity";
 public static final String RES_QUANTITY = "ReservedQuantity";
@@ -458,6 +457,7 @@ public static final String PRODUCT_CLASS = "ProductClass";
 public static final String NODE_ID = "NodeId";
 public static final String ERROR = "Error";
 public static final String INV_RES= "InventoryReservation";
+public static final String CUSTOMER_PONO = "CustomerPoNo";
 
 }
 

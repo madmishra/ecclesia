@@ -52,7 +52,9 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	 
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
+		System.out.println(inXml + "aaaaaaaaa");
 		YFCDocument outXml = invokeYantraService(INDG_CHANGESHIPMENT, inXml);
+		System.out.println(outXml + "bbbbbbbbb");
 		handleOrderPickShortages(inXml);
 		adjustInvForShortageQty(inXml);
 		return outXml;
@@ -86,6 +88,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		YFCElement eleShipmenLine = docgetShipmentLineList.getDocumentElement();
 		eleShipmenLine.setAttribute(XMLLiterals.SHIPMENT_LINE_KEY, shipmentLine.getAttribute(XMLLiterals.SHIPMENT_LINE_KEY));
 		docGetShptLineListOutput = invokeYantraApi(XMLLiterals.GET_SHIPMENT_LINE_LIST, docgetShipmentLineList,tempgetShipmentLineList());
+		System.out.println(docGetShptLineListOutput + "ccccccccc");
 		invokeGetInventoryNodeControlList(inXml);
 	}
 	
@@ -227,6 +230,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		 eleOrderLine.setAttribute(XMLLiterals.SUB_LINE_NO,SUB_LINE_NO);
 		 YFCElement eleItem = eleOrderLine.createChild(XMLLiterals.ITEM);
 		 eleItem.setAttribute(XMLLiterals.ITEM_ID, shipmentLine.getAttribute(XMLLiterals.ITEM_ID));
+		 System.out.println(docOrder + "ddddddddd");
 		 invokeYantraApi(XMLLiterals.CHANGE_ORDER_API, docOrder);
 		 }
 	 }
@@ -257,6 +261,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	  */
 	 
 	 private void adjustInvForShortageQty(YFCDocument inXml) {
+		 System.out.println(inXml + "xdskjdk" + docGetShptLineListOutput);
 		 YFCDocument docAdjustInv = YFCDocument.createDocument(XMLLiterals.ITEMS);
 		 YFCElement eleItem = docAdjustInv.getDocumentElement().createChild(XMLLiterals.ITEM);
 		 eleItem.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, ADJUSTMENT_VAL);
@@ -266,6 +271,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		 eleItem.setAttribute(XMLLiterals.SHIP_NODE, docGetShptLineListOutput.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE).getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.SHIP_NODE));
 		 eleItem.setAttribute(XMLLiterals.SUPPLY_TYPE, SUPPLY_TYPE);
 		 eleItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, UOM);
+		 System.out.println(docAdjustInv + "sajhsua");
 		 invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, docAdjustInv);
 	 }
 }

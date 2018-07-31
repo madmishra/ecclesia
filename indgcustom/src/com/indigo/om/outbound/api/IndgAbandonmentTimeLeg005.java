@@ -4,15 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
 import org.elasticsearch.common.joda.time.DateTime;
 import org.elasticsearch.common.joda.time.DateTimeZone;
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.bridge.sterling.utils.ExceptionUtil;
-import com.bridge.sterling.utils.XPathUtil;
-import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.core.YFCObject;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
@@ -47,20 +44,28 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
+		System.out.println(inXml + "aaaaaaaa");
 		shipNode = inXml.getDocumentElement().getAttribute(XMLLiterals.SHIPNODE);
+		System.out.println(shipNode + "bbbbbbbb");
 		try {
 			setAbandonmentTimeAttr(inXml);
+			System.out.println(finalDate + "ddddddd");
 		} catch (ParseException e) {
 			throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_INVALID_DATE, e);
 		}
 		YFCDocument shipNodeListApiOp = getShipNodeList();
+		System.out.println(shipNodeListApiOp + "eeeeeeeee");
 		localeCode = shipNodeListApiOp.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE).getAttribute(XMLLiterals.LOCALE_CODE);
+		System.out.println(localeCode + "fffffffff");
 		YFCDocument localeListApiOp = getLocaleList();
+		System.out.println(localeListApiOp + "ggggggggggg");
 		String sTimeZone = localeListApiOp.getDocumentElement().getChildElement(XMLLiterals.LOCALE).getAttribute(XMLLiterals.TIME_ZONE);
+		System.out.println(sTimeZone + "hhhhhhhh");
 		getUTCTimeForTimeZone(sTimeZone);
+		System.out.println(finalDateUTC + "iiiiiiii");
 		YFCDocument docChangeShipmentOp = docChangeShipmentInp(inXml);
-		YFCDocument docGetOrderLineListOp = docGetOrderLineListInp(docChangeShipmentOp);
-		return setAttrToReturnDoc(docChangeShipmentOp, docGetOrderLineListOp);
+		System.out.println(docChangeShipmentOp + "jjjjjjjjj");
+		return setAttrToReturnDoc(docChangeShipmentOp, inXml);
 	}
 	
 	/**
@@ -75,7 +80,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar c = Calendar.getInstance();
 		String reqDeliveryDate = inXml.getDocumentElement().getAttribute(XMLLiterals.STATUS_DATE);
-		 
+		System.out.println(reqDeliveryDate + "cccccccc");
 		if(!YFCObject.isVoid(reqDeliveryDate)) {
 			String[] segments = reqDeliveryDate.split(TIME);
 			String date = segments[0];
@@ -121,6 +126,7 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		additionalDate.setAttribute(XMLLiterals.ACTION, CREATE);
 		additionalDate.setAttribute(XMLLiterals.DATE_TYPE_ID, ABANDONMENT);
 		additionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, finalDateUTC);
+		System.out.println(docChangeShipment + "zzzzzzzzz");
 		return invokeYantraApi(XMLLiterals.CHANGE_SHIPMENT, docChangeShipment, docChangeShipmentOpTemplate());
 	}
 	
@@ -148,46 +154,8 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 		YFCElement additionalDate = additionalDates.createChild(XMLLiterals.ADDITIONAL_DATE);
 		additionalDate.setAttribute(XMLLiterals.DATE_TYPE_ID, EMPTY_STRING);
 		additionalDate.setAttribute(XMLLiterals.EXPECTED_DATE, EMPTY_STRING);
+		System.out.println(docShipment + "yyyyyyyy");
 		return docShipment;
-	}
-	
-	/**
-	 * This method forms the input for getOrderLineList API and
-	 * invokes the API.
-	 * 
-	 * @param docChangeShipmentOp
-	 * @return
-	 */
-	
-	private YFCDocument docGetOrderLineListInp(YFCDocument docChangeShipmentOp) {
-		String orderNo = docChangeShipmentOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES).
-				getChildElement(XMLLiterals.SHIPMENT_LINE).getAttribute(XMLLiterals.ORDER_NO);
-		YFCDocument docGetOrderLineListInp = YFCDocument.createDocument(XMLLiterals.ORDER_LINE);
-		docGetOrderLineListInp.getDocumentElement().setAttribute(XMLLiterals.SHIPNODE, shipNode);
-		YFCElement order = docGetOrderLineListInp.getDocumentElement().createChild(XMLLiterals.ORDER);
-		order.setAttribute(XMLLiterals.ORDER_NO, orderNo);
-		return invokeYantraApi(XMLLiterals.GET_ORDER_LINE_LIST, docGetOrderLineListInp, docGetOrderLineListTemplate());
-	}
-	
-	/**
-	 * This method forms the template for getOrderLineList API. 
-	 * 
-	 * @return
-	 */
-	
-	private YFCDocument docGetOrderLineListTemplate() {
-		YFCDocument docApiOutput = YFCDocument.createDocument(XMLLiterals.ORDER_LINE_LIST);
-		YFCElement orderLine = docApiOutput.getDocumentElement().createChild(XMLLiterals.ORDER_LINE);
-		orderLine.setAttribute(XMLLiterals.PRIME_LINE_NO, EMPTY_STRING);
-		orderLine.setAttribute(XMLLiterals.SHIPNODE, EMPTY_STRING);
-		orderLine.setAttribute(XMLLiterals.CUSTOMER_PO_NO, EMPTY_STRING);
-		YFCElement item = orderLine.createChild(XMLLiterals.ITEM);
-		item.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
-		YFCElement order = orderLine.createChild(XMLLiterals.ORDER);
-		order.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
-		order.setAttribute(XMLLiterals.MODIFYTS, EMPTY_STRING);
-		order.setAttribute(XMLLiterals.ORDER_TYPE, EMPTY_STRING);
-		return docApiOutput;
 	}
 	
 	/**
@@ -270,24 +238,15 @@ public class IndgAbandonmentTimeLeg005 extends AbstractCustomApi {
 	 * @return
 	 */
 	
-	private YFCDocument setAttrToReturnDoc(YFCDocument docChangeShipmentOp, YFCDocument docGetOrderLineListOp) {
-		String modifyTs = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.MODIFYTS);
-		String orderType = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-				getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.ORDER_TYPE);
-		String customerPoNo = docGetOrderLineListOp.getDocumentElement().getChildElement(XMLLiterals.ORDER_LINE).
-				getAttribute(XMLLiterals.CUSTOMER_PO_NO);
-		YFCIterable<YFCElement> yfsItrator = docChangeShipmentOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES).
-				  getChildren(XMLLiterals.SHIPMENT_LINE);
-		 for(YFCElement shipmentLineEle : yfsItrator) {
-			 String primeLineNo = shipmentLineEle.getAttribute(XMLLiterals.PRIME_LINE_NO);
-			 YFCElement odrLineEle = XPathUtil.getXPathElement(docGetOrderLineListOp, "/OrderLineList/OrderLine[@PrimeLineNo=\""+primeLineNo+"\"]");
-			 String itemId = odrLineEle.getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID);
-			 shipmentLineEle.createChild(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, itemId);
-		 }
-		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, modifyTs);
-		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, orderType);
-		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, customerPoNo);
+	private YFCDocument setAttrToReturnDoc(YFCDocument docChangeShipmentOp, YFCDocument inXml) {
+		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.MODIFYTS, inXml.getDocumentElement().getAttribute(XMLLiterals.MODIFYTS));
+		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.ORDER_TYPE, inXml.getDocumentElement().getAttribute(XMLLiterals.ORDER_TYPE));
+		docChangeShipmentOp.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, docChangeShipmentOp.getDocumentElement().
+				getChildElement(XMLLiterals.SHIPMENT_LINES).getChildElement(XMLLiterals.SHIPMENT_LINE).getAttribute(XMLLiterals.CUSTOMER_PO_NO));
+		YFCElement shipmentLineEle = docChangeShipmentOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES).getChildElement(XMLLiterals.SHIPMENT_LINE);
+		shipmentLineEle.createChild(XMLLiterals.ITEM).setAttribute(XMLLiterals.ITEM_ID, docChangeShipmentOp.getDocumentElement().
+				getChildElement(XMLLiterals.SHIPMENT_LINES).getChildElement(XMLLiterals.SHIPMENT_LINE).getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.ITEM_ID));
+		System.out.println(docChangeShipmentOp + "llllllllll");
 		return docChangeShipmentOp;
 	}
 }

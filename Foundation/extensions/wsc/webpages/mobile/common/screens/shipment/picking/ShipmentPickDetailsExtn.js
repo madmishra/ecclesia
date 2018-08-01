@@ -39,15 +39,6 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-attr", "sc
 					}
 				}
 			},
-			showHideHoldLocation: function (
-				dataValue, screen, widget, nameSpace, shipmentModel) {
-				// _wscShipmentUtils.showHideHoldLocation(
-				// 	this, shipmentModel, widget);
-				if(dataValue)
-					return dataValue;
-				else
-					return "Bin location not assigned";
-			},
 			trythisLater: function () {
 				var identifierMode = null;
 				var customerRef = null;

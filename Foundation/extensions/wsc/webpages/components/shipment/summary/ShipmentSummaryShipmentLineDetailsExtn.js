@@ -43,9 +43,9 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/UIUtils",
 					categoryDescription = modelOutput.CategoryList.Category[0].ShortDescription || "";
 				}
 				if (LM === categoryID)
-					shipmentLine.ClassificationCodes.CommodityCode = LM + categoryDescription;
+					shipmentLine.ClassificationCodes.CommodityCode = LM + " - " + categoryDescription;
 				if (MCAT === categoryID)
-					shipmentLine.PrimaryInformation.ProductLine = MCAT + categoryDescription;
+					shipmentLine.PrimaryInformation.ProductLine = MCAT + " - " + categoryDescription;
 				console.log('shipmentLine', shipmentLine);
 				_scScreenUtils.setModel(this, "extn_itemDetails", shipmentLine, null);
 			},

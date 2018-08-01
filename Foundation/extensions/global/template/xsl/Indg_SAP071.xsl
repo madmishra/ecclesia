@@ -58,6 +58,41 @@
 							</OrderLine>
 						</xsl:for-each>	
 					</OrderLines>
+					<PersonInfoBillTo>
+						<xsl:attribute name="AddressLine1">
+							<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@AddressLine1"/>
+						</xsl:attribute>
+						<xsl:attribute name="AddressLine2">
+							<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@AddressLine2"/>
+						</xsl:attribute>
+						<xsl:attribute name="City">
+							<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@City"/>
+						</xsl:attribute>
+						<xsl:attribute name="Country">
+							<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@Country"/>
+						</xsl:attribute>
+						<xsl:attribute name="DayPhone">
+							<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@DayPhone"/>
+						</xsl:attribute>
+						<xsl:attribute name="EMailID">
+							<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@EMailID"/>
+						</xsl:attribute>
+						<xsl:attribute name="FirstName">
+							<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@FirstName"/>
+						</xsl:attribute>
+						<xsl:attribute name="LastName">
+							<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@LastName"/>
+						</xsl:attribute>
+						<xsl:attribute name="MiddleName">
+							<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@MiddleName"/>
+						</xsl:attribute>
+						<xsl:attribute name="State">
+							<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@State"/>
+						</xsl:attribute>
+						<xsl:attribute name="ZipCode">
+							<xsl:value-of select="OrderLine/Order/PersonInfoBillTo/@ZipCode"/>
+						</xsl:attribute>
+					</PersonInfoBillTo>
 				</Order>
 			</MessageBody>
 		</OrderMessage>

@@ -61,12 +61,14 @@ scDefine(["dojo/text!./templates/BatchLineDetailsExtn.html", "scbase/loader!dojo
 
 			]
 		},
-			handleMashupOutput: function (
-				mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel) {
-				if (mashupRefId === "extn_getItemDetails") {
-					console.log('modelOutput',modelOutput); 
-					this.updateAllValues(modelOutput);
-				}
+		handleMashupOutput: function (
+			mashupRefId, modelOutput, mashupInput, mashupContext, applySetModel) {
+			if (mashupRefId === "extn_getItemDetails") {
+				this.updateAllValues(modelOutput);
 			}
+			if (mashupRefId === "extn_updateDescription") {
+				this.updateShipmentLine(modelOutput);
+			}
+		}
 	});
 });

@@ -67,7 +67,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!extn/components/shi
                     categoryDescription = modelOutput.CategoryList.Category[0].ShortDescription || "";
                 }
                 if (LM === categoryID)
-                    shipmentLine.ShipmentLine.OrderLine.ItemDetails.ClassificationCodes.CommodityCode = LM + " - " + categoryDescription;
+                    shipmentLine.ShipmentLine.OrderLine.ItemDetails.ClassificationCodes.CommodityCode = LM + " - " +  categoryDescription;
                 if (MCAT === categoryID)
                     shipmentLine.ShipmentLine.OrderLine.ItemDetails.PrimaryInformation.ProductLine = MCAT + " - " + categoryDescription;
                 console.log('shipmentLine', shipmentLine);

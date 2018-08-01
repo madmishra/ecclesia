@@ -29,6 +29,34 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!extn/components/bat
 				_scWidgetUtils.hideWidget(this, widget, true);
 				return dataValue;
 			},
+			updateDescription: function (MCAT, LM) {
+				_iasUIUtils.callApi(this, {
+					Category: {
+						CategoryID: LM
+					}
+				}, "extn_updateDescription", null);
+				_iasUIUtils.callApi(this, {
+					Category: {
+						CategoryID: MCAT
+					}
+				}, "extn_updateDescription", null);
+			},
+			updateShipmentLine: function (modelOutput) {
+				var shipmentLine = _scScreenUtils.getModel(this, "extn_additionalAttributeArray");
+				var categoryID = "";
+				var categoryDescription = "";
+				var LM = shipmentLine.LM;
+				var MCAT = shipmentLine.MCAT;
+				if (modelOutput.CategoryList && modelOutput.CategoryList.Category) {
+					categoryID = modelOutput.CategoryList.Category[0].CategoryID || "";
+					categoryDescription = modelOutput.CategoryList.Category[0].ShortDescription || "";
+				}
+				if (LM === categoryID)
+					shipmentLine.LM = LM + " - " + categoryDescription;
+				if (MCAT === categoryID)
+					shipmentLine.MCAT = MCAT + " - " + categoryDescription;
+				_scScreenUtils.setModel(this, "extn_additionalAttributeArray", shipmentLine, null);
+			},
 			updateAllValues: function (modelObject) {
 				var arrayListObject = modelObject.ItemList.Item[0];
 				var MCAT = "";
@@ -57,7 +85,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!extn/components/bat
 					}
 				}
 				_scScreenUtils.setModel(this, "extn_additionalAttributeArray", additionalDetailsObject, null);
-				console.log('additionalDetailsObject', additionalDetailsObject);
+				this.updateDescription(MCAT, LM);
 			},
 			onShortageReasonSelection: function (actionPerformed,
 				model, popupParams) {

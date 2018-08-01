@@ -6,5 +6,7 @@
     <MashupRefs>
         <MashupRef extnType="ADD" mashupId="extn_getItemDetailsForPick"
             mashupRefId="extn_getItemDetails" permissionId=""/>
+        <MashupRef extnType="ADD" mashupId="extn_updateDescription"
+            mashupRefId="extn_updateDescription" permissionId=""/>
     </MashupRefs>
 </Controller>

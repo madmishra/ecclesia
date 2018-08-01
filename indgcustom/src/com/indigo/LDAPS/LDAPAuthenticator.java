@@ -14,7 +14,7 @@ import com.yantra.yfs.japi.YFSException;
 import com.yantra.yfs.japi.util.YFSAuthenticator;
 import com.yantra.yfs.japi.util.YFSUseInternalAuthException;
 
-public class LDAPAuthenticato implements YFSAuthenticator{
+public class LDAPAuthenticator implements YFSAuthenticator{
     private static String errorCode = "ErrorCode";
     private static String errors= "Errors";
     private static String errordesc= "ErrorDescription";

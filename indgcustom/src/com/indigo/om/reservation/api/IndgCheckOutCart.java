@@ -169,10 +169,10 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 	private void prepareInputForfindInventory(YFCDocument inXml) {
 		docRsrvInvInXml = YFCDocument.createDocument("Promise");
 		YFCElement elePromise = docRsrvInvInXml.getDocumentElement();
-
+		skipCapacityChecks = inXml.getDocumentElement()
+				.getAttribute("SkipCapacityChecks");
 		elePromise.setAttribute("CheckCapacity", (Boolean
-				.parseBoolean(skipCapacityChecks) || "1"
-				.equalsIgnoreCase(skipCapacityChecks)) ? "N" : "Y");
+				.parseBoolean(skipCapacityChecks) ) ? "N" : "Y");
 		elePromise.setAttribute(XMLLiterals.ORGANIZATION_CODE, "Indigo_CA");
 		elePromise.setAttribute("ReqStartDate", inXml.getDocumentElement()
 				.getAttribute("RequestedPickupTime"));

@@ -5,6 +5,7 @@ import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 import com.yantra.yfc.dom.YFCNodeList;
 import com.yantra.yfc.log.YFCLogCategory;
+import com.yantra.yfs.japi.YFSException;
 
 public class IndgCancelReservation extends AbstractCustomApi{
 
@@ -34,16 +35,19 @@ public class IndgCancelReservation extends AbstractCustomApi{
 	private void invokeCancelReservation() {
 		
 		YFCNodeList<YFCElement> nlCancelReservation = docCanRsrvInvInXml.getElementsByTagName("CancelReservation");
-		try{
-		for(int i=0;i<nlCancelReservation.getLength();i++){
-			YFCElement eleCancelReservation = nlCancelReservation.item(i);
-			invokeYantraApi("cancelReservation", YFCDocument.getDocumentFor(eleCancelReservation.toString()));
+		if(nlCancelReservation.getLength()<0){
+			throw new YFSException("Reservation doesn't exist or has expired","INDG10002","Invalid Reservation");
 		}
+		try{
+		
+			for(int i=0;i<nlCancelReservation.getLength();i++){
+				YFCElement eleCancelReservation = nlCancelReservation.item(i);
+				invokeYantraApi("cancelReservation", YFCDocument.getDocumentFor(eleCancelReservation.toString()));
+			}
 		docCanRsrvInvOutXml = YFCDocument.createDocument("Cart");
 		docCanRsrvInvOutXml.getDocumentElement().setAttribute("ReservationId", reservationId);
 		} catch(Exception exc){
-			docCanRsrvInvOutXml = YFCDocument.createDocument("Cart");
-			docCanRsrvInvOutXml.getDocumentElement().setAttribute("ReservationId", "");
+			throw new YFSException("Runtime Exceptions", "Internal Server Error", exc.getLocalizedMessage());
 		}
 		
 	}

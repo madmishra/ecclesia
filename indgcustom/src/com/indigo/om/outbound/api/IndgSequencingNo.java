@@ -34,6 +34,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	private static final String INDG_GET_INDG_MSG_SEQ_NO_LIST="INDG_getINDGMsgSeqNoList";
 	Map<String, String> map=new HashMap<>();
 	private static final String XPATH_DATE_TYPES= "xpath.date.types";
+	private static final long TWO = 2;
 	
 	/**
 	   * @throws ParseException 
@@ -75,8 +76,6 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		{
 			eleOrderMessage.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, eleINDGMsgSeqNo.getAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO));
 		}
-	
-	
 	}
 	 /**
 	  * This method stores the different types of date fields present in incoming messages
@@ -92,7 +91,6 @@ public class IndgSequencingNo extends AbstractCustomApi {
 				map.put(hashKey, curXpathAtrCustom);
 			}
 		}
-			
 	}
 	
 	/**
@@ -100,9 +98,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	 * @param inXml
 	 */
 	
-	private void upadteMilliSeconds(YFCDocument inXml)
-	{
-		
+	private void upadteMilliSeconds(YFCDocument inXml) {
 		YFCElement eleOrderMessage = inXml.getDocumentElement();
 		YFCElement eleOrder = eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		
@@ -144,15 +140,11 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	 */
 	  
 	private String  addMilliseconds(YTimestamp ts) {
-		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		String sModifyts= format.format(ts);
 		return sModifyts.substring(0,10)+"T"+sModifyts.substring(11,23)+"Z";
-		
-		
 	}
 
-	  
 	/**
 	  * this method is the invoking point for inputGetINDGMsgSeqNoList or  invokeCreateINDGMsgSeqNo method
 	  * 
@@ -202,7 +194,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		for(YFCElement shipmentLine: yfsItrator) {
 			if(shipmentLine.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).equals(sSequeneceType) && 
 					shipmentLine.getAttribute(XMLLiterals.ORDER_NO).equals(sOrderNo)) {
-				docChangeIndgSeqNo =docChangeIndgSeqNo(shipmentLine);
+				docChangeIndgSeqNo = docChangeIndgSeqNo(shipmentLine);
 			}
 		}
 		return docChangeIndgSeqNo;
@@ -263,7 +255,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			YFCDocument docINDGMsgSeqNoList=formMessageForAPI(docOrderMessage);
 			YFCElement eleINDGMsgSeqNoList=docINDGMsgSeqNoList.getDocumentElement();
 			if(!XmlUtils.isVoid(eleINDGMsgSeqNoList.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID)) && eleINDGMsgSeqNoList.getAttribute(XMLLiterals.SEQUENCE_TYPE_ID).contains(SAP)) {
-				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, ONE);
+				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO, TWO);
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.LEGACY_MSG_SEQ_NO, EMPTY_STRING);
 			}
 			else {
@@ -271,11 +263,9 @@ public class IndgSequencingNo extends AbstractCustomApi {
 				eleINDGMsgSeqNoList.setAttribute(XMLLiterals.SAP_MSG_SEQ_NO,EMPTY_STRING);
 			}
 			return invokeYantraService(INDG_CREATE_INDG_MSG_SEQ_NO, docINDGMsgSeqNoList);
-			 
 		}
 		else {
 			return inputGetINDGMsgSeqNoList(docOrderMessage);
-			
 		}
 	}
 		
@@ -300,15 +290,20 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.ORDER_NO, getOrderNo(eleOrderMessage));	
 			eleINDGMsgSeqNo.setAttribute(XMLLiterals.SEQUENCE_TYPE_ID,XMLLiterals.LEGACY_OUTBOUND);
 		}
-		eleINDGMsgSeqNo.setAttribute(XMLLiterals.DOCUMENT_TYPE, eleOrder.getAttribute(XMLLiterals.DOCUMENT_TYPE));
 		eleINDGMsgSeqNo.setAttribute(XMLLiterals.ENTERPRISE_CODE, eleOrder.getAttribute(XMLLiterals.ENTERPRISE_CODE));
 		return docINDGMsgSeqNoList;
 	}
 	
+	/**
+	 * 
+	 * @param eleOrderMessage
+	 * @return
+	 */
+	
 	private String getOrderNo(YFCElement eleOrderMessage) {
-	  String orderNo = eleOrderMessage.getAttribute(XMLLiterals.ORDER_NO,EMPTY_STRING);
+	  String orderNo = eleOrderMessage.getAttribute(XMLLiterals.ORDER_NO);
 	  if(XmlUtils.isVoid(orderNo)) {
-	    orderNo = eleOrderMessage.getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO,EMPTY_STRING);
+	    orderNo = eleOrderMessage.getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO);
 	  }
 	  return orderNo;
 	}

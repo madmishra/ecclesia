@@ -5,7 +5,6 @@ import com.bridge.sterling.framework.api.AbstractCustomApi;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 
-
 public class IndgExtendedAbandonment extends AbstractCustomApi {
 	
 	private static final String EMPTY_STRING = "";
@@ -19,16 +18,13 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 	private static final String SHIPPED_STATUS = "1400";
 	YFCDocument docGetShipmentDetails = null;
 	
-
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) {
 		YFCDocument docGetShipmentListOp = getShipmentListAPI(inXml);
 		String status = docGetShipmentListOp.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT).getAttribute(XMLLiterals.STATUS);
-		System.out.println("sdfghwerty"+status);
 		if(!status.equals(SHIPPED_STATUS)) {
 			checkStatusOfShipmentDetails(docGetShipmentListOp, inXml);
 			docGetShipmentDetails = getShipmentDetailsAPI(docGetShipmentListOp);
-			System.out.println("plkijhb"+docGetShipmentDetails);
 			String customerPONo = inXml.getDocumentElement().getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER).getAttribute(XMLLiterals.LEGACY_OMS_ORDER_NO);
 			docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.CUSTOMER_PO_NO, customerPONo);
 			docGetShipmentDetails.getDocumentElement().setAttribute(XMLLiterals.IS_PROCESSED, setIsProcessed);
@@ -36,7 +32,6 @@ public class IndgExtendedAbandonment extends AbstractCustomApi {
 		}
 		inXml.getDocumentElement().setAttribute(XMLLiterals.STATUS, SHIPPED_STATUS);
 		return inXml;
-		
 	}
 	
 	public YFCDocument docgetShipmentListInp(YFCDocument inXml) {

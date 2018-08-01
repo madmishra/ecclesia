@@ -1,17 +1,15 @@
-
-scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-attr", "scbase/loader!dijit/registry", "scbase/loader!dojo/dom-style", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!extn/mobile/common/screens/shipment/picking/ShipmentPickDetailsExtnUI", "scbase/loader!sc/plat/dojo/utils/WidgetUtils","scbase/loader!ias/utils/UIUtils"]
-	,
+scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-attr", "scbase/loader!dijit/registry", "scbase/loader!dojo/dom-style", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!extn/mobile/common/screens/shipment/picking/ShipmentPickDetailsExtnUI", "scbase/loader!sc/plat/dojo/utils/WidgetUtils", "scbase/loader!ias/utils/UIUtils"],
 	function (
 		_dojodeclare, domattr, registry, domStyle,
 		_scScreenUtils, _scBaseUtils,
-		_extnShipmentPickDetailsExtnUI, _scWidgetUtils,_iasUIUtils
+		_extnShipmentPickDetailsExtnUI, _scWidgetUtils, _iasUIUtils
 	) {
 		return _dojodeclare("extn.mobile.common.screens.shipment.picking.ShipmentPickDetailsExtn", [_extnShipmentPickDetailsExtnUI], {
 			// custom code here
-			continueGiftWrap : function( event, bEvent, ctrl, args){
+			continueGiftWrap: function (event, bEvent, ctrl, args) {
 				var targetModel = null;
 				shipmentDetails = _scBaseUtils.getTargetModel(
-				this, "common_getShipmentDetails_input", null);
+					this, "common_getShipmentDetails_input", null);
 				var editorName = "wsc.mobile.editors.MobileEditor";
 				_iasUIUtils.openWizardInEditor("wsc.components.shipment.summary.ShipmentSummaryWizard", shipmentDetails, editorName, this);
 			},
@@ -22,24 +20,33 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-attr", "sc
 				var continueLabel1 = "lnk_AssignToHoldAction";
 				var continueLabel2 = "lnk_RecordCustomerPickupAction";
 				var giftWrap = "extn_screenbase_giftwrap";
-				var giftshow=null;
+				var giftshow = null;
 				var giftwrapRef = this.getWidgetByUId("extn_screenbase_giftwrap");
 				var self = this;
 				giftwrapModel = _scScreenUtils.getModel(this, "Shipment");
 				_scWidgetUtils.hideWidget(self, giftWrap, true);
 				if (giftwrapModel.Shipment && giftwrapModel.Shipment.Status) {
 					var status = giftwrapModel.Shipment.Status.Status;
-				//	console.log('inside first if'); 
+					//	console.log('inside first if'); 
 					if (status === "1100.70.200") {
-				//		console.log('inside seoncd if'); 
+						//		console.log('inside seoncd if'); 
 						_scWidgetUtils.hideWidget(self, continueLabel0, true);
 						_scWidgetUtils.hideWidget(self, continueLabel, true);
 						_scWidgetUtils.hideWidget(self, continueLabel1, true);
 						_scWidgetUtils.hideWidget(self, continueLabel2, true);
-						_scWidgetUtils.showWidget(self, giftWrap, true,null);
-						
+						_scWidgetUtils.showWidget(self, giftWrap, true, null);
+
 					}
 				}
+			},
+			showHideHoldLocation: function (
+				dataValue, screen, widget, nameSpace, shipmentModel) {
+				// _wscShipmentUtils.showHideHoldLocation(
+				// 	this, shipmentModel, widget);
+				if(dataValue)
+					return dataValue;
+				else
+					return "Bin location not assigned";
 			},
 			trythisLater: function () {
 				var identifierMode = null;
@@ -99,9 +106,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-attr", "sc
 							domStyle.set(giftwrap.domNode, 'display', 'table-cell');
 
 							domStyle.set(customer.domNode, 'display', 'none');
-						}
-
-						else {
+						} else {
 							domStyle.set(customer.domNode, 'display', 'table-cell');
 							domStyle.set(giftwrap.domNode, 'display', 'none');
 						}
@@ -114,9 +119,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-attr", "sc
 							domStyle.set(customer0.domNode, 'display', 'none');
 							domStyle.set(customer1.domNode, 'display', 'none');
 							domStyle.set(customer2.domNode, 'display', 'none');
-						}
-
-						else {
+						} else {
 							debugger
 							domStyle.set(customer0.domNode, 'display', 'table-cell');
 							domStyle.set(customer1.domNode, 'display', 'table-cell');
@@ -128,4 +131,3 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!dojo/dom-attr", "sc
 			}
 		});
 	});
-

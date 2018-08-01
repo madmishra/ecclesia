@@ -49,6 +49,7 @@ public class IndgSAP011 extends AbstractCustomApi {
 		eleItem.setAttribute(XMLLiterals.ITEM_ID, EMPTY_STRING);
 		YFCElement eleLinePrice = eleOrderLine.createChild(XMLLiterals.LINE_PRICE_INFO);
 		eleLinePrice.setAttribute(XMLLiterals.RETAIL_PRICE, EMPTY_STRING);
+		eleLinePrice.setAttribute(XMLLiterals.LIST_PRICE, EMPTY_STRING);
 		YFCElement eleOrder = eleOrderLine.createChild(XMLLiterals.ORDER);
 		eleOrder.setAttribute(XMLLiterals.ORDER_NO, EMPTY_STRING);
 		eleOrder.setAttribute(XMLLiterals.ENTERPRISE_CODE, EMPTY_STRING);

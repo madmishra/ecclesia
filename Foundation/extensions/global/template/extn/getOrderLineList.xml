@@ -7,6 +7,9 @@
             OrderedQty="" OrigOrderLineKey="" OriginalOrderedQty=""
             PrimeLineNo=""  ReceivingNode="" RemainingQty="" ReqShipDate="" ReqDeliveryDate="" ShipNode="" 
 			ShipToID="" SerialNo="" Status="" StatusQuantity="" SubLineNo="" >
+			<References>
+				<Reference Name="" Value=""/>
+			</References>
 			<DerivedFromOrder DocumentType="" EnterpriseCode="" OrderNo=""/>
 			<DerivedFromOrderLine CustomerPONo="" CustomerLinePONo="" PrimeLineNo="" SubLineNo="" >
 				<Item ItemID="" UnitOfMeasure=""/>
@@ -19,6 +22,9 @@
 			OriginalTotalAmount="" OtherCharges="" PaymentStatus=""
 			Purpose="" ReceivingNode="" ReqShipDate="" SellerOrganizationCode=""
 			ShipToID="" >
+				<References>
+					<Reference Name="" Value=""/>
+				</References>
 				<PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
 			AddressLine4="" AddressLine5="" AddressLine6=""
 			AlternateEmailID="" Beeper="" City="" Company="" Country=""
@@ -34,8 +40,13 @@
 			MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
 			PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
 			</Order>
-			<LinePriceInfo Currency="" RetailPrice="" EnterpriseCurrency=""
+			<LinePriceInfo Currency="" RetailPrice="" ListPrice="" EnterpriseCurrency=""
 			ReportingConversionDate="" ReportingConversionRate="" TotalAmount=""/>
+			<AdditionalAddresses>
+				<AdditionalAddress AddressType="" EntityAddressKey="" EntityKey="" EntityParentKey="" EntityType="" PersonInfoKey="">
+					<PersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AddressType="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo="" EveningPhone="" FirstName="" IsAddressVerified="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" State="" Suffix="" TaxGeoCode="" Title="" ZipCode=""/>
+				</AdditionalAddress>
+			</AdditionalAddresses>
 			<Item CostCurrency="" CountryOfOrigin="" 
                 ItemDesc="" ItemID="" ItemShortDesc="" ManufacturerItem=""
                 ProductClass="" UnitCost="" UnitOfMeasure=""/>

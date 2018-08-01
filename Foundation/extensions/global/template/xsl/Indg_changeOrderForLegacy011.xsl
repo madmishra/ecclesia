@@ -23,26 +23,31 @@
 						</xsl:attribute>
 						<xsl:attribute name="SubLineNo">1</xsl:attribute>
 						<LinePriceInfo>
-							<xsl:attribute name="RetailPrice">
-								<xsl:value-of select="LinePriceInfo/@RetailPrice"/>
-							</xsl:attribute>
+							<xsl:if test="LinePriceInfo/@RetailPrice !=''">
+								<xsl:attribute name="RetailPrice">
+									<xsl:value-of select="LinePriceInfo/@RetailPrice"/>
+								</xsl:attribute>
+							</xsl:if>
 							<xsl:attribute name="ListPrice">
 								<xsl:value-of select="LinePriceInfo/@ListPrice"/>
 							</xsl:attribute>
 						</LinePriceInfo>
-						<AdditionalAddresses>
-							<AdditionalAddress>
-								<xsl:attribute name="AddressType">AlternatePickupPerson</xsl:attribute>
-								<PersonInfo>
-									<xsl:attribute name="FirstName">
-										<xsl:value-of select="AdditionalAddresses/AdditionalAddress/PersonInfo/@FirstName"/>	
-									</xsl:attribute>
-									<xsl:attribute name="LastName">
-										<xsl:value-of select="AdditionalAddresses/AdditionalAddress/PersonInfo/@LastName"/>	
-									</xsl:attribute>
-								</PersonInfo>
-							</AdditionalAddress>
-						</AdditionalAddresses>								
+						<xsl:if test="AdditionalAddresses/AdditionalAddress/@AddressType != ''">
+							<AdditionalAddresses>
+								<AdditionalAddress>
+									<xsl:attribute name="AddressType">AlternatePickupPerson</xsl:attribute>
+									<PersonInfo>
+										<xsl:attribute name="AddressID">AlternatePickupPerson</xsl:attribute>
+										<xsl:attribute name="FirstName">
+											<xsl:value-of select="AdditionalAddresses/AdditionalAddress/PersonInfo/@FirstName"/>	
+										</xsl:attribute>
+										<xsl:attribute name="LastName">
+											<xsl:value-of select="AdditionalAddresses/AdditionalAddress/PersonInfo/@LastName"/>	
+										</xsl:attribute>
+									</PersonInfo>
+								</AdditionalAddress>
+							</AdditionalAddresses>
+						</xsl:if>						
 					</OrderLine>
 				</xsl:for-each>				
 			</OrderLines>

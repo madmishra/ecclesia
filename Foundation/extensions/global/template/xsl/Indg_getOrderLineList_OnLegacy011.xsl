@@ -10,6 +10,9 @@
 			</xsl:attribute>
 			<MessageBody>
 				<Order>
+					<xsl:attribute name="SterlingOrderNo">
+						<xsl:value-of select="OrderLine/Order/@OrderNo"/>
+					</xsl:attribute>
 					<xsl:attribute name="SAPOrderNo">
 						<xsl:value-of select="OrderLine/@CustomerLinePONo"/>
 					</xsl:attribute>
@@ -38,12 +41,18 @@
 										</xsl:attribute>
 									</Item>	
 									<LinePriceInfo>
-										<xsl:attribute name="ListPrice">
-											<xsl:value-of select="LinePriceInfo/@ListPrice"/>	
-										</xsl:attribute>
-										<xsl:attribute name="RetailPrice">
-											<xsl:value-of select="LinePriceInfo/@RetailPrice"/>	
-										</xsl:attribute>
+										<xsl:choose>
+											<xsl:when test="LinePriceInfo/@RetailPrice = '0.00'">
+												<xsl:attribute name="RetailPrice">
+													<xsl:value-of select="LinePriceInfo/@ListPrice"/>	
+												</xsl:attribute>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:attribute name="RetailPrice">
+													<xsl:value-of select="LinePriceInfo/@RetailPrice"/>	
+												</xsl:attribute>
+											</xsl:otherwise>	
+										</xsl:choose>											
 									</LinePriceInfo>									
 								</OrderLine>
 							</xsl:if>	

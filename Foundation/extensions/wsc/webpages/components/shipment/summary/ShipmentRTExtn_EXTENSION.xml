@@ -14,7 +14,7 @@
                 _sc_extensibility_position="after"
                 _sc_extensibility_referenceUId="lnk_RT_UnpackShipment"
                 class="relatedTaskLink" label="$(_scSimpleBundle:blank)"
-                uId="extn_link" value="$(_scSimpleBundle:extn_Assign_secondary_pickup_contact)"/>
+                renderHidden="true" uId="extn_link" value="$(_scSimpleBundle:extn_Assign_secondary_pickup_contact)"/>
             <Link _sc_extensibility_moveOrder="5"
                 _sc_extensibility_operation="move"
                 _sc_extensibility_position="before"

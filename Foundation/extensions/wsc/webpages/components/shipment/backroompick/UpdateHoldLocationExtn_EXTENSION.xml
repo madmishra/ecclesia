@@ -30,7 +30,16 @@
                     isExtn="true" sequence="19">
                     <Handler methodName="addHoldLocationOnEnter"/>
                 </Subscriber>
+                <Subscriber eventId="actionConfirm" isExtn="true">
+                    <Handler methodName="actionConfirm"/>
+                </Subscriber>
             </Local>
         </Subscribers>
+        <MashupRefs>
+            <Behavior>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_changeShipmentStatus" mashupRefId="extn_printStatus"/>
+            </Behavior>
+        </MashupRefs>
     </ScreenExtension>
 </ExtensionMetaData>

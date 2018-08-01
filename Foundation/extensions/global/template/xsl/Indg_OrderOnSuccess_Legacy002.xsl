@@ -9,7 +9,7 @@
 			<xsl:attribute name="OrderNo">
 				<xsl:value-of select="@OrderNo" />
 			</xsl:attribute>
-			<xsl:attribute name="SAPMessageSequenceNumber" />
+			<xsl:attribute name="SterlingToLegacyOMSMessageSequenceNumber" />
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="ParentLegacyOMSOrderNo">

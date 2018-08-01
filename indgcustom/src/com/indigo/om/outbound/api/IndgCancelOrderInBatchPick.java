@@ -9,6 +9,7 @@ import org.w3c.dom.Document;
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.utils.ExceptionUtil;
+import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.interop.japi.YIFClientCreationException;
 import com.yantra.interop.japi.YIFClientFactory;
 import com.yantra.yfc.core.YFCIterable;
@@ -107,7 +108,7 @@ public class IndgCancelOrderInBatchPick {
 		  if(eleItem.getAttribute(SHORTAGE_REASON).equals(SHORTAGE)) {
 			  YFCDocument docGetInvControlList = invokeGetInventoryNodeControlList(eleItem);
 			  System.out.println(docGetInvControlList + "cccccccccc");
-			  if(docGetInvControlList.getDocumentElement().hasChildNodes())
+			  if((docGetInvControlList!=null)  && (docGetInvControlList.getDocumentElement().hasChildNodes()))
 					sCancellationReasonCode = TWO;
 				else
 				{
@@ -217,8 +218,7 @@ public class IndgCancelOrderInBatchPick {
 				}catch (RemoteException remexp) {
 					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_REMOTE_EXP, remexp);
 				}
-			 String sOutputDoc = docOutput.toString();
-			 YFCDocument docOut = YFCDocument.getDocumentFor(sOutputDoc);
+			 YFCDocument docOut = YFCDocument.getDocumentFor(docOutput);
 			 System.out.println(docOut + "fffffffff");
 			 return docOut;
 	  }

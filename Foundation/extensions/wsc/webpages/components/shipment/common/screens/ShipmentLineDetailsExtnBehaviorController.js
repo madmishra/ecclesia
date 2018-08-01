@@ -38,6 +38,15 @@ return _dojodeclare("extn.components.shipment.common.screens.ShipmentLineDetails
 		 extnType : 			'ADD'
 
 	}
+,
+	 		{
+		 mashupRefId : 			'extn_updateDescription'
+,
+		 mashupId : 			'extn_updateDescription'
+,
+		 extnType : 			'ADD'
+
+	}
 
 	]
 

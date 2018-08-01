@@ -55,6 +55,39 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!extn/components/shi
                 }, "extn_getItemDetails", null);
                 console.log('shipmentLine', shipmentLine);
             },
+            updateShipmentLine: function (modelOutput) {
+                console.log('modelOutput category', modelOutput);
+                var shipmentLine = _scScreenUtils.getModel(this, "ShipmentLine");
+                var categoryID = "";
+                var categoryDescription = "";
+                var LM = shipmentLine.ShipmentLine.OrderLine.ItemDetails.ClassificationCodes.CommodityCode;
+                var MCAT = shipmentLine.ShipmentLine.OrderLine.ItemDetails.PrimaryInformation.ProductLine;
+                if (modelOutput.CategoryList && modelOutput.CategoryList.Category) {
+                    categoryID = modelOutput.CategoryList.Category[0].CategoryID || "";
+                    categoryDescription = modelOutput.CategoryList.Category[0].ShortDescription || "";
+                }
+                if (LM === categoryID)
+                    shipmentLine.ShipmentLine.OrderLine.ItemDetails.ClassificationCodes.CommodityCode = LM + categoryDescription;
+                if (MCAT === categoryID)
+                    shipmentLine.ShipmentLine.OrderLine.ItemDetails.PrimaryInformation.ProductLine = MCAT + categoryDescription;
+                console.log('shipmentLine', shipmentLine);
+                _scScreenUtils.setModel(this, "ShipmentLine", shipmentLine, null);
+            },
+            updateDescription: function () {
+                var shipmentLine = _scScreenUtils.getModel(this, "ShipmentLine");
+                var LM = shipmentLine.ShipmentLine.OrderLine.ItemDetails.ClassificationCodes.CommodityCode;
+                var MCAT = shipmentLine.ShipmentLine.OrderLine.ItemDetails.PrimaryInformation.ProductLine;
+                _iasUIUtils.callApi(this, {
+                    Category: {
+                        CategoryID: LM
+                    }
+                }, "extn_updateDescription", null);
+                _iasUIUtils.callApi(this, {
+                    Category: {
+                        CategoryID: MCAT
+                    }
+                }, "extn_updateDescription", null);
+            },
             getBrand: function (dataValue, screen, widget, namespace, modelObj, options) {
                 var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
                 if (attributeArray) {
@@ -68,31 +101,31 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!extn/components/shi
             getSeries: function (dataValue, screen, widget, namespace, modelObj, options) {
                 var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
                 if (attributeArray) {
-                for (var i = 0; i < attributeArray.length; i++) {
-                    if (attributeArray[i].Name === "Series")
-                        return attributeArray[i].Value
+                    for (var i = 0; i < attributeArray.length; i++) {
+                        if (attributeArray[i].Name === "Series")
+                            return attributeArray[i].Value
+                    }
                 }
-            }
                 return "";
             },
             getSubject: function (dataValue, screen, widget, namespace, modelObj, options) {
                 var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
                 if (attributeArray) {
-                for (var i = 0; i < attributeArray.length; i++) {
-                    if (attributeArray[i].Name === "Subject")
-                        return attributeArray[i].Value
+                    for (var i = 0; i < attributeArray.length; i++) {
+                        if (attributeArray[i].Name === "Subject")
+                            return attributeArray[i].Value
+                    }
                 }
-            }
                 return "";
             },
             getAuthor: function (dataValue, screen, widget, namespace, modelObj, options) {
                 var attributeArray = modelObj.ItemList.Item[0].AdditionalAttributeList.AdditionalAttribute;
                 if (attributeArray) {
-                for (var i = 0; i < attributeArray.length; i++) {
-                    if (attributeArray[i].Name === "Author")
-                        return attributeArray[i].Value
+                    for (var i = 0; i < attributeArray.length; i++) {
+                        if (attributeArray[i].Name === "Author")
+                            return attributeArray[i].Value
+                    }
                 }
-            }
                 return "";
             }
         });

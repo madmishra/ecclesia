@@ -68,6 +68,10 @@ scDefine(["dojo/text!./templates/ShipmentLineDetailsExtn.html", "scbase/loader!d
 			if (mashupRefId === "extn_getItemDetails") {
 				console.log('modelOutput', modelOutput);
 				_scScreenUtils.setModel(this, "extn_additionalAttributeArray", modelOutput, null);
+				this.updateDescription();
+			}
+			if (mashupRefId === "extn_updateDescription") {
+				this.updateShipmentLine(modelOutput);
 			}
 		}
 

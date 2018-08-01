@@ -91,6 +91,8 @@
             <Behavior>
                 <MashupRef extnType="ADD"
                     mashupId="extn_getItemDetailsForPick" mashupRefId="extn_getItemDetails"/>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_updateDescription" mashupRefId="extn_updateDescription"/>
             </Behavior>
         </MashupRefs>
     </ScreenExtension>

@@ -33,7 +33,7 @@ return _dojodeclare("extn.mobile.home.MobileHomeExtnBehaviorController",
 	 		{
 		 mashupRefId : 			'tasks_getShipmentListCount'
 ,
-		 mashupId : 			'extn_getCountForHome'
+		 mashupId : 			'mobileHomeTasksInProgress_getShipmentListCount'
 ,
 		 extnType : 			'MODIFY'
 

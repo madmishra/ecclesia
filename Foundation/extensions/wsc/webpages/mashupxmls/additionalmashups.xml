@@ -776,4 +776,21 @@
         <APINamespace inputNS="extn_getShipmentLineListForSort_input" outputNS="extn_getShipmentLineListForSort_output"/>
         <AlternateResourceIds/>
     </mashup>
+      <mashup description="To get the MCAT and LM details"
+        endpoint="EP_CONFIG" id="extn_updateDescription"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getCategoryList">
+            <Input>
+                <Category CategoryID=""/>
+            </Input>
+            <Template>
+                <CategoryList>
+                    <Category CategoryID="" ShortDescription=""/>
+                </CategoryList>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.wsc.common.mashups.WSCBaseMashup"/>
+        <APINamespace inputNS="extn_updateDescription_input" outputNS="extn_updateDescription_output"/>
+        <AlternateResourceIds/>
+    </mashup>
 </mashups>

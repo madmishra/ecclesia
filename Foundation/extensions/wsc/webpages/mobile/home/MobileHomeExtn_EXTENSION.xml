@@ -113,7 +113,7 @@
             </Init>
             <Behavior>
                 <MashupRef extnType="MODIFY"
-                    mashupId="extn_getCountForHome" mashupRefId="tasks_getShipmentListCount"/>
+                    mashupId="mobileHomeTasksInProgress_getShipmentListCount" mashupRefId="tasks_getShipmentListCount"/>
                 <MashupRef extnType="ADD"
                     mashupId="sortScan_getShipmentLineList" mashupRefId="extn_getDetails"/>
             </Behavior>

@@ -106,6 +106,8 @@
             <Behavior>
                 <MashupRef extnType="ADD"
                     mashupId="extn_itemDetailsForPRoduct" mashupRefId="extn_itemDetails"/>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_updateDescription" mashupRefId="extn_updateDescription"/>
             </Behavior>
         </MashupRefs>
     </ScreenExtension>

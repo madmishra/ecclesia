@@ -36,7 +36,10 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   private static final String FLAG_YES = "Y";
   private static final String SCRIPT_PATH = "SCRIPT_PATH";
   private static final String SOF = "SOF";
-  
+  private static  String IS_INITIAL_LOAD = "IS_INITIAL_LOAD" ;
+  private static final String YES = "Y";  
+  private static final String  INDG_FULLSYNC_ADJINV_INPUT = "Indg_FullSync_AdjInv_Input";
+  private static final String INDG_CUSTOM_INVENTORY_MISMATCH = "IndgCustomInventoryMismatch";
   /**
    * 
    * This is the stating point for the custom API
@@ -45,18 +48,21 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    */
   @Override
   public YFCDocument invoke(YFCDocument inXml) {
-    String rootEleName = inXml.getDocumentElement().getNodeName();
-    if(SOF.equals(rootEleName)) {
-      manageDeltaServer();
-      return inXml;
-    }
-    YFCDocument mismatchDoc = getInventoryMisMatch(inXml);
+	  System.out.println("INPUT"+inXml);
+	  String rootEleName = inXml.getDocumentElement().getNodeName();
+	    if(SOF.equals(rootEleName)) {
+	      manageDeltaServer();
+	      return inXml;
+	    }
+	    YFCDocument mismatchDoc = invokeYantraService(INDG_CUSTOM_INVENTORY_MISMATCH, inXml);
+    System.out.println("fnhsjdzkhjhktmljkm"+mismatchDoc);
     String shipNode = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE)
         .getAttribute(XMLLiterals.SHIPNODE);
     getDocumentWithDates(inXml,mismatchDoc);
     pushInputForAdjustInventory(mismatchDoc,shipNode);
     return inXml;
   }
+
   
   /**
    * This method calls getInventoryMismatch API to get the
@@ -78,6 +84,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * @param mismatchDoc
    */
   private void pushInputForAdjustInventory(YFCDocument mismatchDoc,String shipNode) {
+	  System.out.println("fjrdhgtkisjzhi"+mismatchDoc);
     int maxItemElementCount = Integer.parseInt(getProperty(MAX_ITEM_ELEMENT_COUNT));
     YFCDocument adjustInventoryDoc = YFCDocument.createDocument(XMLLiterals.ITEMS);
     String manageInventoryService = FULL_SYNC_QUEUE_FLOW;
@@ -127,6 +134,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * @param misMatchDoc
    */
   private void getDocumentWithDates(YFCDocument inXml, YFCDocument misMatchDoc){
+	  System.out.println("vhfjdghjk"+misMatchDoc);
     YFCElement shipNodeEle = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPNODE);
     String shipNode = shipNodeEle.getAttribute(XMLLiterals.SHIPNODE);
     YFCIterable<YFCElement> yfsItrator = shipNodeEle.getChildren(XMLLiterals.ITEM);

@@ -62,16 +62,16 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * @param inXml
    */
   private void getInventoryMisMatch(YFCDocument inXml,Map<String,YFCElement> mp){
-	System.out.println("*******************Mis Macth Started****************");
-    YFCDocument misMatchDoc = invokeYantraApi(XMLLiterals.GET_INVENTORY_MISMATCH, inXml);
-	System.out.println("*******************Mis Macth Completed****************");
+	System.out.println("*******************Mis Match Started****************");
+    //YFCDocument misMatchDoc = invokeYantraApi(XMLLiterals.GET_INVENTORY_MISMATCH, inXml);
+	YFCDocument misMatchDoc = invokeYantraService(INDG_CUSTOM_INVENTORY_MISMATCH, inXml);
+	System.out.println("*******************Mis Match Completed****************"+inXml);
     YFCElement misMatchEle = misMatchDoc.getDocumentElement();
     YFCIterable<YFCElement> yfsItratorMis = misMatchEle.getChildren(XMLLiterals.ITEM);
     for(YFCElement itemEle:yfsItratorMis) {
       String itemIdMis = itemEle.getAttribute(XMLLiterals.ITEM_ID);
       mp.put(itemIdMis, itemEle);
     }
-    
   }
   
   /**

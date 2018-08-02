@@ -61,7 +61,8 @@ public class IndgCancelOrderInBatchPick {
 			handleCancellation(shipmentLine);
 		  }
 		String sShortageReason= docInput.getDocumentElement().getChildElement(XMLLiterals.ITEM)
-				.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE);
+				.getAttribute(XMLLiterals.SHORTAGE_REASON);
+		System.out.println("hsjheg"+sShortageReason);
 		if(sShortageReason.equals(SHORTAGE)) {
 			adjustInvForShortageQty(docInput);
 		}

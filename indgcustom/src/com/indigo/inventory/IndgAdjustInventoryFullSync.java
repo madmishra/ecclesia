@@ -9,6 +9,7 @@ import com.bridge.sterling.utils.ExceptionUtil;
 import com.yantra.yfc.core.YFCIterable;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
+import com.yantra.yfc.util.YFCDoubleUtils;
 
 /**
  * 
@@ -36,13 +37,14 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
    * @return
    */
   private YFCDocument getInputForAdjustInventoryMisMatch(YFCDocument inXml){
-    System.out.println(inXml);
+    
     YFCDocument adjustInventoryDoc = YFCDocument.createDocument(XMLLiterals.ITEMS);
     YFCElement inputEle = inXml.getDocumentElement();
     YFCIterable<YFCElement> yfsItator = inputEle.getChildren(XMLLiterals.ITEM);
     String shipNode = inputEle.getChildElement(XMLLiterals.ITEM).getAttribute(XMLLiterals.SHIPNODE);
     for(YFCElement itemEle : yfsItator) {
-      if(itemEle.hasAttribute(XMLLiterals.QUANTITY)) {
+      if(itemEle.hasAttribute(XMLLiterals.QUANTITY) || 
+          !YFCDoubleUtils.equal(itemEle.getDoubleAttribute(XMLLiterals.QUANTITY), 0)) {
         itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ADJUSTMENT);
         adjustInventoryDoc.getDocumentElement().importNode(itemEle);
       }
@@ -54,7 +56,6 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
       }
     }
     deleteFullSyncStatusRecord(inputEle.getAttribute(XMLLiterals.INDG_FULL_SYNC_STATUS_KEY),shipNode);
-	System.out.println(adjustInventoryDoc);
     return adjustInventoryDoc;
   }
   

@@ -68,6 +68,7 @@ public class IndgCancelOrderInBatchPick {
 	}
 	
 	public  void adjustInvForShortageQty(YFCDocument inXml) {
+		System.out.println("hudehigtjheio"+inXml);
 		String minus = "-";
 		YFCElement eleItemInput = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM);
 		String quantity = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES).

@@ -50,9 +50,8 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
       manageDeltaServer();
       return inXml;
     }
-	inXml.getDocumentElement().getChildElement("ShipNode")
-	.setAttribute("CompareAllInventoryLotsFlag","N");
     getDocumentWithDates(inXml);
+	System.out.println(inXml+"Completed");
     return inXml;
   }
   
@@ -66,13 +65,14 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
 	System.out.println("*******************Mis Match Started****************");
     //YFCDocument misMatchDoc = invokeYantraApi(XMLLiterals.GET_INVENTORY_MISMATCH, inXml);
 	YFCDocument misMatchDoc = invokeYantraService(INDG_CUSTOM_INVENTORY_MISMATCH, inXml);
-	System.out.println("*******************Mis Match Completed****************"+inXml);
+	System.out.println("*******************Mis Match Completed****************"+misMatchDoc);
     YFCElement misMatchEle = misMatchDoc.getDocumentElement();
     YFCIterable<YFCElement> yfsItratorMis = misMatchEle.getChildren(XMLLiterals.ITEM);
     for(YFCElement itemEle:yfsItratorMis) {
       String itemIdMis = itemEle.getAttribute(XMLLiterals.ITEM_ID);
       mp.put(itemIdMis, itemEle);
     }
+	System.out.println("getInventoryMisMatch");
   }
   
   /**
@@ -101,7 +101,9 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
       adjustInventoryDoc.getDocumentElement().importNode(misMatchEle);
       itratorCount++;
     }
+	System.out.println("PushInput1");
     invokeYantraService(FULL_SYNC_QUEUE_FLOW, adjustInventoryDoc);
+	System.out.println("PushInput2");
   }
   
   /**

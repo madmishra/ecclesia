@@ -239,6 +239,7 @@ public class IndgCancelOrderInBatchPick {
 	  
 	  public YFCDocument invokeAPI(YFCDocument inputDoc, String sAPIName)
 	  {
+		  System.out.println("hjuhdfudsh"+inputDoc);
 		  Document docOutput;
 			 try {
 				 docOutput = YIFClientFactory.getInstance().getApi().invoke(env,  sAPIName, inputDoc.getDocument());

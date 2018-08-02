@@ -458,6 +458,6 @@ public static final String NODE_ID = "NodeId";
 public static final String ERROR = "Error";
 public static final String INV_RES= "InventoryReservation";
 public static final String CUSTOMER_PONO = "CustomerPoNo";
-
+public static final String SHORTAGE_REASON = "ShortageReason";
 }
 

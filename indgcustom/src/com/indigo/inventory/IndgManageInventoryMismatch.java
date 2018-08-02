@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
@@ -51,6 +52,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
       return inXml;
     }
     getDocumentWithDates(inXml);
+    System.out.println(inXml+"Cpmpleted");
     return inXml;
   }
   
@@ -61,10 +63,10 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
    * @param inXml
    */
   private void getInventoryMisMatch(YFCDocument inXml,Map<String,YFCElement> mp){
-	System.out.println("*******************Mis Match Started****************");
+	System.out.println("*******************Mis Macth Started****************");
     //YFCDocument misMatchDoc = invokeYantraApi(XMLLiterals.GET_INVENTORY_MISMATCH, inXml);
 	YFCDocument misMatchDoc = invokeYantraService(INDG_CUSTOM_INVENTORY_MISMATCH, inXml);
-	System.out.println("*******************Mis Match Completed****************");
+	System.out.println("*******************Mis Macth Completed****************"+misMatchDoc);
     YFCElement misMatchEle = misMatchDoc.getDocumentElement();
     YFCIterable<YFCElement> yfsItratorMis = misMatchEle.getChildren(XMLLiterals.ITEM);
     for(YFCElement itemEle:yfsItratorMis) {
@@ -95,9 +97,21 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
         setInvSyncStatusKey(adjustInventoryDoc,shipNode);
         itratorCount = INITAL_ITRATOR_COUNT;
       }
-      itemEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ADJUSTMENT);
+      misMatchEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ADJUSTMENT);
       adjustInventoryDoc.getDocumentElement().importNode(misMatchEle);
       itratorCount++;
+    }
+    for (Entry<String, YFCElement> entry : mp.entrySet()) {
+        YFCElement misMatchEle = entry.getValue();
+        if(itratorCount == maxItemElementCount) {
+          invokeYantraService(FULL_SYNC_QUEUE_FLOW, adjustInventoryDoc);
+          adjustInventoryDoc = YFCDocument.createDocument(XMLLiterals.ITEMS);
+          setInvSyncStatusKey(adjustInventoryDoc,shipNode);
+          itratorCount = INITAL_ITRATOR_COUNT;
+        }
+        misMatchEle.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, XMLLiterals.ADJUSTMENT);
+        adjustInventoryDoc.getDocumentElement().importNode(misMatchEle);
+        itratorCount++;
     }
     invokeYantraService(FULL_SYNC_QUEUE_FLOW, adjustInventoryDoc);
   }
@@ -178,6 +192,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
     String generationDate = itemEle.getAttribute(XMLLiterals.GENERATION_DATE,EMPTY_STRING);
     String transactionDate = itemEle.getAttribute(XMLLiterals.TRANSACTION_DATE,EMPTY_STRING);
     YFCElement misMatchItemEle = mp.get(itemID);
+    mp.remove(itemID);
     if(XmlUtils.isVoid(misMatchItemEle)) {
       YFCElement tempEle = YFCDocument.createDocument(XMLLiterals.ITEM).getDocumentElement();
       tempEle.setAttribute(XMLLiterals.ITEM_ID,itemID);

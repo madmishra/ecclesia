@@ -10,7 +10,6 @@ import org.w3c.dom.NodeList;
 
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.framework.api.AbstractCustomApi;
-import com.ibm.icu.text.SimpleDateFormat;
 import com.sterlingcommerce.baseutil.SCUtil;
 import com.sterlingcommerce.baseutil.SCXmlUtil;
 import com.yantra.yfc.dom.YFCDocument;
@@ -183,7 +182,7 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 				.getAttribute("SkipCapacityChecks");
 		elePromise.setAttribute("CheckCapacity", (Boolean
 				.parseBoolean(skipCapacityChecks) ) ? "N" : "Y");
-		elePromise.setAttribute(XMLLiterals.ORGANIZATION_CODE, "Indigo_CA");
+		elePromise.setAttribute(XMLLiterals.ORGANIZATION_CODE, inXml.getDocumentElement().getAttribute("EnterpriseCode","Indigo_CA"));
 		elePromise.setAttribute("ReqStartDate", inXml.getDocumentElement()
 				.getAttribute("RequestedPickupTime"));
 		elePromise.setAttribute("ShipDate", inXml.getDocumentElement()
@@ -317,7 +316,7 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 		elePromise.setAttribute("CheckCapacity", (Boolean
 				.parseBoolean(skipCapacityChecks) || "1"
 				.equalsIgnoreCase(skipCapacityChecks)) ? "N" : "Y");
-		elePromise.setAttribute(XMLLiterals.ORGANIZATION_CODE, "Indigo_CA");
+		elePromise.setAttribute(XMLLiterals.ORGANIZATION_CODE, inXml.getDocumentElement().getAttribute("EnterpriseCode","Indigo_CA"));
 		elePromise.setAttribute("ReqStartDate", inXml.getDocumentElement()
 				.getAttribute("RequestedPickupTime"));
 		elePromise.setAttribute("ShipDate", inXml.getDocumentElement()

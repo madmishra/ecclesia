@@ -54,6 +54,7 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
       }
     }
     deleteFullSyncStatusRecord(inputEle.getAttribute(XMLLiterals.INDG_FULL_SYNC_STATUS_KEY),shipNode);
+	System.out.println(adjustInventoryDoc);
     return adjustInventoryDoc;
   }
   

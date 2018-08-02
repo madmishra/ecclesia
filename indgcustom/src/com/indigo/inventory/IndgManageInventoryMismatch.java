@@ -35,6 +35,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
   private static final String INDG = "INDG";
   private static final String SCRIPT_PATH = "SCRIPT_PATH";
   private static final String SOF = "SOF";
+  private static final String INDG_CUSTOM_INVENTORY_MISMATCH = "IndgCustomInventoryMismatch";
   
   /**
    * 

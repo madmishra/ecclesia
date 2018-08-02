@@ -261,7 +261,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	 
 	 private void adjustInvForShortageQty(YFCDocument inXml, YFCDocument docGetShptLineListOutput) {
 		 String minus = "-";
-		 String quantity = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE).getAttribute(XMLLiterals.SHORTAGE_QTY);
+		 String quantity = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES).getChildElement(XMLLiterals.SHIPMENT_LINE).getAttribute(XMLLiterals.SHORTAGE_QTY);
 		 YFCDocument docAdjustInv = YFCDocument.createDocument(XMLLiterals.ITEMS);
 		 YFCElement eleItem = docAdjustInv.getDocumentElement().createChild(XMLLiterals.ITEM);
 		 eleItem.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, ADJUSTMENT_VAL);

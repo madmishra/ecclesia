@@ -197,8 +197,7 @@ public class IndgCancelOrderInBatchPick {
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.INVENTORY_PICTURE_CORRECT, NO);
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.ITEM_ID, eleItem.getAttribute(XMLLiterals.ITEM_ID));
 			 eleInventoryNodeControl.setAttribute(XMLLiterals.NODE_CONTROL_TYPE, ON_HOLD);
-			 eleInventoryNodeControl.setAttribute(XMLLiterals.NODE, eleItem.getChildElement(XMLLiterals.ORDER_LINE)
-					 .getAttribute(XMLLiterals.SHIPNODE));
+			 eleInventoryNodeControl.setAttribute(XMLLiterals.NODE, eleItem.getAttribute(XMLLiterals.ORGANIZATION_CODE));
 			 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 			 Calendar cal = Calendar.getInstance();
 			 String date =  sdf.format(cal.getTime()); 

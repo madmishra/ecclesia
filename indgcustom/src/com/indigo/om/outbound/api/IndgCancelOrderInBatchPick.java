@@ -33,6 +33,10 @@ public class IndgCancelOrderInBatchPick {
 	 private static final String DAMAGED = "damaged";
 	 private static final String ITEM_ID = "ItemId";
 	 private static final String SHORTAGE_REASON = "ShortageReason";
+	 private static final String ADJUSTMENT_VAL = "ADJUSTMENT";
+	 private static final String ORGANIZATION_CODE_VAL = "Indigo_CA";
+	 private static final String SUPPLY_TYPE = "ONHAND";
+	 private static final String UOM = "EACH";
 	 private YFSEnvironment env;
 	 String sExpirationDays = "30";
 	 String sCancellationReasonCode;
@@ -56,6 +60,30 @@ public class IndgCancelOrderInBatchPick {
 			System.out.println("jdbgjnhkmhn"+shipmentLine);
 			handleCancellation(shipmentLine);
 		  }
+		String sShortageReason= docInput.getDocumentElement().getChildElement(XMLLiterals.ITEM)
+				.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE);
+		if(sShortageReason.equals(SHORTAGE)) {
+			adjustInvForShortageQty(docInput);
+		}
+	}
+	
+	public  void adjustInvForShortageQty(YFCDocument inXml) {
+		String minus = "-";
+		YFCElement eleItemInput = inXml.getDocumentElement().getChildElement(XMLLiterals.ITEM);
+		String quantity = inXml.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINES).
+				getChildElement(XMLLiterals.SHIPMENT_LINE).getAttribute(XMLLiterals.BACKROOM_PICK_QUANTITY);
+		YFCDocument docAdjustInv = YFCDocument.createDocument(XMLLiterals.ITEMS);
+		YFCElement eleItem = docAdjustInv.getDocumentElement().createChild(XMLLiterals.ITEM);
+		eleItem.setAttribute(XMLLiterals.ADJUSTMENT_TYPE, ADJUSTMENT_VAL);
+		eleItem.setAttribute(XMLLiterals.ITEM_ID, eleItemInput.getAttribute(XMLLiterals.ITEM_ID));
+		eleItem.setAttribute(XMLLiterals.ORGANIZATION_CODE,ORGANIZATION_CODE_VAL);
+		eleItem.setAttribute(XMLLiterals.QUANTITY, minus.concat(quantity));
+		eleItem.setAttribute(XMLLiterals.SHIP_NODE,eleItemInput.getAttribute(XMLLiterals.ORGANIZATION_CODE));
+		eleItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, UOM);
+		eleItem.setAttribute(XMLLiterals.SUPPLY_TYPE, SUPPLY_TYPE);
+		System.out.println("jdshjgnhkjlkj"+docAdjustInv);
+		invokeAPI(docAdjustInv,XMLLiterals.ADJUST_INVENTORY_API);
+		
 	}
 	
 	public void handleCancellation(YFCElement shipmentLine)

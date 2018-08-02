@@ -121,6 +121,8 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 	
 	private void invokeGetInventoryNodeControlList(YFCDocument inXml, YFCDocument docGetShptLineListOutput) {
 		YFCElement eleShipment = inXml.getDocumentElement();
+		/*String sShortageReason= docInput.getDocumentElement().getChildElement(XMLLiterals.ITEM)
+				.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE);*/
 		if(eleShipment.getAttribute(XMLLiterals.SHORTAGE_REASON_CODE).equals(SHORTAGE)) {
 			YFCDocument docInputGetInvControlList = inputGetInvControlList(docGetShptLineListOutput);
 			YFCDocument docGetInvControlList = invokeYantraApi(XMLLiterals.GET_INVENTORY_NODE_CONTROL_LIST, docInputGetInvControlList);
@@ -137,7 +139,9 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 			sCancellationReasonCode = ONE;
 		}
 		invokeChangeOrder(docGetShptLineListOutput); 
-		adjustInvForShortageQty(inXml, docGetShptLineListOutput);
+	//	if(sShortageReason.equals(SHORTAGE)) {
+			adjustInvForShortageQty(inXml, docGetShptLineListOutput);
+	//	}
 	}
 	
 	/**
@@ -267,6 +271,7 @@ public class InventoryShortReasonCode extends AbstractCustomApi {
 		 eleItem.setAttribute(XMLLiterals.SHIP_NODE, docGetShptLineListOutput.getDocumentElement().getChildElement(XMLLiterals.SHIPMENT_LINE).getChildElement(XMLLiterals.ORDER_LINE).getAttribute(XMLLiterals.SHIP_NODE));
 		 eleItem.setAttribute(XMLLiterals.SUPPLY_TYPE, SUPPLY_TYPE);
 		 eleItem.setAttribute(XMLLiterals.UNIT_OF_MEASURE, UOM);
+		 System.out.println(docAdjustInv + "jdsakh");
 		 invokeYantraApi(XMLLiterals.ADJUST_INVENTORY_API, docAdjustInv);
 	 }
 }

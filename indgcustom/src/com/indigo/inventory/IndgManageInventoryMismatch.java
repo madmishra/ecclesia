@@ -51,7 +51,6 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
       return inXml;
     }
     getDocumentWithDates(inXml);
-	System.out.println(inXml+"Completed");
     return inXml;
   }
   
@@ -101,9 +100,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
       adjustInventoryDoc.getDocumentElement().importNode(misMatchEle);
       itratorCount++;
     }
-	System.out.println("PushInput1");
     invokeYantraService(FULL_SYNC_QUEUE_FLOW, adjustInventoryDoc);
-	System.out.println("PushInput2");
   }
   
   /**

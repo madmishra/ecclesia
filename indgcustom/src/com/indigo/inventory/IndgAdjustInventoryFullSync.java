@@ -36,7 +36,7 @@ public class IndgAdjustInventoryFullSync extends AbstractCustomApi{
    * @return
    */
   private YFCDocument getInputForAdjustInventoryMisMatch(YFCDocument inXml){
-    
+    System.out.println(inXml);
     YFCDocument adjustInventoryDoc = YFCDocument.createDocument(XMLLiterals.ITEMS);
     YFCElement inputEle = inXml.getDocumentElement();
     YFCIterable<YFCElement> yfsItator = inputEle.getChildren(XMLLiterals.ITEM);

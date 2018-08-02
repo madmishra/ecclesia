@@ -93,6 +93,7 @@ public class IndgManageInventoryMismatch extends AbstractCustomApi {
       if(itratorCount == maxItemElementCount) {
         invokeYantraService(FULL_SYNC_QUEUE_FLOW, adjustInventoryDoc);
         adjustInventoryDoc = YFCDocument.createDocument(XMLLiterals.ITEMS);
+		System.out.println(adjustInventoryDoc+"adjustInventoryDoc");
         setInvSyncStatusKey(adjustInventoryDoc,shipNode);
         itratorCount = INITAL_ITRATOR_COUNT;
       }

@@ -3,10 +3,13 @@ package com.indigo.om.outbound.api;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import org.w3c.dom.Document;
+
 import com.bridge.sterling.consts.ExceptionLiterals;
 import com.bridge.sterling.consts.XMLLiterals;
 import com.bridge.sterling.utils.ExceptionUtil;
+import com.sterlingcommerce.tools.datavalidator.XmlUtils;
 import com.yantra.interop.japi.YIFClientCreationException;
 import com.yantra.interop.japi.YIFClientFactory;
 import com.yantra.yfc.core.YFCIterable;

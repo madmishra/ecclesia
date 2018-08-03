@@ -87,8 +87,10 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
           createCategory(categoryId,categorydomain,path,organizationCode);
         }
       }
-      if(iCategoryPathDepth == 3 && !isDepartmentExist(categoryId)){
-        invokeYantraApi(XMLLiterals.MANAGE_ORGANIZATION_HIERARCHY,getInputDocForDepartmentCreation(categoryId));
+      if(iCategoryPathDepth == 3 && !isDepartmentExist(categoryId)
+		  && FLAG_YES.equals(getProperty(IS_DEPT_MAPPING_REQ))){
+        invokeYantraApi(XMLLiterals.MANAGE_ORGANIZATION_HIERARCHY,
+		getInputDocForDepartmentCreation(categoryId));
       }
       iCategoryPathDepth++;
     }

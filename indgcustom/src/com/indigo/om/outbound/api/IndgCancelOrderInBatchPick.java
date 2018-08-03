@@ -243,7 +243,7 @@ public class IndgCancelOrderInBatchPick {
 		  Document docOutput;
 			 try {
 				 docOutput = YIFClientFactory.getInstance().getApi().invoke(env,  sAPIName, inputDoc.getDocument());
-				 System.out.println("hjierhjik"+docOutput);
+				 
 				} catch (YIFClientCreationException yifCCEx) {
 					yifCCEx.printStackTrace();
 					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_CC_EXP, yifCCEx);
@@ -251,9 +251,17 @@ public class IndgCancelOrderInBatchPick {
 					remexp.printStackTrace();
 					throw ExceptionUtil.getYFSException(ExceptionLiterals.STERLING_SERVICE_REMOTE_EXP, remexp);
 				}
+			 if(docOutput!=null) {
 			 YFCDocument docOut = YFCDocument.getDocumentFor(docOutput);
 			 System.out.println(docOut + "fffffffff");
 			 return docOut;
+			 }
+			 else
+			 {
+				 YFCDocument doc = YFCDocument.createDocument("ApiSuccess");
+				 System.out.println("doc"+doc);
+				 return doc;
+			 }
 	  }
 }
 

@@ -34,7 +34,6 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   private static final String UNPUBLISH_STATUS = "2000";
   private static final String PUBLISH_STATUS = "3000";
   private static final String ORG_CODE = "Indigo_CA";
-  private static final String IS_DEPT_MAPPING_REQ = "IS_DEPT_MAPPING_REQ";
   List<String> itemIDList = new ArrayList<>();
   
   
@@ -88,15 +87,13 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
           createCategory(categoryId,categorydomain,path,organizationCode);
         }
       }
-      if(iCategoryPathDepth == 3 && !isDepartmentExist(categoryId)
-		  && FLAG_YES.equals(getProperty(IS_DEPT_MAPPING_REQ))){
+      if(iCategoryPathDepth == 3 && !isDepartmentExist(categoryId)){
         invokeYantraApi(XMLLiterals.MANAGE_ORGANIZATION_HIERARCHY,
 		getInputDocForDepartmentCreation(categoryId));
       }
       iCategoryPathDepth++;
     }
   }
-  
   /**
    * 
    * This method forms the Input XML for getCategoryListApi

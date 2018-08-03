@@ -1,11 +1,11 @@
-scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTemplateUtils", "scbase/loader!ias/utils/ContextUtils", "scbase/loader!ias/utils/EventUtils", "scbase/loader!ias/utils/RepeatingScreenUtils", "scbase/loader!ias/utils/ScreenUtils", "scbase/loader!ias/utils/UIUtils", "scbase/loader!ias/utils/WizardUtils", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/utils/EventUtils", "scbase/loader!sc/plat/dojo/utils/ModelUtils", "scbase/loader!sc/plat/dojo/utils/RepeatingPanelUtils", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!sc/plat/dojo/utils/WidgetUtils", "scbase/loader!sc/plat/dojo/utils/WizardUtils", "scbase/loader!wsc/components/common/utils/CommonUtils", "scbase/loader!extn/customScreen/sort/SortScanPickUI", "scbase/loader!wsc/components/shipment/backroompick/utils/BackroomPickUpUtils", "scbase/loader!wsc/components/shipment/common/utils/ShipmentUtils", "scbase/loader!dojo/dom-class", "scbase/loader!dojo/dnd/Target"], function (
+scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTemplateUtils", "scbase/loader!ias/utils/ContextUtils", "scbase/loader!ias/utils/EventUtils", "scbase/loader!ias/utils/RepeatingScreenUtils", "scbase/loader!ias/utils/ScreenUtils", "scbase/loader!ias/utils/UIUtils", "scbase/loader!ias/utils/WizardUtils", "scbase/loader!sc/plat/dojo/utils/BaseUtils", "scbase/loader!sc/plat/dojo/utils/EventUtils", "scbase/loader!sc/plat/dojo/utils/ModelUtils", "scbase/loader!sc/plat/dojo/utils/RepeatingPanelUtils", "scbase/loader!sc/plat/dojo/utils/ScreenUtils", "scbase/loader!sc/plat/dojo/utils/WidgetUtils", "scbase/loader!sc/plat/dojo/utils/WizardUtils", "scbase/loader!wsc/components/common/utils/CommonUtils", "scbase/loader!extn/customScreen/sort/SortScanPickUI", "scbase/loader!wsc/components/shipment/backroompick/utils/BackroomPickUpUtils", "scbase/loader!wsc/components/shipment/common/utils/ShipmentUtils"], function (
     _dojodeclare, _iasBaseTemplateUtils, _iasContextUtils, _iasEventUtils, _iasRepeatingScreenUtils, _iasScreenUtils, _iasUIUtils, _iasWizardUtils, _scBaseUtils, _scEventUtils, _scModelUtils, _scRepeatingPanelUtils, _scScreenUtils, _scWidgetUtils, _scWizardUtils, _wscCommonUtils, _extnSortScanPickUI, _wscBackroomPickUpUtils, _wscShipmentUtils) {
     return _dojodeclare("extn.customScreen.sort.SortScanPick", [_extnSortScanPickUI], {
         // custom code here
         afterScreenLoad: function (
             event, bEvent, ctrl, args) {
             if (!(
-                _iasContextUtils.isMobileContainer())) {
+                    _iasContextUtils.isMobileContainer())) {
                 _scWidgetUtils.setFocusOnWidgetUsingUid(
                     this, "scanProductIdTxt");
             }
@@ -16,10 +16,13 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
                 wizardInstance, "prevBttn", false);
             inputShipmentModel = _scScreenUtils.getModel(
                 this, "backroomPickShipmentDetails_output");
-            debugger
             var shipKey = inputShipmentModel.Shipment.ShipmentKey;
             _iasUIUtils.callApi(
-                this, { Shipment: { ShipmentKey: shipKey } }, "changeFlagForSort_ref", null);
+                this, {
+                    Shipment: {
+                        ShipmentKey: shipKey
+                    }
+                }, "changeFlagForSort_ref", null);
         },
         initializeScreen: function (
             event, bEvent, ctrl, args) {
@@ -73,8 +76,8 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
             var urlString = null;
             urlString = _scModelUtils.getStringValueFromPath("Shipment.ImageUrl", inputShipmentModel);
             if (!(
-                _scBaseUtils.isVoid(
-                    urlString))) {
+                    _scBaseUtils.isVoid(
+                        urlString))) {
                 var imageUrlModel = null;
                 imageUrlModel = _scModelUtils.createNewModelObjectWithRootKey("CommonCode");
                 _scModelUtils.setStringValueAtModelPath("CommonCode.CodeLongDescription", urlString, imageUrlModel);
@@ -264,8 +267,8 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
                 return false;
             }
             if (!(
-                _scBaseUtils.isVoid(
-                    errorMessageBundle))) {
+                    _scBaseUtils.isVoid(
+                        errorMessageBundle))) {
                 _iasScreenUtils.showErrorMessageBoxWithOk(
                     this, errorMessageBundle);
                 return true;
@@ -358,7 +361,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
             var inputModel = null;
             var labelKey = "Action_View_All_Items";
             if (!(
-                this.onlyShortageLinesDisplayed)) {
+                    this.onlyShortageLinesDisplayed)) {
                 this.onlyShortageLinesDisplayed = true;
                 inputModel = this.getShipmentLineModelByAction("SHORTLINES");
             } else {
@@ -384,8 +387,8 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
             var barCodeModel = null;
             var barCodeData = null;
             if (!(
-                _scScreenUtils.isValid(
-                    this, "translateBarCode_input"))) {
+                    _scScreenUtils.isValid(
+                        this, "translateBarCode_input"))) {
                 _iasScreenUtils.showErrorMessageBoxWithOk(
                     this, "InvalidBarCodeData");
             } else {
@@ -412,7 +415,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
         setFocusOnScanField: function (
             event, bEvent, ctrl, args) {
             if (!(
-                _iasContextUtils.isMobileContainer())) {
+                    _iasContextUtils.isMobileContainer())) {
                 _scWidgetUtils.setFocusOnWidgetUsingUid(
                     this, "scanProductIdTxt");
             }
@@ -447,8 +450,8 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
             repPanelScreen = _iasScreenUtils.getRepeatingPanelScreenWidget(
                 this, repPanelUId);
             if (!(
-                _scBaseUtils.isVoid(
-                    repPanelScreen))) {
+                    _scBaseUtils.isVoid(
+                        repPanelScreen))) {
                 var quantityTextBoxModel = null;
                 var shipmentLinePickedQuantity = null;
                 quantityTextBoxModel = {};
@@ -481,13 +484,13 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
             _scScreenUtils.setModel(
                 this, "lastProductScanned_output", shipmentLineScannedModel, null);
             if (!(
-                _scBaseUtils.isVoid(
-                    childScreen))) {
+                    _scBaseUtils.isVoid(
+                        childScreen))) {
                 _scScreenUtils.clearScreen(
                     childScreen, "PickedQuantity_Output");
                 if (!(
-                    _scWidgetUtils.isWidgetVisible(
-                        this, "lastProductScannedDetailsScreenRef"))) {
+                        _scWidgetUtils.isWidgetVisible(
+                            this, "lastProductScannedDetailsScreenRef"))) {
                     _scWidgetUtils.showWidget(
                         this, "lastProductScannedDetailsScreenRef", false, null);
                 }
@@ -557,8 +560,8 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
             childScreen = _scScreenUtils.getChildScreen(
                 this, "lastProductScannedDetailsScreenRef");
             if (!(
-                _scBaseUtils.isVoid(
-                    childScreen))) {
+                    _scBaseUtils.isVoid(
+                        childScreen))) {
                 _scScreenUtils.clearScreen(
                     childScreen, "PickedQuantity_Output");
                 if (
@@ -633,7 +636,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
                 _scScreenUtils.showWarningMessageBoxWithOk(
                     this, _scScreenUtils.getString(
                         this, "Message_OrderWillBeCancelled"), "handleCancelOrderConfirmation", _iasUIUtils.getTextOkObjectForMessageBox(
-                            this), null, null);
+                        this), null, null);
             } else {
                 var pickedQtyModel = null;
                 pickedQtyModel = {};
@@ -647,7 +650,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
                     this, repPanelUId);
                 if (
                     _scBaseUtils.isVoid(
-                        repPanelScreen)) { } else {
+                        repPanelScreen)) {} else {
                     shipmentLineModel = _scScreenUtils.getModel(
                         repPanelScreen, "ShipmentLine");
                     var shortageQty = 0;
@@ -695,13 +698,13 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
                     _scScreenUtils.setModel(
                         this, "lastProductScanned_output", modelOutput, null);
                     if (!(
-                        _scBaseUtils.isVoid(
-                            childScreen))) {
+                            _scBaseUtils.isVoid(
+                                childScreen))) {
                         _scScreenUtils.clearScreen(
                             childScreen, "PickedQuantity_Output");
                         if (!(
-                            _scWidgetUtils.isWidgetVisible(
-                                this, "lastProductScannedDetailsScreenRef"))) {
+                                _scWidgetUtils.isWidgetVisible(
+                                    this, "lastProductScannedDetailsScreenRef"))) {
                             _scWidgetUtils.showWidget(
                                 this, "lastProductScannedDetailsScreenRef", false, null);
                         }
@@ -807,21 +810,7 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
             }
         },
         moveAhead: function () {
-            var shipmentLineModel = null;
-            shipmentLineModel = _scScreenUtils.getModel(
-                this, "backroomPickShipmentDetails_output");
-            var shipmentKey = "";
-            console.log('shipmentLineModel', shipmentLineModel);
-            if (shipmentLineModel && shipmentLineModel.Shipment) {
-                shipmentKey = shipmentLineModel.Shipment.ShipmentKey;
-            }
-            var summaryPageInput = {
-                Shipment: {
-                    ShipmentKey: shipmentKey
-                }
-            };
-                this.invokePrint() ;
-            _iasUIUtils.openWizardInEditor("extn.wizards.sort.HoldWizard", summaryPageInput, "wsc.mobile.editors.MobileEditor", this, null);
+            this.invokePrint();
         },
         printDetails: function (secondaryDetails) {
             var batchModel = _scScreenUtils.getModel(this, "backroomPickShipmentDetails_output");
@@ -848,6 +837,23 @@ scDefine(["scbase/loader!dojo/_base/declare", "scbase/loader!ias/utils/BaseTempl
             if (window.webkit) {
                 window.webkit.messageHandlers.invokePrint.postMessage(printModel);
             }
+            this.gotoNextPage();
+        },
+        gotoNextPage: function () {
+            var shipmentLineModel = null;
+            shipmentLineModel = _scScreenUtils.getModel(
+                this, "backroomPickShipmentDetails_output");
+            var shipmentKey = "";
+            console.log('shipmentLineModel', shipmentLineModel);
+            if (shipmentLineModel && shipmentLineModel.Shipment) {
+                shipmentKey = shipmentLineModel.Shipment.ShipmentKey;
+            }
+            var summaryPageInput = {
+                Shipment: {
+                    ShipmentKey: shipmentKey
+                }
+            };
+            _iasUIUtils.openWizardInEditor("extn.wizards.sort.HoldWizard", summaryPageInput, "wsc.mobile.editors.MobileEditor", this, null);
         },
         invokePrint: function () {
             console.log("Invoking print");

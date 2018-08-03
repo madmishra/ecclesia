@@ -459,5 +459,12 @@ public static final String ERROR = "Error";
 public static final String INV_RES= "InventoryReservation";
 public static final String CUSTOMER_PONO = "CustomerPoNo";
 public static final String SHORTAGE_REASON = "ShortageReason";
+public static final String STORE_BATCH_KEY = "StoreBatchKey";
+public static final String TRANSACTION_ID = "TransactionId";
+public static final String BASE_DROP_STATUS = "BaseDropStatus";
+public static final String TOTAL_NO_OF_RECORDS = "TotalNumberOfRecords";
+public static final String BACK_ORDER_REMOVED_QTY = "BackOrderRemovedQuantity";
+public static final String STAGED_QTANTITY = "StagedQuantity";
+public static final String BATCH_PICK_PRIORITY = "BatchPickPriority";
 }
 

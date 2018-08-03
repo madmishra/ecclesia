@@ -34,6 +34,7 @@ public class IndgCategoryMasterUpload extends AbstractCustomApi {
   private static final String UNPUBLISH_STATUS = "2000";
   private static final String PUBLISH_STATUS = "3000";
   private static final String ORG_CODE = "Indigo_CA";
+  private static final String IS_DEPT_MAPPING_REQ = "IS_DEPT_MAPPING_REQ";
   List<String> itemIDList = new ArrayList<>();
   
   

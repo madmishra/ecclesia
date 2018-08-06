@@ -31,7 +31,8 @@ public class IndgManageCatgoryLoad extends AbstractCustomApi {
   private static final String UN_PUBLISH_STATUS = "2000";
   private static final String BACK_SLASH = "/";
   private static final String CALL_DEPT_MAPPING_SERVICE = "Indg_CategoryFeed_Dept_Mapping";
-   private static final String FLAG_YES = "Y";
+  private static final String FLAG_YES = "Y";
+  private static final String IS_DEPT_MAPPING_REQ = "IS_DEPT_MAPPING_REQ";
   
   
   private String organizationCode = "";

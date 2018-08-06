@@ -46,11 +46,14 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	
 	@Override
 	public YFCDocument invoke(YFCDocument inXml) { 
+		System.out.println(inXml.getDocumentElement().getAttribute(XMLLiterals.MESSAGE_TYPE_ID));
 		if(inXml.getDocumentElement().getAttribute(XMLLiterals.MESSAGE_TYPE_ID).equals(SAP001))
 		{
+			System.out.println("INSIDE IF");
 			addDateTypes();
 			updateMilliSeconds(inXml);
 		}else{
+			System.out.println("OUTSIDE IF");
 		YFCDocument docMsg=updateMsgSeqNo(inXml);
 		try {
 			addMsgSeqNo(docMsg,inXml);

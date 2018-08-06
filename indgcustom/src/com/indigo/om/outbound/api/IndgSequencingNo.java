@@ -28,6 +28,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	
 	private static final String EMPTY_STRING = "";
 	private static final long ONE = 1;
+	private static final String SAP001 = "SAP001";
 	private static final CharSequence SAP = "SAP";
 	private static final String INDG_CHANGE_INDG_MSG_SEQ_NO="INDG_changeINDGMsgSeqNo";
 	private static final String INDG_CREATE_INDG_MSG_SEQ_NO="INDG_createINDGMsgSeqNo";
@@ -44,7 +45,12 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	   */
 	
 	@Override
-	public YFCDocument invoke(YFCDocument inXml) {  
+	public YFCDocument invoke(YFCDocument inXml) { 
+		if(inXml.getDocumentElement().getAttribute(XMLLiterals.MESSAGE_TYPE_ID).equals(SAP001))
+		{
+			addDateTypes();
+			upadteMilliSeconds(inXml);
+		}
 		YFCDocument docMsg=updateMsgSeqNo(inXml);
 		try {
 			addMsgSeqNo(docMsg,inXml);

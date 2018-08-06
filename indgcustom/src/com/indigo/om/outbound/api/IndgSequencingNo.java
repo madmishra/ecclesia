@@ -49,8 +49,8 @@ public class IndgSequencingNo extends AbstractCustomApi {
 		if(inXml.getDocumentElement().getAttribute(XMLLiterals.MESSAGE_TYPE_ID).equals(SAP001))
 		{
 			addDateTypes();
-			upadteMilliSeconds(inXml);
-		}
+			updateMilliSeconds(inXml);
+		}else{
 		YFCDocument docMsg=updateMsgSeqNo(inXml);
 		try {
 			addMsgSeqNo(docMsg,inXml);
@@ -59,8 +59,8 @@ public class IndgSequencingNo extends AbstractCustomApi {
 			throw ExceptionUtil.getYFSException(ExceptionLiterals.ERRORCODE_MISSING_VALUE, e);
 		}
 		addDateTypes();
-		upadteMilliSeconds(inXml);
-		
+		updateMilliSeconds(inXml);
+		}
 		return inXml;
 	}
 	  
@@ -104,7 +104,7 @@ public class IndgSequencingNo extends AbstractCustomApi {
 	 * @param inXml
 	 */
 	
-	private void upadteMilliSeconds(YFCDocument inXml) {
+	private void updateMilliSeconds(YFCDocument inXml) {
 		YFCElement eleOrderMessage = inXml.getDocumentElement();
 		YFCElement eleOrder = eleOrderMessage.getChildElement(XMLLiterals.MESSAGE_BODY).getChildElement(XMLLiterals.ORDER);
 		

@@ -234,6 +234,9 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 				.getAttribute("RequestedPickupTime"));
 		elePromise.setAttribute("ReqEndDate", inXml.getDocumentElement()
 				.getAttribute("TargetReservationExpiryTime"));
+		
+		elePromise.setAttribute("AllocationRuleID", (Boolean
+				.parseBoolean(inXml.getDocumentElement().getAttribute("IgnoreSafetyFactor"))) ? "NO_SAF_FAC" : "DEFAULT");
 
 		YFCElement elePromiseLines = elePromise.createChild("PromiseLines");
 

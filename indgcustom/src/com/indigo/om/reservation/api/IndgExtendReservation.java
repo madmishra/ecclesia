@@ -73,10 +73,16 @@ public class IndgExtendReservation extends AbstractCustomApi {
 		iDoc2CancelReservation.getDocumentElement().appendChild(iDoc2CancelReservation.getDocumentElement().importNode(iRoot2Service));
 		log.debug("input to cencelation-->"+iDoc2CancelReservation);
 		//invokeYantraService("INDG_CancelReservation", iDoc2CancelReservation);
-		 */		
-		YFCDocument outCancelDoc = invokeYantraService("INDG_CancelReservation", iDoc2Service);
+		 */	
+		try{
+			YFCDocument outCancelDoc = invokeYantraService("INDG_CancelReservation", iDoc2Service);
+			log.debug("output from cancellation-->"+outCancelDoc);
+		} catch (Exception ex){
+			ex.printStackTrace();
+		}
+		
 		/*Block End*/
-		log.debug("output from cancellation-->"+outCancelDoc);
+		
 		
 		/*Block Start- Extend Reservation*/
 		/*log.debug("Minutes to extend the reservation starting now-->"+extnMins);

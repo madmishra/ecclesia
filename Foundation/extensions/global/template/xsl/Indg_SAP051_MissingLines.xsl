@@ -54,13 +54,17 @@
 									<xsl:value-of select="@ShipNode"/>
 								</xsl:attribute>
 								<xsl:choose>
-									<xsl:when test="@CancellationReasonCode = ' '">
-										<xsl:attribute name="CancellationReasonCode">03</xsl:attribute>
+									<xsl:when test="@CancellationReasonCode = '01'">
+										<xsl:attribute name="CancellationReasonCode">01</xsl:attribute>
+									</xsl:when>
+									<xsl:when test="@CancellationReasonCode = '02'">
+										<xsl:attribute name="CancellationReasonCode">02</xsl:attribute>
+									</xsl:when>
+									<xsl:when test="@CancellationReasonCode = '04'">
+										<xsl:attribute name="CancellationReasonCode">04</xsl:attribute>
 									</xsl:when>
 									<xsl:otherwise>
-										<xsl:attribute name="CancellationReasonCode">
-											<xsl:value-of select="@CancellationReasonCode"/>
-										</xsl:attribute>
+										<xsl:attribute name="CancellationReasonCode">03</xsl:attribute>
 									</xsl:otherwise>
 								</xsl:choose>
 								<Item>

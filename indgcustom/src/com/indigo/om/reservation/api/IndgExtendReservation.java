@@ -4,7 +4,6 @@
 package com.indigo.om.reservation.api;
 
 import com.bridge.sterling.framework.api.AbstractCustomApi;
-import com.sterlingcommerce.baseutil.SCUtil;
 import com.yantra.yfc.date.YTimestamp;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
@@ -19,19 +18,50 @@ import com.yantra.yfs.japi.YFSException;
 public class IndgExtendReservation extends AbstractCustomApi {
 	private static YFCLogCategory log = YFCLogCategory.instance(IndgExtendReservation.class);
 	
+	/*
+	 * ***********************************************************************************/
+	/*Set-up data with a multiApi
+	 <MultiApi>
+	<API Name="adjustInventory">
+		<Input>
+			<Items>
+				<Item AccountNo="" AdjustmentType="ADJUSTMENT"  ItemID="100001" OrganizationCode="Matrix" ProductClass="" Quantity="10" ShipNode="Mtrx_Store_1" SupplyType="ONHAND" UnitOfMeasure="EACH" />
+				<Item AccountNo="" AdjustmentType="ADJUSTMENT"  ItemID="100002" OrganizationCode="Matrix" ProductClass="" Quantity="15" ShipNode="Mtrx_Store_2" SupplyType="ONHAND" UnitOfMeasure="EACH" />
+				<Item AccountNo="" AdjustmentType="ADJUSTMENT"  ItemID="100003" OrganizationCode="Matrix" ProductClass="" Quantity="20" ShipNode="Mtrx_Store_3" SupplyType="ONHAND" UnitOfMeasure="EACH" />
+			</Items>
+		</Input>
+	</API>
+	<API Name="reserveItemInventory">
+		<Input>
+			<ReserveItemInventory  ItemID="100001" OrganizationCode="Matrix" ProductClass="" QtyToBeReserved="5" ReservationID="RES1" ShipNode="Mtrx_Store_1" UnitOfMeasure="EACH" />
+		</Input>
+	</API>
+	<API Name="reserveItemInventory">
+		<Input>
+			<ReserveItemInventory  ItemID="100002" OrganizationCode="Matrix" ProductClass="" QtyToBeReserved="5" ReservationID="RES1" ShipNode="Mtrx_Store_2" UnitOfMeasure="EACH" />
+		</Input>
+	</API>
+	<API Name="reserveItemInventory">
+		<Input>
+			<ReserveItemInventory  ItemID="100003" OrganizationCode="Matrix" ProductClass="" QtyToBeReserved="5" ReservationID="RES1" ShipNode="Mtrx_Store_3" UnitOfMeasure="EACH" />
+		</Input>
+	</API>
+	
+	
+</MultiApi>
+*/
+	
 	@Override
-	public YFCDocument invoke(YFCDocument iDoc2Service) throws YFSException {
+	public YFCDocument invoke(YFCDocument iDoc2Service) throws YFSException 
+	{
 		/*Block Start- copy shifts from a live and temporary reservation*/
 		log.beginTimer("IndgExtendReservation-->invoke");
 		log.debug("input to service is iDoc2Service-->"+iDoc2Service);
+		
+		/*
 		YFCElement iRoot2Service = iDoc2Service.getDocumentElement();
 		
 		String sOldResrvation = iRoot2Service.getAttribute("ReservationId");
-		if(SCUtil.isVoid(sOldResrvation)){
-			sOldResrvation = iRoot2Service.getAttribute("ReservationID");
-			iRoot2Service.setAttribute("ReservationId", sOldResrvation);
-		}else
-			iRoot2Service.setAttribute("ReservationID", sOldResrvation);
 		YTimestamp now = new YTimestamp(false);
 		String extnMins = getProperty("yfs.MinutesExtendedBeyondPresent", "720");
 		YTimestamp expiryDate = YTimestamp.newTimestamp(now,
@@ -43,13 +73,22 @@ public class IndgExtendReservation extends AbstractCustomApi {
 		iDoc2CancelReservation.getDocumentElement().appendChild(iDoc2CancelReservation.getDocumentElement().importNode(iRoot2Service));
 		log.debug("input to cencelation-->"+iDoc2CancelReservation);
 		//invokeYantraService("INDG_CancelReservation", iDoc2CancelReservation);
-		YFCDocument outCancelDoc = invokeYantraService("INDG_CancelReservation", iDoc2CancelReservation);
+		 */	
+		try{
+			YFCDocument outCancelDoc = invokeYantraService("INDG_CancelReservation", iDoc2Service);
+			log.debug("output from cancellation-->"+outCancelDoc);
+		} catch (Exception ex){
+			ex.printStackTrace();
+		}
+		
 		/*Block End*/
-		log.debug("output from cancellation-->"+outCancelDoc);
+		
+		
 		/*Block Start- Extend Reservation*/
-		log.debug("Minutes to extend the reservation starting now-->"+extnMins);
+		/*log.debug("Minutes to extend the reservation starting now-->"+extnMins);
 		iRoot2Service.setAttribute("TargetReservationExpiryTime", expiryDate);
-		log.debug("TargetReservationExpiryTime-->"+expiryDate);
+		log.debug("TargetReservationExpiryTime-->"+expiryDate);*/
+		
 		return invokeYantraService("INDG_CheckOutCart", iDoc2Service);
 		/*Block end*/
 
@@ -63,7 +102,8 @@ public class IndgExtendReservation extends AbstractCustomApi {
 		if (oDoc4mGetCapacityConsumptionDtls.hasChildNodes()) {
 			YFCNodeList<YFCElement> nlCapacityConsumptions = oDoc4mGetCapacityConsumptionDtls
 					.getElementsByTagName("CapacityConsumption");
-			if (nlCapacityConsumptions!=null && nlCapacityConsumptions.getLength() > 0) {
+			if (nlCapacityConsumptions!=null && nlCapacityConsumptions.getLength() > 0) 
+			{
 				YFCElement eCapacityConsumptionOnReservation = nlCapacityConsumptions
 						.item(0);
 				YFCDocument iDoc2ManageCapacityReservation = YFCDocument
@@ -77,8 +117,6 @@ public class IndgExtendReservation extends AbstractCustomApi {
 						expiryDate);
 				eRoot2ManageCapacity.setAttribute("IsSlotBased",
 						"Y");
-				eRoot2ManageCapacity.setAttribute("Operation",
-						"Modify");
 				eRoot2ManageCapacity.appendChild(eRoot2ManageCapacity.importNode(eCapacityConsumptionOnReservation));
 				invokeYantraApi("manageCapacityReservation", iDoc2ManageCapacityReservation);
 				
@@ -91,7 +129,7 @@ public class IndgExtendReservation extends AbstractCustomApi {
 	private YFCDocument findResPoolConsmptnDtl(String sOldResrvation, YTimestamp now) {
 		YFCDocument iDoc2GetCapacityConsumptionDtls =  YFCDocument.createDocument("ConsumptionDetail");
 		YFCElement eRoot2GetCapacityConsumptionDtls = iDoc2GetCapacityConsumptionDtls.getDocumentElement();
-		eRoot2GetCapacityConsumptionDtls.setAttribute("ReservationID", sOldResrvation);
+		eRoot2GetCapacityConsumptionDtls.setAttribute("ReservationId", sOldResrvation);
 		eRoot2GetCapacityConsumptionDtls.setAttribute("ReservationExpirationDate",now);
 		eRoot2GetCapacityConsumptionDtls.setAttribute("ReservationExpirationDateQryType","GT");
 		return invokeYantraApi("getResourcePoolConsumptionDetailsList", iDoc2GetCapacityConsumptionDtls);
@@ -113,21 +151,7 @@ public class IndgExtendReservation extends AbstractCustomApi {
 			YFSInitializer.initialize();
 			ServiceInvoker invoker = ServiceInvokerManager.getInstance().getServiceInvoker();
 			invoker.setYFSEnvironment(oEnv);
-			
-			String in1 = "<Items><Item AccountNo='' AdjustmentType='ADJUSTMENT'  ItemID='100001' OrganizationCode='Matrix' ProductClass='' "+
-"Quantity='10' ShipNode='Mtrx_Store_1' SupplyType='ONHAND' UnitOfMeasure='EACH' />"+
-"<Item AccountNo='' AdjustmentType='ADJUSTMENT'  ItemID='100002' OrganizationCode='Matrix' ProductClass='' "+ 
-"Quantity='15' ShipNode='Mtrx_Store_2' SupplyType='ONHAND' UnitOfMeasure='EACH' /></Items>";
-			System.out.println(in1);
-			YFCDocument doc1 = YFCDocument.getDocumentFor(in1);
-		invoker.invokeYantraApi("adjustInventory", doc1);
-		
-		
-		String in2 = "<ReserveItemInventory  ItemID='100001' OrganizationCode='Matrix' ProductClass='' QtyToBeReserved='5' ReservationID='RES1' "+"ShipNode='Mtrx_Store_1' UnitOfMeasure='EACH' />";
-							YFCDocument doc2 = YFCDocument.getDocumentFor(in2);
-						invoker.invokeYantraApi("reserveItemInventory", doc2);
-			
-			String in = "<Cart ReservationID='RES1' EnterpriseCode='Matrix' AllowPartialReservations='true' IgnoreSafetyFactor='true'>" +
+			String in = "<Cart ReservationId='RES1' EnterpriseCode='Matrix' AllowPartialReservations='true' IgnoreSafetyFactor='true'>" +
 					"<LineItems><LineItem Id='100001' Quantity='4' DeliveryMethod='PICK'	NodeId='Mtrx_Store_1' />" +
 					"<LineItem Id='100003' Quantity='2' DeliveryMethod='PICK'		NodeId='Mtrx_Store_3' />" +
 					"</LineItems><ConfigurationOverrides SafetyFactorOverride='2'>" +
@@ -136,8 +160,6 @@ public class IndgExtendReservation extends AbstractCustomApi {
 					"</Cart>";
 			YFCDocument doc = YFCDocument.getDocumentFor(in);
 			invoker.invokeYantraService("INDG_ExtendReservation", doc);
-			oEnv.commit();
-			invoker.releaseYFSEnvironment();
 		} catch (Exception ex) {
 
 			ex.printStackTrace();

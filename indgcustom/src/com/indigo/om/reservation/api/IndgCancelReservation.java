@@ -35,7 +35,7 @@ public class IndgCancelReservation extends AbstractCustomApi{
 	private void invokeCancelReservation() {
 		
 		YFCNodeList<YFCElement> nlCancelReservation = docCanRsrvInvInXml.getElementsByTagName("CancelReservation");
-		if(nlCancelReservation.getLength()<0){
+		if(nlCancelReservation.getLength()==0){
 			throw new YFSException("Reservation doesn't exist or has expired","INDG10002","Invalid Reservation");
 		}
 		try{
@@ -55,7 +55,7 @@ public class IndgCancelReservation extends AbstractCustomApi{
 
 	private void prepareInputForCancelReservation(YFCDocument inXml) {
 		YFCDocument docInvReserv = YFCDocument.createDocument("InventoryReservation");
-		YFCElement eleCart = inXml.getDocumentElement().getChildElement("Cart");
+		YFCElement eleCart = inXml.getDocumentElement();
 		reservationId = eleCart.getAttribute("ReservationId");
 		docInvReserv.getDocumentElement().setAttribute("ReservationID", reservationId);
 		docInvReserv.getDocumentElement().setAttribute("OrganizationCode", eleCart.getAttribute("EnterpriseCode"));

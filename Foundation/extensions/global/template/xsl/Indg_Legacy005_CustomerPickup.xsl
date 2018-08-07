@@ -14,7 +14,7 @@
 			<MessageBody>
 				<Order>
 					<xsl:attribute name="LegacyOMSOrderNo">
-						<xsl:value-of select="@CustomerPONo"/>
+						<xsl:value-of select="@CustomerPoNo"/>
 					</xsl:attribute>
 					<xsl:attribute name="EnterpriseCode">
 						<xsl:value-of select="@EnterpriseCode"/>

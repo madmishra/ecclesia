@@ -24,8 +24,6 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 	private static final String YES = "Y";
 	private static final String GROUP_DESCRIPTION = "GROUP_DESCRIPTION";
 	private static final String GROUP_CODE ="PROD";
-	private static final String END_DATE = "2500-01-01 00:00:00.0";
-	private static final String START_DATE = "1900-01-01 00:00:00.0";
 	private static final String ALL = "ALL";
 	private static final String PRIORITY = "1.00";
 	private static final String SOURCING = "SOURCING";
@@ -109,8 +107,6 @@ public class IndgLowThresholdUpdate extends AbstractCustomApi {
 		YFCElement eleItemShipNodes = docManageDistributionRule.getDocumentElement().createChild(XMLLiterals.ITEM_SHIP_NODES);
 		YFCElement eleItemShipNode = eleItemShipNodes.createChild(XMLLiterals.ITEM_SHIP_NODE);
 		eleItemShipNode.setAttribute(XMLLiterals.ACTIVE_FLAG, YES);
-		eleItemShipNode.setAttribute(XMLLiterals.EFFECTIVE_END_DATE, END_DATE);
-		eleItemShipNode.setAttribute(XMLLiterals.EFFECTIVE_START_DATE, START_DATE);
 		eleItemShipNode.setAttribute(XMLLiterals.ITEMID, ALL);
 		eleItemShipNode.setAttribute(XMLLiterals.ITEM_TYPE, ALL);
 		eleItemShipNode.setAttribute(XMLLiterals.PRIORITY, PRIORITY);

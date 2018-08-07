@@ -367,7 +367,6 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 			elePromise.setAttribute("ShipDate", inXml.getDocumentElement()
 					.getAttribute("RequestedPickupTime"));
 		}
-		
 
 		YFCElement eleReservationParameters = elePromise
 				.createChild("ReservationParameters");
@@ -392,8 +391,14 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 					"ExpirationDate", df.format(calExpirationTime.getTime()));
 			
 		}
-		eleReservationParameters.setAttribute("ReservationID", UUID
-				.randomUUID().toString());
+		
+		if(SCUtil.isVoid(inXml.getDocumentElement().getAttribute("ReservationId"))){
+			eleReservationParameters.setAttribute("ReservationID", UUID
+					.randomUUID().toString());
+		} else {
+			eleReservationParameters.setAttribute("ReservationID", inXml.getDocumentElement().getAttribute("ReservationId"));
+		}
+			
 
 		YFCElement elePromiseLines = elePromise.createChild("PromiseLines");
 
@@ -455,7 +460,7 @@ public class IndgCheckOutCart extends AbstractCustomApi {
 		YFCElement eleConfigOverride = inXml.getDocumentElement().getElementsByTagName("ConfigurationOverrides").item(0);
 		SafetyFactorOverride = eleConfigOverride.getAttribute("SafetyFactorOverride");
 		if (SCUtil.isVoid(SafetyFactorOverride)) {
-			reserveInventory = getProperty("SafetyFactorOverride", true);
+			SafetyFactorOverride = getProperty("SafetyFactorOverride", true);
 		}
 		
 		YFCElement eleCapacity =  eleConfigOverride.getChildElement("Capacity");

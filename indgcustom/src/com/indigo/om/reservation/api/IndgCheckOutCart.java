@@ -1,6 +1,5 @@
 package com.indigo.om.reservation.api;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,7 +10,6 @@ import java.util.Map;
 import java.util.TimeZone;
 import java.util.UUID;
 
-import org.apache.commons.collections.map.HashedMap;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -26,6 +24,7 @@ import com.yantra.yfc.dom.YFCElement;
 import com.yantra.yfc.dom.YFCNodeList;
 import com.yantra.yfc.log.YFCLogCategory;
 import com.yantra.yfs.japi.YFSException;
+//import org.apache.commons.collections.map.HashedMap;
 
 public class IndgCheckOutCart extends AbstractCustomApi {
 

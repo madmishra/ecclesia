@@ -5,10 +5,15 @@ import java.util.Iterator;
 import java.util.Map;
 
 import com.bridge.sterling.framework.api.AbstractCustomApi;
+import com.bridge.sterling.framework.service.ServiceInvoker;
+import com.bridge.sterling.framework.service.ServiceInvokerManager;
+import com.yantra.shared.ycp.YFSContext;
+import com.yantra.ycp.core.YCPContext;
 import com.yantra.yfc.dom.YFCDocument;
 import com.yantra.yfc.dom.YFCElement;
 import com.yantra.yfc.dom.YFCNodeList;
 import com.yantra.yfs.japi.YFSException;
+import com.yantra.yfs.japi.util.YFSInitializer;
 
 public class IndgReadInventoryFromCache extends AbstractCustomApi {
 	/**
@@ -164,7 +169,7 @@ public class IndgReadInventoryFromCache extends AbstractCustomApi {
 	/**
 	 * @param args
 	 */
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 
 		YFSContext oEnv = null;
 		try {
@@ -233,7 +238,10 @@ public class IndgReadInventoryFromCache extends AbstractCustomApi {
 					+ " NodeId='Mtrx_Store_2' AllocatedShiftId='' />"
 					+ " </LineItems></Cart>";
 			YFCDocument doc5 = YFCDocument.getDocumentFor(sInput);
-			invoker.invokeYantraService("INDG_ReadCacheInventory", doc5);
+			
+			System.out.println("input is-->"+doc5);
+			YFCDocument outDoc =invoker.invokeYantraService("INDG_ReadCacheInventory", doc5);
+			System.out.println("output is-->"+outDoc);
 			oEnv.commit();
 			invoker.releaseYFSEnvironment();
 		} catch (Exception ex) {
@@ -241,6 +249,6 @@ public class IndgReadInventoryFromCache extends AbstractCustomApi {
 			ex.printStackTrace();
 		}
 
-	}*/
+	}
 
 }

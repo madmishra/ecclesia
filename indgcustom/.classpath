@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/OMS95/jar/xml4j/4_5_16/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/xml4j/4_5_16/xml-apis.jar"/>
+	<classpathentry kind="lib" path="C:/work/hub_sterling/jar/wlthint3client.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/log4j/1_2_17/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/platform/9_5/entities.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/platform/9_5/resources.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/yscpbe.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/dbjar/jdbc/DB2/db2jcc.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/dbjar/jdbc/DB2/db2jcc_license_cu.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/dbjar/jdbc/DB2/db2jcc4.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/yompbe.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/cmgt-configuredItem.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/ydmbe.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/ycmbe.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/vasbe.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/yimbe.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/com.ibm.sterling.afc.cassandra/9_5/com.ibm.sterling.afc.cassandra.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/datastax/3_0_0/cassandra-driver-core-3.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/ycsbe.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/yscwbe.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/ypmbe.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/yicbe.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/cmgt-configurator.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/cmgt-ariesPorting.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/ehcache/2_0_1/ehcache-core-2.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/slf4j/1_7_12/slf4j-api-1.7.12.jar"/>
+	<classpathentry kind="lib" path="C:/OMS95/jar/smcfs/9.5/cmgt-rulesEngine.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

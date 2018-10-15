@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.indigo</groupId>
+  <artifactId>indgcustom</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>indgcustom</name>
+  <description>indgcustom</description>
+  <parent>
+        <groupId>com.indigo</groupId>
+        <artifactId>indg-all</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <dependencies>
+  <dependency>
+  <groupId>com.indigo</groupId>
+  <artifactId>indgutil</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <scope>system</scope>
+  <systemPath>C:/Indigo/Indigo/indgutils/target/indgutil-0.0.1-SNAPSHOT.jar</systemPath>
+  </dependency>
+  
+  
+  <dependency>
+  <groupId>com.sterling</groupId>
+  <artifactId>elasticsearch</artifactId>
+  <version>9.5</version>
+  <scope>system</scope>
+  <systemPath>${yfsrt}/elasticsearch/1_7_1/elasticsearch-1.7.1.jar</systemPath>
+  </dependency>
+  
+  <dependency>
+  <groupId>com.sterling</groupId>
+  <artifactId>icu4j</artifactId>
+  <version>9.5</version>
+  <scope>system</scope>
+  <systemPath>${yfsrt}/icu4j/55_1/icu4j-55_1.jar</systemPath>
+  </dependency>
+  
+  <dependency>
+  <groupId>com.sterling</groupId>
+  <artifactId>ycdbe</artifactId>
+  <version>9.5</version>
+  <scope>system</scope>
+  <systemPath>${yfsrt}/COM_Add-in/9.5_9.5/ycdbe.jar</systemPath>
+  </dependency>
+  
+  <dependency>
+  <groupId>oro</groupId>
+  <artifactId>oro</artifactId>
+  <version>2.0.8</version>
+  </dependency>
+  
+  	<dependency><groupId>com.sterling</groupId><artifactId>xercesImpl</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/xml4j/4_5_16/xercesImpl.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>xml-apis</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/xml4j/4_5_16/xml-apis.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>wlthint3client</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/wlthint3client.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>log4j-1.2.17</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/log4j/1_2_17/log4j-1.2.17.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>entities</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/platform/9_5/entities.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>resources</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/platform/9_5/resources.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>yscpbe</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/yscpbe.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>db2jcc</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/dbjar/jdbc/DB2/db2jcc.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>db2jcc_license_cu</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/dbjar/jdbc/DB2/db2jcc_license_cu.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>db2jcc4</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/dbjar/jdbc/DB2/db2jcc4.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>yompbe</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/yompbe.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>cmgt-configuredItem</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/cmgt-configuredItem.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>ydmbe</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/ydmbe.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>ycmbe</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/ycmbe.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>vasbe</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/vasbe.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>yimbe</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/yimbe.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>cassandra</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/com.ibm.sterling.afc.cassandra/9_5/com.ibm.sterling.afc.cassandra.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>cassandra-driver</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/datastax/3_0_0/cassandra-driver-core-3.0.0.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>ycsbe</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/ycsbe.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>yscwbe</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/yscwbe.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>ypmbe</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/ypmbe.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>yicbe</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/yicbe.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>cmgt-configurator</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/cmgt-configurator.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>cmgt-ariesPorting</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/cmgt-ariesPorting.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>ehcache-core</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/ehcache/2_0_1/ehcache-core-2.0.1.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>slf4j-api</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/slf4j/1_7_12/slf4j-api-1.7.12.jar</systemPath></dependency>
+	<dependency><groupId>com.sterling</groupId><artifactId>cmgt-rulesEngine</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/smcfs/9.5/cmgt-rulesEngine.jar</systemPath></dependency>  
+    <dependency><groupId>com.sterling</groupId><artifactId>guava</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/guava/17_0/guava-17.0.jar</systemPath></dependency>  
+    <dependency><groupId>com.sterling</groupId><artifactId>commons-pool	</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/commons_pool/1_4/commons-pool-1.4.jar</systemPath></dependency>  
+ </dependencies>
+  <build>
+  <plugins>
+  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.8</version>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.indigo</groupId>
+				<artifactId>indgutil</artifactId>
+					<version>0.0.1-SNAPSHOT</version>
+                  <overWrite>false</overWrite>
+                  <outputDirectory>${project.build.directory}</outputDirectory>
+                  <!--destFileName>optional-new-name.jar</destFileName-->
+                </artifactItem>
+              </artifactItems> 
+              <!-- <outputDirectory>${project.build.directory}/wars</outputDirectory> -->
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>true</overWriteSnapshots>
+			  <localRepositoryDirectory>${project.basedir}/indgcustom/local-maven-repo</localRepositoryDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+  </plugins>
+  </build>
+</project>

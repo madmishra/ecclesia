@@ -1,0 +1,64 @@
+?xml version="1.0" encoding="UTF-8"?>
+<CapacityReservationList>
+    <CapacityReservation IsSlotBased="Y"
+        ReservationExpirationDate="2018-08-02T22:27:59-04:00" ReservationId="RES1">
+        <CapacityConsumption ConsumptionDate="2018-08-02"
+            EndTime="11:30:00" StartTime="00:00:00">
+            <ResourcePool Node="Mtrx_Store_1"
+                ProviderOrganizationCode="Matrix-R"
+                ResourcePoolId="respool1" ResourcePoolKey="2018073123355239734"/>
+        </CapacityConsumption>
+    </CapacityReservation>
+</CapacityReservationList>
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CancelReservation>
+    <Cart AllowPartialReservations="true" EnterpriseCode="Matrix"
+        IgnoreSafetyFactor="true" ReservationId="RES1">
+        <LineItems>
+            <LineItem DeliveryMethod="PICK" Id="100001"
+                NodeId="Mtrx_Store_1" Quantity="4"/>
+            <LineItem DeliveryMethod="PICK" Id="100003"
+                NodeId="Mtrx_Store_3" Quantity="2"/>
+        </LineItems>
+        <ConfigurationOverrides SafetyFactorOverride="2">
+            <Capacity LegacyOMSProcessingTime="60" LookForwardWindow="2"
+                ReservationExpiryWindow="15" SAPAcknowledgementTime="5"
+                StorePreClosingBufferTime="60" StoreProcessingTime="120"/>
+        </ConfigurationOverrides>
+    </Cart>
+</CancelReservation>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Cart AllowPartialReservations="true" EnterpriseCode="Matrix"
+    IgnoreSafetyFactor="true" ReservationId="RES1" TargetReservationExpiryTime="2018-08-02T22:27:59-04:00">
+    <LineItems>
+        <LineItem DeliveryMethod="PICK" Id="100001"
+            NodeId="Mtrx_Store_1" Quantity="4"/>
+        <LineItem DeliveryMethod="PICK" Id="100003"
+            NodeId="Mtrx_Store_3" Quantity="2"/>
+    </LineItems>
+    <ConfigurationOverrides SafetyFactorOverride="2">
+        <Capacity LegacyOMSProcessingTime="60" LookForwardWindow="2"
+            ReservationExpiryWindow="15" SAPAcknowledgementTime="5"
+            StorePreClosingBufferTime="60" StoreProcessingTime="120"/>
+    </ConfigurationOverrides>
+</Cart>
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Promise CheckCapacity="Y" OrganizationCode="Matrix"
+    ReqEndDate="2018-08-02T22:27:59-04:00" ReqStartDate="" ShipDate="">
+    <ReservationParameters AllowPartialReservation="Y"
+        ExpirationDate="2018-08-02T22:27:59-04:00" ReservationID="b7ab3b8b-47c7-48b8-92f5-3cd70edb9185"/>
+    <PromiseLines>
+        <PromiseLine DeliveryMethod="PICK" ItemID="100001" LineId="1"
+            RequiredQty="4" ShipNode="Mtrx_Store_1" UnitOfMeasure="EACH"/>
+        <PromiseLine DeliveryMethod="PICK" ItemID="100003" LineId="2"
+            RequiredQty="2" ShipNode="Mtrx_Store_3" UnitOfMeasure="EACH"/>
+    </PromiseLines>
+</Promise>

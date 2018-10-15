@@ -1,0 +1,16 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.indigo</groupId>
+  <artifactId>indgutil</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>indgutil</name>
+  <description>indgutil</description>
+  <parent>
+        <groupId>com.indigo</groupId>
+        <artifactId>indg-all</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <dependencies>
+    	<dependency><groupId>com.sterling</groupId><artifactId>xercesImpl</artifactId><version>9.5</version><scope>system</scope><systemPath>${yfsrt}/xml4j/4_5_16/xercesImpl.jar</systemPath></dependency>
+  </dependencies>
+</project>

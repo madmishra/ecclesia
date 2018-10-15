@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="indgcustom/src"/>
+	<classpathentry kind="src" path="indgutils/src"/>
+	<classpathentry kind="lib" path="Foundation/3rdParty/ant-commons-logging.jar"/>
+	<classpathentry kind="lib" path="Foundation/3rdParty/com.ibm.ws.ejb.thinclient_8.5.0.jar"/>
+	<classpathentry kind="lib" path="Foundation/3rdParty/com.ibm.ws.orb_8.5.0.jar"/>
+	<classpathentry kind="lib" path="Foundation/3rdParty/com.ibm.ws.sib.client.thin.jms_8.5.0.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.allclient.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.axis2.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.commonservices.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.defaultconfig.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.headers.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.jmqi.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.jms.Nojndi.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.pcf.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.postcard.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.soap.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.tools.ras.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mq.traceControl.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/com.ibm.mqjms.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/fscontext.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/jms.jar"/>
+	<classpathentry kind="lib" path="Misc/mqm/1.0/providerutil.jar"/>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
